@@ -49,24 +49,24 @@ export function MobileMenu() {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="md:hidden w-12 h-12">
-          <Menu className="h-6 w-6" />
+        <Button variant="ghost" size="icon" className="md:hidden w-10 h-10 hover:bg-zinc-100 rounded-full">
+          <Menu className="h-5 w-5 text-black" />
           <span className="sr-only">Toggle menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-full sm:max-w-md bg-background border-l-border/50 p-0 flex flex-col h-full overflow-hidden">
-        <SheetHeader className="p-6 text-left border-b border-border/50">
+      <SheetContent side="right" className="w-full sm:max-w-md bg-white border-l border-zinc-200 p-0 flex flex-col h-full overflow-hidden">
+        <SheetHeader className="p-6 text-left border-b border-zinc-200/50">
           <div className="flex items-center justify-between">
-            <SheetTitle className="text-2xl font-bold tracking-tighter text-foreground">
-              JSM<span className="text-[#D4AF37]">.</span>
+            <SheetTitle className="text-xl font-black tracking-tight text-black">
+              JSM<span className="text-[#C5A880]">.</span>
             </SheetTitle>
             <Button
               variant="ghost"
               size="icon"
-              className="w-12 h-12 rounded-full hover:bg-muted text-foreground"
+              className="w-10 h-10 rounded-full hover:bg-zinc-100 text-black"
               onClick={() => setOpen(false)}
             >
-              <X className="h-6 w-6" />
+              <X className="h-5 w-5" />
               <span className="sr-only">Close menu</span>
             </Button>
           </div>
@@ -81,19 +81,19 @@ export function MobileMenu() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
-                  transition={{ delay: index * 0.06, type: "spring", stiffness: 300, damping: 24 }}
+                  transition={{ delay: index * 0.05, type: "spring", stiffness: 300, damping: 24 }}
                 >
                   {item.children ? (
                     <Accordion className="w-full border-none">
                       <AccordionItem value={item.title} className="border-none">
-                        <AccordionTrigger className="text-xl font-semibold hover:text-[#D4AF37] text-foreground py-3 no-underline hover:no-underline transition-colors">
+                        <AccordionTrigger className="text-lg font-bold hover:text-[#C5A880] text-black py-3 no-underline hover:no-underline transition-colors">
                           {item.title}
                         </AccordionTrigger>
                         <AccordionContent className="pb-4">
-                          <div className="flex flex-col gap-4 pl-4 border-l border-border/50 ml-2 mt-2">
+                          <div className="flex flex-col gap-4 pl-4 border-l border-zinc-200 ml-2 mt-2">
                             {item.children.map((child) => (
                               <div key={child.title} className="flex flex-col gap-2">
-                                <h4 className="text-xs font-bold text-muted-foreground uppercase tracking-wider">
+                                <h4 className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">
                                   {child.title}
                                 </h4>
                                 <div className="flex flex-col gap-2">
@@ -102,7 +102,7 @@ export function MobileMenu() {
                                       key={subChild.title}
                                       href={subChild.href}
                                       onClick={() => setOpen(false)}
-                                      className="text-base text-foreground/85 hover:text-foreground hover:pl-2 transition-all py-1"
+                                      className="text-sm font-semibold text-zinc-600 hover:text-[#C5A880] transition-colors py-1"
                                     >
                                       {subChild.title}
                                     </Link>
@@ -118,7 +118,7 @@ export function MobileMenu() {
                     <Link
                       href={item.href}
                       onClick={() => setOpen(false)}
-                      className="block text-xl font-semibold text-foreground hover:text-[#D4AF37] py-3 transition-colors"
+                      className="block text-lg font-bold text-black hover:text-[#C5A880] py-3 transition-colors"
                     >
                       {item.title}
                     </Link>
@@ -129,22 +129,22 @@ export function MobileMenu() {
           </nav>
         </div>
 
-        <div className="p-6 border-t border-border/50 bg-background/95 mt-auto">
-          <div className="flex flex-col gap-4">
-            <Button asChild variant="outline" className="w-full border-border text-foreground hover:bg-muted h-12">
+        <div className="p-6 border-t border-zinc-200 bg-white mt-auto">
+          <div className="flex flex-col gap-3">
+            <Button asChild variant="outline" className="w-full border-zinc-200 text-zinc-700 hover:bg-zinc-50 h-12 rounded-full font-semibold">
               <Link href="/auth/signin" onClick={() => setOpen(false)}>Client Login</Link>
             </Button>
-            <Button asChild className="w-full bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-white font-semibold h-12">
+            <Button asChild className="w-full bg-black hover:bg-zinc-800 text-white font-semibold h-12 rounded-full">
               <Link href="/contact" onClick={() => setOpen(false)}>Get Assessment</Link>
             </Button>
             <div className="flex justify-center gap-6 mt-4">
-              <Link href="#" className="text-muted-foreground hover:text-[#D4AF37] transition-colors p-2">
+              <Link href="#" className="text-zinc-400 hover:text-[#C5A880] transition-colors p-2">
                 <Linkedin className="h-5 w-5" />
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-[#D4AF37] transition-colors p-2">
+              <Link href="#" className="text-zinc-400 hover:text-[#C5A880] transition-colors p-2">
                 <Twitter className="h-5 w-5" />
               </Link>
-              <Link href="#" className="text-white/60 hover:text-[#D4AF37] transition-colors p-2">
+              <Link href="#" className="text-zinc-400 hover:text-[#C5A880] transition-colors p-2">
                 <Instagram className="h-5 w-5" />
               </Link>
             </div>

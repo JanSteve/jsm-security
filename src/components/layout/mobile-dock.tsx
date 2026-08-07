@@ -25,7 +25,7 @@ export function MobileDock() {
   ];
 
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-t border-border/50 pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_20px_rgba(0,0,0,0.05)] dark:shadow-[0_-4px_20px_rgba(0,0,0,0.2)]">
+    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-t border-zinc-200/40 pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_20px_rgba(0,0,0,0.02)]">
       <div className="flex items-center justify-around px-2 h-16">
         {dockItems.map((item) => {
           const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
@@ -35,11 +35,11 @@ export function MobileDock() {
               href={item.href}
               className={cn(
                 "flex flex-col items-center justify-center w-16 h-full min-h-[48px] min-w-[48px] gap-1 transition-colors",
-                isActive ? "text-[#D4AF37]" : "text-muted-foreground hover:text-foreground"
+                isActive ? "text-[#C5A880]" : "text-zinc-500 hover:text-black"
               )}
             >
-              <item.icon className={cn("h-5 w-5", isActive && "fill-current opacity-20")} />
-              <span className="text-[10px] font-medium">{item.name}</span>
+              <item.icon className={cn("h-5 w-5", isActive && "opacity-80")} />
+              <span className="text-[10px] font-bold tracking-tight">{item.name}</span>
             </Link>
           );
         })}
@@ -47,7 +47,7 @@ export function MobileDock() {
             Since MobileMenu is in Header, we can just style this as a link to /menu or leave it as a button. */}
         <Link
           href="#menu" // A hash link that could be intercepted if needed, or just visual
-          className="flex flex-col items-center justify-center w-16 h-full min-h-[48px] min-w-[48px] gap-1 text-muted-foreground hover:text-foreground transition-colors"
+          className="flex flex-col items-center justify-center w-16 h-full min-h-[48px] min-w-[48px] gap-1 text-zinc-500 hover:text-black transition-colors"
           onClick={(e) => {
              // In a real app, this would trigger the global mobile menu state.
              // We'll let it act as a simple anchor for now.
@@ -55,7 +55,7 @@ export function MobileDock() {
           }}
         >
           <Menu className="h-5 w-5" />
-          <span className="text-[10px] font-medium">Menu</span>
+          <span className="text-[10px] font-bold tracking-tight">Menu</span>
         </Link>
       </div>
     </div>
