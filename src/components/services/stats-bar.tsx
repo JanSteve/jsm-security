@@ -38,7 +38,7 @@ function Counter({ value, suffix }: { value: number, suffix: string }) {
   const displayValue = value % 1 !== 0 ? count.toFixed(1) : Math.floor(count);
 
   return (
-    <span ref={ref} className="text-4xl md:text-5xl font-bold text-[#D4AF37]">
+    <span ref={ref} className="text-4xl md:text-5xl font-black text-[#C5A880]">
       {displayValue}{suffix}
     </span>
   );
@@ -46,11 +46,11 @@ function Counter({ value, suffix }: { value: number, suffix: string }) {
 
 export function StatsBar() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-12 border-y border-[#1A264D] my-16 bg-[#121C3B]/50 rounded-3xl px-8">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-12 border border-zinc-200/60 my-16 bg-zinc-50 rounded-3xl px-8 shadow-sm">
       {stats.map((stat, i) => (
         <div key={i} className="text-center">
           <Counter value={stat.value} suffix={stat.suffix} />
-          <p className="mt-2 text-[#94A3B8] font-medium text-lg uppercase tracking-wider">{stat.label}</p>
+          <p className="mt-2 text-zinc-500 font-bold text-xs uppercase tracking-widest">{stat.label}</p>
         </div>
       ))}
     </div>

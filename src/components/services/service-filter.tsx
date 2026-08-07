@@ -28,10 +28,10 @@ export function ServiceFilter({ categories, services }: ServiceFilterProps) {
             key={category}
             variant={activeCategory === category ? 'default' : 'outline'}
             onClick={() => setActiveCategory(category)}
-            className={`rounded-full transition-all ${
+            className={`rounded-full transition-all px-6 h-10 ${
               activeCategory === category 
-                ? 'bg-[#D4AF37] text-[#0A1128] hover:bg-[#C9A227]' 
-                : 'border-[#1A264D] text-[#94A3B8] hover:text-[#F8F9FA] hover:border-[#D4AF37]'
+                ? 'bg-black text-white hover:bg-zinc-800' 
+                : 'border-zinc-200 text-zinc-600 hover:text-black hover:border-black'
             }`}
           >
             {category}
@@ -54,24 +54,24 @@ export function ServiceFilter({ categories, services }: ServiceFilterProps) {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-                className="group relative flex flex-col bg-[#121C3B] rounded-2xl p-6 border border-[#1A264D] hover:border-[#D4AF37]/50 transition-colors duration-300"
+                className="group relative flex flex-col bg-zinc-50 rounded-3xl p-6 border border-zinc-200/60 hover:border-[#C5A880]/30 hover:shadow-md transition-all duration-300"
               >
                 <div className="mb-6 flex justify-between items-start">
-                  <div className="p-3 bg-[#1A264D] rounded-lg text-[#D4AF37]">
-                    <IconComponent size={28} />
+                  <div className="p-3 bg-white border border-zinc-200 rounded-xl text-[#C5A880] group-hover:bg-[#C5A880] group-hover:text-white transition-colors duration-300">
+                    <IconComponent size={24} />
                   </div>
-                  <Badge variant="secondary" className="bg-[#0A1128] text-[#94A3B8] border-none">
+                  <Badge className="bg-white border border-zinc-200 text-zinc-600 rounded-lg px-2.5 py-0.5">
                     {service.category}
                   </Badge>
                 </div>
                 
-                <h3 className="text-xl font-bold text-[#F8F9FA] mb-3">{service.title}</h3>
-                <p className="text-[#94A3B8] mb-6 flex-grow">{service.description}</p>
+                <h3 className="text-xl font-bold text-black mb-3 group-hover:text-[#C5A880] transition-colors">{service.title}</h3>
+                <p className="text-zinc-500 text-sm leading-relaxed mb-6 flex-grow">{service.description}</p>
                 
-                <div className="pt-4 border-t border-[#1A264D] mt-auto">
+                <div className="pt-4 border-t border-zinc-200/40 mt-auto">
                   <Link 
                     href={`/services/${service.slug}`}
-                    className="inline-flex items-center text-sm font-semibold text-[#3B82F6] hover:text-[#D4AF37] transition-colors group-hover:gap-2 gap-1 duration-300"
+                    className="inline-flex items-center text-sm font-semibold text-[#3B82F6] hover:text-[#C5A880] transition-colors group-hover:gap-2 gap-1 duration-300"
                   >
                     Explore Service <ArrowRight size={16} />
                   </Link>

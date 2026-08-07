@@ -3,21 +3,21 @@
 import { Shield } from 'lucide-react';
 
 const ACCREDITATIONS = [
-  'SIA Approved',
-  'ISO 9001',
-  'ISO 27001',
-  'NSI Gold',
-  'SafeContractor',
-  'BSIA Member',
-  'Cyber Essentials'
+  'SIA Approved Contract',
+  'ISO 9001 Quality',
+  'ISO 27001 Security',
+  'NSI Gold Standard',
+  'SafeContractor Vetted',
+  'BSIA Active Member',
+  'Cyber Essentials Certified'
 ];
 
 export function TrustBar() {
   return (
-    <section className="py-8 bg-muted overflow-hidden border-y border-border">
+    <section className="py-10 bg-zinc-50 border-y border-zinc-200/80 overflow-hidden relative z-10">
       <div className="container mx-auto px-4 mb-4 text-center">
-        <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-          Trusted & Accredited
+        <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">
+          Corporate Vetting & Accreditations
         </span>
       </div>
       
@@ -27,10 +27,10 @@ export function TrustBar() {
           {[...ACCREDITATIONS, ...ACCREDITATIONS, ...ACCREDITATIONS].map((item, index) => (
             <div 
               key={index} 
-              className="flex items-center gap-2 mx-8 text-muted-foreground"
+              className="flex items-center gap-2 mx-10 text-zinc-500 font-semibold"
             >
-              <Shield className="w-5 h-5 opacity-70" />
-              <span className="font-medium">{item}</span>
+              <Shield className="w-4 h-4 text-[#C5A880] opacity-80" />
+              <span className="text-sm tracking-tight">{item}</span>
             </div>
           ))}
         </div>

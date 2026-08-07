@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Select } from "@/components/ui/select";
 import { CheckCircle2 } from "lucide-react";
 
 const formSchema = zod.object({
@@ -32,7 +31,7 @@ export function ContactForm() {
     handleSubmit,
     setValue,
     trigger,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
     mode: "onChange",
@@ -59,7 +58,7 @@ export function ContactForm() {
   };
 
   return (
-    <div className="bg-[#121C3B]/50 border border-[#1A264D] rounded-3xl p-6 md:p-8 max-w-xl mx-auto shadow-xl">
+    <div className="bg-zinc-50 border border-zinc-200/60 rounded-3xl p-6 md:p-8 max-w-xl mx-auto shadow-sm">
       <AnimatePresence mode="wait">
         {!isSubmitted ? (
           <motion.div
@@ -70,13 +69,13 @@ export function ContactForm() {
           >
             {/* Progress Indicator */}
             <div className="flex items-center justify-between mb-8">
-              <span className="text-sm font-semibold text-[#D4AF37] uppercase tracking-wider">Step {step} of 3</span>
+              <span className="text-xs font-bold text-[#C5A880] uppercase tracking-widest">Step {step} of 3</span>
               <div className="flex gap-2">
                 {[1, 2, 3].map((s) => (
                   <div
                     key={s}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      s === step ? "w-8 bg-[#D4AF37]" : "w-2 bg-[#1A264D]"
+                    className={`h-1.5 rounded-full transition-all duration-300 ${
+                      s === step ? "w-8 bg-[#C5A880]" : "w-2 bg-zinc-200"
                     }`}
                   />
                 ))}
@@ -91,15 +90,15 @@ export function ContactForm() {
                   exit={{ opacity: 0, x: -20 }}
                   className="space-y-4"
                 >
-                  <h3 className="text-2xl font-bold text-[#F8F9FA]">What service do you require?</h3>
-                  <p className="text-sm text-[#94A3B8]">Select the primary category of your operational requirements.</p>
+                  <h3 className="text-2xl font-bold text-black tracking-tight">What service do you require?</h3>
+                  <p className="text-xs text-zinc-500 font-medium">Select the primary category of your operational requirements.</p>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="category" className="text-[#94A3B8]">Service Category</Label>
+                    <Label htmlFor="category" className="text-zinc-600 font-semibold">Service Category</Label>
                     <select
                       id="category"
                       {...register("category")}
-                      className="w-full bg-[#0A1128] border border-[#1A264D] rounded-xl px-4 py-3 text-[#F8F9FA] focus:border-[#D4AF37] outline-none transition-colors"
+                      className="w-full bg-white border border-zinc-200 rounded-xl px-4 py-3 text-black focus:border-[#C5A880] outline-none transition-colors text-sm shadow-sm"
                     >
                       <option value="">Select a category...</option>
                       <option value="security">Elite Security Services</option>
@@ -123,16 +122,16 @@ export function ContactForm() {
                   exit={{ opacity: 0, x: -20 }}
                   className="space-y-4"
                 >
-                  <h3 className="text-2xl font-bold text-[#F8F9FA]">Describe your requirements</h3>
-                  <p className="text-sm text-[#94A3B8]">Provide some brief details about the scale, scope, and duration of the service.</p>
+                  <h3 className="text-2xl font-bold text-black tracking-tight">Describe your requirements</h3>
+                  <p className="text-xs text-zinc-500 font-medium">Provide some brief details about the scale, scope, and duration of the service.</p>
 
                   <div className="space-y-2">
-                    <Label htmlFor="requirements" className="text-[#94A3B8]">Requirements</Label>
+                    <Label htmlFor="requirements" className="text-zinc-600 font-semibold">Requirements</Label>
                     <Textarea
                       id="requirements"
                       placeholder="e.g., Close protection detail for 3 executives visiting London next month..."
                       {...register("requirements")}
-                      className="min-h-[150px] bg-[#0A1128] border-[#1A264D] text-[#F8F9FA] focus-visible:border-[#D4AF37]"
+                      className="min-h-[150px] bg-white border-zinc-200 text-black focus-visible:border-[#C5A880] focus-visible:ring-0 rounded-xl text-sm"
                     />
                     {errors.requirements && (
                       <p className="text-xs text-red-500 mt-1">{errors.requirements.message}</p>
@@ -148,17 +147,17 @@ export function ContactForm() {
                   exit={{ opacity: 0, x: -20 }}
                   className="space-y-4"
                 >
-                  <h3 className="text-2xl font-bold text-[#F8F9FA]">Tell us about yourself</h3>
-                  <p className="text-sm text-[#94A3B8]">We will use these details to contact you with a customized proposal.</p>
+                  <h3 className="text-2xl font-bold text-black tracking-tight">Tell us about yourself</h3>
+                  <p className="text-xs text-zinc-500 font-medium">We will use these details to contact you with a customized proposal.</p>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="name" className="text-[#94A3B8]">Full Name</Label>
+                      <Label htmlFor="name" className="text-zinc-600 font-semibold">Full Name</Label>
                       <Input
                         id="name"
                         placeholder="John Doe"
                         {...register("name")}
-                        className="bg-[#0A1128] border-[#1A264D] text-[#F8F9FA] focus-visible:border-[#D4AF37]"
+                        className="bg-white border-zinc-200 text-black focus-visible:border-[#C5A880] focus-visible:ring-0 rounded-xl text-sm"
                       />
                       {errors.name && (
                         <p className="text-xs text-red-500 mt-1">{errors.name.message}</p>
@@ -166,25 +165,25 @@ export function ContactForm() {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="company" className="text-[#94A3B8]">Company (Optional)</Label>
+                      <Label htmlFor="company" className="text-zinc-600 font-semibold">Company (Optional)</Label>
                       <Input
                         id="company"
                         placeholder="Enterprise Inc."
                         {...register("company")}
-                        className="bg-[#0A1128] border-[#1A264D] text-[#F8F9FA] focus-visible:border-[#D4AF37]"
+                        className="bg-white border-zinc-200 text-black focus-visible:border-[#C5A880] focus-visible:ring-0 rounded-xl text-sm"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="email" className="text-[#94A3B8]">Email Address</Label>
+                      <Label htmlFor="email" className="text-zinc-600 font-semibold">Email Address</Label>
                       <Input
                         id="email"
                         type="email"
                         placeholder="john@company.com"
                         {...register("email")}
-                        className="bg-[#0A1128] border-[#1A264D] text-[#F8F9FA] focus-visible:border-[#D4AF37]"
+                        className="bg-white border-zinc-200 text-black focus-visible:border-[#C5A880] focus-visible:ring-0 rounded-xl text-sm"
                       />
                       {errors.email && (
                         <p className="text-xs text-red-500 mt-1">{errors.email.message}</p>
@@ -192,13 +191,13 @@ export function ContactForm() {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="phone" className="text-[#94A3B8]">Phone Number</Label>
+                      <Label htmlFor="phone" className="text-zinc-600 font-semibold">Phone Number</Label>
                       <Input
                         id="phone"
                         type="tel"
                         placeholder="+44 20 7123 4567"
                         {...register("phone")}
-                        className="bg-[#0A1128] border-[#1A264D] text-[#F8F9FA] focus-visible:border-[#D4AF37]"
+                        className="bg-white border-zinc-200 text-black focus-visible:border-[#C5A880] focus-visible:ring-0 rounded-xl text-sm"
                       />
                       {errors.phone && (
                         <p className="text-xs text-red-500 mt-1">{errors.phone.message}</p>
@@ -209,13 +208,13 @@ export function ContactForm() {
               )}
 
               {/* Navigation Buttons */}
-              <div className="flex gap-4 pt-4 border-t border-[#1A264D]">
+              <div className="flex gap-4 pt-4 border-t border-zinc-200/60">
                 {step > 1 && (
                   <Button
                     type="button"
                     variant="outline"
                     onClick={prevStep}
-                    className="flex-1 border-[#1A264D] text-[#94A3B8] hover:text-[#F8F9FA] hover:bg-[#1A264D] rounded-full h-12"
+                    className="flex-1 border-zinc-200 text-zinc-600 hover:text-black hover:bg-zinc-100 rounded-full h-12"
                   >
                     Back
                   </Button>
@@ -224,14 +223,14 @@ export function ContactForm() {
                   <Button
                     type="button"
                     onClick={nextStep}
-                    className="flex-grow bg-[#D4AF37] text-[#0A1128] hover:bg-[#C9A227] font-semibold rounded-full h-12"
+                    className="flex-grow bg-black text-white hover:bg-zinc-800 font-semibold rounded-full h-12"
                   >
                     Next Step
                   </Button>
                 ) : (
                   <Button
                     type="submit"
-                    className="flex-grow bg-[#D4AF37] text-[#0A1128] hover:bg-[#C9A227] font-semibold rounded-full h-12"
+                    className="flex-grow bg-black text-white hover:bg-zinc-800 font-semibold rounded-full h-12"
                   >
                     Submit Assessment Request
                   </Button>
@@ -249,8 +248,8 @@ export function ContactForm() {
             <div className="inline-flex p-4 bg-emerald-500/10 text-emerald-500 rounded-full">
               <CheckCircle2 size={48} />
             </div>
-            <h3 className="text-3xl font-bold text-[#F8F9FA]">Request Received</h3>
-            <p className="text-[#94A3B8] max-w-md mx-auto leading-relaxed">
+            <h3 className="text-3xl font-bold text-black tracking-tight">Request Received</h3>
+            <p className="text-zinc-500 max-w-md mx-auto leading-relaxed text-sm">
               Thank you for submitting your assessment request. A senior JSM advisor will review your requirements and contact you within 15 minutes.
             </p>
             <Button
@@ -259,7 +258,7 @@ export function ContactForm() {
                 setStep(1);
               }}
               variant="outline"
-              className="border-[#1A264D] text-[#94A3B8] hover:text-[#F8F9FA] rounded-full px-6"
+              className="border-zinc-200 text-zinc-600 hover:text-black rounded-full px-6 h-11"
             >
               Submit Another Request
             </Button>

@@ -6,6 +6,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { MobileDock } from "@/components/layout/mobile-dock";
 import CookieBanner from "@/components/shared/cookie-banner";
+import { TimedPopup } from "@/components/shared/timed-popup";
 import { cn } from "@/lib/utils";
 
 const inter = Inter({ 
@@ -53,6 +54,7 @@ export default function RootLayout({
             <Footer />
             <MobileDock />
             <CookieBanner />
+            <TimedPopup />
           </div>
         </Providers>
       </body>

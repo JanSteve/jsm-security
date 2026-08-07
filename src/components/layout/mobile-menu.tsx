@@ -54,16 +54,16 @@ export function MobileMenu() {
           <span className="sr-only">Toggle menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-full sm:max-w-md bg-[#0A1128] dark:bg-[#0A1128] border-l-border/10 p-0 flex flex-col h-full overflow-hidden">
-        <SheetHeader className="p-6 text-left border-b border-border/10">
+      <SheetContent side="right" className="w-full sm:max-w-md bg-background border-l-border/50 p-0 flex flex-col h-full overflow-hidden">
+        <SheetHeader className="p-6 text-left border-b border-border/50">
           <div className="flex items-center justify-between">
-            <SheetTitle className="text-2xl font-bold tracking-tighter text-[#F8F9FA]">
+            <SheetTitle className="text-2xl font-bold tracking-tighter text-foreground">
               JSM<span className="text-[#D4AF37]">.</span>
             </SheetTitle>
             <Button
               variant="ghost"
               size="icon"
-              className="w-12 h-12 rounded-full hover:bg-white/10 text-white"
+              className="w-12 h-12 rounded-full hover:bg-muted text-foreground"
               onClick={() => setOpen(false)}
             >
               <X className="h-6 w-6" />
@@ -86,14 +86,14 @@ export function MobileMenu() {
                   {item.children ? (
                     <Accordion className="w-full border-none">
                       <AccordionItem value={item.title} className="border-none">
-                        <AccordionTrigger className="text-xl font-semibold hover:text-[#D4AF37] text-white py-3 no-underline hover:no-underline transition-colors">
+                        <AccordionTrigger className="text-xl font-semibold hover:text-[#D4AF37] text-foreground py-3 no-underline hover:no-underline transition-colors">
                           {item.title}
                         </AccordionTrigger>
                         <AccordionContent className="pb-4">
-                          <div className="flex flex-col gap-4 pl-4 border-l border-white/10 ml-2 mt-2">
+                          <div className="flex flex-col gap-4 pl-4 border-l border-border/50 ml-2 mt-2">
                             {item.children.map((child) => (
                               <div key={child.title} className="flex flex-col gap-2">
-                                <h4 className="text-sm font-bold text-white/50 uppercase tracking-wider">
+                                <h4 className="text-xs font-bold text-muted-foreground uppercase tracking-wider">
                                   {child.title}
                                 </h4>
                                 <div className="flex flex-col gap-2">
@@ -102,7 +102,7 @@ export function MobileMenu() {
                                       key={subChild.title}
                                       href={subChild.href}
                                       onClick={() => setOpen(false)}
-                                      className="text-base text-white/80 hover:text-white hover:pl-2 transition-all py-1"
+                                      className="text-base text-foreground/85 hover:text-foreground hover:pl-2 transition-all py-1"
                                     >
                                       {subChild.title}
                                     </Link>
@@ -118,7 +118,7 @@ export function MobileMenu() {
                     <Link
                       href={item.href}
                       onClick={() => setOpen(false)}
-                      className="block text-xl font-semibold text-white hover:text-[#D4AF37] py-3 transition-colors"
+                      className="block text-xl font-semibold text-foreground hover:text-[#D4AF37] py-3 transition-colors"
                     >
                       {item.title}
                     </Link>
@@ -129,19 +129,19 @@ export function MobileMenu() {
           </nav>
         </div>
 
-        <div className="p-6 border-t border-border/10 bg-[#0A1128]/95 mt-auto">
+        <div className="p-6 border-t border-border/50 bg-background/95 mt-auto">
           <div className="flex flex-col gap-4">
-            <Button asChild variant="outline" className="w-full border-white/20 text-white hover:bg-white/10 hover:text-white h-12">
+            <Button asChild variant="outline" className="w-full border-border text-foreground hover:bg-muted h-12">
               <Link href="/auth/signin" onClick={() => setOpen(false)}>Client Login</Link>
             </Button>
-            <Button asChild className="w-full bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-[#0A1128] font-semibold h-12">
+            <Button asChild className="w-full bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-white font-semibold h-12">
               <Link href="/contact" onClick={() => setOpen(false)}>Get Assessment</Link>
             </Button>
             <div className="flex justify-center gap-6 mt-4">
-              <Link href="#" className="text-white/60 hover:text-[#D4AF37] transition-colors p-2">
+              <Link href="#" className="text-muted-foreground hover:text-[#D4AF37] transition-colors p-2">
                 <Linkedin className="h-5 w-5" />
               </Link>
-              <Link href="#" className="text-white/60 hover:text-[#D4AF37] transition-colors p-2">
+              <Link href="#" className="text-muted-foreground hover:text-[#D4AF37] transition-colors p-2">
                 <Twitter className="h-5 w-5" />
               </Link>
               <Link href="#" className="text-white/60 hover:text-[#D4AF37] transition-colors p-2">

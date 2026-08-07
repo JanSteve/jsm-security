@@ -38,90 +38,90 @@ export function Footer() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="bg-[#0A1128] text-white pt-20 pb-24 md:pb-10 border-t border-border/10"
+      className="bg-zinc-50 text-zinc-800 pt-20 pb-24 md:pb-10 border-t border-zinc-200"
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           {/* Column 1: Company Info */}
           <div className="lg:col-span-1">
-            <h2 className="text-2xl font-bold tracking-tighter mb-4">
-              JSM<span className="text-[#D4AF37]">.</span>
+            <h2 className="text-2xl font-bold tracking-tighter mb-4 text-black">
+              JSM<span className="text-[#C5A880]">.</span>
             </h2>
-            <p className="text-[#D4AF37] font-semibold mb-4">Secure. Integrated. Elevated.</p>
-            <p className="text-white/60 text-sm leading-relaxed mb-6">
+            <p className="text-[#C5A880] font-bold mb-4">Secure. Integrated. Elevated.</p>
+            <p className="text-zinc-500 text-sm leading-relaxed mb-6">
               Premium corporate security and integrated facility services tailored for modern enterprises.
             </p>
           </div>
 
           {/* Column 2: Security Services */}
           <div>
-            <h3 className="font-semibold text-lg mb-4 text-white">Security Services</h3>
+            <h3 className="font-bold text-base mb-4 text-black">Security Services</h3>
             <ul className="space-y-3">
-              <li><Link href="/services/private-security" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Private Security</Link></li>
-              <li><Link href="/services/cctv-monitoring" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">CCTV Monitoring</Link></li>
-              <li><Link href="/services/cash-in-transit" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Cash-in-Transit</Link></li>
-              <li><Link href="/services/risk-assessment" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Risk Assessment</Link></li>
+              <li><Link href="/services/private-security" className="text-zinc-500 hover:text-black transition-colors text-sm font-medium">Private Security</Link></li>
+              <li><Link href="/services/cctv-monitoring" className="text-zinc-500 hover:text-black transition-colors text-sm font-medium">CCTV Monitoring</Link></li>
+              <li><Link href="/services/cash-in-transit" className="text-zinc-500 hover:text-black transition-colors text-sm font-medium">Cash-in-Transit</Link></li>
+              <li><Link href="/services/risk-assessment" className="text-zinc-500 hover:text-black transition-colors text-sm font-medium">Risk Assessment</Link></li>
             </ul>
           </div>
 
           {/* Column 3: Integrated Services */}
           <div>
-            <h3 className="font-semibold text-lg mb-4 text-white">Integrated Services</h3>
+            <h3 className="font-bold text-base mb-4 text-black">Integrated Services</h3>
             <ul className="space-y-3">
-              <li><Link href="/services/housekeeping" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Housekeeping</Link></li>
-              <li><Link href="/services/software-solutions" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Software Solutions</Link></li>
-              <li><Link href="/services/creative-media" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Creative Media</Link></li>
-              <li><Link href="/services/real-estate" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Real Estate</Link></li>
+              <li><Link href="/services/housekeeping" className="text-zinc-500 hover:text-black transition-colors text-sm font-medium">Housekeeping</Link></li>
+              <li><Link href="/services/software-solutions" className="text-zinc-500 hover:text-black transition-colors text-sm font-medium">Software Solutions</Link></li>
+              <li><Link href="/services/creative-media" className="text-zinc-500 hover:text-black transition-colors text-sm font-medium">Creative Media</Link></li>
+              <li><Link href="/services/real-estate" className="text-zinc-500 hover:text-black transition-colors text-sm font-medium">Real Estate</Link></li>
             </ul>
           </div>
 
           {/* Column 4: Company */}
           <div>
-            <h3 className="font-semibold text-lg mb-4 text-white">Company</h3>
+            <h3 className="font-bold text-base mb-4 text-black">Company</h3>
             <ul className="space-y-3">
-              <li><Link href="/about" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">About Us</Link></li>
-              <li><Link href="/careers" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Careers</Link></li>
-              <li><Link href="/blog" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Blog & Insights</Link></li>
-              <li><Link href="/case-studies" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Case Studies</Link></li>
-              <li><Link href="/contact" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Contact</Link></li>
+              <li><Link href="/about" className="text-zinc-500 hover:text-black transition-colors text-sm font-medium">About Us</Link></li>
+              <li><Link href="/careers" className="text-zinc-500 hover:text-black transition-colors text-sm font-medium">Careers</Link></li>
+              <li><Link href="/blog" className="text-zinc-500 hover:text-black transition-colors text-sm font-medium">Blog & Insights</Link></li>
+              <li><Link href="/case-studies" className="text-zinc-500 hover:text-black transition-colors text-sm font-medium">Case Studies</Link></li>
+              <li><Link href="/contact" className="text-zinc-500 hover:text-black transition-colors text-sm font-medium">Contact</Link></li>
             </ul>
           </div>
 
           {/* Column 5: Legal & Contact */}
           <div>
-            <h3 className="font-semibold text-lg mb-4 text-white">Legal & Contact</h3>
+            <h3 className="font-bold text-base mb-4 text-black">Legal & Contact</h3>
             <ul className="space-y-3">
-              <li><Link href="/legal/privacy" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Privacy Policy</Link></li>
-              <li><Link href="/legal/terms" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Terms of Service</Link></li>
-              <li><Link href="/legal/cookies" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Cookie Policy</Link></li>
-              <li className="pt-2"><a href="tel:+442071234567" className="text-white hover:text-[#D4AF37] transition-colors text-sm font-medium">+44 (0) 20 7123 4567</a></li>
-              <li><a href="mailto:info@jsmsecurity.com" className="text-white hover:text-[#D4AF37] transition-colors text-sm font-medium">info@jsmsecurity.com</a></li>
+              <li><Link href="/legal/privacy" className="text-zinc-500 hover:text-black transition-colors text-sm font-medium">Privacy Policy</Link></li>
+              <li><Link href="/legal/terms" className="text-zinc-500 hover:text-black transition-colors text-sm font-medium">Terms of Service</Link></li>
+              <li><Link href="/legal/cookies" className="text-zinc-500 hover:text-black transition-colors text-sm font-medium">Cookie Policy</Link></li>
+              <li className="pt-2"><a href="tel:+442071234567" className="text-zinc-700 hover:text-[#C5A880] transition-colors text-sm font-semibold">+44 (0) 20 7123 4567</a></li>
+              <li><a href="mailto:info@jsmsecurity.com" className="text-zinc-700 hover:text-[#C5A880] transition-colors text-sm font-semibold">info@jsmsecurity.com</a></li>
             </ul>
           </div>
         </div>
 
         {/* Accreditations */}
-        <div className="flex flex-wrap items-center gap-6 py-8 border-t border-white/10">
-          <span className="text-sm font-bold text-white/40 uppercase tracking-widest">Accreditations:</span>
-          <span className="px-3 py-1 bg-white/5 rounded text-xs font-semibold text-white/80">SIA Approved</span>
-          <span className="px-3 py-1 bg-white/5 rounded text-xs font-semibold text-white/80">ISO 9001</span>
-          <span className="px-3 py-1 bg-white/5 rounded text-xs font-semibold text-white/80">NSI Gold</span>
+        <div className="flex flex-wrap items-center gap-6 py-8 border-t border-zinc-200">
+          <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest">Accreditations:</span>
+          <span className="px-3 py-1 bg-zinc-200/50 rounded-xl text-xs font-bold text-zinc-600">SIA Approved</span>
+          <span className="px-3 py-1 bg-zinc-200/50 rounded-xl text-xs font-bold text-zinc-600">ISO 9001</span>
+          <span className="px-3 py-1 bg-zinc-200/50 rounded-xl text-xs font-bold text-zinc-600">NSI Gold</span>
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-white/10 gap-4">
-          <p className="text-white/40 text-sm">
+        <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-zinc-200 gap-4">
+          <p className="text-zinc-400 text-xs font-medium">
             © {new Date().getFullYear()} JSM Security and Integrated Services. All rights reserved.
           </p>
           
           <div className="flex items-center gap-6">
-            <motion.a href="#" whileHover={{ scale: 1.1 }} className="text-white/60 hover:text-[#D4AF37]">
+            <motion.a href="#" whileHover={{ scale: 1.1 }} className="text-zinc-500 hover:text-[#C5A880]">
               <Linkedin className="h-5 w-5" />
             </motion.a>
-            <motion.a href="#" whileHover={{ scale: 1.1 }} className="text-white/60 hover:text-[#D4AF37]">
+            <motion.a href="#" whileHover={{ scale: 1.1 }} className="text-zinc-500 hover:text-[#C5A880]">
               <Twitter className="h-5 w-5" />
             </motion.a>
-            <motion.a href="#" whileHover={{ scale: 1.1 }} className="text-white/60 hover:text-[#D4AF37]">
+            <motion.a href="#" whileHover={{ scale: 1.1 }} className="text-zinc-500 hover:text-[#C5A880]">
               <Instagram className="h-5 w-5" />
             </motion.a>
           </div>
@@ -130,7 +130,7 @@ export function Footer() {
             variant="ghost" 
             size="sm" 
             onClick={scrollToTop}
-            className="text-white/60 hover:text-[#D4AF37] hover:bg-white/5 hidden md:flex items-center gap-2"
+            className="text-zinc-500 hover:text-[#C5A880] hover:bg-zinc-200/50 hidden md:flex items-center gap-2 rounded-xl"
           >
             Back to top
             <ArrowUp className="h-4 w-4" />
