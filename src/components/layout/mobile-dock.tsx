@@ -21,7 +21,7 @@ export function MobileDock() {
   const dockItems = [
     { name: "Home", href: "/", icon: Home },
     { name: "Services", href: "/services", icon: Grid3x3 },
-    { name: "Call", href: "tel:+440000000000", icon: Phone },
+    { name: "Call", href: "tel:+442071234567", icon: Phone },
   ];
 
   return (

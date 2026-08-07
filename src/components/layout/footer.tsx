@@ -57,10 +57,10 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-lg mb-4 text-white">Security Services</h3>
             <ul className="space-y-3">
-              <li><Link href="/services/security/manned-guarding" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Manned Guarding</Link></li>
-              <li><Link href="/services/security/cctv" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">CCTV Surveillance</Link></li>
-              <li><Link href="/services/security/access-control" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Access Control</Link></li>
-              <li><Link href="/services/security/cybersecurity" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Cybersecurity</Link></li>
+              <li><Link href="/services/private-security" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Private Security</Link></li>
+              <li><Link href="/services/cctv-monitoring" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">CCTV Monitoring</Link></li>
+              <li><Link href="/services/cash-in-transit" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Cash-in-Transit</Link></li>
+              <li><Link href="/services/risk-assessment" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Risk Assessment</Link></li>
             </ul>
           </div>
 
@@ -68,10 +68,10 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-lg mb-4 text-white">Integrated Services</h3>
             <ul className="space-y-3">
-              <li><Link href="/services/facilities" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Facilities Management</Link></li>
-              <li><Link href="/services/digital-creative" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Digital & Creative</Link></li>
-              <li><Link href="/services/events-property/event-security" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Event Security</Link></li>
-              <li><Link href="/services/events-property/management" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Property Management</Link></li>
+              <li><Link href="/services/housekeeping" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Housekeeping</Link></li>
+              <li><Link href="/services/software-solutions" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Software Solutions</Link></li>
+              <li><Link href="/services/creative-media" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Creative Media</Link></li>
+              <li><Link href="/services/real-estate" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Real Estate</Link></li>
             </ul>
           </div>
 
@@ -81,7 +81,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li><Link href="/about" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">About Us</Link></li>
               <li><Link href="/careers" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Careers</Link></li>
-              <li><Link href="/insights" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Blog & Insights</Link></li>
+              <li><Link href="/blog" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Blog & Insights</Link></li>
               <li><Link href="/case-studies" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Case Studies</Link></li>
               <li><Link href="/contact" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Contact</Link></li>
             </ul>
@@ -91,10 +91,10 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-lg mb-4 text-white">Legal & Contact</h3>
             <ul className="space-y-3">
-              <li><Link href="/privacy" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Terms of Service</Link></li>
-              <li><Link href="/cookies" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Cookie Policy</Link></li>
-              <li className="pt-2"><a href="tel:+440000000000" className="text-white hover:text-[#D4AF37] transition-colors text-sm font-medium">+44 (0) 000 000 0000</a></li>
+              <li><Link href="/legal/privacy" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Privacy Policy</Link></li>
+              <li><Link href="/legal/terms" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Terms of Service</Link></li>
+              <li><Link href="/legal/cookies" className="text-white/60 hover:text-[#D4AF37] transition-colors text-sm">Cookie Policy</Link></li>
+              <li className="pt-2"><a href="tel:+442071234567" className="text-white hover:text-[#D4AF37] transition-colors text-sm font-medium">+44 (0) 20 7123 4567</a></li>
               <li><a href="mailto:info@jsmsecurity.com" className="text-white hover:text-[#D4AF37] transition-colors text-sm font-medium">info@jsmsecurity.com</a></li>
             </ul>
           </div>
