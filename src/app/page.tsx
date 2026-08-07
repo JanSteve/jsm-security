@@ -17,7 +17,7 @@ export default function Home() {
   const webSchema = websiteSchema();
 
   return (
-    <main className="relative bg-[#0A1128] overflow-hidden">
+    <main className="relative bg-white overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}

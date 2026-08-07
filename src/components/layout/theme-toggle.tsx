@@ -15,14 +15,14 @@ export function ThemeToggle() {
   }, []);
 
   if (!mounted) {
-    return <Button variant="ghost" size="icon" className="w-12 h-12" />;
+    return <Button variant="ghost" size="icon" className="w-10 h-10" />;
   }
 
   return (
     <Button
       variant="ghost"
       size="icon"
-      className="w-12 h-12 rounded-full"
+      className="w-10 h-10 rounded-full hover:bg-zinc-100"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       aria-label="Toggle theme"
     >
@@ -36,9 +36,9 @@ export function ThemeToggle() {
         className="relative flex items-center justify-center w-full h-full"
       >
         {theme === "dark" ? (
-          <Sun className="h-5 w-5 text-[#D4AF37]" />
+          <Sun className="h-5 w-5 text-[#C5A880]" />
         ) : (
-          <Moon className="h-5 w-5 text-[#2563EB]" />
+          <Moon className="h-5 w-5 text-zinc-600" />
         )}
       </motion.div>
     </Button>

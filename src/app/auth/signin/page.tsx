@@ -33,29 +33,38 @@ export default function SignInPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#0A1128] grid grid-cols-1 lg:grid-cols-2 pt-16 lg:pt-0">
-      {/* Left side: branding/tagline */}
-      <div className="hidden lg:flex flex-col justify-center items-start bg-[#121C3B]/50 border-r border-[#1A264D] p-12 xl:p-24 space-y-8 relative overflow-hidden">
-        <div className="absolute w-96 h-96 rounded-full bg-[#D4AF37]/5 blur-3xl -top-10 -left-10" />
-        <div className="absolute w-96 h-96 rounded-full bg-[#3B82F6]/5 blur-3xl -bottom-10 -right-10" />
-
+    <main className="min-h-screen bg-white grid grid-cols-1 lg:grid-cols-2 pt-16 lg:pt-0">
+      
+      {/* Left side: branding/tagline and Portal Image Mockup (Apple style) */}
+      <div className="hidden lg:flex flex-col justify-center items-start bg-zinc-50 border-r border-zinc-200 p-12 xl:p-24 space-y-8 relative overflow-hidden">
+        <div className="absolute w-96 h-96 rounded-full bg-[#C5A880]/5 blur-3xl -top-10 -left-10" />
+        
         <div className="space-y-4 relative z-10">
-          <h2 className="text-5xl font-bold text-[#F8F9FA] leading-tight">
+          <h2 className="text-5xl font-black text-black leading-tight tracking-tight">
             Enterprise Client<br />
-            <span className="text-[#D4AF37]">Portal</span>
+            <span className="text-[#C5A880]">Portal</span>
           </h2>
-          <p className="text-xl text-[#94A3B8] max-w-md leading-relaxed">
+          <p className="text-lg text-zinc-500 font-medium max-w-md leading-relaxed">
             Securely access your integrated services dashboard, manage operational requests, and review auditing documentation.
           </p>
         </div>
 
-        <div className="flex gap-4 items-center relative z-10 border-t border-[#1A264D] pt-8 w-full max-w-md">
-          <div className="p-3 bg-[#1A264D] rounded-xl text-[#D4AF37]">
-            <Shield size={24} />
+        {/* Portal Screen Mockup Image */}
+        <div className="w-full max-w-md rounded-2xl overflow-hidden border border-zinc-200 shadow-lg p-1 bg-white relative z-10">
+          <img 
+            src="/images/portal_laptop.jpg" 
+            alt="JSM Client Portal Dashboard Mockup" 
+            className="w-full h-auto object-cover rounded-xl"
+          />
+        </div>
+
+        <div className="flex gap-4 items-center relative z-10 border-t border-zinc-200 pt-8 w-full max-w-md">
+          <div className="p-3 bg-white border border-zinc-200 rounded-xl text-[#C5A880] shadow-sm">
+            <Shield size={20} />
           </div>
           <div>
-            <h4 className="font-bold text-[#F8F9FA]">256-bit SSL Encrypted Connection</h4>
-            <p className="text-xs text-[#94A3B8]">Your credentials and session are fully isolated and protected.</p>
+            <h4 className="font-bold text-black text-sm">256-bit SSL Encrypted Connection</h4>
+            <p className="text-xs text-zinc-500 font-medium">Your credentials and session are fully isolated and protected.</p>
           </div>
         </div>
       </div>
@@ -66,31 +75,31 @@ export default function SignInPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", stiffness: 300, damping: 25 }}
-          className="w-full max-w-md bg-[#121C3B]/30 border border-[#1A264D] rounded-3xl p-8 space-y-8 shadow-xl"
+          className="w-full max-w-md bg-zinc-50 border border-zinc-200/60 rounded-3xl p-8 space-y-8 shadow-sm"
         >
           <div className="space-y-2 text-center lg:text-left">
-            <h1 className="text-3xl font-bold text-[#F8F9FA]">Sign In</h1>
-            <p className="text-sm text-[#94A3B8]">Enter your enterprise credentials to access the portal.</p>
+            <h1 className="text-3xl font-black text-black tracking-tight">Sign In</h1>
+            <p className="text-sm text-zinc-500 font-medium">Enter your enterprise credentials to access the portal.</p>
           </div>
 
           {error && (
-            <div className="p-4 bg-red-500/10 border border-red-500/20 text-red-400 text-sm rounded-xl">
+            <div className="p-4 bg-red-500/10 border border-red-500/20 text-red-600 text-sm rounded-xl">
               {error}
             </div>
           )}
 
           <form onSubmit={handleSignIn} className="space-y-6">
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-[#94A3B8]">Corporate Email</Label>
+              <Label htmlFor="email" className="text-zinc-600 font-semibold">Corporate Email</Label>
               <div className="relative">
-                <Mail className="absolute left-4 top-3.5 h-5 w-5 text-white/30" />
+                <Mail className="absolute left-4 top-3.5 h-5 w-5 text-zinc-400" />
                 <Input
                   id="email"
                   type="email"
                   placeholder="admin@jsm.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="bg-[#0A1128] border-[#1A264D] text-[#F8F9FA] focus-visible:border-[#D4AF37] pl-12 h-12"
+                  className="bg-white border-zinc-200 text-black focus-visible:border-[#C5A880] focus-visible:ring-0 pl-12 h-12 rounded-2xl"
                   required
                 />
               </div>
@@ -98,18 +107,18 @@ export default function SignInPage() {
 
             <div className="space-y-2">
               <div className="flex justify-between items-center">
-                <Label htmlFor="password" className="text-[#94A3B8]">Portal Password</Label>
-                <Link href="#" className="text-xs text-[#3B82F6] hover:underline">Forgot password?</Link>
+                <Label htmlFor="password" className="text-zinc-600 font-semibold">Portal Password</Label>
+                <Link href="#" className="text-xs text-[#3B82F6] hover:underline font-semibold">Forgot password?</Link>
               </div>
               <div className="relative">
-                <Lock className="absolute left-4 top-3.5 h-5 w-5 text-white/30" />
+                <Lock className="absolute left-4 top-3.5 h-5 w-5 text-zinc-400" />
                 <Input
                   id="password"
                   type="password"
                   placeholder="••••••••"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="bg-[#0A1128] border-[#1A264D] text-[#F8F9FA] focus-visible:border-[#D4AF37] pl-12 h-12"
+                  className="bg-white border-zinc-200 text-black focus-visible:border-[#C5A880] focus-visible:ring-0 pl-12 h-12 rounded-2xl"
                   required
                 />
               </div>
@@ -118,22 +127,22 @@ export default function SignInPage() {
             <Button
               type="submit"
               disabled={loading}
-              className="w-full bg-[#D4AF37] text-[#0A1128] hover:bg-[#C9A227] font-semibold h-12 rounded-full text-base"
+              className="w-full bg-black text-white hover:bg-zinc-800 font-semibold h-12 rounded-full text-base shadow-md"
             >
               {loading ? "Authenticating..." : "Sign In to Portal"}
             </Button>
           </form>
 
           <div className="relative flex py-2 items-center">
-            <div className="flex-grow border-t border-[#1A264D]" />
-            <span className="flex-shrink mx-4 text-white/30 text-xs">OR CONTINUE WITH</span>
-            <div className="flex-grow border-t border-[#1A264D]" />
+            <div className="flex-grow border-t border-zinc-200" />
+            <span className="flex-shrink mx-4 text-zinc-400 text-xs font-semibold">OR CONTINUE WITH</span>
+            <div className="flex-grow border-t border-zinc-200" />
           </div>
 
           <Button
             variant="outline"
             type="button"
-            className="w-full border-[#1A264D] text-white hover:bg-[#1A264D] h-12 rounded-full text-sm font-semibold flex items-center justify-center gap-2"
+            className="w-full border-zinc-200 text-zinc-700 hover:bg-zinc-50 h-12 rounded-full text-sm font-semibold flex items-center justify-center gap-2"
           >
             {/* Simple Inline Google Logo */}
             <svg className="h-4 w-4 mr-2" viewBox="0 0 24 24" fill="currentColor">
@@ -145,9 +154,9 @@ export default function SignInPage() {
             Sign in with Google
           </Button>
 
-          <p className="text-center text-sm text-[#94A3B8]">
+          <p className="text-center text-sm text-zinc-500 font-medium">
             Don't have a client account?{" "}
-            <Link href="/contact" className="text-[#D4AF37] hover:underline font-medium">Request Access</Link>
+            <Link href="/contact" className="text-[#3B82F6] hover:underline font-semibold">Request Access</Link>
           </p>
         </motion.div>
       </div>

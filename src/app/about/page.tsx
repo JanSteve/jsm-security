@@ -14,10 +14,9 @@ export default function AboutPage() {
   ];
 
   const team = [
-    { name: 'James Mitchell', role: 'CEO', bio: '20+ years leading integrated services.' },
-    { name: 'Sarah Chen', role: 'COO', bio: 'Expert in operational efficiency and scale.' },
-    { name: 'David Williams', role: 'Head of Security', bio: 'Former military, strategic security specialist.' },
-    { name: 'Priya Patel', role: 'CTO', bio: 'Driving digital transformation in security.' },
+    { name: 'J SWEETY', role: 'Managing Director (MD)', bio: 'Executive leadership steering the strategic vision and growth of JSM.' },
+    { name: 'A RICHARD', role: 'Chief Executive Officer (CEO)', bio: 'Leading operations, client partnerships, and international security standards.' },
+    { name: 'R JAN STEVE DANIEL', role: 'Chief Technology Officer (CTO)', bio: 'Architecting intelligent IoT security monitoring and digital client portal ecosystems.' },
   ];
 
   return (
@@ -155,9 +154,7 @@ export default function AboutPage() {
         <h2 className="text-3xl font-black text-black mb-10 text-center tracking-tight">Our Journey</h2>
         <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-[2px] before:bg-zinc-200">
           {[
-            { year: '2023', title: 'Founded', desc: 'JSM Security established with a vision for integrated services.' },
-            { year: '2024', title: 'First Major Contract', desc: 'Secured multi-site facility management for a national retailer.' },
-            { year: '2025', title: 'Expansion', desc: 'Launched specialized digital and property service divisions.' },
+            { year: '2024', title: 'Inaugural Launch & Trichy Airport Operations', desc: 'JSM Security was founded and officially launched operations, securing the comprehensive security and facility screening assignment at Trichy International Airport as our landmark first client.' },
           ].map((item, i) => (
             <div key={i} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
               <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-[#C5A880] text-white font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">

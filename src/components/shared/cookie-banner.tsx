@@ -32,10 +32,10 @@ export default function CookieBanner() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 50 }}
           transition={{ type: "spring", stiffness: 300, damping: 25 }}
-          className="fixed bottom-20 md:bottom-6 left-4 right-4 md:left-auto md:right-6 md:max-w-md z-50 bg-[#121C3B]/95 backdrop-blur border border-border rounded-2xl p-6 shadow-2xl"
+          className="fixed bottom-20 md:bottom-6 left-4 right-4 md:left-auto md:right-6 md:max-w-md z-50 bg-white/95 backdrop-blur-md border border-zinc-200/80 rounded-3xl p-6 shadow-xl"
         >
-          <h4 className="text-lg font-bold text-[#F8F9FA] mb-2">Cookie Preferences</h4>
-          <p className="text-sm text-[#94A3B8] mb-4 leading-relaxed">
+          <h4 className="text-lg font-bold text-black mb-2">Cookie Preferences</h4>
+          <p className="text-sm text-zinc-500 font-medium mb-4 leading-relaxed">
             We use cookies to optimize our website, analyze traffic, and personalize content. 
             By clicking "Accept", you agree to our cookie policy.
           </p>
@@ -44,14 +44,14 @@ export default function CookieBanner() {
               variant="outline"
               size="sm"
               onClick={handleDecline}
-              className="border-[#1A264D] text-[#94A3B8] hover:text-[#F8F9FA] hover:bg-[#1A264D] rounded-full"
+              className="border-zinc-200 text-zinc-500 hover:text-black hover:bg-zinc-50 rounded-full font-semibold"
             >
               Decline
             </Button>
             <Button
               size="sm"
               onClick={handleAccept}
-              className="bg-[#D4AF37] text-[#0A1128] hover:bg-[#C9A227] font-semibold rounded-full"
+              className="bg-black text-white hover:bg-zinc-800 font-semibold rounded-full"
             >
               Accept All
             </Button>
