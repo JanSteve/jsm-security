@@ -1,159 +1,100 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Button } from "@/components/ui/button";
-import { Shield, Sparkles, Users, ArrowRight, MessageCircle, CheckCircle2, ChevronRight } from "lucide-react";
+import { ArrowRight, Shield, Sparkles } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 import { brandData } from "@/data/brand";
 
 export function HeroSection() {
   const cleanWA = brandData.contact.whatsapp.replace(/[^0-9]/g, '');
 
   return (
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-white">
-      {/* Subtle Background Elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-zinc-100/80 to-transparent rounded-full blur-3xl -z-10" />
-      </div>
-
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
-          {/* Tag Pill */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-100 border border-zinc-200/80 text-zinc-800 text-xs font-bold"
-          >
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>JSM INTEGRATED SERVICES • TAMIL NADU & INDIA</span>
-          </motion.div>
-
-          {/* Main Hero Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-black leading-[1.08]"
-          >
-            One Partner.<br className="hidden sm:inline" />
-            <span className="bg-gradient-to-r from-zinc-900 via-zinc-700 to-zinc-900 bg-clip-text text-transparent">
-              Every Solution.
+    <section className="relative min-h-[85vh] md:min-h-[920px] flex items-center px-5 md:px-20 py-24 md:py-32 max-w-[1440px] mx-auto overflow-hidden bg-[#fbf9f4]">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 w-full z-10 relative items-center">
+        <div className="md:col-span-8 flex flex-col justify-center space-y-6">
+          {/* Label Caps */}
+          <div className="inline-flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#C5A880] animate-pulse" />
+            <span className="text-[11px] md:text-[12px] font-bold tracking-[0.1em] text-zinc-600 uppercase">
+              JSM INTEGRATED SERVICES • TAMIL NADU & INDIA
             </span>
-          </motion.h1>
+          </div>
 
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base sm:text-lg md:text-xl text-zinc-600 font-medium max-w-2xl mx-auto leading-relaxed"
-          >
-            You shouldn’t need five vendors to keep one property running. We coordinate disciplined <strong>Private Security</strong>, <strong>Housekeeping & Facilities</strong>, <strong>Contractual Manpower</strong>, and <strong>Business Operations</strong> under one accountable partner.
-          </motion.p>
+          {/* Headline Display */}
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-black tracking-tight leading-[1.05] uppercase">
+            ONE PARTNER.<br />
+            EVERY SOLUTION.
+          </h1>
 
-          {/* Action Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2"
-          >
-            <Button
-              asChild
-              size="lg"
-              className="w-full sm:w-auto bg-black hover:bg-zinc-800 text-white rounded-full h-12 px-7 text-sm font-bold shadow-lg flex items-center justify-center gap-2 group"
+          {/* Body Large */}
+          <p className="text-base sm:text-lg md:text-xl text-zinc-600 max-w-2xl font-normal leading-relaxed">
+            Professional security, facility management, manpower and operational support — brought together under one disciplined service partner.
+          </p>
+
+          {/* Action Buttons matching Stitch */}
+          <div className="flex flex-col sm:flex-row gap-3 pt-2">
+            <Link
+              href="/services"
+              className="inline-flex items-center justify-center bg-black text-white text-[12px] font-bold tracking-[0.1em] px-8 py-4 border-b-2 border-[#C5A880] hover:bg-zinc-800 transition-colors gap-2 uppercase rounded-sm shadow-md"
             >
-              <Link href="/contact">
-                Request a Site Assessment
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
-
-            <a
-              href={`https://wa.me/${cleanWA}?text=Hi%20JSM%20Integrated%20Services,%20I%20would%20like%20to%20discuss%20our%20facility%20requirements.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 h-12 rounded-full text-sm font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 transition-colors shadow-sm"
+              EXPLORE SOLUTIONS <ArrowRight size={16} />
+            </Link>
+            <Link
+              href="/trust-center"
+              className="inline-flex items-center justify-center bg-white text-black text-[12px] font-bold tracking-[0.1em] px-8 py-4 border border-zinc-300 hover:bg-zinc-100 transition-colors uppercase rounded-sm"
             >
-              <MessageCircle size={17} className="text-emerald-600" />
-              WhatsApp JSM Desk
-            </a>
-
-            <Button
-              asChild
-              variant="ghost"
-              size="lg"
-              className="w-full sm:w-auto text-zinc-700 hover:text-black hover:bg-zinc-100 rounded-full h-12 px-6 text-sm font-bold"
+              OUR BLUEPRINT
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center bg-[#C5A880] text-black text-[12px] font-bold tracking-[0.1em] px-8 py-4 hover:bg-[#b59870] transition-colors uppercase rounded-sm shadow-sm"
             >
-              <Link href="/services">
-                Explore Services
-              </Link>
-            </Button>
-          </motion.div>
-
-          {/* Quick Truthful Proof Points */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="pt-6 flex flex-wrap items-center justify-center gap-y-2 gap-x-6 text-xs font-semibold text-zinc-500"
-          >
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 size={15} className="text-[#C5A880]" />
-              Founder-Led by Sweety R (MD)
-            </span>
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 size={15} className="text-[#C5A880]" />
-              Proven 2024 Trichy Airport Contract
-            </span>
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 size={15} className="text-[#C5A880]" />
-              5-Day Structured Staff Induction
-            </span>
-          </motion.div>
+              REQUEST ASSESSMENT
+            </Link>
+          </div>
         </div>
 
-        {/* Visual Hero Showcase Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.35 }}
-          className="mt-14 max-w-5xl mx-auto rounded-3xl overflow-hidden border border-zinc-200/80 shadow-2xl bg-zinc-900 relative"
-        >
-          <div className="relative h-[260px] sm:h-[380px] md:h-[460px] w-full">
-            <Image
-              src="/images/hero_operations.jpg"
-              alt="JSM Integrated Services Professional Operations"
-              fill
-              priority
-              className="object-cover object-center opacity-85"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent" />
+        {/* JSM OS Abstract Visual from Stitch */}
+        <div className="hidden md:block md:col-span-4 relative h-[460px]">
+          <div className="w-full h-full bg-white rounded-2xl overflow-hidden border border-zinc-200/80 shadow-lg p-6 flex flex-col justify-between relative">
+            <div className="absolute inset-0 bg-gradient-to-br from-zinc-50 via-white to-zinc-100 opacity-90 -z-0" />
             
-            {/* Overlay Info Card */}
-            <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8 flex flex-col md:flex-row md:items-end justify-between gap-4 text-white">
-              <div className="space-y-1">
-                <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#C5A880]">
-                  Integrated Service Operations
-                </span>
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-black tracking-tight leading-tight">
-                  Discipline is not an accident.<br className="hidden sm:inline" /> It is a system.
-                </h3>
+            <div className="relative z-10 space-y-3">
+              <div className="flex items-center justify-between border-b border-zinc-200/70 pb-3">
+                <span className="text-[10px] font-bold tracking-widest text-[#C5A880] uppercase">JSM OPERATING SYSTEM</span>
+                <span className="text-[10px] font-mono text-zinc-500">v2.4 ACTIVE</span>
               </div>
-              <div className="flex items-center gap-3">
-                <Link
-                  href="/about"
-                  className="px-4 py-2 bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/30 rounded-full text-xs font-bold text-white transition-colors flex items-center gap-1.5"
-                >
-                  Our Operating Story <ChevronRight size={14} />
-                </Link>
+              <p className="text-xl font-bold text-black tracking-tight leading-snug">
+                Unified Governance across Security, Facilities & Staffing.
+              </p>
+            </div>
+
+            <div className="relative z-10 space-y-2 text-xs font-semibold text-zinc-700">
+              <div className="p-3 bg-white rounded-xl border border-zinc-200/80 flex items-center justify-between shadow-xs">
+                <span>Airport & High-Risk Security</span>
+                <span className="text-emerald-700 font-mono text-[11px]">VERIFIED</span>
+              </div>
+              <div className="p-3 bg-white rounded-xl border border-zinc-200/80 flex items-center justify-between shadow-xs">
+                <span>5-Step Hygiene Framework</span>
+                <span className="text-emerald-700 font-mono text-[11px]">SOP 100%</span>
+              </div>
+              <div className="p-3 bg-white rounded-xl border border-zinc-200/80 flex items-center justify-between shadow-xs">
+                <span>48-Hour Manpower Surge</span>
+                <span className="text-emerald-700 font-mono text-[11px]">READY</span>
               </div>
             </div>
+
+            <div className="relative z-10 pt-3 border-t border-zinc-200/70 flex items-center justify-between text-[11px] text-zinc-500 font-medium">
+              <span>Trichy • Chennai • Coimbatore</span>
+              <span className="text-black font-bold">24/7 Monitored</span>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
+
+      {/* Subtle architectural background lines from Stitch */}
+      <div className="absolute top-0 right-0 w-1/3 h-full border-l border-zinc-200/60 z-0 hidden md:block" />
+      <div className="absolute top-1/2 left-0 w-full h-px bg-zinc-200/60 z-0 hidden md:block" />
     </section>
   );
 }
