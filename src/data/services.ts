@@ -68,7 +68,7 @@ export const servicesData: Service[] = [
     ],
     icon: 'Shield',
     heroImage: '/images/protective_guard.jpg',
-    complianceNotice: 'All guarding deployments comply with statutory labor regulations and standard verified background verification protocols. Armed security services are strictly subject to applicable licensing and client authorizations.',
+    complianceNotice: '100% PSARA (Private Security Agencies Regulation Act, 2005) compliant operations under the Controlling Authority, Government of Tamil Nadu. All guarding deployments comply with mandatory police background verification, statutory EPF/ESI, and minimum wage norms.',
     features: [
       { title: 'Verified Unarmed Guarding', description: 'Trained, uniformed, and background-checked personnel deployed with defined post orders.', icon: 'UserCheck' },
       { title: 'Gate & Visitor Management', description: 'Digital or structured manual visitor logging, vehicle inspection, and material pass checks.', icon: 'ClipboardCheck' },

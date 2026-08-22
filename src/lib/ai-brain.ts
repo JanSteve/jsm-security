@@ -45,6 +45,21 @@ export const JSM_ENTERPRISE_KNOWLEDGE: KnowledgeTopic[] = [
     ctaType: 'assessment'
   },
   {
+    id: 'psara-licensing-compliance',
+    keywords: ['psara', 'licence', 'license', 'licensing', 'government', 'statutory', 'legal', 'police verification', 'controlling authority', 'regulation', 'act 2005'],
+    title: 'PSARA Act Compliance & Legal Licensing in Tamil Nadu',
+    summary: 'Strict adherence to Private Security Agencies (Regulation) Act, 2005 under the Government of Tamil Nadu.',
+    detailedAnswer: `JSM Integrated Services operates strictly under the governance of the **Private Security Agencies (Regulation) Act (PSARA 2005)** as mandated by the Controlling Authority, Home Department of Tamil Nadu.
+    
+**Our PSARA Compliance Safeguards:**
+• **100% Police Verification**: Complete character & antecedents verification through Tamil Nadu Police records before personnel deployment.
+• **Mandatory 5-Day Pre-Deployment Training**: Physical drill, fire prevention, gate management, visitor logging, and emergency escalation syllabus.
+• **Standard Uniform & Photo ID Badges**: Distinct, statutory-compliant uniforms with photo identification and emergency response cards.
+• **Zero Labour Liability**: 100% Provident Fund (EPF), Employees State Insurance (ESIC), and Minimum Wages Act remittances with monthly challans shared with client leadership.`,
+    suggestedFollowups: ['View Trust Center', 'Request statutory compliance audit', 'Download sample PF/ESI challan'],
+    ctaType: 'assessment'
+  },
+  {
     id: 'housekeeping-hygiene-sop',
     keywords: ['housekeeping', 'cleaning', 'facility', 'hygiene', 'restroom', 'deep cleaning', 'sanitization', 'sweeper', 'scrubbing'],
     title: '5-Step Closed-Loop Housekeeping SOP',

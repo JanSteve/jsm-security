@@ -137,6 +137,57 @@ export default function TrustCenterPage() {
           </div>
         </section>
 
+        {/* Section 03: PSARA Act Compliance & State Governance */}
+        <section className="py-20 md:py-28 border-b border-zinc-200/80">
+          <div className="flex items-center gap-4 mb-16">
+            <span className="text-xl font-bold text-black bg-[#e9c176] w-12 h-12 flex items-center justify-center rounded-full font-mono">
+              03
+            </span>
+            <div>
+              <h2 className="text-3xl sm:text-4xl font-black text-black tracking-tight">
+                PSARA Licensing &amp; Statutory Governance
+              </h2>
+              <p className="text-xs text-zinc-500 font-medium mt-1">
+                Private Security Agencies (Regulation) Act, 2005 • Controlling Authority, Government of Tamil Nadu
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            <div className="bg-white border border-zinc-200/80 rounded-2xl p-8 space-y-4 hover:shadow-md transition-shadow">
+              <div className="flex items-center justify-between">
+                <BadgeCheck size={26} className="text-[#C5A880]" />
+                <span className="text-[10px] font-mono font-bold bg-zinc-100 text-black px-2.5 py-1 rounded-full uppercase">STATUTORY ACT</span>
+              </div>
+              <h3 className="text-xl font-bold text-black">Mandatory PSARA Compliance</h3>
+              <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed">
+                Operating strictly within the legal framework established by the <strong>Private Security Agencies Regulation Act (PSARA 2005)</strong> under the Controlling Authority, Home Department of Tamil Nadu. Every guard deployed is verified, badged, and compliant.
+              </p>
+              <ul className="text-xs text-zinc-700 space-y-2 pt-2 border-t border-zinc-100 font-medium">
+                <li className="flex items-center gap-2"><CheckCircle2 size={13} className="text-emerald-600 flex-shrink-0" /> Mandatory Character &amp; Police Background Verification</li>
+                <li className="flex items-center gap-2"><CheckCircle2 size={13} className="text-emerald-600 flex-shrink-0" /> PSARA Standard Pre-Deployment Physical &amp; Security Training</li>
+                <li className="flex items-center gap-2"><CheckCircle2 size={13} className="text-emerald-600 flex-shrink-0" /> Strict Standardized Uniform, Photo ID &amp; Guard Duty Badging</li>
+              </ul>
+            </div>
+
+            <div className="bg-white border border-zinc-200/80 rounded-2xl p-8 space-y-4 hover:shadow-md transition-shadow">
+              <div className="flex items-center justify-between">
+                <FileText size={26} className="text-[#C5A880]" />
+                <span className="text-[10px] font-mono font-bold bg-zinc-100 text-black px-2.5 py-1 rounded-full uppercase">LABOUR COMPLIANCE</span>
+              </div>
+              <h3 className="text-xl font-bold text-black">100% Social Security &amp; Labour Laws</h3>
+              <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed">
+                We protect client organizations from co-employer liability through flawless adherence to statutory labour laws, statutory minimum wages, and timely social security filings.
+              </p>
+              <ul className="text-xs text-zinc-700 space-y-2 pt-2 border-t border-zinc-100 font-medium">
+                <li className="flex items-center gap-2"><CheckCircle2 size={13} className="text-emerald-600 flex-shrink-0" /> Employees' Provident Fund (EPF) Full Remittance</li>
+                <li className="flex items-center gap-2"><CheckCircle2 size={13} className="text-emerald-600 flex-shrink-0" /> Employees' State Insurance (ESIC) Medical Coverage</li>
+                <li className="flex items-center gap-2"><CheckCircle2 size={13} className="text-emerald-600 flex-shrink-0" /> Minimum Wages Act &amp; Monthly ECR Proofs Shared with Clients</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="py-16 text-center space-y-6">
           <h3 className="text-3xl font-black text-black tracking-tight">Need a Governance Audit for Your Facility?</h3>

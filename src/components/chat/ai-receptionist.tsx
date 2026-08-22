@@ -210,7 +210,7 @@ export function AIReceptionist() {
   return (
     <>
       {/* Floating Receptionist Badge Trigger */}
-      <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+      <div className="fixed bottom-20 md:bottom-6 right-4 sm:right-6 z-50 flex items-center gap-3">
         {!isOpen && unreadCount > 0 && (
           <motion.div
             initial={{ opacity: 0, x: 20, scale: 0.9 }}

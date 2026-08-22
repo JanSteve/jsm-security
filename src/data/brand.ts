@@ -50,6 +50,14 @@ export const brandData = {
   },
 
   domain: "https://jsmintegratedservices.in",
+
+  compliance: {
+    psaraStatus: "PSARA Compliant (Private Security Agencies Regulation Act, 2005)",
+    psaraAuthority: "Controlling Authority, Home Department, Government of Tamil Nadu",
+    statutoryCompliance: "100% PF, ESI, Minimum Wages Act & Labour Department Registered",
+    policeVerification: "Mandatory Aadhaar & Police Verification for All Deployed Guards",
+    trainingStandard: "Mandatory 5-Day Pre-Deployment Security Syllabus as per PSARA Norms",
+  },
   
   corePillars: [
     {
