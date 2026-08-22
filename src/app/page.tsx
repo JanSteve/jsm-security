@@ -5,9 +5,6 @@ import {
   ServicesOverview, 
   OperationalCalculator,
   WhyJSM, 
-  HowWeWork, 
-  IndustriesSection, 
-  PeopleSection, 
   CTASection 
 } from "@/components/sections";
 import { organizationSchema, localBusinessSchema, websiteSchema } from "@/lib/schema";
@@ -39,16 +36,13 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webSchema) }}
       />
 
-      {/* Streamlined High-Conversion Homepage Flow */}
+      {/* Fast, Ultra-Clean, High-Conversion Homepage Flow */}
       <HeroSection />
       <TrustBar />
       <ProblemSection />
       <ServicesOverview />
       <OperationalCalculator />
       <WhyJSM />
-      <HowWeWork />
-      <IndustriesSection />
-      <PeopleSection />
       <CTASection />
     </div>
   );
