@@ -17,108 +17,96 @@ export default function CaseStudiesPage() {
   ]);
 
   return (
-    <main className="min-h-screen bg-white text-zinc-800 pt-32 pb-24">
+    <main className="min-h-screen bg-white text-zinc-800 pt-28 pb-24 px-4 sm:px-6 md:px-12 lg:px-20">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
 
-      <div className="container mx-auto px-4 md:px-8">
+      <div className="max-w-[1440px] mx-auto">
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-zinc-100 border border-zinc-200/80 text-zinc-800 text-xs font-bold">
+        <div className="max-w-3xl mx-auto text-center mb-12 space-y-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-zinc-100 border border-zinc-200/80 text-zinc-800 text-xs font-mono font-bold">
             <Sparkles size={13} className="text-[#C5A880]" />
             <span>VERIFIED OPERATIONS HISTORY</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-black tracking-tight leading-tight">
-            Case Studies & Track Record
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-black tracking-tight uppercase">
+            Case Studies &amp; Track Record
           </h1>
 
-          <p className="text-base md:text-lg text-zinc-600 font-medium max-w-2xl mx-auto leading-relaxed">
-            We believe in complete truthfulness. We do not invent fictional case studies. Here is the verified operational story of our landmark launch assignment.
+          <p className="text-xs sm:text-sm text-zinc-600 font-normal max-w-xl mx-auto leading-relaxed">
+            We believe in complete truthfulness. We do not invent fictional statistics. Here is the verified operational story of our landmark launch assignment.
           </p>
         </div>
 
-        {/* Landmark Case Study: Trichy Airport */}
-        <div className="max-w-5xl mx-auto bg-zinc-900 text-white rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl mb-16">
-          <div className="p-8 md:p-12 space-y-8">
-            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-zinc-800 pb-6">
+        {/* Landmark Case Study: Trichy Airport with Real Visual Banner */}
+        <div className="max-w-5xl mx-auto bg-[#0A1628] text-white rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl mb-16">
+          {/* Visual Header Image */}
+          <div className="relative h-64 sm:h-80 md:h-96 w-full">
+            <Image
+              src="/images/airport_operations.jpg"
+              alt="2024 Trichy International Airport Operations Support"
+              fill
+              className="object-cover"
+              priority
+              sizes="(max-width: 1024px) 100vw, 1024px"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/40 to-transparent" />
+            <div className="absolute bottom-6 left-6 right-6 flex flex-wrap items-end justify-between gap-4">
               <div className="space-y-1">
-                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#C5A880] flex items-center gap-1.5">
-                  <Plane size={14} /> Landmark Inaugural Project • 2024
+                <span className="text-[10px] font-mono font-extrabold uppercase tracking-widest text-[#C5A880] flex items-center gap-1.5 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full w-fit">
+                  <Plane size={13} /> Landmark Launch Contract • 2024
                 </span>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight">
-                  Trichy International Airport Operations Contract
+                <h2 className="text-xl sm:text-3xl md:text-4xl font-black text-white tracking-tight drop-shadow-md">
+                  Trichy International Airport Operations
                 </h2>
               </div>
-              <div className="flex items-center gap-2 text-xs font-bold bg-zinc-800 px-3 py-1.5 rounded-full text-zinc-300">
+              <div className="flex items-center gap-2 text-xs font-bold bg-white/15 backdrop-blur-md px-3.5 py-1.5 rounded-full text-white border border-white/20">
                 <MapPin size={13} className="text-[#C5A880]" />
                 Tiruchirappalli, Tamil Nadu
               </div>
             </div>
+          </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="p-6 sm:p-10 space-y-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Challenge */}
-              <div className="space-y-3 bg-zinc-800/60 p-6 rounded-2xl border border-zinc-700/60">
-                <span className="text-xs font-black uppercase tracking-wider text-amber-400">01. The Challenge</span>
-                <h3 className="text-lg font-bold text-white">High-Stakes Civil Aviation</h3>
-                <p className="text-xs text-zinc-300 leading-relaxed font-medium">
-                  Operating in an international aviation transit hub required uncompromised adherence to security screening protocols, zero tolerance for absenteeism, and smooth crowd management under heavy passenger traffic.
+              <div className="space-y-2.5 bg-white/5 p-6 rounded-2xl border border-white/10">
+                <span className="text-[10px] font-mono font-black uppercase tracking-wider text-amber-400">01. The Challenge</span>
+                <h3 className="text-base font-bold text-white">High-Stakes Civil Aviation</h3>
+                <p className="text-xs text-zinc-300 leading-relaxed font-normal">
+                  Strict adherence to aviation screening protocols, zero tolerance for absenteeism, and smooth passenger flow under peak flight schedules.
                 </p>
               </div>
 
               {/* Approach */}
-              <div className="space-y-3 bg-zinc-800/60 p-6 rounded-2xl border border-zinc-700/60">
-                <span className="text-xs font-black uppercase tracking-wider text-[#C5A880]">02. The Approach</span>
-                <h3 className="text-lg font-bold text-white">Structured SOP Deployment</h3>
-                <p className="text-xs text-zinc-300 leading-relaxed font-medium">
-                  We designed a site-specific operational SOP, conducted specialized 5-day induction briefings on passenger etiquette and gate discipline, and maintained supervisory rounds throughout all shift rotations.
+              <div className="space-y-2.5 bg-white/5 p-6 rounded-2xl border border-white/10">
+                <span className="text-[10px] font-mono font-black uppercase tracking-wider text-[#C5A880]">02. The Approach</span>
+                <h3 className="text-base font-bold text-white">Structured SOP Deployment</h3>
+                <p className="text-xs text-zinc-300 leading-relaxed font-normal">
+                  Site-specific SOPs, 5-day induction on passenger etiquette and gate discipline, with 24/7 supervisor rounds across all shifts.
                 </p>
               </div>
 
               {/* Outcome */}
-              <div className="space-y-3 bg-zinc-800/60 p-6 rounded-2xl border border-zinc-700/60">
-                <span className="text-xs font-black uppercase tracking-wider text-emerald-400">03. The Outcome</span>
-                <h3 className="text-lg font-bold text-white">Flawless Operational Execution</h3>
-                <p className="text-xs text-zinc-300 leading-relaxed font-medium">
-                  Successfully completed the operations contract with uncompromised alertness, positive stakeholder feedback, and zero security lapses, establishing JSM's operational benchmark.
+              <div className="space-y-2.5 bg-white/5 p-6 rounded-2xl border border-white/10">
+                <span className="text-[10px] font-mono font-black uppercase tracking-wider text-emerald-400">03. The Outcome</span>
+                <h3 className="text-base font-bold text-white">Zero Security Lapses</h3>
+                <p className="text-xs text-zinc-300 leading-relaxed font-normal">
+                  Flawless contract execution with continuous alertness, positive stakeholder feedback, establishing JSM's operational benchmark.
                 </p>
               </div>
             </div>
 
             <div className="pt-4 border-t border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-400">
               <span className="font-medium">
-                Contract Scope: Passenger security screening assistance, terminal crowd management, and facility coordination.
+                Scope: Passenger screening assistance, terminal crowd management, and facility coordination.
               </span>
-              <Button asChild size="sm" className="bg-white hover:bg-zinc-100 text-black font-bold rounded-full px-5 text-xs">
-                <Link href="/contact">Schedule Assessment for Your Facility</Link>
+              <Button asChild size="sm" className="bg-[#C5A880] hover:bg-[#b59870] text-black font-bold rounded-full px-5 text-xs shadow-md">
+                <Link href="/contact">Schedule Assessment for Your Site</Link>
               </Button>
             </div>
-          </div>
-        </div>
-
-        {/* Building Our Track Record Framework */}
-        <div className="max-w-4xl mx-auto bg-zinc-50 border border-zinc-200/80 rounded-3xl p-8 md:p-12 text-center space-y-6">
-          <div className="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center mx-auto font-black text-base">
-            JSM
-          </div>
-          <div className="space-y-2">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#C5A880]">
-              Operational Transparency
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-black text-black tracking-tight">
-              Building Our Track Record
-            </h3>
-            <p className="text-xs sm:text-sm text-zinc-600 max-w-xl mx-auto leading-relaxed font-medium">
-              As we expand across commercial complexes, residential societies, hospitals, and industrial factories throughout Tamil Nadu, new verified case studies are documented shift by shift.
-            </p>
-          </div>
-
-          <div className="pt-2">
-            <Button asChild className="bg-black hover:bg-zinc-800 text-white rounded-full px-6 h-11 text-xs font-bold">
-              <Link href="/contact">Partner with JSM for Your Facility</Link>
-            </Button>
           </div>
         </div>
       </div>

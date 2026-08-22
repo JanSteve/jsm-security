@@ -112,7 +112,7 @@ export const servicesData: Service[] = [
       'Apartment Complexes & Residential Communities'
     ],
     icon: 'Sparkles',
-    heroImage: '/images/facility_lobby.jpg',
+    heroImage: '/images/housekeeping_hygiene.jpg',
     features: [
       { title: 'Daily Workspace Cleaning', description: 'Systematic dusting, vacuuming, mopping, and desk sanitization before and during office hours.', icon: 'Building' },
       { title: 'Restroom Hygiene Cycles', description: 'Hourly inspection schedules, fragrance management, and continuous restocking of supplies.', icon: 'CheckCircle' },
@@ -155,7 +155,7 @@ export const servicesData: Service[] = [
       'Retail Chains & Hypermarkets'
     ],
     icon: 'Users',
-    heroImage: '/images/hero_operations.jpg',
+    heroImage: '/images/industrial_workforce.jpg',
     features: [
       { title: 'Skilled & Semi-Skilled Staffing', description: 'Electricians, machine assistants, warehouse handlers, data entry staff, and supervisors.', icon: 'Briefcase' },
       { title: 'General & Industrial Workforce', description: 'Dependable manual labor, loading/unloading teams, and production line assistants.', icon: 'TrendingUp' },
