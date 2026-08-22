@@ -5,6 +5,7 @@ import {
   ServicesOverview, 
   OperationalCalculator,
   WhyJSM, 
+  RegionalCoverage,
   CTASection 
 } from "@/components/sections";
 import { organizationSchema, localBusinessSchema, websiteSchema } from "@/lib/schema";
@@ -43,6 +44,7 @@ export default function Home() {
       <ServicesOverview />
       <OperationalCalculator />
       <WhyJSM />
+      <RegionalCoverage />
       <CTASection />
     </div>
   );

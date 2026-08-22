@@ -9,3 +9,4 @@ export { IndustriesSection } from './industries-section';
 export { PeopleSection } from './people-section';
 export { CTASection } from './cta-section';
 export { OperationalCalculator } from '../calculator/operational-calculator';
+export { RegionalCoverage } from './regional-coverage';
