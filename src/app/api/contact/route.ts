@@ -106,7 +106,7 @@ export async function POST(req: NextRequest) {
               ` : ''}
 
               <div style="margin-top: 24px; text-align: center;">
-                <a href="https://wa.me/${phone ? phone.replace(/[^0-9]/g, '') : '919443152000'}?text=Hello%20${encodeURIComponent(name || 'Sir/Madam')},%20this%20is%20JSM%20Integrated%20Services%20Operations%20Desk%20regarding%20your%20Site%20Assessment%20Request%20(${ticketRef})." class="action-btn" target="_blank">
+                <a href="https://wa.me/919384670536?text=Hello%20${encodeURIComponent(name || 'Sir/Madam')},%20this%20is%20JSM%20Integrated%20Services%20Operations%20Desk%20regarding%20your%20Site%20Assessment%20Request%20(${ticketRef})." class="action-btn" target="_blank">
                   📲 Connect with Client on WhatsApp
                 </a>
               </div>
