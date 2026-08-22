@@ -1,9 +1,22 @@
+export interface NavSubItem {
+  title: string;
+  href: string;
+  description: string;
+  badge?: string;
+  icon?: string;
+}
+
+export interface NavCategory {
+  title: string;
+  items: NavSubItem[];
+}
+
 export interface NavItem {
   title: string;
   href: string;
-  description?: string;
-  icon?: string;
-  children?: NavItem[];
+  isMega?: boolean;
+  categories?: NavCategory[];
+  children?: { title: string; href: string; description?: string }[];
 }
 
 export const navigationData: NavItem[] = [
@@ -14,125 +27,102 @@ export const navigationData: NavItem[] = [
   {
     title: "Services",
     href: "/services",
-    children: [
+    isMega: true,
+    categories: [
       {
-        title: "Security",
-        href: "/services",
-        children: [
+        title: "Core Operations (Phase 1)",
+        items: [
           {
             title: "Private Security",
             href: "/services/private-security",
-            description: "Elite personal and corporate security details.",
-            icon: "Shield",
+            description: "Disciplined guarding, gate management & night patrolling.",
+            icon: "Shield"
           },
           {
-            title: "CCTV Monitoring",
-            href: "/services/cctv-monitoring",
-            description: "24/7 proactive remote monitoring.",
-            icon: "Camera",
+            title: "Housekeeping & Facility",
+            href: "/services/housekeeping",
+            description: "Checklist-driven commercial cleaning & hygiene cycles.",
+            icon: "Sparkles"
+          },
+          {
+            title: "Manpower & Staffing",
+            href: "/services/manpower",
+            description: "Skilled, semi-skilled & industrial workforce supply.",
+            icon: "Users"
           },
           {
             title: "Cash-in-Transit",
             href: "/services/cash-in-transit",
-            description: "Secure cash logistics and transit details.",
-            icon: "Lock",
-          },
-          {
-            title: "Risk Assessment",
-            href: "/services/risk-assessment",
-            description: "Comprehensive audits and risk profiling.",
-            icon: "Key",
-          },
-          {
-            title: "Manpower Solutions",
-            href: "/services/manpower",
-            description: "Elite security recruitment and vetting.",
-            icon: "Users",
-          },
-        ],
+            description: "Two-person custody transfers & retail cash pickups.",
+            icon: "Banknote"
+          }
+        ]
       },
       {
-        title: "Facilities",
-        href: "/services",
-        children: [
+        title: "Integrated Business Support (Phase 2)",
+        items: [
           {
-            title: "Housekeeping",
-            href: "/services/housekeeping",
-            description: "Commercial cleaning and workspace hygiene.",
-            icon: "Sparkles",
+            title: "Events & Weddings",
+            href: "/services/event-support",
+            description: "Crowd management, VIP handling & wedding coordination.",
+            icon: "Ticket"
           },
-        ],
-      },
-      {
-        title: "Digital & Creative",
-        href: "/services",
-        children: [
           {
-            title: "Software Solutions",
+            title: "Real Estate & Auctions",
+            href: "/services/real-estate-support",
+            description: "Site material guarding & auction bidder verification.",
+            icon: "Building"
+          },
+          {
+            title: "Software & Web Solutions",
             href: "/services/software-solutions",
-            description: "Tailored portal and API web applications.",
-            icon: "Monitor",
+            description: "Business websites, visitor portals & lead automation.",
+            icon: "Monitor"
           },
           {
             title: "Creative Media",
             href: "/services/creative-media",
-            description: "Enterprise branding and design services.",
-            icon: "Palette",
-          },
-        ],
-      },
-      {
-        title: "Events & Property",
-        href: "/services",
-        children: [
-          {
-            title: "Event Security",
-            href: "/services/event-security",
-            description: "Crowd logistics and event perimeter protection.",
-            icon: "ShieldAlert",
-          },
-          {
-            title: "Event Management",
-            href: "/services/event-management",
-            description: "Full-scale corporate event planning.",
-            icon: "Clock",
-          },
-          {
-            title: "Wedding Planning",
-            href: "/services/wedding-planning",
-            description: "Premium end-to-end wedding details.",
-            icon: "Sparkles",
-          },
-          {
-            title: "Real Estate",
-            href: "/services/real-estate",
-            description: "Commercial property operations and management.",
-            icon: "Building",
-          },
-          {
-            title: "Auction Houses",
-            href: "/services/auction-houses",
-            description: "White-glove fine art and asset transport.",
-            icon: "Trophy",
-          },
-        ],
-      },
-    ],
+            description: "Corporate videography, facility shoots & branding.",
+            icon: "Palette"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    title: "Industries",
+    href: "/industries",
+    children: [
+      { title: "Residential Societies", href: "/industries/residential-societies", description: "Apartment gate vigilance & common area hygiene." },
+      { title: "Corporate Offices & IT", href: "/industries/corporate-offices", description: "Front-desk security & workspace sanitization." },
+      { title: "Factories & Industrial", href: "/industries/factories-manufacturing", description: "Material gate-pass control & industrial labor." },
+      { title: "Warehouses & Logistics", href: "/industries/warehouses-logistics", description: "Dock security & freight handling manpower." },
+      { title: "Hospitals & Healthcare", href: "/industries/hospitals-healthcare", description: "Emergency crowd control & medical bio-cleaning." },
+      { title: "View All 12 Industries", href: "/industries", description: "Explore sector-specific integrated solutions." }
+    ]
+  },
+  {
+    title: "Trust Center",
+    href: "/trust-center",
   },
   {
     title: "About",
     href: "/about",
   },
   {
-    title: "Insights",
-    href: "/blog",
-  },
-  {
     title: "Careers",
     href: "/careers",
   },
   {
+    title: "Case Studies",
+    href: "/case-studies",
+  },
+  {
+    title: "Blog",
+    href: "/blog",
+  },
+  {
     title: "Contact",
     href: "/contact",
-  },
+  }
 ];

@@ -116,7 +116,7 @@ export function AuthModal({ isOpen, onClose }: { isOpen: boolean, onClose: () =>
             
             <TabsContent value="signup" className="text-center py-6">
               <p className="text-zinc-500 mb-6 text-sm font-medium">
-                Client portal access is provided exclusively to active JSM Security clients. 
+                Client portal access is provided exclusively to active JSM Integrated Services clients. 
               </p>
               <Button variant="outline" className="w-full border-zinc-200 text-zinc-800 hover:bg-zinc-50 h-12 rounded-full font-semibold">
                 Contact Account Manager

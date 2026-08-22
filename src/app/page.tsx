@@ -1,38 +1,55 @@
-import { HeroSection } from "@/components/sections/hero-section";
-import { TrustBar } from "@/components/sections/trust-bar";
-import { ServicesOverview } from "@/components/sections/services-overview";
-import { WhyJSM } from "@/components/sections/why-jsm";
-import { StatsSection } from "@/components/sections/stats-section";
-import { TestimonialsSection } from "@/components/sections/testimonials-section";
-import { CTASection } from "@/components/sections/cta-section";
-import { organizationSchema, websiteSchema } from "@/lib/schema";
+import { 
+  HeroSection, 
+  TrustBar, 
+  ProblemSection, 
+  ServicesOverview, 
+  WhyJSM, 
+  HowWeWork, 
+  SOPSection, 
+  IndustriesSection, 
+  PeopleSection, 
+  CTASection 
+} from "@/components/sections";
+import { organizationSchema, localBusinessSchema, websiteSchema } from "@/lib/schema";
+import { brandData } from "@/data/brand";
 
 export const metadata = {
-  title: "JSM Security & Integrated Services | Premium Corporate Website",
-  description: "Elite security guarding, facilities management, digital software, and event logistics unified under JSM operational standards.",
+  title: `${brandData.name} | ${brandData.tagline}`,
+  description: `${brandData.name} delivers disciplined Private Security, Housekeeping & Facility Management, Contractual Manpower, and Integrated Operations across Tamil Nadu & India.`,
 };
 
 export default function Home() {
   const orgSchema = organizationSchema();
+  const localSchema = localBusinessSchema();
   const webSchema = websiteSchema();
 
   return (
-    <main className="relative bg-white overflow-hidden">
+    <div className="relative bg-white overflow-hidden">
+      {/* Schema.org Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webSchema) }}
       />
+
+      {/* 10-Section Storytelling Journey */}
       <HeroSection />
       <TrustBar />
+      <ProblemSection />
       <ServicesOverview />
       <WhyJSM />
-      <StatsSection />
-      <TestimonialsSection />
+      <HowWeWork />
+      <SOPSection />
+      <IndustriesSection />
+      <PeopleSection />
       <CTASection />
-    </main>
+    </div>
   );
 }

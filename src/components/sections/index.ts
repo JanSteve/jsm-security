@@ -1,7 +1,10 @@
 export { HeroSection } from './hero-section';
 export { TrustBar } from './trust-bar';
+export { ProblemSection } from './problem-section';
 export { ServicesOverview } from './services-overview';
 export { WhyJSM } from './why-jsm';
-export { StatsSection } from './stats-section';
-export { TestimonialsSection } from './testimonials-section';
+export { HowWeWork } from './how-we-work';
+export { SOPSection } from './sop-section';
+export { IndustriesSection } from './industries-section';
+export { PeopleSection } from './people-section';
 export { CTASection } from './cta-section';

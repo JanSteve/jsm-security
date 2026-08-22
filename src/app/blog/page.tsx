@@ -1,67 +1,84 @@
 import { blogPosts } from "@/data/blog-posts";
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Calendar, User, Clock } from "lucide-react";
+import { ArrowRight, Calendar, User, Clock, Sparkles } from "lucide-react";
+import { brandData } from "@/data/brand";
+import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata = {
-  title: "Insights & Resources | JSM Security",
-  description: "Stay informed with the latest insights, resources, and articles on corporate security, facility management, and digital transformation.",
+  title: "Operating Insights & Articles | JSM Integrated Services",
+  description: "Read practical guides on private security, commercial housekeeping, factory staffing, and facility standard operating procedures across Tamil Nadu.",
 };
 
 export default function BlogListingPage() {
-  const featuredPost = blogPosts[0];
-  const remainingPosts = blogPosts.slice(1);
+  const flagshipPost = blogPosts.find((p) => p.isFlagship) || blogPosts[0];
+  const otherPosts = blogPosts.filter((p) => p.slug !== flagshipPost.slug);
+
+  const breadcrumb = breadcrumbSchema([
+    { name: "Home", url: brandData.domain },
+    { name: "Blog & Insights", url: `${brandData.domain}/blog` },
+  ]);
 
   return (
-    <main className="min-h-screen bg-white text-zinc-800 pt-32 pb-20 px-4 md:px-8">
+    <main className="min-h-screen bg-white text-zinc-800 pt-32 pb-24 px-4 md:px-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
+
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h1 className="text-5xl md:text-6xl font-black text-black mb-6 tracking-tight leading-[1.05]">
-            Insights & <span className="text-[#C5A880]">Resources</span>
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-zinc-100 border border-zinc-200/80 text-zinc-800 text-xs font-bold">
+            <Sparkles size={13} className="text-[#C5A880]" />
+            <span>OPERATIONAL KNOWLEDGE & STRATEGY</span>
+          </div>
+
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-black tracking-tight leading-tight">
+            Insights & Operating Guides
           </h1>
-          <p className="text-lg md:text-xl text-zinc-500 font-medium leading-relaxed">
-            Expert advice, industry trends, and analysis from the JSM executive and operations teams.
+
+          <p className="text-base md:text-lg text-zinc-600 font-medium max-w-2xl mx-auto leading-relaxed">
+            Practical operational analysis and security frameworks from the JSM executive and field management team.
           </p>
         </div>
 
-        {/* Featured Post Card */}
-        {featuredPost && (
+        {/* Flagship Signature Article Hero Card */}
+        {flagshipPost && (
           <div className="mb-16">
-            <h2 className="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-6">Featured Publication</h2>
-            <div className="bg-zinc-50 border border-zinc-200/60 rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-2 gap-8 p-6 md:p-8 hover:border-[#C5A880]/30 transition-all duration-300 group shadow-sm">
-              <div className="h-64 lg:h-full min-h-[300px] rounded-2xl bg-zinc-200/40 border border-zinc-200 overflow-hidden flex items-center justify-center relative">
-                <div className="absolute inset-0 bg-white/40" />
-                <div className="absolute w-40 h-40 rounded-full bg-[#C5A880]/5 blur-3xl" />
-                <div className="relative text-center p-6 text-zinc-400 font-bold tracking-widest text-xs uppercase">
-                  JSM RESEARCH GRAPHICS
-                </div>
-              </div>
+            <div className="flex items-center justify-between mb-4">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-[#C5A880]">
+                ★ Signature Publication
+              </span>
+            </div>
 
-              <div className="flex flex-col justify-center space-y-6">
-                <div>
-                  <Badge className="bg-[#C5A880]/10 text-[#C5A880] border-[#C5A880]/20 mb-4 rounded-full px-3">
-                    {featuredPost.category}
-                  </Badge>
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-4 leading-tight group-hover:text-[#C5A880] transition-colors duration-300">
-                    <Link href={`/blog/${featuredPost.slug}`}>{featuredPost.title}</Link>
-                  </h3>
-                  <p className="text-zinc-500 text-sm leading-relaxed">
-                    {featuredPost.excerpt}
-                  </p>
+            <div className="bg-zinc-900 text-white rounded-3xl p-8 md:p-12 border border-zinc-800 shadow-2xl hover:border-[#C5A880]/50 transition-all block">
+              <div className="max-w-3xl space-y-4">
+                <span className="text-[10px] font-extrabold uppercase tracking-widest bg-zinc-800 text-[#C5A880] px-3 py-1 rounded-full border border-zinc-700">
+                  {flagshipPost.category}
+                </span>
+
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-white leading-tight">
+                  <Link href={`/blog/${flagshipPost.slug}`} className="hover:text-[#C5A880] transition-colors">
+                    {flagshipPost.title}
+                  </Link>
+                </h2>
+
+                <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-medium">
+                  {flagshipPost.excerpt}
+                </p>
+
+                <div className="flex flex-wrap items-center gap-4 text-xs text-zinc-400 font-semibold pt-4 border-t border-zinc-800">
+                  <span className="flex items-center gap-1.5"><User size={13} /> {flagshipPost.author}</span>
+                  <span className="flex items-center gap-1.5"><Calendar size={13} /> {flagshipPost.date}</span>
+                  <span className="flex items-center gap-1.5"><Clock size={13} /> {flagshipPost.readTime}</span>
                 </div>
 
-                <div className="flex flex-wrap gap-4 text-xs text-zinc-400 border-t border-zinc-200/60 pt-6 font-semibold">
-                  <span className="flex items-center gap-1.5"><User size={14} /> {featuredPost.author}</span>
-                  <span className="flex items-center gap-1.5"><Calendar size={14} /> {featuredPost.date}</span>
-                  <span className="flex items-center gap-1.5"><Clock size={14} /> {featuredPost.readTime}</span>
-                </div>
-
-                <div>
+                <div className="pt-2">
                   <Link
-                    href={`/blog/${featuredPost.slug}`}
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-[#3B82F6] hover:text-[#C5A880] transition-colors"
+                    href={`/blog/${flagshipPost.slug}`}
+                    className="inline-flex items-center gap-2 text-xs font-bold text-white bg-[#C5A880] hover:bg-[#b59870] text-black px-5 py-2.5 rounded-full shadow-md transition-colors"
                   >
-                    Read Publication <ArrowRight size={16} />
+                    Read Full Article <ArrowRight size={14} />
                   </Link>
                 </div>
               </div>
@@ -69,41 +86,40 @@ export default function BlogListingPage() {
           </div>
         )}
 
-        {/* Grid of Remaining Posts */}
-        <div>
-          <h2 className="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-8">All Publications</h2>
+        {/* All Remaining Articles */}
+        <div className="space-y-8">
+          <h2 className="text-xs font-extrabold uppercase tracking-widest text-zinc-400 border-b border-zinc-200/80 pb-3">
+            All Field Operating Guides & Checklists ({otherPosts.length})
+          </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {remainingPosts.map((post) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {otherPosts.map((post) => (
               <div
                 key={post.slug}
-                className="bg-zinc-50 border border-zinc-200/60 rounded-3xl p-6 flex flex-col justify-between hover:border-[#C5A880]/30 transition-all duration-300 group shadow-sm"
+                className="bg-zinc-50 border border-zinc-200/80 rounded-3xl p-6 flex flex-col justify-between hover:border-black hover:bg-white hover:shadow-lg transition-all duration-200 shadow-xs"
               >
-                <div className="space-y-4">
-                  <Badge className="bg-[#C5A880]/10 text-[#C5A880] border-[#C5A880]/20 rounded-full px-3 w-fit">
+                <div className="space-y-3">
+                  <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-zinc-200 text-zinc-800 w-fit inline-block">
                     {post.category}
-                  </Badge>
-                  <h3 className="text-xl font-bold text-black group-hover:text-[#C5A880] transition-colors duration-300 leading-tight">
+                  </span>
+
+                  <h3 className="text-base font-bold text-black hover:underline leading-snug">
                     <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                   </h3>
-                  <p className="text-zinc-500 text-sm leading-relaxed">
+
+                  <p className="text-xs text-zinc-600 line-clamp-3 leading-relaxed font-medium">
                     {post.excerpt}
                   </p>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-zinc-200/60 flex flex-col gap-4">
-                  <div className="flex flex-wrap gap-4 text-xs text-zinc-400 font-semibold">
-                    <span className="flex items-center gap-1"><Calendar size={12} /> {post.date}</span>
-                    <span className="flex items-center gap-1"><Clock size={12} /> {post.readTime}</span>
-                  </div>
-                  <div>
-                    <Link
-                      href={`/blog/${post.slug}`}
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-[#3B82F6] hover:text-[#C5A880] transition-colors"
-                    >
-                      Read Article <ArrowRight size={14} />
-                    </Link>
-                  </div>
+                <div className="mt-6 pt-4 border-t border-zinc-200/60 flex items-center justify-between text-xs text-zinc-400 font-semibold">
+                  <span>{post.readTime}</span>
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="font-bold text-black hover:underline flex items-center gap-1"
+                  >
+                    Read <ArrowRight size={12} />
+                  </Link>
                 </div>
               </div>
             ))}

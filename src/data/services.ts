@@ -1,531 +1,390 @@
+export interface ServiceFeature {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+export interface ServiceProcessStep {
+  step: number;
+  title: string;
+  description: string;
+}
+
+export interface ServiceFAQ {
+  question: string;
+  answer: string;
+}
+
 export interface Service {
   slug: string;
   title: string;
   shortTitle: string;
-  category: 'security' | 'facilities' | 'digital' | 'events' | 'property';
+  phase: 'Phase 1 - Launch Service' | 'Phase 2 - Expansion Service';
+  isCoreLaunch: boolean;
+  category: 'security' | 'facilities' | 'manpower' | 'logistics' | 'events' | 'property' | 'digital' | 'creative';
+  categoryLabel: string;
+  valueProposition: string;
   description: string;
-  shortDescription: string;
+  whoItIsFor: string[];
   icon: string;
   heroImage: string;
-  features: { title: string; description: string; icon: string }[];
-  process: { step: number; title: string; description: string }[];
-  stats: { value: string; label: string }[];
-  faqs: { question: string; answer: string }[];
+  complianceNotice?: string;
+  features: ServiceFeature[];
+  process: ServiceProcessStep[];
+  faqs: ServiceFAQ[];
   relatedSlugs: string[];
   metaTitle: string;
   metaDescription: string;
 }
 
-export const services: Service[] = [
+export const serviceCategories = [
+  'All Services',
+  'Core Operations (Phase 1)',
+  'Integrated Business Solutions (Phase 2)',
+  'Security & Guarding',
+  'Facility & Housekeeping',
+  'Manpower & Staffing'
+];
+
+export const servicesData: Service[] = [
   {
     slug: 'private-security',
-    title: 'Elite Private Security Services',
+    title: 'Private Security & Guarding Operations',
     shortTitle: 'Private Security',
+    phase: 'Phase 1 - Launch Service',
+    isCoreLaunch: true,
     category: 'security',
-    description: 'Our elite private security services are designed to offer unparalleled protection for high-net-worth individuals, corporate executives, and sensitive operations. Leveraging former military and intelligence operatives, we provide a discrete yet formidable presence. Every security detail is tailored through comprehensive threat assessments.',
-    shortDescription: 'Unparalleled protection for individuals and corporate executives.',
+    categoryLabel: 'Security Services',
+    valueProposition: 'Professional on-site protection built around discipline, supervision, and clear reporting.',
+    description: 'JSM Integrated Services delivers structured, disciplined on-site private security guarding for commercial complexes, industrial plants, residential societies, educational institutions, and corporate facilities. We focus on rigorous guard vetting, clear post duties, supervisor spot-checks, and transparent daily reporting.',
+    whoItIsFor: [
+      'Corporate Offices & IT Parks',
+      'Residential Societies & Gated Communities',
+      'Factories & Manufacturing Units',
+      'Warehouses & Logistics Hubs',
+      'Hospitals & Healthcare Facilities',
+      'Educational Campuses & Schools',
+      'Retail Showrooms & Commercial Malls'
+    ],
     icon: 'Shield',
-    heroImage: '/images/services/private-security-hero.jpg',
+    heroImage: '/images/protective_guard.jpg',
+    complianceNotice: 'All guarding deployments comply with statutory labor regulations and standard verified background verification protocols. Armed security services are strictly subject to applicable licensing and client authorizations.',
     features: [
-      { title: 'Close Protection', description: 'Highly trained personnel ensuring personal safety.', icon: 'UserCheck' },
-      { title: 'Secure Transport', description: 'Armored and discreet vehicle logistics.', icon: 'Car' },
-      { title: 'Threat Assessment', description: 'Proactive evaluation of potential risks.', icon: 'Target' },
-      { title: 'Residential Security', description: '24/7 protection of primary and secondary residences.', icon: 'Home' },
-      { title: 'Travel Security', description: 'International travel risk management and accompaniment.', icon: 'Globe' },
-      { title: 'Emergency Response', description: 'Rapid extraction and crisis management capabilities.', icon: 'AlertTriangle' }
+      { title: 'Verified Unarmed Guarding', description: 'Trained, uniformed, and background-checked personnel deployed with defined post orders.', icon: 'UserCheck' },
+      { title: 'Gate & Visitor Management', description: 'Digital or structured manual visitor logging, vehicle inspection, and material pass checks.', icon: 'ClipboardCheck' },
+      { title: 'Perimeter & Night Patrolling', description: 'Scheduled and surprise patrol rounds to prevent unauthorized intrusion and safety hazards.', icon: 'Eye' },
+      { title: 'Supervisory Oversight', description: 'Dedicated field officers conduct unannounced spot-checks to ensure alertness and adherence to SOPs.', icon: 'CheckCircle' },
+      { title: 'Emergency Response Protocols', description: 'Trained response procedures for fire alarms, medical emergencies, and perimeter breaches.', icon: 'AlertTriangle' },
+      { title: 'Daily Shift Handover Reports', description: 'Documented logbooks ensuring seamless transition of duties and incident tracking.', icon: 'FileText' }
     ],
     process: [
-      { step: 1, title: 'Initial Consultation', description: 'Understanding your unique risk profile and concerns.' },
-      { step: 2, title: 'Vulnerability Assessment', description: 'Identifying potential weaknesses in your current security posture.' },
-      { step: 3, title: 'Detail Deployment', description: 'Assigning specialized personnel tailored to your operational needs.' },
-      { step: 4, title: 'Continuous Monitoring', description: 'Ongoing adaptation to changing threat landscapes.' }
-    ],
-    stats: [
-      { value: '100+', label: 'Executive Details' },
-      { value: '0', label: 'Security Breaches' },
-      { value: '24/7', label: 'Active Protection' }
+      { step: 1, title: 'Site Risk Assessment', description: 'We evaluate entry/exit points, perimeter vulnerabilities, visitor volumes, and specific client requirements.' },
+      { step: 2, title: 'Custom Post Orders & SOP', description: 'We prepare clear, site-specific standing orders detailing duty rosters, dress codes, and emergency actions.' },
+      { step: 3, title: 'Trained Deployment', description: 'Verified personnel are briefed on the client environment and deployed with standard uniforms and gear.' },
+      { step: 4, title: 'Continuous Supervision & Reporting', description: 'Field supervisors conduct regular rounds, audit attendance, and provide documented operational reviews.' }
     ],
     faqs: [
-      { question: 'Are your close protection officers armed?', answer: 'Depending on local jurisdiction and specific threat levels, our operatives can be deployed armed or unarmed.' },
-      { question: 'Do you operate internationally?', answer: 'Yes, we provide seamless global security logistics.' },
-      { question: 'How discreet is your service?', answer: 'Discretion is a core pillar. We blend into your lifestyle or corporate environment.' },
-      { question: 'Can you secure my family?', answer: 'Absolutely. We offer specialized family protection details.' },
-      { question: 'What backgrounds do your personnel have?', answer: 'Most of our operatives are drawn from elite military, police, and intelligence units.' }
+      { question: 'How do you verify the background of security personnel?', answer: 'Every candidate undergoes police verification support, address authentication, prior employment references, and document checks before deployment.' },
+      { question: 'What training do JSM security guards receive?', answer: 'Our personnel undergo a comprehensive 5-day induction program covering values, post discipline, fire safety, first aid basics, visitor etiquette, and site-specific SOPs.' },
+      { question: 'How do you ensure guards stay alert during night shifts?', answer: 'Our field supervisory officers carry out surprise night visits, structured checkpoint checks, and mandatory shift logging to maintain peak alertness.' },
+      { question: 'Can we scale the number of guards for special events or emergencies?', answer: 'Yes, JSM maintains reserve personnel capacity to scale up guard deployment on short notice for client emergencies or events.' }
     ],
-    relatedSlugs: ['cctv-monitoring', 'risk-assessment', 'event-security'],
-    metaTitle: 'Elite Private Security Services | JSM Security',
-    metaDescription: 'Discreet, highly-trained close protection and private security services for executives and high-net-worth individuals.'
+    relatedSlugs: ['housekeeping', 'manpower', 'cash-in-transit', 'event-support'],
+    metaTitle: 'Professional Private Security Services in Tamil Nadu | JSM Integrated Services',
+    metaDescription: 'Disciplined, vetted private security guarding, gate management, and patrol operations for corporate, residential, industrial, and institutional premises across Tamil Nadu.'
   },
   {
     slug: 'housekeeping',
-    title: 'Professional Housekeeping & Facilities',
-    shortTitle: 'Housekeeping',
+    title: 'Housekeeping & Integrated Facility Management',
+    shortTitle: 'Housekeeping & Facilities',
+    phase: 'Phase 1 - Launch Service',
+    isCoreLaunch: true,
     category: 'facilities',
-    description: 'Maintain pristine operational environments with our premium housekeeping services. We integrate seamlessly into corporate offices, luxury residences, and commercial facilities to deliver uncompromising cleanliness and hygiene standards. Our staff are vetted, trained, and equipped with eco-friendly solutions.',
-    shortDescription: 'Premium cleaning and maintenance for commercial and luxury spaces.',
+    categoryLabel: 'Facility Services',
+    valueProposition: 'Service is not a promise. It is a process. Structured hygiene, daily checklists, and reliable facility upkeep.',
+    description: 'JSM Integrated Services approaches housekeeping as a facility operating system. From daily workspace sanitization and restroom hygiene schedules to pantry support and waste segregation, we maintain clean, hygienic, and productive commercial and residential environments.',
+    whoItIsFor: [
+      'Commercial Buildings & IT Offices',
+      'Hospitals, Clinics & Diagnostic Labs',
+      'Shopping Centers & Retail Stores',
+      'Industrial Floors & Production Units',
+      'Schools, Colleges & Training Institutes',
+      'Apartment Complexes & Residential Communities'
+    ],
     icon: 'Sparkles',
-    heroImage: '/images/services/housekeeping-hero.jpg',
+    heroImage: '/images/facility_lobby.jpg',
     features: [
-      { title: 'Corporate Cleaning', description: 'Daily maintenance of office environments.', icon: 'Building' },
-      { title: 'Deep Sanitization', description: 'Medical-grade disinfection protocols.', icon: 'ShieldPlus' },
-      { title: 'Luxury Residential', description: 'Discreet housekeeping for high-end properties.', icon: 'Home' },
-      { title: 'Eco-Friendly', description: 'Sustainable and non-toxic cleaning agents.', icon: 'Leaf' },
-      { title: 'Specialized Surfaces', description: 'Care for marble, hardwood, and delicate materials.', icon: 'Layers' },
-      { title: 'Flexible Scheduling', description: 'Out-of-hours service to minimize disruption.', icon: 'Clock' }
+      { title: 'Daily Workspace Cleaning', description: 'Systematic dusting, vacuuming, mopping, and desk sanitization before and during office hours.', icon: 'Building' },
+      { title: 'Restroom Hygiene Cycles', description: 'Hourly inspection schedules, fragrance management, and continuous restocking of supplies.', icon: 'CheckCircle' },
+      { title: 'Waste Segregation & Disposal', description: 'Eco-conscious sorting of dry, wet, and recyclable waste according to municipal norms.', icon: 'Leaf' },
+      { title: 'Deep Cleaning & Machine Scrubbing', description: 'Periodic high-pressure floor scrubbing, carpet cleaning, and hard surface revitalization.', icon: 'Layers' },
+      { title: 'Pantry & Cafeteria Support', description: 'Hygiene maintenance in pantries, dishwashing assistance, and refreshment area upkeep.', icon: 'Coffee' },
+      { title: 'Daily Inspection Checklists', description: 'Supervisors inspect tasks against strict checklists: Clean → Inspect → Report → Correct → Verify.', icon: 'ClipboardCheck' }
     ],
     process: [
-      { step: 1, title: 'Site Inspection', description: 'Evaluating the scale and specific requirements of your facility.' },
-      { step: 2, title: 'Custom Protocol Design', description: 'Creating a tailored cleaning schedule and checklist.' },
-      { step: 3, title: 'Staff Allocation', description: 'Assigning dedicated personnel to your premises.' },
-      { step: 4, title: 'Quality Assurance', description: 'Regular management audits to ensure standards are exceeded.' }
-    ],
-    stats: [
-      { value: '500k+', label: 'Sq Ft Managed' },
-      { value: '99%', label: 'Client Retention' },
-      { value: '100%', label: 'Vetted Staff' }
+      { step: 1, title: 'Facility Space Survey', description: 'We map floor areas, footfall patterns, restroom density, surface materials, and timing preferences.' },
+      { step: 2, title: 'Hygiene Schedule Design', description: 'We build a tailored operating schedule detailing daily routines, hourly cycles, and periodic deep cleans.' },
+      { step: 3, title: 'Groomed Staff Deployment', description: 'Trained personnel are equipped with professional tools, eco-friendly chemicals, and protective equipment.' },
+      { step: 4, title: 'Quality Audits & Verification', description: 'Supervisors conduct daily checklist verifications and monthly client reviews to ensure immaculate standards.' }
     ],
     faqs: [
-      { question: 'Do you provide out-of-hours cleaning?', answer: 'Yes, we operate 24/7 to ensure zero disruption to your business.' },
-      { question: 'Are your cleaning staff background-checked?', answer: 'All staff undergo rigorous vetting and background checks.' },
-      { question: 'What cleaning products do you use?', answer: 'We prioritize premium, eco-friendly, and non-toxic products.' },
-      { question: 'Can you handle large corporate buildings?', answer: 'Yes, we scale our teams to manage facilities of any size.' },
-      { question: 'Do you offer one-off deep cleans?', answer: 'While we focus on ongoing contracts, we do offer specialized one-off services for clients.' }
+      { question: 'Do you provide the cleaning chemicals and equipment?', answer: 'We offer both options: we can supply high-grade, eco-friendly cleaning materials and machinery, or utilize client-approved consumables based on agreement.' },
+      { question: 'Can housekeeping be scheduled outside business hours?', answer: 'Yes. We customize shifts for early morning, evening, or night hours to ensure zero operational disruption to your team.' },
+      { question: 'How do you monitor hygiene quality?', answer: 'Our supervisors use physical and digital checklists with sign-off sheets placed in restrooms and utility areas, inspected multiple times daily.' }
     ],
-    relatedSlugs: ['manpower', 'real-estate', 'event-management'],
-    metaTitle: 'Professional Housekeeping Services | JSM Security',
-    metaDescription: 'Top-tier housekeeping and facility management for corporate and luxury residential spaces.'
+    relatedSlugs: ['private-security', 'manpower', 'real-estate-support'],
+    metaTitle: 'Corporate Housekeeping & Facility Management in Tamil Nadu | JSM Integrated Services',
+    metaDescription: 'Reliable, checklist-driven commercial housekeeping, restroom hygiene, and facility upkeep for corporate offices, hospitals, and residential complexes.'
   },
   {
     slug: 'manpower',
-    title: 'Strategic Manpower & Staffing Solutions',
-    shortTitle: 'Manpower Supply',
-    category: 'facilities',
-    description: 'Deploying reliable, skilled, and fully vetted personnel across multiple sectors. Whether you need administrative support, specialized operational staff, or rapid-deployment labor forces, our manpower solutions provide the human capital necessary to scale your operations efficiently and securely.',
-    shortDescription: 'Reliable, vetted personnel for diverse operational needs.',
+    title: 'Manpower & Temporary Staffing Solutions',
+    shortTitle: 'Manpower & Staffing',
+    phase: 'Phase 1 - Launch Service',
+    isCoreLaunch: true,
+    category: 'manpower',
+    categoryLabel: 'Staffing Solutions',
+    valueProposition: 'Right people. Right role. Right process. Reliable workforce deployment for operations that cannot stop.',
+    description: 'Rooted in our heritage as JSMMANPOWER, we provide reliable, vetted skilled and semi-skilled staffing solutions. Whether you need industrial helpers, warehouse operators, administrative personnel, or peak-season workforce surges, JSM coordinates recruitment, onboarding, and attendance.',
+    whoItIsFor: [
+      'Factories & Manufacturing Units',
+      'Warehouses & Distribution Centers',
+      'E-commerce Logistics & Fulfillment Hubs',
+      'Hospitality & Catering Businesses',
+      'Construction & Infrastructure Projects',
+      'Retail Chains & Hypermarkets'
+    ],
     icon: 'Users',
-    heroImage: '/images/services/manpower-hero.jpg',
+    heroImage: '/images/hero_operations.jpg',
     features: [
-      { title: 'Rapid Deployment', description: 'Quickly fill vital roles on short notice.', icon: 'Zap' },
-      { title: 'Vetted Personnel', description: 'Comprehensive background checks and screening.', icon: 'UserCheck' },
-      { title: 'Skill Matching', description: 'Precise alignment of candidate skills to role requirements.', icon: 'Target' },
-      { title: 'Scalable Teams', description: 'From individuals to entire departments.', icon: 'TrendingUp' },
-      { title: 'Payroll Management', description: 'End-to-end administration and compliance.', icon: 'FileText' },
-      { title: 'Specialized Roles', description: 'Access to niche skills across industries.', icon: 'Briefcase' }
+      { title: 'Skilled & Semi-Skilled Staffing', description: 'Electricians, machine assistants, warehouse handlers, data entry staff, and supervisors.', icon: 'Briefcase' },
+      { title: 'General & Industrial Workforce', description: 'Dependable manual labor, loading/unloading teams, and production line assistants.', icon: 'TrendingUp' },
+      { title: 'Peak-Season Scalability', description: 'Rapid workforce surge capacity to handle festive demands, audits, or sudden production increases.', icon: 'Zap' },
+      { title: 'Rigorous Background Checks', description: 'Identity verification, Aadhaar/address validation, and prior work background screening.', icon: 'UserCheck' },
+      { title: 'Statutory & Payroll Support', description: 'Streamlined documentation, attendance tracking, and transparent contractual records.', icon: 'FileText' },
+      { title: 'Dedicated Field Coordinator', description: 'A single JSM coordinator manages daily roll-calls, replacements, and client communications.', icon: 'CheckCircle' }
     ],
     process: [
-      { step: 1, title: 'Requirement Analysis', description: 'Defining the exact skillsets and cultural fit needed.' },
-      { step: 2, title: 'Sourcing & Screening', description: 'Leveraging our extensive network to identify candidates.' },
-      { step: 3, title: 'Deployment', description: 'Onboarding and integrating staff into your operations.' },
-      { step: 4, title: 'Performance Review', description: 'Ongoing evaluation to ensure optimal productivity.' }
-    ],
-    stats: [
-      { value: '2,000+', label: 'Active Personnel' },
-      { value: '<48h', label: 'Deployment Time' },
-      { value: '5+', label: 'Industries Served' }
+      { step: 1, title: 'Manpower Requirement Mapping', description: 'We analyze the exact job roles, skill criteria, shift timings, headcount, and physical site requirements.' },
+      { step: 2, title: 'Screening & Sourcing', description: 'Candidates are evaluated for trade skills, physical fitness, discipline, and background history.' },
+      { step: 3, title: 'Induction & Briefing', description: 'Staff are briefed on workplace safety, attendance rules, and client-specific operational standards.' },
+      { step: 4, title: 'Deployment & Attendance Management', description: 'Daily attendance is monitored with backup reserves in place to prevent operational bottlenecks.' }
     ],
     faqs: [
-      { question: 'What industries do you cover?', answer: 'We cover security, hospitality, corporate administration, and industrial sectors.' },
-      { question: 'Do you handle payroll and taxes?', answer: 'Yes, we provide fully managed manpower services including payroll.' },
-      { question: 'How fast can you deploy staff?', answer: 'Depending on the role, we can deploy staff within 24 to 48 hours.' },
-      { question: 'Are temporary contracts available?', answer: 'Yes, we offer short-term, long-term, and permanent staffing solutions.' },
-      { question: 'How do you vet candidates?', answer: 'Through multi-stage interviews, background checks, and skill verifications.' }
+      { question: 'How fast can JSM deploy contractual manpower?', answer: 'For standard skilled and unskilled roles, we can mobilize deployment within 48 to 72 hours depending on headcount.' },
+      { question: 'Do you manage replacement for absent workers?', answer: 'Yes. We maintain an active standby pool to replace unexpected absenteeism promptly.' },
+      { question: 'Are workers verified before deployment?', answer: 'Yes. All candidates undergo strict identity validation and background verification before placement.' }
     ],
-    relatedSlugs: ['housekeeping', 'event-management', 'private-security'],
-    metaTitle: 'Strategic Manpower Solutions | JSM Security',
-    metaDescription: 'Access vetted, reliable manpower and staffing solutions tailored for your operational scaling.'
+    relatedSlugs: ['private-security', 'housekeeping', 'real-estate-support'],
+    metaTitle: 'Contract Manpower & Staffing Agency in Tamil Nadu | JSM Integrated Services',
+    metaDescription: 'Dependable skilled, semi-skilled, and industrial manpower supply for factories, warehouses, retail, and corporate operations across Tamil Nadu.'
   },
   {
     slug: 'cash-in-transit',
-    title: 'Secure Cash-in-Transit (CIT) Operations',
+    title: 'Secure Cash-in-Transit & Logistics Support',
     shortTitle: 'Cash-in-Transit',
-    category: 'security',
-    description: 'Safeguard your high-value assets and currency with our fortified Cash-in-Transit services. Utilizing armored vehicles, advanced tracking technology, and heavily armed personnel, we ensure the secure transfer of assets between financial institutions, retail centers, and corporate vaults.',
-    shortDescription: 'Armored transport and secure logistics for high-value assets.',
+    phase: 'Phase 1 - Launch Service',
+    isCoreLaunch: true,
+    category: 'logistics',
+    categoryLabel: 'Secure Logistics',
+    valueProposition: 'Disciplined two-person custody transfers, documentation, and secure transit protocols.',
+    description: 'JSM Integrated Services coordinates professional cash movement and valuables logistics support for retail chains, financial outlets, fuel stations, and corporate collections. Every operation adheres strictly to documented handover logs, route timing discipline, and dual-custody verification.',
+    whoItIsFor: [
+      'Retail Chains & Supermarket Groups',
+      'Commercial Banks & ATM Operators',
+      'Fuel Stations & Highway Toll Plazas',
+      'Jewellery Showrooms & High-Value Retail',
+      'Corporate Cash Collection Counters'
+    ],
     icon: 'Banknote',
-    heroImage: '/images/services/cit-hero.jpg',
+    heroImage: '/images/hero_operations.jpg',
+    complianceNotice: 'Cash-in-Transit services are provided strictly subject to applicable regulatory licensing, permissions, documentation, and client insurance frameworks. Route and security details are strictly confidential.',
     features: [
-      { title: 'Armored Fleet', description: 'State-of-the-art secure transport vehicles.', icon: 'Truck' },
-      { title: 'Armed Personnel', description: 'Highly trained guards securing the transfer.', icon: 'ShieldAlert' },
-      { title: 'Real-Time Tracking', description: 'GPS and communication monitoring of all routes.', icon: 'MapPin' },
-      { title: 'Vault Storage', description: 'Secure overnight and long-term asset holding.', icon: 'Lock' },
-      { title: 'Risk Mitigation', description: 'Dynamic routing and threat intelligence.', icon: 'Activity' },
-      { title: 'Fully Insured', description: 'Comprehensive liability coverage for all transits.', icon: 'CheckCircle' }
+      { title: 'Two-Person Custody Model', description: 'Strict dual-signoff handover procedures ensuring total asset accountability at pickup and deposit.', icon: 'Lock' },
+      { title: 'Secure Route Planning', description: 'Planned transit windows and randomized movement schedules to prevent predictability.', icon: 'MapPin' },
+      { title: 'Documented Handover Receipts', description: 'Tamper-evident bags and physical/digital verification logs provided at every step.', icon: 'FileText' },
+      { title: 'Trained Custody Officers', description: 'Disciplined personnel trained in defensive observation and protocol compliance.', icon: 'Shield' },
+      { title: 'Daily Retail Cash Pickup', description: 'Scheduled daily or on-call collection services for multi-outlet retail enterprises.', icon: 'Clock' },
+      { title: 'Direct Management Oversight', description: 'Senior operational coordinators track mission completion with immediate escalation channels.', icon: 'CheckCircle' }
     ],
     process: [
-      { step: 1, title: 'Logistics Planning', description: 'Mapping secure routes and establishing protocols.' },
-      { step: 2, title: 'Secure Collection', description: 'Procedural handover of assets at the client site.' },
-      { step: 3, title: 'Monitored Transit', description: 'Active oversight from our 24/7 command center.' },
-      { step: 4, title: 'Verified Delivery', description: 'Confirmed deposit and receipt generation.' }
-    ],
-    stats: [
-      { value: '100%', label: 'Delivery Success' },
-      { value: '$500M+', label: 'Assets Moved Monthly' },
-      { value: '24/7', label: 'Command Oversight' }
+      { step: 1, title: 'Risk & Route Protocol Review', description: 'We assess collection locations, handover safety, deposit timing windows, and document requirements.' },
+      { step: 2, title: 'Custody Protocol Setup', description: 'Establishment of authorized signatory registers, seal numbers, and verification procedures.' },
+      { step: 3, title: 'Execution of Transfer', description: 'Trained custody personnel execute the transfer using dual-verification and tamper-proof bags.' },
+      { step: 4, title: 'Reconciliation & Reporting', description: 'Prompt generation of signed collection slips and digital reconciliation with client accounts.' }
     ],
     faqs: [
-      { question: 'Are your vehicles armored?', answer: 'Yes, we utilize top-tier armored vehicles equipped with defensive countermeasures.' },
-      { question: 'Is the cash fully insured during transit?', answer: 'Absolutely. We hold comprehensive insurance policies for all assets in our custody.' },
-      { question: 'Can I track my deposit?', answer: 'Clients have access to verified delivery reports and tracking.' },
-      { question: 'Do you service retail businesses?', answer: 'Yes, we provide scheduled and on-call collection for retail centers.' },
-      { question: 'How do you handle routing?', answer: 'Routes are randomized and dynamically altered based on threat intelligence.' }
+      { question: 'What safety measures do you take during cash collection?', answer: 'We implement tamper-evident sealing, two-person verified handovers, time-variance protocols, and strict identity authentication.' },
+      { question: 'Do you provide daily scheduled collections for multi-branch retailers?', answer: 'Yes, we design custom collection routes covering multiple branches with standardized deposit reporting.' }
     ],
-    relatedSlugs: ['private-security', 'cctv-monitoring', 'risk-assessment'],
-    metaTitle: 'Secure Cash-in-Transit Services | JSM Security',
-    metaDescription: 'Armored, secure, and fully insured cash-in-transit and asset logistics services.'
+    relatedSlugs: ['private-security', 'manpower'],
+    metaTitle: 'Secure Cash-in-Transit & Cash Logistics in Tamil Nadu | JSM Integrated Services',
+    metaDescription: 'Disciplined, protocol-driven cash-in-transit, retail cash collection, and valuable asset logistics across Tamil Nadu.'
   },
   {
-    slug: 'cctv-monitoring',
-    title: '24/7 CCTV & Command Center Monitoring',
-    shortTitle: 'CCTV Monitoring',
-    category: 'digital',
-    description: 'Transform passive surveillance into active defense. Our state-of-the-art Command Center provides real-time CCTV monitoring, utilizing AI-driven analytics to detect anomalies instantly. We bridge the gap between technology and human intelligence to secure your premises round the clock.',
-    shortDescription: 'Active surveillance and AI-driven monitoring from our command center.',
-    icon: 'Video',
-    heroImage: '/images/services/cctv-hero.jpg',
-    features: [
-      { title: 'AI Intrusion Detection', description: 'Smart algorithms flag unauthorized access instantly.', icon: 'Brain' },
-      { title: '24/7 Oversight', description: 'Continuous monitoring by trained analysts.', icon: 'Eye' },
-      { title: 'Rapid Deployment', description: 'Immediate dispatch of response teams upon verification.', icon: 'Siren' },
-      { title: 'System Integration', description: 'Seamless connection with existing security hardware.', icon: 'Link' },
-      { title: 'Remote Access Control', description: 'Managing gates and barriers from the command center.', icon: 'Unlock' },
-      { title: 'Incident Reporting', description: 'Detailed logs and video evidence provision.', icon: 'FileText' }
-    ],
-    process: [
-      { step: 1, title: 'System Audit', description: 'Evaluating your current camera layout and hardware.' },
-      { step: 2, title: 'Integration', description: 'Connecting your feeds to our secure Command Center.' },
-      { step: 3, title: 'Rule Configuration', description: 'Setting specific alert parameters and AI zones.' },
-      { step: 4, title: 'Active Monitoring', description: '24/7 vigilance and immediate incident response.' }
-    ],
-    stats: [
-      { value: '10,000+', label: 'Cameras Monitored' },
-      { value: '<5s', label: 'Alert Verification' },
-      { value: '24/7/365', label: 'Command Center Uptime' }
-    ],
-    faqs: [
-      { question: 'Can you monitor my existing cameras?', answer: 'Yes, our systems integrate with 95% of standard IP and analog camera systems.' },
-      { question: 'What happens when an alarm triggers?', answer: 'Our analysts instantly verify the feed. If a threat is real, we dispatch response teams and notify authorities.' },
-      { question: 'Do you use AI?', answer: 'Yes, we utilize advanced AI for motion, facial, and license plate recognition to reduce false alarms.' },
-      { question: 'Is the command center secure?', answer: 'Our command center is a fortified, redundant facility designed for continuous operation.' },
-      { question: 'Can you manage access control remotely?', answer: 'Yes, we can verify identities via camera and remotely unlock doors or gates.' }
-    ],
-    relatedSlugs: ['private-security', 'risk-assessment', 'software-solutions'],
-    metaTitle: '24/7 CCTV Monitoring | JSM Security',
-    metaDescription: 'Proactive CCTV monitoring and AI-driven surveillance from our state-of-the-art Command Center.'
-  },
-  {
-    slug: 'event-security',
-    title: 'Specialized Event Security & Crowd Control',
-    shortTitle: 'Event Security',
+    slug: 'event-support',
+    title: 'Event & Wedding Security + Planning Support',
+    shortTitle: 'Event & Wedding Support',
+    phase: 'Phase 2 - Expansion Service',
+    isCoreLaunch: false,
     category: 'events',
-    description: 'Ensure the safety and success of your large-scale gatherings. From corporate conferences to major festivals, our event security teams specialize in crowd management, VIP protection, and emergency response, delivering a safe environment without compromising the guest experience.',
-    shortDescription: 'Crowd management and VIP protection for large-scale events.',
+    categoryLabel: 'Events & Weddings',
+    valueProposition: 'Because a great event should feel effortless — even when the operation behind it isn’t.',
+    description: 'From grand weddings and celebrity functions to corporate conferences and exhibitions, JSM provides hospitality-focused crowd coordination, VIP handling, gate entry security, valet traffic coordination, and partner-assisted event media coverage.',
+    whoItIsFor: [
+      'Wedding Planners & Family Hosts',
+      'Corporate Event Organizers & Summits',
+      'Exhibition & Trade Fair Managers',
+      'College Festivals & Public Gatherings',
+      'Celebrity & VIP Private Receptions'
+    ],
     icon: 'Ticket',
-    heroImage: '/images/services/event-security-hero.jpg',
+    heroImage: '/images/protective_guard.jpg',
     features: [
-      { title: 'Crowd Management', description: 'Strategic flow control and density monitoring.', icon: 'Users' },
-      { title: 'Access Control', description: 'Ticket verification and perimeter security.', icon: 'Shield' },
-      { title: 'VIP Protection', description: 'Dedicated details for high-profile attendees.', icon: 'Star' },
-      { title: 'Emergency Planning', description: 'Comprehensive evacuation and crisis protocols.', icon: 'AlertOctagon' },
-      { title: 'Bag Screening', description: 'Thorough but efficient entry point checks.', icon: 'Search' },
-      { title: 'Medical Response', description: 'First-aid trained personnel on standby.', icon: 'HeartPulse' }
+      { title: 'Crowd & Gate Management', description: 'Smooth guest entry, invitation verification, queue control, and exit flow management.', icon: 'Users' },
+      { title: 'VIP & Celebrity Handling', description: 'Discreet escorting and dedicated protection details for high-profile dignitaries and artists.', icon: 'Star' },
+      { title: 'Valet & Traffic Coordination', description: 'Organized parking management and vehicular flow control outside the venue.', icon: 'Car' },
+      { title: 'Hospitality-Trained Bouncers', description: 'Polite, imposing yet respectful physical security personnel trained in courteous de-escalation.', icon: 'Shield' },
+      { title: 'Emergency & Medical Standby', description: 'First-aid trained officers and clear emergency exit corridors.', icon: 'AlertTriangle' },
+      { title: 'Partner Media Documentation', description: 'Coordinated photography, videography, and audiovisual coverage through verified partners.', icon: 'Camera' }
     ],
     process: [
-      { step: 1, title: 'Site Survey', description: 'Analyzing the venue layout for vulnerabilities.' },
-      { step: 2, title: 'Operational Plan', description: 'Drafting specific deployments for entry, stage, and perimeter.' },
-      { step: 3, title: 'Briefing & Deployment', description: 'Pre-event staff alignment and positioning.' },
-      { step: 4, title: 'Live Coordination', description: 'Real-time adjustments via on-site command post.' }
-    ],
-    stats: [
-      { value: '500+', label: 'Events Secured' },
-      { value: '1M+', label: 'Attendees Protected' },
-      { value: '100%', label: 'Safety Record' }
+      { step: 1, title: 'Venue Walkthrough & Flow Mapping', description: 'We evaluate hall layout, stage access, VIP lounges, emergency exits, and parking capacity.' },
+      { step: 2, title: 'Manpower & Security Blueprint', description: 'We assign specific officer posts: entrance greeting, parking, backstage, and roaming crowd control.' },
+      { step: 3, title: 'Pre-Event Briefing', description: 'Staff are briefed on guest lists, dress codes, emergency contacts, and special instructions.' },
+      { step: 4, title: 'Live Execution & Coordination', description: 'An on-site supervisor oversees operations from guest arrival until post-event wrap-up.' }
     ],
     faqs: [
-      { question: 'Do you handle festivals?', answer: 'Yes, we specialize in high-capacity events including music festivals.' },
-      { question: 'Can you provide plainclothes security?', answer: 'Absolutely. We offer discreet security for corporate or VIP-heavy events.' },
-      { question: 'Are your staff trained in conflict de-escalation?', answer: 'De-escalation is a core component of our event security training.' },
-      { question: 'How early do you begin planning?', answer: 'For major events, we prefer to begin risk assessment months in advance.' },
-      { question: 'Do you coordinate with local police?', answer: 'Yes, we always establish communication channels with local law enforcement.' }
+      { question: 'Are your event security staff trained in hospitality?', answer: 'Yes. We specifically train event personnel to maintain a welcoming, respectful demeanor while ensuring firm perimeter and crowd control.' },
+      { question: 'Can you handle both small private functions and large college festivals?', answer: 'Yes. We scale from 4-person private wedding details up to 50+ personnel for large public conventions.' }
     ],
-    relatedSlugs: ['event-management', 'private-security', 'manpower'],
-    metaTitle: 'Event Security & Crowd Control | JSM Security',
-    metaDescription: 'Professional event security, crowd management, and VIP protection for events of all sizes.'
+    relatedSlugs: ['private-security', 'creative-media', 'manpower'],
+    metaTitle: 'Event Security & Wedding Management Support in Tamil Nadu | JSM Integrated Services',
+    metaDescription: 'Hospitality-driven event security, crowd management, VIP escorts, and wedding coordination across Tamil Nadu.'
   },
   {
-    slug: 'risk-assessment',
-    title: 'Comprehensive Risk & Threat Assessment',
-    shortTitle: 'Risk Assessment',
-    category: 'security',
-    description: 'Intelligence-led security begins with understanding your vulnerabilities. Our elite consultants conduct exhaustive risk assessments of physical premises, digital infrastructure, and operational procedures, delivering actionable blueprints to fortify your enterprise against modern threats.',
-    shortDescription: 'Exhaustive audits of physical and digital vulnerabilities.',
-    icon: 'Radar',
-    heroImage: '/images/services/risk-hero.jpg',
+    slug: 'real-estate-support',
+    title: 'Real Estate & Auction Site Support',
+    shortTitle: 'Real Estate & Auctions',
+    phase: 'Phase 2 - Expansion Service',
+    isCoreLaunch: false,
+    category: 'property',
+    categoryLabel: 'Property Support',
+    valueProposition: 'Securing construction progress, finished assets, model apartments, and organized auction bidder verification.',
+    description: 'JSM provides specialized operational support for real estate developers, builders, and auction organizers. We safeguard construction materials from pilferage, manage model flat sales galleries with professional concierge staff, and maintain orderly entry control during high-stakes auctions.',
+    whoItIsFor: [
+      'Real Estate Builders & Developers',
+      'Construction Project Contractors',
+      'Property Management Companies',
+      'Auction Houses & Asset Disposal Agencies',
+      'Financial Institutions & Asset Recoveries'
+    ],
+    icon: 'Building',
+    heroImage: '/images/facility_lobby.jpg',
     features: [
-      { title: 'Site Penetration', description: 'Simulated physical breaches to test defenses.', icon: 'Target' },
-      { title: 'Policy Audit', description: 'Review of current security protocols and compliance.', icon: 'FileSearch' },
-      { title: 'Digital Footprint', description: 'Assessing OSINT vulnerabilities of key personnel.', icon: 'Monitor' },
-      { title: 'Threat Modeling', description: 'Scenario-based analysis of potential attacks.', icon: 'Box' },
-      { title: 'Architectural Review', description: 'Security evaluations of building layouts (CPTED).', icon: 'Building' },
-      { title: 'Executive Reporting', description: 'Actionable intelligence briefs for board members.', icon: 'PieChart' }
+      { title: 'Construction Site Security', description: '24/7 material gate passes, night vigilance, and equipment protection against theft and damage.', icon: 'Shield' },
+      { title: 'Sales Gallery & Model Flat Hosting', description: 'Courteous concierge staff and front-desk personnel welcoming prospective property buyers.', icon: 'Home' },
+      { title: 'Finished Property Handover Protection', description: 'Safeguarding completed apartments and villas prior to tenant occupancy.', icon: 'Lock' },
+      { title: 'Auction Bidder Verification', description: 'Structured token verification, identification checks, and orderly auction hall entry.', icon: 'ClipboardCheck' },
+      { title: 'Material Inward/Outward Registers', description: 'Strict logging of steel, cement, fixtures, and contractor machinery.', icon: 'FileText' },
+      { title: 'Worker ID Tagging & Gate Control', description: 'Daily worker identification checks to prevent unauthorized labor on construction sites.', icon: 'UserCheck' }
     ],
     process: [
-      { step: 1, title: 'Scope Definition', description: 'Identifying the assets and areas to be audited.' },
-      { step: 2, title: 'Data Gathering', description: 'On-site inspections and intelligence collection.' },
-      { step: 3, title: 'Vulnerability Analysis', description: 'Identifying gaps in physical and procedural security.' },
-      { step: 4, title: 'Strategic Blueprint', description: 'Delivering a prioritized roadmap for mitigation.' }
-    ],
-    stats: [
-      { value: '250+', label: 'Corporate Audits' },
-      { value: '100%', label: 'Actionable Reports' },
-      { value: 'Global', label: 'Coverage Area' }
+      { step: 1, title: 'Site Inspection & Ingress Mapping', description: 'We inspect perimeter fences, storage sheds, entry gates, and visitor reception zones.' },
+      { step: 2, title: 'Material Register Protocol', description: 'We implement standard inward/outward gate passes and supervisor sign-offs.' },
+      { step: 3, title: 'Deployment & Shift Rostering', description: 'Stationed guards and roaming officers are deployed with clear standing instructions.' },
+      { step: 4, title: 'Daily Log Submission', description: 'Daily vehicle logs, material movement registers, and incident summaries sent to project managers.' }
     ],
     faqs: [
-      { question: 'Who conducts the assessments?', answer: 'Former intelligence officers and certified security management professionals (CPP).' },
-      { question: 'How long does an assessment take?', answer: 'Depending on scale, from a few days for a single site to weeks for an enterprise.' },
-      { question: 'Do you implement the recommendations?', answer: 'Yes, we offer end-to-end solutions to fix identified vulnerabilities.' },
-      { question: 'What is CPTED?', answer: 'Crime Prevention Through Environmental Design—using architecture to naturally deter threats.' },
-      { question: 'Are the reports confidential?', answer: 'Extremely. All data is handled under strict NDAs and secure channels.' }
+      { question: 'How do you prevent construction material theft?', answer: 'We implement 100% material pass verification, physical bag checks of exiting labor, night illumination checks, and perimeter patrols.' },
+      { question: 'Can you provide front-desk hosts for luxury property sales lounges?', answer: 'Yes. We deploy well-groomed, articulate personnel to manage reception and guide visitors to sales executives.' }
     ],
-    relatedSlugs: ['private-security', 'cctv-monitoring', 'software-solutions'],
-    metaTitle: 'Risk & Threat Assessment | JSM Security',
-    metaDescription: 'Intelligence-led security audits and vulnerability assessments to fortify your enterprise.'
+    relatedSlugs: ['private-security', 'housekeeping', 'manpower'],
+    metaTitle: 'Real Estate Construction Site Security & Auction Support | JSM Integrated Services',
+    metaDescription: 'Construction site material guarding, sales gallery hosting, and auction bidder verification services across Tamil Nadu.'
   },
   {
     slug: 'software-solutions',
-    title: 'Custom Digital & Software Solutions',
+    title: 'Software & Web Solutions for Business',
     shortTitle: 'Software Solutions',
+    phase: 'Phase 2 - Expansion Service',
+    isCoreLaunch: false,
     category: 'digital',
-    description: 'Empower your operations with custom-engineered software solutions. From bespoke access control dashboards to integrated resource planning systems, our digital division builds secure, scalable technology tailored to your exact operational requirements.',
-    shortDescription: 'Secure, scalable custom software and IT infrastructure.',
-    icon: 'Code2',
-    heroImage: '/images/services/software-hero.jpg',
+    categoryLabel: 'Digital Solutions',
+    valueProposition: 'Integrated business technology: custom landing pages, visitor management software, and lead automation.',
+    description: 'As part of our integrated corporate support, JSM builds streamlined digital tools for modern enterprises. From clean high-conversion business websites and landing pages to digital visitor logging and attendance automation, we empower businesses with modern technology.',
+    whoItIsFor: [
+      'SMEs & Growing Enterprises',
+      'Real Estate & Property Developers',
+      'Healthcare Clinics & Educational Institutes',
+      'Event & Wedding Organizers',
+      'Logistics & Service Companies'
+    ],
+    icon: 'Monitor',
+    heroImage: '/images/portal_laptop.jpg',
     features: [
-      { title: 'Custom Dashboards', description: 'Unified interfaces for disparate security systems.', icon: 'LayoutDashboard' },
-      { title: 'Mobile Applications', description: 'Field reporting and workforce management apps.', icon: 'Smartphone' },
-      { title: 'API Integration', description: 'Connecting legacy systems with modern cloud infra.', icon: 'Network' },
-      { title: 'Data Analytics', description: 'Turning operational data into actionable insights.', icon: 'BarChart' },
-      { title: 'Secure Architecture', description: 'Built from the ground up with zero-trust principles.', icon: 'ShieldCheck' },
-      { title: 'Cloud Infrastructure', description: 'Scalable and redundant hosting solutions.', icon: 'Cloud' }
+      { title: 'High-Conversion Business Websites', description: 'Fast, responsive, mobile-first websites designed for lead generation and brand authority.', icon: 'Globe' },
+      { title: 'Digital Visitor Logging Systems', description: 'QR-code and tablet-based visitor check-ins replacing messy manual paper registers.', icon: 'Tablet' },
+      { title: 'Lead Capture & WhatsApp Automation', description: 'Instant routing of customer inquiries to your sales team via WhatsApp and email.', icon: 'Zap' },
+      { title: 'Staff Attendance & Reporting Portals', description: 'Cloud-enabled attendance logs and daily operational checklist tracking.', icon: 'FileText' },
+      { title: 'Search Engine Optimization (SEO)', description: 'Local SEO architecture ensuring high search ranking for key regional service keywords.', icon: 'Search' },
+      { title: 'Domain & Hosting Management', description: 'Reliable deployment, SSL certificates, business emails, and maintenance.', icon: 'Lock' }
     ],
     process: [
-      { step: 1, title: 'Requirements Gathering', description: 'Deep dive into your operational bottlenecks.' },
-      { step: 2, title: 'System Architecture', description: 'Designing secure and scalable software blueprints.' },
-      { step: 3, title: 'Agile Development', description: 'Iterative coding with continuous client feedback.' },
-      { step: 4, title: 'Deployment & Training', description: 'Secure rollout and comprehensive user training.' }
-    ],
-    stats: [
-      { value: '50+', label: 'Enterprise Platforms' },
-      { value: '99.9%', label: 'Uptime SLA' },
-      { value: 'ISO 27001', label: 'Compliant' }
+      { step: 1, title: 'Requirement & Goal Discovery', description: 'We identify your operational bottlenecks, target audience, and lead generation targets.' },
+      { step: 2, title: 'UI/UX & Architecture Design', description: 'We create clean, modern wireframes and mobile-first user journeys.' },
+      { step: 3, title: 'Development & Testing', description: 'We code fast, secure, search-optimized applications with seamless form integrations.' },
+      { step: 4, title: 'Deployment & Training', description: 'We launch the system on fast servers and train your staff on daily operations.' }
     ],
     faqs: [
-      { question: 'Do you build native mobile apps?', answer: 'Yes, we develop for both iOS and Android platforms.' },
-      { question: 'Is your software secure?', answer: 'Security is in our DNA. All software undergoes rigorous penetration testing.' },
-      { question: 'Can you integrate with our existing hardware?', answer: 'We specialize in writing custom APIs to bridge old and new technologies.' },
-      { question: 'Do you provide ongoing support?', answer: 'Yes, we offer 24/7 SLA-backed maintenance and support.' },
-      { question: 'Who owns the intellectual property?', answer: 'Depending on the contract, source code IP is typically transferred to the client upon completion.' }
+      { question: 'Is technology support a standalone service or integrated with manpower?', answer: 'We offer it both ways: as an integrated tech layer for clients using our security/facility services, or as standalone digital development for businesses.' },
+      { question: 'Can you integrate digital visitor logs at our security gate?', answer: 'Yes. We provide tablet-based visitor management tools that work in sync with our on-site security guards.' }
     ],
-    relatedSlugs: ['cctv-monitoring', 'risk-assessment', 'creative-media'],
-    metaTitle: 'Custom Digital & Software Solutions | JSM Security',
-    metaDescription: 'Bespoke, highly secure software and digital platforms for enterprise operations.'
+    relatedSlugs: ['creative-media', 'private-security', 'manpower'],
+    metaTitle: 'Business Software, Web Solutions & Digital Tools | JSM Integrated Services',
+    metaDescription: 'Modern web design, digital visitor management systems, and lead automation for businesses across Tamil Nadu.'
   },
   {
     slug: 'creative-media',
-    title: 'Creative Media & Digital Branding',
+    title: 'Creative Media & Corporate Documentation',
     shortTitle: 'Creative Media',
-    category: 'digital',
-    description: 'Communicate your brand authority with high-end creative media services. From corporate videography and digital marketing to complete brand identity overhauls, our creative team ensures your visual presence is as strong as your physical security.',
-    shortDescription: 'High-end corporate videography, branding, and digital marketing.',
+    phase: 'Phase 2 - Expansion Service',
+    isCoreLaunch: false,
+    category: 'creative',
+    categoryLabel: 'Media & Branding',
+    valueProposition: 'Professional corporate videography, event documentation, asset photography, and visual branding.',
+    description: 'JSM Creative Media provides professional visual documentation for corporate operations, industrial plants, events, and real estate developments. We produce high-resolution photography, aerial drone surveys, and corporate videos that build trust and credibility for your brand.',
+    whoItIsFor: [
+      'Corporate Enterprises & Brands',
+      'Industrial Plant Operators',
+      'Real Estate Builders & Architects',
+      'Event & Wedding Hosts',
+      'Educational & Healthcare Campuses'
+    ],
     icon: 'Palette',
-    heroImage: '/images/services/creative-hero.jpg',
+    heroImage: '/images/facility_lobby.jpg',
     features: [
-      { title: 'Brand Identity', description: 'Logos, guidelines, and corporate visual language.', icon: 'Brush' },
-      { title: 'Corporate Videography', description: 'Cinematic promotional and training films.', icon: 'Video' },
-      { title: 'Web Design', description: 'Premium, conversion-optimized corporate websites.', icon: 'Laptop' },
-      { title: 'Digital Marketing', description: 'Targeted campaigns to elevate brand authority.', icon: 'Megaphone' },
-      { title: 'Content Creation', description: 'Copywriting, photography, and social assets.', icon: 'Image' },
-      { title: 'UI/UX Design', description: 'Intuitive interfaces for custom applications.', icon: 'MousePointer' }
+      { title: 'Corporate Facility Photography', description: 'High-definition captures of office interiors, industrial machinery, and infrastructure.', icon: 'Camera' },
+      { title: 'Event & Conference Videography', description: 'Complete cinematic documentation and highlight reels of seminars and celebrations.', icon: 'Video' },
+      { title: 'Real Estate & Property Showcases', description: 'Architectural photography, model apartment walkthroughs, and brochure assets.', icon: 'Home' },
+      { title: 'Brand Identity & Marketing Collateral', description: 'Clean brochures, company profiles, signage design, and visual brand assets.', icon: 'Layers' },
+      { title: 'Social Media Visual Packages', description: 'Engaging photo and video snippets formatted for LinkedIn, Instagram, and web display.', icon: 'Share2' },
+      { title: 'Safety & Training Video Production', description: 'Custom visual SOP and safety induction videos for client workforce training.', icon: 'Film' }
     ],
     process: [
-      { step: 1, title: 'Discovery', description: 'Understanding your brand values and target audience.' },
-      { step: 2, title: 'Concept Creation', description: 'Developing mood boards and visual directions.' },
-      { step: 3, title: 'Production', description: 'Shooting, designing, and coding the assets.' },
-      { step: 4, title: 'Launch', description: 'Deploying the creative across chosen channels.' }
-    ],
-    stats: [
-      { value: '200+', label: 'Brands Elevated' },
-      { value: '4K', label: 'Cinematic Production' },
-      { value: '360°', label: 'Campaign Management' }
+      { step: 1, title: 'Visual Concept & Shot Planning', description: 'We map required angles, lighting conditions, personnel coordination, and brand guidelines.' },
+      { step: 2, title: 'On-Site Production Shoot', description: 'Professional crew executes photography and filming with minimal disruption to operations.' },
+      { step: 3, title: 'Post-Production & Editing', description: 'Color grading, audio enhancement, title cards, and brand alignment.' },
+      { step: 4, title: 'High-Res Asset Delivery', description: 'Optimized delivery for print, website, social media, and internal presentation use.' }
     ],
     faqs: [
-      { question: 'Why does a security company offer creative media?', answer: 'Our clients demanded the same level of excellence in their public image as they do in their security. We integrated to provide a holistic service.' },
-      { question: 'Do you build websites?', answer: 'Yes, we design and develop high-performance corporate websites.' },
-      { question: 'Can you produce corporate training videos?', answer: 'Absolutely, we specialize in high-quality internal training media.' },
-      { question: 'Do you handle SEO?', answer: 'Yes, digital marketing and SEO are core competencies.' },
-      { question: 'Can we hire you just for design?', answer: 'Yes, our creative services can be engaged independently.' }
+      { question: 'Can you produce worker safety and induction videos for our factory?', answer: 'Yes. We script and produce site-specific visual safety induction videos to train incoming manpower effectively.' },
+      { question: 'Do you provide full event photography and videography coverage?', answer: 'Yes. Our creative team captures corporate summits, milestone celebrations, and family weddings from start to finish.' }
     ],
-    relatedSlugs: ['software-solutions', 'event-management', 'wedding-planning'],
-    metaTitle: 'Creative Media & Branding | JSM Security',
-    metaDescription: 'Elevate your corporate identity with premium videography, branding, and digital design.'
-  },
-  {
-    slug: 'wedding-planning',
-    title: 'Luxury Wedding & Event Planning',
-    shortTitle: 'Wedding Planning',
-    category: 'events',
-    description: 'Experience flawless execution on your most important day. Our luxury wedding planning service combines meticulous design, elite vendor management, and discreet on-site coordination, ensuring your celebration is breathtaking and completely secure.',
-    shortDescription: 'Meticulous coordination and design for luxury weddings.',
-    icon: 'Heart',
-    heroImage: '/images/services/wedding-hero.jpg',
-    features: [
-      { title: 'Venue Sourcing', description: 'Access to exclusive and secure global locations.', icon: 'Map' },
-      { title: 'Design & Decor', description: 'Bespoke aesthetics tailored to your vision.', icon: 'Sparkles' },
-      { title: 'Vendor Management', description: 'Coordinating elite caterers, florists, and entertainers.', icon: 'Users' },
-      { title: 'Discreet Security', description: 'Seamless integration of close protection elements.', icon: 'ShieldCheck' },
-      { title: 'Guest Concierge', description: 'Managing travel and accommodation for VIP guests.', icon: 'ConciergeBell' },
-      { title: 'Day-of Coordination', description: 'Flawless minute-by-minute execution.', icon: 'Clock' }
-    ],
-    process: [
-      { step: 1, title: 'Vision Consultation', description: 'Defining the aesthetic, scale, and specific requirements.' },
-      { step: 2, title: 'Curated Proposals', description: 'Presenting venue and vendor options.' },
-      { step: 3, title: 'Detailed Planning', description: 'Managing timelines, logistics, and security protocols.' },
-      { step: 4, title: 'Event Execution', description: 'Orchestrating the event seamlessly behind the scenes.' }
-    ],
-    stats: [
-      { value: '100+', label: 'Luxury Weddings' },
-      { value: 'Global', label: 'Destination Capability' },
-      { value: '0', label: 'Details Missed' }
-    ],
-    faqs: [
-      { question: 'Do you handle destination weddings?', answer: 'Yes, we manage complex logistics for international celebrations.' },
-      { question: 'How is security integrated?', answer: 'We provide plainclothes operatives who blend in as event staff or guests to ensure safety without altering the atmosphere.' },
-      { question: 'Can you secure high-profile guests?', answer: 'Yes, we manage VIP arrivals, secure routing, and close protection.' },
-      { question: 'Do you design the event?', answer: 'Yes, we offer full creative direction and floral design coordination.' },
-      { question: 'How far in advance should we book?', answer: 'For luxury events, we recommend engaging us 9-12 months prior.' }
-    ],
-    relatedSlugs: ['event-security', 'event-management', 'creative-media'],
-    metaTitle: 'Luxury Wedding Planning | JSM Security',
-    metaDescription: 'Flawless, secure, and breathtaking luxury wedding planning and coordination.'
-  },
-  {
-    slug: 'event-management',
-    title: 'Corporate Event Management',
-    shortTitle: 'Event Management',
-    category: 'events',
-    description: 'Deliver impactful corporate experiences with precision. From high-stakes board retreats and product launches to massive industry conferences, our event management team handles logistics, production, and security to guarantee absolute success.',
-    shortDescription: 'Precision logistics and production for corporate events.',
-    icon: 'Calendar',
-    heroImage: '/images/services/event-mgt-hero.jpg',
-    features: [
-      { title: 'End-to-End Logistics', description: 'Travel, freight, and schedule management.', icon: 'Truck' },
-      { title: 'AV & Production', description: 'State-of-the-art lighting, sound, and staging.', icon: 'Mic' },
-      { title: 'Venue Management', description: 'Contract negotiation and spatial planning.', icon: 'Building' },
-      { title: 'Delegate Registration', description: 'Secure and smooth check-in processes.', icon: 'ClipboardCheck' },
-      { title: 'Risk Management', description: 'Integrated health, safety, and security protocols.', icon: 'Shield' },
-      { title: 'Post-Event Analytics', description: 'ROI reporting and attendee feedback analysis.', icon: 'BarChart' }
-    ],
-    process: [
-      { step: 1, title: 'Strategic Brief', description: 'Aligning the event goals with corporate objectives.' },
-      { step: 2, title: 'Logistics Mapping', description: 'Securing venues, tech, and creating the run-of-show.' },
-      { step: 3, title: 'Live Management', description: 'On-the-ground coordination of all moving parts.' },
-      { step: 4, title: 'Debrief', description: 'Analyzing success metrics and financial reconciliation.' }
-    ],
-    stats: [
-      { value: '300+', label: 'Corporate Events' },
-      { value: '50K+', label: 'Delegates Managed' },
-      { value: '100%', label: 'SLA Compliance' }
-    ],
-    faqs: [
-      { question: 'Can you manage international conferences?', answer: 'Yes, we have global logistical capabilities.' },
-      { question: 'Do you handle the technical production?', answer: 'We manage full AV, staging, and broadcast production.' },
-      { question: 'How do you ensure data security at registration?', answer: 'We use encrypted, GDPR-compliant registration platforms.' },
-      { question: 'Do you organize team-building retreats?', answer: 'Yes, including secure, exclusive locations for executives.' },
-      { question: 'Can you integrate security into the management?', answer: 'As an integrated services provider, security is seamlessly built into our event management.' }
-    ],
-    relatedSlugs: ['event-security', 'creative-media', 'wedding-planning'],
-    metaTitle: 'Corporate Event Management | JSM Security',
-    metaDescription: 'Impactful, flawlessly executed corporate events, conferences, and product launches.'
-  },
-  {
-    slug: 'real-estate',
-    title: 'Premium Real Estate Security & Management',
-    shortTitle: 'Real Estate',
-    category: 'property',
-    description: 'Protect and elevate the value of your property assets. We provide integrated security, concierge, and facility management services for luxury residential towers, commercial estates, and private complexes, ensuring a premium environment for tenants and residents.',
-    shortDescription: 'Integrated security and concierge for luxury and commercial properties.',
-    icon: 'Building2',
-    heroImage: '/images/services/real-estate-hero.jpg',
-    features: [
-      { title: 'Concierge Security', description: 'Front-of-house staff trained in both hospitality and security.', icon: 'UserCircle' },
-      { title: 'Access Control', description: 'Managing tenant and visitor entry systems.', icon: 'Key' },
-      { title: 'Patrol Services', description: 'Visible deterrent patrols across the estate.', icon: 'Footprints' },
-      { title: 'Facility Maintenance', description: 'Coordination of cleaning and technical maintenance.', icon: 'Wrench' },
-      { title: 'Emergency Protocols', description: 'Fire marshal and evacuation management.', icon: 'Flame' },
-      { title: 'Asset Protection', description: 'Preventing vandalism and property degradation.', icon: 'Shield' }
-    ],
-    process: [
-      { step: 1, title: 'Property Audit', description: 'Assessing the security and facility needs of the estate.' },
-      { step: 2, title: 'System Upgrades', description: 'Modernizing access control and CCTV infrastructure.' },
-      { step: 3, title: 'Staff Deployment', description: 'Positioning trained concierge and security personnel.' },
-      { step: 4, title: 'Ongoing Management', description: '24/7 support and regular tenant satisfaction reviews.' }
-    ],
-    stats: [
-      { value: '50+', label: 'Estates Managed' },
-      { value: '10K+', label: 'Tenants Secured' },
-      { value: '24/7', label: 'Concierge Support' }
-    ],
-    faqs: [
-      { question: 'Do your guards wear uniforms?', answer: 'Yes, typically premium concierge-style suits rather than tactical gear.' },
-      { question: 'Can you manage the cleaning as well?', answer: 'Yes, via our integrated housekeeping division.' },
-      { question: 'How do you handle disgruntled visitors?', answer: 'Our staff are experts in de-escalation and customer service.' },
-      { question: 'Do you monitor the fire alarms?', answer: 'We integrate with building management systems for total oversight.' },
-      { question: 'Is this for commercial or residential?', answer: 'We service both high-end commercial and luxury residential properties.' }
-    ],
-    relatedSlugs: ['housekeeping', 'cctv-monitoring', 'auction-houses'],
-    metaTitle: 'Real Estate Security & Management | JSM Security',
-    metaDescription: 'Premium security, concierge, and facility management for high-end properties.'
-  },
-  {
-    slug: 'auction-houses',
-    title: 'Auction House & Fine Art Security',
-    shortTitle: 'Auction Security',
-    category: 'property',
-    description: 'Securing the world\'s most valuable artifacts. We provide specialized, discreet security for fine art galleries, auction houses, and private collectors. From preview exhibitions to live bidding floors, we ensure zero loss without disrupting the luxury experience.',
-    shortDescription: 'Discreet, high-stakes security for fine art and auctions.',
-    icon: 'Gavel',
-    heroImage: '/images/services/auction-hero.jpg',
-    features: [
-      { title: 'Exhibition Security', description: 'Static guarding for high-value items during viewings.', icon: 'Eye' },
-      { title: 'Covert Surveillance', description: 'Plainclothes operatives identifying suspicious behavior.', icon: 'UserSearch' },
-      { title: 'Secure Transport', description: 'Armored logistics for art pieces and jewelry.', icon: 'Truck' },
-      { title: 'Access Management', description: 'Vetting and controlling entry to private bidding rooms.', icon: 'Lock' },
-      { title: 'Anti-Theft Protocols', description: 'Rapid lockdown procedures and asset tracking.', icon: 'ShieldAlert' },
-      { title: 'White-Glove Service', description: 'Security personnel trained in luxury etiquette.', icon: 'Gem' }
-    ],
-    process: [
-      { step: 1, title: 'Item Valuation Assessment', description: 'Understanding the specific risks tied to the inventory.' },
-      { step: 2, title: 'Venue Fortification', description: 'Implementing temporary physical and electronic barriers.' },
-      { step: 3, title: 'Live Event Security', description: 'Managing the floor during previews and active auctions.' },
-      { step: 4, title: 'Secure Load-Out', description: 'Ensuring safe handover and transport post-sale.' }
-    ],
-    stats: [
-      { value: '$2B+', label: 'Assets Protected' },
-      { value: '0', label: 'Loss Incidents' },
-      { value: 'Top Tier', label: 'Gallery Partners' }
-    ],
-    faqs: [
-      { question: 'Are your guards visible?', answer: 'We use a mix of highly visible deterrent guards and covert plainclothes operatives.' },
-      { question: 'Do you understand art handling?', answer: 'Yes, our teams are briefed on the fragility and value of specific pieces.' },
-      { question: 'Can you secure high-value jewelry?', answer: 'Absolutely. We have specific protocols for small, ultra-high-value items.' },
-      { question: 'Do you protect the bidders?', answer: 'Yes, we ensure the safety and anonymity of high-net-worth clients.' },
-      { question: 'Is transport included?', answer: 'We provide secure, climate-controlled armored transport via our CIT division.' }
-    ],
-    relatedSlugs: ['private-security', 'cash-in-transit', 'real-estate'],
-    metaTitle: 'Auction House & Fine Art Security | JSM Security',
-    metaDescription: 'Specialized security services for fine art, jewelry, auction houses, and private collectors.'
+    relatedSlugs: ['software-solutions', 'event-support', 'real-estate-support'],
+    metaTitle: 'Corporate Photography, Video & Creative Media in Tamil Nadu | JSM Integrated Services',
+    metaDescription: 'Professional corporate facility photography, event videography, and brand documentation services across Tamil Nadu.'
   }
 ];
 
-export const servicesData = services;
-export const serviceCategories = ['All', 'Security', 'Facilities', 'Digital', 'Events', 'Property'];
-
+export const services = servicesData;

@@ -1,62 +1,78 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { Phone, ArrowRight } from 'lucide-react';
+import { Phone, ArrowRight, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { fadeInUp, staggerContainer } from '@/lib/motion';
 import Link from 'next/link';
+import { brandData } from '@/data/brand';
 
 export function CTASection() {
+  const cleanPhone = brandData.contact.phone.replace(/[^0-9+]/g, '');
+  const cleanWA = brandData.contact.whatsapp.replace(/[^0-9]/g, '');
+
   return (
-    <section className="py-32 relative overflow-hidden bg-white border-t border-zinc-200/80">
-      {/* Light soft gold/silver gradient backdrop */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(197,168,128,0.04)_0%,rgba(255,255,255,1)_70%)] z-0 pointer-events-none" />
-      
+    <section className="py-24 md:py-32 relative overflow-hidden bg-white border-t border-zinc-200/80">
       <div className="max-w-4xl mx-auto px-4 relative z-10 text-center">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerContainer(0.15)}
-          className="flex flex-col items-center"
+          className="flex flex-col items-center space-y-6"
         >
+          <motion.span
+            variants={fadeInUp}
+            className="text-xs font-extrabold uppercase tracking-widest text-[#C5A880]"
+          >
+            Direct Operational Partnership
+          </motion.span>
+
           <motion.h2 
             variants={fadeInUp}
-            className="text-4xl md:text-6xl font-black text-black tracking-tight mb-6"
+            className="text-3xl sm:text-4xl md:text-6xl font-black text-black tracking-tight leading-tight"
           >
-            Ready to Secure Your Future?
+            Let’s make your operation easier to manage.
           </motion.h2>
           
           <motion.p 
             variants={fadeInUp}
-            className="text-lg md:text-xl text-zinc-500 font-medium mb-10 max-w-2xl leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-zinc-600 font-medium max-w-2xl leading-relaxed"
           >
-            Partner with JSM for elite close protection, smart facilities systems, and bespoke digital media solutions. Request a customized assessment today.
+            Consolidate your security, housekeeping, and staffing under one disciplined partner. Request a free on-site risk and manpower assessment today.
           </motion.p>
           
           <motion.div 
             variants={fadeInUp}
-            className="flex flex-col sm:flex-row gap-4 mb-8 w-full sm:w-auto"
+            className="flex flex-col sm:flex-row gap-3 pt-2 w-full sm:w-auto"
           >
-            <Button asChild size="lg" className="w-full sm:w-auto bg-black text-white hover:bg-zinc-800 font-semibold h-14 px-8 rounded-full shadow-lg">
-              <Link href="/contact">Request Free Assessment</Link>
+            <Button asChild size="lg" className="w-full sm:w-auto bg-black text-white hover:bg-zinc-800 font-bold h-12 px-8 rounded-full shadow-lg">
+              <Link href="/contact">
+                Request a Site Assessment <ArrowRight size={16} className="ml-2" />
+              </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="w-full sm:w-auto border-zinc-300 text-zinc-800 hover:bg-zinc-50 font-semibold h-14 px-8 rounded-full">
-              <a href="tel:+442071234567">
-                <Phone className="w-5 h-5 mr-2" />
-                Call Us Now
-              </a>
-            </Button>
+
+            <a
+              href={`https://wa.me/${cleanWA}?text=Hi%20JSM%20Integrated%20Services,%20I%20would%20like%20to%20discuss%20an%20operational%20requirement.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 h-12 rounded-full text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 transition-colors shadow-sm"
+            >
+              <MessageCircle size={16} className="text-emerald-600" />
+              WhatsApp Operations Desk
+            </a>
           </motion.div>
           
           <motion.div 
             variants={fadeInUp}
-            className="text-sm text-zinc-400 font-medium"
+            className="text-xs text-zinc-500 font-medium pt-2"
           >
-            Advisor dispatcher line active 24/7 at{" "}
-            <a href="tel:+442071234567" className="font-bold text-black hover:text-[#C5A880] transition-colors">
-              +44 (0) 20 7123 4567
+            Direct Executive Helpline:{" "}
+            <a href={`tel:${cleanPhone}`} className="font-bold text-black hover:text-[#C5A880] transition-colors">
+              {brandData.contact.phoneDisplay}
             </a>
+            {" • "}
+            <span>{brandData.contact.email}</span>
           </motion.div>
         </motion.div>
       </div>

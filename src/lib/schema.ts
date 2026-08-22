@@ -1,13 +1,36 @@
+import { brandData } from "@/data/brand";
+
 export function organizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'JSM Security and Integrated Services',
-    url: 'https://jsmsecurity.com',
-    logo: 'https://jsmsecurity.com/logo.png',
-    description: 'Premium security and integrated services provider.',
-    contactPoint: { '@type': 'ContactPoint', telephone: '+44-20-7123-4567', contactType: 'customer service' },
-    sameAs: ['https://linkedin.com/company/jsmsecurity', 'https://twitter.com/jsmsecurity'],
+    name: brandData.name,
+    alternateName: ['JSM', 'JSMMANPOWER', 'JSM Integrated Services Tamil Nadu'],
+    url: brandData.domain,
+    logo: `${brandData.domain}/images/logo.png`,
+    description: brandData.subTagline,
+    email: brandData.contact.email,
+    telephone: brandData.contact.phone,
+    founder: {
+      '@type': 'Person',
+      name: 'Sweety R',
+      jobTitle: 'Managing Director'
+    },
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: brandData.contact.address,
+      addressLocality: brandData.contact.primaryCity,
+      addressRegion: brandData.contact.state,
+      postalCode: brandData.contact.pinCode,
+      addressCountry: 'IN'
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: brandData.contact.phone,
+      contactType: 'customer service',
+      areaServed: ['IN-TN', 'IN'],
+      availableLanguage: ['English', 'Tamil']
+    }
   };
 }
 
@@ -15,11 +38,36 @@ export function localBusinessSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    name: 'JSM Security and Integrated Services',
-    address: { '@type': 'PostalAddress', streetAddress: '123 Security House, Canary Wharf', addressLocality: 'London', postalCode: 'E14 5AB', addressCountry: 'GB' },
-    telephone: '+44-20-7123-4567',
-    url: 'https://jsmsecurity.com',
-    openingHoursSpecification: { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'], opens: '00:00', closes: '23:59' },
+    name: brandData.name,
+    image: `${brandData.domain}/images/hero_operations.jpg`,
+    '@id': brandData.domain,
+    url: brandData.domain,
+    telephone: brandData.contact.phone,
+    email: brandData.contact.email,
+    priceRange: '₹₹',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: brandData.contact.address,
+      addressLocality: brandData.contact.primaryCity,
+      addressRegion: brandData.contact.state,
+      postalCode: brandData.contact.pinCode,
+      addressCountry: 'IN'
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 10.7905,
+      longitude: 78.7047
+    },
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+      opens: '00:00',
+      closes: '23:59'
+    },
+    areaServed: brandData.contact.operatingCities.map(city => ({
+      '@type': 'City',
+      name: city
+    }))
   };
 }
 
@@ -29,8 +77,40 @@ export function serviceSchema(service: { title: string; description: string; slu
     '@type': 'Service',
     name: service.title,
     description: service.description,
-    provider: { '@type': 'Organization', name: 'JSM Security and Integrated Services' },
-    url: `https://jsmsecurity.com/services/${service.slug}`,
+    provider: {
+      '@type': 'Organization',
+      name: brandData.name,
+      url: brandData.domain
+    },
+    areaServed: {
+      '@type': 'State',
+      name: 'Tamil Nadu'
+    },
+    url: `${brandData.domain}/services/${service.slug}`
+  };
+}
+
+export function articleSchema(post: { title: string; excerpt: string; slug: string; date: string; author: string }) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      '@type': 'Person',
+      name: post.author
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: brandData.name,
+      url: brandData.domain
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${brandData.domain}/blog/${post.slug}`
+    }
   };
 }
 
@@ -41,8 +121,11 @@ export function faqSchema(faqs: { question: string; answer: string }[]) {
     mainEntity: faqs.map((faq) => ({
       '@type': 'Question',
       name: faq.question,
-      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
-    })),
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer
+      }
+    }))
   };
 }
 
@@ -54,8 +137,8 @@ export function breadcrumbSchema(items: { name: string; url: string }[]) {
       '@type': 'ListItem',
       position: i + 1,
       name: item.name,
-      item: item.url,
-    })),
+      item: item.url
+    }))
   };
 }
 
@@ -63,7 +146,12 @@ export function websiteSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'JSM Security and Integrated Services',
-    url: 'https://jsmsecurity.com',
+    name: brandData.name,
+    url: brandData.domain,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${brandData.domain}/services?q={search_term_string}`,
+      'query-input': 'required name=search_term_string'
+    }
   };
 }

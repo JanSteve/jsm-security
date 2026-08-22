@@ -1,105 +1,155 @@
-'use client';
+"use client";
 
-import { motion, useScroll, useTransform } from 'motion/react';
-import { ShieldCheck } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { staggerContainer, fadeInUp } from '@/lib/motion';
-import { useRef } from 'react';
-import Link from 'next/link';
+import { motion } from "motion/react";
+import { Button } from "@/components/ui/button";
+import { Shield, Sparkles, Users, ArrowRight, MessageCircle, CheckCircle2, ChevronRight } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import { brandData } from "@/data/brand";
 
 export function HeroSection() {
-  const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end start'],
-  });
-
-  const yText = useTransform(scrollYProgress, [0, 1], ['0%', '15%']);
-  const yImage = useTransform(scrollYProgress, [0, 1], ['0%', '-5%']);
+  const cleanWA = brandData.contact.whatsapp.replace(/[^0-9]/g, '');
 
   return (
-    <section 
-      ref={ref}
-      className="relative min-h-screen pt-28 pb-16 overflow-hidden flex flex-col items-center justify-center bg-white"
-    >
-      {/* Light soft gold/silver gradient backdrop */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(197,168,128,0.05)_0%,rgba(255,255,255,1)_60%)] z-0 pointer-events-none" />
+    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-white">
+      {/* Subtle Background Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-zinc-100/80 to-transparent rounded-full blur-3xl -z-10" />
+      </div>
 
-      <div className="container relative z-10 mx-auto px-6 lg:px-8 flex flex-col items-center">
-        <motion.div
-          style={{ y: yText }}
-          variants={staggerContainer(0.12, 0)}
-          initial="hidden"
-          animate="visible"
-          className="max-w-4xl mx-auto text-center flex flex-col items-center mb-12 md:mb-16"
-        >
-          {/* Badge */}
-          <motion.div 
-            variants={fadeInUp}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-zinc-200/80 bg-zinc-50/80 backdrop-blur-sm mb-6"
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          {/* Tag Pill */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-100 border border-zinc-200/80 text-zinc-800 text-xs font-bold"
           >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
-            </span>
-            <span className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">24/7 Operations Command Active</span>
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span>JSM INTEGRATED SERVICES • TAMIL NADU & INDIA</span>
           </motion.div>
 
-          {/* Headline (Apple Style) */}
-          <motion.h1 
-            variants={fadeInUp}
-            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-black tracking-tighter leading-[1.05] mb-6"
+          {/* Main Hero Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-black leading-[1.08]"
           >
-            Secure. Integrated.<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C5A880] to-[#E5C49A]">Elevated.</span>
+            One Partner.<br className="hidden sm:inline" />
+            <span className="bg-gradient-to-r from-zinc-900 via-zinc-700 to-zinc-900 bg-clip-text text-transparent">
+              Every Solution.
+            </span>
           </motion.h1>
 
-          {/* Subtext */}
-          <motion.p 
-            variants={fadeInUp}
-            className="text-base md:text-xl lg:text-2xl text-zinc-500 font-medium max-w-2xl leading-relaxed mb-8 px-2"
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-base sm:text-lg md:text-xl text-zinc-600 font-medium max-w-2xl mx-auto leading-relaxed"
           >
-            Premium corporate security, facilities coordination, and digital enterprise applications. Unified under JSM operational standards.
+            You shouldn’t need five vendors to keep one property running. We coordinate disciplined <strong>Private Security</strong>, <strong>Housekeeping & Facilities</strong>, <strong>Contractual Manpower</strong>, and <strong>Business Operations</strong> under one accountable partner.
           </motion.p>
 
-          {/* CTAs */}
-          <motion.div 
-            variants={fadeInUp}
-            className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto px-4 sm:px-0"
+          {/* Action Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2"
           >
-            <Button asChild size="lg" className="w-full sm:w-auto bg-black text-white hover:bg-zinc-800 font-semibold h-14 px-8 rounded-full shadow-lg">
-              <Link href="/contact">Get Free Assessment</Link>
+            <Button
+              asChild
+              size="lg"
+              className="w-full sm:w-auto bg-black hover:bg-zinc-800 text-white rounded-full h-12 px-7 text-sm font-bold shadow-lg flex items-center justify-center gap-2 group"
+            >
+              <Link href="/contact">
+                Request a Site Assessment
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="w-full sm:w-auto border-zinc-300 text-zinc-800 hover:bg-zinc-50 font-semibold h-14 px-8 rounded-full">
-              <Link href="/services">Explore Services</Link>
+
+            <a
+              href={`https://wa.me/${cleanWA}?text=Hi%20JSM%20Integrated%20Services,%20I%20would%20like%20to%20discuss%20our%20facility%20requirements.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 h-12 rounded-full text-sm font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 transition-colors shadow-sm"
+            >
+              <MessageCircle size={17} className="text-emerald-600" />
+              WhatsApp JSM Desk
+            </a>
+
+            <Button
+              asChild
+              variant="ghost"
+              size="lg"
+              className="w-full sm:w-auto text-zinc-700 hover:text-black hover:bg-zinc-100 rounded-full h-12 px-6 text-sm font-bold"
+            >
+              <Link href="/services">
+                Explore Services
+              </Link>
             </Button>
           </motion.div>
-        </motion.div>
 
-        {/* Hero Widescreen Showcase Image (Apple Product Style) */}
+          {/* Quick Truthful Proof Points */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="pt-6 flex flex-wrap items-center justify-center gap-y-2 gap-x-6 text-xs font-semibold text-zinc-500"
+          >
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 size={15} className="text-[#C5A880]" />
+              Founder-Led by Sweety R (MD)
+            </span>
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 size={15} className="text-[#C5A880]" />
+              Proven 2024 Trichy Airport Contract
+            </span>
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 size={15} className="text-[#C5A880]" />
+              5-Day Structured Staff Induction
+            </span>
+          </motion.div>
+        </div>
+
+        {/* Visual Hero Showcase Card */}
         <motion.div
-          style={{ y: yImage }}
-          initial={{ opacity: 0, y: 60, scale: 0.98 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ delay: 0.3, type: "spring", stiffness: 100, damping: 20 }}
-          className="relative w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl border border-zinc-200/80 bg-zinc-50 p-2 md:p-3"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.35 }}
+          className="mt-14 max-w-5xl mx-auto rounded-3xl overflow-hidden border border-zinc-200/80 shadow-2xl bg-zinc-900 relative"
         >
-          <div className="rounded-2xl overflow-hidden border border-zinc-200 shadow-inner">
-            <img 
-              src="/images/hero_operations.jpg" 
-              alt="JSM Command Operations Center"
-              className="w-full h-auto object-cover max-h-[500px]"
+          <div className="relative h-[260px] sm:h-[380px] md:h-[460px] w-full">
+            <Image
+              src="/images/hero_operations.jpg"
+              alt="JSM Integrated Services Professional Operations"
+              fill
+              priority
+              className="object-cover object-center opacity-85"
             />
-          </div>
-
-          {/* Floater Badge (Hidden on mobile for cleaner layout) */}
-          <div className="hidden sm:flex absolute bottom-6 left-6 md:bottom-10 md:left-10 bg-white/90 backdrop-blur-md border border-zinc-200 p-4 rounded-2xl items-center gap-3 shadow-lg">
-            <div className="p-2 bg-amber-500/10 text-amber-600 rounded-xl">
-              <ShieldCheck size={24} />
-            </div>
-            <div>
-              <h4 className="text-sm font-bold text-black leading-tight">Elite Guarding</h4>
-              <p className="text-[10px] text-zinc-500 font-medium">Securing Canary Wharf HQ</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent" />
+            
+            {/* Overlay Info Card */}
+            <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8 flex flex-col md:flex-row md:items-end justify-between gap-4 text-white">
+              <div className="space-y-1">
+                <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#C5A880]">
+                  Integrated Service Operations
+                </span>
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-black tracking-tight leading-tight">
+                  Discipline is not an accident.<br className="hidden sm:inline" /> It is a system.
+                </h3>
+              </div>
+              <div className="flex items-center gap-3">
+                <Link
+                  href="/about"
+                  className="px-4 py-2 bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/30 rounded-full text-xs font-bold text-white transition-colors flex items-center gap-1.5"
+                >
+                  Our Operating Story <ChevronRight size={14} />
+                </Link>
+              </div>
             </div>
           </div>
         </motion.div>

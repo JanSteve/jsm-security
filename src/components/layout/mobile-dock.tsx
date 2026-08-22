@@ -1,63 +1,48 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Home, Grid3x3, Phone, Menu } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { Sheet, SheetTrigger } from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
-
-// Note: The MobileDock incorporates a trigger for the MobileMenu. 
-// Since MobileMenu has its own Sheet, we might just emit an event or use a shared state.
-// For simplicity in layout, the Menu button can either link to a dedicated mobile menu page 
-// or trigger the same sheet. Here we will just use it as a visual dock.
-// To fully link it to the MobileMenu sheet without context, we can just make it open a simplified version or 
-// rely on the user tapping the hamburger in the header.
-// Let's implement the UI as requested.
+import { Phone, MessageCircle, FileCheck, Shield } from "lucide-react";
+import { brandData } from "@/data/brand";
 
 export function MobileDock() {
-  const pathname = usePathname();
-
-  const dockItems = [
-    { name: "Home", href: "/", icon: Home },
-    { name: "Services", href: "/services", icon: Grid3x3 },
-    { name: "Call", href: "tel:+442071234567", icon: Phone },
-  ];
+  const cleanPhone = brandData.contact.phone.replace(/[^0-9+]/g, '');
+  const cleanWA = brandData.contact.whatsapp.replace(/[^0-9]/g, '');
 
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-t border-zinc-200/40 pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_20px_rgba(0,0,0,0.02)]">
-      <div className="flex items-center justify-around px-2 h-16">
-        {dockItems.map((item) => {
-          const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
-          return (
-            <Link
-              key={item.name}
-              href={item.href}
-              className={cn(
-                "flex flex-col items-center justify-center w-16 h-full min-h-[48px] min-w-[48px] gap-1 transition-colors",
-                isActive ? "text-[#C5A880]" : "text-zinc-500 hover:text-black"
-              )}
-            >
-              <item.icon className={cn("h-5 w-5", isActive && "opacity-80")} />
-              <span className="text-[10px] font-bold tracking-tight">{item.name}</span>
-            </Link>
-          );
-        })}
-        {/* We use a button for Menu to mimic the dock item but typically this would open the sheet. 
-            Since MobileMenu is in Header, we can just style this as a link to /menu or leave it as a button. */}
-        <Link
-          href="#menu" // A hash link that could be intercepted if needed, or just visual
-          className="flex flex-col items-center justify-center w-16 h-full min-h-[48px] min-w-[48px] gap-1 text-zinc-500 hover:text-black transition-colors"
-          onClick={(e) => {
-             // In a real app, this would trigger the global mobile menu state.
-             // We'll let it act as a simple anchor for now.
-             window.scrollTo({ top: 0, behavior: "smooth" });
-          }}
+    <nav aria-label="Mobile Quick Actions" className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-xl border-t border-zinc-200/80 px-3 py-2 pb-[calc(env(safe-area-inset-bottom)+0.5rem)] shadow-2xl">
+      <div className="grid grid-cols-3 gap-2 max-w-md mx-auto">
+        {/* Call Button */}
+        <a
+          href={`tel:${cleanPhone}`}
+          className="flex items-center justify-center gap-1.5 py-2.5 px-2 bg-zinc-100 hover:bg-zinc-200 text-zinc-900 rounded-2xl text-xs font-bold transition-all min-h-[48px] border border-zinc-200"
+          aria-label="Call JSM Integrated Services"
         >
-          <Menu className="h-5 w-5" />
-          <span className="text-[10px] font-bold tracking-tight">Menu</span>
+          <Phone size={16} className="text-zinc-800" />
+          <span>Call</span>
+        </a>
+
+        {/* WhatsApp Button */}
+        <a
+          href={`https://wa.me/${cleanWA}?text=Hi%20JSM%20Integrated%20Services,%20I%20would%20like%20to%20discuss%20an%20operational%20requirement.`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-1.5 py-2.5 px-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl text-xs font-bold transition-all min-h-[48px] shadow-sm"
+          aria-label="Chat with JSM on WhatsApp"
+        >
+          <MessageCircle size={16} />
+          <span>WhatsApp</span>
+        </a>
+
+        {/* Request Quote Button */}
+        <Link
+          href="/contact"
+          className="flex items-center justify-center gap-1.5 py-2.5 px-2 bg-black hover:bg-zinc-800 text-white rounded-2xl text-xs font-bold transition-all min-h-[48px] shadow-sm"
+          aria-label="Request Site Assessment"
+        >
+          <FileCheck size={16} className="text-[#C5A880]" />
+          <span>Get Quote</span>
         </Link>
       </div>
-    </div>
+    </nav>
   );
 }

@@ -6,7 +6,8 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { MobileDock } from "@/components/layout/mobile-dock";
 import CookieBanner from "@/components/shared/cookie-banner";
-import { TimedPopup } from "@/components/shared/timed-popup";
+import { AIReceptionist } from "@/components/chat/ai-receptionist";
+import { brandData } from "@/data/brand";
 import { cn } from "@/lib/utils";
 
 const inter = Inter({ 
@@ -22,11 +23,43 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(brandData.domain),
   title: {
-    template: "%s | JSM Security",
-    default: "JSM Security | Premium Corporate Security & Integrated Services",
+    template: `%s | ${brandData.name}`,
+    default: `${brandData.name} | ${brandData.tagline}`,
   },
-  description: "Secure. Integrated. Elevated. Premium corporate security and integrated facility services tailored for modern enterprises.",
+  description: `${brandData.name} delivers disciplined Private Security, Housekeeping & Facility Management, Contractual Manpower, and Integrated Business Solutions across Tamil Nadu and India.`,
+  keywords: [
+    "JSM Integrated Services",
+    "JSMMANPOWER",
+    "Integrated Facility Management Tamil Nadu",
+    "Security Services Trichy",
+    "Security Guard Agency Chennai",
+    "Manpower Supply Agency Coimbatore",
+    "Housekeeping Services Madurai",
+    "Contractual Staffing Tamil Nadu",
+    "Trichy Airport Security Contractor",
+    "One Partner Every Solution"
+  ],
+  authors: [{ name: "Sweety R (Managing Director)" }, { name: "JSM Operations Team" }],
+  creator: brandData.name,
+  publisher: brandData.name,
+  openGraph: {
+    title: `${brandData.name} | ${brandData.tagline}`,
+    description: brandData.subTagline,
+    url: brandData.domain,
+    siteName: brandData.name,
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${brandData.name} | ${brandData.tagline}`,
+    description: brandData.subTagline,
+  },
+  alternates: {
+    canonical: brandData.domain,
+  },
   icons: {
     icon: "/favicon.ico",
   },
@@ -41,10 +74,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-white font-sans antialiased text-zinc-900 selection:bg-[#C5A880]/30 selection:text-black",
           inter.variable,
           plusJakartaSans.variable,
-          "pb-16 md:pb-0" // padding for mobile dock
+          "pb-16 md:pb-0"
         )}
       >
         <Providers>
@@ -54,7 +87,7 @@ export default function RootLayout({
             <Footer />
             <MobileDock />
             <CookieBanner />
-            <TimedPopup />
+            <AIReceptionist />
           </div>
         </Providers>
       </body>
