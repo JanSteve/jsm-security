@@ -194,9 +194,9 @@ export function Header() {
             <span>WhatsApp</span>
           </a>
 
-          <Button asChild size="sm" className="hidden lg:flex bg-black hover:bg-zinc-800 text-white rounded-full px-4 h-9 text-xs font-bold shadow-sm">
+          <Button asChild size="sm" className="hidden lg:flex bg-black hover:bg-zinc-800 text-white rounded-full px-5 h-9 text-xs font-bold shadow-sm border-b-2 border-[#C5A880]">
             <Link href="/contact">
-              Request Site Assessment
+              REQUEST A QUOTE
             </Link>
           </Button>
 

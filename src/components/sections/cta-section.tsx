@@ -46,9 +46,9 @@ export function CTASection() {
             variants={fadeInUp}
             className="flex flex-col sm:flex-row gap-3 pt-2 w-full sm:w-auto"
           >
-            <Button asChild size="lg" className="w-full sm:w-auto bg-black text-white hover:bg-zinc-800 font-bold h-12 px-8 rounded-full shadow-lg">
+            <Button asChild size="lg" className="w-full sm:w-auto bg-black text-white hover:bg-zinc-800 font-bold h-12 px-8 rounded-full shadow-lg border-b-2 border-[#C5A880]">
               <Link href="/contact">
-                Request a Site Assessment <ArrowRight size={16} className="ml-2" />
+                REQUEST A QUOTE <ArrowRight size={16} className="ml-2 text-[#C5A880]" />
               </Link>
             </Button>
 
