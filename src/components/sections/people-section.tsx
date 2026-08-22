@@ -1,81 +1,101 @@
 "use client";
 
 import { motion } from "motion/react";
-import { inductionPhilosophy, careerProgressionSteps } from "@/data/careers";
-import { ArrowRight, CheckCircle2, Award, Users, TrendingUp } from "lucide-react";
+import { brandData } from "@/data/brand";
+import { inductionPhilosophy } from "@/data/careers";
+import { ArrowRight, CheckCircle2, Award, Users, ShieldCheck, HeartHandshake } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export function PeopleSection() {
   return (
-    <section className="py-24 md:py-32 bg-white">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-[#C5A880]">
-            People-First Operating Culture
+    <section className="py-20 md:py-28 bg-white border-t border-zinc-200/80">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 lg:px-20 space-y-16">
+        {/* Header */}
+        <div className="max-w-3xl mx-auto text-center space-y-3">
+          <span className="text-[11px] md:text-[12px] font-extrabold uppercase tracking-[0.15em] text-[#C5A880]">
+            PEOPLE &amp; LEADERSHIP
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-black tracking-tight leading-tight">
-            Our people are our product.
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-black tracking-tight leading-tight uppercase">
+            Our People Are Our Product.
           </h2>
-          <p className="text-zinc-600 text-base md:text-lg font-medium leading-relaxed">
-            "Your first uniform should not be your final destination." We invest in structured 5-day induction training, verified identity checks, on-time salaries, and clear career pathways.
+          <p className="text-sm sm:text-base text-zinc-600 font-normal max-w-2xl mx-auto leading-relaxed">
+            "Your first uniform should not be your final destination." We treat our workforce with dignity, prompt 1st-of-the-month salaries, and structured career progression.
           </p>
         </div>
 
-        {/* 5-Day Induction Visual Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 max-w-6xl mx-auto mb-16">
-          {inductionPhilosophy.map((day, idx) => (
-            <motion.div
-              key={day.day}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.05 }}
-              className="bg-zinc-50 border border-zinc-200/80 rounded-3xl p-5 space-y-3 flex flex-col justify-between"
+        {/* Leadership Grid (Human Trust & Executive Accountability) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          {brandData.leadership.map((leader, idx) => (
+            <div
+              key={leader.name}
+              className="bg-[#fbf9f4] border border-zinc-200/80 rounded-3xl p-6 sm:p-8 space-y-4 hover:border-black hover:shadow-lg transition-all"
             >
-              <div className="space-y-2">
-                <span className="text-xs font-black text-[#C5A880] tracking-wider uppercase">
-                  {day.day}
+              <div className="flex items-center justify-between">
+                <div className="w-10 h-10 rounded-full bg-black text-[#C5A880] font-black text-xs flex items-center justify-center font-mono">
+                  0{idx + 1}
+                </div>
+                <span className="text-[10px] font-mono font-bold text-zinc-500 bg-white border border-zinc-200 px-2.5 py-1 rounded-md uppercase">
+                  LEADERSHIP
                 </span>
-                <h4 className="text-sm font-bold text-black leading-snug">
-                  {day.title}
-                </h4>
-                <p className="text-[11px] text-zinc-500 font-medium leading-relaxed">
-                  {day.focus}
+              </div>
+
+              <div className="space-y-0.5">
+                <h3 className="text-lg font-black text-black tracking-tight">
+                  {leader.name}
+                </h3>
+                <p className="text-xs font-bold text-[#C5A880]">
+                  {leader.role}
                 </p>
               </div>
 
-              <div className="pt-3 border-t border-zinc-200/60 space-y-1.5">
-                {day.details.slice(0, 2).map((det, i) => (
-                  <div key={i} className="flex items-start gap-1.5 text-[10px] text-zinc-700 font-medium">
-                    <CheckCircle2 size={11} className="text-[#C5A880] flex-shrink-0 mt-0.5" />
-                    <span>{det}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
+              <p className="text-xs text-zinc-600 leading-relaxed font-normal">
+                {leader.bio}
+              </p>
+            </div>
           ))}
         </div>
 
-        {/* Career Growth Strip */}
-        <div className="bg-zinc-900 text-white rounded-3xl p-8 md:p-12 max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 border border-zinc-800">
-          <div className="space-y-2 text-center md:text-left">
-            <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#C5A880]">
-              Career Progression
-            </span>
-            <h3 className="text-2xl font-black text-white tracking-tight">
-              Looking for work that stands for something?
-            </h3>
-            <p className="text-xs text-zinc-400 max-w-md leading-relaxed">
-              We provide prompt salaries on the 1st of every month, company-issued uniform sets, and merit-based promotion into supervisory roles.
-            </p>
+        {/* 5-Day Induction Training Snapshot */}
+        <div className="bg-[#0A1628] text-white rounded-3xl p-6 sm:p-10 md:p-12 border border-zinc-800 shadow-xl space-y-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-zinc-800 pb-6">
+            <div className="space-y-2">
+              <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#C5A880]">
+                MANDATORY PRE-DEPLOYMENT SYLLABUS
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+                The 5-Day JSM Induction Program
+              </h3>
+              <p className="text-xs text-zinc-400 max-w-xl">
+                No guard or facility staff is placed on-site without completing this 5-day structured curriculum.
+              </p>
+            </div>
+            <Link
+              href="/careers"
+              className="text-xs font-bold text-[#C5A880] hover:underline flex items-center gap-1 self-start md:self-auto"
+            >
+              View Full Careers Curriculum <ArrowRight size={13} />
+            </Link>
           </div>
 
-          <Button asChild size="lg" className="bg-[#C5A880] hover:bg-[#b59870] text-black font-bold rounded-full px-7 h-12 text-xs shadow-md flex-shrink-0">
-            <Link href="/careers">
-              Explore Open Careers & Apply <ArrowRight size={15} className="ml-1.5" />
-            </Link>
-          </Button>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
+            {inductionPhilosophy.map((day) => (
+              <div
+                key={day.day}
+                className="bg-white/5 border border-white/10 rounded-2xl p-4 space-y-2"
+              >
+                <span className="text-xs font-mono font-bold text-[#C5A880]">
+                  {day.day}
+                </span>
+                <h4 className="text-xs font-bold text-white">
+                  {day.title}
+                </h4>
+                <p className="text-[10px] text-zinc-400 leading-snug">
+                  {day.focus}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -1,208 +1,153 @@
 "use client";
 
-import { servicesData } from "@/data/services";
 import Link from "next/link";
-import { ArrowRight, Shield, Sparkles, Users, Banknote, Ticket, Building, Monitor, Palette } from "lucide-react";
-import Image from "next/image";
+import { ArrowRight, Shield, Sparkles, Users, Banknote, Ticket, Building, Monitor, ArrowUpRight } from "lucide-react";
 
 export function ServicesOverview() {
+  const coreServices = [
+    {
+      slug: "private-security",
+      title: "Private Security & Guarding",
+      subtitle: "PSARA Compliant On-Site Protection",
+      desc: "Uniformed, verified security personnel deployed with strict post orders, gate management, and unannounced 2:00 AM supervisor spot-inspections.",
+      bestFor: "IT Parks, Factories, Residential RWAs, Warehouses",
+      icon: Shield,
+      tag: "CORE OPERATIONS"
+    },
+    {
+      slug: "housekeeping",
+      title: "Commercial Housekeeping & Hygiene",
+      subtitle: "5-Step Closed-Loop Facility Care",
+      desc: "Structured daily hygiene protocol: Clean → Inspect → Report → Correct → Verify. Restrooms, work floors, and public lobbies kept immaculate.",
+      bestFor: "Corporate Offices, Hospitals, Educational Campuses",
+      icon: Sparkles,
+      tag: "FACILITY UPKEEP"
+    },
+    {
+      slug: "manpower",
+      title: "Contractual Manpower & Staffing",
+      subtitle: "Vetted Workforce On Demand",
+      desc: "Originating from our JSMMANPOWER roots. We supply compliant, background-verified industrial workers, loaders, and administrative support.",
+      bestFor: "Manufacturing Plants, Logistics Hubs, Retail",
+      icon: Users,
+      tag: "WORKFORCE"
+    }
+  ];
+
+  const expansionServices = [
+    { title: "Cash-in-Transit Logistics", href: "/services/cash-in-transit", icon: Banknote },
+    { title: "Event & Wedding Coordination", href: "/services/event-support", icon: Ticket },
+    { title: "Real Estate & Auction Support", href: "/services/real-estate-support", icon: Building },
+    { title: "Visitor Software Solutions", href: "/services/software-solutions", icon: Monitor },
+  ];
+
   return (
-    <section className="py-24 md:py-32 px-5 md:px-20 max-w-[1440px] mx-auto relative bg-[#fbf9f4]">
+    <section className="py-20 md:py-28 px-4 sm:px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto bg-white">
       {/* Header */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16 pb-8 border-b border-zinc-200/80">
-        <div className="md:col-span-8">
-          <span className="text-[11px] md:text-[12px] font-bold tracking-[0.1em] text-[#C5A880] uppercase block mb-3">
-            COMPREHENSIVE CATALOG
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14 pb-6 border-b border-zinc-200/80">
+        <div className="space-y-3">
+          <span className="text-[11px] md:text-[12px] font-extrabold uppercase tracking-[0.15em] text-[#C5A880]">
+            SERVICE ARCHITECTURE
           </span>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-black tracking-tight leading-tight uppercase">
-            INTEGRATED<br />CAPABILITIES.
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-black tracking-tight leading-tight uppercase">
+            What We Do.
           </h2>
         </div>
-        <div className="md:col-span-4 flex items-end">
-          <p className="text-sm sm:text-base text-zinc-600 font-normal leading-relaxed">
-            A synthesized approach to operational security, facility management, and strategic resourcing across high-stakes environments.
-          </p>
-        </div>
+        <p className="text-sm sm:text-base text-zinc-600 font-normal max-w-md">
+          Three core operational disciplines coordinated under one single point of accountability.
+        </p>
       </div>
 
-      {/* Interactive Ecosystem Orbital Node Section from Stitch */}
-      <div className="mb-20 grid grid-cols-1 md:grid-cols-12 gap-8 items-center bg-white border border-zinc-200/80 rounded-3xl p-8 md:p-12 shadow-sm">
-        <div className="md:col-span-4 space-y-4">
-          <span className="text-[10px] font-bold tracking-widest text-[#C5A880] uppercase">
-            ARCHITECTURE OF INTEGRATION
-          </span>
-          <h3 className="text-2xl sm:text-3xl font-black text-black tracking-tight">
-            The JSM Ecosystem
-          </h3>
-          <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">
-            Our service vectors are not isolated silos. They operate as a cohesive operating system, providing comprehensive coverage from physical guarding to facility hygiene and tech automation.
-          </p>
-          <div className="pt-2">
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-black hover:underline"
+      {/* 3 Core Services Bento Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-10">
+        {coreServices.map((srv) => {
+          const Icon = srv.icon;
+          return (
+            <div
+              key={srv.slug}
+              className="bg-[#fbf9f4] border border-zinc-200/80 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-black hover:shadow-xl hover:bg-white transition-all duration-300 group"
             >
-              Explore Full Capabilities Directory <ArrowRight size={13} />
-            </Link>
-          </div>
-        </div>
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="w-12 h-12 rounded-2xl bg-white border border-zinc-200 flex items-center justify-center text-black group-hover:bg-[#C5A880] transition-colors shadow-xs">
+                    <Icon size={22} />
+                  </div>
+                  <span className="text-[9px] font-mono font-bold text-zinc-500 bg-zinc-100 px-2.5 py-1 rounded-md uppercase">
+                    {srv.tag}
+                  </span>
+                </div>
 
-        {/* Center Node & Orbital Clusters Diagram */}
-        <div className="md:col-span-8 relative min-h-[340px] flex items-center justify-center bg-[#fbf9f4] border border-zinc-200/80 rounded-2xl overflow-hidden p-6">
-          {/* Orbital Dashed Circles SVG */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20" preserveAspectRatio="xMidYMid slice" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="35" fill="none" stroke="#000" strokeDasharray="2 4" strokeWidth="0.5" />
-            <circle cx="50" cy="50" r="20" fill="none" stroke="#000" strokeDasharray="2 4" strokeWidth="0.5" />
-          </svg>
+                <div className="space-y-1">
+                  <h3 className="text-xl font-black text-black tracking-tight">
+                    {srv.title}
+                  </h3>
+                  <p className="text-xs font-bold text-[#C5A880]">
+                    {srv.subtitle}
+                  </p>
+                </div>
 
-          {/* Center JSM CORE Node */}
-          <div className="relative z-20 w-28 h-28 md:w-32 md:h-32 rounded-full bg-black text-white flex flex-col items-center justify-center font-bold text-xs border-4 border-[#C5A880] shadow-xl text-center p-2">
-            <span className="text-[10px] text-[#C5A880] tracking-widest uppercase">CORE</span>
-            <span className="text-sm font-black">JSM</span>
-            <span className="text-[9px] text-zinc-400 font-normal">OPERATIONS</span>
-          </div>
+                <p className="text-xs sm:text-sm text-zinc-600 font-normal leading-relaxed">
+                  {srv.desc}
+                </p>
 
-          {/* 4 Orbital Satellite Nodes */}
-          <Link href="/services/private-security" className="absolute top-[12%] left-[12%] z-20 group text-center">
-            <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border border-zinc-200 flex items-center justify-center group-hover:bg-[#C5A880] transition-colors shadow-sm mx-auto">
-              <Shield size={18} className="text-black" />
+                <div className="pt-2">
+                  <p className="text-[10px] font-extrabold uppercase tracking-wider text-zinc-400">
+                    Ideal For:
+                  </p>
+                  <p className="text-xs font-semibold text-zinc-700 mt-0.5">
+                    {srv.bestFor}
+                  </p>
+                </div>
+              </div>
+
+              <div className="pt-6 border-t border-zinc-200/70 mt-6 flex items-center justify-between">
+                <Link
+                  href={`/services/${srv.slug}`}
+                  className="text-xs font-bold text-black group-hover:text-[#C5A880] flex items-center gap-1 transition-colors"
+                >
+                  <span>Explore Service SOP</span>
+                  <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="text-[11px] font-bold text-zinc-500 hover:text-black"
+                >
+                  Get Quote →
+                </Link>
+              </div>
             </div>
-            <span className="text-[10px] font-bold text-zinc-700 group-hover:text-black tracking-wider uppercase mt-1 block">SECURITY</span>
-          </Link>
-
-          <Link href="/services/housekeeping" className="absolute top-[12%] right-[12%] z-20 group text-center">
-            <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border border-zinc-200 flex items-center justify-center group-hover:bg-[#C5A880] transition-colors shadow-sm mx-auto">
-              <Sparkles size={18} className="text-black" />
-            </div>
-            <span className="text-[10px] font-bold text-zinc-700 group-hover:text-black tracking-wider uppercase mt-1 block">FACILITY MGMT</span>
-          </Link>
-
-          <Link href="/services/manpower" className="absolute bottom-[12%] left-[12%] z-20 group text-center">
-            <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border border-zinc-200 flex items-center justify-center group-hover:bg-[#C5A880] transition-colors shadow-sm mx-auto">
-              <Users size={18} className="text-black" />
-            </div>
-            <span className="text-[10px] font-bold text-zinc-700 group-hover:text-black tracking-wider uppercase mt-1 block">MANPOWER</span>
-          </Link>
-
-          <Link href="/services/cash-in-transit" className="absolute bottom-[12%] right-[12%] z-20 group text-center">
-            <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border border-zinc-200 flex items-center justify-center group-hover:bg-[#C5A880] transition-colors shadow-sm mx-auto">
-              <Banknote size={18} className="text-black" />
-            </div>
-            <span className="text-[10px] font-bold text-zinc-700 group-hover:text-black tracking-wider uppercase mt-1 block">CASH LOGISTICS</span>
-          </Link>
-        </div>
+          );
+        })}
       </div>
 
-      {/* Asymmetric Service Cards Gallery matching Stitch */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
-        {/* Card 1: Security Architecture (Span 8) */}
-        <div className="md:col-span-8 bg-white border border-zinc-200/80 rounded-3xl p-8 md:p-10 flex flex-col justify-between hover:border-black hover:shadow-xl transition-all duration-300 group">
-          <div>
-            <div className="flex justify-between items-start mb-6">
-              <span className="text-2xl font-bold text-[#C5A880] font-mono">01</span>
-              <span className="text-[10px] font-extrabold bg-black text-white px-3 py-1 rounded-full uppercase tracking-wider">
-                CORE PHASE 1
-              </span>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-              <div className="space-y-3">
-                <h3 className="text-2xl font-black text-black">Private Security & Guarding</h3>
-                <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-medium">
-                  Comprehensive threat mitigation and physical asset protection. We deploy 5-day induction trained personnel integrated with strict post orders and surprise 2:00 AM supervisory audits.
-                </p>
-                <Link
-                  href="/services/private-security"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-black hover:underline pt-2"
-                >
-                  View Deployment Scope <ArrowRight size={13} />
-                </Link>
-              </div>
-              <div className="relative h-44 rounded-2xl overflow-hidden border border-zinc-200 bg-zinc-100">
-                <Image
-                  src="/images/protective_guard.jpg"
-                  alt="JSM Security Guard"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </div>
-          </div>
+      {/* Integrated Expansion Strip */}
+      <div className="bg-zinc-50 border border-zinc-200/80 rounded-3xl p-6 sm:p-8 flex flex-col lg:flex-row items-center justify-between gap-6">
+        <div className="space-y-1 text-center lg:text-left">
+          <h4 className="text-sm font-black text-black uppercase tracking-wider">
+            Need Specialized Support?
+          </h4>
+          <p className="text-xs text-zinc-500 font-medium">
+            We also handle cash escort logistics, high-profile event coordination, auction site security, and custom visitor gate software.
+          </p>
         </div>
 
-        {/* Card 2: Facility Management (Span 4) in Dark Theme */}
-        <div className="md:col-span-4 bg-black text-white border border-zinc-800 rounded-3xl p-8 md:p-10 flex flex-col justify-between hover:shadow-xl transition-all duration-300">
-          <div>
-            <div className="flex justify-between items-start mb-6">
-              <span className="text-2xl font-bold text-[#C5A880] font-mono">02</span>
-              <Sparkles size={24} className="text-[#C5A880]" />
-            </div>
-            <h3 className="text-2xl font-black text-white mb-3">Facility Management</h3>
-            <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-medium">
-              Total operational maintenance. 5-step closed loop hygiene (Clean → Inspect → Report → Correct → Verify) ensuring pristine commercial environments.
-            </p>
-          </div>
-          <div className="pt-6 border-t border-zinc-800 mt-6">
+        <div className="flex flex-wrap items-center justify-center gap-2.5">
+          {expansionServices.map((exp) => (
             <Link
-              href="/services/housekeeping"
-              className="text-xs font-bold text-[#C5A880] hover:underline flex items-center gap-1"
+              key={exp.title}
+              href={exp.href}
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white hover:bg-zinc-100 border border-zinc-200/80 text-zinc-800 text-xs font-bold shadow-2xs hover:border-black transition-colors"
             >
-              Explore Facility SOPs <ArrowRight size={13} />
+              <span>{exp.title}</span>
+              <ArrowUpRight size={12} className="text-[#C5A880]" />
             </Link>
-          </div>
-        </div>
-
-        {/* Card 3: Strategic Manpower (Span 5) */}
-        <div className="md:col-span-5 bg-white border border-zinc-200/80 rounded-3xl p-8 md:p-10 flex flex-col justify-between hover:border-black hover:shadow-xl transition-all duration-300">
-          <div>
-            <div className="flex justify-between items-start mb-6">
-              <span className="text-2xl font-bold text-[#C5A880] font-mono">03</span>
-              <span className="text-[10px] font-bold text-zinc-500 uppercase tracking-wider font-mono">SCALABLE</span>
-            </div>
-            <h3 className="text-2xl font-black text-black mb-3">Strategic Manpower</h3>
-            <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-medium">
-              Precision workforce deployment. Originating from our roots as JSMMANPOWER, we provide vetted industrial helpers and warehouse labor with 48-hour mobilization.
-            </p>
-          </div>
-          <div className="pt-6 border-t border-zinc-100 mt-6">
-            <Link
-              href="/services/manpower"
-              className="text-xs font-bold text-black hover:underline flex items-center gap-1"
-            >
-              Request Headcount <ArrowRight size={13} />
-            </Link>
-          </div>
-        </div>
-
-        {/* Card 4: Cash-in-Transit (Span 7) */}
-        <div className="md:col-span-7 bg-white border border-zinc-200/80 rounded-3xl p-8 md:p-10 flex flex-col justify-between hover:border-black hover:shadow-xl transition-all duration-300">
-          <div>
-            <div className="flex justify-between items-start mb-6">
-              <span className="text-2xl font-bold text-[#C5A880] font-mono">04</span>
-              <Banknote size={24} className="text-zinc-400" />
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-              <div className="space-y-2">
-                <h3 className="text-2xl font-black text-black">Cash-in-Transit</h3>
-                <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-medium">
-                  Secure logistics for high-value assets. Two-person verified custody transfers, tamper-proof bags, and scheduled retail collections.
-                </p>
-                <Link
-                  href="/services/cash-in-transit"
-                  className="inline-flex items-center gap-1 text-xs font-bold text-black hover:underline pt-2"
-                >
-                  View Logistics Protocol <ArrowRight size={13} />
-                </Link>
-              </div>
-              <div className="relative h-36 rounded-2xl overflow-hidden border border-zinc-200 bg-zinc-100">
-                <Image
-                  src="/images/hero_operations.jpg"
-                  alt="JSM Operations Team"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </div>
-          </div>
+          ))}
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-1 px-4 py-2 rounded-full bg-black text-white text-xs font-bold hover:bg-zinc-800 transition-colors"
+          >
+            All 8 Verticals →
+          </Link>
         </div>
       </div>
     </section>
