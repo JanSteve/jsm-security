@@ -61,11 +61,36 @@ export function ContactForm() {
     setStep((prev) => prev - 1);
   };
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const onSubmit = async (data: FormData) => {
+    setIsSubmitting(true);
     const ref = `JSM-REQ-${Date.now().toString().slice(-4)}`;
     setReferenceId(ref);
     setSubmittedData(data);
-    setIsSubmitted(true);
+
+    try {
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: data.name,
+          phone: data.phone,
+          email: data.email,
+          facilityName: data.company,
+          service: data.service,
+          headcount: data.headcount,
+          location: data.city,
+          notes: data.requirements,
+          referenceId: ref,
+        }),
+      });
+    } catch (err) {
+      console.error('Failed to dispatch contact email:', err);
+    } finally {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+    }
   };
 
   const cleanWA = brandData.contact.whatsapp.replace(/[^0-9]/g, '');
@@ -285,9 +310,10 @@ export function ContactForm() {
                     </Button>
                     <Button
                       type="submit"
+                      disabled={isSubmitting}
                       className="w-2/3 h-11 rounded-full bg-black hover:bg-zinc-800 text-white font-bold text-xs shadow-md"
                     >
-                      Submit Assessment Request
+                      {isSubmitting ? "Dispatching to Operations Desk..." : "Submit Assessment Request"}
                     </Button>
                   </div>
                 </motion.div>
