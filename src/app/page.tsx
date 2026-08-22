@@ -1,7 +1,6 @@
 import { 
   HeroSection, 
   TrustBar, 
-  ProblemSection, 
   ServicesOverview, 
   OperationalCalculator,
   WhyJSM, 
@@ -61,10 +60,9 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqsJsonLd) }}
       />
 
-      {/* Fast, Ultra-Clean, High-Conversion Homepage Flow */}
+      {/* $500k Luxury Enterprise Visual Flow */}
       <HeroSection />
       <TrustBar />
-      <ProblemSection />
       <ServicesOverview />
       <OperationalCalculator />
       <WhyJSM />
