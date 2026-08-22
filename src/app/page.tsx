@@ -3,9 +3,9 @@ import {
   TrustBar, 
   ProblemSection, 
   ServicesOverview, 
+  OperationalCalculator,
   WhyJSM, 
   HowWeWork, 
-  SOPSection, 
   IndustriesSection, 
   PeopleSection, 
   CTASection 
@@ -39,14 +39,14 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webSchema) }}
       />
 
-      {/* 10-Section Storytelling Journey */}
+      {/* Streamlined High-Conversion Homepage Flow */}
       <HeroSection />
       <TrustBar />
       <ProblemSection />
       <ServicesOverview />
+      <OperationalCalculator />
       <WhyJSM />
       <HowWeWork />
-      <SOPSection />
       <IndustriesSection />
       <PeopleSection />
       <CTASection />
