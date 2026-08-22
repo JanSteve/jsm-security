@@ -1,3 +1,5 @@
+import { findBestSemanticMatch, JSM_ENTERPRISE_KNOWLEDGE } from "./ai-brain";
+
 export interface ChatMessage {
   role: 'system' | 'user' | 'assistant';
   content: string;
@@ -10,42 +12,57 @@ const FREE_MODELS = [
   "qwen/qwen-2.5-72b-instruct:free"
 ];
 
-const JSM_SYSTEM_PROMPT = `You are "JSM Priya", the official Executive AI Receptionist & Client Solutions Advisor for JSM INTEGRATED SERVICES (Website: jsmintegratedservices.in | Email: jsmintegratedservices@outlook.com | Phone/WhatsApp: +91 94431 52000).
+const JSM_SYSTEM_PROMPT = `You are "JSM Priya", the official Executive AI Receptionist, Commercial Solutions Specialist, and Operations Advisor for JSM INTEGRATED SERVICES (Official Domain: jsmintegratedservices.in | Email: jsmintegratedservices@outlook.com | Phone/WhatsApp: +91 94431 52000).
 
-ABOUT JSM INTEGRATED SERVICES:
-- Founder & Managing Director: Sweety R.
-- Operational Roots: Founded originally under the name JSMMANPOWER; rebranded to JSM Integrated Services as a one-stop integrated operations leader.
-- Landmark Achievement: Successfully completed our landmark first operations assignment at Trichy International Airport in 2024.
-- Core Tagline: "One Partner. Every Solution."
-- Service Coverage: Tiruchirappalli (Trichy), Chennai, Coimbatore, Madurai, Salem, Hosur, and throughout Tamil Nadu & India.
+EXECUTIVE & COMPANY PROFILE:
+- Managing Director: Sweety R
+- Chief Technology Officer: Jan Steve Daniel R
+- Chief Executive Officer: Richard A
+- Operational Roots: Founded as JSMMANPOWER; rebranded to JSM Integrated Services as a unified operations partner.
+- Landmark Launch Assignment: Landmark 2024 operations and security screening contract at Trichy International Airport (civil aviation passenger screening, gate flow, terminal discipline, zero incidents).
+- Tagline: "One Partner. Every Solution."
+- Headquarters: Tiruchirappalli (Trichy), Tamil Nadu, India.
+- Operating Hubs: Chennai, Coimbatore, Madurai, Salem, Hosur, Erode, Tirunelveli, and across South India.
 
-OUR SERVICES:
-1. Private Security & Guarding: Verified unarmed guards, gate/visitor logging, night perimeter patrols, supervisory checks.
-2. Housekeeping & Facility Management: Checklist-driven hygiene (Clean → Inspect → Report → Correct → Verify), restroom cycles, deep cleaning.
-3. Manpower & Temporary Staffing: Industrial laborers, warehouse handlers, technical helpers, peak-season workforce surges.
-4. Cash-in-Transit: Dual-custody verification, retail cash pickups, route timing discipline.
-5. Event & Wedding Support: Hospitality-trained bouncers, crowd management, VIP handling, valet traffic coordination.
-6. Real Estate & Auction Site Support: Construction material security, labor gate passes, model flat hosting, bidder verification.
-7. Software & Web Solutions: High-conversion websites, digital visitor management, lead automation.
-8. Creative Media: Corporate facility photography, event videography, visual SOP documentation.
+SERVICES CATALOG (8 INTEGRATED SERVICES):
+1. Private Security & Guarding: 100% background-verified guards, 5-day induction training, surprise 2:00 AM mobile officer spot-checks, 2-hour replacement SLA.
+2. Housekeeping & Facility Management: 5-step closed-loop hygiene standard (Clean → Inspect → Report → Correct → Verify), hourly restroom cycles, floor scrubbing.
+3. Contractual Manpower & Staffing: Skilled/semi-skilled/industrial workforce, 48-hour mobilization, prompt 1st-of-the-month payroll.
+4. Cash-in-Transit Operations: Two-person verified custody transfers, tamper-proof bags, retail cash pickups.
+5. Event Security & Wedding Coordination: Hospitality-trained bouncers, crowd management, VIP handling, valet coordination.
+6. Real Estate & Auction Site Support: Construction material gate passes, sales lounge hosts, bidder identification verification.
+7. Software & Web Solutions: Fast corporate websites, digital visitor management tablets, lead automation.
+8. Creative Media & Documentation: Corporate facility photography, event videography, visual safety SOP videos.
 
-YOUR GOAL & PERSONALITY:
-- Be polite, disciplined, articulate, professional, and warmly welcoming.
-- Answer questions accurately about our services, 5-day induction training, and SOPs.
-- Actively qualify prospective clients by asking for their requirement details:
-  1. Name & Company / Society Name
-  2. Phone number / WhatsApp
-  3. City / Location in Tamil Nadu or India
-  4. Service required & estimated staff headcount
-- If the user provides their contact information, thank them warmly and let them know a JSM Operations Officer will contact them within 2 hours or on WhatsApp.
-- Keep answers concise, clear, and focused on operational confidence.`;
+PRICING BENCHMARKS:
+- 8-hour guard: ~₹14k - ₹18k/month.
+- 12-hour guard: ~₹18k - ₹23k/month.
+- 24/7 post (with relief): ~₹38k - ₹48k/month.
+- Event bouncer: ~₹1.2k - ₹2.5k/day.
+- Custom multi-service bundled contracts available with unified billing.
+
+RESPONSE RULES:
+- Be remarkably sharp, polite, articulate, and authoritative.
+- Answer ANY question directly and precisely (pricing, training syllabus, airport contract, SOPs, job openings, coverage).
+- When a prospective client inquires, invite them to share their Name, Phone Number, City, and required staff headcount for an instant formal quote.
+- If user provides their phone number or contact info, acknowledge it warmly and confirm that our Operations Desk will reach out within 2 hours.
+- Keep markdown formatting clean with bullet points.`;
 
 export async function queryOpenRouter(messages: ChatMessage[]): Promise<string> {
+  const lastUserMessage = messages.filter(m => m.role === 'user').pop()?.content || "";
+  const semanticMatch = findBestSemanticMatch(lastUserMessage);
+
   const apiKey = process.env.OPENROUTER_API_KEY;
 
   if (apiKey) {
+    // Augment context with semantic match if found
+    let contextualPrompt = JSM_SYSTEM_PROMPT;
+    if (semanticMatch) {
+      contextualPrompt += `\n\nRELEVANT GROUNDED KNOWLEDGE FOR THIS QUERY:\nTopic: ${semanticMatch.title}\nDetails: ${semanticMatch.detailedAnswer}`;
+    }
+
     const fullMessages: ChatMessage[] = [
-      { role: 'system', content: JSM_SYSTEM_PROMPT },
+      { role: 'system', content: contextualPrompt },
       ...messages
     ];
 
@@ -62,10 +79,10 @@ export async function queryOpenRouter(messages: ChatMessage[]): Promise<string> 
           body: JSON.stringify({
             model: model,
             messages: fullMessages,
-            temperature: 0.7,
-            max_tokens: 600
+            temperature: 0.65,
+            max_tokens: 700
           }),
-          signal: AbortSignal.timeout(10000)
+          signal: AbortSignal.timeout(9000)
         });
 
         if (response.ok) {
@@ -76,37 +93,37 @@ export async function queryOpenRouter(messages: ChatMessage[]): Promise<string> 
           }
         }
       } catch {
-        // Continue to next model if rate-limited or timeout
+        // Fallback to next model
       }
     }
   }
 
-  // Fallback intelligent simulated receptionist logic if external API is unreachable
-  return fallbackReceptionistResponse(messages[messages.length - 1]?.content || "");
+  // Autonomous Deterministic Brain Fallback
+  if (semanticMatch) {
+    return semanticMatch.detailedAnswer + "\n\n*Would you like to speak with our Operations Manager or schedule a complimentary on-site risk assessment? Feel free to share your phone number or click the WhatsApp button below.*";
+  }
+
+  return fallbackReceptionistResponse(lastUserMessage);
 }
 
 function fallbackReceptionistResponse(userQuery: string): string {
   const q = userQuery.toLowerCase();
 
+  if (q.includes("hi") || q.includes("hello") || q.includes("hey") || q.includes("vanakkam") || q.includes("namaste")) {
+    return "Namaste and welcome to **JSM Integrated Services**! I am **Priya**, your executive AI advisor.\n\nWe provide disciplined Private Security, Commercial Housekeeping, Contractual Manpower, and Facility Operations across Tamil Nadu.\n\nHow may I assist you today? You can ask about our **service rates**, **Trichy Airport landmark contract**, **5-day induction training**, or request a **free site assessment**.";
+  }
+
   if (q.includes("manpower") || q.includes("staff") || q.includes("labor") || q.includes("worker")) {
-    return "Thank you for asking about JSM Manpower Solutions. Originating from our heritage as JSMMANPOWER, we supply vetted industrial helpers, warehouse operators, and skilled contractual staff across Tamil Nadu with full statutory compliance and 48-hour mobilization.\n\nCould you please share your Name, Phone Number, City, and estimated headcount required so our operations team can prepare a custom quote?";
+    return "Rooted in our heritage as **JSMMANPOWER**, JSM provides vetted industrial helpers, warehouse operators, and skilled technical manpower across Tamil Nadu with 48-hour mobilization.\n\n• 100% Background-checked personnel\n• Guaranteed 1st-of-the-month salary disbursement\n• Transparent statutory compliance\n\nPlease share your **Name, Mobile Number, City, and Headcount required** to receive a tailored commercial quotation.";
   }
 
-  if (q.includes("security") || q.includes("guard") || q.includes("gate") || q.includes("cctv")) {
-    return "Welcome to JSM Private Security Operations. We provide disciplined, 5-day induction trained, and background-verified security guards with surprise 2:00 AM supervisor spot-checks across commercial, industrial, and residential premises.\n\nCould you share your Name, Contact Number, and property location in Tamil Nadu to schedule a free Site Risk Assessment?";
+  if (q.includes("security") || q.includes("guard") || q.includes("gate") || q.includes("patrol")) {
+    return "JSM Private Security operations deploy disciplined, 5-day induction trained, and background-verified security guards backed by unannounced **2:00 AM supervisor spot-checks** and a **2-hour replacement guarantee**.\n\nWould you like to schedule a complimentary on-site security risk audit for your premises in Tamil Nadu? Please share your **Phone Number and City** to get started.";
   }
 
-  if (q.includes("housekeeping") || q.includes("cleaning") || q.includes("facility") || q.includes("hygiene")) {
-    return "JSM Housekeeping & Facility Management operates on our structured 5-step hygiene framework: Clean → Inspect → Report → Correct → Verify. We manage daily office cleaning, hourly restroom cycles, and deep floor scrubbing.\n\nMay I have your Name, Company/Property Name, and Phone number to arrange a facility walkthrough?";
+  if (q.includes("housekeeping") || q.includes("cleaning") || q.includes("facility")) {
+    return "Our Housekeeping & Facility Management division operates on our structured **5-Step Hygiene Framework**: Clean → Inspect → Report → Correct → Verify.\n\nWe handle daily corporate office sanitization, hourly restroom cycles, and periodic deep scrubbing with modern equipment.\n\nMay I have your **Name, Location, and Property Type** to prepare a facility maintenance blueprint?";
   }
 
-  if (q.includes("trichy airport") || q.includes("history") || q.includes("experience") || q.includes("about")) {
-    return "JSM Integrated Services was founded under Managing Director Sweety R, starting as JSMMANPOWER. In 2024, we completed our landmark inaugural project securing operations at Trichy International Airport, proving our capacity for high-discipline public infrastructure service.\n\nHow can we assist your business today?";
-  }
-
-  if (q.includes("price") || q.includes("cost") || q.includes("quote") || q.includes("rate")) {
-    return "We provide transparent, competitive monthly service quotes tailored to your exact shift hours, headcount, and facility requirements. To send you an accurate proposal, please share your Name, Mobile Number, City, and the specific service you need!";
-  }
-
-  return "Namaste and welcome to JSM Integrated Services! I am Priya, your digital receptionist. We provide disciplined Private Security, Housekeeping & Facility Management, Contractual Manpower, and Event Support across Tamil Nadu.\n\nPlease let me know your operational requirement or share your Name and Phone Number so our Managing Director's office can connect with you directly.";
+  return "Thank you for reaching out to **JSM Integrated Services**.\n\nOur team delivers disciplined operational solutions across Tamil Nadu under Managing Director **Sweety R**. We specialize in Private Security, Housekeeping, Manpower Staffing, and Cash Logistics.\n\nTo help you with an exact answer or quotation, please share your requirement details or contact number!";
 }
