@@ -68,20 +68,49 @@ export function AIReceptionist() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isTyping, showCalculator]);
 
-  // Voice synthesis text-to-speech helper
+  // Voice synthesis text-to-speech with natural female voice selection
   const speakText = (text: string) => {
     if (!isSpeechEnabled || typeof window === "undefined" || !("speechSynthesis" in window)) return;
     try {
       window.speechSynthesis.cancel();
-      // Strip markdown formatting for cleaner speech
-      const cleanSpeech = text.replace(/[*_#•]/g, "").replace(/\n+/g, " ");
+      // Strip markdown, bullet points and symbols for clean spoken English
+      const cleanSpeech = text
+        .replace(/[*_#•`~]/g, "")
+        .replace(/https?:\/\/\S+/g, "")
+        .replace(/\+91\s?/g, "plus nine one ")
+        .replace(/\n+/g, ". ");
+
       const utterance = new SpeechSynthesisUtterance(cleanSpeech);
-      utterance.rate = 1.0;
-      utterance.pitch = 1.05;
-      utterance.lang = "en-IN";
+      utterance.rate = 0.96; // Slightly calmer, articulate pacing
+      utterance.pitch = 1.05; // Pleasant, natural female pitch
+
+      // Find premier natural female voice
+      const voices = window.speechSynthesis.getVoices();
+      if (voices && voices.length > 0) {
+        // Preferred female voice hierarchy (Indian & Global Natural Neural)
+        const premierFemaleVoice = voices.find(v => 
+          v.name.includes("Neerja") || 
+          v.name.includes("Ananya") ||
+          v.name.includes("Kavya") ||
+          (v.lang.startsWith("en-IN") && (v.name.toLowerCase().includes("female") || v.name.toLowerCase().includes("natural")))
+        ) || voices.find(v =>
+          v.name.includes("Google UK English Female") ||
+          v.name.includes("Google US English") ||
+          v.name.includes("Samantha") ||
+          v.name.includes("Victoria") ||
+          v.name.includes("Karen") ||
+          (v.name.toLowerCase().includes("female") && v.lang.startsWith("en"))
+        ) || voices.find(v => v.lang.startsWith("en-IN")) || voices[0];
+
+        if (premierFemaleVoice) {
+          utterance.voice = premierFemaleVoice;
+          utterance.lang = premierFemaleVoice.lang;
+        }
+      }
+
       window.speechSynthesis.speak(utterance);
-    } catch {
-      // Speech synthesis fallback
+    } catch (err) {
+      console.warn("Speech synthesis error:", err);
     }
   };
 
