@@ -18,7 +18,9 @@ import {
   Calculator, 
   Maximize2, 
   Minimize2,
-  ChevronDown
+  ChevronDown,
+  Trash2,
+  Square
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { brandData } from "@/data/brand";
@@ -349,16 +351,47 @@ export function AIReceptionist() {
               </div>
 
               <div className="flex items-center gap-1">
-                {/* Text to speech toggle */}
+                {/* Stop Speech / Voice Toggle */}
                 <button
                   onClick={() => {
-                    if (isSpeechEnabled) window?.speechSynthesis?.cancel();
+                    if (audioPlayerRef.current) {
+                      audioPlayerRef.current.pause();
+                      audioPlayerRef.current = null;
+                    }
+                    if (typeof window !== "undefined" && "speechSynthesis" in window) {
+                      window.speechSynthesis.cancel();
+                    }
                     setIsSpeechEnabled(!isSpeechEnabled);
                   }}
-                  title={isSpeechEnabled ? "Mute voice readouts" : "Enable voice readouts"}
+                  title={isSpeechEnabled ? "Voice Enabled (Click to Mute / Stop)" : "Voice Muted (Click to Enable)"}
                   className="p-1.5 text-zinc-400 hover:text-white rounded-lg hover:bg-zinc-800 transition-colors"
                 >
-                  {isSpeechEnabled ? <Volume2 size={16} /> : <VolumeX size={16} />}
+                  {isSpeechEnabled ? <Volume2 size={16} className="text-[#C5A880]" /> : <VolumeX size={16} />}
+                </button>
+
+                {/* Clear Conversation */}
+                <button
+                  onClick={() => {
+                    if (audioPlayerRef.current) {
+                      audioPlayerRef.current.pause();
+                      audioPlayerRef.current = null;
+                    }
+                    if (typeof window !== "undefined" && "speechSynthesis" in window) {
+                      window.speechSynthesis.cancel();
+                    }
+                    setMessages([
+                      {
+                        id: `welcome-${Date.now()}`,
+                        role: "assistant",
+                        content: `Namaste! I am **Priya**, Executive Client Solutions Officer for **JSM Integrated Services** under Managing Director **Sweety R**.\n\nHow can I assist your facility or workforce requirements today? You can ask about our **rates**, our **Trichy Airport landmark contract**, **5-day induction training**, or calculate an instant estimate below.`,
+                        timestamp: "Just now",
+                      }
+                    ]);
+                  }}
+                  title="Clear Conversation"
+                  className="p-1.5 text-zinc-400 hover:text-rose-400 rounded-lg hover:bg-zinc-800 transition-colors"
+                >
+                  <Trash2 size={15} />
                 </button>
 
                 {/* Instant Quote Calculator Toggle */}
@@ -381,7 +414,16 @@ export function AIReceptionist() {
 
                 {/* Close */}
                 <button
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => {
+                    if (audioPlayerRef.current) {
+                      audioPlayerRef.current.pause();
+                      audioPlayerRef.current = null;
+                    }
+                    if (typeof window !== "undefined" && "speechSynthesis" in window) {
+                      window.speechSynthesis.cancel();
+                    }
+                    setIsOpen(false);
+                  }}
                   className="p-1.5 text-zinc-400 hover:text-white rounded-lg hover:bg-zinc-800 transition-colors"
                 >
                   <X size={18} />

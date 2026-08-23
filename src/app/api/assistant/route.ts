@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { queryGroq, ChatMessage } from "@/lib/groq";
+import { queryGemini, ChatMessage } from "@/lib/gemini";
 import nodemailer from "nodemailer";
 
 export async function POST(req: NextRequest) {
@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Messages array is required" }, { status: 400 });
     }
 
-    const reply = await queryGroq(messages);
+    const reply = await queryGemini(messages);
 
     // Check if user provided contact details or asked for manager escalation
     const lastUserMessage = messages[messages.length - 1]?.content || "";
@@ -67,16 +67,16 @@ async function sendChatLeadEmail({ reference, userQuery, fullConversation }: { r
   });
 
   const mailOptions = {
-    from: `"JSM AI Assistant Live Alert" <${outlookEmail}>`,
+    from: `"JSM Operations Live Alert" <${outlookEmail}>`,
     to: targetRecipient,
     replyTo: outlookEmail,
     subject: `🚨 Live Chat Lead Captured [${reference}] - JSM Integrated Services`,
-    text: `New Lead Captured via Priya AI Chat Assistant\n\nReference: ${reference}\nLatest Query: ${userQuery}\n\nFull Conversation Log:\n${fullConversation}`,
+    text: `New Lead Captured via Priya Operations Desk\n\nReference: ${reference}\nLatest Query: ${userQuery}\n\nFull Conversation Log:\n${fullConversation}`,
     html: `
       <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #fbf9f4; padding: 24px; color: #111;">
         <div style="max-width: 600px; margin: 0 auto; background: #fff; border-radius: 16px; border: 1px solid #e4e2dd; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
           <div style="background: #000; color: #fff; padding: 20px 24px; border-bottom: 3px solid #C5A880;">
-            <h2 style="margin: 0; font-size: 18px;">🚨 Live AI Chat Lead &amp; Manager Alert</h2>
+            <h2 style="margin: 0; font-size: 18px;">🚨 Live Chat Lead &amp; Manager Alert</h2>
             <p style="margin: 4px 0 0 0; color: #C5A880; font-size: 12px; font-weight: 700; text-transform: uppercase;">Reference: ${reference}</p>
           </div>
           <div style="padding: 24px;">
