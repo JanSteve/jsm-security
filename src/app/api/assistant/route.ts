@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { queryOpenRouter, ChatMessage } from "@/lib/openrouter";
+import { queryGroq, ChatMessage } from "@/lib/groq";
+import nodemailer from "nodemailer";
 
 export async function POST(req: NextRequest) {
   try {
@@ -10,15 +11,25 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Messages array is required" }, { status: 400 });
     }
 
-    const reply = await queryOpenRouter(messages);
+    const reply = await queryGroq(messages);
 
-    // Simple heuristic to check if user provided contact details
+    // Check if user provided contact details or asked for manager escalation
     const lastUserMessage = messages[messages.length - 1]?.content || "";
     const hasPhone = /\b\d{10}\b|\b\+91\d{10}\b|\b\d{5}\s*\d{5}\b/.test(lastUserMessage);
     const hasEmail = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/.test(lastUserMessage);
+    const wantsManager = /manager|speak|talk|call me|human|complaint|director|urgent|hire|quote/i.test(lastUserMessage);
 
-    const leadCaptured = hasPhone || hasEmail;
-    const leadReference = leadCaptured ? `JSM-LEAD-${Date.now().toString().slice(-4)}` : undefined;
+    const leadCaptured = hasPhone || hasEmail || (wantsManager && lastUserMessage.length > 15);
+    const leadReference = leadCaptured ? `JSM-CHAT-${Date.now().toString().slice(-4)}` : undefined;
+
+    // Dispatch background email notification if lead/manager request captured
+    if (leadCaptured && (hasPhone || hasEmail)) {
+      sendChatLeadEmail({
+        reference: leadReference || "JSM-CHAT-LEAD",
+        userQuery: lastUserMessage,
+        fullConversation: messages.map(m => `${m.role.toUpperCase()}: ${m.content}`).join("\n\n")
+      }).catch(err => console.error("Chat lead email error:", err));
+    }
 
     return NextResponse.json({
       reply,
@@ -29,9 +40,60 @@ export async function POST(req: NextRequest) {
     console.error("AI Assistant API Error:", error);
     return NextResponse.json(
       { 
-        reply: "Thank you for reaching out to JSM Integrated Services! We are ready to assist you. Please feel free to WhatsApp us directly at +91 94431 52000 or email jsmintegratedservices@outlook.com for immediate support." 
+        reply: "Thank you for reaching out to **JSM Integrated Services**! Our Managing Director **Sweety R** and operations desk are available 24/7.\n\n• **Direct Phone**: +91 94431 52000\n• **Direct WhatsApp**: +91 9384670536\n• **Email**: jsmintegratedservices@outlook.com\n\nPlease share your phone number and requirement here so our manager can call you back immediately." 
       }, 
       { status: 200 }
     );
   }
+}
+
+async function sendChatLeadEmail({ reference, userQuery, fullConversation }: { reference: string; userQuery: string; fullConversation: string }) {
+  const outlookEmail = process.env.OUTLOOK_EMAIL || 'jsmintegratedservices@outlook.com';
+  const outlookPassword = process.env.OUTLOOK_PASSWORD || 'Jsm@2026';
+  const targetRecipient = process.env.CONTACT_NOTIFICATION_EMAIL || 'jsmintegratedservices@outlook.com';
+
+  const transporter = nodemailer.createTransport({
+    host: 'smtp-mail.outlook.com',
+    port: 587,
+    secure: false,
+    auth: {
+      user: outlookEmail,
+      pass: outlookPassword,
+    },
+    tls: {
+      ciphers: 'SSLv3',
+      rejectUnauthorized: false,
+    },
+  });
+
+  const mailOptions = {
+    from: `"JSM AI Assistant Live Alert" <${outlookEmail}>`,
+    to: targetRecipient,
+    replyTo: outlookEmail,
+    subject: `🚨 Live Chat Lead Captured [${reference}] - JSM Integrated Services`,
+    text: `New Lead Captured via Priya AI Chat Assistant\n\nReference: ${reference}\nLatest Query: ${userQuery}\n\nFull Conversation Log:\n${fullConversation}`,
+    html: `
+      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #fbf9f4; padding: 24px; color: #111;">
+        <div style="max-width: 600px; margin: 0 auto; background: #fff; border-radius: 16px; border: 1px solid #e4e2dd; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+          <div style="background: #000; color: #fff; padding: 20px 24px; border-bottom: 3px solid #C5A880;">
+            <h2 style="margin: 0; font-size: 18px;">🚨 Live AI Chat Lead &amp; Manager Alert</h2>
+            <p style="margin: 4px 0 0 0; color: #C5A880; font-size: 12px; font-weight: 700; text-transform: uppercase;">Reference: ${reference}</p>
+          </div>
+          <div style="padding: 24px;">
+            <p style="font-size: 14px; font-weight: 700; color: #000;">User Query / Phone Details:</p>
+            <div style="background: #fbf9f4; border-left: 3px solid #000; padding: 12px 16px; border-radius: 8px; font-size: 13px; font-weight: 600;">
+              ${userQuery}
+            </div>
+            <p style="font-size: 12px; color: #666; margin-top: 20px;">Full Chat Conversation:</p>
+            <pre style="background: #f4f4f5; padding: 12px; border-radius: 8px; font-size: 11px; white-space: pre-wrap; font-family: monospace;">${fullConversation}</pre>
+          </div>
+          <div style="background: #f4f4f5; padding: 16px 24px; text-align: center; font-size: 11px; color: #777;">
+            JSM Integrated Services • 24/7 Operations Desk
+          </div>
+        </div>
+      </div>
+    `,
+  };
+
+  await transporter.sendMail(mailOptions);
 }
