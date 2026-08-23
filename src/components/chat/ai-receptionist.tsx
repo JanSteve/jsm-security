@@ -68,49 +68,77 @@ export function AIReceptionist() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isTyping, showCalculator]);
 
-  // Voice synthesis text-to-speech with natural female voice selection
-  const speakText = (text: string) => {
-    if (!isSpeechEnabled || typeof window === "undefined" || !("speechSynthesis" in window)) return;
-    try {
+  const audioPlayerRef = useRef<HTMLAudioElement | null>(null);
+
+  // High-fidelity natural human neural voice synthesis (Studio-quality)
+  const speakText = async (text: string) => {
+    if (!isSpeechEnabled || typeof window === "undefined") return;
+
+    // Stop any existing audio playback
+    if (audioPlayerRef.current) {
+      audioPlayerRef.current.pause();
+      audioPlayerRef.current = null;
+    }
+    if ("speechSynthesis" in window) {
       window.speechSynthesis.cancel();
-      // Strip markdown, bullet points and symbols for clean spoken English
-      const cleanSpeech = text
-        .replace(/[*_#•`~]/g, "")
-        .replace(/https?:\/\/\S+/g, "")
-        .replace(/\+91\s?/g, "plus nine one ")
-        .replace(/\n+/g, ". ");
+    }
 
-      const utterance = new SpeechSynthesisUtterance(cleanSpeech);
-      utterance.rate = 0.96; // Slightly calmer, articulate pacing
-      utterance.pitch = 1.05; // Pleasant, natural female pitch
+    try {
+      // 1. Primary: Stream studio-quality Microsoft Edge Neural Voice MP3
+      const response = await fetch("/api/tts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text, voice: "en-IN-NeerjaNeural" }),
+      });
 
-      // Find premier natural female voice
-      const voices = window.speechSynthesis.getVoices();
-      if (voices && voices.length > 0) {
-        // Preferred female voice hierarchy (Indian & Global Natural Neural)
+      if (response.ok) {
+        const blob = await response.blob();
+        const audioUrl = URL.createObjectURL(blob);
+        const audio = new Audio(audioUrl);
+        audioPlayerRef.current = audio;
+        audio.play().catch(() => {
+          // Auto-play was restricted by user interaction policy
+        });
+        return;
+      }
+    } catch (err) {
+      console.warn("Server TTS failed, falling back to local speech synthesis:", err);
+    }
+
+    // 2. Fallback: Browser Web Speech API
+    if ("speechSynthesis" in window) {
+      try {
+        const cleanSpeech = text
+          .replace(/[*_#•`~]/g, "")
+          .replace(/https?:\/\/\S+/g, "")
+          .replace(/\+91\s?/g, "plus nine one ")
+          .replace(/\n+/g, ". ");
+
+        const utterance = new SpeechSynthesisUtterance(cleanSpeech);
+        utterance.rate = 0.96;
+        utterance.pitch = 1.05;
+
+        const voices = window.speechSynthesis.getVoices();
         const premierFemaleVoice = voices.find(v => 
           v.name.includes("Neerja") || 
           v.name.includes("Ananya") ||
           v.name.includes("Kavya") ||
-          (v.lang.startsWith("en-IN") && (v.name.toLowerCase().includes("female") || v.name.toLowerCase().includes("natural")))
+          (v.lang.startsWith("en-IN") && v.name.toLowerCase().includes("female"))
         ) || voices.find(v =>
           v.name.includes("Google UK English Female") ||
-          v.name.includes("Google US English") ||
           v.name.includes("Samantha") ||
-          v.name.includes("Victoria") ||
-          v.name.includes("Karen") ||
           (v.name.toLowerCase().includes("female") && v.lang.startsWith("en"))
-        ) || voices.find(v => v.lang.startsWith("en-IN")) || voices[0];
+        ) || voices[0];
 
         if (premierFemaleVoice) {
           utterance.voice = premierFemaleVoice;
           utterance.lang = premierFemaleVoice.lang;
         }
-      }
 
-      window.speechSynthesis.speak(utterance);
-    } catch (err) {
-      console.warn("Speech synthesis error:", err);
+        window.speechSynthesis.speak(utterance);
+      } catch (e) {
+        console.warn("Local speech synthesis failed:", e);
+      }
     }
   };
 
