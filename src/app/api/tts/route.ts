@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
   try {
-    const { text, lang = "en-IN" } = await req.json();
+    const { text, lang = "en-IN", voiceId } = await req.json();
 
     if (!text || typeof text !== "string") {
       return NextResponse.json({ error: "Text is required" }, { status: 400 });
@@ -16,6 +16,26 @@ export async function POST(req: NextRequest) {
       .replace(/\s+/g, " ")
       .trim();
 
+    // 1. Check if Fish Audio API Key is configured for Fish.Audio S2.1-pro-free
+    const fishApiKey = process.env.FISH_AUDIO_API_KEY;
+    if (fishApiKey) {
+      try {
+        const fishAudioBuffer = await synthesizeFishAudio(cleanText, fishApiKey, voiceId);
+        if (fishAudioBuffer && fishAudioBuffer.length > 0) {
+          return new Response(new Uint8Array(fishAudioBuffer), {
+            headers: {
+              "Content-Type": "audio/mpeg",
+              "Content-Length": fishAudioBuffer.length.toString(),
+              "Cache-Control": "public, max-age=86400, stale-while-revalidate=43200",
+            },
+          });
+        }
+      } catch (err) {
+        console.warn("Fish Audio synthesis failed, falling back to natural speech stream:", err);
+      }
+    }
+
+    // 2. High-speed Natural Speech Streaming Engine (₹0 Free & Unlimited)
     const audioBuffer = await generateNaturalSpeech(cleanText, lang);
 
     return new Response(new Uint8Array(audioBuffer), {
@@ -31,8 +51,37 @@ export async function POST(req: NextRequest) {
   }
 }
 
+async function synthesizeFishAudio(text: string, apiKey: string, referenceId?: string): Promise<Buffer> {
+  const payload: any = {
+    text: text.slice(0, 500),
+    format: "mp3",
+    latency: "normal"
+  };
+
+  if (referenceId) {
+    payload.reference_id = referenceId;
+  }
+
+  const res = await fetch("https://api.fish.audio/v1/tts", {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+      "model": "s2.1-pro-free"
+    },
+    body: JSON.stringify(payload),
+    signal: AbortSignal.timeout(10000)
+  });
+
+  if (!res.ok) {
+    throw new Error(`Fish Audio API responded with status ${res.status}`);
+  }
+
+  const arrayBuffer = await res.arrayBuffer();
+  return Buffer.from(arrayBuffer);
+}
+
 async function generateNaturalSpeech(text: string, lang: string): Promise<Buffer> {
-  // Split into natural sentence clauses
   const sentences = text.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [text];
   const audioChunks: Buffer[] = [];
 
@@ -40,7 +89,6 @@ async function generateNaturalSpeech(text: string, lang: string): Promise<Buffer
     const trimmed = sentence.trim();
     if (!trimmed) continue;
 
-    // Subdivide clauses if longer than 140 chars for optimal audio synthesis
     const clauses = trimmed.length > 140 
       ? trimmed.match(/.{1,130}(\s+|$)/g) || [trimmed] 
       : [trimmed];
