@@ -33,35 +33,35 @@ export function ServicesOverview() {
   ];
 
   return (
-    <section className="py-14 md:py-20 px-4 sm:px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto bg-white border-t border-zinc-200/80">
-      <div className="flex items-center justify-between mb-8 pb-4 border-b border-zinc-200/80">
+    <section className="py-16 md:py-24 px-4 sm:px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto bg-white border-t border-zinc-200/80">
+      <div className="flex items-center justify-between mb-10 pb-4 border-b border-zinc-200/80">
         <div>
           <span className="text-[10px] font-mono font-bold tracking-widest text-[#C5A880] uppercase block">
             CORE DISCIPLINES
           </span>
-          <h2 className="text-2xl sm:text-4xl font-black text-black tracking-tight uppercase">
+          <h2 className="text-2xl sm:text-4xl font-black text-black tracking-tight uppercase mt-0.5">
             What We Deliver.
           </h2>
         </div>
         <Link
           href="/services"
-          className="text-xs font-bold text-black hover:text-[#C5A880] flex items-center gap-1 transition-colors"
+          className="text-xs font-bold text-black hover:text-[#C5A880] flex items-center gap-1.5 px-4 py-2 rounded-full border border-zinc-200/90 hover:border-[#C5A880] hover:shadow-[0_0_20px_rgba(197,168,128,0.3)] bg-[#fbf9f4] transition-all duration-300 group"
         >
           <span>All 8 Verticals</span>
-          <ArrowRight size={13} />
+          <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform text-[#C5A880]" />
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
         {coreServices.map((srv) => {
           const Icon = srv.icon;
           return (
             <Link
               key={srv.slug}
               href={`/services/${srv.slug}`}
-              className="bg-[#fbf9f4] border border-zinc-200/80 rounded-3xl overflow-hidden flex flex-col hover:border-black hover:shadow-2xl transition-all duration-300 group"
+              className="bg-[#fbf9f4] border border-zinc-200/90 rounded-3xl overflow-hidden flex flex-col hover:border-[#C5A880] hover:shadow-[0_16px_48px_rgba(197,168,128,0.22)] hover:-translate-y-1 transition-all duration-300 group"
             >
-              <div className="relative h-56 sm:h-64 w-full overflow-hidden">
+              <div className="relative h-60 sm:h-64 w-full overflow-hidden">
                 <Image
                   src={srv.image}
                   alt={srv.title}
@@ -69,29 +69,29 @@ export function ServicesOverview() {
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                <div className="absolute top-3 left-3">
-                  <span className="text-[9px] font-mono font-black text-black bg-white/95 px-2.5 py-1 rounded-full uppercase shadow-xs">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+                <div className="absolute top-4 left-4">
+                  <span className="text-[9px] font-mono font-black text-black bg-white/95 px-3 py-1 rounded-full uppercase shadow-xs border border-zinc-100">
                     {srv.badge}
                   </span>
                 </div>
-                <div className="absolute bottom-3 left-3 right-3 text-white">
-                  <div className="flex items-center gap-2">
-                    <div className="p-1.5 rounded-lg bg-[#C5A880] text-black">
-                      <Icon size={14} />
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <div className="flex items-center gap-2.5">
+                    <div className="p-2 rounded-xl bg-[#C5A880] text-black shadow-xs">
+                      <Icon size={15} />
                     </div>
-                    <h3 className="text-base font-black text-white">{srv.title}</h3>
+                    <h3 className="text-lg font-black text-white tracking-tight">{srv.title}</h3>
                   </div>
                 </div>
               </div>
 
-              <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
-                <p className="text-xs text-zinc-600 font-medium leading-relaxed">
+              <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
+                <p className="text-xs sm:text-sm text-zinc-600 font-medium leading-relaxed">
                   {srv.highlight}
                 </p>
-                <div className="pt-2 border-t border-zinc-200/60 flex items-center justify-between text-xs font-bold text-black group-hover:text-[#C5A880]">
-                  <span>Explore SOP</span>
-                  <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                <div className="pt-3 border-t border-zinc-200/80 flex items-center justify-between text-xs font-bold text-black group-hover:text-[#C5A880] transition-colors">
+                  <span>Explore Operational SOP</span>
+                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform text-[#C5A880]" />
                 </div>
               </div>
             </Link>

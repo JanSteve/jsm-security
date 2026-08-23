@@ -148,10 +148,10 @@ export function HeroSection() {
           </p>
 
           {/* Conversion Button Group */}
-          <div className="flex flex-wrap gap-3 pt-1">
+          <div className="flex flex-wrap gap-3.5 pt-1">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center bg-black hover:bg-zinc-800 text-white text-xs font-black tracking-widest px-8 h-12 rounded-full border-b-2 border-[#C5A880] shadow-xl hover:shadow-2xl active:scale-95 transition-all uppercase group"
+              className="inline-flex items-center justify-center bg-black hover:bg-zinc-900 text-white text-xs font-black tracking-widest px-8 h-12 rounded-full border-b-2 border-[#C5A880] shadow-xl hover:shadow-[0_0_30px_rgba(197,168,128,0.45)] hover:scale-[1.02] active:scale-95 transition-all uppercase group"
             >
               <span>REQUEST A QUOTE</span>
               <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform text-[#C5A880]" />
@@ -161,7 +161,7 @@ export function HeroSection() {
               href={`https://wa.me/${cleanWA}?text=Hi%20JSM%20Integrated%20Services,%20I%20would%20like%20to%20discuss%20our%20facility%20requirements.`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-6 h-12 rounded-full text-xs font-bold text-emerald-950 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 transition-all shadow-xs active:scale-95"
+              className="inline-flex items-center justify-center gap-2 px-6 h-12 rounded-full text-xs font-bold text-emerald-950 bg-emerald-50 hover:bg-emerald-100/90 border border-emerald-300 hover:border-emerald-400 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:scale-[1.02] transition-all shadow-xs active:scale-95"
             >
               <MessageCircle size={15} className="text-emerald-600" />
               <span>WhatsApp Direct</span>
@@ -250,7 +250,7 @@ export function HeroSection() {
       </div>
 
       {/* Interactive Tabs Selector Strip */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 max-w-4xl mx-auto w-full pt-2">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 max-w-4xl mx-auto w-full pt-3">
         {showcaseServices.map((srv, idx) => {
           const active = activeTab === idx;
           return (
@@ -258,14 +258,14 @@ export function HeroSection() {
               key={srv.id}
               type="button"
               onClick={() => setActiveTab(idx)}
-              className={`p-3 rounded-2xl text-xs font-bold transition-all text-left flex items-center justify-between border ${
+              className={`p-3.5 sm:p-4 rounded-2xl text-xs font-bold transition-all text-left flex items-center justify-between border ${
                 active
-                  ? "bg-black text-white border-black shadow-lg scale-[1.02]"
-                  : "bg-white/80 text-zinc-700 border-zinc-200 hover:border-zinc-400 hover:bg-white"
+                  ? "bg-black text-white border-[#C5A880] shadow-[0_0_25px_rgba(197,168,128,0.35)] scale-[1.02]"
+                  : "bg-white/90 text-zinc-700 border-zinc-200/90 hover:border-[#C5A880] hover:shadow-[0_0_20px_rgba(197,168,128,0.25)] hover:bg-white hover:scale-[1.01]"
               }`}
             >
               <div className="flex items-center gap-2">
-                <span className={`w-2 h-2 rounded-full ${active ? "bg-[#C5A880]" : "bg-zinc-300"}`} />
+                <span className={`w-2 h-2 rounded-full transition-colors ${active ? "bg-[#C5A880]" : "bg-zinc-300"}`} />
                 <span className="font-extrabold truncate">{srv.name}</span>
               </div>
               <ChevronRight size={13} className={active ? "text-[#C5A880]" : "text-zinc-400"} />
