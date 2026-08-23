@@ -70,6 +70,7 @@ export function AIReceptionist() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isTyping, showCalculator]);
 
+  const [isSpeaking, setIsSpeaking] = useState(false);
   const audioPlayerRef = useRef<HTMLAudioElement | null>(null);
 
   // High-fidelity natural human neural voice synthesis (Studio-quality)
@@ -85,12 +86,14 @@ export function AIReceptionist() {
       window.speechSynthesis.cancel();
     }
 
+    setIsSpeaking(true);
+
     try {
-      // 1. Primary: Stream studio-quality Microsoft Edge Neural Voice MP3
+      // 1. Primary: Stream studio-quality natural human female voice MP3
       const response = await fetch("/api/tts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text, voice: "en-IN-NeerjaNeural" }),
+        body: JSON.stringify({ text, lang: "en-IN" }),
       });
 
       if (response.ok) {
@@ -98,9 +101,16 @@ export function AIReceptionist() {
         const audioUrl = URL.createObjectURL(blob);
         const audio = new Audio(audioUrl);
         audioPlayerRef.current = audio;
-        audio.play().catch(() => {
-          // Auto-play was restricted by user interaction policy
-        });
+        
+        audio.onended = () => {
+          setIsSpeaking(false);
+          audioPlayerRef.current = null;
+        };
+        audio.onerror = () => {
+          setIsSpeaking(false);
+        };
+
+        await audio.play();
         return;
       }
     } catch (err) {
@@ -345,8 +355,17 @@ export function AIReceptionist() {
                     <span className="text-[10px] font-extrabold bg-[#C5A880] text-black px-1.5 py-0.2 rounded-md">
                       OPERATIONS DESK
                     </span>
+                    {isSpeaking && (
+                      <div className="flex items-center gap-0.5 ml-1">
+                        <span className="w-1 h-3 bg-emerald-400 rounded-full animate-bounce" />
+                        <span className="w-1 h-4 bg-emerald-400 rounded-full animate-bounce [animation-delay:0.15s]" />
+                        <span className="w-1 h-2 bg-emerald-400 rounded-full animate-bounce [animation-delay:0.3s]" />
+                      </div>
+                    )}
                   </div>
-                  <p className="text-[11px] text-zinc-400 font-medium">Executive Client Solutions &amp; Support</p>
+                  <p className="text-[11px] text-zinc-400 font-medium">
+                    {isSpeaking ? "Speaking naturally..." : "Executive Client Solutions & Support"}
+                  </p>
                 </div>
               </div>
 
