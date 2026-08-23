@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "motion/react";
 import {
   Sheet,
   SheetContent,
@@ -11,18 +10,19 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Phone, MessageCircle, ArrowRight, Shield } from "lucide-react";
+import { Menu, X, Phone, MessageCircle, ArrowRight } from "lucide-react";
 import { navigationData } from "@/data/navigation";
 import { brandData } from "@/data/brand";
 
 export function MobileMenu() {
   const [open, setOpen] = React.useState(false);
-  const [expandedSection, setExpandedSection] = React.useState<string | null>("Services");
+  const cleanPhone = brandData.contact.phone.replace(/[^0-9+]/g, '');
+  const cleanWA = brandData.contact.whatsapp.replace(/[^0-9]/g, '');
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="w-10 h-10 hover:bg-zinc-100 rounded-full">
+        <Button variant="ghost" size="icon" className="w-10 h-10 hover:bg-zinc-100 rounded-full lg:hidden">
           <Menu className="h-5 w-5 text-black" />
           <span className="sr-only">Toggle navigation menu</span>
         </Button>
@@ -54,7 +54,7 @@ export function MobileMenu() {
               <p className="text-[11px] text-zinc-500">24/7 Operations Desk</p>
             </div>
             <a
-              href={`https://wa.me/${brandData.contact.whatsapp.replace(/[^0-9]/g, '')}?text=Hi%20JSM%20Integrated%20Services,%20I%20need%20assistance.`}
+              href={`https://wa.me/${cleanWA}?text=Hi%20JSM%20Integrated%20Services,%20I%20need%20assistance.`}
               target="_blank"
               rel="noopener noreferrer"
               className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center gap-1 shadow-sm"
@@ -64,111 +64,49 @@ export function MobileMenu() {
           </div>
 
           <nav className="flex flex-col space-y-1">
-            {navigationData.map((item) => {
-              const hasCategories = Boolean(item.categories && item.categories.length > 0);
-              const hasChildren = Boolean(item.children && item.children.length > 0);
-              const isExpandable = hasCategories || hasChildren;
-              const isExpanded = expandedSection === item.title;
-
-              if (!isExpandable) {
-                return (
-                  <Link
-                    key={item.title}
-                    href={item.href}
-                    onClick={() => setOpen(false)}
-                    className="py-2.5 px-3 rounded-xl text-sm font-bold text-zinc-800 hover:text-black hover:bg-zinc-100 transition-colors flex items-center justify-between"
-                  >
-                    {item.title}
-                    <ArrowRight size={14} className="text-zinc-400" />
-                  </Link>
-                );
-              }
-
-              return (
-                <div key={item.title} className="border-b border-zinc-100 pb-1">
-                  <button
-                    onClick={() => setExpandedSection(isExpanded ? null : item.title)}
-                    className="w-full py-2.5 px-3 rounded-xl text-sm font-bold text-black flex items-center justify-between hover:bg-zinc-50 transition-colors"
-                  >
-                    <span>{item.title}</span>
-                    <span className="text-xs font-bold text-zinc-400">
-                      {isExpanded ? "−" : "+"}
+            {navigationData.map((item) => (
+              <Link
+                key={item.title}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="py-3 px-3.5 rounded-2xl text-sm font-bold text-zinc-800 hover:text-black hover:bg-[#fbf9f4] transition-colors flex items-center justify-between border border-transparent hover:border-zinc-200"
+              >
+                <div className="flex items-center gap-2">
+                  <span>{item.title}</span>
+                  {item.badge && (
+                    <span className="text-[9px] font-mono font-black px-1.5 py-0.2 rounded-sm bg-[#C5A880] text-black uppercase">
+                      {item.badge}
                     </span>
-                  </button>
-
-                  <AnimatePresence>
-                    {isExpanded && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="pl-3 pr-1 py-2 space-y-3"
-                      >
-                        {hasCategories && item.categories?.map((cat) => (
-                          <div key={cat.title} className="space-y-1.5">
-                            <p className="text-[10px] font-extrabold uppercase tracking-wider text-[#C5A880] pl-2">
-                              {cat.title}
-                            </p>
-                            <div className="space-y-1">
-                              {cat.items.map((sub) => (
-                                <Link
-                                  key={sub.title}
-                                  href={sub.href}
-                                  onClick={() => setOpen(false)}
-                                  className="block py-2 px-3 rounded-xl bg-zinc-50 hover:bg-zinc-100 text-xs font-bold text-zinc-800 transition-colors"
-                                >
-                                  <div>{sub.title}</div>
-                                  <p className="text-[10px] text-zinc-500 font-normal leading-snug mt-0.5">
-                                    {sub.description}
-                                  </p>
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
-                        ))}
-
-                        {hasChildren && (
-                          <div className="space-y-1">
-                            {item.children?.map((child) => (
-                              <Link
-                                key={child.title}
-                                href={child.href}
-                                onClick={() => setOpen(false)}
-                                className="block py-2 px-3 rounded-xl bg-zinc-50 hover:bg-zinc-100 text-xs font-bold text-zinc-800 transition-colors"
-                              >
-                                <div>{child.title}</div>
-                                {child.description && (
-                                  <p className="text-[10px] text-zinc-500 font-normal leading-snug mt-0.5">
-                                    {child.description}
-                                  </p>
-                                )}
-                              </Link>
-                            ))}
-                          </div>
-                        )}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  )}
                 </div>
-              );
-            })}
+                <ArrowRight size={14} className="text-zinc-400" />
+              </Link>
+            ))}
           </nav>
         </div>
 
-        {/* Footer Actions */}
-        <div className="p-5 border-t border-zinc-200/80 bg-zinc-50 space-y-3">
-          <Button asChild className="w-full bg-black hover:bg-zinc-800 text-white rounded-2xl h-11 text-xs font-bold shadow-md">
-            <Link href="/contact" onClick={() => setOpen(false)}>
-              Request Site Assessment
-            </Link>
-          </Button>
-
-          <div className="flex items-center justify-between text-[11px] text-zinc-500 font-medium px-1">
-            <span>{brandData.contact.primaryCity}, Tamil Nadu</span>
-            <a href={`tel:${brandData.contact.phone.replace(/[^0-9+]/g, '')}`} className="font-bold text-zinc-800 hover:underline">
-              {brandData.contact.phoneDisplay}
+        {/* Footer Contact Strip */}
+        <div className="p-5 border-t border-zinc-200/60 bg-zinc-50 space-y-3">
+          <div className="grid grid-cols-2 gap-2">
+            <a
+              href={`tel:${cleanPhone}`}
+              className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-white border border-zinc-200 text-black text-xs font-bold shadow-2xs"
+            >
+              <Phone size={13} className="text-[#C5A880]" />
+              <span>Call Us</span>
             </a>
+            <Link
+              href="/contact"
+              onClick={() => setOpen(false)}
+              className="flex items-center justify-center gap-1 py-2.5 rounded-xl bg-black text-white text-xs font-bold shadow-xs"
+            >
+              <span>Get Quote</span>
+              <ArrowRight size={12} className="text-[#C5A880]" />
+            </Link>
           </div>
+          <p className="text-[10px] text-zinc-500 text-center font-mono">
+            PSARA Compliant • Trichy Airport Landmark • 2-Hour SLA
+          </p>
         </div>
       </SheetContent>
     </Sheet>
