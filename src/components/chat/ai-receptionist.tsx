@@ -52,7 +52,7 @@ export function AIReceptionist() {
     {
       id: "welcome-1",
       role: "assistant",
-      content: `Namaste! I am **Priya**, Executive AI Advisor for **JSM Integrated Services** under Managing Director **Sweety R**.\n\nHow can I help you today? You can ask about our **rates**, our **Trichy Airport landmark contract**, **5-day induction training**, or calculate an instant estimate below.`,
+      content: `Namaste! I am **Priya**, Executive Client Solutions Officer for **JSM Integrated Services** under Managing Director **Sweety R**.\n\nHow can I assist your facility or workforce requirements today? You can ask about our **rates**, our **Trichy Airport landmark contract**, **5-day induction training**, or calculate an instant estimate below.`,
       timestamp: "Just now",
     }
   ]);
@@ -284,10 +284,10 @@ export function AIReceptionist() {
                   <div className="flex items-center gap-1.5">
                     <h3 className="text-sm font-bold text-white">JSM Priya</h3>
                     <span className="text-[10px] font-extrabold bg-[#C5A880] text-black px-1.5 py-0.2 rounded-md">
-                      AI RECEPTIONIST
+                      OPERATIONS DESK
                     </span>
                   </div>
-                  <p className="text-[11px] text-zinc-400 font-medium">Executive Operations & Solutions Desk</p>
+                  <p className="text-[11px] text-zinc-400 font-medium">Executive Client Solutions &amp; Support</p>
                 </div>
               </div>
 
