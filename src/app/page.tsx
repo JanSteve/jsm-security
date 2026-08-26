@@ -3,7 +3,9 @@ import {
   TrustBar, 
   ServicesOverview, 
   OperationalCalculator,
+  ROICalculator,
   WhyJSM, 
+  TestimonialsSection,
   RegionalCoverage,
   CTASection 
 } from "@/components/sections";
@@ -65,7 +67,9 @@ export default function Home() {
       <TrustBar />
       <ServicesOverview />
       <OperationalCalculator />
+      <ROICalculator />
       <WhyJSM />
+      <TestimonialsSection />
       <RegionalCoverage />
       <CTASection />
     </div>

@@ -10,3 +10,5 @@ export { PeopleSection } from './people-section';
 export { CTASection } from './cta-section';
 export { OperationalCalculator } from '../calculator/operational-calculator';
 export { RegionalCoverage } from './regional-coverage';
+export { TestimonialsSection } from './testimonials-section';
+export { ROICalculator } from './roi-calculator';
