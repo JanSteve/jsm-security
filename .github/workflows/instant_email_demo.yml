@@ -25,6 +25,7 @@ jobs:
 
       - name: Generate Fresh AI Reports & Send Email
         env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           OUTLOOK_EMAIL: ${{ secrets.OUTLOOK_EMAIL }}
           OUTLOOK_PASSWORD: ${{ secrets.OUTLOOK_PASSWORD }}
         run: |
