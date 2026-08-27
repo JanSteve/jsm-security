@@ -24,6 +24,11 @@ export const navigationData: NavItem[] = [
     badge: "DIAGNOSTIC",
   },
   {
+    title: "RFP Builder",
+    href: "/rfp-generator",
+    badge: "TENDER",
+  },
+  {
     title: "Trust Center",
     href: "/trust-center",
     badge: "PSARA",
