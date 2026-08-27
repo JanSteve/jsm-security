@@ -2,7 +2,7 @@ import { blogPosts } from "@/data/blog-posts";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Calendar, User, Clock, MessageCircle, Share2, ArrowRight } from "lucide-react";
+import { ArrowLeft, Clock, User, Calendar, MessageCircle, ArrowRight, CheckCircle2, ShieldCheck, Mail } from "lucide-react";
 import { articleSchema, breadcrumbSchema } from "@/lib/schema";
 import { brandData } from "@/data/brand";
 
@@ -37,8 +37,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const { slug } = await params;
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) notFound();
-
-  const cleanWA = brandData.contact.whatsapp.replace(/[^0-9]/g, '');
 
   const artSchema = articleSchema({
     title: post.title,
@@ -110,6 +108,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </section>
 
         {/* Share & Discuss on WhatsApp */}
+        {/* Share & Discuss via Email */}
         <div className="mt-12 p-6 bg-zinc-50 border border-zinc-200/80 rounded-3xl flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
             <h4 className="text-xs font-bold text-black">Find this guide useful?</h4>
@@ -117,12 +116,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </div>
 
           <a
-            href={`https://wa.me/${cleanWA}?text=Hi%20JSM%20Team,%20I%20read%20your%20article%20on%20"${encodeURIComponent(post.title)}"%20and%20want%20to%20consult%20regarding%20our%20premises.`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full text-xs font-bold shadow-sm"
+            href={`mailto:?subject=${encodeURIComponent(post.title)}&body=${encodeURIComponent("Check out this article: https://jsmintegratedservices.in/blog/" + post.slug)}`}
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#0A1628] hover:bg-[#152336] text-white text-sm font-bold rounded-xl transition-all shadow-sm"
           >
-            <MessageCircle size={14} /> Discuss on WhatsApp
+            <Mail size={14} /> Share via Email
           </a>
         </div>
 

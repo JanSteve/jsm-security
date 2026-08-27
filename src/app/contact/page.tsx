@@ -9,8 +9,6 @@ export const metadata = {
 };
 
 export default function ContactPage() {
-  const cleanPhone = brandData.contact.phone.replace(/[^0-9+]/g, '');
-  const cleanWA = brandData.contact.whatsapp.replace(/[^0-9]/g, '');
 
   const breadcrumb = breadcrumbSchema([
     { name: "Home", url: brandData.domain },
@@ -61,36 +59,7 @@ export default function ContactPage() {
               </h3>
               
               <div className="space-y-4 text-xs font-medium">
-                {/* Phone */}
-                <div className="flex gap-3 items-start">
-                  <div className="p-2 bg-white border border-zinc-200 rounded-xl text-black shadow-xs">
-                    <Phone size={16} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-black text-xs">Direct Helpline</h4>
-                    <a href={`tel:${cleanPhone}`} className="text-xs font-bold text-black hover:underline mt-0.5 block font-mono">
-                      {brandData.contact.phoneDisplay}
-                    </a>
-                  </div>
-                </div>
 
-                {/* WhatsApp */}
-                <div className="flex gap-3 items-start">
-                  <div className="p-2 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-700 shadow-xs">
-                    <MessageCircle size={16} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-black text-xs">Instant WhatsApp Desk</h4>
-                    <a
-                      href={`https://wa.me/${cleanWA}?text=Hi%20JSM%20Integrated%20Services,%20I%20would%20like%20to%20request%20a%20site%20assessment.`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs font-bold text-emerald-700 hover:underline mt-0.5 block"
-                    >
-                      Chat on WhatsApp (+91 94431 52000) →
-                    </a>
-                  </div>
-                </div>
 
                 {/* Email */}
                 <div className="flex gap-3 items-start">

@@ -120,7 +120,7 @@ export function LeadCaptureForm({ sourcePage, service }: LeadCaptureFormProps) {
           </div>
 
           {status === "error" && (
-            <p className="text-red-500 text-sm">Something went wrong. Please try again or contact us via WhatsApp.</p>
+            <p className="text-red-500 text-sm">Something went wrong. Please try again or contact us via email.</p>
           )}
 
           <button

@@ -64,10 +64,6 @@ export async function POST(req: NextRequest) {
                 <div class="field-value">${name || 'Not Provided'}</div>
               </div>
 
-              <div class="field-row">
-                <div class="field-label">Phone / WhatsApp Number</div>
-                <div class="field-value"><a href="tel:${phone}" style="color: #000000; text-decoration: underline;">${phone || 'Not Provided'}</a></div>
-              </div>
 
               <div class="field-row">
                 <div class="field-label">Corporate Email</div>
@@ -106,8 +102,8 @@ export async function POST(req: NextRequest) {
               ` : ''}
 
               <div style="margin-top: 24px; text-align: center;">
-                <a href="https://wa.me/919384670536?text=Hello%20${encodeURIComponent(name || 'Sir/Madam')},%20this%20is%20JSM%20Integrated%20Services%20Operations%20Desk%20regarding%20your%20Site%20Assessment%20Request%20(${ticketRef})." class="action-btn" target="_blank">
-                  📲 Connect with Client on WhatsApp
+                <a href="mailto:${email}?subject=JSM%20Site%20Assessment%20Request%20(${ticketRef})" class="action-btn" target="_blank">
+                  📧 Email Client
                 </a>
               </div>
             </div>
@@ -128,7 +124,6 @@ Reference: ${ticketRef}
 Submitted: ${timestamp}
 ---------------------------------------------
 Client Name: ${name || 'N/A'}
-Phone: ${phone || 'N/A'}
 Email: ${email || 'N/A'}
 Facility: ${facilityName || 'N/A'}
 Service: ${service || 'N/A'}

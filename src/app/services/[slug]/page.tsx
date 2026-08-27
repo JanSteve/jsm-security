@@ -9,7 +9,7 @@ import { ProcessTimeline } from "@/components/services/process-timeline";
 import { ServiceFAQ } from "@/components/services/service-faq";
 import { serviceSchema, breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { brandData } from "@/data/brand";
-import { ArrowRight, CheckCircle2, MessageCircle, AlertTriangle, ShieldCheck, Phone } from "lucide-react";
+import { ArrowRight, CheckCircle2, MessageCircle, AlertTriangle, ShieldCheck, Phone, Mail } from "lucide-react";
 
 export function generateStaticParams() {
   return servicesData.map((service) => ({
@@ -42,9 +42,6 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
   const IconComponent = getIcon(service.icon);
   const relatedServices = servicesData.filter((s) => service.relatedSlugs?.includes(s.slug) || s.slug !== service.slug).slice(0, 3);
-
-  const cleanWA = brandData.contact.whatsapp.replace(/[^0-9]/g, '');
-  const cleanPhone = brandData.contact.phone.replace(/[^0-9+]/g, '');
 
   const sSchema = serviceSchema({
     title: service.title,
@@ -111,14 +108,12 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                   </Link>
                 </Button>
                 <a
-                  href={`https://wa.me/${cleanWA}?text=Hi%20JSM%20Integrated%20Services,%20I%20would%20like%20to%20inquire%20about%20${encodeURIComponent(service.title)}.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-5 h-11 rounded-full text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 transition-colors shadow-sm"
-                >
-                  <MessageCircle size={15} className="text-emerald-600" />
-                  Discuss on WhatsApp
-                </a>
+              href="mailto:jsmintegratedservices@outlook.com?subject=Service%20Inquiry"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#0A1628] hover:bg-[#152336] text-white text-sm font-bold rounded-xl transition-all shadow-md"
+            >
+              <Mail size={16} />
+              Discuss via Email
+            </a>
               </div>
             </div>
 

@@ -1,15 +1,13 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { Phone, ArrowRight, MessageCircle } from 'lucide-react';
+import { Phone, ArrowRight, MessageCircle, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { fadeInUp, staggerContainer } from '@/lib/motion';
 import Link from 'next/link';
 import { brandData } from '@/data/brand';
 
 export function CTASection() {
-  const cleanPhone = brandData.contact.phone.replace(/[^0-9+]/g, '');
-  const cleanWA = brandData.contact.whatsapp.replace(/[^0-9]/g, '');
 
   return (
     <section className="py-24 md:py-32 relative overflow-hidden bg-white border-t border-zinc-200/80">
@@ -53,13 +51,11 @@ export function CTASection() {
             </Button>
 
             <a
-              href={`https://wa.me/${cleanWA}?text=Hi%20JSM%20Integrated%20Services,%20I%20would%20like%20to%20discuss%20an%20operational%20requirement.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 h-12 rounded-full text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 transition-colors shadow-sm"
+              href="mailto:jsmintegratedservices@outlook.com"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 h-12 rounded-full text-xs font-bold text-blue-800 bg-blue-50 hover:bg-blue-100 border border-blue-200 transition-colors shadow-sm"
             >
-              <MessageCircle size={16} className="text-emerald-600" />
-              WhatsApp Operations Desk
+              <Mail size={16} className="text-blue-600" />
+              Email Operations Desk
             </a>
           </motion.div>
           
@@ -67,12 +63,8 @@ export function CTASection() {
             variants={fadeInUp}
             className="text-xs text-zinc-500 font-medium pt-2"
           >
-            Direct Executive Helpline:{" "}
-            <a href={`tel:${cleanPhone}`} className="font-bold text-black hover:text-[#C5A880] transition-colors">
-              {brandData.contact.phoneDisplay}
-            </a>
-            {" • "}
-            <span>{brandData.contact.email}</span>
+            Official Operations Contact:{" "}
+            <span className="font-bold text-black">{brandData.contact.email}</span>
           </motion.div>
         </motion.div>
       </div>

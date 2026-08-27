@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { brandData } from "@/data/brand";
 import { breadcrumbSchema } from "@/lib/schema";
-import { ArrowRight, CheckCircle2, MessageCircle, AlertTriangle, ShieldCheck, Phone, Building2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, MessageCircle, AlertTriangle, ShieldCheck, Phone, Building2, Mail } from "lucide-react";
 
 export function generateStaticParams() {
   return industriesData.map((ind) => ({
@@ -35,9 +35,6 @@ export default async function IndustryDetailPage({ params }: { params: Promise<{
   const { slug } = await params;
   const industry = industriesData.find((i) => i.slug === slug);
   if (!industry) notFound();
-
-  const cleanWA = brandData.contact.whatsapp.replace(/[^0-9]/g, '');
-  const cleanPhone = brandData.contact.phone.replace(/[^0-9+]/g, '');
 
   const recommended = servicesData.filter((s) => industry.recommendedServices.includes(s.slug));
 
@@ -81,13 +78,11 @@ export default async function IndustryDetailPage({ params }: { params: Promise<{
               </Link>
             </Button>
             <a
-              href={`https://wa.me/${cleanWA}?text=Hi%20JSM%20Integrated%20Services,%20I%20would%20like%20to%20discuss%20requirements%20for%20${encodeURIComponent(industry.title)}.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-5 h-11 rounded-full text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 transition-colors shadow-sm"
+              href="mailto:jsmintegratedservices@outlook.com?subject=Industry%20Consultation"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#0A1628] hover:bg-[#152336] text-white text-sm font-bold rounded-xl transition-all shadow-md"
             >
-              <MessageCircle size={15} className="text-emerald-600" />
-              Discuss on WhatsApp
+              <Mail size={16} />
+              Discuss via Email
             </a>
           </div>
         </div>

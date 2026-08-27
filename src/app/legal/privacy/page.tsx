@@ -19,7 +19,7 @@ export default function PrivacyPolicyPage() {
 
           <h2 className="text-2xl font-bold text-black mt-8 tracking-tight">1. Information We Collect</h2>
           <p>
-            We collect contact and operational requirement details (such as full name, official phone number, business email, property address, and workforce headcount) when you submit inquiries, request site assessments, apply for job positions, or engage our AI Receptionist. Additionally, for operational deployment, candidate background verification documents (Aadhaar, address proof, police verification records) are collected with strict consent.
+            We collect contact and operational requirement details (such as full name, business email, property address, and workforce headcount) when you submit inquiries, request site assessments, apply for job positions, or engage our AI Receptionist. Additionally, for operational deployment, candidate background verification documents (Aadhaar, address proof, police verification records) are collected with strict consent.
           </p>
 
           <h2 className="text-2xl font-bold text-black mt-8 tracking-tight">2. Use of Information</h2>

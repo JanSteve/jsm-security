@@ -93,8 +93,6 @@ export function ContactForm() {
     }
   };
 
-  const cleanWA = brandData.contact.whatsapp.replace(/[^0-9]/g, '');
-
   return (
     <div className="bg-zinc-50 border border-zinc-200/80 rounded-3xl p-6 md:p-8 max-w-xl mx-auto shadow-sm">
       <AnimatePresence mode="wait">
@@ -220,7 +218,7 @@ export function ContactForm() {
                       <Input
                         id="phone"
                         type="tel"
-                        placeholder="e.g. +91 94431 52000"
+                        placeholder="e.g. email@example.com"
                         {...register("phone")}
                         className="h-11 rounded-2xl bg-white border-zinc-200 text-xs"
                       />
@@ -343,30 +341,6 @@ export function ContactForm() {
             </div>
 
             <div className="pt-2 space-y-2.5">
-              <a
-                href={`https://wa.me/919384670536?text=${encodeURIComponent(
-                  `🚨 *NEW JSM CLIENT LEAD* [${referenceId}]\n\n` +
-                  `👤 *Name:* ${submittedData?.name || 'N/A'}\n` +
-                  `📞 *Phone:* ${submittedData?.phone || 'N/A'}\n` +
-                  `📧 *Email:* ${submittedData?.email || 'N/A'}\n` +
-                  `🏢 *Facility:* ${submittedData?.company || 'N/A'}\n` +
-                  `🛡️ *Service:* ${submittedData?.service || 'N/A'}\n` +
-                  `📍 *City:* ${submittedData?.city || 'N/A'}\n` +
-                  `👥 *Headcount:* ${submittedData?.headcount || 'N/A'}\n` +
-                  `📝 *Notes:* ${submittedData?.requirements || 'None'}\n\n` +
-                  `_Sent from jsmintegratedservices.in_`
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-full text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition-colors shadow-md"
-              >
-                <MessageCircle size={16} /> Send Instant WhatsApp Lead Alert
-              </a>
-
-              <p className="text-[10px] text-zinc-400">
-                Clicking above instantly sends this lead summary to +91 9384670536
-              </p>
-
               <Button
                 variant="ghost"
                 onClick={() => {

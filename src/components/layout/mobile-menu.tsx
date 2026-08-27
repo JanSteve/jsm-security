@@ -10,14 +10,12 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Phone, MessageCircle, ArrowRight } from "lucide-react";
+import { Menu, X, Phone, MessageCircle, Mail, ArrowRight } from "lucide-react";
 import { navigationData } from "@/data/navigation";
 import { brandData } from "@/data/brand";
 
 export function MobileMenu() {
   const [open, setOpen] = React.useState(false);
-  const cleanPhone = brandData.contact.phone.replace(/[^0-9+]/g, '');
-  const cleanWA = brandData.contact.whatsapp.replace(/[^0-9]/g, '');
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -54,12 +52,10 @@ export function MobileMenu() {
               <p className="text-[11px] text-zinc-500">24/7 Operations Desk</p>
             </div>
             <a
-              href={`https://wa.me/${cleanWA}?text=Hi%20JSM%20Integrated%20Services,%20I%20need%20assistance.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center gap-1 shadow-sm"
+              href="mailto:jsmintegratedservices@outlook.com?subject=Support%20Request"
+              className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold flex items-center gap-1 shadow-sm"
             >
-              <MessageCircle size={14} /> WhatsApp
+              <Mail size={14} /> Email Us
             </a>
           </div>
 
@@ -89,11 +85,11 @@ export function MobileMenu() {
         <div className="p-5 border-t border-zinc-200/60 bg-zinc-50 space-y-3">
           <div className="grid grid-cols-2 gap-2">
             <a
-              href={`tel:${cleanPhone}`}
+              href="mailto:jsmintegratedservices@outlook.com"
               className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-white border border-zinc-200 text-black text-xs font-bold shadow-2xs"
             >
-              <Phone size={13} className="text-[#C5A880]" />
-              <span>Call Us</span>
+              <Mail size={13} className="text-[#C5A880]" />
+              <span>Email Us</span>
             </a>
             <Link
               href="/contact"

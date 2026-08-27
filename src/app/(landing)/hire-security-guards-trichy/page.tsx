@@ -10,7 +10,6 @@ export const metadata: Metadata = {
 };
 
 export default function SecurityGuardsTrichyPage() {
-  const whatsappUrl = `https://wa.me/${brandData.contact.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent("Hi JSM, I found you on Google and need help with Security Guards in Trichy.")}`;
 
   return (
     <div className="py-12 md:py-20">
@@ -75,12 +74,10 @@ export default function SecurityGuardsTrichyPage() {
             </div>
 
             <a 
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:jsmintegratedservices@outlook.com?subject=Security%20Guards%20in%20Trichy"
               className="inline-flex items-center justify-center px-8 py-4 text-lg font-black text-[#0A1628] bg-[#C5A880] hover:bg-[#b0936b] rounded-xl transition-colors w-full sm:w-auto"
             >
-              Chat on WhatsApp
+              Contact via Email
             </a>
           </div>
 

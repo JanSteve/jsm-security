@@ -15,7 +15,6 @@ export default function GetQuotePage() {
     companyName: "",
     contactPerson: "",
     email: "",
-    phone: "",
     
     services: [] as string[],
     city: "",
@@ -42,7 +41,7 @@ export default function GetQuotePage() {
 
   const validateStep = (s: number) => {
     if (s === 1) {
-      return formData.companyName && formData.contactPerson && formData.email && formData.phone;
+      return formData.companyName && formData.contactPerson && formData.email;
     }
     if (s === 2) {
       return formData.services.length > 0 && formData.city && formData.personnelCount;
@@ -204,16 +203,6 @@ export default function GetQuotePage() {
                             required type="email" name="email" value={formData.email} onChange={handleInputChange}
                             className="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:outline-none focus:ring-2 focus:ring-[#C5A880] focus:border-transparent transition-all"
                             placeholder="john@example.com"
-                          />
-                        </div>
-                        <div className="space-y-2">
-                          <label className="text-sm font-bold text-zinc-700 flex items-center gap-2">
-                            <Phone className="w-4 h-4 text-[#C5A880]" /> Phone Number
-                          </label>
-                          <input 
-                            required type="tel" name="phone" value={formData.phone} onChange={handleInputChange}
-                            className="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:outline-none focus:ring-2 focus:ring-[#C5A880] focus:border-transparent transition-all"
-                            placeholder="+91 90000 00000"
                           />
                         </div>
                       </div>

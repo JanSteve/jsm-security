@@ -5,7 +5,7 @@ export interface ChatMessage {
   content: string;
 }
 
-const JSM_SYSTEM_PROMPT = `You are "Priya", the official Executive Client Solutions Officer and Senior Operations Advisor for JSM INTEGRATED SERVICES (Official Domain: jsmintegratedservices.in | Email: jsmintegratedservices@outlook.com | Helpline: +91 94431 52000 | WhatsApp: +91 9384670536).
+const JSM_SYSTEM_PROMPT = `You are "Priya", the official Executive Client Solutions Officer and Senior Operations Advisor for JSM INTEGRATED SERVICES (Official Domain: jsmintegratedservices.in | Email: jsmintegratedservices@outlook.com).
 
 CRITICAL PERSONA INSTRUCTIONS:
 - You are a real human operations executive working directly at the JSM Headquarters in Tiruchirappalli (Trichy), Tamil Nadu.
@@ -34,9 +34,9 @@ SALES GROWTH & SUPPORT CELL BEHAVIOR:
   2. Proactively capture the lead: "To prepare a formal customized proposal with site-specific discounts, could you please share your **Name, Mobile Number, and Facility City**?"
 - When a user says "I want to talk to the manager", "I want to speak with a human", "I have a complaint", or "I'm not happy":
   1. Acknowledge with deep respect and immediate priority.
-  2. State: "I understand completely. Our Managing Director **Sweety R** and Operations Chief **Richard A** oversee all accounts directly."
-  3. Offer direct channels: "You can dial our 24/7 Executive Helpline at **+91 94431 52000** or WhatsApp **+91 9384670536**."
-  4. Invite them: "Or simply leave your Name & Phone Number right here, and I will have our Operations Manager call you back within 15 minutes."
+  2. State: "I understand completely. Our Managing Director **Sweety R** and Operations Chief **Richard A** personally oversee all accounts."
+  3. Offer: "You can email us directly at **jsmintegratedservices@outlook.com** and our leadership team will respond within 2 hours."
+  4. Or: "Simply share your Name & Email right here, and I will have our Operations Manager reach out to you personally."
 - Keep your formatting crisp, modern, and readable with bullet points and bold highlights.`;
 
 // Primary Free Tier Gemini Models (Google AI Studio Free Tier - 15 RPM / 1M TPM / ₹0 Cost)
@@ -110,8 +110,8 @@ export async function queryGemini(messages: ChatMessage[]): Promise<string> {
 
   // Graceful deterministic fallback if quota or offline
   if (semanticMatch) {
-    return semanticMatch.detailedAnswer + "\n\n*Would you like me to connect you with our Operations Manager? Please share your phone number or call our 24/7 Helpline directly at +91 94431 52000.*";
+    return semanticMatch.detailedAnswer + "\n\n*Would you like me to connect you with our Operations Manager? Please share your email or reach us at jsmintegratedservices@outlook.com.*";
   }
 
-  return "Thank you for reaching out to **JSM Integrated Services**! Managing Director **Sweety R** and our operations executive desk are at your service.\n\n• **24/7 Helpline**: +91 94431 52000\n• **Direct WhatsApp**: +91 9384670536\n• **Official Email**: jsmintegratedservices@outlook.com\n\nPlease share your phone number or let me know your requirements so our operations manager can assist you immediately.";
+  return "Thank you for reaching out to **JSM Integrated Services**! Managing Director **Sweety R** and our operations executive desk are at your service.\n\n• **Official Email**: jsmintegratedservices@outlook.com\n• **Website**: jsmintegratedservices.in\n\nPlease share your requirements and email here so our operations manager can prepare a customized proposal for you.";
 }

@@ -4,7 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, useScroll, useMotionValueEvent } from "motion/react";
-import { MessageCircle, ArrowRight } from "lucide-react";
+import { MessageCircle, Mail, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { navigationData } from "@/data/navigation";
 import { MobileMenu } from "./mobile-menu";
@@ -15,7 +15,6 @@ export function Header() {
   const { scrollY } = useScroll();
   const [hidden, setHidden] = React.useState(false);
   const [compact, setCompact] = React.useState(false);
-  const cleanWA = brandData.contact.whatsapp.replace(/[^0-9]/g, '');
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
@@ -95,14 +94,12 @@ export function Header() {
         {/* Action Group */}
         <div className="flex items-center gap-2.5">
           <a
-            href={`https://wa.me/${cleanWA}?text=Hi%20JSM%20Integrated%20Services,%20I%20would%20like%20to%20inquire%20about%20your%20services.`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-1.5 px-4 h-9 rounded-full text-xs font-bold text-emerald-950 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 transition-colors shadow-2xs"
-            aria-label="WhatsApp Operations Desk"
+            href="mailto:jsmintegratedservices@outlook.com?subject=Service%20Inquiry"
+            className="hidden sm:inline-flex items-center gap-1.5 px-4 h-9 rounded-full text-xs font-bold text-blue-950 bg-blue-50 hover:bg-blue-100 border border-blue-300 transition-colors shadow-2xs"
+            aria-label="Email Operations Desk"
           >
-            <MessageCircle size={14} className="text-emerald-600" />
-            <span>WhatsApp</span>
+            <Mail size={14} className="text-blue-600" />
+            <span>Email</span>
           </a>
 
           <Link

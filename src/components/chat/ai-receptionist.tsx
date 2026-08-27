@@ -20,7 +20,9 @@ import {
   Minimize2,
   ChevronDown,
   Trash2,
-  Square
+  Square,
+  CheckCircle,
+  Mail
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { brandData } from "@/data/brand";
@@ -61,9 +63,7 @@ export function AIReceptionist() {
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const recognitionRef = useRef<any>(null);
-
-  const cleanWA = brandData.contact.whatsapp.replace(/[^0-9]/g, "");
-  const cleanPhone = brandData.contact.phone.replace(/[^0-9+]/g, "");
+  const [userInput, setUserInput] = useState("");
 
   // Auto-scroll to bottom of messages
   useEffect(() => {
@@ -246,7 +246,7 @@ export function AIReceptionist() {
       const fallbackMsg: Message = {
         id: `assistant-fallback-${Date.now()}`,
         role: "assistant",
-        content: "Thank you for reaching out to JSM Integrated Services. Our operations desk is available directly on WhatsApp (+91 94431 52000) or email at jsmintegratedservices@outlook.com for immediate proposals.",
+        content: "Thank you for reaching out to JSM Integrated Services. Our operations desk is available via email at jsmintegratedservices@outlook.com for immediate proposals.",
         timestamp: "Now",
       };
       setMessages((prev) => [...prev, fallbackMsg]);
@@ -538,12 +538,10 @@ export function AIReceptionist() {
                           Our Operations Desk in Trichy has created your priority file. An Operations Lead will connect with you within 2 business hours.
                         </p>
                         <a
-                          href={`https://wa.me/${cleanWA}?text=Hi%20JSM%20Operations,%20I%20chatted%20with%20Priya%20and%20received%20Reference%20${msg.leadReference}.`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-800 hover:underline pt-1"
+                          href={`mailto:jsmintegratedservices@outlook.com?subject=Chat%20Reference%20${msg.leadReference}&body=Hi%20JSM%20Operations,%20I%20chatted%20with%20Priya%20and%20received%20Reference%20${msg.leadReference}.`}
+                          className="mt-3 w-full bg-blue-50 hover:bg-blue-100 border border-blue-200 text-blue-800 text-xs font-bold py-2 px-3 rounded-lg flex items-center justify-center gap-2 transition-colors"
                         >
-                          <MessageCircle size={14} className="text-emerald-600" /> Fast-track on WhatsApp →
+                          <Mail size={14} className="text-blue-600" /> Fast-track via Email →
                         </a>
                       </div>
                     )}
@@ -611,16 +609,16 @@ export function AIReceptionist() {
               </Button>
             </div>
 
-            {/* Direct WhatsApp Quick Contact Strip */}
+            {/* Direct Email Quick Contact Strip */}
             <div className="px-4 py-2 bg-zinc-900 text-white flex items-center justify-between text-[10px] font-semibold">
-              <span className="text-zinc-400">Direct Helpline: +91 94431 52000</span>
+              <span className="text-zinc-400">Official Email: jsmintegratedservices@outlook.com</span>
               <a
-                href={`https://wa.me/${cleanWA}?text=Hi%20JSM%20Integrated%20Services,%20I%20would%20like%20to%20inquire%20about%20your%20services.`}
+                href={`mailto:jsmintegratedservices@outlook.com?subject=Inquiry`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-emerald-400 hover:underline flex items-center gap-1 font-bold"
               >
-                <MessageCircle size={12} /> WhatsApp Fast Desk
+                <MessageCircle size={12} /> Email Operations Desk
               </a>
             </div>
           </motion.div>

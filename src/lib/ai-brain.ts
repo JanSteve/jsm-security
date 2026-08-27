@@ -10,7 +10,7 @@ export interface KnowledgeTopic {
   summary: string;
   detailedAnswer: string;
   suggestedFollowups: string[];
-  ctaType?: 'quote' | 'assessment' | 'whatsapp' | 'careers';
+  ctaType?: 'quote' | 'assessment' | 'email' | 'careers';
 }
 
 export const JSM_ENTERPRISE_KNOWLEDGE: KnowledgeTopic[] = [
@@ -90,8 +90,8 @@ export const JSM_ENTERPRISE_KNOWLEDGE: KnowledgeTopic[] = [
 • **Administrative & Office Assistants**: Data entry, front-desk reception, and pantry staff.
 • **Peak-Season Scalability**: Rapid workforce surge mobilization (20 to 100+ personnel) within 48 to 72 hours.
 • **Statutory & Compliance Guarantee**: Full attendance logging, prompt 1st-of-the-month payroll, and zero labor compliance friction for clients.`,
-    suggestedFollowups: ['Request manpower headcount', 'What is the minimum notice period?', 'Talk to HR team on WhatsApp'],
-    ctaType: 'whatsapp'
+    suggestedFollowups: ['Request manpower headcount', 'What is the minimum notice period?', 'Talk to HR team via Email'],
+    ctaType: 'email'
   },
   {
     id: 'guard-verification-training',
@@ -121,7 +121,7 @@ export const JSM_ENTERPRISE_KNOWLEDGE: KnowledgeTopic[] = [
 • **2-Hour Rapid Replacement Guarantee**: If an assigned guard is absent or unwell, our active reserve pool deploys a trained replacement within **120 minutes**.
 • **Direct Leadership Line**: 24/7 escalation hotline directly connected to Managing Director Sweety R's operations desk.`,
     suggestedFollowups: ['Request emergency guard deployment', 'What is your escalation protocol?', 'Contact Operations Desk'],
-    ctaType: 'whatsapp'
+    ctaType: 'email'
   },
   {
     id: 'locations-coverage',
@@ -137,24 +137,21 @@ export const JSM_ENTERPRISE_KNOWLEDGE: KnowledgeTopic[] = [
 5. **Salem & Erode**: Steel, Logistics & Manufacturing Facilities.
 6. **Hosur & Krishnagiri**: Automotive, Electronics & Warehousing Parks.
 7. **Rest of Tamil Nadu & South India**: Rapid site deployment for long-term commercial contracts.`,
-    suggestedFollowups: ['Schedule site assessment in your city', 'Get in touch with Trichy HQ', 'Chat on WhatsApp'],
+    suggestedFollowups: ['Schedule site assessment in your city', 'Get in touch with Trichy HQ', 'Chat via Email'],
     ctaType: 'assessment'
   },
   {
     id: 'contact-details',
-    keywords: ['contact', 'email', 'phone', 'number', 'address', 'whatsapp', 'call', 'reach', 'office'],
+    keywords: ['contact', 'email', 'address', 'reach', 'office'],
     title: 'Official JSM Contact Channels',
     summary: '24/7 Active Operations Desk & Executive Office.',
     detailedAnswer: `You can reach JSM Integrated Services immediately through:
 
-• **Direct Phone Helpline**: +91 94431 52000 (24/7 Active Duty Dispatcher)
-• **Instant WhatsApp Desk**: +91 94431 52000
-• **Official Email**: jsmintegratedservices@outlook.com
-• **Official Domain**: https://jsmintegratedservices.in
-• **Operations Headquarters**: Tiruchirappalli (Trichy), Tamil Nadu, India.
+• **Email (Fastest):** jsmintegratedservices@outlook.com
+• **Trichy Headquarters:** No.62/50, EVR Road, Puthur, Trichy - 620017, Tamil Nadu, India.
 • **Executive Leadership**: Sweety R (Managing Director), Jan Steve Daniel R (CTO), Richard A (CEO).`,
-    suggestedFollowups: ['Chat on WhatsApp now', 'Send an email inquiry', 'Book site assessment'],
-    ctaType: 'whatsapp'
+    suggestedFollowups: ['Send an email inquiry', 'Book site assessment'],
+    ctaType: 'assessment'
   }
 ];
 

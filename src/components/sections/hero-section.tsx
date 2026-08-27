@@ -6,6 +6,7 @@ import Image from "next/image";
 import { 
   ArrowRight, 
   MessageCircle, 
+  Mail,
   ShieldCheck, 
   Sparkles, 
   Users, 
@@ -78,7 +79,6 @@ const showcaseServices = [
 export function HeroSection() {
   const [activeTab, setActiveTab] = useState(0);
   const [liveTime, setLiveTime] = useState<string>("");
-  const cleanWA = brandData.contact.whatsapp.replace(/[^0-9]/g, '');
 
   useEffect(() => {
     const updateTime = () => {
@@ -158,13 +158,11 @@ export function HeroSection() {
             </Link>
 
             <a
-              href={`https://wa.me/${cleanWA}?text=Hi%20JSM%20Integrated%20Services,%20I%20would%20like%20to%20discuss%20our%20facility%20requirements.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-6 h-12 rounded-full text-xs font-bold text-emerald-950 bg-emerald-50 hover:bg-emerald-100/90 border border-emerald-300 hover:border-emerald-400 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:scale-[1.02] transition-all shadow-xs active:scale-95"
+              href="mailto:jsmintegratedservices@outlook.com?subject=Facility%20Requirement%20Inquiry"
+              className="inline-flex items-center justify-center gap-2 px-6 h-12 rounded-full text-xs font-bold text-blue-950 bg-blue-50 hover:bg-blue-100/90 border border-blue-300 hover:border-blue-400 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:scale-[1.02] transition-all shadow-xs active:scale-95"
             >
-              <MessageCircle size={15} className="text-emerald-600" />
-              <span>WhatsApp Direct</span>
+              <Mail size={15} className="text-blue-600" />
+              <span>Email Us</span>
             </a>
           </div>
 

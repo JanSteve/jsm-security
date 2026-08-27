@@ -10,7 +10,6 @@ export function organizationSchema() {
     logo: `${brandData.domain}/images/logo.png`,
     description: brandData.subTagline,
     email: brandData.contact.email,
-    telephone: brandData.contact.phone,
     founder: {
       '@type': 'Person',
       name: 'Sweety R',
@@ -26,7 +25,6 @@ export function organizationSchema() {
     },
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: brandData.contact.phone,
       contactType: 'customer service',
       areaServed: ['IN-TN', 'IN'],
       availableLanguage: ['English', 'Tamil']
@@ -42,7 +40,6 @@ export function localBusinessSchema() {
     image: `${brandData.domain}/images/hero_operations.jpg`,
     '@id': brandData.domain,
     url: brandData.domain,
-    telephone: brandData.contact.phone,
     email: brandData.contact.email,
     priceRange: '₹₹',
     address: {

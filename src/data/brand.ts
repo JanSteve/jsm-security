@@ -27,10 +27,10 @@ export const brandData = {
 
   contact: {
     email: "jsmintegratedservices@outlook.com",
-    phone: "+91 94431 52000",
-    phoneDisplay: "+91 94431 52000",
-    whatsapp: "+91 94431 52000",
-    whatsappDisplay: "+91 94431 52000",
+    phone: "",
+    phoneDisplay: "",
+    whatsapp: "",
+    whatsappDisplay: "",
     address: "Trichy Hub & Regional Operations Centre, Tamil Nadu, India",
     primaryCity: "Tiruchirappalli (Trichy)",
     state: "Tamil Nadu",
@@ -78,7 +78,7 @@ export const brandData = {
     },
     {
       title: "Technology Enablement",
-      description: "Digital attendance tracking, QR-code patrol checkpoints, automated billing, and instant WhatsApp operational escalations."
+      description: "Digital attendance tracking, QR-code patrol checkpoints, automated billing, and instant email operational escalations."
     },
     {
       title: "Founder-Led Responsiveness",

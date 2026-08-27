@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { openRoles, inductionPhilosophy, careerProgressionSteps, CareerRole } from "@/data/careers";
 import { brandData } from "@/data/brand";
 import { breadcrumbSchema } from "@/lib/schema";
-import { ArrowRight, CheckCircle2, Award, Users, TrendingUp, Briefcase, MapPin, Clock, Send, MessageCircle, Sparkles } from "lucide-react";
+import { ArrowRight, CheckCircle2, Award, Users, TrendingUp, Briefcase, MapPin, Clock, Send, MessageCircle, Sparkles, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -14,7 +14,6 @@ export default function CareersPage() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
-    phone: "",
     email: "",
     city: "",
     position: "Security Guard / Gate Officer",
@@ -23,11 +22,11 @@ export default function CareersPage() {
     consent: true
   });
 
-  const cleanWA = brandData.contact.whatsapp.replace(/[^0-9]/g, '');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.fullName || !formData.phone) return;
+    if (!formData.fullName || !formData.email) return;
     setFormSubmitted(true);
   };
 
@@ -185,12 +184,10 @@ export default function CareersPage() {
                   </button>
 
                   <a
-                    href={`https://wa.me/${cleanWA}?text=Hi%20JSM%20HR,%20I%20am%20interested%20in%20the%20${encodeURIComponent(role.title)}%20role.`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[11px] font-bold text-emerald-700 hover:underline flex items-center gap-1"
+                    href="mailto:jsmintegratedservices@outlook.com?subject=Career%20Inquiry"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-zinc-100 hover:bg-zinc-200 text-zinc-700 text-[10px] font-bold rounded-lg transition-colors"
                   >
-                    <MessageCircle size={13} /> Ask on WhatsApp
+                    <Mail size={13} /> Ask via Email
                   </a>
                 </div>
               </div>
@@ -217,7 +214,7 @@ export default function CareersPage() {
               </div>
               <h3 className="text-xl font-bold text-emerald-900">Application Successfully Received!</h3>
               <p className="text-xs text-emerald-700 max-w-md mx-auto leading-relaxed">
-                Thank you, <strong>{formData.fullName}</strong>. Your candidate file has been created. Our recruitment officer will call your phone number (<strong>{formData.phone}</strong>) for document scheduling.
+                Thank you, <strong>{formData.fullName}</strong>. Your candidate file has been created. Our recruitment officer will contact your email (<strong>{formData.email}</strong>) for document scheduling.
               </p>
               <div className="pt-2">
                 <Button
@@ -239,17 +236,6 @@ export default function CareersPage() {
                     placeholder="Enter your name"
                     value={formData.fullName}
                     onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                    className="h-11 rounded-2xl bg-white border-zinc-200 text-xs"
-                  />
-                </div>
-                <div className="space-y-1.5">
-                  <label>Phone / WhatsApp Number *</label>
-                  <Input
-                    required
-                    type="tel"
-                    placeholder="e.g. +91 98765 43210"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="h-11 rounded-2xl bg-white border-zinc-200 text-xs"
                   />
                 </div>

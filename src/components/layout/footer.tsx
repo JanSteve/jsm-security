@@ -11,9 +11,6 @@ export function Footer() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const cleanPhone = brandData.contact.phone.replace(/[^0-9+]/g, '');
-  const cleanWA = brandData.contact.whatsapp.replace(/[^0-9]/g, '');
-
   return (
     <footer className="bg-zinc-900 text-zinc-300 pt-16 pb-28 md:pb-12 border-t border-zinc-800">
       <div className="container mx-auto px-4 md:px-6">
@@ -36,12 +33,10 @@ export function Footer() {
 
           <div className="flex flex-wrap items-center gap-3">
             <a
-              href={`https://wa.me/${cleanWA}?text=Hi%20JSM%20Integrated%20Services,%20I%20would%20like%20to%20request%20a%20site%20assessment.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-5 py-3 rounded-full text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition-all shadow-md"
+              href="mailto:jsmintegratedservices@outlook.com?subject=Site%20Assessment%20Request"
+              className="flex items-center gap-2 px-5 py-3 rounded-full text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 transition-all shadow-md"
             >
-              <MessageCircle size={16} /> WhatsApp Us
+              <Mail size={16} /> Email Us
             </a>
             <Button asChild className="bg-white hover:bg-zinc-100 text-black font-bold rounded-full px-5 py-3 h-auto text-xs shadow-md">
               <Link href="/contact">
@@ -74,12 +69,6 @@ export function Footer() {
                 <Mail size={14} className="text-[#C5A880]" />
                 <a href={`mailto:${brandData.contact.email}`} className="hover:text-white transition-colors">
                   {brandData.contact.email}
-                </a>
-              </p>
-              <p className="flex items-center gap-2">
-                <Phone size={14} className="text-[#C5A880]" />
-                <a href={`tel:${cleanPhone}`} className="hover:text-white transition-colors font-semibold">
-                  {brandData.contact.phoneDisplay}
                 </a>
               </p>
               <p className="flex items-start gap-2">

@@ -26,9 +26,9 @@ export default function LandingLayout({
           </div>
           
           <div className="hidden sm:block text-right">
-            <p className="text-xs font-bold text-zinc-500 uppercase tracking-wide">Call Us Now</p>
-            <a href={`tel:${brandData.contact.phone.replace(/\s+/g, "")}`} className="text-lg font-black text-[#0A1628]">
-              {brandData.contact.phone}
+            <p className="text-xs font-bold text-zinc-500 uppercase tracking-wide">Email Us Now</p>
+            <a href={`mailto:${brandData.contact.email}`} className="text-sm font-black text-[#0A1628]">
+              {brandData.contact.email}
             </a>
           </div>
         </div>
@@ -46,7 +46,7 @@ export default function LandingLayout({
             © {new Date().getFullYear()} {brandData.name}. All rights reserved.
           </p>
           <p className="text-white/40 text-xs mt-2">
-            {brandData.contact.primaryCity} | {brandData.contact.phone} | {brandData.contact.email}
+            {brandData.contact.primaryCity} | {brandData.contact.email}
           </p>
         </div>
       </footer>

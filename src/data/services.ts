@@ -325,7 +325,7 @@ export const servicesData: Service[] = [
     features: [
       { title: 'High-Conversion Business Websites', description: 'Fast, responsive, mobile-first websites designed for lead generation and brand authority.', icon: 'Globe' },
       { title: 'Digital Visitor Logging Systems', description: 'QR-code and tablet-based visitor check-ins replacing messy manual paper registers.', icon: 'Tablet' },
-      { title: 'Lead Capture & WhatsApp Automation', description: 'Instant routing of customer inquiries to your sales team via WhatsApp and email.', icon: 'Zap' },
+      { title: 'Lead Capture & Email Automation', description: 'Instant routing of customer inquiries to your sales team via email.', icon: 'Zap' },
       { title: 'Staff Attendance & Reporting Portals', description: 'Cloud-enabled attendance logs and daily operational checklist tracking.', icon: 'FileText' },
       { title: 'Search Engine Optimization (SEO)', description: 'Local SEO architecture ensuring high search ranking for key regional service keywords.', icon: 'Search' },
       { title: 'Domain & Hosting Management', description: 'Reliable deployment, SSL certificates, business emails, and maintenance.', icon: 'Lock' }

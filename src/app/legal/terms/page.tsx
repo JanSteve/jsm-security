@@ -19,7 +19,7 @@ export default function TermsOfServicePage() {
 
           <h2 className="text-2xl font-bold text-black mt-8 tracking-tight">1. Scope of Commercial Proposals</h2>
           <p>
-            All online quotations, assessments, and scope recommendations generated through our website, AI Receptionist, or initial telephone consultations are estimates subject to formal physical site inspection and execution of a signed Service Level Agreement (SLA).
+            All online quotations, assessments, and scope recommendations generated through our website, AI Receptionist, or initial email consultations are estimates subject to formal physical site inspection and execution of a signed Service Level Agreement (SLA).
           </p>
 
           <h2 className="text-2xl font-bold text-black mt-8 tracking-tight">2. Operational Governance & SLAs</h2>

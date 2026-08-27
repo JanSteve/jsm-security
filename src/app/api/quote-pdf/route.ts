@@ -24,7 +24,6 @@ export async function POST(request: Request) {
       <p><strong>Company:</strong> ${companyName}</p>
       <p><strong>Contact Person:</strong> ${contactPerson}</p>
       <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Phone:</strong> ${phone}</p>
       <p><strong>City:</strong> ${city}</p>
       <p><strong>Services Requested:</strong> ${services.join(', ')}</p>
       <p><strong>Personnel Required:</strong> ${personnelCount}</p>
@@ -250,7 +249,6 @@ export async function POST(request: Request) {
           </div>
           <div class="client-info">
             <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Phone:</strong> ${phone}</p>
             <p><strong>Proposed Start:</strong> ${startDate}</p>
           </div>
         </div>
@@ -292,7 +290,7 @@ export async function POST(request: Request) {
 
       <div class="footer">
         <p>${brandData.name} | ${brandData.contact.address}</p>
-        <p>Email: ${brandData.contact.email} | Phone: ${brandData.contact.phone}</p>
+        <p>Email: ${brandData.contact.email}</p>
         <p>${brandData.domain}</p>
       </div>
     </body>

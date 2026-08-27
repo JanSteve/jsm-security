@@ -33,8 +33,6 @@ export async function POST(req: Request) {
       text: `
         New Lead Details:
         -----------------
-        Name: ${name}
-        Phone: ${phone}
         Email: ${email || 'Not provided'}
         Requirement: ${requirement}
         

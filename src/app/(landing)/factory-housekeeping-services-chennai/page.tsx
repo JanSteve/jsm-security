@@ -10,7 +10,6 @@ export const metadata: Metadata = {
 };
 
 export default function HousekeepingChennaiPage() {
-  const whatsappUrl = `https://wa.me/${brandData.contact.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent("Hi JSM, I found you on Google and need help with Housekeeping in Chennai.")}`;
 
   return (
     <div className="py-12 md:py-20">
@@ -64,12 +63,10 @@ export default function HousekeepingChennaiPage() {
             </div>
 
             <a 
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-black text-white bg-[#25D366] hover:bg-[#20bd5a] rounded-xl transition-colors w-full sm:w-auto shadow-lg shadow-green-500/20"
+              href="mailto:jsmintegratedservices@outlook.com?subject=Housekeeping%20in%20Chennai"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-black text-white bg-[#0A1628] hover:bg-[#152336] rounded-xl transition-colors w-full sm:w-auto shadow-lg"
             >
-              Contact on WhatsApp
+              Contact via Email
             </a>
           </div>
 

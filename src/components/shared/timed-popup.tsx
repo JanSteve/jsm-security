@@ -37,7 +37,7 @@ export function TimedPopup() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!contact || contact.trim().length < 5) {
-      setError("Please enter a valid email or phone number.");
+      setError("Please enter a valid email address.");
       return;
     }
 
@@ -82,14 +82,14 @@ export function TimedPopup() {
                   Ready to elevate your operations?
                 </h4>
                 <p className="text-xs text-zinc-500 font-medium leading-relaxed">
-                  Submit your contact info and a senior JSM security or facility advisor will call you within 15 minutes.
+                  Submit your contact info and a senior JSM security or facility advisor will contact you within 15 minutes.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <Input
                   type="text"
-                  placeholder="Email or phone number..."
+                  placeholder="Email address..."
                   value={contact}
                   onChange={(e) => setContact(e.target.value)}
                   className="h-10 bg-white border-zinc-200 focus-visible:border-[#C5A880] focus-visible:ring-0 rounded-2xl text-sm"

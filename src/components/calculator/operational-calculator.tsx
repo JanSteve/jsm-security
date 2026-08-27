@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "motion/react";
-import { Calculator, ShieldCheck, Sparkles, Users, ArrowRight, MessageCircle, CheckCircle2 } from "lucide-react";
+import { Calculator, ShieldCheck, Sparkles, Users, ArrowRight, MessageCircle, Mail, CheckCircle2 } from "lucide-react";
 import { brandData } from "@/data/brand";
 import Link from "next/link";
 
@@ -26,17 +26,6 @@ export function OperationalCalculator() {
   };
 
   const estimatedTotal = calculateEstimate();
-  const cleanWA = brandData.contact.whatsapp.replace(/[^0-9]/g, '');
-
-  const waProposalText = encodeURIComponent(
-    `Hello JSM Operations Desk, I used the online estimate calculator for:\n` +
-    `• Service: ${serviceType.toUpperCase()}\n` +
-    `• Headcount: ${headcount} Personnel\n` +
-    `• Shift: ${shiftDuration === "247" ? "24/7 Round-the-clock" : shiftDuration.toUpperCase()}\n` +
-    `• Est. Monthly: ₹${estimatedTotal.toLocaleString("en-IN")}\n\n` +
-    `Please share a customized formal commercial proposal.`
-  );
-
   return (
     <section className="py-20 md:py-28 bg-[#0A1628] text-white overflow-hidden relative border-y border-zinc-800">
       {/* Background glow */}
@@ -179,12 +168,10 @@ export function OperationalCalculator() {
 
             <div className="space-y-2 pt-2">
               <a
-                href={`https://wa.me/${cleanWA}?text=${waProposalText}`}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="mailto:jsmintegratedservices@outlook.com?subject=Custom%20Quote%20Request"
                 className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-full text-xs font-bold text-black bg-[#C5A880] hover:bg-[#b59870] transition-colors shadow-md uppercase"
               >
-                <MessageCircle size={15} /> Request Official Quote on WhatsApp
+                <Mail size={15} /> Request Official Quote via Email
               </a>
 
               <Link

@@ -12,7 +12,7 @@ const FREE_MODELS = [
   "qwen/qwen-2.5-72b-instruct:free"
 ];
 
-const JSM_SYSTEM_PROMPT = `You are "JSM Priya", the official Executive AI Receptionist, Commercial Solutions Specialist, and Operations Advisor for JSM INTEGRATED SERVICES (Official Domain: jsmintegratedservices.in | Email: jsmintegratedservices@outlook.com | Phone/WhatsApp: +91 94431 52000).
+const JSM_SYSTEM_PROMPT = `You are "JSM Priya", the official Executive AI Receptionist, Commercial Solutions Specialist, and Operations Advisor for JSM INTEGRATED SERVICES (Official Domain: jsmintegratedservices.in | Email: jsmintegratedservices@outlook.com).
 
 EXECUTIVE & COMPANY PROFILE:
 - Managing Director: Sweety R
@@ -100,7 +100,7 @@ export async function queryOpenRouter(messages: ChatMessage[]): Promise<string> 
 
   // Autonomous Deterministic Brain Fallback
   if (semanticMatch) {
-    return semanticMatch.detailedAnswer + "\n\n*Would you like to speak with our Operations Manager or schedule a complimentary on-site risk assessment? Feel free to share your phone number or click the WhatsApp button below.*";
+    return semanticMatch.detailedAnswer + "\n\n*Would you like to speak with our Operations Manager or schedule a complimentary on-site risk assessment? Feel free to share your email address.*";
   }
 
   return fallbackReceptionistResponse(lastUserMessage);
