@@ -10,6 +10,7 @@ import {
   RegionalCoverage,
   CTASection 
 } from "@/components/sections";
+import { VisualTransformationGallery } from "@/components/sections/visual-transformation-gallery";
 import { InteractiveCostSimulator } from "@/components/calculator/interactive-cost-simulator";
 import { RegionalCommandMap } from "@/components/sections/regional-command-map";
 import { ComplianceMatrix } from "@/components/sections/compliance-matrix";
@@ -70,6 +71,7 @@ export default function Home() {
       <HeroSection />
       <TrustBar />
       <Scroll3DShowcase />
+      <VisualTransformationGallery />
       <ServicesOverview />
       <InteractiveCostSimulator />
       <RegionalCommandMap />
