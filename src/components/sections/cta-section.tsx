@@ -44,15 +44,15 @@ export function CTASection() {
             variants={fadeInUp}
             className="flex flex-col sm:flex-row gap-3 pt-2 w-full sm:w-auto"
           >
-            <Button asChild size="lg" className="w-full sm:w-auto bg-black text-white hover:bg-zinc-800 font-bold h-12 px-8 rounded-full shadow-lg border-b-2 border-[#C5A880]">
-              <Link href="/contact">
-                REQUEST A QUOTE <ArrowRight size={16} className="ml-2 text-[#C5A880]" />
+            <Button asChild size="lg" className="w-full sm:w-auto bg-black text-white hover:bg-zinc-800 font-black h-12 px-8 rounded-full shadow-xl border-b-2 border-[#C5A880] uppercase tracking-wider hover:scale-105 active:scale-95 transition-all">
+              <Link href="/get-quote">
+                GET INSTANT QUOTE <ArrowRight size={16} className="ml-2 text-[#C5A880]" />
               </Link>
             </Button>
 
             <a
-              href="mailto:jsmintegratedservices@outlook.com"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 h-12 rounded-full text-xs font-bold text-blue-800 bg-blue-50 hover:bg-blue-100 border border-blue-200 transition-colors shadow-sm"
+              href="mailto:jsmintegratedservices@outlook.com?subject=Operations%20Assessment%20Inquiry"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 h-12 rounded-full text-xs font-bold text-blue-950 bg-blue-50 hover:bg-blue-100/90 border border-blue-300 hover:border-blue-400 hover:shadow-[0_0_20px_rgba(59,130,246,0.25)] transition-all shadow-xs active:scale-95"
             >
               <Mail size={16} className="text-blue-600" />
               Email Operations Desk

@@ -28,9 +28,9 @@ export function MobileDock() {
 
         {/* Highlighted Gold Get Quote Action */}
         <Link
-          href="/contact"
-          className="flex-1 flex items-center justify-center gap-1 h-10 px-3.5 rounded-full bg-[#e9c176] text-black text-xs font-extrabold shadow-sm active:scale-95 transition-transform"
-          aria-label="Request Site Assessment"
+          href="/get-quote"
+          className="flex-1 flex items-center justify-center gap-1 h-10 px-3.5 rounded-full bg-[#C5A880] hover:bg-[#b09570] text-black text-xs font-black uppercase tracking-wider shadow-sm active:scale-95 transition-all"
+          aria-label="Get Instant Proposal"
         >
           <span>Get Quote</span>
           <ArrowUpRight size={13} className="text-black" />

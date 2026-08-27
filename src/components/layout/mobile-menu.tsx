@@ -92,7 +92,7 @@ export function MobileMenu() {
               <span>Email Us</span>
             </a>
             <Link
-              href="/contact"
+              href="/get-quote"
               onClick={() => setOpen(false)}
               className="flex items-center justify-center gap-1 py-2.5 rounded-xl bg-black text-white text-xs font-bold shadow-xs"
             >
