@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next';
 import { brandData } from '@/data/brand';
 
 export default function robots(): MetadataRoute.Robots {
+  const domain = process.env.NEXT_PUBLIC_SITE_URL || 'https://jsm-security-eta.vercel.app';
   return {
     rules: [
       {
@@ -10,6 +11,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/dashboard/'],
       },
     ],
-    sitemap: `${brandData.domain}/sitemap.xml`,
+    sitemap: `${domain}/sitemap.xml`,
   };
 }

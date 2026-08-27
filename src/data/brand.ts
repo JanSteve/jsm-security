@@ -49,7 +49,7 @@ export const brandData = {
     ]
   },
 
-  domain: "https://jsmintegratedservices.in",
+  domain: process.env.NEXT_PUBLIC_SITE_URL || "https://jsm-security-eta.vercel.app",
 
   compliance: {
     psaraStatus: "PSARA Compliant (Private Security Agencies Regulation Act, 2005)",
