@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Shield, Sparkles, Users } from "lucide-react";
+import { TiltCard } from "@/components/3d/tilt-card";
 
 export function ServicesOverview() {
   const coreServices = [
@@ -56,45 +57,50 @@ export function ServicesOverview() {
         {coreServices.map((srv) => {
           const Icon = srv.icon;
           return (
-            <Link
+            <TiltCard
               key={srv.slug}
-              href={`/services/${srv.slug}`}
-              className="bg-[#fbf9f4] border border-zinc-200/90 rounded-3xl overflow-hidden flex flex-col hover:border-[#C5A880] hover:shadow-[0_16px_48px_rgba(197,168,128,0.22)] hover:-translate-y-1 transition-all duration-300 group"
+              maxTilt={8}
+              className="bg-[#fbf9f4] border border-zinc-200/90 rounded-3xl overflow-hidden flex flex-col hover:border-[#C5A880] transition-all duration-300 group p-0"
             >
-              <div className="relative h-60 sm:h-64 w-full overflow-hidden">
-                <Image
-                  src={srv.image}
-                  alt={srv.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
-                <div className="absolute top-4 left-4">
-                  <span className="text-[9px] font-mono font-black text-black bg-white/95 px-3 py-1 rounded-full uppercase shadow-xs border border-zinc-100">
-                    {srv.badge}
-                  </span>
-                </div>
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <div className="flex items-center gap-2.5">
-                    <div className="p-2 rounded-xl bg-[#C5A880] text-black shadow-xs">
-                      <Icon size={15} />
+              <Link
+                href={`/services/${srv.slug}`}
+                className="flex flex-col h-full"
+              >
+                <div className="relative h-60 sm:h-64 w-full overflow-hidden">
+                  <Image
+                    src={srv.image}
+                    alt={srv.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+                  <div className="absolute top-4 left-4">
+                    <span className="text-[9px] font-mono font-black text-black bg-white/95 px-3 py-1 rounded-full uppercase shadow-xs border border-zinc-100">
+                      {srv.badge}
+                    </span>
+                  </div>
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <div className="flex items-center gap-2.5">
+                      <div className="p-2 rounded-xl bg-[#C5A880] text-black shadow-xs">
+                        <Icon size={15} />
+                      </div>
+                      <h3 className="text-lg font-black text-white tracking-tight">{srv.title}</h3>
                     </div>
-                    <h3 className="text-lg font-black text-white tracking-tight">{srv.title}</h3>
                   </div>
                 </div>
-              </div>
 
-              <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
-                <p className="text-xs sm:text-sm text-zinc-600 font-medium leading-relaxed">
-                  {srv.highlight}
-                </p>
-                <div className="pt-3 border-t border-zinc-200/80 flex items-center justify-between text-xs font-bold text-black group-hover:text-[#C5A880] transition-colors">
-                  <span>Explore Operational SOP</span>
-                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform text-[#C5A880]" />
+                <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
+                  <p className="text-xs sm:text-sm text-zinc-600 font-medium leading-relaxed">
+                    {srv.highlight}
+                  </p>
+                  <div className="pt-3 border-t border-zinc-200/80 flex items-center justify-between text-xs font-bold text-black group-hover:text-[#C5A880] transition-colors">
+                    <span>Explore Operational SOP</span>
+                    <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform text-[#C5A880]" />
+                  </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </TiltCard>
           );
         })}
       </div>

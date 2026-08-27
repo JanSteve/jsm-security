@@ -1,6 +1,7 @@
 import { 
   HeroSection, 
   TrustBar, 
+  Scroll3DShowcase,
   ServicesOverview, 
   OperationalCalculator,
   ROICalculator,
@@ -65,6 +66,7 @@ export default function Home() {
       {/* $500k Luxury Enterprise Visual Flow */}
       <HeroSection />
       <TrustBar />
+      <Scroll3DShowcase />
       <ServicesOverview />
       <OperationalCalculator />
       <ROICalculator />

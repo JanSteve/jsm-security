@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { Star, Quote, Building2, Users, ShieldCheck } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
+import { TiltCard } from "@/components/3d/tilt-card";
 
 const testimonials = [
   {
@@ -130,12 +131,9 @@ export function TestimonialsSection() {
         {/* Stats Counter */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-20">
           {stats.map((stat, index) => (
-            <motion.div
+            <TiltCard
               key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              maxTilt={8}
               className="bg-white/95 backdrop-blur-xl border border-zinc-200/90 rounded-2xl p-6 shadow-xl text-center flex flex-col items-center justify-center gap-3"
             >
               <stat.icon className="w-8 h-8 text-[#C5A880]" />
@@ -143,19 +141,16 @@ export function TestimonialsSection() {
                 <Counter end={stat.value} suffix={stat.suffix} />
               </div>
               <p className="text-zinc-600 font-bold uppercase tracking-wider text-sm">{stat.label}</p>
-            </motion.div>
+            </TiltCard>
           ))}
         </div>
 
         {/* Testimonials Grid/Carousel */}
         <div className="flex md:grid md:grid-cols-3 gap-6 overflow-x-auto pb-8 snap-x snap-mandatory hide-scrollbar">
           {testimonials.map((testimonial, index) => (
-            <motion.div
+            <TiltCard
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              maxTilt={6}
               className="min-w-[85vw] md:min-w-0 snap-center shrink-0 bg-white/95 backdrop-blur-xl border border-zinc-200/90 rounded-3xl p-8 shadow-2xl relative flex flex-col"
             >
               <Quote className="w-12 h-12 text-[#C5A880]/20 absolute top-6 right-6" />
@@ -181,7 +176,7 @@ export function TestimonialsSection() {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </TiltCard>
           ))}
         </div>
 

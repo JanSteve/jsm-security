@@ -12,3 +12,4 @@ export { OperationalCalculator } from '../calculator/operational-calculator';
 export { RegionalCoverage } from './regional-coverage';
 export { TestimonialsSection } from './testimonials-section';
 export { ROICalculator } from './roi-calculator';
+export { Scroll3DShowcase } from './scroll-3d-showcase';

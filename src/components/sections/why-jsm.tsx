@@ -2,6 +2,7 @@
 
 import { Plane, BadgeCheck, Clock, ShieldCheck, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { TiltCard } from "@/components/3d/tilt-card";
 
 const proofStats = [
   {
@@ -56,9 +57,10 @@ export function WhyJSM() {
           {proofStats.map((st) => {
             const Icon = st.icon;
             return (
-              <div
+              <TiltCard
                 key={st.label}
-                className="bg-white p-6 sm:p-7 rounded-3xl border border-zinc-200/90 shadow-xs hover:shadow-[0_12px_36px_rgba(197,168,128,0.25)] hover:border-[#C5A880] hover:-translate-y-1 transition-all duration-300 space-y-3 group"
+                maxTilt={10}
+                className="bg-white p-6 sm:p-7 rounded-3xl border border-zinc-200/90 shadow-xs hover:border-[#C5A880] transition-all duration-300 space-y-3 group"
               >
                 <div className="flex items-center justify-between">
                   <div className="text-3xl sm:text-4xl font-black text-black font-mono tracking-tight">
@@ -74,7 +76,7 @@ export function WhyJSM() {
                 <p className="text-xs text-zinc-500 font-normal leading-relaxed">
                   {st.sub}
                 </p>
-              </div>
+              </TiltCard>
             );
           })}
         </div>
