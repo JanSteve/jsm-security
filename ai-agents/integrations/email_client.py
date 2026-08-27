@@ -1,7 +1,7 @@
 """
 Unified Email Client for JSM Integrated Services.
 Sends daily agent reports, B2B lead summaries, and social media calendars to:
-jsmintegratedservices@outlook.com
+JsmIntegratedServices@outlook.com
 """
 
 import os
@@ -11,24 +11,29 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from datetime import datetime
 
-TARGET_EMAIL = "jsmintegratedservices@outlook.com"
+TARGET_EMAIL = "JsmIntegratedServices@outlook.com"
 
 def send_agent_report_email(subject: str, markdown_content: str, html_body: str = None) -> bool:
     """
-    Sends an executive report email to jsmintegratedservices@outlook.com.
-    Uses Outlook SMTP if credentials exist, or logs the ready-to-dispatch payload.
+    Sends an executive report email to JsmIntegratedServices@outlook.com.
+    Uses Outlook SMTP with verbose diagnostics.
     """
-    user = os.environ.get("OUTLOOK_EMAIL") or os.environ.get("SMTP_USER")
-    password = os.environ.get("OUTLOOK_PASSWORD") or os.environ.get("SMTP_PASS")
+    user = (os.environ.get("OUTLOOK_EMAIL") or os.environ.get("SMTP_USER") or "").strip()
+    password = (os.environ.get("OUTLOOK_PASSWORD") or os.environ.get("SMTP_PASS") or "").strip().replace(" ", "")
     host = os.environ.get("SMTP_HOST", "smtp-mail.outlook.com")
     port = int(os.environ.get("SMTP_PORT", 587))
 
-    if user:
-        user = user.strip()
-    if password:
-        password = password.strip().replace(" ", "")
+    print(f"📧 Preparing to dispatch report email...")
+    print(f"   Target: {TARGET_EMAIL}")
+    print(f"   SMTP Host: {host}:{port}")
+    print(f"   SMTP User: {user if user else 'NOT SET'}")
+    print(f"   Password Length: {len(password)} chars (hidden)")
 
-    # Basic HTML fallback if not provided
+    if not user or not password:
+        print("⚠️ Missing OUTLOOK_EMAIL or OUTLOOK_PASSWORD environment variable!")
+        return False
+
+    # HTML Email Template
     if not html_body:
         html_body = f"""
         <!DOCTYPE html>
@@ -53,39 +58,43 @@ def send_agent_report_email(subject: str, markdown_content: str, html_body: str 
             <div class="content">{markdown_content}</div>
             <div class="footer">
               Generated automatically by JSM AI Digital Workforce • Tiruchirappalli HQ<br>
-              Target: jsmintegratedservices@outlook.com
+              Target: {TARGET_EMAIL}
             </div>
           </div>
         </body>
         </html>
         """
 
-    # If SMTP credentials provided, send live email
-    if user and password:
-        try:
-            msg = MIMEMultipart("alternative")
-            msg["Subject"] = subject
-            msg["From"] = f"JSM AI Operations Desk <{user}>"
-            msg["To"] = TARGET_EMAIL
-            msg.attach(MIMEText(markdown_content, "plain"))
-            msg.attach(MIMEText(html_body, "html"))
+    msg = MIMEMultipart("alternative")
+    msg["Subject"] = subject
+    msg["From"] = f"JSM Operations Desk <{user}>"
+    msg["To"] = TARGET_EMAIL
+    msg.attach(MIMEText(markdown_content, "plain"))
+    msg.attach(MIMEText(html_body, "html"))
 
-            server = smtplib.SMTP(host, port)
-            server.starttls()
-            server.login(user, password)
-            server.sendmail(user, [TARGET_EMAIL], msg.as_string())
-            server.quit()
-            print(f"✅ Report email successfully dispatched to {TARGET_EMAIL}!")
-            return True
-        except Exception as e:
-            print(f"⚠️ SMTP delivery attempted but failed: {e}")
-
-    # Fallback / Local generation notice
-    print(f"📁 Report formatted for: {TARGET_EMAIL}")
-    return True
+    try:
+        print(f"🔌 Connecting to {host}:{port}...")
+        server = smtplib.SMTP(host, port, timeout=20)
+        server.set_debuglevel(1)
+        server.ehlo()
+        server.starttls()
+        server.ehlo()
+        
+        print(f"🔐 Authenticating with Microsoft as {user}...")
+        server.login(user, password)
+        
+        print(f"🚀 Sending message to {TARGET_EMAIL}...")
+        server.sendmail(user, [TARGET_EMAIL], msg.as_string())
+        server.quit()
+        
+        print(f"🎉 SUCCESS: Report email delivered to {TARGET_EMAIL}!")
+        return True
+    except Exception as e:
+        print(f"❌ SMTP Error occurred: {e}")
+        raise e
 
 if __name__ == "__main__":
     send_agent_report_email(
         subject="🚀 JSM AI Agents Daily Executive Demo Report",
-        markdown_content="Demo verification of JSM AI Workforce report delivery to jsmintegratedservices@outlook.com."
+        markdown_content="Demo verification of JSM AI Workforce report delivery."
     )
