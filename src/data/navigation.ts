@@ -14,6 +14,16 @@ export const navigationData: NavItem[] = [
     href: "/services",
   },
   {
+    title: "Client Portal",
+    href: "/portal",
+    badge: "LIVE DEMO",
+  },
+  {
+    title: "Risk Audit",
+    href: "/vulnerability-audit",
+    badge: "DIAGNOSTIC",
+  },
+  {
     title: "Trust Center",
     href: "/trust-center",
     badge: "PSARA",
@@ -22,10 +32,6 @@ export const navigationData: NavItem[] = [
     title: "Case Studies",
     href: "/case-studies",
     badge: "AIRPORT",
-  },
-  {
-    title: "About",
-    href: "/about",
   },
   {
     title: "Contact",
