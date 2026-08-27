@@ -1,24 +1,6 @@
-#!/usr/bin/env python3
-"""
-Dispatches a clean, human-style Executive Master Summary to:
-jsmintegratedservices@outlook.com
-"""
-
-import os
-import sys
-import glob
-from datetime import datetime
-
-sys.path.append(os.path.abspath(os.path.dirname(__file__)))
-from integrations.email_client import send_agent_report_email
-
-def compile_master_demo_report():
-    print("Compiling Executive Operations Summary...")
-    date_str = datetime.now().strftime("%d %B %Y")
-    
-    report_content = f"""JSM INTEGRATED SERVICES
+JSM INTEGRATED SERVICES
 EXECUTIVE OPERATIONS & COMMERCIAL STATUS REPORT
-Date: {date_str}
+Date: 27 August 2026
 Recipient: Managing Director Sweety R
 Headquarters: Tiruchirappalli, Tamil Nadu
 
@@ -49,21 +31,3 @@ Four targeted industrial outreach batches were generated and prepared for deploy
 
 --------------------------------------------------------------------------------
 End of Executive Summary. Prepared by Operations Desk.
-"""
-
-    subject = f"JSM Operations — Executive Status Report ({date_str})"
-    send_agent_report_email(subject, report_content)
-    
-    summary_dir = os.path.join(os.path.dirname(__file__), "output/summaries")
-    os.makedirs(summary_dir, exist_ok=True)
-    today_str = datetime.now().strftime("%Y%m%d_%H%M%S")
-    demo_file = os.path.join(summary_dir, f"executive_summary_{today_str}.md")
-    
-    with open(demo_file, "w", encoding="utf-8") as f:
-        f.write(report_content)
-        
-    print(f"Executive summary saved to: {demo_file}")
-    return demo_file, report_content
-
-if __name__ == "__main__":
-    compile_master_demo_report()

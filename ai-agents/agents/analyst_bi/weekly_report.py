@@ -1,7 +1,7 @@
 """
-Agent 5: Analyst BI — Executive Operations & Revenue Intelligence Engine.
-Runs every Saturday evening (7:00 PM - 8:00 PM IST), compiling the master weekly summary
-for Managing Director Sweety R and delivering it to JsmIntegratedServices@outlook.com.
+Executive Weekly Operational & Commercial Summary for JSM Integrated Services.
+Runs every Saturday between 7:00 PM and 8:00 PM IST.
+Written in a natural, executive business tone (zero emojis, clean concise human memo).
 """
 
 import os
@@ -12,12 +12,16 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")
 from integrations.ai_engine import call_ai
 from integrations.email_client import send_agent_report_email
 
-SYSTEM_PROMPT = """You are "Analyst BI", Chief Operating Intelligence Officer for JSM Integrated Services reporting directly to Managing Director Sweety R.
-Financial Roadmap Target: ₹1 Crore (₹1,00,00,000) Net Annual Profit with ₹0 Human Office/Admin Overhead.
+SYSTEM_PROMPT = """You are the Senior Operations & Commercial Director for JSM Integrated Services writing a direct internal memo to Managing Director Sweety R.
+Rules:
+- Strictly NO emojis.
+- Write like an experienced operations director (concise, factual, professional corporate English).
+- Focus on hard operational realities: guard attendance, 2-Hour relief SLA compliance, night inspection logs, factory/hospital client satisfaction, and billing collections.
+- Clear financial tracking towards the net annual profit target of 1 Crore.
 """
 
 def generate_executive_brief(metrics: dict = None):
-    print("📈 Analyst BI Agent is analyzing weekly operations and revenue metrics...")
+    print("Compiling Saturday Weekly Operations Summary...")
     
     if not metrics:
         metrics = {
@@ -25,56 +29,60 @@ def generate_executive_brief(metrics: dict = None):
             "deployed_workforce_count": 520,
             "sla_compliance_rate": "99.4%",
             "active_leads_pipeline": 14,
-            "pipeline_potential_mrr": "₹18,50,000",
+            "pipeline_potential_mrr": "Rs 18.50 Lakhs",
             "closed_deals_this_month": 3,
-            "new_mrr_added": "₹4,20,000",
-            "ytd_net_profit_accumulated": "₹28,60,000",
-            "target_net_profit": "₹1,00,00,000 (₹1 Crore)"
+            "new_mrr_added": "Rs 4.20 Lakhs",
+            "ytd_net_profit_accumulated": "Rs 28.60 Lakhs",
+            "target_net_profit": "Rs 1.00 Crore"
         }
 
     date_str = datetime.now().strftime("%d %B %Y")
 
-    prompt = f"""Generate a Comprehensive Saturday Weekly Executive Intelligence Summary for Managing Director Sweety R:
+    prompt = f"""Draft the Saturday Executive Summary for the week ending {date_str} to Managing Director Sweety R.
 
-Current Performance Snapshot:
+Performance Overview:
 - Active Client Facilities: {metrics['active_client_facilities']}
-- Total Deployed Guard & Staff Workforce: {metrics['deployed_workforce_count']} personnel
-- SLA Fulfillment Rate: {metrics['sla_compliance_rate']}
-- Active B2B Pipeline: {metrics['active_leads_pipeline']} deals ({metrics['pipeline_potential_mrr']} MRR)
-- New Contracts Signed This Month: {metrics['closed_deals_this_month']} ({metrics['new_mrr_added']} added)
-- Progress to ₹1 Crore Net Profit: {metrics['ytd_net_profit_accumulated']} / {metrics['target_net_profit']}
+- Guard & Facility Staff Deployed: {metrics['deployed_workforce_count']}
+- 2-Hour Relief SLA Adherence: {metrics['sla_compliance_rate']}
+- Active B2B Lead Inquiries: {metrics['active_leads_pipeline']} accounts ({metrics['pipeline_potential_mrr']} MRR pipeline)
+- Net Profit Progress: {metrics['ytd_net_profit_accumulated']} towards {metrics['target_net_profit']} annual target
 
-Deliver:
-1. **Executive Financial Health Assessment**: Margin analysis and roadmap trajectory to ₹1 Crore.
-2. **Top 3 High-Impact Operational Priorities for the upcoming week**: Focusing on industrial hubs in Chennai, Coimbatore, and Hosur.
-3. **Risk Radar & Capacity Safeguards**: Ensuring 2-Hour Relief SLA is maintained during workforce scaling.
-4. **Action Items for Head of Operations & Sales Desk**.
+Include the following sections in clean text:
+1. EXECUTIVE OVERVIEW (Short 2-3 sentence high-level summary of the week)
+2. DEPLOYMENT & SLA HEALTH (Guard post stability, 2:00 AM night audit findings, zero-liability EPF/ESI records)
+3. COMMERCIAL PIPELINE & TENDERS (Key B2B outreach progress in Chennai automotive belt, Coimbatore engineering plants, and Trichy healthcare facilities)
+4. PRIORITIES FOR NEXT WEEK (3 direct operational action items for the field supervisors)
+
+Keep formatting completely clean, plain, and professional. No asterisks overload, no emojis.
 """
     output = call_ai(prompt, SYSTEM_PROMPT)
     
-    # Save into output/summaries folder
+    # Save to summaries folder
     summary_dir = os.path.join(os.path.dirname(__file__), "../../output/summaries")
     os.makedirs(summary_dir, exist_ok=True)
     today_str = datetime.now().strftime("%Y%m%d")
     filepath = os.path.join(summary_dir, f"weekly_summary_{today_str}.md")
     
-    full_report = f"""# 📈 JSM WEEKLY EXECUTIVE SUMMARY ({date_str})
-**Generated**: {datetime.now().strftime('%Y-%m-%d %H:%M:%S IST')}
-**Official Recipient**: JsmIntegratedServices@outlook.com
-**Managing Director**: Sweety R | Tiruchirappalli Headquarters
+    full_report = f"""JSM INTEGRATED SERVICES
+WEEKLY OPERATIONS & COMMERCIAL SUMMARY
+Date: {date_str}
+Recipient: Managing Director Sweety R
+Headquarters: Tiruchirappalli, Tamil Nadu
 
----
+--------------------------------------------------------------------------------
 
 {output}
+
+--------------------------------------------------------------------------------
+End of Weekly Summary. Prepared by Operations Desk.
 """
 
     with open(filepath, "w", encoding="utf-8") as f:
         f.write(full_report)
 
-    print(f"✅ Weekly summary saved locally to: {filepath}")
+    print(f"Weekly summary saved to: {filepath}")
     
-    # Send email
-    subject = f"📈 [WEEKLY EXECUTIVE SUMMARY] JSM Integrated Services — {date_str}"
+    subject = f"JSM Operations — Weekly Executive Summary ({date_str})"
     send_agent_report_email(subject, full_report)
     
     return filepath, full_report
