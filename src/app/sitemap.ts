@@ -4,8 +4,8 @@ import { industriesData } from '@/data/industries';
 import { blogPosts } from '@/data/blog-posts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Use the active Google Search Console verified domain
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://jsm-security-eta.vercel.app';
+  // Use the exact verified domain for Google Search Console
+  const baseUrl = 'https://jsm-security-eta.vercel.app';
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: new Date(), changeFrequency: 'daily', priority: 1.0 },
