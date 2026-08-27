@@ -10,6 +10,9 @@ import {
   RegionalCoverage,
   CTASection 
 } from "@/components/sections";
+import { InteractiveCostSimulator } from "@/components/calculator/interactive-cost-simulator";
+import { RegionalCommandMap } from "@/components/sections/regional-command-map";
+import { ComplianceMatrix } from "@/components/sections/compliance-matrix";
 import { organizationSchema, localBusinessSchema, websiteSchema, faqSchema } from "@/lib/schema";
 import { brandData } from "@/data/brand";
 
@@ -63,16 +66,16 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqsJsonLd) }}
       />
 
-      {/* $500k Luxury Enterprise Visual Flow */}
+      {/* Enterprise Visual & Operational Flow */}
       <HeroSection />
       <TrustBar />
       <Scroll3DShowcase />
       <ServicesOverview />
-      <OperationalCalculator />
-      <ROICalculator />
+      <InteractiveCostSimulator />
+      <RegionalCommandMap />
       <WhyJSM />
+      <ComplianceMatrix />
       <TestimonialsSection />
-      <RegionalCoverage />
       <CTASection />
     </div>
   );

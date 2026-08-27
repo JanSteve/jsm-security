@@ -1,5 +1,6 @@
 import { brandData } from "@/data/brand";
 import { breadcrumbSchema } from "@/lib/schema";
+import { ComplianceMatrix } from "@/components/sections/compliance-matrix";
 import Link from "next/link";
 import { ArrowRight, ShieldCheck, CheckCircle2, FileText, BadgeCheck, Clock, UserCheck, Award, Plane, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -138,56 +139,10 @@ export default function TrustCenterPage() {
           </div>
         </section>
 
-        {/* Section 03: PSARA Act Compliance & State Governance */}
-        <section className="py-16 md:py-24 border-b border-zinc-200/80">
-          <div className="flex items-center gap-4 mb-12">
-            <span className="text-base font-black text-black bg-[#C5A880] w-10 h-10 flex items-center justify-center rounded-full font-mono">
-              03
-            </span>
-            <div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-black tracking-tight">
-                PSARA Licensing &amp; Statutory Governance
-              </h2>
-              <p className="text-xs text-zinc-500 font-medium mt-1">
-                Private Security Agencies (Regulation) Act, 2005 • Controlling Authority, Government of Tamil Nadu
-              </p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-white/95 backdrop-blur-md border border-zinc-200/80 rounded-3xl p-6 sm:p-8 space-y-4 hover:border-[#C5A880]/60 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-              <div className="flex items-center justify-between">
-                <BadgeCheck size={26} className="text-[#C5A880]" />
-                <span className="text-[10px] font-mono font-bold bg-zinc-100 text-black px-2.5 py-1 rounded-full uppercase">STATUTORY ACT</span>
-              </div>
-              <h3 className="text-xl font-bold text-black">Mandatory PSARA Compliance</h3>
-              <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed">
-                Operating strictly within the legal framework established by the <strong>Private Security Agencies Regulation Act (PSARA 2005)</strong> under the Controlling Authority, Home Department of Tamil Nadu. Every guard deployed is verified, badged, and compliant.
-              </p>
-              <ul className="text-xs text-zinc-700 space-y-2 pt-2 border-t border-zinc-100 font-medium">
-                <li className="flex items-center gap-2"><CheckCircle2 size={13} className="text-emerald-600 flex-shrink-0" /> Mandatory Character &amp; Police Background Verification</li>
-                <li className="flex items-center gap-2"><CheckCircle2 size={13} className="text-emerald-600 flex-shrink-0" /> PSARA Standard Pre-Deployment Physical &amp; Security Training</li>
-                <li className="flex items-center gap-2"><CheckCircle2 size={13} className="text-emerald-600 flex-shrink-0" /> Strict Standardized Uniform, Photo ID &amp; Guard Duty Badging</li>
-              </ul>
-            </div>
-
-            <div className="bg-white/95 backdrop-blur-md border border-zinc-200/80 rounded-3xl p-6 sm:p-8 space-y-4 hover:border-[#C5A880]/60 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-              <div className="flex items-center justify-between">
-                <FileText size={26} className="text-[#C5A880]" />
-                <span className="text-[10px] font-mono font-bold bg-zinc-100 text-black px-2.5 py-1 rounded-full uppercase">LABOUR COMPLIANCE</span>
-              </div>
-              <h3 className="text-xl font-bold text-black">100% Social Security &amp; Labour Laws</h3>
-              <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed">
-                We protect client organizations from co-employer liability through flawless adherence to statutory labour laws, statutory minimum wages, and timely social security filings.
-              </p>
-              <ul className="text-xs text-zinc-700 space-y-2 pt-2 border-t border-zinc-100 font-medium">
-                <li className="flex items-center gap-2"><CheckCircle2 size={13} className="text-emerald-600 flex-shrink-0" /> Employees' Provident Fund (EPF) Full Remittance</li>
-                <li className="flex items-center gap-2"><CheckCircle2 size={13} className="text-emerald-600 flex-shrink-0" /> Employees' State Insurance (ESIC) Medical Coverage</li>
-                <li className="flex items-center gap-2"><CheckCircle2 size={13} className="text-emerald-600 flex-shrink-0" /> Minimum Wages Act &amp; Monthly ECR Proofs Shared with Clients</li>
-              </ul>
-            </div>
-          </div>
-        </section>
+        {/* Section 03: Interactive Compliance Matrix */}
+        <div className="rounded-3xl overflow-hidden my-12">
+          <ComplianceMatrix />
+        </div>
 
         {/* CTA Section */}
         <section className="py-16 text-center space-y-5">
@@ -196,7 +151,7 @@ export default function TrustCenterPage() {
             Request an on-site physical security and hygiene compliance audit by our operations team.
           </p>
           <div className="pt-2">
-            <Button asChild size="lg" className="bg-black hover:bg-zinc-800 text-white font-bold text-xs px-8 h-12 rounded-full border-b-2 border-[#C5A880] shadow-md hover:-translate-y-0.5 transition-all uppercase">
+            <Button asChild size="lg" className="bg-black hover:bg-zinc-800 text-white font-bold text-xs px-8 h-12 rounded-full border-b-2 border-[#C5A880] shadow-md hover:-translate-y-0.5 transition-all uppercase cursor-pointer">
               <Link href="/contact">
                 REQUEST A COMPLIANCE AUDIT <ArrowRight size={14} className="ml-1.5 text-[#C5A880]" />
               </Link>

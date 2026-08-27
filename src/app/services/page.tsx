@@ -1,5 +1,6 @@
 import { servicesData, serviceCategories } from '@/data/services';
 import { ServiceFilter } from '@/components/services/service-filter';
+import { InteractiveCostSimulator } from '@/components/calculator/interactive-cost-simulator';
 import { brandData } from '@/data/brand';
 import { breadcrumbSchema } from '@/lib/schema';
 import { ArrowRight, Shield, Sparkles, Users, Banknote } from 'lucide-react';
@@ -115,6 +116,11 @@ export default function ServicesHubPage() {
           </div>
           <ServiceFilter categories={serviceCategories} services={servicesData} />
         </section>
+
+        {/* Interactive Cost Simulator Section */}
+        <div className="rounded-3xl overflow-hidden mb-20">
+          <InteractiveCostSimulator />
+        </div>
 
         {/* Bottom Assessment CTA from Stitch */}
         <section className="py-16 bg-white border border-zinc-200/80 rounded-3xl p-8 md:p-16 text-center space-y-6 shadow-sm">

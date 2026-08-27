@@ -7,6 +7,7 @@ import { Footer } from "@/components/layout/footer";
 import { MobileDock } from "@/components/layout/mobile-dock";
 import CookieBanner from "@/components/shared/cookie-banner";
 import { AIReceptionist } from "@/components/chat/ai-receptionist";
+import { EmergencyReliefModal } from "@/components/ui/emergency-relief-modal";
 import { brandData } from "@/data/brand";
 import { cn } from "@/lib/utils";
 
@@ -93,6 +94,7 @@ export default function RootLayout({
             <MobileDock />
             <CookieBanner />
             <AIReceptionist />
+            <EmergencyReliefModal />
           </div>
         </Providers>
       </body>
