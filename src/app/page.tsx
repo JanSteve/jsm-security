@@ -11,6 +11,7 @@ import {
   CTASection 
 } from "@/components/sections";
 import { VisualTransformationGallery } from "@/components/sections/visual-transformation-gallery";
+import { VisualBeforeAfter } from "@/components/sections/visual-before-after";
 import { InteractiveCostSimulator } from "@/components/calculator/interactive-cost-simulator";
 import { RegionalCommandMap } from "@/components/sections/regional-command-map";
 import { ComplianceMatrix } from "@/components/sections/compliance-matrix";
@@ -72,6 +73,7 @@ export default function Home() {
       <TrustBar />
       <Scroll3DShowcase />
       <VisualTransformationGallery />
+      <VisualBeforeAfter />
       <ServicesOverview />
       <InteractiveCostSimulator />
       <RegionalCommandMap />

@@ -29,6 +29,11 @@ export const navigationData: NavItem[] = [
     badge: "TENDER",
   },
   {
+    title: "Visual Tour",
+    href: "/visual-tour",
+    badge: "360°",
+  },
+  {
     title: "Verify Badge",
     href: "/verify",
     badge: "TRUST",
