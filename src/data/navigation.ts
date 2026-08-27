@@ -29,14 +29,14 @@ export const navigationData: NavItem[] = [
     badge: "TENDER",
   },
   {
+    title: "Verify Badge",
+    href: "/verify",
+    badge: "TRUST",
+  },
+  {
     title: "Trust Center",
     href: "/trust-center",
     badge: "PSARA",
-  },
-  {
-    title: "Case Studies",
-    href: "/case-studies",
-    badge: "AIRPORT",
   },
   {
     title: "Contact",
