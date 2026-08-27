@@ -63,6 +63,11 @@ export async function POST(req: NextRequest) {
               </div>
 
               <div class="field-row">
+                <div class="field-label">Mobile / Phone Number</div>
+                <div class="field-value"><a href="tel:${phone}" style="color: #0f172a; text-decoration: underline; font-weight: 700;">${phone || 'Not Provided'}</a></div>
+              </div>
+
+              <div class="field-row">
                 <div class="field-label">Corporate Email</div>
                 <div class="field-value"><a href="mailto:${email}" style="color: #0f172a; text-decoration: underline;">${email || 'Not Provided'}</a></div>
               </div>
@@ -98,10 +103,17 @@ export async function POST(req: NextRequest) {
               </div>
               ` : ''}
 
-              <div style="margin-top: 20px;">
-                <a href="mailto:${email}?subject=JSM%20Integrated%20Services%20Proposal%20(${ticketRef})" class="action-btn" target="_blank">
-                  Reply to Client
+              <div style="margin-top: 20px; display: flex; gap: 10px;">
+                ${phone ? `
+                <a href="tel:${phone}" class="action-btn" target="_blank" style="margin-right: 8px;">
+                  Call ${phone}
                 </a>
+                ` : ''}
+                ${email ? `
+                <a href="mailto:${email}?subject=JSM%20Integrated%20Services%20Proposal%20(${ticketRef})" class="action-btn" target="_blank" style="background: #334155;">
+                  Reply by Email
+                </a>
+                ` : ''}
               </div>
             </div>
 
@@ -121,6 +133,7 @@ Reference: ${ticketRef}
 Submitted: ${timestamp}
 ---------------------------------------------
 Client Name: ${name || 'N/A'}
+Mobile Phone: ${phone || 'N/A'}
 Email: ${email || 'N/A'}
 Facility: ${facilityName || 'N/A'}
 Service: ${service || 'N/A'}

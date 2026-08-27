@@ -18,46 +18,156 @@ export async function POST(request: Request) {
       specialReqs,
     } = data;
 
-    // Build Email HTML
+    const resendApiKey = process.env.RESEND_API_KEY;
+    const targetRecipient = process.env.CONTACT_NOTIFICATION_EMAIL || 'jsmintegratedservices@outlook.com';
+
+    // Clean Corporate HTML Email Template
     const emailHtml = `
-      <h2>New Quote Request via Website</h2>
-      <p><strong>Company:</strong> ${companyName}</p>
-      <p><strong>Contact Person:</strong> ${contactPerson}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>City:</strong> ${city}</p>
-      <p><strong>Services Requested:</strong> ${services.join(', ')}</p>
-      <p><strong>Personnel Required:</strong> ${personnelCount}</p>
-      <p><strong>Shift Pattern:</strong> ${shiftPattern}</p>
-      <p><strong>Start Date:</strong> ${startDate}</p>
-      <p><strong>Special Requirements:</strong> ${specialReqs || 'None'}</p>
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta charset="utf-8">
+          <style>
+            body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; color: #0f172a; padding: 24px 16px; margin: 0; }
+            .container { max-width: 580px; margin: 0 auto; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+            .header { background: #0f172a; color: #ffffff; padding: 20px 24px; text-align: left; }
+            .header h1 { margin: 0; font-size: 17px; font-weight: 700; }
+            .header p { margin: 4px 0 0 0; font-size: 12px; color: #94a3b8; }
+            .content { padding: 24px; }
+            .section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #64748b; letter-spacing: 0.5px; margin-bottom: 12px; border-bottom: 1px solid #f1f5f9; padding-bottom: 6px; }
+            .field-row { margin-bottom: 14px; }
+            .field-label { font-size: 11px; color: #64748b; font-weight: 600; text-transform: uppercase; margin-bottom: 2px; }
+            .field-value { font-size: 14px; font-weight: 600; color: #0f172a; }
+            .field-value.highlight { background: #f8fafc; padding: 12px 14px; border-radius: 6px; border-left: 3px solid #0f172a; font-weight: 500; font-size: 13px; line-height: 1.5; color: #334155; }
+            .footer { background: #f8fafc; padding: 14px 24px; font-size: 11px; color: #94a3b8; text-align: left; border-top: 1px solid #f1f5f9; }
+            .action-btn { display: inline-block; background: #0f172a; color: #ffffff; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-weight: 600; font-size: 13px; margin-top: 14px; }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <h1>New Quote Proposal Request</h1>
+              <p>Generated via Instant Quote Calculator</p>
+            </div>
+
+            <div class="content">
+              <div class="section-title">Client & Organization</div>
+              
+              <div class="field-row">
+                <div class="field-label">Company Name</div>
+                <div class="field-value">${companyName || 'Not Specified'}</div>
+              </div>
+
+              <div class="field-row">
+                <div class="field-label">Contact Person</div>
+                <div class="field-value">${contactPerson || 'Not Provided'}</div>
+              </div>
+
+              <div class="field-row">
+                <div class="field-label">Mobile / Phone Number</div>
+                <div class="field-value"><a href="tel:${phone}" style="color: #0f172a; text-decoration: underline; font-weight: 700;">${phone || 'Not Provided'}</a></div>
+              </div>
+
+              <div class="field-row">
+                <div class="field-label">Corporate Email</div>
+                <div class="field-value"><a href="mailto:${email}" style="color: #0f172a; text-decoration: underline;">${email || 'Not Provided'}</a></div>
+              </div>
+
+              <div class="section-title" style="margin-top: 20px;">Scope & Operational Details</div>
+
+              <div class="field-row">
+                <div class="field-label">City / Location</div>
+                <div class="field-value">${city || 'Tamil Nadu'}</div>
+              </div>
+
+              <div class="field-row">
+                <div class="field-label">Services Selected</div>
+                <div class="field-value">${Array.isArray(services) ? services.join(', ') : services}</div>
+              </div>
+
+              <div class="field-row">
+                <div class="field-label">Personnel Count</div>
+                <div class="field-value">${personnelCount} Staff</div>
+              </div>
+
+              <div class="field-row">
+                <div class="field-label">Shift Pattern</div>
+                <div class="field-value">${shiftPattern}</div>
+              </div>
+
+              <div class="field-row">
+                <div class="field-label">Target Start Date</div>
+                <div class="field-value">${startDate || 'Immediate'}</div>
+              </div>
+
+              ${specialReqs ? `
+              <div class="field-row" style="margin-top: 14px;">
+                <div class="field-label">Special Requirements</div>
+                <div class="field-value highlight">${specialReqs}</div>
+              </div>
+              ` : ''}
+
+              <div style="margin-top: 20px; display: flex; gap: 10px;">
+                ${phone ? `
+                <a href="tel:${phone}" class="action-btn" target="_blank" style="margin-right: 8px;">
+                  Call ${phone}
+                </a>
+                ` : ''}
+                ${email ? `
+                <a href="mailto:${email}?subject=JSM%20Integrated%20Services%20Proposal%20Confirmation" class="action-btn" target="_blank" style="background: #334155;">
+                  Email Client
+                </a>
+                ` : ''}
+              </div>
+            </div>
+
+            <div class="footer">
+              Submitted on ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })} via jsmintegratedservices.in/get-quote<br>
+              JSM Integrated Services • Tiruchirappalli Headquarters
+            </div>
+          </div>
+        </body>
+      </html>
     `;
 
-    // Only attempt sending if env vars exist
-    if (process.env.OUTLOOK_EMAIL && process.env.OUTLOOK_PASSWORD) {
-       try {
-         const transporter = nodemailer.createTransport({
-           host: 'smtp-mail.outlook.com',
-           port: 587,
-           secure: false, // true for 465, false for other ports
-           auth: {
-             user: process.env.OUTLOOK_EMAIL,
-             pass: process.env.OUTLOOK_PASSWORD,
-           },
-           tls: {
-             ciphers: 'SSLv3',
-           }
-         });
-         
-         await transporter.sendMail({
-            from: process.env.OUTLOOK_EMAIL,
-            to: process.env.CONTACT_NOTIFICATION_EMAIL || process.env.OUTLOOK_EMAIL,
-            subject: `New Quote Request: ${companyName}`,
+    const textEmail = `
+NEW QUOTE PROPOSAL REQUEST - JSM INTEGRATED SERVICES
+------------------------------------------------------
+Company: ${companyName}
+Contact Person: ${contactPerson}
+Mobile Phone: ${phone}
+Email: ${email}
+City: ${city}
+Services: ${Array.isArray(services) ? services.join(', ') : services}
+Personnel Count: ${personnelCount}
+Shift Pattern: ${shiftPattern}
+Start Date: ${startDate}
+Special Requirements: ${specialReqs || 'None'}
+------------------------------------------------------
+Sent from jsmintegratedservices.in/get-quote
+    `;
+
+    if (resendApiKey) {
+      try {
+        await fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${resendApiKey.trim()}`,
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
+          },
+          body: JSON.stringify({
+            from: 'JSM Quote Desk <onboarding@resend.dev>',
+            reply_to: email || targetRecipient,
+            to: [targetRecipient],
+            subject: `New Quote Request: ${companyName || 'Client'} (${city || 'Tamil Nadu'})`,
+            text: textEmail,
             html: emailHtml,
-         });
-       } catch (emailError) {
-         console.error('Failed to send email:', emailError);
-         // Continue even if email fails
-       }
+          }),
+        });
+      } catch (err) {
+        console.warn('Resend quote notification error:', err);
+      }
     }
 
     // Pricing estimation logic

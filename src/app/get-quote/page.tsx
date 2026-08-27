@@ -15,6 +15,7 @@ export default function GetQuotePage() {
     companyName: "",
     contactPerson: "",
     email: "",
+    phone: "",
     
     services: [] as string[],
     city: "",
@@ -41,7 +42,7 @@ export default function GetQuotePage() {
 
   const validateStep = (s: number) => {
     if (s === 1) {
-      return formData.companyName && formData.contactPerson && formData.email;
+      return formData.companyName && formData.contactPerson && formData.email && formData.phone;
     }
     if (s === 2) {
       return formData.services.length > 0 && formData.city && formData.personnelCount;
@@ -169,9 +170,9 @@ export default function GetQuotePage() {
                       <div className="mb-8">
                         <h2 className="text-2xl font-black mb-2 flex items-center gap-2">
                           <span className="w-8 h-8 rounded-full bg-[#0A1628] text-white text-sm flex items-center justify-center">1</span>
-                          Company Details
+                          Company & Contact Details
                         </h2>
-                        <p className="text-zinc-500">Tell us about your organization and how to reach you.</p>
+                        <p className="text-zinc-500">Tell us about your organization and how our operations team can reach you.</p>
                       </div>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -182,7 +183,7 @@ export default function GetQuotePage() {
                           <input 
                             required type="text" name="companyName" value={formData.companyName} onChange={handleInputChange}
                             className="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:outline-none focus:ring-2 focus:ring-[#C5A880] focus:border-transparent transition-all"
-                            placeholder="e.g. Acme Corp"
+                            placeholder="e.g. TVS Component Hub"
                           />
                         </div>
                         <div className="space-y-2">
@@ -192,17 +193,29 @@ export default function GetQuotePage() {
                           <input 
                             required type="text" name="contactPerson" value={formData.contactPerson} onChange={handleInputChange}
                             className="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:outline-none focus:ring-2 focus:ring-[#C5A880] focus:border-transparent transition-all"
-                            placeholder="John Doe"
+                            placeholder="e.g. Rajesh Kumar (Facility Head)"
                           />
                         </div>
                         <div className="space-y-2">
                           <label className="text-sm font-bold text-zinc-700 flex items-center gap-2">
-                            <Mail className="w-4 h-4 text-[#C5A880]" /> Email Address
+                            <Mail className="w-4 h-4 text-[#C5A880]" /> Corporate Email
                           </label>
                           <input 
                             required type="email" name="email" value={formData.email} onChange={handleInputChange}
                             className="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:outline-none focus:ring-2 focus:ring-[#C5A880] focus:border-transparent transition-all"
-                            placeholder="john@example.com"
+                            placeholder="rajesh@company.com"
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <label className="text-sm font-bold text-zinc-700 flex items-center gap-2">
+                            <svg className="w-4 h-4 text-[#C5A880]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg> Mobile / Phone Number
+                          </label>
+                          <input 
+                            required type="tel" name="phone" value={formData.phone} onChange={handleInputChange}
+                            className="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:outline-none focus:ring-2 focus:ring-[#C5A880] focus:border-transparent transition-all"
+                            placeholder="e.g. +91 98765 43210"
                           />
                         </div>
                       </div>
