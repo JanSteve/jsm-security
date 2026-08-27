@@ -103,7 +103,7 @@ export function Header() {
           </a>
 
           <Link
-            href="/contact"
+            href="/get-quote"
             className="inline-flex items-center justify-center bg-black hover:bg-zinc-800 text-white text-xs font-extrabold tracking-wider px-5 h-9 rounded-full border-b border-[#C5A880] shadow-xs active:scale-95 transition-all uppercase group"
           >
             <span>Get Quote</span>

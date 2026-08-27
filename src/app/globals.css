@@ -188,10 +188,69 @@
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--glass-border);
   }
+  .glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(228, 228, 231, 0.9);
+    box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.04), 0 2px 8px -1px rgba(0, 0, 0, 0.02);
+  }
+  .glass-card-dark {
+    background: rgba(10, 22, 40, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(197, 168, 128, 0.2);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  }
   .gold-glow {
     box-shadow: var(--gold-glow);
+  }
+  .gold-glow-hover:hover {
+    box-shadow: 0 0 30px rgba(197, 168, 128, 0.35);
   }
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
   }
+  .text-gold-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-zinc-900 via-[#C5A880] to-zinc-800;
+  }
+  .bg-radial-grid {
+    background-size: 32px 32px;
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  }
+  .bg-radial-grid-dark {
+    background-size: 32px 32px;
+    background-image: radial-gradient(circle, rgba(197, 168, 128, 0.12) 1px, transparent 1px);
+  }
+}
+
+/* Custom Luxury Range Slider */
+input[type="range"] {
+  accent-color: #C5A880;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 9999px;
+  background: rgba(228, 228, 231, 0.8);
+}
+.dark input[type="range"]::-webkit-slider-runnable-track,
+.bg-\[\#0A1628\] input[type="range"]::-webkit-slider-runnable-track {
+  background: rgba(255, 255, 255, 0.15);
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #C5A880;
+  border: 3px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25), 0 0 12px rgba(197, 168, 128, 0.6);
+  margin-top: -7px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3), 0 0 18px rgba(197, 168, 128, 0.8);
 }

@@ -150,10 +150,10 @@ export function HeroSection() {
           {/* Conversion Button Group */}
           <div className="flex flex-wrap gap-3.5 pt-1">
             <Link
-              href="/contact"
+              href="/get-quote"
               className="inline-flex items-center justify-center bg-black hover:bg-zinc-900 text-white text-xs font-black tracking-widest px-8 h-12 rounded-full border-b-2 border-[#C5A880] shadow-xl hover:shadow-[0_0_30px_rgba(197,168,128,0.45)] hover:scale-[1.02] active:scale-95 transition-all uppercase group"
             >
-              <span>REQUEST A QUOTE</span>
+              <span>GET INSTANT QUOTE</span>
               <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform text-[#C5A880]" />
             </Link>
 
@@ -162,7 +162,7 @@ export function HeroSection() {
               className="inline-flex items-center justify-center gap-2 px-6 h-12 rounded-full text-xs font-bold text-blue-950 bg-blue-50 hover:bg-blue-100/90 border border-blue-300 hover:border-blue-400 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:scale-[1.02] transition-all shadow-xs active:scale-95"
             >
               <Mail size={15} className="text-blue-600" />
-              <span>Email Us</span>
+              <span>Email Operations Desk</span>
             </a>
           </div>
 

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { brandData } from "@/data/brand";
-import { Building2, User, Phone, Mail, MapPin, Briefcase, Calendar, Clock, CheckCircle, FileText, ArrowRight, ArrowLeft, Loader2 } from "lucide-react";
+import { Building2, User, Mail, MapPin, Briefcase, Calendar, Clock, CheckCircle, FileText, ArrowRight, ArrowLeft, Loader2 } from "lucide-react";
 import Link from "next/link";
 
 export default function GetQuotePage() {

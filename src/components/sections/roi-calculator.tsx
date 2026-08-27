@@ -248,14 +248,21 @@ export function ROICalculator() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-16 flex justify-center"
+          className="mt-16 flex flex-wrap items-center justify-center gap-4"
         >
           <Link 
-            href="/contact"
-            className="group inline-flex items-center justify-center gap-3 bg-[#C5A880] text-white px-8 py-5 rounded-2xl font-black text-lg hover:bg-[#b09570] transition-all hover:scale-105 active:scale-95 shadow-xl shadow-[#C5A880]/20"
+            href="/get-quote"
+            className="group inline-flex items-center justify-center gap-3 bg-black hover:bg-zinc-900 text-white px-8 py-4.5 rounded-full font-black text-sm uppercase tracking-wider border-b-2 border-[#C5A880] shadow-xl hover:shadow-[0_0_30px_rgba(197,168,128,0.4)] hover:scale-105 active:scale-95 transition-all"
           >
-            GET YOUR FREE ASSESSMENT
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <span>GET INSTANT PROPOSAL (PDF)</span>
+            <ArrowRight className="w-4 h-4 text-[#C5A880] group-hover:translate-x-1 transition-transform" />
+          </Link>
+          <Link 
+            href="/contact"
+            className="group inline-flex items-center justify-center gap-2 bg-white hover:bg-zinc-50 text-zinc-900 px-7 py-4.5 rounded-full font-bold text-sm uppercase tracking-wider border border-zinc-300 shadow-sm hover:border-[#C5A880] hover:scale-105 active:scale-95 transition-all"
+          >
+            <span>Book On-Site Assessment</span>
+            <ArrowRight className="w-4 h-4 text-zinc-400 group-hover:translate-x-1 transition-transform" />
           </Link>
         </motion.div>
 

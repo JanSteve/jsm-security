@@ -613,12 +613,10 @@ export function AIReceptionist() {
             <div className="px-4 py-2 bg-zinc-900 text-white flex items-center justify-between text-[10px] font-semibold">
               <span className="text-zinc-400">Official Email: jsmintegratedservices@outlook.com</span>
               <a
-                href={`mailto:jsmintegratedservices@outlook.com?subject=Inquiry`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-emerald-400 hover:underline flex items-center gap-1 font-bold"
+                href="mailto:jsmintegratedservices@outlook.com?subject=Inquiry"
+                className="text-[#C5A880] hover:underline flex items-center gap-1 font-bold"
               >
-                <MessageCircle size={12} /> Email Operations Desk
+                <Mail size={12} /> Email Operations Desk
               </a>
             </div>
           </motion.div>
