@@ -1,8 +1,8 @@
-name: Daily AI Lead Hunter & B2B Outreach
+name: Daily B2B Lead Generator
 
 on:
   schedule:
-    # 08:00 AM IST (02:30 UTC)
+    # Runs at 02:30 UTC (08:00 AM IST)
     - cron: '30 2 * * *'
   workflow_dispatch:
 
@@ -15,14 +15,9 @@ jobs:
         with:
           python-version: '3.11'
       - run: pip install g4f certifi --quiet
-      - env:
-          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
-          OUTLOOK_EMAIL: ${{ secrets.OUTLOOK_EMAIL }}
-          OUTLOOK_PASSWORD: ${{ secrets.OUTLOOK_PASSWORD }}
-        run: |
+      - run: |
           cd ai-agents
           python agents/hunter_lead_generator/lead_hunter.py
-          python dispatch_demo_report.py
       - uses: actions/upload-artifact@v4
         with:
           name: daily-lead-proposals

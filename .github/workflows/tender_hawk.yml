@@ -1,8 +1,8 @@
-name: Tender Hawk (Govt & GeM Tender Bids)
+name: Tender Hawk Monitor
 
 on:
   schedule:
-    # 10:00 AM IST (04:30 UTC)
+    # Runs at 04:30 UTC (10:00 AM IST)
     - cron: '30 4 * * *'
   workflow_dispatch:
 
@@ -15,14 +15,9 @@ jobs:
         with:
           python-version: '3.11'
       - run: pip install g4f certifi --quiet
-      - env:
-          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
-          OUTLOOK_EMAIL: ${{ secrets.OUTLOOK_EMAIL }}
-          OUTLOOK_PASSWORD: ${{ secrets.OUTLOOK_PASSWORD }}
-        run: |
+      - run: |
           cd ai-agents
           python agents/tender_hawk/tender_monitor.py
-          python dispatch_demo_report.py
       - uses: actions/upload-artifact@v4
         with:
           name: daily-tender-evaluations
