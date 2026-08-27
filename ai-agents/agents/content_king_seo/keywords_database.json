@@ -1,0 +1,21 @@
+{
+  "target_cities": ["Trichy", "Chennai", "Coimbatore", "Madurai", "Salem", "Hosur", "Erode", "Tirunelveli"],
+  "high_priority_keywords": [
+    { "keyword": "security guard agency in Trichy", "intent": "commercial", "volume": "500+" },
+    { "keyword": "PSARA licensed security services Tamil Nadu", "intent": "transactional", "volume": "400+" },
+    { "keyword": "commercial housekeeping services Chennai", "intent": "commercial", "volume": "1200+" },
+    { "keyword": "industrial manpower supply Hosur", "intent": "commercial", "volume": "800+" },
+    { "keyword": "facility management company Coimbatore", "intent": "commercial", "volume": "1000+" },
+    { "keyword": "security guard agency near me", "intent": "local", "volume": "5000+" }
+  ],
+  "hashtags": [
+    "#JSMIntegratedServices",
+    "#SecurityServicesTamilNadu",
+    "#PSARACompliant",
+    "#FacilityManagement",
+    "#HousekeepingServices",
+    "#ManpowerSupply",
+    "#TrichyAirportBenchmark",
+    "#IndustrialSecurity"
+  ]
+}

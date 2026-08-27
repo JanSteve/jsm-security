@@ -1,0 +1,29 @@
+name: Analyst BI (Executive Operations & Revenue Report)
+
+on:
+  schedule:
+    # Mondays 07:00 AM IST (01:30 UTC)
+    - cron: '30 1 * * 1'
+  workflow_dispatch:
+
+jobs:
+  run-analyst-bi:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install g4f certifi --quiet
+      - env:
+          OUTLOOK_EMAIL: ${{ secrets.OUTLOOK_EMAIL }}
+          OUTLOOK_PASSWORD: ${{ secrets.OUTLOOK_PASSWORD }}
+        run: |
+          cd ai-agents
+          python agents/analyst_bi/weekly_report.py
+          python dispatch_demo_report.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: weekly-executive-briefs
+          path: ai-agents/output/
+          retention-days: 30

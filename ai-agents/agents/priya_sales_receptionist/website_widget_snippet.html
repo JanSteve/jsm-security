@@ -1,0 +1,102 @@
+<!-- 
+  JSM AI Receptionist Widget (Priya)
+  Add this script right before </body> in your Next.js layout or HTML.
+  Replace YOUR_APPS_SCRIPT_WEBAPP_URL with your deployed Google Apps Script URL.
+-->
+
+<div id="jsm-priya-widget" style="position: fixed; bottom: 24px; right: 24px; z-index: 9999; font-family: system-ui, -apple-system, sans-serif;">
+  <!-- Trigger Button -->
+  <button id="jsm-chat-btn" onclick="toggleJsmChat()" style="display: flex; align-items: center; gap: 10px; background: #000; color: #fff; border: 1px solid #C5A880; padding: 12px 20px; border-radius: 9999px; cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,0.3); transition: all 0.2s;">
+    <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #10B981;"></span>
+    <span style="font-weight: 700; font-size: 13px; letter-spacing: 0.5px;">Ask Priya • AI Receptionist</span>
+  </button>
+
+  <!-- Chat Box Modal -->
+  <div id="jsm-chat-modal" style="display: none; width: 360px; height: 500px; background: #ffffff; border-radius: 20px; border: 1px solid #e4e4e7; box-shadow: 0 20px 40px rgba(0,0,0,0.25); flex-direction: column; overflow: hidden; margin-bottom: 12px;">
+    <!-- Header -->
+    <div style="background: #18181b; color: #ffffff; padding: 16px; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #C5A880;">
+      <div>
+        <div style="font-weight: 800; font-size: 15px; display: flex; align-items: center; gap: 6px;">
+          Priya <span style="background: #10B981; font-size: 9px; padding: 2px 6px; border-radius: 4px; color: #fff;">LIVE</span>
+        </div>
+        <div style="font-size: 11px; color: #a1a1aa;">JSM Integrated Services • 24/7 Operations Desk</div>
+      </div>
+      <button onclick="toggleJsmChat()" style="background: transparent; border: none; color: #a1a1aa; font-size: 20px; cursor: pointer;">&times;</button>
+    </div>
+
+    <!-- Messages Container -->
+    <div id="jsm-messages" style="flex: 1; padding: 14px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; background: #fafafa; font-size: 13px;">
+      <div style="background: #e4e4e7; color: #18181b; padding: 10px 14px; border-radius: 14px 14px 14px 2px; max-width: 85%;">
+        Vanakkam! I'm Priya from JSM Integrated Services. How can I help protect or manage your facility today?
+      </div>
+    </div>
+
+    <!-- Input Box -->
+    <div style="padding: 10px; background: #ffffff; border-top: 1px solid #e4e4e7; display: flex; gap: 8px;">
+      <input id="jsm-user-input" type="text" placeholder="Type your message..." onkeypress="handleJsmKeyPress(event)" style="flex: 1; padding: 10px 14px; border: 1px solid #d4d4d8; border-radius: 9999px; font-size: 13px; outline: none;" />
+      <button onclick="sendJsmMessage()" style="background: #000; color: #fff; border: 1px solid #C5A880; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;">➤</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const JSM_APPS_SCRIPT_URL = "YOUR_APPS_SCRIPT_WEBAPP_URL"; // Paste your Google Apps Script URL here
+  const conversationHistory = [];
+
+  function toggleJsmChat() {
+    const modal = document.getElementById("jsm-chat-modal");
+    modal.style.display = modal.style.display === "flex" ? "none" : "flex";
+  }
+
+  function handleJsmKeyPress(e) {
+    if (e.key === "Enter") sendJsmMessage();
+  }
+
+  async function sendJsmMessage() {
+    const input = document.getElementById("jsm-user-input");
+    const text = input.value.trim();
+    if (!text) return;
+
+    input.value = "";
+    appendMessage(text, "user");
+
+    // Add typing indicator
+    const typingId = appendMessage("Priya is typing...", "agent", true);
+
+    try {
+      const response = await fetch(JSM_APPS_SCRIPT_URL, {
+        method: "POST",
+        body: JSON.stringify({ message: text, history: conversationHistory })
+      });
+      const data = await response.json();
+      removeMessage(typingId);
+      appendMessage(data.reply || "Thank you. Call us at +91 94431 52000 for instant help.", "agent");
+      conversationHistory.push({ role: "user", text: text });
+      conversationHistory.push({ role: "model", text: data.reply });
+    } catch (err) {
+      removeMessage(typingId);
+      appendMessage("Sorry, I am having trouble connecting. Please reach us at +91 94431 52000.", "agent");
+    }
+  }
+
+  function appendMessage(text, sender, isTyping = false) {
+    const box = document.getElementById("jsm-messages");
+    const msg = document.createElement("div");
+    const id = "msg-" + Date.now();
+    msg.id = id;
+    if (sender === "user") {
+      msg.style.cssText = "background: #000; color: #fff; padding: 10px 14px; border-radius: 14px 14px 2px 14px; max-width: 85%; align-self: flex-end;";
+    } else {
+      msg.style.cssText = "background: #e4e4e7; color: #18181b; padding: 10px 14px; border-radius: 14px 14px 14px 2px; max-width: 85%; align-self: flex-start;";
+    }
+    msg.innerText = text;
+    box.appendChild(msg);
+    box.scrollTop = box.scrollHeight;
+    return id;
+  }
+
+  function removeMessage(id) {
+    const el = document.getElementById(id);
+    if (el) el.remove();
+  }
+</script>

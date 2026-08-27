@@ -1,0 +1,33 @@
+name: 🚀 Instant AI Workforce Demo Email Dispatch
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  dispatch-demo-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install AI & Mail Dependencies
+        run: |
+          pip install g4f certifi --quiet
+
+      - name: Generate Fresh AI Reports & Send Email
+        env:
+          OUTLOOK_EMAIL: ${{ secrets.OUTLOOK_EMAIL }}
+          OUTLOOK_PASSWORD: ${{ secrets.OUTLOOK_PASSWORD }}
+        run: |
+          cd ai-agents
+          python run_all_agents.py
+          python dispatch_demo_report.py

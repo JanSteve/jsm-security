@@ -1,0 +1,32 @@
+{
+  "company_name": "JSM Integrated Services",
+  "former_name": "JSMMANPOWER",
+  "managing_director": "Sweety R",
+  "headquarters": "Trichy Hub & Regional Operations Centre, Tamil Nadu, India",
+  "postal_code": "620001",
+  "phone": "+91 94431 52000",
+  "email": "jsmintegratedservices@outlook.com",
+  "website": "https://jsmintegratedservices.in",
+  "tagline": "One Partner. Every Solution.",
+  "flagship_contract": "Trichy International Airport (2024 Operations)",
+  "psara_license_status": "Compliant (PSARA Act 2005, Home Dept of Tamil Nadu)",
+  "compliance": ["PSARA 2005", "100% EPF", "100% ESIC", "Minimum Wages Act"],
+  "guarantee_sla": "2-Hour Relief Replacement SLA",
+  "audit_protocol": "2:00 AM Active Night Audits",
+  "pricing": {
+    "security_guard_monthly_inr": { "min": 15000, "max": 18000 },
+    "housekeeping_staff_monthly_inr": { "min": 12000, "max": 15000 },
+    "manpower_labour_monthly_inr": { "min": 10000, "max": 14000 }
+  },
+  "operational_cities": [
+    "Tiruchirappalli (Trichy)",
+    "Chennai",
+    "Coimbatore",
+    "Madurai",
+    "Salem",
+    "Hosur",
+    "Erode",
+    "Tirunelveli",
+    "Thanjavur"
+  ]
+}

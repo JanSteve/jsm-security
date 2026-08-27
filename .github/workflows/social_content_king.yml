@@ -1,0 +1,29 @@
+name: Social Media Content King (LinkedIn & IG)
+
+on:
+  schedule:
+    # 09:00 AM IST (03:30 UTC)
+    - cron: '30 3 * * *'
+  workflow_dispatch:
+
+jobs:
+  run-content-king:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install g4f certifi --quiet
+      - env:
+          OUTLOOK_EMAIL: ${{ secrets.OUTLOOK_EMAIL }}
+          OUTLOOK_PASSWORD: ${{ secrets.OUTLOOK_PASSWORD }}
+        run: |
+          cd ai-agents
+          python agents/content_king_seo/social_media_autoposter.py
+          python dispatch_demo_report.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: daily-social-campaigns
+          path: ai-agents/output/
+          retention-days: 14
