@@ -13,37 +13,43 @@ export async function POST(req: Request) {
       );
     }
 
-    const transporter = nodemailer.createTransport({
-      host: 'smtp-mail.outlook.com',
-      port: 587,
-      secure: false, // true for 465, false for other ports
-      auth: {
-        user: process.env.OUTLOOK_EMAIL,
-        pass: process.env.OUTLOOK_PASSWORD,
-      },
-      tls: {
-        ciphers: 'SSLv3'
+    const resendApiKey = process.env.RESEND_API_KEY;
+    const targetRecipient = process.env.CONTACT_NOTIFICATION_EMAIL || 'jsmintegratedservices@outlook.com';
+
+    const mailText = `
+NEW AD LANDING LEAD - JSM INTEGRATED SERVICES
+------------------------------------------------
+Name: ${name || 'N/A'}
+Phone: ${phone || 'N/A'}
+Email: ${email || 'Not provided'}
+Requirement: ${requirement}
+Source Page: ${source_page}
+Timestamp: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
+------------------------------------------------
+Sent from jsmintegratedservices.in
+    `;
+
+    if (resendApiKey) {
+      const res = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${resendApiKey.trim()}`,
+        },
+        body: JSON.stringify({
+          from: 'JSM Landing Leads <onboarding@resend.dev>',
+          to: [targetRecipient],
+          subject: `🚨 New Campaign Lead: ${name} (${source_page})`,
+          text: mailText,
+        }),
+      });
+
+      if (res.ok) {
+        return NextResponse.json({ success: true });
       }
-    });
+    }
 
-    const mailOptions = {
-      from: process.env.OUTLOOK_EMAIL,
-      to: process.env.OUTLOOK_EMAIL, // Send to self
-      subject: `New Lead from Google Ads - ${source_page}`,
-      text: `
-        New Lead Details:
-        -----------------
-        Email: ${email || 'Not provided'}
-        Requirement: ${requirement}
-        
-        Source Page: ${source_page}
-        Time: ${new Date().toLocaleString()}
-      `,
-    };
-
-    await transporter.sendMail(mailOptions);
-
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ success: true, message: 'Lead logged' });
   } catch (error) {
     console.error('Lead capture error:', error);
     return NextResponse.json(

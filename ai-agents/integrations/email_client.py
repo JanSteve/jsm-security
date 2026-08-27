@@ -16,7 +16,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from datetime import datetime
 
-TARGET_EMAIL = "JsmIntegratedServices@outlook.com"
+TARGET_EMAIL = "jsmintegratedservices@outlook.com"
 
 def send_agent_report_email(subject: str, markdown_content: str, html_body: str = None) -> bool:
     """
@@ -71,10 +71,12 @@ def send_agent_report_email(subject: str, markdown_content: str, html_body: str 
                 headers={
                     "Authorization": f"Bearer {resend_key.strip()}",
                     "Content-Type": "application/json",
-                    "User-Agent": "JSM-Agent/1.0"
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
                 }
             )
-            with urllib.request.urlopen(req, timeout=15) as resp:
+            import ssl
+            ctx = ssl.create_default_context(cafile=certifi.where())
+            with urllib.request.urlopen(req, context=ctx, timeout=15) as resp:
                 res = json.loads(resp.read().decode("utf-8"))
                 print(f"🎉 SUCCESS: Email delivered to {TARGET_EMAIL} via Resend! (ID: {res.get('id')})")
                 return True

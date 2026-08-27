@@ -1,13 +1,13 @@
-name: Weekly Saturday Executive Summary (7:00 PM - 8:00 PM IST)
+name: Monthly Executive Master Summary (7:00 PM - 8:00 PM IST)
 
 on:
   schedule:
-    # Runs every Saturday at 14:00 UTC (7:30 PM IST)
-    - cron: '0 14 * * 6'
+    # Runs on the 1st of every month at 14:00 UTC (7:30 PM IST)
+    - cron: '0 14 1 * *'
   workflow_dispatch:
 
 jobs:
-  run-weekly-summary:
+  run-monthly-summary:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,9 +21,9 @@ jobs:
           OUTLOOK_PASSWORD: ${{ secrets.OUTLOOK_PASSWORD }}
         run: |
           cd ai-agents
-          python agents/analyst_bi/weekly_report.py
+          python agents/analyst_bi/monthly_summary.py
       - uses: actions/upload-artifact@v4
         with:
-          name: weekly-summaries
+          name: monthly-summaries
           path: ai-agents/output/summaries/
-          retention-days: 60
+          retention-days: 90

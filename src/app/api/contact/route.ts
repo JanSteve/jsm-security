@@ -134,59 +134,69 @@ Notes: ${notes || 'None'}
 Sent from jsmintegratedservices.in
     `;
 
-    // 1. Try sending via Outlook SMTP if configured
-    if (process.env.OUTLOOK_EMAIL && process.env.OUTLOOK_PASSWORD) {
-      const transporter = nodemailer.createTransport({
-        host: 'smtp-mail.outlook.com',
-        port: 587,
-        secure: false, // TLS
-        auth: {
-          user: process.env.OUTLOOK_EMAIL,
-          pass: process.env.OUTLOOK_PASSWORD,
-        },
-        tls: {
-          ciphers: 'SSLv3',
-        },
-      });
+    const resendApiKey = process.env.RESEND_API_KEY;
 
-      await transporter.sendMail({
-        from: `"JSM Leads Portal" <${process.env.OUTLOOK_EMAIL}>`,
-        to: targetRecipient,
-        replyTo: email || process.env.OUTLOOK_EMAIL,
-        subject: `🚨 New Lead: ${name || 'Client'} - ${service || 'Site Assessment'} [${ticketRef}]`,
-        text: textEmail,
-        html: htmlEmail,
-      });
+    // 1. Primary: Dispatch directly via Resend API to Outlook
+    if (resendApiKey) {
+      try {
+        const res = await fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${resendApiKey.trim()}`,
+          },
+          body: JSON.stringify({
+            from: 'JSM Leads Portal <onboarding@resend.dev>',
+            to: [targetRecipient],
+            subject: `🚨 New Lead: ${name || 'Client'} - ${service || 'Site Assessment'} [${ticketRef}]`,
+            html: htmlEmail,
+          }),
+        });
 
-      return NextResponse.json({
-        success: true,
-        referenceId: ticketRef,
-        message: 'Lead notification dispatched directly to Outlook inbox.',
-      });
+        if (res.ok) {
+          return NextResponse.json({
+            success: true,
+            referenceId: ticketRef,
+            message: 'Lead notification dispatched directly via Resend to Outlook inbox.',
+          });
+        }
+      } catch (err) {
+        console.warn('Resend primary dispatch failed, trying SMTP fallback:', err);
+      }
     }
 
-    // 2. Try sending via Resend if RESEND_API_KEY is configured
-    if (process.env.RESEND_API_KEY) {
-      const res = await fetch('https://api.resend.com/emails', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
-        },
-        body: JSON.stringify({
-          from: 'JSM Leads <onboarding@resend.dev>',
-          to: [targetRecipient],
-          subject: `🚨 New Lead: ${name || 'Client'} - ${service || 'Site Assessment'} [${ticketRef}]`,
-          html: htmlEmail,
-        }),
-      });
+    // 2. Secondary: Try sending via Outlook SMTP if configured
+    if (process.env.OUTLOOK_EMAIL && process.env.OUTLOOK_PASSWORD) {
+      try {
+        const transporter = nodemailer.createTransport({
+          host: 'smtp-mail.outlook.com',
+          port: 587,
+          secure: false, // TLS
+          auth: {
+            user: process.env.OUTLOOK_EMAIL,
+            pass: process.env.OUTLOOK_PASSWORD.replace(/\s+/g, ''),
+          },
+          tls: {
+            ciphers: 'SSLv3',
+          },
+        });
 
-      if (res.ok) {
+        await transporter.sendMail({
+          from: `"JSM Leads Portal" <${process.env.OUTLOOK_EMAIL}>`,
+          to: targetRecipient,
+          replyTo: email || process.env.OUTLOOK_EMAIL,
+          subject: `🚨 New Lead: ${name || 'Client'} - ${service || 'Site Assessment'} [${ticketRef}]`,
+          text: textEmail,
+          html: htmlEmail,
+        });
+
         return NextResponse.json({
           success: true,
           referenceId: ticketRef,
-          message: 'Lead notification dispatched via Resend to Outlook.',
+          message: 'Lead notification dispatched directly to Outlook inbox.',
         });
+      } catch (smtpErr) {
+        console.warn('SMTP fallback failed:', smtpErr);
       }
     }
 
