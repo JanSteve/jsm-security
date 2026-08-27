@@ -66,6 +66,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: brandData.domain,
   },
+  verification: {
+    google: "QtF7HUSz_UrTPnpL5WByxS66elp-pyZyRMU-5Tes0go",
+  },
   icons: {
     icon: "/favicon.ico",
   },
