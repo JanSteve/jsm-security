@@ -32,48 +32,45 @@ export async function POST(req: NextRequest) {
         <head>
           <meta charset="utf-8">
           <style>
-            body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #fbf9f4; color: #1b1c19; padding: 20px; }
-            .container { max-width: 600px; margin: 0 auto; background: #ffffff; border: 1px solid #e4e2dd; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-            .header { background: #000000; color: #ffffff; padding: 24px; text-align: left; border-bottom: 3px solid #e9c176; }
-            .header h1 { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.5px; }
-            .header p { margin: 4px 0 0 0; font-size: 12px; color: #e9c176; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-            .badge { display: inline-block; background: #e9c176; color: #000000; padding: 4px 12px; border-radius: 99px; font-size: 11px; font-weight: 800; font-family: monospace; margin-top: 10px; }
+            body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; color: #0f172a; padding: 24px 16px; margin: 0; }
+            .container { max-width: 580px; margin: 0 auto; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+            .header { background: #0f172a; color: #ffffff; padding: 20px 24px; text-align: left; }
+            .header h1 { margin: 0; font-size: 17px; font-weight: 700; }
+            .header p { margin: 4px 0 0 0; font-size: 12px; color: #94a3b8; }
             .content { padding: 24px; }
-            .section-title { font-size: 11px; font-weight: 800; text-transform: uppercase; color: #76767e; letter-spacing: 1px; margin-bottom: 12px; border-bottom: 1px solid #f0eee9; padding-bottom: 6px; }
+            .section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #64748b; letter-spacing: 0.5px; margin-bottom: 12px; border-bottom: 1px solid #f1f5f9; padding-bottom: 6px; }
             .field-row { margin-bottom: 14px; }
-            .field-label { font-size: 11px; color: #5f5e5e; font-weight: 600; text-transform: uppercase; margin-bottom: 2px; }
-            .field-value { font-size: 15px; font-weight: 700; color: #000000; }
-            .field-value.highlight { color: #000000; background: #fbf9f4; padding: 10px 14px; border-radius: 8px; border-left: 3px solid #000000; font-weight: 600; font-size: 13px; line-height: 1.5; }
-            .footer { background: #f0eee9; padding: 16px 24px; font-size: 11px; color: #76767e; text-align: center; border-top: 1px solid #e4e2dd; }
-            .action-btn { display: inline-block; background: #25D366; color: #ffffff; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-weight: 700; font-size: 13px; margin-top: 14px; }
+            .field-label { font-size: 11px; color: #64748b; font-weight: 600; text-transform: uppercase; margin-bottom: 2px; }
+            .field-value { font-size: 14px; font-weight: 600; color: #0f172a; }
+            .field-value.highlight { background: #f8fafc; padding: 12px 14px; border-radius: 6px; border-left: 3px solid #0f172a; font-weight: 500; font-size: 13px; line-height: 1.5; color: #334155; }
+            .footer { background: #f8fafc; padding: 14px 24px; font-size: 11px; color: #94a3b8; text-align: left; border-top: 1px solid #f1f5f9; }
+            .action-btn { display: inline-block; background: #0f172a; color: #ffffff; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-weight: 600; font-size: 13px; margin-top: 14px; }
           </style>
         </head>
         <body>
           <div class="container">
             <div class="header">
-              <h1>🚨 New Client Lead • JSM Operations</h1>
-              <p>Site Assessment & Commercial Proposal Request</p>
-              <div class="badge">REFERENCE: ${ticketRef}</div>
+              <h1>New Client Inquiry</h1>
+              <p>Reference ID: ${ticketRef}</p>
             </div>
 
             <div class="content">
-              <div class="section-title">Client Contact Details</div>
+              <div class="section-title">Client Information</div>
               
               <div class="field-row">
                 <div class="field-label">Full Name</div>
                 <div class="field-value">${name || 'Not Provided'}</div>
               </div>
 
-
               <div class="field-row">
                 <div class="field-label">Corporate Email</div>
-                <div class="field-value"><a href="mailto:${email}" style="color: #000000; text-decoration: underline;">${email || 'Not Provided'}</a></div>
+                <div class="field-value"><a href="mailto:${email}" style="color: #0f172a; text-decoration: underline;">${email || 'Not Provided'}</a></div>
               </div>
 
-              <div class="section-title" style="margin-top: 24px;">Facility & Service Scope</div>
+              <div class="section-title" style="margin-top: 20px;">Scope and Requirements</div>
 
               <div class="field-row">
-                <div class="field-label">Facility / Property Name</div>
+                <div class="field-label">Facility / Property</div>
                 <div class="field-value">${facilityName || 'Not Specified'}</div>
               </div>
 
@@ -89,28 +86,28 @@ export async function POST(req: NextRequest) {
 
               ${headcount ? `
               <div class="field-row">
-                <div class="field-label">Estimated Headcount / Posts</div>
+                <div class="field-label">Estimated Headcount</div>
                 <div class="field-value">${headcount} Personnel</div>
               </div>
               ` : ''}
 
               ${notes ? `
-              <div class="field-row" style="margin-top: 16px;">
-                <div class="field-label">Client Notes & Requirements</div>
+              <div class="field-row" style="margin-top: 14px;">
+                <div class="field-label">Notes & Requirements</div>
                 <div class="field-value highlight">${notes}</div>
               </div>
               ` : ''}
 
-              <div style="margin-top: 24px; text-align: center;">
-                <a href="mailto:${email}?subject=JSM%20Site%20Assessment%20Request%20(${ticketRef})" class="action-btn" target="_blank">
-                  📧 Email Client
+              <div style="margin-top: 20px;">
+                <a href="mailto:${email}?subject=JSM%20Integrated%20Services%20Proposal%20(${ticketRef})" class="action-btn" target="_blank">
+                  Reply to Client
                 </a>
               </div>
             </div>
 
             <div class="footer">
               Submitted on ${timestamp} via jsmintegratedservices.in<br>
-              JSM Integrated Services • Trichy Headquarters
+              JSM Integrated Services • Tiruchirappalli Headquarters
             </div>
           </div>
         </body>
@@ -143,12 +140,15 @@ Sent from jsmintegratedservices.in
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${resendApiKey.trim()}`,
+            'Authorization': `Bearer ${resendApiKey.trim()}`,
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
           },
           body: JSON.stringify({
-            from: 'JSM Leads Portal <onboarding@resend.dev>',
+            from: 'JSM Client Leads <onboarding@resend.dev>',
+            reply_to: email || targetRecipient,
             to: [targetRecipient],
-            subject: `🚨 New Lead: ${name || 'Client'} - ${service || 'Site Assessment'} [${ticketRef}]`,
+            subject: `New Client Lead: ${name || 'Client'} — ${service || 'Site Assessment'} [${ticketRef}]`,
+            text: textEmail,
             html: htmlEmail,
           }),
         });
