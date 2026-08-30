@@ -27,10 +27,10 @@ export const brandData = {
 
   contact: {
     email: "jsmintegratedservices@outlook.com",
-    phone: "",
-    phoneDisplay: "",
-    whatsapp: "",
-    whatsappDisplay: "",
+    phone: "+919080863448",
+    phoneDisplay: "+91 90808 63448",
+    whatsapp: "919080863448",
+    whatsappDisplay: "+91 90808 63448",
     address: "Trichy Hub & Regional Operations Centre, Tamil Nadu, India",
     primaryCity: "Tiruchirappalli (Trichy)",
     state: "Tamil Nadu",

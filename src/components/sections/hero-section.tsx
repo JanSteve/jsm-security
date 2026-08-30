@@ -7,6 +7,7 @@ import {
   ArrowRight, 
   MessageCircle, 
   Mail,
+  Phone,
   ShieldCheck, 
   Sparkles, 
   Users, 
@@ -148,21 +149,31 @@ export function HeroSection() {
           </p>
 
           {/* Conversion Button Group */}
-          <div className="flex flex-wrap gap-3.5 pt-1">
+          <div className="flex flex-wrap gap-3 pt-1">
             <Link
               href="/get-quote"
-              className="inline-flex items-center justify-center bg-black hover:bg-zinc-900 text-white text-xs font-black tracking-widest px-8 h-12 rounded-full border-b-2 border-[#C5A880] shadow-xl hover:shadow-[0_0_30px_rgba(197,168,128,0.45)] hover:scale-[1.02] active:scale-95 transition-all uppercase group"
+              className="inline-flex items-center justify-center bg-black hover:bg-zinc-900 text-white text-xs font-black tracking-widest px-7 h-12 rounded-full border-b-2 border-[#C5A880] shadow-xl hover:shadow-[0_0_30px_rgba(197,168,128,0.45)] hover:scale-[1.02] active:scale-95 transition-all uppercase group"
             >
               <span>GET INSTANT QUOTE</span>
               <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform text-[#C5A880]" />
             </Link>
 
             <a
-              href="mailto:jsmintegratedservices@outlook.com?subject=Facility%20Requirement%20Inquiry"
-              className="inline-flex items-center justify-center gap-2 px-6 h-12 rounded-full text-xs font-bold text-blue-950 bg-blue-50 hover:bg-blue-100/90 border border-blue-300 hover:border-blue-400 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:scale-[1.02] transition-all shadow-xs active:scale-95"
+              href={`tel:${brandData.contact.phone}`}
+              className="inline-flex items-center justify-center gap-2 px-5 h-12 rounded-full text-xs font-bold text-black bg-[#C5A880] hover:bg-[#b09570] hover:scale-[1.02] transition-all shadow-md active:scale-95 font-mono"
             >
-              <Mail size={15} className="text-blue-600" />
-              <span>Email Operations Desk</span>
+              <Phone size={15} />
+              <span>Call: {brandData.contact.phoneDisplay}</span>
+            </a>
+
+            <a
+              href={`https://wa.me/${brandData.contact.whatsapp}?text=Hello%20JSM%20Integrated%20Services,%20I%20would%20like%20to%20inquire%20about%20your%20services.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-5 h-12 rounded-full text-xs font-bold text-emerald-950 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 hover:scale-[1.02] transition-all shadow-2xs active:scale-95"
+            >
+              <MessageCircle size={15} className="text-emerald-600" />
+              <span>WhatsApp</span>
             </a>
           </div>
 

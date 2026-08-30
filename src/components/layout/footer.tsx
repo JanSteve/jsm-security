@@ -33,10 +33,18 @@ export function Footer() {
 
           <div className="flex flex-wrap items-center gap-3">
             <a
-              href="mailto:jsmintegratedservices@outlook.com?subject=Site%20Assessment%20Request"
-              className="flex items-center gap-2 px-5 py-3 rounded-full text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 transition-all shadow-md"
+              href={`tel:${brandData.contact.phone}`}
+              className="flex items-center gap-2 px-5 py-3 rounded-full text-xs font-bold text-black bg-[#C5A880] hover:bg-[#b09570] transition-all shadow-md font-mono"
             >
-              <Mail size={16} /> Email Us
+              <Phone size={15} /> Call: {brandData.contact.phoneDisplay}
+            </a>
+            <a
+              href={`https://wa.me/${brandData.contact.whatsapp}?text=Hello%20JSM%20Integrated%20Services,%20I%20would%20like%20to%20inquire%20about%20your%20services.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-5 py-3 rounded-full text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition-all shadow-md"
+            >
+              <MessageCircle size={15} /> WhatsApp
             </a>
             <Button asChild className="bg-white hover:bg-zinc-100 text-black font-bold rounded-full px-5 py-3 h-auto text-xs shadow-md">
               <Link href="/contact">
@@ -65,6 +73,12 @@ export function Footer() {
               Founded under Managing Director <strong>Sweety R</strong>, originating as <strong>JSMMANPOWER</strong> and proven by our landmark inaugural 2024 operations at <strong>Trichy International Airport</strong>.
             </p>
             <div className="pt-2 text-xs text-zinc-400 space-y-2">
+              <p className="flex items-center gap-2">
+                <Phone size={14} className="text-[#C5A880]" />
+                <a href={`tel:${brandData.contact.phone}`} className="hover:text-white transition-colors font-mono font-bold">
+                  {brandData.contact.phoneDisplay}
+                </a>
+              </p>
               <p className="flex items-center gap-2">
                 <Mail size={14} className="text-[#C5A880]" />
                 <a href={`mailto:${brandData.contact.email}`} className="hover:text-white transition-colors">

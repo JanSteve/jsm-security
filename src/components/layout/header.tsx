@@ -4,7 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, useScroll, useMotionValueEvent } from "motion/react";
-import { MessageCircle, Mail, ArrowRight } from "lucide-react";
+import { MessageCircle, Mail, Phone, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { navigationData } from "@/data/navigation";
 import { MobileMenu } from "./mobile-menu";
@@ -92,14 +92,27 @@ export function Header() {
         </nav>
 
         {/* Action Group */}
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2">
+          {/* Direct Call Button */}
           <a
-            href="mailto:jsmintegratedservices@outlook.com?subject=Service%20Inquiry"
-            className="hidden sm:inline-flex items-center gap-1.5 px-4 h-9 rounded-full text-xs font-bold text-blue-950 bg-blue-50 hover:bg-blue-100 border border-blue-300 transition-colors shadow-2xs"
-            aria-label="Email Operations Desk"
+            href={`tel:${brandData.contact.phone}`}
+            className="hidden xl:inline-flex items-center gap-1.5 px-3.5 h-9 rounded-full text-xs font-bold text-zinc-900 bg-zinc-100 hover:bg-zinc-200 border border-zinc-300 transition-colors shadow-2xs font-mono"
+            aria-label="Call Operations Desk"
           >
-            <Mail size={14} className="text-blue-600" />
-            <span>Email</span>
+            <Phone size={13} className="text-[#C5A880]" />
+            <span>{brandData.contact.phoneDisplay}</span>
+          </a>
+
+          {/* WhatsApp Direct */}
+          <a
+            href={`https://wa.me/${brandData.contact.whatsapp}?text=Hello%20JSM%20Integrated%20Services,%20I%20would%20like%20to%20inquire%20about%20your%20services.`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 h-9 rounded-full text-xs font-bold text-emerald-950 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 transition-colors shadow-2xs"
+            aria-label="WhatsApp Operations Desk"
+          >
+            <MessageCircle size={14} className="text-emerald-600" />
+            <span>WhatsApp</span>
           </a>
 
           <Link

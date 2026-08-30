@@ -59,7 +59,36 @@ export default function ContactPage() {
               </h3>
               
               <div className="space-y-4 text-xs font-medium">
+                {/* Official Hotline */}
+                <div className="flex gap-3 items-start">
+                  <div className="p-2 bg-white border border-zinc-200 rounded-xl text-black shadow-xs">
+                    <Phone size={16} className="text-[#C5A880]" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-black text-xs">Official 24/7 Operations Line</h4>
+                    <a href={`tel:${brandData.contact.phone}`} className="text-sm font-bold text-black hover:underline mt-0.5 block font-mono">
+                      {brandData.contact.phoneDisplay}
+                    </a>
+                  </div>
+                </div>
 
+                {/* WhatsApp Direct */}
+                <div className="flex gap-3 items-start">
+                  <div className="p-2 bg-white border border-zinc-200 rounded-xl text-emerald-600 shadow-xs">
+                    <MessageCircle size={16} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-black text-xs">Instant WhatsApp Desk</h4>
+                    <a
+                      href={`https://wa.me/${brandData.contact.whatsapp}?text=Hello%20JSM%20Integrated%20Services,%20I%20would%20like%20to%20inquire%20about%20your%20services.`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-bold text-emerald-700 hover:underline mt-0.5 block"
+                    >
+                      Chat on WhatsApp (+91 90808 63448) →
+                    </a>
+                  </div>
+                </div>
 
                 {/* Email */}
                 <div className="flex gap-3 items-start">
