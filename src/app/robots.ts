@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { brandData } from '@/data/brand';
 
 export default function robots(): MetadataRoute.Robots {
-  const domain = process.env.NEXT_PUBLIC_SITE_URL || 'https://jsm-security-eta.vercel.app';
+  const domain = process.env.NEXT_PUBLIC_SITE_URL || 'https://jsmintegratedservices.com';
   return {
     rules: [
       {
