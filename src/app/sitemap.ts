@@ -4,8 +4,8 @@ import { industriesData } from '@/data/industries';
 import { blogPosts } from '@/data/blog-posts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Primary custom domain
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://jsmintegratedservices.com';
+  // Primary custom domain matching canonical www
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.jsmintegratedservices.com';
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: new Date(), changeFrequency: 'daily', priority: 1.0 },

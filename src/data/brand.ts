@@ -49,7 +49,7 @@ export const brandData = {
     ]
   },
 
-  domain: process.env.NEXT_PUBLIC_SITE_URL || "https://jsmintegratedservices.com",
+  domain: process.env.NEXT_PUBLIC_SITE_URL || "https://www.jsmintegratedservices.com",
 
   compliance: {
     psaraStatus: "PSARA Compliant (Private Security Agencies Regulation Act, 2005)",
