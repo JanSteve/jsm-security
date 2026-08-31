@@ -8,34 +8,37 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Text is required" }, { status: 400 });
     }
 
-    // Clean text for natural speech
+    // Clean text for natural speech synthesis
     const cleanText = text
       .replace(/[*_#•`~]/g, "")
       .replace(/https?:\/\/\S+/g, "")
       .replace(/\+91\s?/g, "plus nine one ")
+      .replace(/₹\s?(\d+)/g, "$1 rupees ")
       .replace(/\s+/g, " ")
       .trim();
 
-    // 1. Check if Fish Audio API Key is configured for Fish.Audio S2.1-pro-free
-    const fishApiKey = process.env.FISH_AUDIO_API_KEY;
-    if (fishApiKey) {
+    // 1. Check ElevenLabs API Key (High-Fidelity Neural Friday/Jarvis Voice)
+    const elevenLabsApiKey = process.env.ELEVENLABS_API_KEY;
+    if (elevenLabsApiKey) {
       try {
-        const fishAudioBuffer = await synthesizeFishAudio(cleanText, fishApiKey, voiceId);
-        if (fishAudioBuffer && fishAudioBuffer.length > 0) {
-          return new Response(new Uint8Array(fishAudioBuffer), {
+        // Default to '21m00Tcm4TlvDq8ikWAM' (Rachel - natural, executive, calm corporate voice)
+        const selectedVoice = voiceId || "21m00Tcm4TlvDq8ikWAM";
+        const elevenLabsBuffer = await synthesizeElevenLabsAudio(cleanText, elevenLabsApiKey, selectedVoice);
+        if (elevenLabsBuffer && elevenLabsBuffer.length > 0) {
+          return new Response(new Uint8Array(elevenLabsBuffer), {
             headers: {
               "Content-Type": "audio/mpeg",
-              "Content-Length": fishAudioBuffer.length.toString(),
+              "Content-Length": elevenLabsBuffer.length.toString(),
               "Cache-Control": "public, max-age=86400, stale-while-revalidate=43200",
             },
           });
         }
       } catch (err) {
-        console.warn("Fish Audio synthesis failed, falling back to natural speech stream:", err);
+        console.warn("ElevenLabs TTS synthesis failed, falling back to natural speech stream:", err);
       }
     }
 
-    // 2. High-speed Natural Speech Streaming Engine (₹0 Free & Unlimited)
+    // 2. High-speed Natural Speech Streaming Engine (₹0 Fallback)
     const audioBuffer = await generateNaturalSpeech(cleanText, lang);
 
     return new Response(new Uint8Array(audioBuffer), {
@@ -51,30 +54,32 @@ export async function POST(req: NextRequest) {
   }
 }
 
-async function synthesizeFishAudio(text: string, apiKey: string, referenceId?: string): Promise<Buffer> {
-  const payload: any = {
-    text: text.slice(0, 500),
-    format: "mp3",
-    latency: "normal"
-  };
-
-  if (referenceId) {
-    payload.reference_id = referenceId;
-  }
-
-  const res = await fetch("https://api.fish.audio/v1/tts", {
+async function synthesizeElevenLabsAudio(text: string, apiKey: string, voiceId: string): Promise<Buffer> {
+  const url = `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`;
+  
+  const res = await fetch(url, {
     method: "POST",
     headers: {
-      "Authorization": `Bearer ${apiKey}`,
+      "xi-api-key": apiKey,
       "Content-Type": "application/json",
-      "model": "s2.1-pro-free"
+      "Accept": "audio/mpeg"
     },
-    body: JSON.stringify(payload),
-    signal: AbortSignal.timeout(10000)
+    body: JSON.stringify({
+      text: text.slice(0, 1000), // Protect token limit per request
+      model_id: "eleven_turbo_v2_5",
+      voice_settings: {
+        stability: 0.5,
+        similarity_boost: 0.8,
+        style: 0.0,
+        use_speaker_boost: true
+      }
+    }),
+    signal: AbortSignal.timeout(12000)
   });
 
   if (!res.ok) {
-    throw new Error(`Fish Audio API responded with status ${res.status}`);
+    const errText = await res.text();
+    throw new Error(`ElevenLabs API responded with status ${res.status}: ${errText}`);
   }
 
   const arrayBuffer = await res.arrayBuffer();
