@@ -58,9 +58,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-14 text-sm">
           {/* Col 1: Brand & Identity */}
           <div className="lg:col-span-1 space-y-4">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-[#C5A880] text-black flex items-center justify-center font-black text-sm">
-                JSM
+            <div className="flex items-center gap-3">
+              <div className="relative w-10 h-10 rounded-xl bg-black p-0.5 flex items-center justify-center border border-[#C5A880]/40 shadow-sm overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/jsm_logo_transparent.png"
+                  alt="JSM Integrated Services Logo"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <span className="font-black text-white tracking-tight text-base">
                 JSM INTEGRATED SERVICES
