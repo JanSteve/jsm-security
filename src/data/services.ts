@@ -17,11 +17,15 @@ export interface ServiceFAQ {
 
 export interface Service {
   slug: string;
+  code: string;
   title: string;
   shortTitle: string;
-  phase: 'Phase 1 - Launch Service' | 'Phase 2 - Expansion Service';
+  workforceClassification?: string;
+  gstSac: string;
+  officialDescription: string;
+  phase: 'Phase 1 - Core Business Vertical' | 'Phase 2 - Expansion Service';
   isCoreLaunch: boolean;
-  category: 'security' | 'facilities' | 'manpower' | 'logistics' | 'events' | 'property' | 'digital' | 'creative';
+  category: 'security' | 'facilities' | 'manpower' | 'tender' | 'digital' | 'csc' | 'logistics' | 'events' | 'property';
   categoryLabel: string;
   valueProposition: string;
   description: string;
@@ -38,352 +42,447 @@ export interface Service {
 }
 
 export const serviceCategories = [
-  'All Services',
-  'Core Operations (Phase 1)',
-  'Integrated Business Solutions (Phase 2)',
-  'Security & Guarding',
-  'Facility & Housekeeping',
-  'Manpower & Staffing'
+  'All Verticals',
+  'Core Business Verticals (JSM 1-6)',
+  'Security & Protection (JSM-01)',
+  'Manpower & Workforce (JSM-02)',
+  'Facility Management (JSM-03)',
+  'Tender & Procurement (JSM-04)',
+  'Scanning, Digitization & IT (JSM-05)',
+  'CSC Citizen Services (JSM-06)'
 ];
 
 export const servicesData: Service[] = [
   {
     slug: 'private-security',
-    title: 'Private Security & Guarding Operations',
-    shortTitle: 'Private Security',
-    phase: 'Phase 1 - Launch Service',
+    code: 'JSM-01',
+    title: 'Security & Protection Services',
+    shortTitle: 'Security & Protection',
+    workforceClassification: 'Ex-Servicemen (ESM) Supervisors & Guards, Private Supervisors & Guards (Male & Female)',
+    gstSac: 'SAC 998525 – Guard Services (Ex-service men & Private Male & Female)',
+    officialDescription: 'Security and protection services including security guarding, industrial security, commercial security, security supervision and related security services, subject to applicable statutory licenses.',
+    phase: 'Phase 1 - Core Business Vertical',
     isCoreLaunch: true,
     category: 'security',
-    categoryLabel: 'Security Services',
-    valueProposition: 'Professional on-site protection built around discipline, supervision, and clear reporting.',
-    description: 'JSM Integrated Services delivers structured, disciplined on-site private security guarding for commercial complexes, industrial plants, residential societies, educational institutions, and corporate facilities. We focus on rigorous guard vetting, clear post duties, supervisor spot-checks, and transparent daily reporting.',
+    categoryLabel: 'Security & Protection (JSM-01)',
+    valueProposition: 'Disciplined on-site guarding led by Ex-Servicemen & certified private security marshals with 2:00 AM supervisor spot-audits.',
+    description: 'JSM Integrated Services delivers structured, disciplined private security guarding across Tamil Nadu and South India. Operating with PSARA 2005 compliance, our security personnel comprise disciplined Ex-Servicemen (ESM) officers, seasoned private security supervisors, and vetted male & female security guards.',
     whoItIsFor: [
-      'Corporate Offices & IT Parks',
-      'Residential Societies & Gated Communities',
-      'Factories & Manufacturing Units',
-      'Warehouses & Logistics Hubs',
-      'Hospitals & Healthcare Facilities',
-      'Educational Campuses & Schools',
-      'Retail Showrooms & Commercial Malls'
+      'Corporate IT Parks & SEZ Campuses',
+      'Manufacturing Plants & Industrial Warehouses',
+      'Automotive & Electronics Facilities (Hosur, Sriperumbudur)',
+      'Healthcare Institutions & Hospital Campuses',
+      'Aviation & Airport Infrastructure (Trichy Landmark)',
+      'Residential Societies & Commercial Gated Enclaves'
     ],
     icon: 'Shield',
     heroImage: '/images/protective_guard.jpg',
-    complianceNotice: '100% PSARA (Private Security Agencies Regulation Act, 2005) compliant operations under the Controlling Authority, Government of Tamil Nadu. All guarding deployments comply with mandatory police background verification, statutory EPF/ESI, and minimum wage norms.',
+    complianceNotice: '100% PSARA Act (2005) compliant under the Controlling Authority, Home Department, Government of Tamil Nadu. Deployed guards are 100% Aadhaar & Police verified with mandatory 5-day pre-deployment training.',
     features: [
-      { title: 'Verified Unarmed Guarding', description: 'Trained, uniformed, and background-checked personnel deployed with defined post orders.', icon: 'UserCheck' },
-      { title: 'Gate & Visitor Management', description: 'Digital or structured manual visitor logging, vehicle inspection, and material pass checks.', icon: 'ClipboardCheck' },
-      { title: 'Perimeter & Night Patrolling', description: 'Scheduled and surprise patrol rounds to prevent unauthorized intrusion and safety hazards.', icon: 'Eye' },
-      { title: 'Supervisory Oversight', description: 'Dedicated field officers conduct unannounced spot-checks to ensure alertness and adherence to SOPs.', icon: 'CheckCircle' },
-      { title: 'Emergency Response Protocols', description: 'Trained response procedures for fire alarms, medical emergencies, and perimeter breaches.', icon: 'AlertTriangle' },
-      { title: 'Daily Shift Handover Reports', description: 'Documented logbooks ensuring seamless transition of duties and incident tracking.', icon: 'FileText' }
+      { title: 'Ex-Servicemen & Private Marshals', description: 'Trained, vetted male and female guards backed by ex-defense supervisors.', icon: 'UserCheck' },
+      { title: 'Strict Gate & Visitor Registers', description: 'Dual-barrier access control, under-vehicle mirrors, and barcode visitor passes.', icon: 'ClipboardCheck' },
+      { title: '2:00 AM Unannounced Night Audits', description: 'Mobile supervisor patrol vans conducting surprise vigilance and sobriety checks.', icon: 'Eye' },
+      { title: 'Guaranteed 2-Hour Relief SLA', description: 'Roving reserve pools in Trichy, Chennai, and Coimbatore replace absent guards within 120 mins.', icon: 'Clock' },
+      { title: 'Emergency Fire & Evacuation Ready', description: 'Certified in industrial fire extinguisher operation and emergency medical assistance.', icon: 'AlertTriangle' },
+      { title: 'Daily Digital Logbook Handovers', description: 'Transparent shift registers with digital photo-verified timestamps.', icon: 'FileText' }
     ],
     process: [
-      { step: 1, title: 'Site Risk Assessment', description: 'We evaluate entry/exit points, perimeter vulnerabilities, visitor volumes, and specific client requirements.' },
-      { step: 2, title: 'Custom Post Orders & SOP', description: 'We prepare clear, site-specific standing orders detailing duty rosters, dress codes, and emergency actions.' },
-      { step: 3, title: 'Trained Deployment', description: 'Verified personnel are briefed on the client environment and deployed with standard uniforms and gear.' },
-      { step: 4, title: 'Continuous Supervision & Reporting', description: 'Field supervisors conduct regular rounds, audit attendance, and provide documented operational reviews.' }
+      { step: 1, title: 'Site Threat & Vulnerability Audit', description: 'Physical perimeter inspection, gate assessment, and post identification.' },
+      { step: 2, title: 'Post Order & SLA Formulation', description: 'Site-specific SOPs for vehicle entries, employee registers, and emergency protocols.' },
+      { step: 3, title: 'Deployment of Vetted Marshals', description: 'Police-verified Ex-Servicemen and private personnel deployed in crisp uniforms.' },
+      { step: 4, title: 'Continuous Van Supervision', description: 'Regular surprise inspections, unannounced night audits, and monthly client reviews.' }
     ],
     faqs: [
-      { question: 'How do you verify the background of security personnel?', answer: 'Every candidate undergoes police verification support, address authentication, prior employment references, and document checks before deployment.' },
-      { question: 'What training do JSM security guards receive?', answer: 'Our personnel undergo a comprehensive 5-day induction program covering values, post discipline, fire safety, first aid basics, visitor etiquette, and site-specific SOPs.' },
-      { question: 'How do you ensure guards stay alert during night shifts?', answer: 'Our field supervisory officers carry out surprise night visits, structured checkpoint checks, and mandatory shift logging to maintain peak alertness.' },
-      { question: 'Can we scale the number of guards for special events or emergencies?', answer: 'Yes, JSM maintains reserve personnel capacity to scale up guard deployment on short notice for client emergencies or events.' }
+      { question: 'Do you deploy both Male and Female security guards?', answer: 'Yes, we deploy qualified and police-verified Ex-Servicemen (ESM) and private supervisors and guards (both Male and Female) tailored to facility requirements.' },
+      { question: 'What is your relief replacement guarantee?', answer: 'We maintain contractually binding 2-Hour Relief SLAs backed by reserve marshals across Tamil Nadu.' },
+      { question: 'What is the GST SAC code for private security?', answer: 'Security services fall under SAC 998525 (Guard Services - Ex-servicemen & Private Male & Female).' }
     ],
-    relatedSlugs: ['housekeeping', 'manpower', 'cash-in-transit', 'event-support'],
-    metaTitle: 'Professional Private Security Services in Tamil Nadu | JSM Integrated Services',
-    metaDescription: 'Disciplined, vetted private security guarding, gate management, and patrol operations for corporate, residential, industrial, and institutional premises across Tamil Nadu.'
-  },
-  {
-    slug: 'housekeeping',
-    title: 'Housekeeping & Integrated Facility Management',
-    shortTitle: 'Housekeeping & Facilities',
-    phase: 'Phase 1 - Launch Service',
-    isCoreLaunch: true,
-    category: 'facilities',
-    categoryLabel: 'Facility Services',
-    valueProposition: 'Service is not a promise. It is a process. Structured hygiene, daily checklists, and reliable facility upkeep.',
-    description: 'JSM Integrated Services approaches housekeeping as a facility operating system. From daily workspace sanitization and restroom hygiene schedules to pantry support and waste segregation, we maintain clean, hygienic, and productive commercial and residential environments.',
-    whoItIsFor: [
-      'Commercial Buildings & IT Offices',
-      'Hospitals, Clinics & Diagnostic Labs',
-      'Shopping Centers & Retail Stores',
-      'Industrial Floors & Production Units',
-      'Schools, Colleges & Training Institutes',
-      'Apartment Complexes & Residential Communities'
-    ],
-    icon: 'Sparkles',
-    heroImage: '/images/housekeeping_hygiene.jpg',
-    features: [
-      { title: 'Daily Workspace Cleaning', description: 'Systematic dusting, vacuuming, mopping, and desk sanitization before and during office hours.', icon: 'Building' },
-      { title: 'Restroom Hygiene Cycles', description: 'Hourly inspection schedules, fragrance management, and continuous restocking of supplies.', icon: 'CheckCircle' },
-      { title: 'Waste Segregation & Disposal', description: 'Eco-conscious sorting of dry, wet, and recyclable waste according to municipal norms.', icon: 'Leaf' },
-      { title: 'Deep Cleaning & Machine Scrubbing', description: 'Periodic high-pressure floor scrubbing, carpet cleaning, and hard surface revitalization.', icon: 'Layers' },
-      { title: 'Pantry & Cafeteria Support', description: 'Hygiene maintenance in pantries, dishwashing assistance, and refreshment area upkeep.', icon: 'Coffee' },
-      { title: 'Daily Inspection Checklists', description: 'Supervisors inspect tasks against strict checklists: Clean → Inspect → Report → Correct → Verify.', icon: 'ClipboardCheck' }
-    ],
-    process: [
-      { step: 1, title: 'Facility Space Survey', description: 'We map floor areas, footfall patterns, restroom density, surface materials, and timing preferences.' },
-      { step: 2, title: 'Hygiene Schedule Design', description: 'We build a tailored operating schedule detailing daily routines, hourly cycles, and periodic deep cleans.' },
-      { step: 3, title: 'Groomed Staff Deployment', description: 'Trained personnel are equipped with professional tools, eco-friendly chemicals, and protective equipment.' },
-      { step: 4, title: 'Quality Audits & Verification', description: 'Supervisors conduct daily checklist verifications and monthly client reviews to ensure immaculate standards.' }
-    ],
-    faqs: [
-      { question: 'Do you provide the cleaning chemicals and equipment?', answer: 'We offer both options: we can supply high-grade, eco-friendly cleaning materials and machinery, or utilize client-approved consumables based on agreement.' },
-      { question: 'Can housekeeping be scheduled outside business hours?', answer: 'Yes. We customize shifts for early morning, evening, or night hours to ensure zero operational disruption to your team.' },
-      { question: 'How do you monitor hygiene quality?', answer: 'Our supervisors use physical and digital checklists with sign-off sheets placed in restrooms and utility areas, inspected multiple times daily.' }
-    ],
-    relatedSlugs: ['private-security', 'manpower', 'real-estate-support'],
-    metaTitle: 'Corporate Housekeeping & Facility Management in Tamil Nadu | JSM Integrated Services',
-    metaDescription: 'Reliable, checklist-driven commercial housekeeping, restroom hygiene, and facility upkeep for corporate offices, hospitals, and residential complexes.'
+    relatedSlugs: ['manpower', 'housekeeping', 'tender-procurement-supply'],
+    metaTitle: 'Security & Protection Services Tamil Nadu (JSM-01) | JSM Integrated Services',
+    metaDescription: 'PSARA compliant security guarding (ESM & Private Male & Female) with 2-hour relief SLAs and 2:00 AM supervisor van audits across Tamil Nadu.'
   },
   {
     slug: 'manpower',
-    title: 'Manpower & Temporary Staffing Solutions',
-    shortTitle: 'Manpower & Staffing',
-    phase: 'Phase 1 - Launch Service',
+    code: 'JSM-02',
+    title: 'Manpower & Workforce Solutions',
+    shortTitle: 'Manpower & Workforce',
+    workforceClassification: 'Ex-Servicemen (ESM) Supervisors & Guards, Private Supervisors & Workforce (Male & Female)',
+    gstSac: 'SAC 998513 – Contract Staffing & Manpower Supply Services',
+    officialDescription: 'Manpower and workforce solutions including contract staffing, manpower supply, outsourced workforce and related employment support services.',
+    phase: 'Phase 1 - Core Business Vertical',
     isCoreLaunch: true,
     category: 'manpower',
-    categoryLabel: 'Staffing Solutions',
-    valueProposition: 'Right people. Right role. Right process. Reliable workforce deployment for operations that cannot stop.',
-    description: 'Rooted in our heritage as JSMMANPOWER, we provide reliable, vetted skilled and semi-skilled staffing solutions. Whether you need industrial helpers, warehouse operators, administrative personnel, or peak-season workforce surges, JSM coordinates recruitment, onboarding, and attendance.',
+    categoryLabel: 'Manpower & Workforce (JSM-02)',
+    valueProposition: 'Vetted skilled, semi-skilled, and industrial workforce deployed within 48–72 hours with 100% EPF/ESIC legal indemnity.',
+    description: 'Originating as JSMMANPOWER, JSM Integrated Services supplies reliable, compliant, and pre-trained workforce for manufacturing assembly lines, warehouse logistics, facility operations, and administrative functions across South India.',
     whoItIsFor: [
-      'Factories & Manufacturing Units',
-      'Warehouses & Distribution Centers',
-      'E-commerce Logistics & Fulfillment Hubs',
-      'Hospitality & Catering Businesses',
-      'Construction & Infrastructure Projects',
-      'Retail Chains & Hypermarkets'
+      'Automotive & Engineering Assembly Plants',
+      'E-Commerce Fulfilment & Logistics Warehouses',
+      'FMCG, Food Processing & Packaging Lines',
+      'Textile & Garment Manufacturing Mills',
+      'Corporate Offices & Utility Operations'
     ],
     icon: 'Users',
     heroImage: '/images/industrial_workforce.jpg',
+    complianceNotice: '100% statutory adherence to the Minimum Wages Act of Tamil Nadu, EPF, and ESIC. Verified monthly ECR challans provided with every invoice for zero co-employer liability.',
     features: [
-      { title: 'Skilled & Semi-Skilled Staffing', description: 'Electricians, machine assistants, warehouse handlers, data entry staff, and supervisors.', icon: 'Briefcase' },
-      { title: 'General & Industrial Workforce', description: 'Dependable manual labor, loading/unloading teams, and production line assistants.', icon: 'TrendingUp' },
-      { title: 'Peak-Season Scalability', description: 'Rapid workforce surge capacity to handle festive demands, audits, or sudden production increases.', icon: 'Zap' },
-      { title: 'Rigorous Background Checks', description: 'Identity verification, Aadhaar/address validation, and prior work background screening.', icon: 'UserCheck' },
-      { title: 'Statutory & Payroll Support', description: 'Streamlined documentation, attendance tracking, and transparent contractual records.', icon: 'FileText' },
-      { title: 'Dedicated Field Coordinator', description: 'A single JSM coordinator manages daily roll-calls, replacements, and client communications.', icon: 'CheckCircle' }
+      { title: '48–72h Rapid Mobilization', description: 'Quick onboarding for seasonal surges, production peaks, and plant expansions.', icon: 'Zap' },
+      { title: '100% Statutory EPF & ESIC ECR', description: 'Zero co-employer liability with transparent monthly government challan submissions.', icon: 'CheckCircle' },
+      { title: 'Ex-Servicemen & Private Line Supervisors', description: 'Experienced supervisors enforcing shop-floor productivity, PPE compliance, and attendance.', icon: 'UserCheck' },
+      { title: 'Aadhaar & Police Verified Labor', description: 'Rigorous 100% identification checks before entering client industrial gates.', icon: 'Shield' },
+      { title: 'Digital Shift Attendance', description: 'Biometric and app-based time-tracking with automated muster roll generation.', icon: 'ClipboardCheck' },
+      { title: 'Direct Wage Transfer', description: 'Strict compliance with banking wage disbursals adhering to state wage notifications.', icon: 'Banknote' }
     ],
     process: [
-      { step: 1, title: 'Manpower Requirement Mapping', description: 'We analyze the exact job roles, skill criteria, shift timings, headcount, and physical site requirements.' },
-      { step: 2, title: 'Screening & Sourcing', description: 'Candidates are evaluated for trade skills, physical fitness, discipline, and background history.' },
-      { step: 3, title: 'Induction & Briefing', description: 'Staff are briefed on workplace safety, attendance rules, and client-specific operational standards.' },
-      { step: 4, title: 'Deployment & Attendance Management', description: 'Daily attendance is monitored with backup reserves in place to prevent operational bottlenecks.' }
+      { step: 1, title: 'Headcount & Skill Mapping', description: 'Assessment of trade skills, shift patterns, and production volume targets.' },
+      { step: 2, title: 'Sourcing & Identity Vetting', description: 'Aadhaar authentication, police record screening, and medical fitness checks.' },
+      { step: 3, title: 'Safety & PPE Induction', description: 'Mandatory briefing on industrial safety, machinery protocols, and facility rules.' },
+      { step: 4, title: 'On-Site Mobilization & Payroll', description: 'Supervised deployment with integrated biometric attendance and compliant billing.' }
     ],
     faqs: [
-      { question: 'How fast can JSM deploy contractual manpower?', answer: 'For standard skilled and unskilled roles, we can mobilize deployment within 48 to 72 hours depending on headcount.' },
-      { question: 'Do you manage replacement for absent workers?', answer: 'Yes. We maintain an active standby pool to replace unexpected absenteeism promptly.' },
-      { question: 'Are workers verified before deployment?', answer: 'Yes. All candidates undergo strict identity validation and background verification before placement.' }
+      { question: 'How do you protect clients from statutory labor disputes?', answer: 'We issue complete monthly EPF/ESIC TRRN payment proofs, ECR sheets, and legal indemnity contracts ensuring zero co-employer liability.' },
+      { question: 'What trades and roles do you provide?', answer: 'We supply assembly technicians, warehouse loaders, packing operators, CNC machine assistants, office helpers, and shop-floor supervisors.' }
     ],
-    relatedSlugs: ['private-security', 'housekeeping', 'real-estate-support'],
-    metaTitle: 'Contract Manpower & Staffing Agency in Tamil Nadu | JSM Integrated Services',
-    metaDescription: 'Dependable skilled, semi-skilled, and industrial manpower supply for factories, warehouses, retail, and corporate operations across Tamil Nadu.'
+    relatedSlugs: ['private-security', 'housekeeping', 'tender-procurement-supply'],
+    metaTitle: 'Manpower & Workforce Solutions Tamil Nadu (JSM-02) | JSM Integrated Services',
+    metaDescription: 'Reliable contractual manpower supply and industrial staffing (ESM & Private Male/Female) in Chennai, Coimbatore, Hosur, and Trichy.'
+  },
+  {
+    slug: 'housekeeping',
+    code: 'JSM-03',
+    title: 'Facility Management & Housekeeping',
+    shortTitle: 'Facility & Housekeeping',
+    workforceClassification: 'Private (Pvt) Male & Female Housekeeping & Facility Marshals',
+    gstSac: 'SAC 998533 – Cleaning & Facility Support Services',
+    officialDescription: 'Facility management services including housekeeping, cleaning, facility support, office support and allied maintenance-support services.',
+    phase: 'Phase 1 - Core Business Vertical',
+    isCoreLaunch: true,
+    category: 'facilities',
+    categoryLabel: 'Facility Management (JSM-03)',
+    valueProposition: 'Mechanized ride-on auto scrubbers, 5-step closed-loop hygiene protocols, and hospital-grade eco consumables.',
+    description: 'JSM Integrated Services delivers spotless commercial, healthcare, and industrial facility management. We replace ineffective manual mopping with industrial ride-on scrubbers, color-coded microfiber sanitization, and structured supervisor checklists.',
+    whoItIsFor: [
+      'Corporate Headquarters & IT Parks',
+      'Industrial Shop Floors & Cleanrooms',
+      'Hospitals, Clinics & Diagnostic Labs',
+      'Shopping Malls & Retail Showrooms',
+      'Educational Institutions & Universities'
+    ],
+    icon: 'Sparkles',
+    heroImage: '/images/housekeeping_hygiene.jpg',
+    complianceNotice: 'All housekeeping staff are deployed with complete safety gear (PPE), eco-certified cleaning chemicals, and full statutory PF/ESI coverage.',
+    features: [
+      { title: '5-Step Closed-Loop Hygiene', description: 'Clean → Inspect → Report → Correct → Verify workflow for pristine corporate presentation.', icon: 'CheckCircle' },
+      { title: 'Mechanized Ride-On Auto Scrubbers', description: 'High-speed industrial floor scrubbing for large production floors and concourses.', icon: 'Zap' },
+      { title: 'Color-Coded Cross-Contamination Control', description: 'Dedicated microfiber zones for washrooms, executive cabins, and cafeterias.', icon: 'Layers' },
+      { title: 'Hourly Washroom Audit Logs', description: 'Signed and time-stamped checklist audits displayed in every sanitation zone.', icon: 'Clock' },
+      { title: 'Hospital-Grade Eco Consumables', description: 'Biodegradable, non-corrosive, and skin-safe certified chemical cleaning solutions.', icon: 'Shield' },
+      { title: 'Solid Waste & Deep Sanitization', description: 'Segregated waste disposal and periodic antimicrobial misting protocols.', icon: 'Trash' }
+    ],
+    process: [
+      { step: 1, title: 'Square Footage & Floor Type Audit', description: 'Analysis of marble, epoxy, granite, or vinyl flooring and footfall density.' },
+      { step: 2, title: 'Machine & Chemical Schedule', description: 'Assignment of auto-scrubbers, single-disc polishers, and consumable allocations.' },
+      { step: 3, title: 'Induction & Uniform Deployment', description: 'Trained private male and female staff deployed in professional corporate attire.' },
+      { step: 4, title: 'Quality Audits & ATP Testing', description: 'Daily supervisor checks, luminescence testing, and monthly client satisfaction surveys.' }
+    ],
+    faqs: [
+      { question: 'Do you provide cleaning machinery and chemicals?', answer: 'Yes, we provide turnkey solutions including industrial ride-on scrubbers, wet/dry vacuums, and eco-certified chemicals, or manpower-only models.' },
+      { question: 'What is the GST SAC code for housekeeping?', answer: 'Housekeeping and cleaning services fall under SAC 998533 (Cleaning and facility support services).' }
+    ],
+    relatedSlugs: ['private-security', 'manpower', 'tender-procurement-supply'],
+    metaTitle: 'Commercial Housekeeping & Facility Management (JSM-03) | JSM Integrated Services',
+    metaDescription: 'Mechanized commercial housekeeping and corporate facility management across Tamil Nadu with 5-step hygiene protocols.'
+  },
+  {
+    slug: 'tender-procurement-supply',
+    code: 'JSM-04',
+    title: 'Tender, Procurement, Seller & Business Support',
+    shortTitle: 'Tender & Procurement',
+    workforceClassification: 'Tender & Commercial Contracts Team',
+    gstSac: 'Appropriate SAC / HSN based on actual service / supply contract',
+    officialDescription: 'Tender management, procurement support, documentation, bid preparation support, contract administration and business support services.',
+    phase: 'Phase 1 - Core Business Vertical',
+    isCoreLaunch: true,
+    category: 'tender',
+    categoryLabel: 'Tender & Procurement (JSM-04)',
+    valueProposition: 'Turnkey government and corporate tender bidding, GeM Seller listing, PSU supply fulfilment, and procurement administration.',
+    description: 'JSM Integrated Services manages end-to-end tender lifecycle operations for government departments, PSUs, and private enterprises. From technical bid preparation on Tamil Nadu e-Procurement and GeM to vendor onboarding and contract delivery, we ensure seamless procurement execution.',
+    whoItIsFor: [
+      'Government Departments & Municipal Corporations',
+      'Public Sector Undertakings (PSUs) & Defense Entities',
+      'Corporate Enterprises needing Vendor Consolidation',
+      'Manufacturers needing GeM & Tender Distribution'
+    ],
+    icon: 'FileText',
+    heroImage: '/images/hero_operations.jpg',
+    complianceNotice: 'All tender activities adhere to CVC guidelines, GeM procurement norms, and Tamil Nadu Transparency in Tenders Act.',
+    features: [
+      { title: 'GeM Seller Listing & Bidding (JSM-04.5)', description: 'Product and service cataloging, L1 bid tracking, and direct purchase compliance.', icon: 'CheckCircle' },
+      { title: 'Government & PSU Supply (JSM-04.6)', description: 'Turnkey supply of manpower, equipment, PPE, consumables, and facility goods.', icon: 'Building' },
+      { title: 'Bid Documentation & EMD Support (JSM-04.11)', description: 'Preparation of technical eligibility forms, affidavits, solvency, and compliance dossiers.', icon: 'FileText' },
+      { title: 'Tender Identification & Evaluation (JSM-04.1)', description: 'Discovery and qualification of Central, State, and PSU procurement opportunities.', icon: 'Search' },
+      { title: 'Vendor Management & Sourcing (JSM-04.8)', description: 'Direct manufacturer sourcing, wholesale rate negotiations, and delivery tracking.', icon: 'Layers' },
+      { title: 'Contract PO Fulfilment (JSM-04.10)', description: 'End-to-end work order execution, delivery challans, and GST invoicing management.', icon: 'Zap' }
+    ],
+    process: [
+      { step: 1, title: 'Tender Discovery & Eligibility Audit', description: 'Scrutiny of technical criteria, turnover mandates, and EMD requirements.' },
+      { step: 2, title: 'Bid Dossier Formulation', description: 'Compilation of statutory declarations, experience certificates, and pricing sheets.' },
+      { step: 3, title: 'Electronic Bid Submission', description: 'Timely portal submission with digital signature certificates (DSC).' },
+      { step: 4, title: 'Contract Execution & Supply Delivery', description: 'Full supply chain fulfillment, inspection clearances, and milestone billing.' }
+    ],
+    faqs: [
+      { question: 'Can JSM participate as a seller on GeM and Tamil Nadu e-Procurement?', answer: 'Yes, JSM operates as an active supplier and service provider across GeM, Tamil Nadu e-Procurement, and PSU portals.' },
+      { question: 'How are goods and services classified under JSM-04 for GST?', answer: 'Under GST rules, services use appropriate SAC codes while physical goods (PPE, stationery, equipment) use specific HSN codes.' }
+    ],
+    relatedSlugs: ['scanning-digitalization-it', 'private-security', 'manpower'],
+    metaTitle: 'Tender Management, GeM Seller & Procurement Support (JSM-04) | JSM Integrated',
+    metaDescription: 'End-to-end tender management, GeM bidding, government/PSU supply, and procurement administration in Tamil Nadu.'
+  },
+  {
+    slug: 'scanning-digitalization-it',
+    code: 'JSM-05',
+    title: 'Scanning, Digitalization & IT Services',
+    shortTitle: 'Scanning & IT Services',
+    workforceClassification: 'Digital Operations & Technical Specialists (NIC 62099)',
+    gstSac: 'Applicable IT & Data Processing SAC (NIC 62/63/82)',
+    officialDescription: 'Document scanning, digitization, OCR, indexing, data entry, digital archiving, document management, data processing, IT support and related digital services.',
+    phase: 'Phase 1 - Core Business Vertical',
+    isCoreLaunch: true,
+    category: 'digital',
+    categoryLabel: 'Scanning & IT (JSM-05)',
+    valueProposition: 'High-speed bulk document scanning, OCR conversion, electronic archiving, and enterprise IT support.',
+    description: 'JSM Integrated Services delivers comprehensive digital document management and IT support. Recognized under Government Udyam NIC 62099, we help government departments, corporate legal teams, healthcare institutions, and banks transition from physical paper archives to secure, searchable digital databases.',
+    whoItIsFor: [
+      'Government Departments & Public Records Offices',
+      'Banks, NBFCs & Financial Institutions',
+      'Corporate Legal, HR & Operations Records',
+      'Hospitals & Medical History Archives',
+      'Educational Institutions & Universities'
+    ],
+    icon: 'Monitor',
+    heroImage: '/images/portal_laptop.jpg',
+    complianceNotice: 'All document scanning and digitalization operations comply with ISO document security norms and strict non-disclosure data privacy protocols.',
+    features: [
+      { title: 'Bulk Document Digitization (JSM-05.2)', description: 'High-speed flatbed and ADF scanning up to 1200 DPI for books, deeds, and case files.', icon: 'Layers' },
+      { title: 'OCR Conversion & Searchable PDFs (JSM-05.3)', description: 'Optical Character Recognition enabling instant keyword searching within scanned files.', icon: 'Search' },
+      { title: 'Document Indexing & Metadata (JSM-05.4)', description: 'Systematic tagging by file number, date, department, and custom classification.', icon: 'FileText' },
+      { title: 'Data Entry & Data Processing (JSM-05.5)', description: 'Double-blind verified data entry for surveys, application forms, and registers.', icon: 'CheckCircle' },
+      { title: 'Digital Archiving & DMS (JSM-05.6)', description: 'Cloud or on-premise secure document management software implementation.', icon: 'Lock' },
+      { title: 'IT & Network Support (JSM-05.12)', description: 'On-site workstation maintenance, local networking, and peripheral troubleshooting.', icon: 'Zap' }
+    ],
+    process: [
+      { step: 1, title: 'Volume & Document Condition Assessment', description: 'Cataloging physical file condition, page counts, staple removal, and indexing schema.' },
+      { step: 2, title: 'High-Speed Secure Scanning', description: 'Production scanning with auto deskew, contrast correction, and blank page removal.' },
+      { step: 3, title: 'OCR & Metadata Tagging', description: 'Text extraction and structured indexing for rapid digital retrieval.' },
+      { step: 4, title: 'Digital Delivery & Re-binding', description: 'Encrypted transfer or DMS upload with original document re-filing.' }
+    ],
+    faqs: [
+      { question: 'Can you perform scanning at our premises (on-site scanning)?', answer: 'Yes, for confidential records (legal, banking, medical), we deploy our high-speed scanners and vetted operators directly inside client facilities.' },
+      { question: 'What is the Udyam NIC classification for JSM-05?', answer: 'It sits under NIC 62099 (Other information technology and computer service activities) and related data processing SACs.' }
+    ],
+    relatedSlugs: ['csc-digital-citizen-services', 'tender-procurement-supply', 'software-solutions'],
+    metaTitle: 'Document Scanning, OCR & Digitalization Services (JSM-05) | JSM Integrated',
+    metaDescription: 'Enterprise document scanning, bulk digitization, OCR indexing, data entry, and IT support services in Tamil Nadu.'
+  },
+  {
+    slug: 'csc-digital-citizen-services',
+    code: 'JSM-06',
+    title: 'CSC & Digital Citizen Services',
+    shortTitle: 'CSC & Citizen Services',
+    workforceClassification: 'CSC & e-Governance Facilitation Officers',
+    gstSac: 'Applicable SAC based on actual digital facilitation service supplied',
+    officialDescription: 'Digital citizen facilitation and authorised CSC-related services including online application assistance, digital form support, scanning, printing, document upload and other permitted digital facilitation services.',
+    phase: 'Phase 1 - Core Business Vertical',
+    isCoreLaunch: true,
+    category: 'csc',
+    categoryLabel: 'CSC & Citizen Services (JSM-06)',
+    valueProposition: 'Authorized e-Governance facilitation, digital citizen assistance, online government applications, and document services.',
+    description: 'JSM Integrated Services delivers accessible digital citizen and e-governance services. From assisting citizens with government portal applications to providing high-speed printing, scanning, lamination, and bill-payment facilitation, we bridge the digital divide.',
+    whoItIsFor: [
+      'Citizens & Local Residents',
+      'Industrial Workers needing Statutory e-Seva Support',
+      'Students applying for Exams & Scholarships',
+      'Senior Citizens requiring Certificate Facilitation',
+      'Businesses requiring E-way Bills & Online Filings'
+    ],
+    icon: 'UserCheck',
+    heroImage: '/images/facility_lobby.jpg',
+    complianceNotice: 'Operated strictly as per government portal guidelines and authorized citizen service facilitation norms.',
+    features: [
+      { title: 'Online Govt Application Assistance (JSM-06.1)', description: 'Guidance and submission on central, state, and municipal e-governance portals.', icon: 'CheckCircle' },
+      { title: 'Digital Form Filling & Status Tracking (JSM-06.2)', description: 'Error-free document upload, application tracking, and certificate downloads.', icon: 'FileText' },
+      { title: 'Document Scanning & Upload (JSM-06.5)', description: 'Fast document compression and sizing for government upload portals.', icon: 'Layers' },
+      { title: 'Printing, Photocopy & Lamination (JSM-06.3)', description: 'High-speed black & white / color printing and protective thermal lamination.', icon: 'Printer' },
+      { title: 'Utility & Bill Payment Facilitation (JSM-06.9)', description: 'Electricity, water, property tax, and telecom bill payment support.', icon: 'CreditCard' },
+      { title: 'Digital Literacy Assistance (JSM-06.12)', description: 'Empowering first-time digital users with secure online navigation guidance.', icon: 'HelpCircle' }
+    ],
+    process: [
+      { step: 1, title: 'Requirement Identification', description: 'Determining the exact citizen service, government portal, and mandatory documents.' },
+      { step: 2, title: 'Document Digitization & Verification', description: 'Scanning and resizing proof of identity and address documents.' },
+      { step: 3, title: 'Portal Submission & Acknowledgement', description: 'Accurate form entry with instant generation of government application reference numbers.' },
+      { step: 4, title: 'Status Tracking & Delivery', description: 'Regular follow-up until certificate or approval download is completed.' }
+    ],
+    faqs: [
+      { question: 'What services are offered under JSM-06?', answer: 'We facilitate online government portal applications, digital form filling, document scanning, color printing, lamination, and utility bill payments.' }
+    ],
+    relatedSlugs: ['scanning-digitalization-it', 'tender-procurement-supply'],
+    metaTitle: 'CSC & Digital Citizen Services (JSM-06) | JSM Integrated Services',
+    metaDescription: 'Authorized digital citizen facilitation, e-governance applications, form filling, and document printing in Tiruchirappalli, Tamil Nadu.'
   },
   {
     slug: 'cash-in-transit',
-    title: 'Secure Cash-in-Transit & Logistics Support',
+    code: 'JSM-08',
+    title: 'Secure Cash-in-Transit & Valuables Logistics',
     shortTitle: 'Cash-in-Transit',
-    phase: 'Phase 1 - Launch Service',
-    isCoreLaunch: true,
+    gstSac: 'Applicable SAC under passenger/cargo transport',
+    officialDescription: 'Disciplined two-person custody transfers, documentation, and secure transit protocols.',
+    phase: 'Phase 2 - Expansion Service',
+    isCoreLaunch: false,
     category: 'logistics',
-    categoryLabel: 'Secure Logistics',
+    categoryLabel: 'Transport & Logistics',
     valueProposition: 'Disciplined two-person custody transfers, documentation, and secure transit protocols.',
-    description: 'JSM Integrated Services coordinates professional cash movement and valuables logistics support for retail chains, financial outlets, fuel stations, and corporate collections. Every operation adheres strictly to documented handover logs, route timing discipline, and dual-custody verification.',
-    whoItIsFor: [
-      'Retail Chains & Supermarket Groups',
-      'Commercial Banks & ATM Operators',
-      'Fuel Stations & Highway Toll Plazas',
-      'Jewellery Showrooms & High-Value Retail',
-      'Corporate Cash Collection Counters'
-    ],
+    description: 'JSM Integrated Services coordinates professional cash movement and valuables logistics support for retail chains, financial outlets, fuel stations, and corporate collections.',
+    whoItIsFor: ['Retail Chains', 'Commercial Banks', 'Fuel Stations', 'Jewellery Showrooms'],
     icon: 'Banknote',
     heroImage: '/images/hero_operations.jpg',
-    complianceNotice: 'Cash-in-Transit services are provided strictly subject to applicable regulatory licensing, permissions, documentation, and client insurance frameworks. Route and security details are strictly confidential.',
     features: [
-      { title: 'Two-Person Custody Model', description: 'Strict dual-signoff handover procedures ensuring total asset accountability at pickup and deposit.', icon: 'Lock' },
-      { title: 'Secure Route Planning', description: 'Planned transit windows and randomized movement schedules to prevent predictability.', icon: 'MapPin' },
-      { title: 'Documented Handover Receipts', description: 'Tamper-evident bags and physical/digital verification logs provided at every step.', icon: 'FileText' },
-      { title: 'Trained Custody Officers', description: 'Disciplined personnel trained in defensive observation and protocol compliance.', icon: 'Shield' },
-      { title: 'Daily Retail Cash Pickup', description: 'Scheduled daily or on-call collection services for multi-outlet retail enterprises.', icon: 'Clock' },
-      { title: 'Direct Management Oversight', description: 'Senior operational coordinators track mission completion with immediate escalation channels.', icon: 'CheckCircle' }
+      { title: 'Two-Person Custody Model', description: 'Strict dual-signoff handover procedures ensuring total asset accountability.', icon: 'Lock' },
+      { title: 'Secure Route Planning', description: 'Planned transit windows and randomized movement schedules.', icon: 'MapPin' }
     ],
     process: [
-      { step: 1, title: 'Risk & Route Protocol Review', description: 'We assess collection locations, handover safety, deposit timing windows, and document requirements.' },
-      { step: 2, title: 'Custody Protocol Setup', description: 'Establishment of authorized signatory registers, seal numbers, and verification procedures.' },
-      { step: 3, title: 'Execution of Transfer', description: 'Trained custody personnel execute the transfer using dual-verification and tamper-proof bags.' },
-      { step: 4, title: 'Reconciliation & Reporting', description: 'Prompt generation of signed collection slips and digital reconciliation with client accounts.' }
+      { step: 1, title: 'Risk Review', description: 'Assessment of collection locations and handover safety.' },
+      { step: 2, title: 'Transfer Execution', description: 'Execution with tamper-proof security bags.' }
     ],
     faqs: [
-      { question: 'What safety measures do you take during cash collection?', answer: 'We implement tamper-evident sealing, two-person verified handovers, time-variance protocols, and strict identity authentication.' },
-      { question: 'Do you provide daily scheduled collections for multi-branch retailers?', answer: 'Yes, we design custom collection routes covering multiple branches with standardized deposit reporting.' }
+      { question: 'How do you secure transit?', answer: 'We use tamper-evident bags, two-person verified handovers, and strict identity authentication.' }
     ],
     relatedSlugs: ['private-security', 'manpower'],
-    metaTitle: 'Secure Cash-in-Transit & Cash Logistics in Tamil Nadu | JSM Integrated Services',
-    metaDescription: 'Disciplined, protocol-driven cash-in-transit, retail cash collection, and valuable asset logistics across Tamil Nadu.'
+    metaTitle: 'Secure Cash Logistics in Tamil Nadu | JSM Integrated Services',
+    metaDescription: 'Disciplined, protocol-driven cash-in-transit and valuable asset logistics across Tamil Nadu.'
   },
   {
     slug: 'event-support',
-    title: 'Event & Wedding Security + Planning Support',
-    shortTitle: 'Event & Wedding Support',
+    code: 'JSM-07',
+    title: 'Event, Wedding & VIP Security Management',
+    shortTitle: 'Event & VIP Security',
+    gstSac: 'SAC 998525 – Guard & Event Security Services',
+    officialDescription: 'Hospitality-focused crowd coordination, VIP handling, gate entry security, and bouncer details.',
     phase: 'Phase 2 - Expansion Service',
     isCoreLaunch: false,
     category: 'events',
-    categoryLabel: 'Events & Weddings',
-    valueProposition: 'Because a great event should feel effortless — even when the operation behind it isn’t.',
-    description: 'From grand weddings and celebrity functions to corporate conferences and exhibitions, JSM provides hospitality-focused crowd coordination, VIP handling, gate entry security, valet traffic coordination, and partner-assisted event media coverage.',
-    whoItIsFor: [
-      'Wedding Planners & Family Hosts',
-      'Corporate Event Organizers & Summits',
-      'Exhibition & Trade Fair Managers',
-      'College Festivals & Public Gatherings',
-      'Celebrity & VIP Private Receptions'
-    ],
-    icon: 'Ticket',
+    categoryLabel: 'Event Operations',
+    valueProposition: 'Hospitality-focused crowd coordination, VIP handling, and gate entry security.',
+    description: 'From grand weddings and celebrity functions to corporate conferences and exhibitions, JSM provides hospitality-focused crowd coordination and VIP protection.',
+    whoItIsFor: ['Wedding Planners', 'Corporate Summits', 'Exhibitions & Trade Fairs'],
+    icon: 'Users',
     heroImage: '/images/protective_guard.jpg',
     features: [
-      { title: 'Crowd & Gate Management', description: 'Smooth guest entry, invitation verification, queue control, and exit flow management.', icon: 'Users' },
-      { title: 'VIP & Celebrity Handling', description: 'Discreet escorting and dedicated protection details for high-profile dignitaries and artists.', icon: 'Star' },
-      { title: 'Valet & Traffic Coordination', description: 'Organized parking management and vehicular flow control outside the venue.', icon: 'Car' },
-      { title: 'Hospitality-Trained Bouncers', description: 'Polite, imposing yet respectful physical security personnel trained in courteous de-escalation.', icon: 'Shield' },
-      { title: 'Emergency & Medical Standby', description: 'First-aid trained officers and clear emergency exit corridors.', icon: 'AlertTriangle' },
-      { title: 'Partner Media Documentation', description: 'Coordinated photography, videography, and audiovisual coverage through verified partners.', icon: 'Camera' }
+      { title: 'Crowd & Gate Management', description: 'Smooth guest entry and queue control.', icon: 'Users' },
+      { title: 'VIP Dignitary Escort', description: 'Dedicated protection details for high-profile guests.', icon: 'Shield' }
     ],
     process: [
-      { step: 1, title: 'Venue Walkthrough & Flow Mapping', description: 'We evaluate hall layout, stage access, VIP lounges, emergency exits, and parking capacity.' },
-      { step: 2, title: 'Manpower & Security Blueprint', description: 'We assign specific officer posts: entrance greeting, parking, backstage, and roaming crowd control.' },
-      { step: 3, title: 'Pre-Event Briefing', description: 'Staff are briefed on guest lists, dress codes, emergency contacts, and special instructions.' },
-      { step: 4, title: 'Live Execution & Coordination', description: 'An on-site supervisor oversees operations from guest arrival until post-event wrap-up.' }
+      { step: 1, title: 'Venue Walkthrough', description: 'Inspection of halls, exits, and parking.' },
+      { step: 2, title: 'Deployment', description: 'Deployment of polite, imposing bouncers and greeters.' }
     ],
     faqs: [
-      { question: 'Are your event security staff trained in hospitality?', answer: 'Yes. We specifically train event personnel to maintain a welcoming, respectful demeanor while ensuring firm perimeter and crowd control.' },
-      { question: 'Can you handle both small private functions and large college festivals?', answer: 'Yes. We scale from 4-person private wedding details up to 50+ personnel for large public conventions.' }
+      { question: 'Are event staff trained?', answer: 'Yes, all event personnel are trained in respectful hospitality and courteous crowd control.' }
     ],
-    relatedSlugs: ['private-security', 'creative-media', 'manpower'],
-    metaTitle: 'Event Security & Wedding Management Support in Tamil Nadu | JSM Integrated Services',
-    metaDescription: 'Hospitality-driven event security, crowd management, VIP escorts, and wedding coordination across Tamil Nadu.'
+    relatedSlugs: ['private-security', 'manpower'],
+    metaTitle: 'Event Security & VIP Management Tamil Nadu | JSM Integrated Services',
+    metaDescription: 'Hospitality-driven event security, crowd management, and VIP escort details in Tamil Nadu.'
   },
   {
     slug: 'real-estate-support',
-    title: 'Real Estate & Auction Site Support',
-    shortTitle: 'Real Estate & Auctions',
+    code: 'JSM-03',
+    title: 'Real Estate Construction Site & Auction Support',
+    shortTitle: 'Real Estate Support',
+    gstSac: 'SAC 998525 / SAC 998533',
+    officialDescription: 'Securing construction progress, finished assets, model flats, and auction bidder verification.',
     phase: 'Phase 2 - Expansion Service',
     isCoreLaunch: false,
     category: 'property',
     categoryLabel: 'Property Support',
-    valueProposition: 'Securing construction progress, finished assets, model apartments, and organized auction bidder verification.',
-    description: 'JSM provides specialized operational support for real estate developers, builders, and auction organizers. We safeguard construction materials from pilferage, manage model flat sales galleries with professional concierge staff, and maintain orderly entry control during high-stakes auctions.',
-    whoItIsFor: [
-      'Real Estate Builders & Developers',
-      'Construction Project Contractors',
-      'Property Management Companies',
-      'Auction Houses & Asset Disposal Agencies',
-      'Financial Institutions & Asset Recoveries'
-    ],
+    valueProposition: 'Securing construction progress, finished assets, and organized auction entry.',
+    description: 'JSM provides specialized operational support for real estate builders, safeguarding materials and providing courteous model flat concierges.',
+    whoItIsFor: ['Builders & Developers', 'Auction Houses', 'Property Management'],
     icon: 'Building',
     heroImage: '/images/facility_lobby.jpg',
     features: [
-      { title: 'Construction Site Security', description: '24/7 material gate passes, night vigilance, and equipment protection against theft and damage.', icon: 'Shield' },
-      { title: 'Sales Gallery & Model Flat Hosting', description: 'Courteous concierge staff and front-desk personnel welcoming prospective property buyers.', icon: 'Home' },
-      { title: 'Finished Property Handover Protection', description: 'Safeguarding completed apartments and villas prior to tenant occupancy.', icon: 'Lock' },
-      { title: 'Auction Bidder Verification', description: 'Structured token verification, identification checks, and orderly auction hall entry.', icon: 'ClipboardCheck' },
-      { title: 'Material Inward/Outward Registers', description: 'Strict logging of steel, cement, fixtures, and contractor machinery.', icon: 'FileText' },
-      { title: 'Worker ID Tagging & Gate Control', description: 'Daily worker identification checks to prevent unauthorized labor on construction sites.', icon: 'UserCheck' }
+      { title: 'Construction Site Guarding', description: '24/7 material gate passes and night vigilance.', icon: 'Shield' },
+      { title: 'Sales Gallery Hosting', description: 'Courteous concierge staff welcoming buyers.', icon: 'Users' }
     ],
     process: [
-      { step: 1, title: 'Site Inspection & Ingress Mapping', description: 'We inspect perimeter fences, storage sheds, entry gates, and visitor reception zones.' },
-      { step: 2, title: 'Material Register Protocol', description: 'We implement standard inward/outward gate passes and supervisor sign-offs.' },
-      { step: 3, title: 'Deployment & Shift Rostering', description: 'Stationed guards and roaming officers are deployed with clear standing instructions.' },
-      { step: 4, title: 'Daily Log Submission', description: 'Daily vehicle logs, material movement registers, and incident summaries sent to project managers.' }
+      { step: 1, title: 'Ingress Mapping', description: 'Perimeter checks and material registers.' },
+      { step: 2, title: 'Vigilance', description: '24/7 stationary and roving security.' }
     ],
     faqs: [
-      { question: 'How do you prevent construction material theft?', answer: 'We implement 100% material pass verification, physical bag checks of exiting labor, night illumination checks, and perimeter patrols.' },
-      { question: 'Can you provide front-desk hosts for luxury property sales lounges?', answer: 'Yes. We deploy well-groomed, articulate personnel to manage reception and guide visitors to sales executives.' }
+      { question: 'How do you prevent theft?', answer: 'We enforce 100% material pass verification and physical inspections of exiting vehicles.' }
     ],
-    relatedSlugs: ['private-security', 'housekeeping', 'manpower'],
-    metaTitle: 'Real Estate Construction Site Security & Auction Support | JSM Integrated Services',
-    metaDescription: 'Construction site material guarding, sales gallery hosting, and auction bidder verification services across Tamil Nadu.'
+    relatedSlugs: ['private-security', 'housekeeping'],
+    metaTitle: 'Real Estate & Construction Security | JSM Integrated Services',
+    metaDescription: 'Construction site material guarding and model flat hosting across Tamil Nadu.'
   },
   {
     slug: 'software-solutions',
-    title: 'Software & Web Solutions for Business',
-    shortTitle: 'Software Solutions',
+    code: 'JSM-05',
+    title: 'Software, Web Portals & Business Automation',
+    shortTitle: 'Software & Portals',
+    gstSac: 'NIC 62099 – IT & Computer Services SAC',
+    officialDescription: 'Custom landing pages, visitor management software, and lead automation.',
     phase: 'Phase 2 - Expansion Service',
     isCoreLaunch: false,
     category: 'digital',
-    categoryLabel: 'Digital Solutions',
-    valueProposition: 'Integrated business technology: custom landing pages, visitor management software, and lead automation.',
-    description: 'As part of our integrated corporate support, JSM builds streamlined digital tools for modern enterprises. From clean high-conversion business websites and landing pages to digital visitor logging and attendance automation, we empower businesses with modern technology.',
-    whoItIsFor: [
-      'SMEs & Growing Enterprises',
-      'Real Estate & Property Developers',
-      'Healthcare Clinics & Educational Institutes',
-      'Event & Wedding Organizers',
-      'Logistics & Service Companies'
-    ],
+    categoryLabel: 'Software & Portals',
+    valueProposition: 'Custom landing pages, visitor management software, and attendance automation.',
+    description: 'JSM builds streamlined digital tools for modern enterprises, from high-conversion websites to digital visitor logging systems.',
+    whoItIsFor: ['SMEs', 'Property Developers', 'Healthcare Clinics'],
     icon: 'Monitor',
     heroImage: '/images/portal_laptop.jpg',
     features: [
-      { title: 'High-Conversion Business Websites', description: 'Fast, responsive, mobile-first websites designed for lead generation and brand authority.', icon: 'Globe' },
-      { title: 'Digital Visitor Logging Systems', description: 'QR-code and tablet-based visitor check-ins replacing messy manual paper registers.', icon: 'Tablet' },
-      { title: 'Lead Capture & Email Automation', description: 'Instant routing of customer inquiries to your sales team via email.', icon: 'Zap' },
-      { title: 'Staff Attendance & Reporting Portals', description: 'Cloud-enabled attendance logs and daily operational checklist tracking.', icon: 'FileText' },
-      { title: 'Search Engine Optimization (SEO)', description: 'Local SEO architecture ensuring high search ranking for key regional service keywords.', icon: 'Search' },
-      { title: 'Domain & Hosting Management', description: 'Reliable deployment, SSL certificates, business emails, and maintenance.', icon: 'Lock' }
+      { title: 'Digital Visitor Logging', description: 'Tablet-based check-ins replacing paper books.', icon: 'Tablet' },
+      { title: 'High-Conversion Web Portals', description: 'Mobile-first fast web applications.', icon: 'Globe' }
     ],
     process: [
-      { step: 1, title: 'Requirement & Goal Discovery', description: 'We identify your operational bottlenecks, target audience, and lead generation targets.' },
-      { step: 2, title: 'UI/UX & Architecture Design', description: 'We create clean, modern wireframes and mobile-first user journeys.' },
-      { step: 3, title: 'Development & Testing', description: 'We code fast, secure, search-optimized applications with seamless form integrations.' },
-      { step: 4, title: 'Deployment & Training', description: 'We launch the system on fast servers and train your staff on daily operations.' }
+      { step: 1, title: 'Scoping', description: 'Understanding business workflows.' },
+      { step: 2, title: 'Deployment', description: 'Fast cloud deployment.' }
     ],
     faqs: [
-      { question: 'Is technology support a standalone service or integrated with manpower?', answer: 'We offer it both ways: as an integrated tech layer for clients using our security/facility services, or as standalone digital development for businesses.' },
-      { question: 'Can you integrate digital visitor logs at our security gate?', answer: 'Yes. We provide tablet-based visitor management tools that work in sync with our on-site security guards.' }
+      { question: 'Can visitor tools integrate with security?', answer: 'Yes, tablet visitor apps sync directly with our on-site security guards.' }
     ],
-    relatedSlugs: ['creative-media', 'private-security', 'manpower'],
-    metaTitle: 'Business Software, Web Solutions & Digital Tools | JSM Integrated Services',
-    metaDescription: 'Modern web design, digital visitor management systems, and lead automation for businesses across Tamil Nadu.'
+    relatedSlugs: ['scanning-digitalization-it', 'creative-media'],
+    metaTitle: 'Business Software & Visitor Automation | JSM Integrated Services',
+    metaDescription: 'Modern web portals, digital visitor logs, and business automation in Tamil Nadu.'
   },
   {
     slug: 'creative-media',
+    code: 'JSM-12',
     title: 'Creative Media & Corporate Documentation',
     shortTitle: 'Creative Media',
+    gstSac: 'IT / Professional Support SAC',
+    officialDescription: 'Professional corporate videography, event documentation, and visual branding.',
     phase: 'Phase 2 - Expansion Service',
     isCoreLaunch: false,
-    category: 'creative',
-    categoryLabel: 'Media & Branding',
-    valueProposition: 'Professional corporate videography, event documentation, asset photography, and visual branding.',
-    description: 'JSM Creative Media provides professional visual documentation for corporate operations, industrial plants, events, and real estate developments. We produce high-resolution photography, aerial drone surveys, and corporate videos that build trust and credibility for your brand.',
-    whoItIsFor: [
-      'Corporate Enterprises & Brands',
-      'Industrial Plant Operators',
-      'Real Estate Builders & Architects',
-      'Event & Wedding Hosts',
-      'Educational & Healthcare Campuses'
-    ],
-    icon: 'Palette',
+    category: 'digital',
+    categoryLabel: 'Creative Media',
+    valueProposition: 'Corporate facility photography, event videography, and brand documentation.',
+    description: 'JSM Creative Media provides high-resolution photography, aerial drone surveys, and corporate videos for industrial facilities and events.',
+    whoItIsFor: ['Corporate Brands', 'Industrial Plants', 'Real Estate Builders'],
+    icon: 'Camera',
     heroImage: '/images/facility_lobby.jpg',
     features: [
-      { title: 'Corporate Facility Photography', description: 'High-definition captures of office interiors, industrial machinery, and infrastructure.', icon: 'Camera' },
-      { title: 'Event & Conference Videography', description: 'Complete cinematic documentation and highlight reels of seminars and celebrations.', icon: 'Video' },
-      { title: 'Real Estate & Property Showcases', description: 'Architectural photography, model apartment walkthroughs, and brochure assets.', icon: 'Home' },
-      { title: 'Brand Identity & Marketing Collateral', description: 'Clean brochures, company profiles, signage design, and visual brand assets.', icon: 'Layers' },
-      { title: 'Social Media Visual Packages', description: 'Engaging photo and video snippets formatted for LinkedIn, Instagram, and web display.', icon: 'Share2' },
-      { title: 'Safety & Training Video Production', description: 'Custom visual SOP and safety induction videos for client workforce training.', icon: 'Film' }
+      { title: 'Facility Photography', description: 'High-resolution industrial and office interior captures.', icon: 'Camera' },
+      { title: 'Event Videography', description: 'Cinematic documentation of corporate conferences.', icon: 'Video' }
     ],
     process: [
-      { step: 1, title: 'Visual Concept & Shot Planning', description: 'We map required angles, lighting conditions, personnel coordination, and brand guidelines.' },
-      { step: 2, title: 'On-Site Production Shoot', description: 'Professional crew executes photography and filming with minimal disruption to operations.' },
-      { step: 3, title: 'Post-Production & Editing', description: 'Color grading, audio enhancement, title cards, and brand alignment.' },
-      { step: 4, title: 'High-Res Asset Delivery', description: 'Optimized delivery for print, website, social media, and internal presentation use.' }
+      { step: 1, title: 'Shot Planning', description: 'Mapping required visual angles.' },
+      { step: 2, title: 'Delivery', description: 'High-res optimized media files.' }
     ],
     faqs: [
-      { question: 'Can you produce worker safety and induction videos for our factory?', answer: 'Yes. We script and produce site-specific visual safety induction videos to train incoming manpower effectively.' },
-      { question: 'Do you provide full event photography and videography coverage?', answer: 'Yes. Our creative team captures corporate summits, milestone celebrations, and family weddings from start to finish.' }
+      { question: 'Do you cover events?', answer: 'Yes, we provide complete photography and videography coverage.' }
     ],
-    relatedSlugs: ['software-solutions', 'event-support', 'real-estate-support'],
-    metaTitle: 'Corporate Photography, Video & Creative Media in Tamil Nadu | JSM Integrated Services',
-    metaDescription: 'Professional corporate facility photography, event videography, and brand documentation services across Tamil Nadu.'
+    relatedSlugs: ['software-solutions', 'event-support'],
+    metaTitle: 'Corporate Media & Video Documentation | JSM Integrated Services',
+    metaDescription: 'Professional corporate facility photography and event videography in Tamil Nadu.'
   }
 ];
 

@@ -139,7 +139,77 @@ export default function TrustCenterPage() {
           </div>
         </section>
 
-        {/* Section 03: Interactive Compliance Matrix */}
+        {/* Section 03: Master Business Structure & GST/Udyam Matrix */}
+        <section className="py-16 md:py-24 border-b border-zinc-200/80">
+          <div className="flex items-center gap-4 mb-12">
+            <span className="text-base font-black text-black bg-[#C5A880] w-10 h-10 flex items-center justify-center rounded-full font-mono">
+              03
+            </span>
+            <div>
+              <span className="text-[10px] font-mono font-bold tracking-widest text-[#C5A880] uppercase block">
+                UDYAM MSME &amp; GST MASTER REGISTER
+              </span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-black tracking-tight">
+                Master Business Vertical Structure
+              </h2>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-3xl border border-zinc-200/90 overflow-hidden shadow-xs mb-10">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse text-xs">
+                <thead>
+                  <tr className="bg-black text-white border-b border-zinc-800">
+                    <th className="p-4 font-mono font-bold text-[#C5A880]">Code</th>
+                    <th className="p-4 font-bold">Business Vertical</th>
+                    <th className="p-4 font-bold">Workforce / Classification</th>
+                    <th className="p-4 font-bold">Udyam / NIC Direction</th>
+                    <th className="p-4 font-bold">GST Classification</th>
+                    <th className="p-4 font-bold">Status</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-zinc-200">
+                  {brandData.sixCoreVerticals.map((v) => (
+                    <tr key={v.code} className="hover:bg-[#fbf9f4] transition-colors">
+                      <td className="p-4 font-mono font-black text-black">{v.code}</td>
+                      <td className="p-4 font-bold text-zinc-900">{v.name}</td>
+                      <td className="p-4 text-zinc-600 font-medium">{v.workforceType}</td>
+                      <td className="p-4 text-zinc-600 font-mono text-[11px]">{v.priority === 'CORE' ? 'Core NIC Service' : 'Allied NIC'}</td>
+                      <td className="p-4 font-mono font-bold text-zinc-800 text-[11px]">{v.gstSac}</td>
+                      <td className="p-4">
+                        <span className="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-mono font-black uppercase">
+                          ACTIVE CORE
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Copy-Ready Goods / Services Descriptions */}
+          <div className="space-y-4">
+            <h3 className="text-lg sm:text-xl font-black text-black tracking-tight">
+              Official Goods &amp; Services Business Descriptions
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {brandData.sixCoreVerticals.map((v) => (
+                <div key={v.code} className="p-5 rounded-2xl bg-white border border-zinc-200 space-y-2">
+                  <div className="flex items-center justify-between border-b border-zinc-100 pb-2">
+                    <span className="font-mono font-black text-xs text-black">{v.code} • {v.shortTitle}</span>
+                    <span className="text-[10px] font-mono font-bold text-[#C5A880]">{v.gstSac.split('–')[0]}</span>
+                  </div>
+                  <p className="text-xs text-zinc-600 font-medium leading-relaxed">
+                    {v.gstDescription}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Section 04: Interactive Compliance Matrix */}
         <div className="rounded-3xl overflow-hidden my-12">
           <ComplianceMatrix />
         </div>

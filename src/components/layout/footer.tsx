@@ -92,69 +92,59 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Col 2: Core Services (Phase 1) */}
+          {/* Col 2: Core Master Verticals (JSM-01 to JSM-03) */}
           <div className="space-y-3">
             <h4 className="font-bold text-xs uppercase tracking-wider text-white border-b border-zinc-800 pb-2">
-              Core Operations (Phase 1)
+              Core Verticals (1 - 3)
             </h4>
             <ul className="space-y-2.5 text-xs text-zinc-400 font-medium">
               <li>
                 <Link href="/services/private-security" className="hover:text-white transition-colors">
-                  Private Security Guarding
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/housekeeping" className="hover:text-white transition-colors">
-                  Housekeeping & Facility Upkeep
+                  <span className="text-[#C5A880] font-mono text-[10px] mr-1">JSM-01</span> Security &amp; Protection
                 </Link>
               </li>
               <li>
                 <Link href="/services/manpower" className="hover:text-white transition-colors">
-                  Manpower & Temporary Staffing
+                  <span className="text-[#C5A880] font-mono text-[10px] mr-1">JSM-02</span> Manpower &amp; Workforce
                 </Link>
               </li>
               <li>
-                <Link href="/services/cash-in-transit" className="hover:text-white transition-colors">
-                  Cash-in-Transit Logistics
+                <Link href="/services/housekeeping" className="hover:text-white transition-colors">
+                  <span className="text-[#C5A880] font-mono text-[10px] mr-1">JSM-03</span> Facility &amp; Housekeeping
                 </Link>
               </li>
               <li>
                 <Link href="/services" className="text-[#C5A880] hover:underline font-bold pt-1 inline-block">
-                  View Service Ecosystem →
+                  View Master Business Matrix →
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: Expansion Verticals (Phase 2) */}
+          {/* Col 3: Core Master Verticals (JSM-04 to JSM-06) */}
           <div className="space-y-3">
             <h4 className="font-bold text-xs uppercase tracking-wider text-white border-b border-zinc-800 pb-2">
-              Integrated Support (Phase 2)
+              Core Verticals (4 - 6)
             </h4>
             <ul className="space-y-2.5 text-xs text-zinc-400 font-medium">
               <li>
-                <Link href="/services/event-support" className="hover:text-white transition-colors">
-                  Event & Wedding Coordination
+                <Link href="/services/tender-procurement-supply" className="hover:text-white transition-colors">
+                  <span className="text-[#C5A880] font-mono text-[10px] mr-1">JSM-04</span> Tender &amp; GeM Procurement
                 </Link>
               </li>
               <li>
-                <Link href="/services/real-estate-support" className="hover:text-white transition-colors">
-                  Real Estate & Auction Support
+                <Link href="/services/scanning-digitalization-it" className="hover:text-white transition-colors">
+                  <span className="text-[#C5A880] font-mono text-[10px] mr-1">JSM-05</span> Scanning, OCR &amp; IT
                 </Link>
               </li>
               <li>
-                <Link href="/services/software-solutions" className="hover:text-white transition-colors">
-                  Software & Visitor Portals
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/creative-media" className="hover:text-white transition-colors">
-                  Creative Media Documentation
+                <Link href="/services/csc-digital-citizen-services" className="hover:text-white transition-colors">
+                  <span className="text-[#C5A880] font-mono text-[10px] mr-1">JSM-06</span> CSC &amp; Citizen Services
                 </Link>
               </li>
               <li>
                 <Link href="/industries" className="text-[#C5A880] hover:underline font-bold pt-1 inline-block">
-                  Explore 12 Target Industries →
+                  Explore Target Industries →
                 </Link>
               </li>
             </ul>
