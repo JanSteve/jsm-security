@@ -59,7 +59,7 @@ export function Footer() {
           {/* Col 1: Brand & Identity */}
           <div className="lg:col-span-1 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="relative w-10 h-10 rounded-xl bg-black p-0.5 flex items-center justify-center border border-[#C5A880]/40 shadow-sm overflow-hidden">
+              <div className="relative w-10 h-10 rounded-full bg-black p-0.5 flex items-center justify-center border border-zinc-700/80 shadow-md overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/jsm_logo_transparent.png"

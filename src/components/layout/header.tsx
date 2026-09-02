@@ -49,7 +49,7 @@ export function Header() {
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 lg:px-20 flex items-center justify-between">
         {/* Brand Logo */}
         <Link href="/" className="group flex items-center gap-3 z-50">
-          <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-black p-0.5 flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform overflow-hidden border border-[#C5A880]/30">
+          <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black p-0.5 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform overflow-hidden border border-zinc-700/80">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/jsm_logo_transparent.png"
