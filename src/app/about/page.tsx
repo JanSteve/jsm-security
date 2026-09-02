@@ -66,19 +66,108 @@ export default function AboutPage() {
             </div>
 
             <div className="md:col-span-6">
-              <div className="aspect-square bg-white rounded-3xl overflow-hidden border border-zinc-200/80 shadow-md relative p-3">
+              <div className="aspect-square bg-white rounded-3xl overflow-hidden border border-zinc-200/80 shadow-xl relative p-3">
                 <div className="relative w-full h-full rounded-2xl overflow-hidden">
                   <Image
-                    src="/images/hero_operations.jpg"
-                    alt="JSM Operations Team"
+                    src="/images/real_jsm_airport_drill.jpg"
+                    alt="JSM Guard Night Drill Inspection at Trichy International Airport"
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-6">
+                    <span className="text-[10px] font-mono font-black text-[#C5A880] uppercase tracking-wider mb-1">
+                      AUTHENTIC ON-SITE FIELD ARCHIVE (2024)
+                    </span>
                     <p className="text-xs font-bold text-white leading-relaxed">
                       "There is no shortcut to trust — it is earned shift by shift, report by report, client by client."
                     </p>
+                    <span className="text-[10px] text-zinc-400 mt-1 font-mono">
+                      Trichy International Airport • Zero Security Lapses Benchmark
+                    </span>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Real Field Operational Archive Gallery */}
+          <div className="mt-14 pt-10 border-t border-zinc-200/80 space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <span className="text-[10px] font-mono font-black text-[#C5A880] uppercase tracking-widest block">
+                  GROUND ZERO PROOF
+                </span>
+                <h3 className="text-xl sm:text-2xl font-black text-black uppercase tracking-tight">
+                  Field Operations &amp; Turnout Discipline
+                </h3>
+              </div>
+              <span className="text-xs font-mono font-bold text-zinc-500">
+                100% Real Personnel Photos
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {/* Photo 1: City Arch */}
+              <div className="bg-white p-2.5 rounded-2xl border border-zinc-200 shadow-xs space-y-2 group">
+                <div className="relative h-48 w-full rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/real_jsm_welcome_trichy_salute.jpg"
+                    alt="Welcome to Tiruchirappalli Guard Salute"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-1">
+                  <h4 className="text-xs font-black text-black">Gateway Vigilance</h4>
+                  <p className="text-[11px] text-zinc-500 font-medium">Tiruchirappalli City Entrance Arch salute.</p>
+                </div>
+              </div>
+
+              {/* Photo 2: Terminal Entry D6 */}
+              <div className="bg-white p-2.5 rounded-2xl border border-zinc-200 shadow-xs space-y-2 group">
+                <div className="relative h-48 w-full rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/real_jsm_terminal_entry_salute.jpg"
+                    alt="Terminal Gate D6 Access Control"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-1">
+                  <h4 className="text-xs font-black text-black">Terminal Access Control</h4>
+                  <p className="text-[11px] text-zinc-500 font-medium">Passenger gate D6 verification standing orders.</p>
+                </div>
+              </div>
+
+              {/* Photo 3: Shift Muster */}
+              <div className="bg-white p-2.5 rounded-2xl border border-zinc-200 shadow-xs space-y-2 group">
+                <div className="relative h-48 w-full rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/real_jsm_shift_muster_day.jpg"
+                    alt="Daytime Shift Briefing and Roll Call"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-1">
+                  <h4 className="text-xs font-black text-black">Daily Shift Briefing</h4>
+                  <p className="text-[11px] text-zinc-500 font-medium">Pre-shift muster and duty allocation.</p>
+                </div>
+              </div>
+
+              {/* Photo 4: Night Squad */}
+              <div className="bg-white p-2.5 rounded-2xl border border-zinc-200 shadow-xs space-y-2 group">
+                <div className="relative h-48 w-full rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/real_jsm_guard_squad_night.jpg"
+                    alt="Night Security Platoon Lineup"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-1">
+                  <h4 className="text-xs font-black text-black">Night Platoon Squad</h4>
+                  <p className="text-[11px] text-zinc-500 font-medium">Vetted uniform turnout with night supervisors.</p>
                 </div>
               </div>
             </div>

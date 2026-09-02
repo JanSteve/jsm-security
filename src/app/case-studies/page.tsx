@@ -211,6 +211,129 @@ export default function CaseStudiesPage() {
           })}
         </div>
 
+        {/* Authentic Ground Operations Archive (2024 Landmark Trichy Airport Deployment) */}
+        <div className="mt-20 max-w-5xl mx-auto space-y-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-zinc-800 pb-6 gap-4">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold mb-2">
+                <CheckCircle2 size={13} />
+                <span>UNRETOUCHED ON-SITE PHOTOGRAPHIC ARCHIVE</span>
+              </div>
+              <h2 className="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight">
+                Authentic Ground Operations
+              </h2>
+              <p className="text-xs sm:text-sm text-zinc-400 font-medium mt-1">
+                Real on-site field deployments executed by JSM personnel at Tiruchirappalli International Airport.
+              </p>
+            </div>
+            <span className="text-xs font-mono text-[#C5A880] font-bold">
+              EST. 2024 • TRICHY AIRPORT CONTRACT
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Photo 1: Drill Inspection */}
+            <div className="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden group hover:border-[#C5A880] transition-all">
+              <div className="relative h-56 w-full">
+                <Image
+                  src="/images/real_jsm_airport_drill.jpg"
+                  alt="JSM Guard Night Drill Inspection Trichy Airport"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent" />
+                <span className="absolute top-3 left-3 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-mono font-bold text-[#C5A880] border border-white/20">
+                  NIGHT DRILL INSPECTION
+                </span>
+              </div>
+              <div className="p-4 space-y-1">
+                <h4 className="text-sm font-bold text-white">Airport Night Platoon Parade</h4>
+                <p className="text-xs text-zinc-400">Supervisor turn-out inspection and shift roll call at the airport perimeter.</p>
+              </div>
+            </div>
+
+            {/* Photo 2: Welcome to Tiruchirappalli Arch Salute */}
+            <div className="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden group hover:border-[#C5A880] transition-all">
+              <div className="relative h-56 w-full">
+                <Image
+                  src="/images/real_jsm_welcome_trichy_salute.jpg"
+                  alt="JSM Security Guard Salute Welcome to Tiruchirappalli"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent" />
+                <span className="absolute top-3 left-3 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-mono font-bold text-[#C5A880] border border-white/20">
+                  REGIONAL GATEWAY
+                </span>
+              </div>
+              <div className="p-4 space-y-1">
+                <h4 className="text-sm font-bold text-white">Tiruchirappalli City Arch Salute</h4>
+                <p className="text-xs text-zinc-400">Disciplined standing orders and vigilance under the iconic city gateway arch.</p>
+              </div>
+            </div>
+
+            {/* Photo 3: Daytime Shift Muster */}
+            <div className="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden group hover:border-[#C5A880] transition-all">
+              <div className="relative h-56 w-full">
+                <Image
+                  src="/images/real_jsm_shift_muster_day.jpg"
+                  alt="Daytime Shift Muster and Operational Briefing"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent" />
+                <span className="absolute top-3 left-3 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-mono font-bold text-[#C5A880] border border-white/20">
+                  SHIFT MUSTER ROLL
+                </span>
+              </div>
+              <div className="p-4 space-y-1">
+                <h4 className="text-sm font-bold text-white">Daytime Operational Briefing</h4>
+                <p className="text-xs text-zinc-400">Post allocation and duty briefing at the airport security checkpoint.</p>
+              </div>
+            </div>
+
+            {/* Photo 4: Terminal Entry Gate D6 */}
+            <div className="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden group hover:border-[#C5A880] transition-all">
+              <div className="relative h-56 w-full">
+                <Image
+                  src="/images/real_jsm_terminal_entry_salute.jpg"
+                  alt="JSM Guard Terminal Entry Gate D6 Salute"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent" />
+                <span className="absolute top-3 left-3 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-mono font-bold text-[#C5A880] border border-white/20">
+                  TERMINAL GATE D6
+                </span>
+              </div>
+              <div className="p-4 space-y-1">
+                <h4 className="text-sm font-bold text-white">Passenger Terminal Entry</h4>
+                <p className="text-xs text-zinc-400">Gate security, ticket verification, and passenger crowd facilitation.</p>
+              </div>
+            </div>
+
+            {/* Photo 5: Night Guard Squad */}
+            <div className="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden group hover:border-[#C5A880] transition-all lg:col-span-2">
+              <div className="relative h-56 w-full">
+                <Image
+                  src="/images/real_jsm_guard_squad_night.jpg"
+                  alt="JSM Uniformed Night Squad Platoon"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent" />
+                <span className="absolute top-3 left-3 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-mono font-bold text-[#C5A880] border border-white/20">
+                  UNIFORMED NIGHT SQUAD
+                </span>
+              </div>
+              <div className="p-4 space-y-1">
+                <h4 className="text-sm font-bold text-white">Night Security Platoon Lineup</h4>
+                <p className="text-xs text-zinc-400">Complete night shift roster deployed with verified uniform turnout and supervisor spot-checks.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Bottom RFP Callout */}
         <div className="mt-16 bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-900 border-2 border-[#C5A880]/40 rounded-3xl p-8 sm:p-12 text-center max-w-5xl mx-auto space-y-5 shadow-2xl">
           <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight uppercase">
