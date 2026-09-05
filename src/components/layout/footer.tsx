@@ -192,6 +192,12 @@ export function Footer() {
                   <span className="text-[9px] bg-[#C5A880]/20 px-1.5 py-0.5 rounded text-[#C5A880]">NEW</span>
                 </Link>
               </li>
+              <li>
+                <Link href="/lead-generation" className="text-white hover:text-[#C5A880] font-bold flex items-center gap-1">
+                  <span>B2B Quotation Engine</span>
+                  <span className="text-[9px] bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded">&lt;60m SLA</span>
+                </Link>
+              </li>
             </ul>
           </div>
 
