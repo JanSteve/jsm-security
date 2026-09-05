@@ -31,7 +31,7 @@ export default function BusinessCardPage() {
             Official Executive <span className="text-[#C5A880]">Business Card</span>
           </h1>
           <p className="text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto">
-            Standard 3.5&quot; × 2.0&quot; dual-sided executive cards engineered for Proprietor Sweety R and Operations Head Major A Richard D.
+            Standard 3.5&quot; × 2.0&quot; dual-sided executive cards engineered for Proprietor Sweety R and Operations Head Major AR Devadoss (Army-Veteran).
           </p>
         </div>
 

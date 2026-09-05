@@ -14,9 +14,9 @@ export const brandData = {
       bio: "Founding leader driving the strategic vision, operational governance, and statutory compliance of JSM Integrated Services."
     },
     {
-      name: "Major A Richard D",
-      role: "Operation-Head",
-      bio: "Decorated ex-serviceman directing enterprise security deployments, tactical operations, supervisory audits, and field discipline across South India."
+      name: "Major AR Devadoss (Army-Veteran)",
+      role: "Head of Operations",
+      bio: "Decorated Indian Army veteran directing enterprise security deployments, tactical operations, supervisory audits, and field discipline across South India."
     },
     {
       name: "Jan Steve Daniel R",
@@ -26,7 +26,8 @@ export const brandData = {
   ],
 
   contact: {
-    email: "jsmintegratedservices@outlook.com",
+    email: "contact@jsmintegratedservices.com",
+    backupEmail: "jsmintegratedservices@outlook.com",
     phone: "+919080863448",
     phoneDisplay: "+91 90808 63448",
     whatsapp: "919080863448",
@@ -54,7 +55,7 @@ export const brandData = {
     commencementDate: "01.09.2026",
     businessPremises: "Own",
     fullAddress: "Plot No: 112, SF No 122, RVS Nagar, Kottapattu Post, Tiruchirappalli Distt, Tamil Nadu State, Pin: 620 021",
-    email: "jsmintegratedservices@outlook.com",
+    email: "contact@jsmintegratedservices.com",
     mobile: "+91-9080863448",
     bankAccountStatus: "Yes (Current Account)",
     constitutionOfBusiness: "Proprietorship Concern",

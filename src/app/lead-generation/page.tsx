@@ -249,7 +249,7 @@ export default function LeadGenerationPage() {
                   Quotation Request Received!
                 </h3>
                 <p className="text-xs sm:text-sm text-zinc-600">
-                  Thank you, <strong>{formData.name}</strong>. Your requirement has been routed directly to Operations Head <strong>Major A Richard D</strong> and Managing Director <strong>Sweety R</strong>.
+                  Thank you, <strong>{formData.name}</strong>. Your requirement has been routed directly to Operations Head <strong>Major AR Devadoss (Army-Veteran)</strong> and Managing Director <strong>Sweety R</strong>.
                 </p>
               </div>
 
@@ -644,7 +644,7 @@ export default function LeadGenerationPage() {
               PREFER TO SPEAK WITH AN OPERATIONS HEAD DIRECTLY?
             </span>
             <h4 className="text-lg sm:text-xl font-black">
-              Connect with Major A Richard D (Operation-Head)
+              Connect with Major AR Devadoss (Army-Veteran)
             </h4>
             <p className="text-xs text-zinc-400">
               Direct consultation for urgent industrial tenders or immediate 24-hour guard deployments.
@@ -660,7 +660,7 @@ export default function LeadGenerationPage() {
               <span>{brandData.contact.phoneDisplay}</span>
             </a>
             <a
-              href={`https://wa.me/${brandData.contact.whatsapp}?text=Hello%20Major%20Richard,%20I%20have%20an%20urgent%20inquiry%20for%20JSM%20Integrated%20Services.`}
+              href={`https://wa.me/${brandData.contact.whatsapp}?text=Hello%20Major%20Devadoss,%20I%20have%20an%20urgent%20inquiry%20for%20JSM%20Integrated%20Services.`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition-colors shadow-sm"
