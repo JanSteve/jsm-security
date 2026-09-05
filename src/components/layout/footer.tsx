@@ -186,6 +186,12 @@ export function Footer() {
                   Articles & Operating Insights
                 </Link>
               </li>
+              <li>
+                <Link href="/business-card" className="text-[#C5A880] hover:underline font-bold flex items-center gap-1">
+                  <span>Executive Business Card &amp; QR</span>
+                  <span className="text-[9px] bg-[#C5A880]/20 px-1.5 py-0.5 rounded text-[#C5A880]">NEW</span>
+                </Link>
+              </li>
             </ul>
           </div>
 

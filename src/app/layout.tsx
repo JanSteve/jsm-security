@@ -8,6 +8,7 @@ import { MobileDock } from "@/components/layout/mobile-dock";
 import CookieBanner from "@/components/shared/cookie-banner";
 import { AIReceptionist } from "@/components/chat/ai-receptionist";
 import { EmergencyReliefModal } from "@/components/ui/emergency-relief-modal";
+import { Analytics } from "@vercel/analytics/react";
 import { brandData } from "@/data/brand";
 import { cn } from "@/lib/utils";
 
