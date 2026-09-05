@@ -74,13 +74,13 @@ const VISUAL_CARDS: VisualCard[] = [
     highlightText: "Night shift security platoon with roving supervisor inspections and perimeter vigilance.",
   },
   {
-    id: "mechanized-hk",
-    category: "FACILITY MANAGEMENT",
-    title: "Mechanized Ride-On Auto Scrubbers",
-    metricBadge: "99.8% Hygiene Index",
-    location: "Automotive & Corporate Campuses",
-    image: "/images/ride_on_scrubber.jpg",
-    highlightText: "Heavy-duty ride-on scrubbing with hospital-grade eco disinfectants.",
+    id: "airport-operations",
+    category: "OPERATIONS & COMPLIANCE",
+    title: "Aviation Terminal Protocol & Turnout",
+    metricBadge: "100% Turnout Record",
+    location: "Tiruchirappalli International Airport",
+    image: "/images/real_jsm_airport_drill.jpg",
+    highlightText: "High-stakes aviation passenger logistics, gate vigilance, and 24/7 supervisor command.",
   },
 ];
 

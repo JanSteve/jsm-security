@@ -30,7 +30,7 @@ const CASE_STUDIES = [
     title: "Trichy International Airport Operations",
     location: "Tiruchirappalli, Tamil Nadu",
     sector: "Civil Aviation & Public Infrastructure",
-    image: "/images/airport_operations.jpg",
+    image: "/images/real_jsm_airport_drill.jpg",
     icon: Plane,
     stats: [
       { label: "Security Breaches", val: "0 Incidents", highlight: true },
@@ -47,7 +47,7 @@ const CASE_STUDIES = [
     title: "Sriperumbudur Automotive Tier-1 Ancillary Plant",
     location: "Sriperumbudur / Oragadam SIPCOT, Chennai",
     sector: "Automotive Precision Manufacturing",
-    image: "/images/industrial_workforce.jpg",
+    image: "/images/real_jsm_shift_muster_day.jpg",
     icon: Factory,
     stats: [
       { label: "Annual Cost Savings", val: "22.4%", highlight: true },
@@ -64,7 +64,7 @@ const CASE_STUDIES = [
     title: "Coimbatore ELCOT IT Tech Park Campus",
     location: "Peelamedu, Coimbatore, Tamil Nadu",
     sector: "Information Technology & Commercial SEZ",
-    image: "/images/facility_lobby.jpg",
+    image: "/images/real_jsm_terminal_entry_salute.jpg",
     icon: Cpu,
     stats: [
       { label: "Vendor Consolidation", val: "2 to 1 Single SLA", highlight: true },
@@ -81,7 +81,7 @@ const CASE_STUDIES = [
     title: "Hosur Heavy Industrial Fabrication Complex",
     location: "SIPCOT Phase II, Hosur, Tamil Nadu",
     sector: "Heavy Engineering & Logistics",
-    image: "/images/protective_guard.jpg",
+    image: "/images/real_jsm_welcome_trichy_salute.jpg",
     icon: Building2,
     stats: [
       { label: "Surge Deployment Speed", val: "< 48 Hours", highlight: true },

@@ -76,7 +76,7 @@ export const servicesData: Service[] = [
       'Residential Societies & Commercial Gated Enclaves'
     ],
     icon: 'Shield',
-    heroImage: '/images/protective_guard.jpg',
+    heroImage: '/images/real_jsm_welcome_trichy_salute.jpg',
     complianceNotice: '100% PSARA Act (2005) compliant under the Controlling Authority, Home Department, Government of Tamil Nadu. Deployed guards are 100% Aadhaar & Police verified with mandatory 5-day pre-deployment training.',
     features: [
       { title: 'Ex-Servicemen & Private Marshals', description: 'Trained, vetted male and female guards backed by ex-defense supervisors.', icon: 'UserCheck' },
@@ -123,8 +123,8 @@ export const servicesData: Service[] = [
       'Corporate Offices & Utility Operations'
     ],
     icon: 'Users',
-    heroImage: '/images/industrial_workforce.jpg',
-    complianceNotice: '100% statutory adherence to the Minimum Wages Act of Tamil Nadu, EPF, and ESIC. Verified monthly ECR challans provided with every invoice for zero co-employer liability.',
+    heroImage: '/images/real_jsm_shift_muster_day.jpg',
+    complianceNotice: '100% EPF/ESIC compliant under the Ministry of Labour & Employment. Zero co-employer liability with verified monthly ECR challan submissions.',
     features: [
       { title: '48–72h Rapid Mobilization', description: 'Quick onboarding for seasonal surges, production peaks, and plant expansions.', icon: 'Zap' },
       { title: '100% Statutory EPF & ESIC ECR', description: 'Zero co-employer liability with transparent monthly government challan submissions.', icon: 'CheckCircle' },
@@ -169,7 +169,7 @@ export const servicesData: Service[] = [
       'Educational Institutions & Universities'
     ],
     icon: 'Sparkles',
-    heroImage: '/images/housekeeping_hygiene.jpg',
+    heroImage: '/images/real_jsm_terminal_entry_salute.jpg',
     complianceNotice: 'All housekeeping staff are deployed with complete safety gear (PPE), eco-certified cleaning chemicals, and full statutory PF/ESI coverage.',
     features: [
       { title: '5-Step Closed-Loop Hygiene', description: 'Clean → Inspect → Report → Correct → Verify workflow for pristine corporate presentation.', icon: 'CheckCircle' },
@@ -214,7 +214,7 @@ export const servicesData: Service[] = [
       'Manufacturers needing GeM & Tender Distribution'
     ],
     icon: 'FileText',
-    heroImage: '/images/hero_operations.jpg',
+    heroImage: '/images/real_jsm_airport_drill.jpg',
     complianceNotice: 'All tender activities adhere to CVC guidelines, GeM procurement norms, and Tamil Nadu Transparency in Tenders Act.',
     features: [
       { title: 'GeM Seller Listing & Bidding (JSM-04.5)', description: 'Product and service cataloging, L1 bid tracking, and direct purchase compliance.', icon: 'CheckCircle' },
@@ -260,7 +260,7 @@ export const servicesData: Service[] = [
       'Educational Institutions & Universities'
     ],
     icon: 'Monitor',
-    heroImage: '/images/portal_laptop.jpg',
+    heroImage: '/images/real_jsm_guard_squad_night.jpg',
     complianceNotice: 'All document scanning and digitalization operations comply with ISO document security norms and strict non-disclosure data privacy protocols.',
     features: [
       { title: 'Bulk Document Digitization (JSM-05.2)', description: 'High-speed flatbed and ADF scanning up to 1200 DPI for books, deeds, and case files.', icon: 'Layers' },
@@ -306,7 +306,7 @@ export const servicesData: Service[] = [
       'Businesses requiring E-way Bills & Online Filings'
     ],
     icon: 'UserCheck',
-    heroImage: '/images/facility_lobby.jpg',
+    heroImage: '/images/real_jsm_welcome_trichy_salute.jpg',
     complianceNotice: 'Operated strictly as per government portal guidelines and authorized citizen service facilitation norms.',
     features: [
       { title: 'Online Govt Application Assistance (JSM-06.1)', description: 'Guidance and submission on central, state, and municipal e-governance portals.', icon: 'CheckCircle' },
@@ -344,7 +344,7 @@ export const servicesData: Service[] = [
     description: 'JSM Integrated Services coordinates professional cash movement and valuables logistics support for retail chains, financial outlets, fuel stations, and corporate collections.',
     whoItIsFor: ['Retail Chains', 'Commercial Banks', 'Fuel Stations', 'Jewellery Showrooms'],
     icon: 'Banknote',
-    heroImage: '/images/hero_operations.jpg',
+    heroImage: '/images/real_jsm_airport_drill.jpg',
     features: [
       { title: 'Two-Person Custody Model', description: 'Strict dual-signoff handover procedures ensuring total asset accountability.', icon: 'Lock' },
       { title: 'Secure Route Planning', description: 'Planned transit windows and randomized movement schedules.', icon: 'MapPin' }
@@ -375,7 +375,7 @@ export const servicesData: Service[] = [
     description: 'From grand weddings and celebrity functions to corporate conferences and exhibitions, JSM provides hospitality-focused crowd coordination and VIP protection.',
     whoItIsFor: ['Wedding Planners', 'Corporate Summits', 'Exhibitions & Trade Fairs'],
     icon: 'Users',
-    heroImage: '/images/protective_guard.jpg',
+    heroImage: '/images/real_jsm_welcome_trichy_salute.jpg',
     features: [
       { title: 'Crowd & Gate Management', description: 'Smooth guest entry and queue control.', icon: 'Users' },
       { title: 'VIP Dignitary Escort', description: 'Dedicated protection details for high-profile guests.', icon: 'Shield' }
@@ -406,7 +406,7 @@ export const servicesData: Service[] = [
     description: 'JSM provides specialized operational support for real estate builders, safeguarding materials and providing courteous model flat concierges.',
     whoItIsFor: ['Builders & Developers', 'Auction Houses', 'Property Management'],
     icon: 'Building',
-    heroImage: '/images/facility_lobby.jpg',
+    heroImage: '/images/real_jsm_terminal_entry_salute.jpg',
     features: [
       { title: 'Construction Site Guarding', description: '24/7 material gate passes and night vigilance.', icon: 'Shield' },
       { title: 'Sales Gallery Hosting', description: 'Courteous concierge staff welcoming buyers.', icon: 'Users' }
@@ -437,7 +437,7 @@ export const servicesData: Service[] = [
     description: 'JSM builds streamlined digital tools for modern enterprises, from high-conversion websites to digital visitor logging systems.',
     whoItIsFor: ['SMEs', 'Property Developers', 'Healthcare Clinics'],
     icon: 'Monitor',
-    heroImage: '/images/portal_laptop.jpg',
+    heroImage: '/images/real_jsm_guard_squad_night.jpg',
     features: [
       { title: 'Digital Visitor Logging', description: 'Tablet-based check-ins replacing paper books.', icon: 'Tablet' },
       { title: 'High-Conversion Web Portals', description: 'Mobile-first fast web applications.', icon: 'Globe' }
@@ -468,7 +468,7 @@ export const servicesData: Service[] = [
     description: 'JSM Creative Media provides high-resolution photography, aerial drone surveys, and corporate videos for industrial facilities and events.',
     whoItIsFor: ['Corporate Brands', 'Industrial Plants', 'Real Estate Builders'],
     icon: 'Camera',
-    heroImage: '/images/facility_lobby.jpg',
+    heroImage: '/images/real_jsm_shift_muster_day.jpg',
     features: [
       { title: 'Facility Photography', description: 'High-resolution industrial and office interior captures.', icon: 'Camera' },
       { title: 'Event Videography', description: 'Cinematic documentation of corporate conferences.', icon: 'Video' }

@@ -32,7 +32,7 @@ const sixCoreVerticals = [
     tagline: "PSARA 2005 COMPLIANT • 2:00 AM SUPERVISOR AUDITS",
     badge: "SAC 998525 • CORE",
     workforce: "Ex-Servicemen (ESM) & Pvt Supervisors & Guards (Male & Female)",
-    image: "/images/protective_guard.jpg",
+    image: "/images/real_jsm_welcome_trichy_salute.jpg",
     highlight: "Zero-compromise physical guarding, strict gate access registers, 2:00 AM unannounced supervisor van spot-audits, and 2-Hour Relief SLA.",
     features: [
       "100% Police Verified & PSARA Licensed",
@@ -52,7 +52,7 @@ const sixCoreVerticals = [
     tagline: "48–72H RAPID DEPLOYMENT • 100% EPF/ESIC INDEMNITY",
     badge: "SAC 998513 • CORE",
     workforce: "Ex-Servicemen (ESM) & Pvt Supervisors & Workforce (Male & Female)",
-    image: "/images/industrial_workforce.jpg",
+    image: "/images/real_jsm_shift_muster_day.jpg",
     highlight: "Pre-trained industrial assembly operators, warehouse logistics staffing, and skilled trade workforce with complete statutory legal indemnity.",
     features: [
       "Rapid 48–72 Hour Mobilization",
@@ -72,13 +72,13 @@ const sixCoreVerticals = [
     tagline: "5-STEP CLOSED-LOOP HYGIENE • RIDE-ON AUTO SCRUBBERS",
     badge: "SAC 998533 • CORE",
     workforce: "Private (Pvt) Male & Female Facility Marshals",
-    image: "/images/housekeeping_hygiene.jpg",
-    highlight: "Industrial ride-on floor scrubbers, 5-step closed-loop sanitization (Clean → Inspect → Report → Correct → Verify), and eco consumables.",
+    image: "/images/real_jsm_terminal_entry_salute.jpg",
+    highlight: "Industrial facility upkeep, 5-step closed-loop sanitization (Clean → Inspect → Report → Correct → Verify), and eco consumables.",
     features: [
-      "Mechanized Auto Floor Scrubbing",
       "Hourly Signed Washroom Logs",
       "Hospital-Grade Eco Consumables",
-      "Cross-Contamination Color Coding"
+      "Cross-Contamination Color Coding",
+      "Terminal Access & Hygiene Standards"
     ],
     icon: Sparkles,
     ctaText: "Explore Facility Standards",
@@ -92,7 +92,7 @@ const sixCoreVerticals = [
     tagline: "GeM SELLER BIDDING • TAMIL NADU E-PROCUREMENT & PSU SUPPLY",
     badge: "GeM & PSU • CORE",
     workforce: "Tender Management & Commercial Contracts Team",
-    image: "/images/hero_operations.jpg",
+    image: "/images/real_jsm_airport_drill.jpg",
     highlight: "Turnkey government & corporate tender bidding, GeM Seller catalogue management, PSU supply delivery, and vendor administration.",
     features: [
       "GeM Seller Listing & Bidding (JSM-04.5)",
@@ -112,7 +112,7 @@ const sixCoreVerticals = [
     tagline: "UDYAM NIC 62099 • BULK DIGITIZATION & OCR CONVERSION",
     badge: "NIC 62099 • CORE",
     workforce: "Digital Operations & Technical Specialists",
-    image: "/images/portal_laptop.jpg",
+    image: "/images/real_jsm_guard_squad_night.jpg",
     highlight: "High-speed document scanning, optical character recognition (OCR), metadata indexing, electronic archiving, and enterprise IT network support.",
     features: [
       "Bulk Document Digitization (JSM-05.2)",
@@ -132,7 +132,7 @@ const sixCoreVerticals = [
     tagline: "E-GOVERNANCE FACILITATION • ONLINE APPLICATIONS & PORTALS",
     badge: "e-Governance • CORE",
     workforce: "Authorized CSC & Digital Facilitation Officers",
-    image: "/images/facility_lobby.jpg",
+    image: "/images/real_jsm_welcome_trichy_salute.jpg",
     highlight: "Assisting citizens and businesses with online government portal applications, digital form filling, document scanning, printing, and bill payments.",
     features: [
       "Online Govt Application Assistance (JSM-06.1)",

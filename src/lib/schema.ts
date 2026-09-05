@@ -37,7 +37,7 @@ export function localBusinessSchema() {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: brandData.name,
-    image: `${brandData.domain}/images/hero_operations.jpg`,
+    image: `${brandData.domain}/images/real_jsm_airport_drill.jpg`,
     '@id': brandData.domain,
     url: brandData.domain,
     email: brandData.contact.email,

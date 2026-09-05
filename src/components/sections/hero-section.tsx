@@ -31,7 +31,7 @@ const showcaseServices = [
     stat: "100%",
     statLabel: "Police Verified & Badged",
     desc: "5-day trained security guards, strict gate registers, and 2:00 AM unannounced supervisor night audits.",
-    image: "/images/protective_guard.jpg",
+    image: "/images/real_jsm_welcome_trichy_salute.jpg",
     tags: ["Aadhaar Verified", "2:00 AM Audits", "2-Hr Relief SLA"],
     color: "from-amber-500/20 via-transparent to-black/80",
     href: "/services/private-security"
@@ -44,7 +44,7 @@ const showcaseServices = [
     stat: "5-Step",
     statLabel: "Closed-Loop Sanitization",
     desc: "Daily protocol: Clean → Inspect → Report → Correct → Verify for luxury corporate lobbies and workspaces.",
-    image: "/images/housekeeping_hygiene.jpg",
+    image: "/images/real_jsm_terminal_entry_salute.jpg",
     tags: ["Eco Consumables", "Restroom Hourly Cycles", "Deep Scrubbing"],
     color: "from-blue-500/20 via-transparent to-black/80",
     href: "/services/housekeeping"
@@ -57,7 +57,7 @@ const showcaseServices = [
     stat: "48-72h",
     statLabel: "Rapid Deployment Window",
     desc: "Reliable helper, logistics, machine assistant, and warehouse workforce deployed across factories and hubs.",
-    image: "/images/industrial_workforce.jpg",
+    image: "/images/real_jsm_shift_muster_day.jpg",
     tags: ["100% EPF/ESI", "Minimum Wages", "Attendance App"],
     color: "from-emerald-500/20 via-transparent to-black/80",
     href: "/services/manpower"
@@ -70,7 +70,7 @@ const showcaseServices = [
     stat: "0",
     statLabel: "Breaches / Lapses",
     desc: "Executed passenger screening coordination, crowd management, and terminal flow at Trichy International Airport.",
-    image: "/images/airport_operations.jpg",
+    image: "/images/real_jsm_airport_drill.jpg",
     tags: ["Aviation Crowd Control", "High-Stakes Security", "Stakeholder Commended"],
     color: "from-purple-500/20 via-transparent to-black/80",
     href: "/case-studies"
