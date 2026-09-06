@@ -21,6 +21,8 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { brandData } from "@/data/brand";
+import { BorderBeam } from "@/components/ui/border-beam";
+import { ShimmerButton } from "@/components/ui/shimmer-button";
 
 const showcaseServices = [
   {
@@ -31,7 +33,7 @@ const showcaseServices = [
     stat: "100%",
     statLabel: "Police Verified & Badged",
     desc: "5-day trained security guards, strict gate registers, and 2:00 AM unannounced supervisor night audits.",
-    image: "/images/real_jsm_welcome_trichy_salute.jpg",
+    image: "/images/real_jsm_chariot_platoon.jpg",
     tags: ["Aadhaar Verified", "2:00 AM Audits", "2-Hr Relief SLA"],
     color: "from-amber-500/20 via-transparent to-black/80",
     href: "/services/private-security"
@@ -70,7 +72,7 @@ const showcaseServices = [
     stat: "0",
     statLabel: "Breaches / Lapses",
     desc: "Executed passenger screening coordination, crowd management, and terminal flow at Trichy International Airport.",
-    image: "/images/real_jsm_airport_drill.jpg",
+    image: "/images/real_jsm_airport_terminal_platoon.jpg",
     tags: ["Aviation Crowd Control", "High-Stakes Security", "Stakeholder Commended"],
     color: "from-purple-500/20 via-transparent to-black/80",
     href: "/case-studies"
@@ -150,12 +152,11 @@ export function HeroSection() {
 
           {/* Conversion Button Group */}
           <div className="flex flex-wrap gap-3 pt-1">
-            <Link
-              href="/get-quote"
-              className="inline-flex items-center justify-center bg-black hover:bg-zinc-900 text-white text-xs font-black tracking-widest px-7 h-12 rounded-full border-b-2 border-[#C5A880] shadow-xl hover:shadow-[0_0_30px_rgba(197,168,128,0.45)] hover:scale-[1.02] active:scale-95 transition-all uppercase group"
-            >
-              <span>GET INSTANT QUOTE</span>
-              <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform text-[#C5A880]" />
+            <Link href="/get-quote">
+              <ShimmerButton className="h-12 px-7">
+                <span>GET INSTANT QUOTE</span>
+                <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform text-[#C5A880]" />
+              </ShimmerButton>
             </Link>
 
             <a
@@ -194,6 +195,7 @@ export function HeroSection() {
         {/* Right Column: Dynamic Interactive Service Stage */}
         <div className="lg:col-span-6">
           <div className="relative w-full h-[400px] sm:h-[460px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl border border-zinc-300/80 group bg-black">
+            <BorderBeam size={250} duration={14} colorFrom="#C5A880" colorTo="transparent" />
             <AnimatePresence mode="wait">
               <motion.div
                 key={current.id}

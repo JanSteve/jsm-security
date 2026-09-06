@@ -75,7 +75,7 @@ export function Footer() {
               {brandData.tagline}
             </p>
             <p className="text-xs text-zinc-400 leading-relaxed">
-              Founded under Managing Director <strong>Sweety R</strong>, originating as <strong>JSMMANPOWER</strong> and proven by our landmark inaugural 2024 operations at <strong>Trichy International Airport</strong>.
+              Founded under Proprietor &amp; Managing Director <strong>Sweety J</strong>, originating as <strong>JSMMANPOWER</strong> and proven by our landmark inaugural 2024 operations at <strong>Trichy International Airport</strong>.
             </p>
             <div className="pt-2 text-xs text-zinc-400 space-y-2">
               <p className="flex items-center gap-2">
@@ -94,6 +94,47 @@ export function Footer() {
                 <MapPin size={14} className="text-[#C5A880] mt-0.5 flex-shrink-0" />
                 <span>{brandData.contact.address}</span>
               </p>
+            </div>
+
+            {/* Official Social Channels */}
+            <div className="pt-2">
+              <span className="text-[10px] font-mono font-bold text-zinc-500 uppercase tracking-wider block mb-2">
+                Official Channels
+              </span>
+              <div className="flex flex-wrap items-center gap-1.5">
+                <a
+                  href="https://www.linkedin.com/company/jsmintegratedservices"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-2.5 py-1 rounded-md bg-zinc-800/90 hover:bg-[#0077b5] hover:text-white text-zinc-400 text-[10px] font-mono font-bold transition-colors"
+                >
+                  LinkedIn
+                </a>
+                <a
+                  href="https://www.instagram.com/jsmintegratedservices"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-2.5 py-1 rounded-md bg-zinc-800/90 hover:bg-[#e4405f] hover:text-white text-zinc-400 text-[10px] font-mono font-bold transition-colors"
+                >
+                  Instagram
+                </a>
+                <a
+                  href="https://www.facebook.com/jsmintegratedservices"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-2.5 py-1 rounded-md bg-zinc-800/90 hover:bg-[#1877f2] hover:text-white text-zinc-400 text-[10px] font-mono font-bold transition-colors"
+                >
+                  Facebook
+                </a>
+                <a
+                  href="https://x.com/jsmintegrated"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-2.5 py-1 rounded-md bg-zinc-800/90 hover:bg-zinc-700 hover:text-white text-zinc-400 text-[10px] font-mono font-bold transition-colors"
+                >
+                  X (Twitter)
+                </a>
+              </div>
             </div>
           </div>
 
@@ -193,6 +234,12 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/email-signature" className="text-[#C5A880] hover:underline font-bold flex items-center gap-1">
+                  <span>Corporate Email Signature</span>
+                  <span className="text-[9px] bg-blue-500/20 text-blue-400 px-1.5 py-0.5 rounded">OUTLOOK</span>
+                </Link>
+              </li>
+              <li>
                 <Link href="/lead-generation" className="text-white hover:text-[#C5A880] font-bold flex items-center gap-1">
                   <span>B2B Quotation Engine</span>
                   <span className="text-[9px] bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded">&lt;60m SLA</span>
@@ -226,7 +273,7 @@ export function Footer() {
         {/* Bottom Bar & Anti-Hallucination Disclaimer */}
         <div className="border-t border-zinc-800/80 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
           <div className="space-y-1 text-center md:text-left">
-            <p>© {new Date().getFullYear()} JSM INTEGRATED SERVICES. All rights reserved. Registered domain: jsmintegratedservices.in</p>
+            <p>© {new Date().getFullYear()} JSM INTEGRATED SERVICES. All rights reserved. Registered domain: jsmintegratedservices.com</p>
             <p className="text-[11px] text-zinc-600">
               Operational compliance: Guarding, housekeeping, and staffing deployments adhere strictly to applicable statutory norms, verified identity checks, and client-specific Service Level Agreements.
             </p>

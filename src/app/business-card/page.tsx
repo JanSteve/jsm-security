@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Download, ArrowLeft, QrCode, Sparkles, CheckCircle2 } from "lucide-react";
 
 export default function BusinessCardPage() {
-  const [activeSide, setActiveSide] = useState<"front" | "back">("front");
+  const [activeSide, setActiveSide] = useState<"front" | "back" | "physical">("front");
 
   return (
     <main className="min-h-screen bg-[#07090E] text-white pt-28 pb-20 px-4 sm:px-6 md:px-12 selection:bg-[#C5A880] selection:text-black">
@@ -31,17 +31,17 @@ export default function BusinessCardPage() {
             Official Executive <span className="text-[#C5A880]">Business Card</span>
           </h1>
           <p className="text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto">
-            Standard 3.5&quot; × 2.0&quot; dual-sided executive cards engineered for Proprietor Sweety R and Operations Head Major AR Devadoss (Army-Veteran).
+            Standard 3.5&quot; × 2.0&quot; executive cards engineered for Proprietor <strong>Sweety J</strong>, Operations Head <strong>Major AR Devadoss (Army-Veteran)</strong>, and CTO &amp; Audit <strong>R Jan Steve Daniel</strong>.
           </p>
         </div>
 
         {/* Toggle Switcher */}
         <div className="flex justify-center">
-          <div className="bg-zinc-900 p-1.5 rounded-2xl border border-zinc-800 flex items-center gap-2 shadow-lg">
+          <div className="bg-zinc-900 p-1.5 rounded-2xl border border-zinc-800 flex flex-wrap items-center justify-center gap-2 shadow-lg">
             <button
               type="button"
               onClick={() => setActiveSide("front")}
-              className={`px-6 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+              className={`px-5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                 activeSide === "front"
                   ? "bg-[#C5A880] text-black shadow-md"
                   : "text-zinc-400 hover:text-white"
@@ -52,7 +52,7 @@ export default function BusinessCardPage() {
             <button
               type="button"
               onClick={() => setActiveSide("back")}
-              className={`px-6 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+              className={`px-5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                 activeSide === "back"
                   ? "bg-[#C5A880] text-black shadow-md"
                   : "text-zinc-400 hover:text-white"
@@ -60,13 +60,24 @@ export default function BusinessCardPage() {
             >
               Card Back (QR Code &amp; 6 Verticals)
             </button>
+            <button
+              type="button"
+              onClick={() => setActiveSide("physical")}
+              className={`px-5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                activeSide === "physical"
+                  ? "bg-emerald-500 text-black shadow-md"
+                  : "text-emerald-400 hover:text-white"
+              }`}
+            >
+              ★ Physical Printed Card Proof
+            </button>
           </div>
         </div>
 
         {/* Card Stage Preview */}
         <div className="flex justify-center">
-          <div className="relative w-full max-w-[680px] aspect-[1050/600] rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.8)] border-2 border-zinc-700/60 transition-all">
-            {activeSide === "front" ? (
+          <div className="relative w-full max-w-[680px] aspect-[1050/600] rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.8)] border-2 border-zinc-700/60 transition-all bg-zinc-950">
+            {activeSide === "front" && (
               <Image
                 src="/images/jsm_business_card_front.png"
                 alt="JSM Business Card Front View"
@@ -74,12 +85,22 @@ export default function BusinessCardPage() {
                 className="object-cover"
                 priority
               />
-            ) : (
+            )}
+            {activeSide === "back" && (
               <Image
                 src="/images/jsm_business_card_back.png"
                 alt="JSM Business Card Back View"
                 fill
                 className="object-cover"
+                priority
+              />
+            )}
+            {activeSide === "physical" && (
+              <Image
+                src="/images/real_jsm_printed_card.jpg"
+                alt="Authentic Printed Business Card of JSM Integrated Services"
+                fill
+                className="object-contain p-2"
                 priority
               />
             )}

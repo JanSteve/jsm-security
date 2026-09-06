@@ -1,6 +1,7 @@
 import { 
   HeroSection, 
   TrustBar, 
+  FlagshipBentoGrid,
   Scroll3DShowcase,
   ServicesOverview, 
   OperationalCalculator,
@@ -70,6 +71,7 @@ export default function Home() {
       {/* Enterprise Visual & Operational Flow */}
       <HeroSection />
       <TrustBar />
+      <FlagshipBentoGrid />
       <Scroll3DShowcase />
       <VisualTransformationGallery />
       <ServicesOverview />

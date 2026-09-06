@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers";
 import { Header } from "@/components/layout/header";
@@ -12,17 +11,8 @@ import { Analytics } from "@vercel/analytics/react";
 import { brandData } from "@/data/brand";
 import { cn } from "@/lib/utils";
 
-const inter = Inter({ 
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const plusJakartaSans = Plus_Jakarta_Sans({ 
-  subsets: ["latin"],
-  variable: "--font-plus-jakarta-sans",
-  display: "swap",
-});
+const inter = { variable: "font-sans" };
+const plusJakartaSans = { variable: "font-sans" };
 
 export const metadata: Metadata = {
   metadataBase: new URL(brandData.domain),
@@ -48,7 +38,7 @@ export const metadata: Metadata = {
     "JSM Integrated Services",
     "One Partner Every Solution"
   ],
-  authors: [{ name: "Sweety R (Managing Director)" }, { name: "JSM Operations Team" }],
+  authors: [{ name: "Sweety J (Proprietor & Managing Director)" }, { name: "JSM Operations Team" }],
   creator: brandData.name,
   publisher: brandData.name,
   openGraph: {

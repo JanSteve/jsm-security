@@ -101,7 +101,7 @@ Originating from **JSMMANPOWER** and proven by our landmark inaugural operations
 
 *Schedule your complimentary on-site physical security and facility hygiene assessment today.*`,
     category: 'Operations & Strategy',
-    author: 'Sweety R (Managing Director, JSM Integrated Services)',
+    author: 'Sweety J (Managing Director, JSM Integrated Services)',
     date: '2026-08-31',
     readTime: '9 min read',
     metaTitle: 'Security & Facility Management Guide Tamil Nadu 2026 | JSM Integrated',
@@ -188,7 +188,7 @@ Let operations professionals handle the operational discipline.
 
 **One Partner. Every Solution.**`,
     category: 'Operations & Strategy',
-    author: 'Sweety R (Managing Director, JSM Integrated Services)',
+    author: 'Sweety J (Managing Director, JSM Integrated Services)',
     date: '2025-01-10',
     readTime: '8 min read',
     metaTitle: 'The Cost of Five Vendors: Why Integrated Facility Management Wins | JSM',
@@ -231,7 +231,7 @@ Whether we are securing an international transit hub, deploying housekeeping cre
 
 The gate is only the beginning. The discipline behind it is the true service.`,
     category: 'Operations & Strategy',
-    author: 'Sweety R (Managing Director, JSM Integrated Services)',
+    author: 'Sweety J (Managing Director, JSM Integrated Services)',
     date: '2024-12-01',
     readTime: '6 min read',
     metaTitle: 'The Gate Is Only the Beginning | JSM Integrated Services Philosophy',
@@ -411,7 +411,7 @@ The hallmarks of a truly professional security guard are:
 * **Logbook Precision**: Writing down accurate vehicle numbers, visitor names, and shift handover notes clearly.
 * **Punctuality & Turnout**: Standing in an ironed uniform, clean boots, and reporting for duty 15 minutes before the shift bell rings.`,
     category: 'Security & Guarding',
-    author: 'Sweety R (Managing Director)',
+    author: 'Sweety J (Managing Director)',
     date: '2024-08-10',
     readTime: '4 min read',
     metaTitle: 'What Makes a Professional Security Guard | JSM Integrated Services',

@@ -249,7 +249,7 @@ export default function LeadGenerationPage() {
                   Quotation Request Received!
                 </h3>
                 <p className="text-xs sm:text-sm text-zinc-600">
-                  Thank you, <strong>{formData.name}</strong>. Your requirement has been routed directly to Operations Head <strong>Major AR Devadoss (Army-Veteran)</strong> and Managing Director <strong>Sweety R</strong>.
+                  Thank you, <strong>{formData.name}</strong>. Your requirement has been routed directly to Operations Head <strong>Major AR Devadoss (Army-Veteran)</strong> and Managing Director <strong>Sweety J</strong>.
                 </p>
               </div>
 

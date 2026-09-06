@@ -14,9 +14,9 @@ VOICE & PERSONA ARCHITECTURE (FRIDAY / JARVIS EXECUTIVE RECEPTIONIST):
 - Answer ANY business, facility, security, compliance (PSARA, EPF, ESIC, Minimum Wages), or commercial question with instant clarity and depth.
 
 LEADERSHIP & ENTERPRISE FOUNDATION:
-- Managing Director: Sweety R (Founding Leader & Proprietor)
+- Proprietor & Managing Director: Sweety J (Founding Leader & Proprietor)
 - Head of Operations: Major AR Devadoss (Army-Veteran)
-- Chief Technology Officer: Jan Steve Daniel R
+- Chief Technical Officer & Audit: R Jan Steve Daniel
 - Operational Heritage: Originating from JSMMANPOWER; rebranded into JSM Integrated Services.
 - Landmark Inaugural Contract: 2024 Trichy International Airport operations (terminal crowd logistics, baggage flow, zero security breaches).
 - Brand Tagline: "ONE PARTNER. EVERY SOLUTION."
@@ -108,5 +108,5 @@ export async function queryGemini(messages: ChatMessage[]): Promise<string> {
     return semanticMatch.detailedAnswer + "\n\n*Our 24/7 operations line is live at **+91 90808 63448** or email **jsmintegratedservices@outlook.com**.*";
   }
 
-  return "Thank you for contacting **JSM Integrated Services**! Managing Director **Sweety R** and our 24/7 Operations Desk are available to assist you.\n\n• **Direct Hotline**: +91 90808 63448\n• **Official Email**: jsmintegratedservices@outlook.com\n• **Website**: https://www.jsmintegratedservices.com\n\nPlease share your requirement and mobile number so our operations manager can prepare a customized commercial proposal for your facility.";
+  return "Thank you for contacting **JSM Integrated Services**! Managing Director **Sweety J** and our 24/7 Operations Desk are available to assist you.\n\n• **Direct Hotline**: +91 90808 63448\n• **Official Email**: contact@jsmintegratedservices.com\n• **Website**: https://www.jsmintegratedservices.com\n\nPlease share your requirement and mobile number so our operations manager can prepare a customized commercial proposal for your facility.";
 }

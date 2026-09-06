@@ -12,8 +12,8 @@ export function organizationSchema() {
     email: brandData.contact.email,
     founder: {
       '@type': 'Person',
-      name: 'Sweety R',
-      jobTitle: 'Managing Director'
+      name: 'Sweety J',
+      jobTitle: 'Proprietor & Managing Director'
     },
     address: {
       '@type': 'PostalAddress',

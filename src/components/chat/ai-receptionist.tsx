@@ -56,7 +56,7 @@ export function AIReceptionist() {
     {
       id: "welcome-1",
       role: "assistant",
-      content: `Namaste! I am **Priya**, Executive Client Solutions Officer for **JSM Integrated Services** under Managing Director **Sweety R**.\n\nHow can I assist your facility or workforce requirements today? You can ask about our **rates**, our **Trichy Airport landmark contract**, **5-day induction training**, or calculate an instant estimate below.`,
+      content: `Namaste! I am **Priya**, Executive Client Solutions Officer for **JSM Integrated Services** under Managing Director **Sweety J**.\n\nHow can I assist your facility or workforce requirements today? You can ask about our **rates**, our **Trichy Airport landmark contract**, **5-day induction training**, or calculate an instant estimate below.`,
       timestamp: "Just now",
     }
   ]);
@@ -402,7 +402,7 @@ export function AIReceptionist() {
                       {
                         id: `welcome-${Date.now()}`,
                         role: "assistant",
-                        content: `Namaste! I am **Priya**, Executive Client Solutions Officer for **JSM Integrated Services** under Managing Director **Sweety R**.\n\nHow can I assist your facility or workforce requirements today? You can ask about our **rates**, our **Trichy Airport landmark contract**, **5-day induction training**, or calculate an instant estimate below.`,
+                        content: `Namaste! I am **Priya**, Executive Client Solutions Officer for **JSM Integrated Services** under Managing Director **Sweety J**.\n\nHow can I assist your facility or workforce requirements today? You can ask about our **rates**, our **Trichy Airport landmark contract**, **5-day induction training**, or calculate an instant estimate below.`,
                         timestamp: "Just now",
                       }
                     ]);

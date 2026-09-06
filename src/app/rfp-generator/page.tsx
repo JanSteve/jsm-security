@@ -582,8 +582,8 @@ export default function RfpGeneratorPage() {
                 </div>
                 <div className="text-right">
                   <span className="text-zinc-500 block text-[10px]">AUTHORIZED EXECUTIVE SIGN-OFF</span>
-                  <span className="font-bold text-black">Sweety R</span>
-                  <span className="block text-zinc-600">Managing Director</span>
+                  <span className="font-bold text-black">Sweety J</span>
+                  <span className="block text-zinc-600">Proprietor &amp; Managing Director</span>
                 </div>
               </div>
 

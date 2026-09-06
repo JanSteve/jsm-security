@@ -12,10 +12,10 @@ const FREE_MODELS = [
   "qwen/qwen-2.5-72b-instruct:free"
 ];
 
-const JSM_SYSTEM_PROMPT = `You are "JSM Priya", the official Executive AI Receptionist, Commercial Solutions Specialist, and Operations Advisor for JSM INTEGRATED SERVICES (Official Domain: jsmintegratedservices.in | Email: jsmintegratedservices@outlook.com).
+const JSM_SYSTEM_PROMPT = `You are "JSM Priya", the official Executive AI Receptionist, Commercial Solutions Specialist, and Operations Advisor for JSM INTEGRATED SERVICES (Official Domain: jsmintegratedservices.com | Email: jsmintegratedservices@outlook.com).
 
 EXECUTIVE & COMPANY PROFILE:
-- Managing Director: Sweety R
+- Managing Director: Sweety J
 - Chief Technology Officer: Jan Steve Daniel R
 - Chief Executive Officer: Richard A
 - Operational Roots: Founded as JSMMANPOWER; rebranded to JSM Integrated Services as a unified operations partner.
@@ -72,7 +72,7 @@ export async function queryOpenRouter(messages: ChatMessage[]): Promise<string> 
           method: "POST",
           headers: {
             "Authorization": `Bearer ${apiKey}`,
-            "HTTP-Referer": "https://jsmintegratedservices.in",
+            "HTTP-Referer": "https://jsmintegratedservices.com",
             "X-Title": "JSM Integrated Services AI Receptionist",
             "Content-Type": "application/json"
           },
@@ -125,5 +125,5 @@ function fallbackReceptionistResponse(userQuery: string): string {
     return "Our Housekeeping & Facility Management division operates on our structured **5-Step Hygiene Framework**: Clean → Inspect → Report → Correct → Verify.\n\nWe handle daily corporate office sanitization, hourly restroom cycles, and periodic deep scrubbing with modern equipment.\n\nMay I have your **Name, Location, and Property Type** to prepare a facility maintenance blueprint?";
   }
 
-  return "Thank you for reaching out to **JSM Integrated Services**.\n\nOur team delivers disciplined operational solutions across Tamil Nadu under Managing Director **Sweety R**. We specialize in Private Security, Housekeeping, Manpower Staffing, and Cash Logistics.\n\nTo help you with an exact answer or quotation, please share your requirement details or contact number!";
+  return "Thank you for reaching out to **JSM Integrated Services**.\n\nOur team delivers disciplined operational solutions across Tamil Nadu under Managing Director **Sweety J**. We specialize in Private Security, Housekeeping, Manpower Staffing, and Cash Logistics.\n\nTo help you with an exact answer or quotation, please share your requirement details or contact number!";
 }

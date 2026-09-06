@@ -9,9 +9,9 @@ export const brandData = {
   
   leadership: [
     {
-      name: "Sweety R",
-      role: "Managing Director",
-      bio: "Founding leader driving the strategic vision, operational governance, and statutory compliance of JSM Integrated Services."
+      name: "Sweety J",
+      role: "Proprietor & Managing Director",
+      bio: "Founding proprietor and managing director driving the strategic vision, statutory governance, and operational execution of JSM Integrated Services."
     },
     {
       name: "Major AR Devadoss (Army-Veteran)",
@@ -19,9 +19,9 @@ export const brandData = {
       bio: "Decorated Indian Army veteran directing enterprise security deployments, tactical operations, supervisory audits, and field discipline across South India."
     },
     {
-      name: "Jan Steve Daniel R",
-      role: "Chief Technology Officer",
-      bio: "Leading technology-enabled operations, digital attendance systems, OCR scanning digitization, and client command platforms."
+      name: "R Jan Steve Daniel",
+      role: "Chief Technical Officer & Audit",
+      bio: "Directing technology-enabled operations, digital attendance systems, OCR scanning digitization, statutory compliance audits, and client command platforms."
     }
   ],
 

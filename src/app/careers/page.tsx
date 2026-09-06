@@ -4,7 +4,8 @@ import React, { useState } from "react";
 import { openRoles, inductionPhilosophy, careerProgressionSteps, CareerRole } from "@/data/careers";
 import { brandData } from "@/data/brand";
 import { breadcrumbSchema } from "@/lib/schema";
-import { ArrowRight, CheckCircle2, Award, Users, TrendingUp, Briefcase, MapPin, Clock, Send, MessageCircle, Sparkles, Mail } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, CheckCircle2, Award, Users, TrendingUp, Briefcase, MapPin, Clock, Send, MessageCircle, Sparkles, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -116,6 +117,65 @@ export default function CareersPage() {
                 <p className="text-[11px] text-zinc-400 leading-snug">{step.desc}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Featured Industrial Staffing Section */}
+        <section className="mb-20 max-w-5xl mx-auto bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950 text-white rounded-3xl p-6 sm:p-10 border border-zinc-800 shadow-2xl">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            <div className="md:col-span-5 flex justify-center">
+              <div className="relative aspect-[3/4] w-full max-w-[300px] rounded-2xl overflow-hidden border-2 border-[#C5A880]/40 shadow-xl group">
+                <Image
+                  src="/images/real_jsm_fabrication_hiring.jpg"
+                  alt="JSM Outsourcing Services Fabrication Industry Hiring Poster"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            </div>
+
+            <div className="md:col-span-7 space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-xs font-mono font-bold">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>ACTIVE INDUSTRIAL RECRUITMENT • TAMIL NADU</span>
+              </div>
+
+              <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
+                Fabrication Industry Hiring: Block &amp; Pipe Fabrication
+              </h2>
+
+              <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal">
+                JSM Outsourcing Services is actively recruiting skilled technical manpower for heavy engineering, manufacturing, and fabrication industries across Tamil Nadu and South India.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 text-xs">
+                <div className="p-3 rounded-xl bg-zinc-900/90 border border-zinc-800">
+                  <span className="text-[#C5A880] font-bold block">1. Block Fabrication</span>
+                  <span className="text-zinc-400 text-[11px]">Industrial assembly &amp; structural fitting</span>
+                </div>
+                <div className="p-3 rounded-xl bg-zinc-900/90 border border-zinc-800">
+                  <span className="text-[#C5A880] font-bold block">2. Pipe Fabrication</span>
+                  <span className="text-zinc-400 text-[11px]">Heavy line pipeline fitting &amp; cutting</span>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-3 pt-3 border-t border-zinc-800">
+                <a
+                  href="https://wa.me/919600852141?text=Hello%20JSM,%20I%20am%20applying%20for%20the%20Fabrication%20Industry%20job."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-md transition-all font-mono"
+                >
+                  <MessageCircle size={14} /> WhatsApp: 9600852141
+                </a>
+                <a
+                  href="mailto:manpowerr@gmail.com?subject=Fabrication%20Industry%20Application"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-zinc-100 text-black font-bold text-xs shadow-md transition-all"
+                >
+                  <Mail size={14} /> Apply via Email
+                </a>
+              </div>
+            </div>
           </div>
         </section>
 

@@ -35,7 +35,7 @@ export const JSM_ENTERPRISE_KNOWLEDGE: KnowledgeTopic[] = [
     keywords: ['trichy airport', 'airport contract', 'airport project', 'civil aviation', 'first assignment', 'history', 'experience', 'track record', 'established'],
     title: '2024 Trichy International Airport Landmark Assignment',
     summary: 'Our foundational high-stakes civil aviation operational project.',
-    detailedAnswer: `In 2024, JSM Integrated Services (founded originally as JSMMANPOWER under Managing Director Sweety R) executed the landmark operations and security support contract at **Trichy International Airport (Tiruchirappalli)**.
+    detailedAnswer: `In 2024, JSM Integrated Services (founded originally as JSMMANPOWER under Managing Director Sweety J) executed the landmark operations and security support contract at **Trichy International Airport (Tiruchirappalli)**.
 
 **Key Highlights:**
 • Managed high-density passenger screening flow, terminal security assistance, and gate access discipline.
@@ -119,7 +119,7 @@ export const JSM_ENTERPRISE_KNOWLEDGE: KnowledgeTopic[] = [
 • **Surprise Field Visits**: Mobile Operations Officers conduct unannounced physical site checks between **11:00 PM and 04:00 AM**.
 • **Checkpoint Clocking**: Guard tour verification registers and perimeter patrols.
 • **2-Hour Rapid Replacement Guarantee**: If an assigned guard is absent or unwell, our active reserve pool deploys a trained replacement within **120 minutes**.
-• **Direct Leadership Line**: 24/7 escalation hotline directly connected to Managing Director Sweety R's operations desk.`,
+• **Direct Leadership Line**: 24/7 escalation hotline directly connected to Managing Director Sweety J's operations desk.`,
     suggestedFollowups: ['Request emergency guard deployment', 'What is your escalation protocol?', 'Contact Operations Desk'],
     ctaType: 'email'
   },
@@ -147,9 +147,9 @@ export const JSM_ENTERPRISE_KNOWLEDGE: KnowledgeTopic[] = [
     summary: '24/7 Active Operations Desk & Executive Office.',
     detailedAnswer: `You can reach JSM Integrated Services immediately through:
 
-• **Email (Fastest):** jsmintegratedservices@outlook.com
-• **Trichy Headquarters:** No.62/50, EVR Road, Puthur, Trichy - 620017, Tamil Nadu, India.
-• **Executive Leadership**: Sweety R (Managing Director), Jan Steve Daniel R (CTO), Richard A (CEO).`,
+• **Email (Fastest):** contact@jsmintegratedservices.com
+• **Trichy Headquarters:** Plot No: 112, SF No 122, RVS Nagar, Kottapattu Post, Tiruchirappalli - 620 021, Tamil Nadu, India.
+• **Executive Leadership**: Sweety J (Managing Director), Major AR Devadoss (Army-Veteran, Head of Operations), R Jan Steve Daniel (Chief Technical Officer & Audit).`,
     suggestedFollowups: ['Send an email inquiry', 'Book site assessment'],
     ctaType: 'assessment'
   }

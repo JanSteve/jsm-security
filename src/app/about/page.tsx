@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 
 export const metadata = {
   title: "About JSM — The Architecture of Excellence",
-  description: "Learn how JSM Integrated Services was founded under Sweety R, originating as JSMMANPOWER and proven by our landmark 2024 Trichy International Airport assignment.",
+  description: "Learn how JSM Integrated Services was founded under Sweety J, originating as JSMMANPOWER and proven by our landmark 2024 Trichy International Airport assignment.",
 };
 
 export default function AboutPage() {
@@ -50,7 +50,7 @@ export default function AboutPage() {
                 Our Origin
               </h2>
               <p className="text-sm sm:text-base text-zinc-600 leading-relaxed font-normal">
-                A vision for disciplined service. Born from a recognition that traditional security and facility management lacked systematic rigor, JSM was founded under Managing Director <strong>Sweety R</strong>, originally established as <strong>JSMMANPOWER</strong>, to bring engineering precision to human-centric services.
+                A vision for disciplined service. Born from a recognition that traditional security and facility management lacked systematic rigor, JSM was founded under Proprietor &amp; Managing Director <strong>Sweety J</strong>, originally established as <strong>JSMMANPOWER</strong>, to bring engineering precision to human-centric services.
               </p>
               <p className="text-sm sm:text-base text-zinc-600 leading-relaxed font-normal">
                 In <strong>2024</strong>, our operational framework was tested and proven at scale through our landmark operations contract at <strong>Trichy International Airport (Tiruchirappalli)</strong>. Managing civil aviation passenger flows, gate access control, and 24/7 terminal coordination forged the zero-compromise standards that define JSM today.
@@ -69,8 +69,8 @@ export default function AboutPage() {
               <div className="aspect-square bg-white rounded-3xl overflow-hidden border border-zinc-200/80 shadow-xl relative p-3">
                 <div className="relative w-full h-full rounded-2xl overflow-hidden">
                   <Image
-                    src="/images/real_jsm_airport_drill.jpg"
-                    alt="JSM Guard Night Drill Inspection at Trichy International Airport"
+                    src="/images/real_jsm_airport_terminal_platoon.jpg"
+                    alt="Managing Director Sweety J seated with full JSM Guard Platoon at Trichy International Airport"
                     fill
                     className="object-cover"
                   />
@@ -82,7 +82,7 @@ export default function AboutPage() {
                       "There is no shortcut to trust — it is earned shift by shift, report by report, client by client."
                     </p>
                     <span className="text-[10px] text-zinc-400 mt-1 font-mono">
-                      Trichy International Airport • Zero Security Lapses Benchmark
+                      Trichy International Airport • MD Sweety J &amp; Security Platoon
                     </span>
                   </div>
                 </div>
@@ -106,68 +106,118 @@ export default function AboutPage() {
               </span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {/* Photo 1: City Arch */}
-              <div className="bg-white p-2.5 rounded-2xl border border-zinc-200 shadow-xs space-y-2 group">
-                <div className="relative h-48 w-full rounded-xl overflow-hidden">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {/* Photo 1: Airport Terminal Concourse Platoon */}
+              <div className="bg-white p-3 rounded-2xl border border-zinc-200 shadow-xs space-y-2.5 group">
+                <div className="relative h-52 w-full rounded-xl overflow-hidden">
                   <Image
-                    src="/images/real_jsm_welcome_trichy_salute.jpg"
-                    alt="Welcome to Tiruchirappalli Guard Salute"
+                    src="/images/real_jsm_airport_terminal_platoon.jpg"
+                    alt="Managing Director Sweety J with Security Platoon at Trichy Airport"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
+                  <div className="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/80 text-[#C5A880] text-[9px] font-mono font-bold uppercase">
+                    Trichy Airport
+                  </div>
                 </div>
                 <div className="p-1">
-                  <h4 className="text-xs font-black text-black">Gateway Vigilance</h4>
-                  <p className="text-[11px] text-zinc-500 font-medium">Tiruchirappalli City Entrance Arch salute.</p>
+                  <h4 className="text-xs font-black text-black">Airport Concourse Platoon</h4>
+                  <p className="text-[11px] text-zinc-500 font-medium">MD Sweety J seated with full uniformed security platoon at Trichy Airport.</p>
                 </div>
               </div>
 
-              {/* Photo 2: Terminal Entry D6 */}
-              <div className="bg-white p-2.5 rounded-2xl border border-zinc-200 shadow-xs space-y-2 group">
-                <div className="relative h-48 w-full rounded-xl overflow-hidden">
+              {/* Photo 2: Heritage Landmark Chariot Platoon */}
+              <div className="bg-white p-3 rounded-2xl border border-zinc-200 shadow-xs space-y-2.5 group">
+                <div className="relative h-52 w-full rounded-xl overflow-hidden">
                   <Image
-                    src="/images/real_jsm_terminal_entry_salute.jpg"
-                    alt="Terminal Gate D6 Access Control"
+                    src="/images/real_jsm_chariot_platoon.jpg"
+                    alt="JSM Guard Platoon and Sweety J at Heritage Monument Chariot Mural"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
+                  <div className="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/80 text-[#C5A880] text-[9px] font-mono font-bold uppercase">
+                    Heritage Sector
+                  </div>
                 </div>
                 <div className="p-1">
-                  <h4 className="text-xs font-black text-black">Terminal Access Control</h4>
-                  <p className="text-[11px] text-zinc-500 font-medium">Passenger gate D6 verification standing orders.</p>
+                  <h4 className="text-xs font-black text-black">Platoon Honor Guard</h4>
+                  <p className="text-[11px] text-zinc-500 font-medium">Uniformed guard squad in full ceremonial turnout under monument chariot mural.</p>
                 </div>
               </div>
 
-              {/* Photo 3: Shift Muster */}
-              <div className="bg-white p-2.5 rounded-2xl border border-zinc-200 shadow-xs space-y-2 group">
-                <div className="relative h-48 w-full rounded-xl overflow-hidden">
+              {/* Photo 3: Official Printed Business Card Proof */}
+              <div className="bg-white p-3 rounded-2xl border border-zinc-200 shadow-xs space-y-2.5 group">
+                <div className="relative h-52 w-full rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/real_jsm_printed_card.jpg"
+                    alt="Authentic Printed Business Card of JSM Integrated Services"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/80 text-[#C5A880] text-[9px] font-mono font-bold uppercase">
+                    Official Proof
+                  </div>
+                </div>
+                <div className="p-1">
+                  <h4 className="text-xs font-black text-black">Corporate Card Proof</h4>
+                  <p className="text-[11px] text-zinc-500 font-medium">Official printed cards of Sweety J (Proprietor &amp; MD) and Major AR Devadoss.</p>
+                </div>
+              </div>
+
+              {/* Photo 4: Fabrication Industry Hiring */}
+              <div className="bg-white p-3 rounded-2xl border border-zinc-200 shadow-xs space-y-2.5 group">
+                <div className="relative h-52 w-full rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/real_jsm_fabrication_hiring.jpg"
+                    alt="JSM Fabrication Industry Recruitment Flyer"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/80 text-emerald-400 text-[9px] font-mono font-bold uppercase">
+                    Manpower Supply
+                  </div>
+                </div>
+                <div className="p-1">
+                  <h4 className="text-xs font-black text-black">Fabrication Industry Staffing</h4>
+                  <p className="text-[11px] text-zinc-500 font-medium">Active staffing for Block &amp; Pipe fabrication with 100% EPF/ESI legal indemnity.</p>
+                </div>
+              </div>
+
+              {/* Photo 5: Shift Muster */}
+              <div className="bg-white p-3 rounded-2xl border border-zinc-200 shadow-xs space-y-2.5 group">
+                <div className="relative h-52 w-full rounded-xl overflow-hidden">
                   <Image
                     src="/images/real_jsm_shift_muster_day.jpg"
                     alt="Daytime Shift Briefing and Roll Call"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
+                  <div className="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/80 text-[#C5A880] text-[9px] font-mono font-bold uppercase">
+                    Field Protocol
+                  </div>
                 </div>
                 <div className="p-1">
                   <h4 className="text-xs font-black text-black">Daily Shift Briefing</h4>
-                  <p className="text-[11px] text-zinc-500 font-medium">Pre-shift muster and duty allocation.</p>
+                  <p className="text-[11px] text-zinc-500 font-medium">Pre-shift muster, radio communications check, and duty post allocation.</p>
                 </div>
               </div>
 
-              {/* Photo 4: Night Squad */}
-              <div className="bg-white p-2.5 rounded-2xl border border-zinc-200 shadow-xs space-y-2 group">
-                <div className="relative h-48 w-full rounded-xl overflow-hidden">
+              {/* Photo 6: Terminal Entry Salute */}
+              <div className="bg-white p-3 rounded-2xl border border-zinc-200 shadow-xs space-y-2.5 group">
+                <div className="relative h-52 w-full rounded-xl overflow-hidden">
                   <Image
-                    src="/images/real_jsm_guard_squad_night.jpg"
-                    alt="Night Security Platoon Lineup"
+                    src="/images/real_jsm_terminal_entry_salute.jpg"
+                    alt="Terminal Gate D6 Access Control"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
+                  <div className="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/80 text-[#C5A880] text-[9px] font-mono font-bold uppercase">
+                    Access Control
+                  </div>
                 </div>
                 <div className="p-1">
-                  <h4 className="text-xs font-black text-black">Night Platoon Squad</h4>
-                  <p className="text-[11px] text-zinc-500 font-medium">Vetted uniform turnout with night supervisors.</p>
+                  <h4 className="text-xs font-black text-black">Terminal Access Control</h4>
+                  <p className="text-[11px] text-zinc-500 font-medium">Passenger gate D6 verification standing orders and protocol compliance.</p>
                 </div>
               </div>
             </div>
