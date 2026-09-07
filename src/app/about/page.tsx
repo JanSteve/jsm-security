@@ -106,118 +106,61 @@ export default function AboutPage() {
               </span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {/* Photo 1: Airport Terminal Concourse Platoon */}
-              <div className="bg-[#f5f5f7] p-3 rounded-[24px] border border-black/[0.06] shadow-sm space-y-2.5 group hover:border-black/[0.12] transition-colors">
-                <div className="relative h-52 w-full rounded-2xl overflow-hidden">
+              <div className="bg-[#f5f5f7] p-3.5 rounded-[28px] border border-black/[0.06] shadow-sm space-y-3 group hover:border-black/[0.12] transition-colors">
+                <div className="relative h-56 w-full rounded-2xl overflow-hidden">
                   <Image
                     src="/images/real_jsm_airport_terminal_platoon.jpg"
                     alt="Managing Director Sweety J with Security Platoon at Trichy Airport"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute top-2 left-2 px-2.5 py-0.5 rounded-full bg-white/90 border border-black/[0.08] text-[#1d1d1f] text-[10px] font-semibold uppercase">
-                    Trichy Airport
+                  <div className="absolute top-2.5 left-2.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm border border-black/[0.08] text-[#1d1d1f] text-[10px] font-semibold uppercase">
+                    Civil Aviation Benchmark
                   </div>
                 </div>
                 <div className="p-2">
-                  <h4 className="text-xs font-semibold text-[#1d1d1f]">Airport concourse platoon</h4>
-                  <p className="text-[11px] text-[#86868b] leading-relaxed text-pretty">MD Sweety J seated with full uniformed security platoon at Trichy Airport.</p>
+                  <h4 className="text-sm font-semibold text-[#1d1d1f]">Trichy International Airport</h4>
+                  <p className="text-xs text-[#86868b] leading-relaxed text-pretty mt-0.5">MD Sweety J seated with full uniformed security platoon during our 2024 operations contract.</p>
                 </div>
               </div>
 
-              {/* Photo 2: Heritage Landmark Chariot Platoon */}
-              <div className="bg-[#f5f5f7] p-3 rounded-[24px] border border-black/[0.06] shadow-sm space-y-2.5 group hover:border-black/[0.12] transition-colors">
-                <div className="relative h-52 w-full rounded-2xl overflow-hidden">
-                  <Image
-                    src="/images/real_jsm_chariot_platoon.jpg"
-                    alt="JSM Guard Platoon and Sweety J at Heritage Monument Chariot Mural"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute top-2 left-2 px-2.5 py-0.5 rounded-full bg-white/90 border border-black/[0.08] text-[#1d1d1f] text-[10px] font-semibold uppercase">
-                    Heritage sector
-                  </div>
-                </div>
-                <div className="p-2">
-                  <h4 className="text-xs font-semibold text-[#1d1d1f]">Platoon honor guard</h4>
-                  <p className="text-[11px] text-[#86868b] leading-relaxed text-pretty">Uniformed guard squad in full ceremonial turnout under monument chariot mural.</p>
-                </div>
-              </div>
-
-              {/* Photo 3: Official Printed Business Card Proof */}
-              <div className="bg-[#f5f5f7] p-3 rounded-[24px] border border-black/[0.06] shadow-sm space-y-2.5 group hover:border-black/[0.12] transition-colors">
-                <div className="relative h-52 w-full rounded-2xl overflow-hidden">
-                  <Image
-                    src="/images/real_jsm_printed_card.jpg"
-                    alt="Authentic Printed Business Card of JSM Integrated Services"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute top-2 left-2 px-2.5 py-0.5 rounded-full bg-white/90 border border-black/[0.08] text-[#1d1d1f] text-[10px] font-semibold uppercase">
-                    Official proof
-                  </div>
-                </div>
-                <div className="p-2">
-                  <h4 className="text-xs font-semibold text-[#1d1d1f]">Corporate card proof</h4>
-                  <p className="text-[11px] text-[#86868b] leading-relaxed text-pretty">Official printed cards of Sweety J (Proprietor &amp; MD) and Major AR Devadoss.</p>
-                </div>
-              </div>
-
-              {/* Photo 4: Fabrication Industry Hiring */}
-              <div className="bg-[#f5f5f7] p-3 rounded-[24px] border border-black/[0.06] shadow-sm space-y-2.5 group hover:border-black/[0.12] transition-colors">
-                <div className="relative h-52 w-full rounded-2xl overflow-hidden">
+              {/* Photo 2: Fabrication Industry Hiring */}
+              <div className="bg-[#f5f5f7] p-3.5 rounded-[28px] border border-black/[0.06] shadow-sm space-y-3 group hover:border-black/[0.12] transition-colors">
+                <div className="relative h-56 w-full rounded-2xl overflow-hidden">
                   <Image
                     src="/images/real_jsm_fabrication_hiring.jpg"
                     alt="JSM Fabrication Industry Recruitment Flyer"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute top-2 left-2 px-2.5 py-0.5 rounded-full bg-white/90 border border-black/[0.08] text-emerald-700 text-[10px] font-semibold uppercase">
-                    Manpower supply
+                  <div className="absolute top-2.5 left-2.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm border border-black/[0.08] text-emerald-700 text-[10px] font-semibold uppercase">
+                    Industrial Workforce
                   </div>
                 </div>
                 <div className="p-2">
-                  <h4 className="text-xs font-semibold text-[#1d1d1f]">Fabrication industry staffing</h4>
-                  <p className="text-[11px] text-[#86868b] leading-relaxed text-pretty">Active staffing for Block &amp; Pipe fabrication with 100% EPF/ESI legal indemnity.</p>
+                  <h4 className="text-sm font-semibold text-[#1d1d1f]">Manufacturing &amp; Fabrication</h4>
+                  <p className="text-xs text-[#86868b] leading-relaxed text-pretty mt-0.5">Rapid staffing for industrial plants with 100% statutory EPF/ESI legal indemnity.</p>
                 </div>
               </div>
 
-              {/* Photo 5: Shift Muster */}
-              <div className="bg-[#f5f5f7] p-3 rounded-[24px] border border-black/[0.06] shadow-sm space-y-2.5 group hover:border-black/[0.12] transition-colors">
-                <div className="relative h-52 w-full rounded-2xl overflow-hidden">
+              {/* Photo 3: Shift Muster Protocol */}
+              <div className="bg-[#f5f5f7] p-3.5 rounded-[28px] border border-black/[0.06] shadow-sm space-y-3 group hover:border-black/[0.12] transition-colors">
+                <div className="relative h-56 w-full rounded-2xl overflow-hidden">
                   <Image
                     src="/images/real_jsm_shift_muster_day.jpg"
                     alt="Daytime Shift Briefing and Roll Call"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute top-2 left-2 px-2.5 py-0.5 rounded-full bg-white/90 border border-black/[0.08] text-[#1d1d1f] text-[10px] font-semibold uppercase">
-                    Field protocol
+                  <div className="absolute top-2.5 left-2.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm border border-black/[0.08] text-[#1d1d1f] text-[10px] font-semibold uppercase">
+                    Field Discipline
                   </div>
                 </div>
                 <div className="p-2">
-                  <h4 className="text-xs font-semibold text-[#1d1d1f]">Daily shift briefing</h4>
-                  <p className="text-[11px] text-[#86868b] leading-relaxed text-pretty">Pre-shift muster, radio communications check, and duty post allocation.</p>
-                </div>
-              </div>
-
-              {/* Photo 6: Terminal Entry Salute */}
-              <div className="bg-[#f5f5f7] p-3 rounded-[24px] border border-black/[0.06] shadow-sm space-y-2.5 group hover:border-black/[0.12] transition-colors">
-                <div className="relative h-52 w-full rounded-2xl overflow-hidden">
-                  <Image
-                    src="/images/real_jsm_terminal_entry_salute.jpg"
-                    alt="Terminal Gate D6 Access Control"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute top-2 left-2 px-2.5 py-0.5 rounded-full bg-white/90 border border-black/[0.08] text-[#1d1d1f] text-[10px] font-semibold uppercase">
-                    Access control
-                  </div>
-                </div>
-                <div className="p-2">
-                  <h4 className="text-xs font-semibold text-[#1d1d1f]">Terminal access control</h4>
-                  <p className="text-[11px] text-[#86868b] leading-relaxed text-pretty">Passenger gate D6 verification standing orders and protocol compliance.</p>
+                  <h4 className="text-sm font-semibold text-[#1d1d1f]">Daily Shift Muster</h4>
+                  <p className="text-xs text-[#86868b] leading-relaxed text-pretty mt-0.5">Pre-shift inspection, radio checks, and 2-Hour Relief standby replacement protocols.</p>
                 </div>
               </div>
             </div>

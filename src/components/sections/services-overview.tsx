@@ -18,80 +18,50 @@ import { fadeInUp, staggerContainer } from "@/lib/motion";
 const solutions = [
   {
     code: "JSM-01",
-    title: "On-Site Guard Services",
-    tagline: "ROUND-THE-CLOCK PROTECTION",
-    desc: "Uniformed security guards providing disciplined physical security for corporate offices, industrial plants, warehouses, and gated facilities with strict visitor logging.",
+    title: "Private Security & Guarding",
+    tagline: "PSARA 2005 LICENSED",
+    desc: "Disciplined physical guarding for manufacturing plants, corporate hubs, and infrastructure with 24/7 supervisor monitoring.",
     features: [
-      "PSARA 2005 Licensed & Police Verified",
-      "2:00 AM Supervisor Van Spot-Audits",
-      "2-Hour Standby Relief Replacement SLA"
+      "2-Hour Standby Relief Replacement SLA",
+      "100% Police & Aadhaar Verified Guards"
     ],
     icon: Shield,
     href: "/services/private-security"
   },
   {
-    code: "JSM-03",
+    code: "JSM-02",
     title: "Facility Management & Housekeeping",
-    tagline: "5-STEP CLOSED-LOOP HYGIENE",
-    desc: "Industrial sanitation following our 5-step closed-loop hygiene protocol (Clean → Inspect → Report → Correct → Verify) with ride-on auto scrubbers and eco chemicals.",
+    tagline: "MECHANIZED HYGIENE",
+    desc: "Industrial sanitation and facility upkeep using ride-on scrubbers and eco-certified chemicals with signed hourly audit logs.",
     features: [
-      "Hourly Signed Washroom Logs",
-      "Cross-Contamination Color Coding",
-      "NABH & Industrial Plant Grade Upkeep"
+      "5-Step Closed-Loop Hygiene Protocol",
+      "NABH & Industrial Grade Standards"
     ],
     icon: Sparkles,
     href: "/services/housekeeping"
   },
   {
-    code: "JSM-02",
+    code: "JSM-03",
     title: "Contractual Industrial Manpower",
-    tagline: "RAPID 48–72H MOBILIZATION",
-    desc: "Pre-vetted technical, fabrication, assembly, and warehouse staffing mobilized with complete EPF and ESIC statutory legal indemnity for client peace of mind.",
+    tagline: "RAPID DEPLOYMENT",
+    desc: "Pre-vetted technical, fabrication, and assembly personnel mobilized with 100% EPF/ESIC statutory indemnity.",
     features: [
-      "48–72 Hour Mobilization Guarantee",
-      "100% EPF/ESIC Monthly ECR Proofs",
-      "Zero Client Statutory Legal Liability"
+      "48–72 Hour Rapid Mobilization",
+      "Zero Client Statutory Liability"
     ],
     icon: Users,
     href: "/services/manpower"
   },
   {
-    code: "JSM-01.4",
-    title: "Access Control & Gatehouse Logistics",
-    tagline: "PERIMETER & VEHICLE INSPECTION",
-    desc: "Disciplined visitor verification, material inward/outward gate pass accounting, vehicle inspection, and electronic turnstile management.",
+    code: "JSM-04",
+    title: "Aviation & Critical Infrastructure",
+    tagline: "HIGH-STAKES OPERATIONS",
+    desc: "Access control, perimeter protection, and visitor management proven at Trichy International Airport.",
     features: [
-      "Visitor Photo & ID Verification",
-      "Material Gate Pass Reconciliation",
-      "Perimeter Access Log Auditing"
+      "Civil Aviation Benchmark Tested",
+      "Biometric Turnstile & Gate Audits"
     ],
     icon: Lock,
-    href: "/services/private-security"
-  },
-  {
-    code: "JSM-01.5",
-    title: "Executive Protection & VIP Escort",
-    tagline: "DISCREET DIGNITARY SECURITY",
-    desc: "Discreet, high-level transit and personal protection for corporate executives, VIP dignitaries, and high-value logistics convoys across South India.",
-    features: [
-      "Ex-Servicemen Close Protection Officers",
-      "Route Advance & Threat Reconnaissance",
-      "Discreet Protocol & Bearing Standards"
-    ],
-    icon: Award,
-    href: "/services/private-security"
-  },
-  {
-    code: "JSM-01.6",
-    title: "Consultancy & Statutory Audit",
-    tagline: "100% COMPLIANCE ASSURANCE",
-    desc: "Comprehensive physical vulnerability assessments, PSARA compliance reviews, fire safety emergency drills, and statutory labour health audits.",
-    features: [
-      "Home Dept PSARA Compliance Verification",
-      "Monthly ECR Wage & EPF/ESI Audit",
-      "Emergency Evacuation & Fire Safety Drills"
-    ],
-    icon: FileCheck2,
     href: "/about"
   }
 ];
@@ -132,7 +102,7 @@ export function ServicesOverview() {
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
           variants={staggerContainer(0.08)}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {solutions.map((item, idx) => {
             const Icon = item.icon;

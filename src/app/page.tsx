@@ -1,17 +1,13 @@
 import { 
   HeroSection, 
   TrustBar, 
-  AboutShowcase,
   ServicesOverview, 
   FlagshipBentoGrid,
-  LeadershipSection,
   TestimonialsSection,
   FAQSection,
   CTASection 
 } from "@/components/sections";
-import { InteractiveCostSimulator } from "@/components/calculator/interactive-cost-simulator";
 import { RegionalCommandMap } from "@/components/sections/regional-command-map";
-import { ComplianceMatrix } from "@/components/sections/compliance-matrix";
 import { organizationSchema, localBusinessSchema, websiteSchema, faqSchema } from "@/lib/schema";
 import { brandData } from "@/data/brand";
 
@@ -65,17 +61,13 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqsJsonLd) }}
       />
 
-      {/* Pure Apple-Grade Visual & Operational Flow */}
+      {/* Streamlined MNC Executive Flow: Short, Sweet & Simple */}
       <HeroSection />
       <TrustBar />
-      <AboutShowcase />
       <ServicesOverview />
       <FlagshipBentoGrid />
-      <LeadershipSection />
-      <TestimonialsSection />
-      <ComplianceMatrix />
       <RegionalCommandMap />
-      <InteractiveCostSimulator />
+      <TestimonialsSection />
       <FAQSection />
       <CTASection />
     </div>

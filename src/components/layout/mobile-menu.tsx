@@ -20,24 +20,24 @@ export function MobileMenu() {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="w-10 h-10 hover:bg-black/[0.05] rounded-full lg:hidden text-[#1d1d1f] press-scale">
-          <Menu className="h-5 w-5 text-[#1d1d1f]" strokeWidth={2} />
+        <Button variant="ghost" size="icon" className="w-10 h-10 hover:bg-white/10 rounded-full lg:hidden text-white press-scale">
+          <Menu className="h-5 w-5 text-white" strokeWidth={2} />
           <span className="sr-only">Toggle navigation menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-full sm:max-w-md bg-white border-l border-black/[0.08] p-0 flex flex-col h-full overflow-hidden text-[#1d1d1f]">
-        <SheetHeader className="p-5 text-left border-b border-black/[0.08] flex flex-row items-center justify-between">
-          <SheetTitle className="text-base font-bold tracking-tight text-[#1d1d1f] flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full flex items-center justify-center shadow-xs overflow-hidden shrink-0">
+      <SheetContent side="right" className="w-full sm:max-w-md bg-black border-l border-neutral-800 p-0 flex flex-col h-full overflow-hidden text-white">
+        <SheetHeader className="p-5 text-left border-b border-neutral-800 flex flex-row items-center justify-between">
+          <SheetTitle className="text-base font-bold tracking-tight text-white flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-full flex items-center justify-center overflow-hidden shrink-0 border border-white/20 bg-black">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/jsm_logo_transparent.png" alt="JSM" className="w-full h-full object-contain" />
+              <img src="/images/jsm_logo_black.png" alt="JSM" className="w-full h-full object-cover scale-105" />
             </div>
             JSM INTEGRATED SERVICES
           </SheetTitle>
           <Button
             variant="ghost"
             size="icon"
-            className="w-9 h-9 rounded-full hover:bg-black/[0.05] text-[#1d1d1f] press-scale"
+            className="w-9 h-9 rounded-full hover:bg-white/10 text-white press-scale"
             onClick={() => setOpen(false)}
           >
             <X className="h-5 w-5" strokeWidth={2} />
@@ -47,10 +47,10 @@ export function MobileMenu() {
 
         <div className="flex-1 overflow-y-auto px-5 py-4 space-y-4">
           {/* Quick CTA banner */}
-          <div className="p-4 bg-[#f5f5f7] border border-black/[0.04] rounded-2xl flex items-center justify-between">
+          <div className="p-4 bg-neutral-900 border border-neutral-800 rounded-2xl flex items-center justify-between">
             <div>
-              <p className="text-xs font-semibold text-[#1d1d1f]">Need immediate dispatch?</p>
-              <p className="text-[11px] text-[#86868b] font-mono">24/7 Operations Desk</p>
+              <p className="text-xs font-semibold text-white">Need immediate dispatch?</p>
+              <p className="text-[11px] text-neutral-400 font-mono">24/7 Operations Desk</p>
             </div>
             <a
               href={`tel:${brandData.contact.phone}`}
@@ -67,42 +67,42 @@ export function MobileMenu() {
                 key={item.title}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="py-3 px-3.5 rounded-xl text-sm font-semibold text-[#1d1d1f] hover:bg-[#f5f5f7] transition-colors flex items-center justify-between press-scale min-touch-target"
+                className="py-3 px-3.5 rounded-xl text-sm font-semibold text-neutral-200 hover:bg-neutral-900 hover:text-white transition-colors flex items-center justify-between press-scale min-touch-target"
               >
                 <div className="flex items-center gap-2">
                   <span>{item.title}</span>
                   {item.badge && (
-                    <span className="text-[9px] font-mono font-bold px-1.5 py-0.2 rounded-full bg-black/[0.05] text-[#1d1d1f] uppercase">
+                    <span className="text-[9px] font-mono font-bold px-1.5 py-0.2 rounded-full bg-white/10 text-neutral-300 uppercase">
                       {item.badge}
                     </span>
                   )}
                 </div>
-                <ArrowRight size={14} className="text-[#86868b]" strokeWidth={2} />
+                <ArrowRight size={14} className="text-neutral-400" strokeWidth={2} />
               </Link>
             ))}
           </nav>
         </div>
 
         {/* Footer Contact Strip */}
-        <div className="p-5 border-t border-black/[0.08] bg-[#f5f5f7] space-y-3">
+        <div className="p-5 border-t border-neutral-800 bg-neutral-950 space-y-3">
           <div className="grid grid-cols-2 gap-2">
             <a
               href="mailto:contact@jsmintegratedservices.com"
-              className="flex items-center justify-center gap-1.5 py-3 rounded-full bg-white border border-black/[0.08] text-[#1d1d1f] text-xs font-semibold shadow-xs press-scale min-touch-target"
+              className="flex items-center justify-center gap-1.5 py-3 rounded-full bg-neutral-900 border border-neutral-800 text-white text-xs font-semibold shadow-xs press-scale min-touch-target hover:bg-neutral-800"
             >
-              <Mail size={13} className="text-[#86868b]" strokeWidth={2} />
+              <Mail size={13} className="text-neutral-400" strokeWidth={2} />
               <span>Email us</span>
             </a>
             <Link
               href="/get-quote"
               onClick={() => setOpen(false)}
-              className="flex items-center justify-center gap-1 py-3 rounded-full bg-[#0071e3] text-white text-xs font-semibold shadow-xs press-scale min-touch-target"
+              className="flex items-center justify-center gap-1 py-3 rounded-full bg-[#0071e3] text-white text-xs font-semibold shadow-xs press-scale min-touch-target hover:bg-[#0077ed]"
             >
               <span>Instant quote</span>
               <ArrowRight size={12} className="text-white" strokeWidth={2} />
             </Link>
           </div>
-          <p className="text-[10px] text-[#86868b] text-center font-mono">
+          <p className="text-[10px] text-neutral-400 text-center font-mono">
             PSARA 2005 Licensed • Trichy Airport Platoon • 2-Hour SLA
           </p>
         </div>

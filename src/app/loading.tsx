@@ -7,13 +7,13 @@ export default function Loading() {
           className="absolute -inset-3 rounded-full border-2 border-black/[0.06] border-t-[#0071e3] animate-spin" 
           style={{ animationDuration: '1.2s' }} 
         />
-        {/* Authentic JSM Logo */}
-        <div className="relative w-14 h-14 rounded-full overflow-hidden shadow-sm flex items-center justify-center bg-white p-1">
+        {/* Black and Silver Metallic JSM Logo */}
+        <div className="relative w-14 h-14 rounded-full overflow-hidden shadow-sm flex items-center justify-center bg-black border border-black/10">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/jsm_logo_transparent.png"
+            src="/images/jsm_logo_black.png"
             alt="JSM Logo"
-            className="w-full h-full object-contain"
+            className="w-full h-full object-cover scale-105"
           />
         </div>
       </div>

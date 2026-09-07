@@ -58,12 +58,12 @@ export function Footer() {
           {/* Col 1: Brand & Identity */}
           <div className="lg:col-span-1 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-sm overflow-hidden shrink-0">
+              <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center overflow-hidden shrink-0 border border-black/10 bg-black shadow-sm">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/jsm_logo_transparent.png"
+                  src="/images/jsm_logo_black.png"
                   alt="JSM Integrated Services Logo"
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-cover scale-105"
                 />
               </div>
               <div className="flex flex-col justify-center">

@@ -315,12 +315,12 @@ export function AIReceptionist() {
             <X size={22} />
           ) : (
             <>
-              <div className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center">
+              <div className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center bg-black border border-white/20">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/jsm_logo_transparent.png"
+                  src="/images/jsm_logo_black.png"
                   alt="JSM AI"
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-cover scale-105"
                 />
               </div>
               {unreadCount > 0 && (
@@ -351,12 +351,12 @@ export function AIReceptionist() {
             <div className="bg-[#f5f5f7] text-[#1d1d1f] px-5 py-3.5 flex items-center justify-between border-b border-black/[0.08]">
               <div className="flex items-center gap-3">
                 <div className="relative">
-                  <div className="w-9 h-9 rounded-full bg-white border border-black/[0.08] flex items-center justify-center overflow-hidden shadow-2xs">
+                  <div className="w-9 h-9 rounded-full bg-black border border-black/10 flex items-center justify-center overflow-hidden shadow-2xs">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src="/images/jsm_logo_transparent.png"
+                      src="/images/jsm_logo_black.png"
                       alt="Priya"
-                      className="w-7 h-7 object-contain"
+                      className="w-full h-full object-cover scale-105"
                     />
                   </div>
                   <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-white" />

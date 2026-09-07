@@ -166,23 +166,19 @@ export function HeroSection() {
             </a>
           </div>
 
-          {/* Apple 4-Pillar Confidence Strip */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-3 border-t border-black/[0.06] text-xs">
-            <div className="flex items-center gap-2 bg-[#f5f5f7] p-2.5 rounded-2xl border border-black/[0.04]">
-              <ShieldCheck size={16} className="text-[#1d1d1f] shrink-0" />
-              <span className="font-medium text-[#1d1d1f] text-[11px] leading-tight">Ensuring safety &amp; security</span>
+          {/* Executive Trust Badges - Short, Sweet & Simple */}
+          <div className="flex flex-wrap items-center gap-y-2 gap-x-5 pt-3 border-t border-black/[0.06] text-xs text-[#515154]">
+            <div className="flex items-center gap-1.5 font-medium">
+              <ShieldCheck size={15} className="text-[#0071e3]" />
+              <span>PSARA 2005 Licensed</span>
             </div>
-            <div className="flex items-center gap-2 bg-[#f5f5f7] p-2.5 rounded-2xl border border-black/[0.04]">
-              <FileCheck size={16} className="text-blue-600 shrink-0" />
-              <span className="font-medium text-[#1d1d1f] text-[11px] leading-tight">Statutory risk reduction</span>
+            <div className="flex items-center gap-1.5 font-medium">
+              <CheckCircle2 size={15} className="text-emerald-600" />
+              <span>Guaranteed 2-Hour Relief SLA</span>
             </div>
-            <div className="flex items-center gap-2 bg-[#f5f5f7] p-2.5 rounded-2xl border border-black/[0.04]">
-              <CheckCircle2 size={16} className="text-emerald-600 shrink-0" />
-              <span className="font-medium text-[#1d1d1f] text-[11px] leading-tight">Emergency 24/7 response</span>
-            </div>
-            <div className="flex items-center gap-2 bg-[#f5f5f7] p-2.5 rounded-2xl border border-black/[0.04]">
-              <Award size={16} className="text-amber-600 shrink-0" />
-              <span className="font-medium text-[#1d1d1f] text-[11px] leading-tight">Complete peace of mind</span>
+            <div className="flex items-center gap-1.5 font-medium">
+              <FileCheck size={15} className="text-[#1d1d1f]" />
+              <span>100% Statutory EPF / ESIC</span>
             </div>
           </div>
         </div>
