@@ -17,13 +17,16 @@ export function RelatedServices({ services }: { services: any[] }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className="group block p-6 bg-zinc-50 rounded-3xl border border-zinc-200/60 hover:border-[#C5A880]/30 hover:shadow-md transition-all duration-300"
+            className="group block p-6 bg-[#f5f5f7] rounded-[24px] border border-black/[0.06] hover:border-black/[0.15] hover:shadow-sm transition-all duration-300"
           >
-            <IconComponent className="text-[#C5A880] mb-4" size={32} />
-            <h4 className="text-xl font-bold text-black mb-2 group-hover:text-[#C5A880] transition-colors">{service.title}</h4>
-            <p className="text-sm text-zinc-500 mb-4 line-clamp-2 leading-relaxed">{service.description}</p>
-            <Link href={`/services/${service.slug}`} className="inline-flex items-center text-sm font-semibold text-[#3B82F6] hover:text-[#C5A880] group-hover:gap-2 gap-1 transition-all duration-300">
-              Learn More <ArrowRight size={16} />
+            <div className="w-12 h-12 rounded-2xl bg-white border border-black/[0.06] flex items-center justify-center text-[#0071e3] mb-4 shadow-2xs group-hover:bg-[#1d1d1f] group-hover:text-white transition-colors">
+              <IconComponent size={24} />
+            </div>
+            <h4 className="text-lg font-bold text-[#1d1d1f] mb-2 group-hover:text-[#0071e3] transition-colors tracking-tight">{service.title}</h4>
+            <p className="text-xs sm:text-sm text-[#515154] mb-4 line-clamp-2 leading-relaxed">{service.description}</p>
+            <Link href={`/services/${service.slug}`} className="inline-flex items-center text-xs font-semibold text-[#0071e3] hover:underline group-hover:gap-2 gap-1.5 transition-all">
+              <span>Learn More</span>
+              <ArrowRight size={14} />
             </Link>
           </motion.div>
         );

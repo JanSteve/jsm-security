@@ -284,15 +284,15 @@ export function AIReceptionist() {
           <motion.div
             initial={{ opacity: 0, x: 20, scale: 0.9 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
-            className="hidden sm:flex items-center gap-3 bg-white text-zinc-900 px-4 py-2.5 rounded-full shadow-2xl border border-zinc-200/80 cursor-pointer"
+            className="hidden sm:flex items-center gap-2.5 bg-white/95 backdrop-blur-xl text-[#1d1d1f] px-4 py-2.5 rounded-full shadow-lg border border-black/[0.08] cursor-pointer press-scale"
             onClick={() => {
               setIsOpen(true);
               setUnreadCount(0);
             }}
           >
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <p className="text-xs font-bold">
-              Ask Priya • JSM AI Receptionist
+            <p className="text-xs font-semibold tracking-tight">
+              Ask Priya • JSM Operations AI
             </p>
           </motion.div>
         )}
@@ -304,20 +304,27 @@ export function AIReceptionist() {
             setIsOpen(!isOpen);
             setUnreadCount(0);
           }}
-          className={`w-14 h-14 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 relative ${
+          className={`w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 relative press-scale cursor-pointer ${
             isOpen 
-              ? "bg-black text-white" 
-              : "bg-black text-white hover:bg-zinc-800 border border-zinc-700"
+              ? "bg-[#1d1d1f] text-white" 
+              : "bg-white/95 backdrop-blur-xl text-[#1d1d1f] hover:bg-white border border-black/[0.08]"
           }`}
           aria-label="Toggle JSM AI Receptionist"
         >
           {isOpen ? (
-            <X size={24} />
+            <X size={22} />
           ) : (
             <>
-              <Bot size={26} className="text-[#C5A880]" />
+              <div className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/jsm_logo_transparent.png"
+                  alt="JSM AI"
+                  className="w-full h-full object-contain"
+                />
+              </div>
               {unreadCount > 0 && (
-                <span className="absolute -top-1 -right-1 w-5 h-5 bg-emerald-500 text-white rounded-full text-[10px] font-extrabold flex items-center justify-center border-2 border-white">
+                <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-[#0071e3] text-white rounded-full text-[9px] font-bold flex items-center justify-center border-2 border-white shadow-xs">
                   1
                 </span>
               )}
@@ -334,43 +341,48 @@ export function AIReceptionist() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className={`fixed z-50 bg-white border border-zinc-200/90 shadow-2xl rounded-3xl overflow-hidden flex flex-col transition-all duration-300 ${
+            className={`fixed z-50 bg-white border border-black/[0.08] shadow-2xl rounded-[28px] overflow-hidden flex flex-col transition-all duration-300 ${
               isExpanded
                 ? "top-6 bottom-6 left-6 right-6 md:left-auto md:w-[680px]"
                 : "bottom-24 right-4 sm:right-6 w-[calc(100vw-32px)] sm:w-[420px] h-[580px] max-h-[85vh]"
             }`}
           >
-            {/* Header */}
-            <div className="bg-zinc-900 text-white px-5 py-4 flex items-center justify-between border-b border-zinc-800">
+            {/* Apple Clean Header */}
+            <div className="bg-[#f5f5f7] text-[#1d1d1f] px-5 py-3.5 flex items-center justify-between border-b border-black/[0.08]">
               <div className="flex items-center gap-3">
                 <div className="relative">
-                  <div className="w-10 h-10 rounded-2xl bg-zinc-800 border border-zinc-700 flex items-center justify-center text-[#C5A880]">
-                    <Bot size={22} />
+                  <div className="w-9 h-9 rounded-full bg-white border border-black/[0.08] flex items-center justify-center overflow-hidden shadow-2xs">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/images/jsm_logo_transparent.png"
+                      alt="Priya"
+                      className="w-7 h-7 object-contain"
+                    />
                   </div>
-                  <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-zinc-900" />
+                  <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-white" />
                 </div>
                 <div>
                   <div className="flex items-center gap-1.5">
-                    <h3 className="text-sm font-bold text-white">JSM Priya</h3>
-                    <span className="text-[10px] font-extrabold bg-[#C5A880] text-black px-1.5 py-0.2 rounded-md">
+                    <h3 className="text-xs sm:text-sm font-bold text-[#1d1d1f]">Priya</h3>
+                    <span className="text-[9px] font-mono font-bold bg-[#0071e3]/10 text-[#0071e3] px-2 py-0.2 rounded-full uppercase tracking-wider">
                       OPERATIONS DESK
                     </span>
                     {isSpeaking && (
                       <div className="flex items-center gap-0.5 ml-1">
-                        <span className="w-1 h-3 bg-emerald-400 rounded-full animate-bounce" />
-                        <span className="w-1 h-4 bg-emerald-400 rounded-full animate-bounce [animation-delay:0.15s]" />
-                        <span className="w-1 h-2 bg-emerald-400 rounded-full animate-bounce [animation-delay:0.3s]" />
+                        <span className="w-1 h-3 bg-emerald-500 rounded-full animate-bounce" />
+                        <span className="w-1 h-4 bg-emerald-500 rounded-full animate-bounce [animation-delay:0.15s]" />
+                        <span className="w-1 h-2 bg-emerald-500 rounded-full animate-bounce [animation-delay:0.3s]" />
                       </div>
                     )}
                   </div>
-                  <p className="text-[11px] text-zinc-400 font-medium">
-                    {isSpeaking ? "Speaking naturally..." : "Executive Client Solutions & Support"}
+                  <p className="text-[10px] text-[#86868b] font-medium">
+                    {isSpeaking ? "Speaking naturally..." : "Executive Client Solutions Officer"}
                   </p>
                 </div>
               </div>
 
               <div className="flex items-center gap-1">
-                {/* Stop Speech / Voice Toggle */}
+                {/* Voice Toggle */}
                 <button
                   onClick={() => {
                     if (audioPlayerRef.current) {
@@ -382,10 +394,10 @@ export function AIReceptionist() {
                     }
                     setIsSpeechEnabled(!isSpeechEnabled);
                   }}
-                  title={isSpeechEnabled ? "Voice Enabled (Click to Mute / Stop)" : "Voice Muted (Click to Enable)"}
-                  className="p-1.5 text-zinc-400 hover:text-white rounded-lg hover:bg-zinc-800 transition-colors"
+                  title={isSpeechEnabled ? "Voice Enabled (Click to Mute)" : "Voice Muted (Click to Enable)"}
+                  className="p-1.5 text-[#86868b] hover:text-[#1d1d1f] rounded-full hover:bg-black/[0.05] transition-colors"
                 >
-                  {isSpeechEnabled ? <Volume2 size={16} className="text-[#C5A880]" /> : <VolumeX size={16} />}
+                  {isSpeechEnabled ? <Volume2 size={16} className="text-[#0071e3]" /> : <VolumeX size={16} />}
                 </button>
 
                 {/* Clear Conversation */}
@@ -408,25 +420,25 @@ export function AIReceptionist() {
                     ]);
                   }}
                   title="Clear Conversation"
-                  className="p-1.5 text-zinc-400 hover:text-rose-400 rounded-lg hover:bg-zinc-800 transition-colors"
+                  className="p-1.5 text-[#86868b] hover:text-red-600 rounded-full hover:bg-black/[0.05] transition-colors"
                 >
                   <Trash2 size={15} />
                 </button>
 
-                {/* Instant Quote Calculator Toggle */}
+                {/* Instant Quote Estimator Toggle */}
                 <button
                   onClick={() => setShowCalculator(!showCalculator)}
                   title="Instant Quote Estimator"
-                  className="p-1.5 text-zinc-400 hover:text-[#C5A880] rounded-lg hover:bg-zinc-800 transition-colors"
+                  className="p-1.5 text-[#86868b] hover:text-[#0071e3] rounded-full hover:bg-black/[0.05] transition-colors"
                 >
                   <Calculator size={16} />
                 </button>
 
-                {/* Expand / Minimize Toggle */}
+                {/* Expand / Minimize */}
                 <button
                   onClick={() => setIsExpanded(!isExpanded)}
                   title={isExpanded ? "Collapse" : "Expand"}
-                  className="hidden sm:block p-1.5 text-zinc-400 hover:text-white rounded-lg hover:bg-zinc-800 transition-colors"
+                  className="hidden sm:block p-1.5 text-[#86868b] hover:text-[#1d1d1f] rounded-full hover:bg-black/[0.05] transition-colors"
                 >
                   {isExpanded ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
                 </button>
@@ -443,7 +455,7 @@ export function AIReceptionist() {
                     }
                     setIsOpen(false);
                   }}
-                  className="p-1.5 text-zinc-400 hover:text-white rounded-lg hover:bg-zinc-800 transition-colors"
+                  className="p-1.5 text-[#86868b] hover:text-[#1d1d1f] rounded-full hover:bg-black/[0.05] transition-colors"
                 >
                   <X size={18} />
                 </button>
@@ -452,48 +464,48 @@ export function AIReceptionist() {
 
             {/* In-Chat Instant Calculator Dropdown */}
             {showCalculator && (
-              <div className="bg-zinc-50 border-b border-zinc-200 p-4 space-y-3 text-xs font-semibold text-zinc-700 animate-in slide-in-from-top-2">
+              <div className="bg-[#f5f5f7] border-b border-black/[0.08] p-4 space-y-3 text-xs font-semibold text-[#1d1d1f] animate-in slide-in-from-top-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#C5A880] flex items-center gap-1">
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#0071e3] flex items-center gap-1.5">
                     <Calculator size={13} /> Instant Commercial Estimator
                   </span>
-                  <button onClick={() => setShowCalculator(false)} className="text-zinc-400 hover:text-black">
+                  <button onClick={() => setShowCalculator(false)} className="text-[#86868b] hover:text-[#1d1d1f] p-1 rounded-full hover:bg-black/[0.05]">
                     <X size={14} />
                   </button>
                 </div>
 
                 <div className="grid grid-cols-2 gap-2">
                   <div>
-                    <label className="text-[10px] text-zinc-500 block mb-1">Service Type</label>
+                    <label className="text-[10px] text-[#86868b] font-medium block mb-1">Service Type</label>
                     <select
                       value={calcService}
                       onChange={(e) => setCalcService(e.target.value)}
-                      className="w-full h-8 px-2 bg-white border border-zinc-200 rounded-lg text-xs"
+                      className="w-full h-8 px-2.5 bg-white border border-black/[0.08] rounded-xl text-xs text-[#1d1d1f] outline-none focus:ring-1 focus:ring-[#0071e3]"
                     >
                       <option value="Security Guarding (24/7)">Security Guarding</option>
-                      <option value="Commercial Housekeeping">Housekeeping & Hygiene</option>
+                      <option value="Commercial Housekeeping">Housekeeping &amp; Hygiene</option>
                       <option value="Contractual Manpower">Contractual Manpower</option>
                       <option value="Event Security Detail">Event Security / Bouncers</option>
                     </select>
                   </div>
 
                   <div>
-                    <label className="text-[10px] text-zinc-500 block mb-1">Headcount / Posts</label>
+                    <label className="text-[10px] text-[#86868b] font-medium block mb-1">Headcount / Posts</label>
                     <input
                       type="number"
                       min={1}
                       max={100}
                       value={calcUnits}
                       onChange={(e) => setCalcUnits(Math.max(1, parseInt(e.target.value) || 1))}
-                      className="w-full h-8 px-2 bg-white border border-zinc-200 rounded-lg text-xs"
+                      className="w-full h-8 px-2.5 bg-white border border-black/[0.08] rounded-xl text-xs text-[#1d1d1f] outline-none focus:ring-1 focus:ring-[#0071e3]"
                     />
                   </div>
                 </div>
 
-                <div className="p-2.5 bg-white rounded-xl border border-zinc-200/80 flex items-center justify-between">
+                <div className="p-3 bg-white rounded-2xl border border-black/[0.06] flex items-center justify-between shadow-2xs">
                   <div>
-                    <p className="text-[10px] text-zinc-400">Estimated Budget Range:</p>
-                    <p className="text-sm font-black text-black">{calculateEstimatedCost()}</p>
+                    <p className="text-[10px] text-[#86868b]">Estimated Budget:</p>
+                    <p className="text-sm font-bold text-[#1d1d1f] tabular-nums">{calculateEstimatedCost()}</p>
                   </div>
                   <Button
                     size="sm"
@@ -501,7 +513,7 @@ export function AIReceptionist() {
                       setShowCalculator(false);
                       handleSendMessage(`I need a formal quote for ${calcUnits} personnel for ${calcService}.`);
                     }}
-                    className="bg-black hover:bg-zinc-800 text-white rounded-full text-[10px] h-7 px-3"
+                    className="bg-[#0071e3] hover:bg-[#0077ed] text-white rounded-full text-[10px] font-semibold h-7 px-3.5 shadow-2xs"
                   >
                     Request Official RFP →
                   </Button>
@@ -510,51 +522,51 @@ export function AIReceptionist() {
             )}
 
             {/* Chat Messages Container */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-zinc-50/50 text-xs leading-relaxed">
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-white text-xs leading-relaxed">
               {messages.map((msg) => (
                 <div
                   key={msg.id}
                   className={`flex flex-col ${msg.role === "user" ? "items-end" : "items-start"}`}
                 >
                   <div
-                    className={`max-w-[85%] rounded-2xl p-3.5 space-y-2 shadow-xs ${
+                    className={`max-w-[85%] rounded-2xl p-3.5 space-y-2 shadow-2xs ${
                       msg.role === "user"
-                        ? "bg-black text-white rounded-br-none"
-                        : "bg-white text-zinc-800 border border-zinc-200/80 rounded-bl-none"
+                        ? "bg-[#0071e3] text-white rounded-br-xs"
+                        : "bg-[#f5f5f7] text-[#1d1d1f] border border-black/[0.04] rounded-bl-xs"
                     }`}
                   >
-                    <div className="whitespace-pre-line leading-relaxed font-medium">
+                    <div className="whitespace-pre-line leading-relaxed font-normal">
                       {msg.content}
                     </div>
 
                     {/* Verified Lead Confirmation Card */}
                     {msg.isLeadCard && (
-                      <div className="mt-3 p-3 bg-emerald-50 border border-emerald-200 rounded-xl space-y-2 text-zinc-800">
+                      <div className="mt-3 p-3 bg-emerald-50 border border-emerald-200/80 rounded-xl space-y-2 text-[#1d1d1f]">
                         <div className="flex items-center gap-1.5 text-emerald-800 font-bold text-[11px]">
                           <CheckCircle2 size={15} className="text-emerald-600 flex-shrink-0" />
                           <span>Ticket Reference: {msg.leadReference}</span>
                         </div>
-                        <p className="text-[11px] text-emerald-900">
+                        <p className="text-[11px] text-emerald-950">
                           Our Operations Desk in Trichy has created your priority file. An Operations Lead will connect with you within 2 business hours.
                         </p>
                         <a
                           href={`mailto:jsmintegratedservices@outlook.com?subject=Chat%20Reference%20${msg.leadReference}&body=Hi%20JSM%20Operations,%20I%20chatted%20with%20Priya%20and%20received%20Reference%20${msg.leadReference}.`}
-                          className="mt-3 w-full bg-blue-50 hover:bg-blue-100 border border-blue-200 text-blue-800 text-xs font-bold py-2 px-3 rounded-lg flex items-center justify-center gap-2 transition-colors"
+                          className="mt-2 w-full bg-white hover:bg-emerald-100/50 border border-emerald-200 text-emerald-800 text-xs font-semibold py-2 px-3 rounded-xl flex items-center justify-center gap-2 transition-colors shadow-2xs"
                         >
-                          <Mail size={14} className="text-blue-600" /> Fast-track via Email →
+                          <Mail size={14} className="text-emerald-600" /> Fast-track via Email →
                         </a>
                       </div>
                     )}
                   </div>
-                  <span className="text-[9px] text-zinc-400 mt-1 px-1">{msg.timestamp}</span>
+                  <span className="text-[9px] text-[#86868b] mt-1 px-1">{msg.timestamp}</span>
                 </div>
               ))}
 
               {isTyping && (
-                <div className="flex items-center gap-1.5 p-3 bg-white border border-zinc-200 rounded-2xl w-fit shadow-xs">
-                  <span className="w-1.5 h-1.5 bg-[#C5A880] rounded-full animate-bounce" />
-                  <span className="w-1.5 h-1.5 bg-[#C5A880] rounded-full animate-bounce [animation-delay:0.2s]" />
-                  <span className="w-1.5 h-1.5 bg-[#C5A880] rounded-full animate-bounce [animation-delay:0.4s]" />
+                <div className="flex items-center gap-1.5 p-3 bg-[#f5f5f7] border border-black/[0.04] rounded-2xl w-fit shadow-2xs">
+                  <span className="w-1.5 h-1.5 bg-[#0071e3] rounded-full animate-bounce" />
+                  <span className="w-1.5 h-1.5 bg-[#0071e3] rounded-full animate-bounce [animation-delay:0.2s]" />
+                  <span className="w-1.5 h-1.5 bg-[#0071e3] rounded-full animate-bounce [animation-delay:0.4s]" />
                 </div>
               )}
 
@@ -562,12 +574,12 @@ export function AIReceptionist() {
             </div>
 
             {/* Quick Prompt Suggestion Chips */}
-            <div className="px-3 py-2 bg-white border-t border-zinc-200/60 overflow-x-auto flex gap-1.5 no-scrollbar">
+            <div className="px-3 py-2 bg-white border-t border-black/[0.06] overflow-x-auto flex gap-1.5 no-scrollbar">
               {quickPrompts.map((p, idx) => (
                 <button
                   key={idx}
                   onClick={() => handleSendMessage(p.query)}
-                  className="text-[10px] font-bold whitespace-nowrap px-2.5 py-1 rounded-full bg-zinc-100 hover:bg-black hover:text-white border border-zinc-200 text-zinc-700 transition-colors shadow-xs"
+                  className="text-[10px] font-semibold whitespace-nowrap px-3 py-1.5 rounded-full bg-[#f5f5f7] hover:bg-[#1d1d1f] hover:text-white border border-black/[0.04] text-[#515154] transition-colors shadow-2xs cursor-pointer press-scale"
                 >
                   {p.label}
                 </button>
@@ -575,14 +587,14 @@ export function AIReceptionist() {
             </div>
 
             {/* Bottom Input Field & Voice Controls */}
-            <div className="p-3 bg-white border-t border-zinc-200 flex items-center gap-2">
+            <div className="p-3 bg-[#f5f5f7] border-t border-black/[0.08] flex items-center gap-2">
               <button
                 onClick={toggleListening}
                 title={isListening ? "Listening... click to stop" : "Speak your message"}
-                className={`p-2 rounded-full transition-colors ${
+                className={`p-2 rounded-full transition-colors cursor-pointer ${
                   isListening
                     ? "bg-red-500 text-white animate-pulse"
-                    : "bg-zinc-100 text-zinc-600 hover:bg-zinc-200"
+                    : "bg-white text-[#515154] hover:text-[#1d1d1f] border border-black/[0.06]"
                 }`}
               >
                 {isListening ? <MicOff size={16} /> : <Mic size={16} />}
@@ -596,25 +608,25 @@ export function AIReceptionist() {
                 onKeyDown={(e) => {
                   if (e.key === "Enter") handleSendMessage();
                 }}
-                className="flex-1 h-10 px-3.5 bg-zinc-100/80 border border-zinc-200 rounded-full text-xs font-medium focus:outline-none focus:border-black text-zinc-900 placeholder:text-zinc-400"
+                className="flex-1 h-10 px-4 bg-white border border-black/[0.08] rounded-full text-xs font-normal focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] text-[#1d1d1f] placeholder:text-[#86868b]"
               />
 
               <Button
                 size="sm"
                 onClick={() => handleSendMessage()}
                 disabled={!inputMessage.trim() || isTyping}
-                className="h-10 w-10 p-0 rounded-full bg-black hover:bg-zinc-800 text-white flex items-center justify-center flex-shrink-0 shadow-md"
+                className="h-10 w-10 p-0 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer press-scale disabled:opacity-40"
               >
-                <Send size={15} />
+                <Send size={14} />
               </Button>
             </div>
 
             {/* Direct Email Quick Contact Strip */}
-            <div className="px-4 py-2 bg-zinc-900 text-white flex items-center justify-between text-[10px] font-semibold">
-              <span className="text-zinc-400">Official Email: jsmintegratedservices@outlook.com</span>
+            <div className="px-4 py-2 bg-[#f5f5f7] border-t border-black/[0.06] text-[#86868b] flex items-center justify-between text-[10px] font-mono">
+              <span>Trichy HQ Operations Desk</span>
               <a
-                href="mailto:jsmintegratedservices@outlook.com?subject=Inquiry"
-                className="text-[#C5A880] hover:underline flex items-center gap-1 font-bold"
+                href="mailto:contact@jsmintegratedservices.com?subject=Inquiry"
+                className="text-[#0071e3] hover:underline flex items-center gap-1 font-semibold"
               >
                 <Mail size={12} /> Email Operations Desk
               </a>

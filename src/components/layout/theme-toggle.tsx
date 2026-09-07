@@ -36,7 +36,7 @@ export function ThemeToggle() {
         className="relative flex items-center justify-center w-full h-full"
       >
         {theme === "dark" ? (
-          <Sun className="h-5 w-5 text-[#C5A880]" />
+          <Sun className="h-5 w-5 text-[#0071e3]" />
         ) : (
           <Moon className="h-5 w-5 text-zinc-600" />
         )}

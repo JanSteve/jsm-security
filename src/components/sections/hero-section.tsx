@@ -66,6 +66,7 @@ const heroVisuals = [
 
 export function HeroSection() {
   const [activeTab, setActiveTab] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const [liveTime, setLiveTime] = useState<string>("");
 
   useEffect(() => {
@@ -85,6 +86,14 @@ export function HeroSection() {
     const interval = setInterval(updateTime, 1000);
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      setActiveTab((prev) => (prev + 1) % heroVisuals.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [isPaused]);
 
   const current = heroVisuals[activeTab];
 
@@ -180,7 +189,11 @@ export function HeroSection() {
 
         {/* Right Column: Dynamic Authentic Visual Stage */}
         <div className="lg:col-span-6">
-          <div className="relative w-full h-[400px] sm:h-[460px] md:h-[500px] rounded-3xl overflow-hidden shadow-xl border border-black/[0.08] bg-[#f5f5f7] group">
+          <div 
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            className="relative w-full h-[400px] sm:h-[460px] md:h-[500px] rounded-3xl overflow-hidden shadow-xl border border-black/[0.08] bg-[#f5f5f7] group"
+          >
             
             <AnimatePresence mode="wait">
               <motion.div

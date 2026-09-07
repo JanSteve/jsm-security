@@ -23,12 +23,12 @@ export function ProcessTimeline({ steps }: { steps: ProcessStep[] }) {
             transition={{ delay: i * 0.15, type: 'spring' }}
             className="flex lg:flex-col items-start lg:items-center gap-6 lg:gap-4 relative z-10 lg:w-1/4"
           >
-            <div className="w-16 h-16 rounded-full bg-[#C5A880] text-white flex items-center justify-center font-bold text-2xl flex-shrink-0 shadow-sm border border-white/20">
+            <div className="w-14 h-14 rounded-full bg-[#1d1d1f] text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-xs border border-black/[0.08]">
               {i + 1}
             </div>
             <div className="lg:text-center pt-2 lg:pt-0">
-              <h4 className="text-xl font-bold text-black mb-2">{step.title}</h4>
-              <p className="text-zinc-500 text-sm leading-relaxed">{step.description}</p>
+              <h4 className="text-base sm:text-lg font-bold text-[#1d1d1f] mb-1.5 tracking-tight">{step.title}</h4>
+              <p className="text-[#515154] text-xs sm:text-sm leading-relaxed font-normal">{step.description}</p>
             </div>
           </motion.div>
         ))}

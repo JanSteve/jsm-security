@@ -324,12 +324,12 @@ export function InteractiveCostSimulator() {
               <div className="mt-6">
                 <Button
                   onClick={() => setShowProposalModal(true)}
-                  className="w-full py-4 bg-[#1d1d1f] hover:bg-black text-white font-semibold text-sm rounded-full transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer min-h-[44px]"
+                  className="w-full py-4 bg-[#0071e3] hover:bg-[#0077ed] text-white font-semibold text-xs rounded-full transition-all shadow-xs flex items-center justify-center gap-2 cursor-pointer min-h-[44px] press-scale"
                 >
                   <span>Request official commercial proposal</span>
-                  <ArrowRight size={16} />
+                  <ArrowRight size={15} />
                 </Button>
-                <span className="text-[11px] text-[#86868b] block text-center mt-2">
+                <span className="text-[11px] text-[#86868b] block text-center mt-2 font-mono">
                   Guaranteed 2-hour response time • Tiruchirappalli command desk
                 </span>
               </div>
@@ -453,7 +453,7 @@ export function InteractiveCostSimulator() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="flex-1 py-2.5 px-4 rounded-full bg-[#1d1d1f] hover:bg-black text-white text-xs font-semibold flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
+                      className="flex-1 py-2.5 px-4 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white text-xs font-semibold flex items-center justify-center gap-1.5 cursor-pointer shadow-xs press-scale"
                     >
                       {isSubmitting ? (
                         <>

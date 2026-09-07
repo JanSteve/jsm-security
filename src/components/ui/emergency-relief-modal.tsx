@@ -64,37 +64,37 @@ export function EmergencyReliefModal() {
   return (
     <>
       {/* Floating Action Trigger Button (Bottom Left on Mobile/Desktop) */}
-      <div className="fixed bottom-6 left-6 z-40">
+      <div className="fixed bottom-20 md:bottom-6 left-4 sm:left-6 z-40">
         <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          whileHover={{ scale: 1.04 }}
+          whileTap={{ scale: 0.96 }}
           onClick={() => setIsOpen(true)}
-          className="flex items-center gap-2.5 px-4 py-3 bg-red-600 hover:bg-red-700 text-white rounded-full shadow-2xl font-bold text-xs uppercase tracking-wider border-2 border-white/20 backdrop-blur-md cursor-pointer transition-colors"
+          className="flex items-center gap-2 px-3.5 py-2.5 bg-white/95 backdrop-blur-xl hover:bg-white text-[#1d1d1f] rounded-full shadow-lg border border-black/[0.08] text-xs font-semibold tracking-wide cursor-pointer transition-all press-scale"
         >
-          <span className="relative flex h-2.5 w-2.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-white"></span>
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
           </span>
-          <ShieldAlert size={16} />
-          <span className="hidden sm:inline font-black">2-Hour Emergency Relief</span>
-          <span className="sm:hidden font-black">Emergency SOS</span>
+          <ShieldAlert size={15} className="text-red-600" />
+          <span className="hidden sm:inline font-semibold">2-Hour Emergency Relief</span>
+          <span className="sm:hidden font-semibold">SOS Relief</span>
         </motion.button>
       </div>
 
       {/* Emergency Modal */}
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-md">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="bg-zinc-900 border-2 border-red-500/80 rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl relative text-white"
+              className="bg-white border border-black/[0.08] rounded-[28px] p-6 sm:p-8 max-w-lg w-full shadow-2xl relative text-[#1d1d1f]"
             >
               {/* Close Button */}
               <button
                 onClick={() => setIsOpen(false)}
-                className="absolute top-5 right-5 text-zinc-400 hover:text-white p-1 rounded-lg bg-zinc-800"
+                className="absolute top-5 right-5 text-[#86868b] hover:text-[#1d1d1f] p-1.5 rounded-full hover:bg-black/[0.05] transition-colors"
               >
                 <X size={18} />
               </button>
@@ -102,14 +102,14 @@ export function EmergencyReliefModal() {
               {!submitted ? (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   {/* Header */}
-                  <div className="border-b border-zinc-800 pb-3">
-                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-red-500/20 text-red-400 text-[10px] font-mono font-extrabold uppercase mb-2">
+                  <div className="border-b border-black/[0.08] pb-3">
+                    <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-50 border border-red-200/60 text-red-700 text-[10px] font-mono font-bold uppercase mb-2">
                       <Radio size={12} className="animate-pulse" /> Direct Operations Escalation
                     </div>
-                    <h3 className="text-xl font-black text-white uppercase">
+                    <h3 className="text-xl font-bold text-[#1d1d1f] tracking-tight">
                       2-Hour Rapid Relief Dispatch
                     </h3>
-                    <p className="text-xs text-zinc-300 mt-1">
+                    <p className="text-xs text-[#515154] mt-1 leading-relaxed">
                       Facing guard absenteeism, sudden strike, or surge requirement? Our roving reserve teams deploy on-site in under 120 minutes.
                     </p>
                   </div>
@@ -117,8 +117,8 @@ export function EmergencyReliefModal() {
                   {/* Form Inputs */}
                   <div className="space-y-3 pt-1">
                     <div>
-                      <label className="text-xs font-bold text-zinc-300 flex items-center gap-1.5 mb-1">
-                        <Building2 size={13} className="text-red-400" /> Facility / Plant Name *
+                      <label className="text-xs font-semibold text-[#1d1d1f] flex items-center gap-1.5 mb-1">
+                        <Building2 size={13} className="text-red-600" /> Facility / Plant Name *
                       </label>
                       <input
                         required
@@ -126,14 +126,14 @@ export function EmergencyReliefModal() {
                         value={formData.companyName}
                         onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
                         placeholder="e.g. Oragadam Manufacturing Unit 2"
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-zinc-800 border border-zinc-700 text-white text-xs focus:ring-1 focus:ring-red-500 outline-none"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#f5f5f7] border border-black/[0.08] text-[#1d1d1f] text-xs focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] outline-none"
                       />
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div>
-                        <label className="text-xs font-bold text-zinc-300 flex items-center gap-1.5 mb-1">
-                          <User size={13} className="text-red-400" /> Contact Officer *
+                        <label className="text-xs font-semibold text-[#1d1d1f] flex items-center gap-1.5 mb-1">
+                          <User size={13} className="text-red-600" /> Contact Officer *
                         </label>
                         <input
                           required
@@ -141,12 +141,12 @@ export function EmergencyReliefModal() {
                           value={formData.contactPerson}
                           onChange={(e) => setFormData({ ...formData, contactPerson: e.target.value })}
                           placeholder="e.g. Ramesh (Duty Officer)"
-                          className="w-full px-3.5 py-2.5 rounded-xl bg-zinc-800 border border-zinc-700 text-white text-xs focus:ring-1 focus:ring-red-500 outline-none"
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-[#f5f5f7] border border-black/[0.08] text-[#1d1d1f] text-xs focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] outline-none"
                         />
                       </div>
                       <div>
-                        <label className="text-xs font-bold text-zinc-300 flex items-center gap-1.5 mb-1">
-                          <PhoneCall size={13} className="text-red-400" /> Direct Mobile Phone *
+                        <label className="text-xs font-semibold text-[#1d1d1f] flex items-center gap-1.5 mb-1">
+                          <PhoneCall size={13} className="text-red-600" /> Direct Mobile Phone *
                         </label>
                         <input
                           required
@@ -154,36 +154,36 @@ export function EmergencyReliefModal() {
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           placeholder="e.g. +91 98765 43210"
-                          className="w-full px-3.5 py-2.5 rounded-xl bg-zinc-800 border border-zinc-700 text-white text-xs focus:ring-1 focus:ring-red-500 outline-none font-mono"
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-[#f5f5f7] border border-black/[0.08] text-[#1d1d1f] text-xs focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] outline-none font-mono tabular-nums"
                         />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div>
-                        <label className="text-xs font-bold text-zinc-300 flex items-center gap-1.5 mb-1">
-                          <MapPin size={13} className="text-red-400" /> Regional Corridor
+                        <label className="text-xs font-semibold text-[#1d1d1f] flex items-center gap-1.5 mb-1">
+                          <MapPin size={13} className="text-red-600" /> Regional Corridor
                         </label>
                         <select
                           value={formData.location}
                           onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                          className="w-full px-3 py-2.5 rounded-xl bg-zinc-800 border border-zinc-700 text-white text-xs focus:ring-1 focus:ring-red-500 outline-none"
+                          className="w-full px-3 py-2.5 rounded-xl bg-[#f5f5f7] border border-black/[0.08] text-[#1d1d1f] text-xs focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] outline-none"
                         >
                           <option>Sriperumbudur / Oragadam SIPCOT</option>
                           <option>Tiruchirappalli (Trichy Region)</option>
-                          <option>Coimbatore (Peelamedu & Kurichi)</option>
-                          <option>Hosur (SIPCOT Phase I & II)</option>
+                          <option>Coimbatore (Peelamedu &amp; Kurichi)</option>
+                          <option>Hosur (SIPCOT Phase I &amp; II)</option>
                           <option>Madurai / Salem Hubs</option>
                         </select>
                       </div>
                       <div>
-                        <label className="text-xs font-bold text-zinc-300 flex items-center gap-1.5 mb-1">
-                          <Clock size={13} className="text-red-400" /> Guards Required
+                        <label className="text-xs font-semibold text-[#1d1d1f] flex items-center gap-1.5 mb-1">
+                          <Clock size={13} className="text-red-600" /> Guards Required
                         </label>
                         <select
                           value={formData.guardsNeeded}
                           onChange={(e) => setFormData({ ...formData, guardsNeeded: e.target.value })}
-                          className="w-full px-3 py-2.5 rounded-xl bg-zinc-800 border border-zinc-700 text-white text-xs focus:ring-1 focus:ring-red-500 outline-none"
+                          className="w-full px-3 py-2.5 rounded-xl bg-[#f5f5f7] border border-black/[0.08] text-[#1d1d1f] text-xs focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] outline-none"
                         >
                           <option>1 - 2 Relief Guards</option>
                           <option>3 - 5 Relief Guards</option>
@@ -194,18 +194,18 @@ export function EmergencyReliefModal() {
                     </div>
                   </div>
 
-                  <div className="flex gap-3 pt-4 border-t border-zinc-800">
+                  <div className="flex gap-3 pt-4 border-t border-black/[0.08]">
                     <button
                       type="button"
                       onClick={() => setIsOpen(false)}
-                      className="flex-1 py-2.5 px-4 rounded-xl border border-zinc-700 text-zinc-400 hover:text-white text-xs font-bold"
+                      className="flex-1 py-2.5 px-4 rounded-full border border-black/[0.1] text-[#515154] hover:text-[#1d1d1f] text-xs font-semibold"
                     >
                       Cancel
                     </button>
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="flex-1 py-2.5 px-4 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-black uppercase tracking-wider flex items-center justify-center gap-1.5 cursor-pointer shadow-lg shadow-red-600/30"
+                      className="flex-1 py-2.5 px-4 rounded-full bg-red-600 hover:bg-red-700 text-white text-xs font-semibold tracking-wide flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
                     >
                       {isSubmitting ? (
                         <>
@@ -220,21 +220,21 @@ export function EmergencyReliefModal() {
                 </form>
               ) : (
                 <div className="text-center py-6 space-y-4">
-                  <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
+                  <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center mx-auto">
                     <CheckCircle2 size={32} />
                   </div>
-                  <h3 className="text-xl font-black text-white">Emergency Alert Dispatched!</h3>
-                  <p className="text-xs text-zinc-300 max-w-sm mx-auto leading-relaxed">
-                    Our regional duty supervisor has received your high-priority request. We are contacting <strong className="text-white">{formData.phone}</strong> immediately for post coordinates.
+                  <h3 className="text-xl font-bold text-[#1d1d1f]">Emergency Alert Dispatched</h3>
+                  <p className="text-xs text-[#515154] max-w-sm mx-auto leading-relaxed">
+                    Our regional duty supervisor has received your high-priority request. We are contacting <strong className="text-[#1d1d1f]">{formData.phone}</strong> immediately for post coordinates.
                   </p>
                   <Button
                     onClick={() => {
                       setSubmitted(false);
                       setIsOpen(false);
                     }}
-                    className="mt-4 bg-[#C5A880] text-zinc-950 font-bold text-xs"
+                    className="mt-4 bg-[#1d1d1f] hover:bg-black text-white font-semibold text-xs rounded-full px-6 py-2.5"
                   >
-                    Close
+                    Close Window
                   </Button>
                 </div>
               )}

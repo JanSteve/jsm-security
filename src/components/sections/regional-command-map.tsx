@@ -148,14 +148,14 @@ export function RegionalCommandMap() {
                   key={hub.id}
                   type="button"
                   onClick={() => setSelectedHub(hub)}
-                  className={`w-full p-4 rounded-2xl border text-left transition-all flex items-center justify-between cursor-pointer ${
+                  className={`w-full p-4 rounded-2xl border text-left transition-all flex items-center justify-between cursor-pointer press-scale ${
                     isSelected
-                      ? "bg-white border-[#0071e3] ring-2 ring-[#0071e3]/20 shadow-md"
-                      : "bg-white/70 border-black/[0.06] text-[#86868b] hover:border-black/[0.12] hover:bg-white"
+                      ? "bg-white border-[#0071e3] ring-2 ring-[#0071e3]/15 shadow-sm"
+                      : "bg-white/80 border-black/[0.06] text-[#86868b] hover:border-black/[0.12] hover:bg-white"
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <div className={`p-2.5 rounded-xl ${isSelected ? "bg-[#0071e3] text-white" : "bg-[#f5f5f7] text-[#1d1d1f]"}`}>
+                    <div className={`p-2.5 rounded-xl transition-colors ${isSelected ? "bg-[#0071e3] text-white" : "bg-[#f5f5f7] text-[#1d1d1f]"}`}>
                       <MapPin size={16} />
                     </div>
                     <div>
@@ -167,7 +167,7 @@ export function RegionalCommandMap() {
                           </span>
                         )}
                       </div>
-                      <div className="text-xs text-[#86868b] mt-0.5">
+                      <div className="text-xs text-[#86868b] mt-0.5 tabular-nums">
                         {hub.sitesGuarded} Facilities • {hub.personnelActive} Active Personnel
                       </div>
                     </div>
@@ -258,8 +258,9 @@ export function RegionalCommandMap() {
                   </div>
 
                   <Link href="/contact">
-                    <Button className="bg-[#1d1d1f] hover:bg-black text-white font-semibold text-xs tracking-wide rounded-full px-6 py-2.5 cursor-pointer shadow-sm">
+                    <Button className="bg-[#1d1d1f] hover:bg-black text-white font-semibold text-xs tracking-wide rounded-full px-6 py-2.5 cursor-pointer shadow-xs press-scale flex items-center gap-1.5 min-h-[44px]">
                       <span>Request Site Assessment</span>
+                      <ChevronRight size={14} />
                     </Button>
                   </Link>
                 </div>

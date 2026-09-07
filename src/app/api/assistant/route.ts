@@ -73,15 +73,15 @@ async function sendChatLeadEmail({ reference, userQuery, fullConversation }: { r
     subject: `🚨 Live Chat Lead Captured [${reference}] - JSM Integrated Services`,
     text: `New Lead Captured via Priya Operations Desk\n\nReference: ${reference}\nLatest Query: ${userQuery}\n\nFull Conversation Log:\n${fullConversation}`,
     html: `
-      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #fbf9f4; padding: 24px; color: #111;">
-        <div style="max-width: 600px; margin: 0 auto; background: #fff; border-radius: 16px; border: 1px solid #e4e2dd; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
-          <div style="background: #000; color: #fff; padding: 20px 24px; border-bottom: 3px solid #C5A880;">
+      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f7; padding: 24px; color: #1d1d1f;">
+        <div style="max-width: 600px; margin: 0 auto; background: #fff; border-radius: 16px; border: 1px solid #e5e5ea; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+          <div style="background: #1d1d1f; color: #fff; padding: 20px 24px; border-bottom: 3px solid #0071e3;">
             <h2 style="margin: 0; font-size: 18px;">🚨 Live Chat Lead &amp; Manager Alert</h2>
-            <p style="margin: 4px 0 0 0; color: #C5A880; font-size: 12px; font-weight: 700; text-transform: uppercase;">Reference: ${reference}</p>
+            <p style="margin: 4px 0 0 0; color: #0071e3; font-size: 12px; font-weight: 700; text-transform: uppercase;">Reference: ${reference}</p>
           </div>
           <div style="padding: 24px;">
             <p style="font-size: 14px; font-weight: 700; color: #000;">User Query / Phone Details:</p>
-            <div style="background: #fbf9f4; border-left: 3px solid #000; padding: 12px 16px; border-radius: 8px; font-size: 13px; font-weight: 600;">
+            <div style="background: #f5f5f7; border-left: 3px solid #0071e3; padding: 12px 16px; border-radius: 8px; font-size: 13px; font-weight: 600;">
               ${userQuery}
             </div>
             <p style="font-size: 12px; color: #666; margin-top: 20px;">Full Chat Conversation:</p>

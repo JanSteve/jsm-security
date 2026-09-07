@@ -239,18 +239,19 @@ Sent from jsmintegratedservices.in/get-quote
           display: flex;
           justify-content: space-between;
           align-items: flex-start;
-          border-bottom: 3px solid #C5A880;
+          border-bottom: 3px solid #0071e3;
           padding-bottom: 20px;
           margin-bottom: 40px;
         }
         .logo-area h1 {
-          font-weight: 900;
+          font-weight: 700;
           font-size: 24px;
           margin: 0 0 5px 0;
           letter-spacing: -0.5px;
+          color: #1d1d1f;
         }
         .logo-area p {
-          color: #71717a;
+          color: #86868b;
           margin: 0;
           font-size: 14px;
         }
@@ -261,17 +262,18 @@ Sent from jsmintegratedservices.in/get-quote
         .meta-area p { margin: 2px 0; }
         
         .client-section {
-          background: #fbf9f4;
+          background: #f5f5f7;
           padding: 24px;
-          border-radius: 12px;
+          border-radius: 16px;
           margin-bottom: 40px;
         }
         .client-section h2 {
-          font-size: 16px;
+          font-size: 14px;
           text-transform: uppercase;
-          color: #C5A880;
+          color: #0071e3;
           margin-top: 0;
           margin-bottom: 16px;
+          letter-spacing: 0.5px;
         }
         .client-grid {
           display: grid;
@@ -286,11 +288,11 @@ Sent from jsmintegratedservices.in/get-quote
           margin-bottom: 40px;
         }
         th {
-          background: #0A1628;
+          background: #1d1d1f;
           color: white;
           text-align: left;
           padding: 12px;
-          font-size: 14px;
+          font-size: 13px;
         }
         th.right { text-align: right; }
         
@@ -301,29 +303,30 @@ Sent from jsmintegratedservices.in/get-quote
           margin-bottom: 40px;
         }
         .guarantee-card {
-          border: 1px solid #e4e4e7;
+          border: 1px solid #e5e5ea;
+          background: #f5f5f7;
           padding: 16px;
-          border-radius: 8px;
+          border-radius: 16px;
         }
         .guarantee-card h3 {
-          font-size: 14px;
-          color: #C5A880;
+          font-size: 13px;
+          color: #0071e3;
           margin-top: 0;
           margin-bottom: 8px;
         }
         .guarantee-card p {
           font-size: 12px;
           margin: 0;
-          color: #52525b;
+          color: #515154;
         }
         
         .footer {
           margin-top: 60px;
           padding-top: 20px;
-          border-top: 1px solid #e4e4e7;
+          border-top: 1px solid #e5e5ea;
           text-align: center;
           font-size: 12px;
-          color: #71717a;
+          color: #86868b;
         }
         .disclaimer {
           background: #fffbeb;
@@ -342,8 +345,8 @@ Sent from jsmintegratedservices.in/get-quote
       </style>
     </head>
     <body>
-      <div class="no-print" style="background:#0A1628;color:white;padding:16px;text-align:center;border-radius:8px;margin-bottom:24px;">
-        <button onclick="window.print()" style="background:#C5A880;border:none;color:white;padding:10px 20px;font-weight:bold;border-radius:6px;cursor:pointer;font-size:16px;">Print / Save as PDF</button>
+      <div class="no-print" style="background:#f5f5f7;border:1px solid #e5e5ea;color:#1d1d1f;padding:16px;text-align:center;border-radius:16px;margin-bottom:24px;">
+        <button onclick="window.print()" style="background:#0071e3;border:none;color:white;padding:10px 24px;font-weight:600;border-radius:9999px;cursor:pointer;font-size:14px;">Print / Save as PDF</button>
       </div>
 
       <div class="header">

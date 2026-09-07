@@ -177,7 +177,7 @@
   }
 
   :focus-visible {
-    outline: 2px solid #C5A880;
+    outline: 2px solid #0071e3;
     outline-offset: 2px;
   }
   
@@ -202,27 +202,27 @@
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(228, 228, 231, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.08);
     box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.04), 0 2px 8px -1px rgba(0, 0, 0, 0.02);
   }
   .glass-card-dark {
-    background: rgba(10, 22, 40, 0.75);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(197, 168, 128, 0.2);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
   }
   .gold-glow {
-    box-shadow: var(--gold-glow);
+    box-shadow: none;
   }
   .gold-glow-hover:hover {
-    box-shadow: 0 0 30px rgba(197, 168, 128, 0.35);
+    box-shadow: 0 4px 20px rgba(0, 113, 227, 0.15);
   }
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#1d1d1f] to-[#515154];
   }
   .text-gold-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-zinc-900 via-[#C5A880] to-zinc-800;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#1d1d1f] to-[#0071e3];
   }
   .bg-radial-grid {
     background-size: 32px 32px;
@@ -230,7 +230,7 @@
   }
   .bg-radial-grid-dark {
     background-size: 32px 32px;
-    background-image: radial-gradient(circle, rgba(197, 168, 128, 0.12) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
   }
   
   /* UI-Skills Playbook Utilities */
@@ -247,7 +247,7 @@
     max-width: 68ch;
   }
   .img-neutral-border {
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.08);
   }
   .press-scale {
     transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
@@ -263,7 +263,7 @@
     outline: none;
   }
   .focus-ring-gold:focus-visible {
-    outline: 2px solid #C5A880;
+    outline: 2px solid #0071e3;
     outline-offset: 2px;
   }
   
@@ -281,39 +281,40 @@
     transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   }
   
-  /* Solid Backdrop for Modals (avoids expensive full-screen blur) */
+  /* Solid Backdrop for Modals (Apple frosted clean) */
   .modal-solid-backdrop {
-    background-color: rgba(7, 9, 14, 0.88);
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
   }
 }
 
-/* Custom Luxury Range Slider */
+/* Apple Precision Range Slider */
 input[type="range"] {
-  accent-color: #C5A880;
+  accent-color: #0071e3;
   cursor: pointer;
 }
 input[type="range"]::-webkit-slider-runnable-track {
   height: 6px;
   border-radius: 9999px;
-  background: rgba(228, 228, 231, 0.8);
+  background: rgba(0, 0, 0, 0.08);
 }
 .dark input[type="range"]::-webkit-slider-runnable-track,
 .bg-\[\#0A1628\] input[type="range"]::-webkit-slider-runnable-track {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.08);
 }
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  background: #C5A880;
-  border: 3px solid #ffffff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25), 0 0 12px rgba(197, 168, 128, 0.6);
-  margin-top: -7px;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.1);
+  margin-top: -8px;
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s ease;
 }
 input[type="range"]::-webkit-slider-thumb:hover {
-  transform: scale(1.15);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3), 0 0 18px rgba(197, 168, 128, 0.8);
+  transform: scale(1.12);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(0, 113, 227, 0.15);
 }

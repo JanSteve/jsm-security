@@ -38,7 +38,7 @@ const EXECUTIVE_DOSSIERS: LeaderDossier[] = [
     designation: "Proprietor & Managing Director",
     subtitle: "EXECUTIVE COMMAND • STATUTORY COMPLIANCE • PSARA GOVERNANCE",
     badge: "FOUNDER & PROPRIETOR",
-    badgeColor: "bg-[#C5A880]/15 text-[#C5A880] border-[#C5A880]/30",
+    badgeColor: "bg-[#0071e3]/10 text-[#0071e3] border-[#0071e3]/20",
     icon: Award,
     coreResponsibilities: [
       "Sole Proprietorship & Executive Policy Governance",
@@ -57,7 +57,7 @@ const EXECUTIVE_DOSSIERS: LeaderDossier[] = [
     designation: "Head of Operations (Army-Veteran)",
     subtitle: "TACTICAL FIELD DEPLOYMENT • DRILL MUSTER • 2:00 AM NIGHT PATROLS",
     badge: "EX-INDIAN ARMED FORCES",
-    badgeColor: "bg-emerald-500/15 text-emerald-400 border-emerald-500/30",
+    badgeColor: "bg-emerald-50 text-emerald-700 border-emerald-200/60",
     icon: ShieldCheck,
     coreResponsibilities: [
       "Military-Grade Guard Drill & 5-Day Induction Syllabus",
@@ -76,7 +76,7 @@ const EXECUTIVE_DOSSIERS: LeaderDossier[] = [
     designation: "Chief Technical Officer & Audit",
     subtitle: "DIGITAL BIOMETRICS • DOCUMENT SCANNING & OCR • COMPLIANCE AUDITS",
     badge: "CTO & AUDIT HEAD",
-    badgeColor: "bg-blue-500/15 text-blue-400 border-blue-500/30",
+    badgeColor: "bg-blue-50 text-blue-700 border-blue-200/60",
     icon: Binary,
     coreResponsibilities: [
       "Biometric Attendance & Live Field Telemetry Infrastructure",

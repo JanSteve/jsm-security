@@ -92,17 +92,17 @@ export function VisualTransformationGallery() {
     : VISUAL_CARDS.filter(c => c.category.includes(activeFilter));
 
   return (
-    <section className="py-16 md:py-20 bg-[#07090E] text-white relative overflow-hidden border-t border-white/10" id="visual-showcase">
+    <section className="py-16 md:py-20 bg-white text-[#1d1d1f] relative overflow-hidden border-t border-black/[0.08]" id="visual-showcase">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Sleek Minimal Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 border-b border-white/10 pb-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 border-b border-black/[0.08] pb-6">
           <div className="space-y-2">
-            <span className="text-xs font-mono font-bold tracking-wider text-[#C5A880] uppercase block">
-              [Visual Operations Showcase]
+            <span className="text-xs font-semibold tracking-wider text-[#0071e3] uppercase block">
+              Visual Operations Showcase
             </span>
-            <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white text-balance">
-              Proven ground <span className="text-[#C5A880]">capabilities</span>
+            <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight text-[#1d1d1f] text-balance">
+              Proven ground <span className="text-[#0071e3]">capabilities</span>
             </h2>
           </div>
 
@@ -119,10 +119,10 @@ export function VisualTransformationGallery() {
                 key={filter.id}
                 type="button"
                 onClick={() => setActiveFilter(filter.id)}
-                className={`px-4 py-2 rounded-full text-xs font-mono font-bold transition-all cursor-pointer min-h-[38px] press-scale ${
+                className={`px-4 py-2 rounded-full text-xs font-semibold transition-all cursor-pointer min-h-[38px] press-scale ${
                   activeFilter === filter.id
-                    ? "bg-[#C5A880] text-zinc-950 shadow-md"
-                    : "bg-[#0B0F17] text-zinc-400 border border-zinc-800 hover:text-white hover:bg-zinc-800"
+                    ? "bg-[#0071e3] text-white shadow-sm"
+                    : "bg-[#f5f5f7] text-[#1d1d1f] border border-black/[0.08] hover:bg-[#e8e8ed]"
                 }`}
               >
                 {filter.label}
@@ -142,7 +142,7 @@ export function VisualTransformationGallery() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.2 }}
-                className="group relative h-[390px] rounded-3xl overflow-hidden border border-zinc-800 bg-[#0B0F17] shadow-2xl flex flex-col justify-between p-6 transition-all duration-300 hover:border-[#C5A880]/80 hover:shadow-[#C5A880]/10"
+                className="group relative h-[390px] rounded-[28px] overflow-hidden border border-black/[0.08] bg-[#f5f5f7] shadow-sm flex flex-col justify-between p-6 transition-all duration-300 hover:border-black/[0.2] hover:shadow-xl"
               >
                 {/* Background Image with Zoom on Hover */}
                 <Image
@@ -154,38 +154,38 @@ export function VisualTransformationGallery() {
                 />
                 
                 {/* Gradient Overlay for Text Readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#07090E] via-[#07090E]/60 to-black/25 group-hover:via-[#07090E]/50 transition-colors" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/15 group-hover:via-black/30 transition-colors" />
 
                 {/* Top Floating Badge */}
                 <div className="relative z-10 flex justify-between items-start gap-2">
-                  <span className="px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-[#C5A880]/40 text-[#C5A880] text-[10px] font-mono font-bold">
+                  <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-black/[0.08] text-[#1d1d1f] text-[10px] font-semibold uppercase tracking-wider">
                     {card.category}
                   </span>
 
-                  <span className="px-3 py-1 rounded-full bg-emerald-500/90 backdrop-blur-md text-zinc-950 text-[10px] font-mono font-bold shadow-sm">
+                  <span className="px-3 py-1 rounded-full bg-emerald-500/90 backdrop-blur-md text-white text-[10px] font-semibold shadow-xs">
                     {card.metricBadge}
                   </span>
                 </div>
 
                 {/* Bottom Information Container */}
-                <div className="relative z-10 space-y-2">
-                  <div className="flex items-center gap-1.5 text-[11px] text-zinc-300 font-mono">
-                    <MapPin size={12} className="text-[#C5A880]" />
+                <div className="relative z-10 space-y-2 text-white">
+                  <div className="flex items-center gap-1.5 text-[11px] text-white/80">
+                    <MapPin size={12} className="text-[#0071e3]" />
                     <span>{card.location}</span>
                   </div>
 
-                  <h3 className="text-xl font-black text-white leading-tight drop-shadow-md text-balance">
+                  <h3 className="text-lg font-semibold text-white leading-tight drop-shadow-sm text-balance">
                     {card.title}
                   </h3>
 
-                  <p className="text-xs text-zinc-300 font-normal line-clamp-2 leading-relaxed opacity-90 group-hover:opacity-100 transition-opacity text-pretty">
+                  <p className="text-xs text-white/80 font-normal line-clamp-2 leading-relaxed opacity-90 group-hover:opacity-100 transition-opacity text-pretty">
                     {card.highlightText}
                   </p>
 
                   <div className="pt-2">
                     <Link 
                       href="/get-quote"
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#C5A880] group-hover:text-white font-mono tracking-wider min-h-[44px] press-scale"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-white hover:text-white/90 underline underline-offset-4 min-h-[44px] press-scale"
                     >
                       <span>Deploy at your site</span>
                       <ArrowRight size={13} className="transition-transform group-hover:translate-x-1" />

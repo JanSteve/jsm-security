@@ -45,14 +45,14 @@ export function FeatureGrid({ features }: FeatureGridProps) {
           <motion.div 
             key={i} 
             variants={item}
-            className="flex gap-4 p-6 bg-zinc-50 rounded-3xl border border-zinc-200/60 hover:border-[#C5A880]/30 hover:shadow-md transition-all duration-300 group shadow-sm"
+            className="flex gap-4 p-6 bg-[#f5f5f7] rounded-[24px] border border-black/[0.06] hover:border-black/[0.15] hover:shadow-sm transition-all duration-300 group"
           >
-            <div className="p-3 bg-white border border-zinc-200 rounded-2xl text-[#C5A880] group-hover:bg-[#C5A880] group-hover:text-white transition-colors duration-300 h-fit shadow-sm">
-              <IconComponent size={24} />
+            <div className="p-3 bg-white border border-black/[0.06] rounded-2xl text-[#0071e3] group-hover:bg-[#1d1d1f] group-hover:text-white transition-colors duration-300 h-fit shadow-2xs">
+              <IconComponent size={22} />
             </div>
             <div>
-              <h4 className="text-lg font-bold text-black mb-2">{feature.title}</h4>
-              <p className="text-zinc-500 text-sm leading-relaxed font-medium">{feature.description}</p>
+              <h4 className="text-base font-bold text-[#1d1d1f] mb-1.5 tracking-tight">{feature.title}</h4>
+              <p className="text-[#515154] text-xs sm:text-sm leading-relaxed font-normal">{feature.description}</p>
             </div>
           </motion.div>
         );

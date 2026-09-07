@@ -17,11 +17,11 @@ export interface ShimmerButtonProps
 export const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonProps>(
   (
     {
-      shimmerColor = "#C5A880",
+      shimmerColor = "#0071e3",
       shimmerSize = "0.1em",
       shimmerDuration = "2.5s",
       borderRadius = "9999px",
-      background = "radial-gradient(ellipse 80% 80% at 50% -20%, rgba(50, 45, 35, 1), rgba(10, 10, 10, 1))",
+      background = "radial-gradient(ellipse 80% 80% at 50% -20%, rgba(29, 29, 31, 1), rgba(0, 0, 0, 1))",
       className,
       children,
       ...props
@@ -43,7 +43,7 @@ export const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonPr
         className={cn(
           "group relative z-0 flex cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap px-6 py-3 text-white [background:var(--bg)] [border-radius:var(--radius)]",
           "transform-gpu transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]",
-          "border border-zinc-700/60 shadow-[0_0_20px_rgba(197,168,128,0.2)] hover:shadow-[0_0_30px_rgba(197,168,128,0.45)]",
+          "border border-zinc-700/60 shadow-[0_0_20px_rgba(0,113,227,0.2)] hover:shadow-[0_0_30px_rgba(0,113,227,0.45)]",
           className
         )}
         ref={ref}

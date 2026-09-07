@@ -40,7 +40,7 @@ const LIVE_LOGS: LogEntry[] = [
     subsystem: "PERIMETER_PATROL",
     status: "VERIFIED",
     message: "Heavy industrial yard muster verification complete. 0 breaches, CCTV cameras 100% online.",
-    badgeColor: "text-[#C5A880] bg-[#C5A880]/10 border-[#C5A880]/30"
+    badgeColor: "text-blue-400 bg-blue-500/10 border-blue-500/30"
   },
   {
     time: "06:00:00 IST",
@@ -98,68 +98,67 @@ export function CommandTerminalSection() {
   }, []);
 
   return (
-    <section className="py-16 md:py-20 bg-[#07090E] text-white border-t border-white/10 relative overflow-hidden">
+    <section className="py-16 md:py-20 bg-[#f5f5f7] text-[#1d1d1f] border-t border-black/[0.08] relative overflow-hidden">
       {/* Subtle Background Glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#C5A880]/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 right-10 w-[400px] h-[200px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 lg:px-20 relative z-10 space-y-12">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-zinc-800">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-black/[0.08]">
           <div className="space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-[10px] font-mono font-black tracking-widest uppercase">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="text-[10px] font-semibold tracking-wider uppercase">
                 24/7 LIVE COMMAND TELEMETRY
               </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white uppercase">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-[#1d1d1f]">
               Field Operations Terminal.
             </h2>
-            <p className="text-xs sm:text-sm text-zinc-400 max-w-2xl font-normal leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#86868b] max-w-2xl font-normal leading-relaxed">
               Every post, every shift, every relief guard is accounted for. Real-time simulated telemetry from our Kottapattu Central Command Desk, roving supervisor night vans, and verified client deployments.
             </p>
           </div>
 
           {/* Quick Metrics Bar */}
           <div className="flex items-center gap-3 shrink-0">
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-3 px-4 text-center">
-              <span className="text-[10px] font-mono text-zinc-400 block uppercase">Guard Uptime</span>
-              <span className="text-lg font-black text-white font-mono">99.98%</span>
+            <div className="bg-white border border-black/[0.08] rounded-2xl p-3 px-4 text-center shadow-xs">
+              <span className="text-[10px] font-semibold text-[#86868b] block uppercase">Guard Uptime</span>
+              <span className="text-lg font-semibold text-[#1d1d1f] tabular-nums">99.98%</span>
             </div>
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-3 px-4 text-center">
-              <span className="text-[10px] font-mono text-zinc-400 block uppercase">Relief SLA</span>
-              <span className="text-lg font-black text-[#C5A880] font-mono">&lt; 120m</span>
+            <div className="bg-white border border-black/[0.08] rounded-2xl p-3 px-4 text-center shadow-xs">
+              <span className="text-[10px] font-semibold text-[#86868b] block uppercase">Relief SLA</span>
+              <span className="text-lg font-semibold text-[#0071e3] tabular-nums">&lt; 120m</span>
             </div>
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-3 px-4 text-center">
-              <span className="text-[10px] font-mono text-zinc-400 block uppercase">Night Audits</span>
-              <span className="text-lg font-black text-emerald-400 font-mono">2:00 AM</span>
+            <div className="bg-white border border-black/[0.08] rounded-2xl p-3 px-4 text-center shadow-xs">
+              <span className="text-[10px] font-semibold text-[#86868b] block uppercase">Night Audits</span>
+              <span className="text-lg font-semibold text-emerald-600 tabular-nums">2:00 AM</span>
             </div>
           </div>
         </div>
 
         {/* The 21st.dev Inspired Terminal Shell */}
-        <div className="bg-[#0B0F17] border border-zinc-800/90 rounded-3xl overflow-hidden shadow-2xl">
+        <div className="bg-[#1d1d1f] text-white border border-black/[0.1] rounded-[28px] overflow-hidden shadow-2xl">
           {/* macOS-style Top Bar */}
-          <div className="bg-[#111723] px-6 py-4 border-b border-zinc-800 flex items-center justify-between">
+          <div className="bg-[#161618] px-6 py-4 border-b border-white/10 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="w-3 h-3 rounded-full bg-[#FF5F56] border border-[#E0443E]" />
               <span className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]" />
               <span className="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]" />
               <span className="ml-3 font-mono text-xs text-zinc-400 flex items-center gap-2">
-                <Terminal size={14} className="text-[#C5A880]" />
+                <Terminal size={14} className="text-[#0071e3]" />
                 jsm-command-node@kottapattu-hq:~ (telemetry-daemon v4.8)
               </span>
             </div>
 
             {/* Terminal View Switcher Tabs */}
-            <div className="flex items-center gap-1 bg-black/40 p-1 rounded-xl border border-zinc-800 text-xs font-mono">
+            <div className="flex items-center gap-1 bg-black/40 p-1 rounded-xl border border-white/10 text-xs font-mono">
               <button
                 type="button"
                 onClick={() => setActiveTab("logs")}
                 className={`px-3 py-1 rounded-lg transition-all ${
                   activeTab === "logs"
-                    ? "bg-[#C5A880] text-black font-bold shadow"
+                    ? "bg-[#0071e3] text-white font-semibold shadow"
                     : "text-zinc-400 hover:text-white"
                 }`}
               >
@@ -170,7 +169,7 @@ export function CommandTerminalSection() {
                 onClick={() => setActiveTab("sla")}
                 className={`px-3 py-1 rounded-lg transition-all ${
                   activeTab === "sla"
-                    ? "bg-[#C5A880] text-black font-bold shadow"
+                    ? "bg-[#0071e3] text-white font-semibold shadow"
                     : "text-zinc-400 hover:text-white"
                 }`}
               >
@@ -181,7 +180,7 @@ export function CommandTerminalSection() {
                 onClick={() => setActiveTab("command")}
                 className={`px-3 py-1 rounded-lg transition-all ${
                   activeTab === "command"
-                    ? "bg-[#C5A880] text-black font-bold shadow"
+                    ? "bg-[#0071e3] text-white font-semibold shadow"
                     : "text-zinc-400 hover:text-white"
                 }`}
               >
@@ -237,7 +236,7 @@ export function CommandTerminalSection() {
             {activeTab === "sla" && (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="p-5 rounded-2xl bg-black/50 border border-zinc-800 space-y-3">
-                  <div className="flex items-center gap-2 text-[#C5A880]">
+                  <div className="flex items-center gap-2 text-[#0071e3]">
                     <Clock size={16} />
                     <h4 className="font-bold uppercase tracking-wider text-white">2-Hour Relief SLA</h4>
                   </div>
@@ -251,7 +250,7 @@ export function CommandTerminalSection() {
                 </div>
 
                 <div className="p-5 rounded-2xl bg-black/50 border border-zinc-800 space-y-3">
-                  <div className="flex items-center gap-2 text-[#C5A880]">
+                  <div className="flex items-center gap-2 text-[#0071e3]">
                     <ShieldAlert size={16} />
                     <h4 className="font-bold uppercase tracking-wider text-white">2:00 AM Mobile Van Audits</h4>
                   </div>
@@ -265,7 +264,7 @@ export function CommandTerminalSection() {
                 </div>
 
                 <div className="p-5 rounded-2xl bg-black/50 border border-zinc-800 space-y-3">
-                  <div className="flex items-center gap-2 text-[#C5A880]">
+                  <div className="flex items-center gap-2 text-[#0071e3]">
                     <ShieldCheck size={16} />
                     <h4 className="font-bold uppercase tracking-wider text-white">100% Statutory Indemnity</h4>
                   </div>
@@ -279,7 +278,7 @@ export function CommandTerminalSection() {
                 </div>
 
                 <div className="p-5 rounded-2xl bg-black/50 border border-zinc-800 space-y-3">
-                  <div className="flex items-center gap-2 text-[#C5A880]">
+                  <div className="flex items-center gap-2 text-[#0071e3]">
                     <Sparkles size={16} />
                     <h4 className="font-bold uppercase tracking-wider text-white">5-Step Closed-Loop Hygiene</h4>
                   </div>
@@ -298,26 +297,26 @@ export function CommandTerminalSection() {
               <div className="space-y-4">
                 <div className="text-zinc-400 pb-2 border-b border-zinc-800 flex items-center justify-between">
                   <span>CENTRAL COMMAND LEADERSHIP &amp; ESCALATION MATRIX</span>
-                  <span className="text-[#C5A880] text-xs">KOTTAPATTU HQ</span>
+                  <span className="text-[#0071e3] text-xs">KOTTAPATTU HQ</span>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="p-4 rounded-xl bg-black/60 border border-zinc-800 space-y-2">
-                    <span className="text-[10px] font-mono text-[#C5A880] uppercase tracking-wider block">TIER 1 • MANAGING DIRECTOR</span>
+                    <span className="text-[10px] font-mono text-[#0071e3] uppercase tracking-wider block">TIER 1 • MANAGING DIRECTOR</span>
                     <h4 className="text-sm font-bold text-white">Sweety J</h4>
                     <p className="text-[11px] text-zinc-300 font-medium">Proprietor &amp; Managing Director</p>
                     <p className="text-[11px] text-zinc-400 text-pretty">Master executive policy, statutory compliances, PSARA governance, and institutional vendor integrity.</p>
                   </div>
 
                   <div className="p-4 rounded-xl bg-black/60 border border-zinc-800 space-y-2">
-                    <span className="text-[10px] font-mono text-[#C5A880] uppercase tracking-wider block">TIER 2 • HEAD OF OPERATIONS</span>
+                    <span className="text-[10px] font-mono text-[#0071e3] uppercase tracking-wider block">TIER 2 • HEAD OF OPERATIONS</span>
                     <h4 className="text-sm font-bold text-white">Major AR Devadoss (Army-Veteran)</h4>
                     <p className="text-[11px] text-zinc-300 font-medium">Head of Operations</p>
                     <p className="text-[11px] text-zinc-400 text-pretty">Ex-Armed Forces veteran commanding field deployment, guard drills, 2:00 AM mobile patrols, and operational SOPs.</p>
                   </div>
 
                   <div className="p-4 rounded-xl bg-black/60 border border-zinc-800 space-y-2">
-                    <span className="text-[10px] font-mono text-[#C5A880] uppercase tracking-wider block">TIER 3 • CTO &amp; AUDIT</span>
+                    <span className="text-[10px] font-mono text-[#0071e3] uppercase tracking-wider block">TIER 3 • CTO &amp; AUDIT</span>
                     <h4 className="text-sm font-bold text-white">R Jan Steve Daniel</h4>
                     <p className="text-[11px] text-zinc-300 font-medium">Chief Technical Officer &amp; Audit</p>
                     <p className="text-[11px] text-zinc-400 text-pretty">Oversees digital biometrics, document scanning/OCR operations, IT infrastructure, and statutory compliance audits.</p>
@@ -328,7 +327,7 @@ export function CommandTerminalSection() {
           </div>
 
           {/* Bottom Bar with Direct Action */}
-          <div className="bg-[#111723] px-6 py-4 border-t border-zinc-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="bg-[#161618] px-6 py-4 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex items-center gap-3 text-xs text-zinc-400 font-mono">
               <span className="w-2 h-2 rounded-full bg-emerald-400" />
               <span>Direct Dispatch Hotline: <strong className="text-white font-bold">{brandData.contact.phoneDisplay}</strong></span>
@@ -337,7 +336,7 @@ export function CommandTerminalSection() {
             <div className="flex items-center gap-3">
               <Link
                 href="/get-quote"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#C5A880] hover:bg-[#b0936b] text-black font-black text-xs uppercase tracking-wider transition-all"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white font-semibold text-xs transition-all shadow-sm"
               >
                 <span>Request Deployment SLA</span>
                 <ArrowRight size={13} />
