@@ -117,7 +117,7 @@ export default function NewsletterPage() {
   return (
     <div className="bg-white text-[#1d1d1f] min-h-screen">
       {/* Header Hero */}
-      <section className="relative pt-32 pb-20 md:pt-36 md:pb-24 bg-[#0c0c0e] text-white overflow-hidden">
+      <section className="relative pt-52 sm:pt-60 md:pt-64 lg:pt-72 pb-20 md:pb-24 bg-[#0c0c0e] text-white overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_70%_at_50%_-10%,rgba(16,185,129,0.18),rgba(255,255,255,0))]" />
         
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 lg:px-20 relative z-10 text-center">

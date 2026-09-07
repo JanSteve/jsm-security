@@ -20,3 +20,4 @@ export { FAQSection } from './faq-section';
 export { StockGrowthChart } from './stock-growth-chart';
 export { BulletinTicker } from './bulletin-ticker';
 export { DistrictHubsSlideshow } from './district-hubs-slideshow';
+export { ContinuousNewsletterStream } from './continuous-newsletter-stream';

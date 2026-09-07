@@ -79,7 +79,7 @@ export default function CareersPage() {
   };
 
   return (
-    <main className="min-h-screen bg-white text-[#1d1d1f] pt-32 pb-24 selection:bg-[#0071e3]/15 selection:text-black">
+    <main className="min-h-screen bg-white text-[#1d1d1f] pt-52 sm:pt-60 md:pt-64 lg:pt-72 pb-24 selection:bg-[#0071e3]/15 selection:text-black">
       <div className="container mx-auto px-4 md:px-8">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">

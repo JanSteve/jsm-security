@@ -8,7 +8,8 @@ import {
   CTASection,
   StockGrowthChart,
   BulletinTicker,
-  DistrictHubsSlideshow
+  DistrictHubsSlideshow,
+  ContinuousNewsletterStream
 } from "@/components/sections";
 import { organizationSchema, localBusinessSchema, websiteSchema, faqSchema } from "@/lib/schema";
 import { brandData } from "@/data/brand";
@@ -65,12 +66,20 @@ export default function Home() {
 
       {/* DGR-Aligned Sovereign Executive Architecture */}
       <HeroSection />
+      
+      {/* Continuous Newsletter Stream Running Directly into Site */}
+      <ContinuousNewsletterStream label="INTELLIGENCE &amp; OPERATIONS STREAM" />
+
       <BulletinTicker />
       <TrustBar />
       <StockGrowthChart />
       <ServicesOverview />
       <DistrictHubsSlideshow />
       <FlagshipBentoGrid />
+
+      {/* Recurring Continuous Newsletter Stream Running Again */}
+      <ContinuousNewsletterStream label="REGULATORY GAZETTE &amp; VACANCY STREAM" />
+
       <TestimonialsSection />
       <FAQSection />
       <CTASection />

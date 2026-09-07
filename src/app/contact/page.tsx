@@ -18,7 +18,7 @@ export default function ContactPage() {
   const localBusiness = localBusinessSchema();
 
   return (
-    <main className="min-h-screen bg-white text-[#1d1d1f] pt-28 pb-24 px-4 sm:px-6 md:px-12 lg:px-20 selection:bg-[#0071e3]/15 selection:text-black">
+    <main className="min-h-screen bg-white text-[#1d1d1f] pt-52 sm:pt-60 md:pt-64 lg:pt-72 pb-24 px-4 sm:px-6 md:px-12 lg:px-20 selection:bg-[#0071e3]/15 selection:text-black">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}

@@ -299,8 +299,8 @@ export function DistrictHubsSlideshow() {
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          {/* Top Widescreen Image Canvas */}
-          <div className="relative w-full aspect-[16/9] md:aspect-[21/9] bg-black overflow-hidden group">
+          {/* Top Widescreen Image Canvas - Screen-Filling Towering Presence */}
+          <div className="relative w-full min-h-[550px] sm:min-h-[650px] md:min-h-[750px] lg:min-h-[800px] bg-black overflow-hidden group">
             {/* Live Progress Bar on Top */}
             <div className="absolute top-0 inset-x-0 h-1 bg-white/20 z-30">
               <motion.div

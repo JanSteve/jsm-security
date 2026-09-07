@@ -100,7 +100,7 @@ export function FlagshipBentoGrid() {
   const current = operationalSlides[activeSlide];
 
   return (
-    <section className="py-16 md:py-24 px-4 sm:px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto bg-white border-t border-black/[0.08] text-[#1d1d1f]">
+    <section className="py-16 md:py-24 px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1720px] mx-auto bg-white border-t border-black/[0.08] text-[#1d1d1f]">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-black/[0.08] gap-6">
         <div className="space-y-3">
@@ -142,8 +142,8 @@ export function FlagshipBentoGrid() {
           ))}
         </div>
 
-        {/* Cinematic Main Stage Viewport */}
-        <div className="relative w-full h-[460px] sm:h-[540px] md:h-[600px] rounded-[32px] overflow-hidden border border-black/[0.08] shadow-xl bg-[#1d1d1f] group">
+        {/* Cinematic Main Stage Viewport - Screen Filling */}
+        <div className="relative w-full min-h-[560px] sm:min-h-[660px] md:min-h-[760px] rounded-[36px] overflow-hidden border border-black/[0.08] shadow-2xl bg-[#1d1d1f] group">
           {/* Top Progress Bar */}
           <div className="absolute top-0 left-0 right-0 h-1 bg-white/20 z-20 overflow-hidden">
             <motion.div 
