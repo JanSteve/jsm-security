@@ -18,7 +18,7 @@ export default function ContactPage() {
   const localBusiness = localBusinessSchema();
 
   return (
-    <main className="min-h-screen bg-white text-zinc-800 pt-28 pb-24 px-4 sm:px-6 md:px-12 lg:px-20">
+    <main className="min-h-screen bg-[#07090E] text-zinc-100 pt-28 pb-24 px-4 sm:px-6 md:px-12 lg:px-20 selection:bg-[#C5A880]/30 selection:text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
@@ -30,17 +30,17 @@ export default function ContactPage() {
 
       <div className="max-w-[1440px] mx-auto">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200/80 text-zinc-800 text-[11px] font-mono font-bold">
-            <Sparkles size={12} className="text-[#C5A880]" />
-            <span>24/7 OPERATIONAL DISPATCH</span>
+        <div className="text-center max-w-2xl mx-auto mb-10 space-y-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0B0F17] border border-[#C5A880]/30 text-[#C5A880] text-xs font-mono font-bold">
+            <Sparkles size={13} className="text-[#C5A880]" />
+            <span>24/7 operational dispatch</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-black text-black tracking-tight uppercase">
-            Let’s discuss your requirement.
+          <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight text-balance">
+            Let’s discuss your requirement
           </h1>
 
-          <p className="text-xs sm:text-sm text-zinc-600 font-normal">
+          <p className="text-xs sm:text-sm text-zinc-400 font-normal text-pretty">
             Request an on-site physical security or facility assessment. We respond within 2 hours.
           </p>
         </div>
@@ -53,37 +53,37 @@ export default function ContactPage() {
 
           {/* Right Contact Details & Google Maps Local Hub (5 cols) */}
           <div className="lg:col-span-5 space-y-5">
-            <div className="bg-[#fbf9f4] border border-zinc-200/80 rounded-3xl p-6 space-y-5 shadow-xs">
-              <h3 className="text-base font-black text-black tracking-tight border-b border-zinc-200/60 pb-3">
-                Operations &amp; Command Desk
+            <div className="bg-[#0B0F17] border border-zinc-800 rounded-3xl p-6 space-y-5 shadow-2xl">
+              <h3 className="text-base font-black text-white tracking-tight border-b border-zinc-800 pb-3">
+                Operations &amp; command desk
               </h3>
               
               <div className="space-y-4 text-xs font-medium">
                 {/* Official Hotline */}
-                <div className="flex gap-3 items-start">
-                  <div className="p-2 bg-white border border-zinc-200 rounded-xl text-black shadow-xs">
-                    <Phone size={16} className="text-[#C5A880]" />
+                <div className="flex gap-3 items-start p-3 rounded-2xl bg-[#07090E] border border-zinc-800">
+                  <div className="p-2.5 bg-[#0B0F17] border border-zinc-800 rounded-xl text-[#C5A880] shadow-sm">
+                    <Phone size={16} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-black text-xs">Official 24/7 Operations Line</h4>
-                    <a href={`tel:${brandData.contact.phone}`} className="text-sm font-bold text-black hover:underline mt-0.5 block font-mono">
+                    <h4 className="font-bold text-white text-xs">Official 24/7 operations line</h4>
+                    <a href={`tel:${brandData.contact.phone}`} className="text-sm font-bold text-[#C5A880] hover:underline mt-0.5 block font-mono tabular-nums">
                       {brandData.contact.phoneDisplay}
                     </a>
                   </div>
                 </div>
 
                 {/* WhatsApp Direct */}
-                <div className="flex gap-3 items-start">
-                  <div className="p-2 bg-white border border-zinc-200 rounded-xl text-emerald-600 shadow-xs">
+                <div className="flex gap-3 items-start p-3 rounded-2xl bg-[#07090E] border border-zinc-800">
+                  <div className="p-2.5 bg-[#0B0F17] border border-zinc-800 rounded-xl text-emerald-400 shadow-sm">
                     <MessageCircle size={16} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-black text-xs">Instant WhatsApp Desk</h4>
+                    <h4 className="font-bold text-white text-xs">Instant WhatsApp desk</h4>
                     <a
                       href={`https://wa.me/${brandData.contact.whatsapp}?text=Hello%20JSM%20Integrated%20Services,%20I%20would%20like%20to%20inquire%20about%20your%20services.`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs font-bold text-emerald-700 hover:underline mt-0.5 block"
+                      className="text-xs font-bold text-emerald-400 hover:underline mt-0.5 block tabular-nums"
                     >
                       Chat on WhatsApp (+91 90808 63448) →
                     </a>
@@ -91,35 +91,35 @@ export default function ContactPage() {
                 </div>
 
                 {/* Email */}
-                <div className="flex gap-3 items-start">
-                  <div className="p-2 bg-white border border-zinc-200 rounded-xl text-black shadow-xs">
+                <div className="flex gap-3 items-start p-3 rounded-2xl bg-[#07090E] border border-zinc-800">
+                  <div className="p-2.5 bg-[#0B0F17] border border-zinc-800 rounded-xl text-[#C5A880] shadow-sm">
                     <Mail size={16} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-black text-xs">Official Outlook Inbox</h4>
-                    <a href={`mailto:${brandData.contact.email}`} className="text-xs font-bold text-black hover:underline mt-0.5 block font-mono">
+                    <h4 className="font-bold text-white text-xs">Official Outlook inbox</h4>
+                    <a href={`mailto:${brandData.contact.email}`} className="text-xs font-bold text-zinc-300 hover:text-white mt-0.5 block font-mono">
                       {brandData.contact.email}
                     </a>
                   </div>
                 </div>
 
                 {/* Google Maps / Local Hub */}
-                <div className="flex gap-3 items-start pt-2 border-t border-zinc-200/60">
-                  <div className="p-2 bg-white border border-zinc-200 rounded-xl text-[#C5A880] shadow-xs">
+                <div className="flex gap-3 items-start p-3 rounded-2xl bg-[#07090E] border border-zinc-800">
+                  <div className="p-2.5 bg-[#0B0F17] border border-zinc-800 rounded-xl text-[#C5A880] shadow-sm">
                     <MapPin size={16} />
                   </div>
                   <div className="space-y-1">
-                    <h4 className="font-bold text-black text-xs">Regional Command Centre</h4>
-                    <p className="text-zinc-600 text-xs leading-snug">
+                    <h4 className="font-bold text-white text-xs">Regional command centre</h4>
+                    <p className="text-zinc-400 text-xs leading-snug">
                       Tiruchirappalli (Trichy), Tamil Nadu, India — PIN 620001
                     </p>
                     <a
                       href="https://www.google.com/maps/search/?api=1&query=Tiruchirappalli+Tamil+Nadu+India"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-[11px] font-bold text-[#C5A880] hover:underline"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#C5A880] hover:underline pt-1"
                     >
-                      <Navigation size={11} /> Open in Google Maps <ExternalLink size={10} />
+                      <Navigation size={12} /> <span>Open in Google Maps</span> <ExternalLink size={11} />
                     </a>
                   </div>
                 </div>
@@ -127,10 +127,10 @@ export default function ContactPage() {
             </div>
 
             {/* Quick SLA Assurance Badge */}
-            <div className="p-4 rounded-2xl bg-[#0A1628] text-white flex items-center gap-3">
+            <div className="p-4 rounded-2xl bg-[#0B0F17] border border-zinc-800 text-white flex items-center gap-3 shadow-xl">
               <ShieldCheck size={22} className="text-[#C5A880] flex-shrink-0" />
               <div className="text-xs">
-                <span className="font-bold block text-white">2-Hour Response Guarantee</span>
+                <span className="font-bold block text-white tabular-nums">2-hour response guarantee</span>
                 <span className="text-[11px] text-zinc-400">All inquiries processed directly by operations officers.</span>
               </div>
             </div>

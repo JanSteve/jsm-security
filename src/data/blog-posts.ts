@@ -34,7 +34,7 @@ Under the **Private Security Agencies (Regulation) Act (PSARA 2005)** administer
 - **100% District Police Clearance**: Every deployed guard must have a verifiable police background verification certificate on file.
 - **5-Day Mandatory Induction Syllabus**: Security marshals must undergo structured training covering access control, fire extinguisher operation, crowd management, and material inward/outward documentation.
 
-At **JSM Integrated Services**, all security marshals are PSARA-certified with digital badge IDs verifiable online via our public [Credential Authenticator](/verify).
+At **JSM Integrated Services**, all security marshals are PSARA-certified with verified badge IDs and compliance documentation detailed in our [Company Credentials](/about).
 
 ---
 
@@ -48,7 +48,7 @@ Never approve a vendor invoice without:
 2. **Transaction Reference Record (TRRN)** confirming successful payment to the government treasury.
 3. **Direct Bank Wage Disbursal Sheets** demonstrating compliance with the Minimum Wages Act of Tamil Nadu.
 
-JSM Integrated Services contractually provides **100% Client Legal Indemnity** with transparent access to our digital [Compliance Vault](/portal).
+JSM Integrated Services contractually provides **100% Client Legal Indemnity** with transparent statutory compliance documentation outlined on our [About & Standards](/about) page.
 
 ---
 
@@ -97,7 +97,7 @@ Originating from **JSMMANPOWER** and proven by our landmark inaugural operations
 - **Official 24/7 Operations Hotline**: [+91 90808 63448](tel:+919080863448)
 - **Instant WhatsApp Desk**: [Chat on WhatsApp](https://wa.me/919080863448)
 - **Official Email**: [jsmintegratedservices@outlook.com](mailto:jsmintegratedservices@outlook.com)
-- **Online Proposal Builder**: [Generate Instant Proposal](/get-quote) or build a formal commercial tender packet on our [RFP Generator](/rfp-generator).
+- **Online Proposal Builder**: [Generate Instant Proposal](/get-quote) or request an operational site audit via our [Contact Desk](/contact).
 
 *Schedule your complimentary on-site physical security and facility hygiene assessment today.*`,
     category: 'Operations & Strategy',

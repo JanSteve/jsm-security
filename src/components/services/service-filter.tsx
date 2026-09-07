@@ -36,10 +36,10 @@ export function ServiceFilter({ categories, services }: ServiceFilterProps) {
             key={category}
             variant={activeCategory === category ? 'default' : 'outline'}
             onClick={() => setActiveCategory(category)}
-            className={`rounded-full transition-all px-5 h-10 text-xs font-bold ${
+            className={`rounded-full transition-all px-5 min-h-[44px] text-xs font-bold press-scale ${
               activeCategory === category 
-                ? 'bg-black text-white hover:bg-zinc-800 shadow-sm' 
-                : 'border-zinc-200 text-zinc-600 hover:text-black hover:border-zinc-400 bg-white'
+                ? 'bg-white text-black hover:bg-zinc-200 border border-[#C5A880] shadow-sm' 
+                : 'border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-600 bg-[#0B0F17]'
             }`}
           >
             {category}
@@ -63,58 +63,58 @@ export function ServiceFilter({ categories, services }: ServiceFilterProps) {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.25 }}
-                className="group relative flex flex-col bg-zinc-50 rounded-3xl p-7 border border-zinc-200/80 hover:border-black hover:bg-white hover:shadow-xl transition-all duration-300 shadow-sm"
+                className="group relative flex flex-col bg-[#0B0F17] rounded-3xl p-7 border border-zinc-800 hover:border-[#C5A880]/60 transition-all duration-300 shadow-xl"
               >
                 <div className="mb-5 flex justify-between items-start">
-                  <div className="p-3 bg-white border border-zinc-200 rounded-2xl text-black group-hover:bg-[#C5A880] group-hover:text-black transition-colors duration-300 shadow-sm">
+                  <div className="p-3 bg-[#121824] border border-zinc-800 rounded-2xl text-[#C5A880] group-hover:border-[#C5A880] transition-colors duration-300 shadow-sm">
                     <IconComponent size={22} />
                   </div>
-                  <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full ${
+                  <span className={`text-[10px] font-mono font-bold px-2.5 py-1 rounded-full uppercase ${
                     service.isCoreLaunch 
-                      ? 'bg-emerald-50 text-emerald-800 border border-emerald-200' 
-                      : 'bg-blue-50 text-blue-800 border border-blue-200'
+                      ? 'bg-emerald-950/60 text-emerald-400 border border-emerald-800/60' 
+                      : 'bg-blue-950/60 text-blue-400 border border-blue-800/60'
                   }`}>
                     {service.isCoreLaunch ? 'Core Phase 1' : 'Expansion Phase 2'}
                   </span>
                 </div>
                 
-                <h3 className="text-xl font-bold text-black mb-2 leading-snug">
+                <h3 className="text-xl font-bold text-white mb-2 leading-snug">
                   {service.title}
                 </h3>
-                <p className="text-zinc-500 text-xs font-semibold mb-4 text-[#C5A880]">
+                <p className="text-zinc-400 text-xs font-medium mb-4 text-[#C5A880]">
                   {service.valueProposition}
                 </p>
-                <p className="text-zinc-600 text-xs leading-relaxed mb-6 flex-grow font-medium">
+                <p className="text-zinc-400 text-xs leading-relaxed mb-6 flex-grow font-normal text-pretty">
                   {service.description}
                 </p>
 
                 {/* Who It Is For Sample */}
-                <div className="space-y-1.5 mb-6 pt-4 border-t border-zinc-200/60">
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-400">
-                    Typical Deployments:
+                <div className="space-y-1.5 mb-6 pt-4 border-t border-zinc-800/60">
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 font-mono">
+                    Typical deployments:
                   </p>
                   <div className="flex flex-wrap gap-1.5">
                     {service.whoItIsFor.slice(0, 3).map((target, idx) => (
-                      <span key={idx} className="text-[10px] bg-white border border-zinc-200 px-2 py-0.5 rounded-lg text-zinc-600 font-medium">
+                      <span key={idx} className="text-[10px] bg-[#121824] border border-zinc-800 px-2.5 py-1 rounded-lg text-zinc-300 font-medium">
                         {target}
                       </span>
                     ))}
                   </div>
                 </div>
                 
-                <div className="pt-4 border-t border-zinc-200/60 mt-auto flex items-center justify-between">
+                <div className="pt-4 border-t border-zinc-800/60 mt-auto flex items-center justify-between">
                   <Link 
                     href={`/services/${service.slug}`}
-                    className="inline-flex items-center text-xs font-bold text-black hover:underline gap-1.5"
+                    className="inline-flex items-center text-xs font-bold text-[#C5A880] hover:text-white gap-1.5 min-h-[44px] press-scale"
                   >
-                    View Scope & Checklists <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                    View scope &amp; checklists <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform text-[#C5A880]" />
                   </Link>
 
                   <Link
                     href="/contact"
-                    className="text-[11px] font-bold text-zinc-500 hover:text-black"
+                    className="text-[11px] font-bold text-zinc-400 hover:text-white min-h-[44px] inline-flex items-center press-scale"
                   >
-                    Request Quote →
+                    Request quote →
                   </Link>
                 </div>
               </motion.div>

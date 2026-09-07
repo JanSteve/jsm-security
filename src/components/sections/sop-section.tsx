@@ -39,10 +39,10 @@ export function SOPSection() {
               <p className="text-xs text-zinc-500 font-medium">From initial inquiry to continuous shift refinement</p>
             </div>
             <Link
-              href="/trust-center"
+              href="/about"
               className="text-xs font-bold text-black hover:underline hidden sm:inline-flex items-center gap-1"
             >
-              Explore Trust Center <ArrowRight size={13} />
+              Explore JSM Standards <ArrowRight size={13} />
             </Link>
           </div>
 

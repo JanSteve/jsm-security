@@ -14,37 +14,24 @@ export const navigationData: NavItem[] = [
     href: "/services",
   },
   {
-    title: "Client Portal",
-    href: "/portal",
-    badge: "LIVE DEMO",
+    title: "Industries",
+    href: "/industries",
   },
   {
-    title: "Risk Audit",
-    href: "/vulnerability-audit",
-    badge: "DIAGNOSTIC",
+    title: "About",
+    href: "/about",
   },
   {
-    title: "RFP Builder",
-    href: "/rfp-generator",
-    badge: "TENDER",
+    title: "Careers",
+    href: "/careers",
   },
   {
-    title: "Visual Tour",
-    href: "/visual-tour",
-    badge: "360°",
-  },
-  {
-    title: "Verify Badge",
-    href: "/verify",
-    badge: "TRUST",
-  },
-  {
-    title: "Trust Center",
-    href: "/trust-center",
-    badge: "PSARA",
+    title: "Blog",
+    href: "/blog",
   },
   {
     title: "Contact",
     href: "/contact",
   },
 ];
+

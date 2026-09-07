@@ -50,22 +50,22 @@ export function LeadCaptureForm({ sourcePage, service }: LeadCaptureFormProps) {
   };
 
   return (
-    <div className="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-zinc-100">
-      <h3 className="text-2xl font-black text-[#0A1628] mb-6">Get a Free Quote</h3>
+    <div className="bg-[#0B0F17] p-8 rounded-3xl shadow-2xl border border-zinc-800">
+      <h3 className="text-2xl font-black text-white mb-6 text-balance">Get a free quote</h3>
       
       {status === "success" ? (
         <motion.div 
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-green-50 text-green-800 p-4 rounded-xl border border-green-200"
+          className="bg-emerald-950/60 text-emerald-300 p-4 rounded-xl border border-emerald-800/80"
         >
           <p className="font-bold">Thank you!</p>
-          <p className="text-sm mt-1">We have received your requirement. Our team will contact you shortly.</p>
+          <p className="text-sm mt-1 text-emerald-400">We have received your requirement. Our team will contact you shortly.</p>
         </motion.div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="name" className="block text-sm font-bold text-zinc-700 mb-1">Full Name</label>
+            <label htmlFor="name" className="block text-xs font-bold text-zinc-300 mb-1.5">Full name <span className="text-[#C5A880]">*</span></label>
             <input
               type="text"
               id="name"
@@ -73,13 +73,13 @@ export function LeadCaptureForm({ sourcePage, service }: LeadCaptureFormProps) {
               required
               value={formData.name}
               onChange={handleChange}
-              className="w-full px-4 py-3 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-[#C5A880] focus:border-transparent transition-all"
+              className="w-full px-4 py-3 rounded-xl border border-zinc-800 bg-[#121824] text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-[#C5A880] focus:border-transparent transition-all min-h-[44px]"
               placeholder="John Doe"
             />
           </div>
           
           <div>
-            <label htmlFor="phone" className="block text-sm font-bold text-zinc-700 mb-1">Phone Number</label>
+            <label htmlFor="phone" className="block text-xs font-bold text-zinc-300 mb-1.5">Phone number <span className="text-[#C5A880]">*</span></label>
             <input
               type="tel"
               id="phone"
@@ -87,26 +87,26 @@ export function LeadCaptureForm({ sourcePage, service }: LeadCaptureFormProps) {
               required
               value={formData.phone}
               onChange={handleChange}
-              className="w-full px-4 py-3 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-[#C5A880] focus:border-transparent transition-all"
+              className="w-full px-4 py-3 rounded-xl border border-zinc-800 bg-[#121824] text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-[#C5A880] focus:border-transparent transition-all tabular-nums min-h-[44px]"
               placeholder="+91 XXXXX XXXXX"
             />
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-bold text-zinc-700 mb-1">Email Address (Optional)</label>
+            <label htmlFor="email" className="block text-xs font-bold text-zinc-300 mb-1.5">Email address (optional)</label>
             <input
               type="email"
               id="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-4 py-3 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-[#C5A880] focus:border-transparent transition-all"
+              className="w-full px-4 py-3 rounded-xl border border-zinc-800 bg-[#121824] text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-[#C5A880] focus:border-transparent transition-all min-h-[44px]"
               placeholder="john@example.com"
             />
           </div>
 
           <div>
-            <label htmlFor="requirement" className="block text-sm font-bold text-zinc-700 mb-1">Requirement Details</label>
+            <label htmlFor="requirement" className="block text-xs font-bold text-zinc-300 mb-1.5">Requirement details <span className="text-[#C5A880]">*</span></label>
             <textarea
               id="requirement"
               name="requirement"
@@ -114,26 +114,26 @@ export function LeadCaptureForm({ sourcePage, service }: LeadCaptureFormProps) {
               value={formData.requirement}
               onChange={handleChange}
               rows={4}
-              className="w-full px-4 py-3 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-[#C5A880] focus:border-transparent transition-all resize-none"
+              className="w-full px-4 py-3 rounded-xl border border-zinc-800 bg-[#121824] text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-[#C5A880] focus:border-transparent transition-all resize-none"
               placeholder={`Tell us about your ${service.toLowerCase()} needs...`}
             />
           </div>
 
           {status === "error" && (
-            <p className="text-red-500 text-sm">Something went wrong. Please try again or contact us via email.</p>
+            <p className="text-red-400 text-xs">Something went wrong. Please try again or contact us via email.</p>
           )}
 
           <button
             type="submit"
             disabled={status === "loading"}
-            className="w-full bg-[#0A1628] hover:bg-[#152336] text-white font-bold py-4 rounded-xl flex items-center justify-center space-x-2 transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+            className="w-full bg-white hover:bg-zinc-200 text-black font-bold py-4 rounded-full flex items-center justify-center space-x-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed border border-[#C5A880] shadow-lg min-h-[44px] press-scale"
           >
             {status === "loading" ? (
               <Loader2 className="w-5 h-5 animate-spin" />
             ) : (
               <>
-                <span>Request Quote</span>
-                <Send className="w-5 h-5" />
+                <span>Request quote</span>
+                <Send className="w-4 h-4 text-black" />
               </>
             )}
           </button>

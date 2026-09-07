@@ -8,63 +8,78 @@ import Link from 'next/link';
 import { brandData } from '@/data/brand';
 
 export function CTASection() {
-
   return (
-    <section className="py-24 md:py-32 relative overflow-hidden bg-white border-t border-zinc-200/80">
+    <section className="py-16 md:py-20 relative overflow-hidden bg-[#07090E] border-t border-white/10 text-white">
+      {/* Ambient background glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#C5A880]/10 rounded-full blur-[140px] pointer-events-none" />
+
       <div className="max-w-4xl mx-auto px-4 relative z-10 text-center">
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer(0.15)}
+          viewport={{ once: true, margin: "-80px" }}
+          variants={staggerContainer(0.12)}
           className="flex flex-col items-center space-y-6"
         >
-          <motion.span
+          <motion.div
             variants={fadeInUp}
-            className="text-xs font-extrabold uppercase tracking-widest text-[#C5A880]"
+            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono font-bold text-[#C5A880] tracking-wider uppercase"
           >
-            Direct Operational Partnership
-          </motion.span>
+            <span>[Direct Operational Partnership]</span>
+          </motion.div>
 
           <motion.h2 
             variants={fadeInUp}
-            className="text-3xl sm:text-4xl md:text-6xl font-black text-black tracking-tight leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.08] text-balance"
           >
-            Let’s make your operation easier to manage.
+            Ready to experience unparalleled security solutions?
           </motion.h2>
           
           <motion.p 
             variants={fadeInUp}
-            className="text-base sm:text-lg md:text-xl text-zinc-600 font-medium max-w-2xl leading-relaxed"
+            className="text-sm sm:text-base md:text-lg text-zinc-300 font-normal max-w-2xl leading-relaxed text-pretty"
           >
-            Consolidate your security, housekeeping, and staffing under one disciplined partner. Request a free on-site risk and manpower assessment today.
+            JSM is here to ensure your peace of mind. Connect with us today and take the first step towards disciplined facility protection and zero statutory liability.
           </motion.p>
           
           <motion.div 
             variants={fadeInUp}
-            className="flex flex-col sm:flex-row gap-3 pt-2 w-full sm:w-auto"
+            className="flex flex-wrap items-center justify-center gap-3.5 pt-3 w-full"
           >
-            <Button asChild size="lg" className="w-full sm:w-auto bg-black text-white hover:bg-zinc-800 font-black h-12 px-8 rounded-full shadow-xl border-b-2 border-[#C5A880] uppercase tracking-wider hover:scale-105 active:scale-95 transition-all">
+            <Button asChild size="lg" className="bg-[#C5A880] text-black hover:bg-[#b59870] font-black h-12 px-8 rounded-full shadow-xl tracking-wider transition-all min-h-[44px] press-scale">
               <Link href="/get-quote">
-                GET INSTANT QUOTE <ArrowRight size={16} className="ml-2 text-[#C5A880]" />
+                <span>Request a quote</span> <ArrowRight size={15} className="ml-2 text-black" strokeWidth={2.5} />
               </Link>
             </Button>
 
             <a
-              href="mailto:jsmintegratedservices@outlook.com?subject=Operations%20Assessment%20Inquiry"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 h-12 rounded-full text-xs font-bold text-blue-950 bg-blue-50 hover:bg-blue-100/90 border border-blue-300 hover:border-blue-400 hover:shadow-[0_0_20px_rgba(59,130,246,0.25)] transition-all shadow-xs active:scale-95"
+              href={`tel:${brandData.contact.phone}`}
+              className="inline-flex items-center justify-center gap-2 px-6 h-12 rounded-full text-xs font-bold text-white bg-white/10 hover:bg-white/15 border border-white/20 transition-all min-h-[44px] press-scale font-mono tabular-nums shadow-sm"
             >
-              <Mail size={16} className="text-blue-600" />
-              Email Operations Desk
+              <Phone size={14} className="text-[#C5A880]" />
+              <span>Call: {brandData.contact.phoneDisplay}</span>
+            </a>
+
+            <a
+              href={`https://wa.me/${brandData.contact.whatsapp}?text=Hello%20JSM%20Integrated%20Services,%20I%20would%20like%20to%20inquire%20about%20your%20services.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-5 h-12 rounded-full text-xs font-bold text-emerald-400 bg-emerald-950/60 hover:bg-emerald-900/60 border border-emerald-500/40 transition-all min-h-[44px] press-scale shadow-sm"
+            >
+              <MessageCircle size={15} />
+              <span>WhatsApp</span>
             </a>
           </motion.div>
           
           <motion.div 
             variants={fadeInUp}
-            className="text-xs text-zinc-500 font-medium pt-2"
+            className="text-xs text-zinc-400 font-normal pt-2 font-mono"
           >
-            Official Operations Contact:{" "}
-            <span className="font-bold text-black">{brandData.contact.email}</span>
+            Operations desk:{" "}
+            <a href={`mailto:${brandData.contact.email}`} className="font-semibold text-zinc-200 hover:text-[#C5A880] transition-colors">
+              {brandData.contact.email}
+            </a>
+            {" "}• Trichy HQ, Tamil Nadu
           </motion.div>
         </motion.div>
       </div>

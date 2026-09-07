@@ -116,23 +116,23 @@ export function RegionalCommandMap() {
   const [selectedHub, setSelectedHub] = useState<RegionalHub>(REGIONAL_HUBS[0]);
 
   return (
-    <section className="py-24 bg-[#0A1628] text-white relative overflow-hidden" id="regional-command">
+    <section className="py-16 md:py-20 bg-[#07090E] text-white relative overflow-hidden border-t border-white/10" id="regional-command">
       {/* Subtle Glows */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#C5A880]/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C5A880]/10 border border-[#C5A880]/30 text-[#C5A880] text-xs font-mono font-bold">
+        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-[#C5A880] text-xs font-mono font-bold tracking-wider uppercase">
             <Radio size={14} className="animate-pulse text-[#C5A880]" />
-            <span>TAMIL NADU REGIONAL COMMAND NETWORK</span>
+            <span>[Tamil Nadu Regional Command Network]</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white uppercase">
-            Live Deployment &amp; <span className="text-[#C5A880]">Regional Hubs</span>
+          <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white text-balance">
+            Live deployment &amp; <span className="text-[#C5A880]">regional hubs</span>
           </h2>
-          <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-            520+ trained personnel deployed across 52 contracted client facilities with a guaranteed 2-Hour Relief Replacement SLA in every major industrial corridor.
+          <p className="text-zinc-400 text-sm sm:text-base leading-relaxed text-pretty">
+            <span className="tabular-nums">520+</span> trained personnel deployed across <span className="tabular-nums">52</span> contracted client facilities with a guaranteed <span className="tabular-nums">2-hour</span> relief replacement SLA in every major industrial corridor.
           </p>
         </div>
 

@@ -1,17 +1,15 @@
 import { 
   HeroSection, 
   TrustBar, 
-  FlagshipBentoGrid,
-  Scroll3DShowcase,
+  AboutShowcase,
   ServicesOverview, 
-  OperationalCalculator,
-  ROICalculator,
-  WhyJSM, 
+  FlagshipBentoGrid,
+  CommandTerminalSection,
+  LeadershipSection,
   TestimonialsSection,
-  RegionalCoverage,
+  FAQSection,
   CTASection 
 } from "@/components/sections";
-import { VisualTransformationGallery } from "@/components/sections/visual-transformation-gallery";
 import { InteractiveCostSimulator } from "@/components/calculator/interactive-cost-simulator";
 import { RegionalCommandMap } from "@/components/sections/regional-command-map";
 import { ComplianceMatrix } from "@/components/sections/compliance-matrix";
@@ -49,7 +47,7 @@ export default function Home() {
   const faqsJsonLd = faqSchema(homeFAQs);
 
   return (
-    <div className="relative bg-white overflow-hidden">
+    <div className="relative bg-[#07090E] text-zinc-100 min-h-screen selection:bg-[#C5A880]/30 selection:text-white overflow-hidden">
       {/* Schema.org Structured Data */}
       <script
         type="application/ld+json"
@@ -68,18 +66,19 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqsJsonLd) }}
       />
 
-      {/* Enterprise Visual & Operational Flow */}
+      {/* Enterprise Visual & Operational Flow - Framer SecurityForce DNA */}
       <HeroSection />
       <TrustBar />
-      <FlagshipBentoGrid />
-      <Scroll3DShowcase />
-      <VisualTransformationGallery />
+      <AboutShowcase />
       <ServicesOverview />
+      <FlagshipBentoGrid />
+      <CommandTerminalSection />
+      <LeadershipSection />
+      <TestimonialsSection />
       <InteractiveCostSimulator />
       <RegionalCommandMap />
-      <WhyJSM />
       <ComplianceMatrix />
-      <TestimonialsSection />
+      <FAQSection />
       <CTASection />
     </div>
   );

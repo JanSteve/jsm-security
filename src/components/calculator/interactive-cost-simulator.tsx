@@ -89,21 +89,21 @@ export function InteractiveCostSimulator() {
   };
 
   return (
-    <section className="py-20 bg-zinc-900 text-white relative overflow-hidden" id="cost-simulator">
+    <section className="py-20 bg-[#07090E] text-white relative overflow-hidden border-t border-zinc-800/80" id="cost-simulator">
       {/* Background Subtle Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C5A880]/10 border border-[#C5A880]/30 text-[#C5A880] text-xs font-mono font-bold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0B0F17] border border-[#C5A880]/30 text-[#C5A880] text-xs font-mono font-bold">
             <Calculator size={14} />
-            <span>REAL-TIME ROI CALCULATOR</span>
+            <span>Real-time ROI calculator</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white uppercase">
-            Facility Workforce &amp; <span className="text-[#C5A880]">Cost Estimator</span>
+          <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white text-balance">
+            Facility workforce &amp; <span className="text-[#C5A880]">cost estimator</span>
           </h2>
-          <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
+          <p className="text-zinc-400 text-sm sm:text-base leading-relaxed text-pretty">
             Customize your security, mechanized housekeeping, and technical staffing. See your estimated investment and annual savings with 100% legal indemnity.
           </p>
         </div>
@@ -112,7 +112,7 @@ export function InteractiveCostSimulator() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Controls Column (7 Cols) */}
-          <div className="lg:col-span-7 space-y-6 bg-zinc-800/80 border border-zinc-700/80 rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-2xl">
+          <div className="lg:col-span-7 space-y-6 bg-[#0B0F17] border border-zinc-800 rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-2xl">
             
             {/* 1. Security Guarding Control */}
             <div className="space-y-4 pb-6 border-b border-zinc-700/60">
@@ -276,46 +276,46 @@ export function InteractiveCostSimulator() {
 
           {/* Investment & Savings Summary (5 Cols) */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-gradient-to-b from-zinc-800 to-zinc-900 border-2 border-[#C5A880]/40 rounded-3xl p-6 sm:p-8 shadow-2xl relative">
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#C5A880]/20 text-[#C5A880] text-[10px] font-mono font-extrabold uppercase mb-4">
-                <FileCheck size={12} /> All-Inclusive Commercial Estimate
+            <div className="bg-gradient-to-b from-[#0B0F17] to-[#121824] border-2 border-[#C5A880]/40 rounded-3xl p-6 sm:p-8 shadow-2xl relative">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C5A880]/20 text-[#C5A880] text-[10px] font-mono font-bold tracking-wider mb-4">
+                <FileCheck size={12} /> All-inclusive commercial estimate
               </div>
 
               <div className="space-y-1 mb-6">
-                <span className="text-xs text-zinc-400 font-medium">Estimated Monthly Investment</span>
-                <div className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+                <span className="text-xs text-zinc-400 font-medium">Estimated monthly investment</span>
+                <div className="text-3xl sm:text-4xl font-black text-white tracking-tight tabular-nums">
                   ₹{jsmMonthlyTotal.toLocaleString("en-IN")}
                   <span className="text-xs text-zinc-400 font-normal ml-2">/ month + GST</span>
                 </div>
               </div>
 
               {/* Breakdown */}
-              <div className="space-y-2.5 py-4 border-y border-zinc-700/60 text-xs">
+              <div className="space-y-2.5 py-4 border-y border-zinc-800 text-xs">
                 <div className="flex justify-between text-zinc-300">
-                  <span>Physical Security ({guardCount} guards):</span>
-                  <span className="font-mono font-bold text-white">₹{securityMonthly.toLocaleString("en-IN")}</span>
+                  <span>Physical security ({guardCount} guards):</span>
+                  <span className="font-mono font-bold text-white tabular-nums">₹{securityMonthly.toLocaleString("en-IN")}</span>
                 </div>
                 {isHousekeepingActive && (
                   <div className="flex justify-between text-zinc-300">
-                    <span>Mechanized Housekeeping ({housekeepingStaffNeeded} staff):</span>
-                    <span className="font-mono font-bold text-white">₹{housekeepingMonthly.toLocaleString("en-IN")}</span>
+                    <span>Mechanized housekeeping ({housekeepingStaffNeeded} staff):</span>
+                    <span className="font-mono font-bold text-white tabular-nums">₹{housekeepingMonthly.toLocaleString("en-IN")}</span>
                   </div>
                 )}
                 {isTechnicalActive && (
                   <div className="flex justify-between text-zinc-300">
-                    <span>Utility Technicians ({technicalStaff} staff):</span>
-                    <span className="font-mono font-bold text-white">₹{technicalMonthly.toLocaleString("en-IN")}</span>
+                    <span>Utility technicians ({technicalStaff} staff):</span>
+                    <span className="font-mono font-bold text-white tabular-nums">₹{technicalMonthly.toLocaleString("en-IN")}</span>
                   </div>
                 )}
               </div>
 
               {/* Annual Savings Card */}
-              <div className="mt-6 p-4 rounded-2xl bg-[#0A1628] border border-[#C5A880]/30 space-y-2">
+              <div className="mt-6 p-4 rounded-2xl bg-[#07090E] border border-[#C5A880]/30 space-y-2">
                 <div className="flex items-center gap-2 text-xs font-bold text-[#C5A880]">
                   <TrendingDown size={16} />
-                  <span>Annual In-House Direct Hiring Comparison</span>
+                  <span>Annual in-house direct hiring comparison</span>
                 </div>
-                <div className="text-xl sm:text-2xl font-black text-emerald-400">
+                <div className="text-xl sm:text-2xl font-black text-emerald-400 tabular-nums">
                   Save ~₹{annualSavings.toLocaleString("en-IN")} / year
                 </div>
                 <p className="text-[11px] text-zinc-400 leading-snug">
@@ -327,13 +327,13 @@ export function InteractiveCostSimulator() {
               <div className="mt-6">
                 <Button
                   onClick={() => setShowProposalModal(true)}
-                  className="w-full py-6 bg-[#C5A880] hover:bg-[#b09268] text-zinc-950 font-black text-sm uppercase tracking-wider rounded-xl transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-6 bg-[#C5A880] hover:bg-[#b09268] text-zinc-950 font-black text-sm tracking-wider rounded-xl transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 cursor-pointer min-h-[44px] press-scale"
                 >
-                  <span>Request Official Commercial Proposal</span>
+                  <span>Request official commercial proposal</span>
                   <ArrowRight size={16} />
                 </Button>
-                <span className="text-[10px] text-zinc-500 block text-center mt-2 font-mono">
-                  Guaranteed 2-Hour Response Time • Tiruchirappalli Command Desk
+                <span className="text-[10px] text-zinc-500 block text-center mt-2 font-mono tabular-nums">
+                  Guaranteed 2-hour response time • Tiruchirappalli command desk
                 </span>
               </div>
             </div>

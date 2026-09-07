@@ -3,79 +3,64 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
+import Link from "next/link";
 import { 
   ArrowRight, 
   MessageCircle, 
-  Mail,
-  Phone,
+  Phone, 
   ShieldCheck, 
-  Sparkles, 
-  Users, 
   Plane, 
   CheckCircle2, 
-  Clock, 
   Award,
   ChevronRight,
-  Building2,
-  ShieldAlert
+  Sparkles,
+  QrCode,
+  FileCheck
 } from "lucide-react";
-import Link from "next/link";
 import { brandData } from "@/data/brand";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 
-const showcaseServices = [
+const heroVisuals = [
   {
-    id: "security",
-    name: "Private Security",
+    id: "airport-platoon",
+    title: "Trichy Airport Terminal Platoon",
+    badge: "CIVIL AVIATION BENCHMARK",
+    metric: "0 Lapses • 24/7 Gate Roster",
+    caption: "Managing Director Sweety J seated with full uniformed security platoon at Trichy International Airport concourse.",
+    image: "/images/real_jsm_airport_terminal_platoon.jpg",
+    tags: ["Airport Terminal Flow", "Passenger Screening", "100% Turnout"],
+    href: "/about"
+  },
+  {
+    id: "chariot-platoon",
+    title: "Heritage Landmark Honor Guard",
     badge: "PSARA 2005 COMPLIANT",
-    headline: "Zero-Compromise Guarding & Access Control",
-    stat: "100%",
-    statLabel: "Police Verified & Badged",
-    desc: "5-day trained security guards, strict gate registers, and 2:00 AM unannounced supervisor night audits.",
+    metric: "100% Police & Aadhaar Verified",
+    caption: "Ceremonial muster and guard bearing under the monumental temple chariot landmark with MD Sweety J.",
     image: "/images/real_jsm_chariot_platoon.jpg",
-    tags: ["Aadhaar Verified", "2:00 AM Audits", "2-Hr Relief SLA"],
-    color: "from-amber-500/20 via-transparent to-black/80",
+    tags: ["5-Day Induction", "2:00 AM Audits", "Ex-Servicemen & Pvt"],
     href: "/services/private-security"
   },
   {
-    id: "housekeeping",
-    name: "Commercial Housekeeping",
-    badge: "5-STEP HYGIENE PROTOCOL",
-    headline: "Immaculate Corporate & Facility Upkeep",
-    stat: "5-Step",
-    statLabel: "Closed-Loop Sanitization",
-    desc: "Daily protocol: Clean → Inspect → Report → Correct → Verify for luxury corporate lobbies and workspaces.",
-    image: "/images/real_jsm_terminal_entry_salute.jpg",
-    tags: ["Eco Consumables", "Restroom Hourly Cycles", "Deep Scrubbing"],
-    color: "from-blue-500/20 via-transparent to-black/80",
-    href: "/services/housekeeping"
+    id: "printed-card",
+    title: "Official Corporate Credentials",
+    badge: "AUTHENTIC PHYSICAL PROOF",
+    metric: "300 DPI Official Print",
+    caption: "Official printed business card with metallic silver crest, Sweety J (Proprietor & MD), and Major AR Devadoss.",
+    image: "/images/real_jsm_printed_card.jpg",
+    tags: ["Kottapattu HQ", "State Licensed", "Full Contact Details"],
+    href: "/about"
   },
   {
-    id: "manpower",
-    name: "Contractual Manpower",
-    badge: "ORIGINATING AS JSMMANPOWER",
-    headline: "Vetted Skilled & Industrial Workforce",
-    stat: "48-72h",
-    statLabel: "Rapid Deployment Window",
-    desc: "Reliable helper, logistics, machine assistant, and warehouse workforce deployed across factories and hubs.",
-    image: "/images/real_jsm_shift_muster_day.jpg",
-    tags: ["100% EPF/ESI", "Minimum Wages", "Attendance App"],
-    color: "from-emerald-500/20 via-transparent to-black/80",
-    href: "/services/manpower"
-  },
-  {
-    id: "airport",
-    name: "Airport Operations",
-    badge: "LANDMARK INAUGURAL 2024",
-    headline: "Civil Aviation Terminal Support",
-    stat: "0",
-    statLabel: "Breaches / Lapses",
-    desc: "Executed passenger screening coordination, crowd management, and terminal flow at Trichy International Airport.",
-    image: "/images/real_jsm_airport_terminal_platoon.jpg",
-    tags: ["Aviation Crowd Control", "High-Stakes Security", "Stakeholder Commended"],
-    color: "from-purple-500/20 via-transparent to-black/80",
-    href: "/case-studies"
+    id: "fabrication-manpower",
+    title: "Fabrication Industry Workforce",
+    badge: "ACTIVE INDUSTRIAL STAFFING",
+    metric: "48-72h Rapid Deployment",
+    caption: "Block & Pipe fabrication technicians deployed across manufacturing corridors with complete EPF/ESI indemnity.",
+    image: "/images/real_jsm_fabrication_hiring.jpg",
+    tags: ["Block Fabrication", "Pipe Fitting", "100% Statutory EPF/ESI"],
+    href: "/careers"
   }
 ];
 
@@ -101,154 +86,168 @@ export function HeroSection() {
     return () => clearInterval(interval);
   }, []);
 
-  const current = showcaseServices[activeTab];
+  const current = heroVisuals[activeTab];
 
   return (
-    <section className="relative min-h-[94vh] flex flex-col justify-center px-4 sm:px-6 md:px-12 lg:px-20 pt-28 pb-16 md:py-28 max-w-[1440px] mx-auto bg-[#fbf9f4] overflow-hidden">
-      {/* Background Architectural Grid Lines */}
+    <section className="relative min-h-[92vh] flex flex-col justify-center px-4 sm:px-6 md:px-12 lg:px-20 pt-28 pb-16 md:py-24 max-w-[1440px] mx-auto bg-[#07090E] text-white overflow-hidden selection:bg-[#C5A880] selection:text-black">
+      
+      {/* Aceternity Style Background Illumination & Micro-Grid */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="hidden lg:block absolute left-1/3 top-0 bottom-0 w-px bg-black/[0.03]" />
-        <div className="hidden lg:block absolute left-2/3 top-0 bottom-0 w-px bg-black/[0.03]" />
-        <div className="absolute top-1/2 left-0 right-0 h-px bg-black/[0.03]" />
+        {/* Radial ambient glow */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-gradient-to-b from-[#C5A880]/15 via-purple-500/5 to-transparent blur-[120px] rounded-full" />
+        {/* Architectural subtle grid lines */}
+        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:28px_28px] opacity-70" />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 w-full z-10 relative items-center mb-8">
+        
         {/* Left Column: Master Display Typography */}
         <div className="lg:col-span-6 space-y-6 text-left">
-          {/* Live Operational Status Bar */}
-          <div className="flex flex-wrap items-center gap-2 text-[10px] sm:text-[11px] font-mono font-bold text-zinc-700">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-zinc-200 shadow-2xs">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-zinc-900 font-extrabold">24/7 COMMAND DESK</span>
+          
+          {/* Live Command Telemetry Pill */}
+          <div className="flex flex-wrap items-center gap-2 text-[10px] sm:text-[11px] font-mono font-bold">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-zinc-300 shadow-md">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="text-white font-extrabold tracking-wide">24/7 COMMAND ACTIVE</span>
             </div>
             {liveTime && (
-              <span className="px-2.5 py-1 rounded-full bg-zinc-100 text-zinc-600 border border-zinc-200/60">
+              <span className="px-2.5 py-1 rounded-full bg-white/5 text-zinc-400 border border-white/10 font-mono">
                 {liveTime}
               </span>
             )}
-            <span className="hidden sm:inline-block text-zinc-400">•</span>
-            <span className="text-[#C5A880] font-black uppercase tracking-wider">
+            <span className="hidden sm:inline-block text-zinc-600">•</span>
+            <span className="text-[#C5A880] font-bold uppercase tracking-wider">
               TAMIL NADU &amp; PAN-INDIA
             </span>
           </div>
 
-          {/* Master Headline */}
-          <div className="space-y-1">
-            <p className="text-xs sm:text-sm font-extrabold tracking-[0.22em] text-[#C5A880] uppercase font-mono">
-              JSM INTEGRATED SERVICES
-            </p>
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-black tracking-[-0.04em] leading-[1.02] uppercase">
-              ONE PARTNER.<br />
-              <span className="bg-gradient-to-r from-zinc-900 via-[#C5A880] to-zinc-900 bg-clip-text text-transparent">
-                EVERY SOLUTION.
-              </span>
+          {/* Master Display Headline - Framer SecurityForce DNA */}
+          <div className="space-y-2">
+            <span className="text-xs sm:text-sm font-mono font-black tracking-[0.2em] text-[#C5A880] uppercase block">
+              YOUR TRUSTED PARTNER IN INTEGRATED SECURITY
+            </span>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-[-0.03em] leading-[1.08] text-balance">
+              Disciplined security &amp; facility operations for modern enterprise.
             </h1>
           </div>
 
-          {/* High-Impact 1-Sentence Subtext */}
-          <p className="text-sm sm:text-base text-zinc-600 max-w-lg font-normal leading-relaxed">
-            Eliminate multi-vendor confusion. We unify disciplined <strong>Private Security</strong>, <strong>Commercial Housekeeping</strong>, and <strong>Contractual Manpower</strong> under one single accountable executive.
+          {/* Ultra-Concise Executive Subheadline */}
+          <p className="text-sm sm:text-base text-zinc-300 max-w-xl font-normal leading-relaxed text-pretty">
+            At JSM Integrated Services, we deliver disciplined <strong>Private Guarding</strong>, <strong>Specialized Housekeeping</strong>, and <strong>Contractual Manpower</strong> across Tamil Nadu with guaranteed 2-hour relief SLAs and zero statutory liability.
           </p>
 
-          {/* Conversion Button Group */}
-          <div className="flex flex-wrap gap-3 pt-1">
-            <Link href="/get-quote">
-              <ShimmerButton className="h-12 px-7">
-                <span>GET INSTANT QUOTE</span>
-                <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform text-[#C5A880]" />
+          {/* Conversion Action Strip */}
+          <div className="flex flex-wrap items-center gap-3 pt-2">
+            <Link href="/get-quote" className="press-scale">
+              <ShimmerButton className="h-12 px-7 bg-[#C5A880] text-black font-black hover:bg-[#b59870] transition-colors shadow-lg">
+                <span>Request a quote</span>
+                <ArrowRight size={14} className="ml-2 text-black" strokeWidth={2.5} />
               </ShimmerButton>
             </Link>
 
             <a
               href={`tel:${brandData.contact.phone}`}
-              className="inline-flex items-center justify-center gap-2 px-5 h-12 rounded-full text-xs font-bold text-black bg-[#C5A880] hover:bg-[#b09570] hover:scale-[1.02] transition-all shadow-md active:scale-95 font-mono"
+              className="inline-flex items-center justify-center gap-2 px-5 h-12 rounded-full text-xs font-bold text-white bg-white/10 hover:bg-white/15 border border-white/15 transition-all shadow-sm active:scale-95 font-mono tabular-nums press-scale min-touch-target"
             >
-              <Phone size={15} />
-              <span>Call: {brandData.contact.phoneDisplay}</span>
+              <Phone size={14} className="text-[#C5A880]" strokeWidth={2} />
+              <span>Emergency: {brandData.contact.phoneDisplay}</span>
             </a>
 
             <a
               href={`https://wa.me/${brandData.contact.whatsapp}?text=Hello%20JSM%20Integrated%20Services,%20I%20would%20like%20to%20inquire%20about%20your%20services.`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-5 h-12 rounded-full text-xs font-bold text-emerald-950 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 hover:scale-[1.02] transition-all shadow-2xs active:scale-95"
+              className="inline-flex items-center justify-center gap-2 px-4 h-12 rounded-full text-xs font-bold text-emerald-400 bg-emerald-950/60 hover:bg-emerald-900/60 border border-emerald-500/40 transition-all shadow-xs active:scale-95 press-scale min-touch-target"
             >
-              <MessageCircle size={15} className="text-emerald-600" />
+              <MessageCircle size={15} strokeWidth={2} />
               <span>WhatsApp</span>
             </a>
           </div>
 
-          {/* Key SLA Indicators */}
-          <div className="flex flex-wrap items-center gap-y-2 gap-x-6 pt-2 text-xs font-bold text-zinc-700">
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 size={14} className="text-[#C5A880]" /> PSARA Compliant
-            </span>
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 size={14} className="text-[#C5A880]" /> 2-Hour Replacement SLA
-            </span>
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 size={14} className="text-[#C5A880]" /> 100% EPF / ESI Legal
-            </span>
+          {/* Framer 4-Pillar SecurityForce Confidence Strip */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-3 border-t border-white/10 text-xs">
+            <div className="flex items-center gap-2 bg-white/5 p-2 rounded-xl border border-white/5">
+              <ShieldCheck size={16} className="text-[#C5A880] shrink-0" />
+              <span className="font-semibold text-zinc-300 text-[11px] leading-tight">Ensuring safety &amp; security</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white/5 p-2 rounded-xl border border-white/5">
+              <FileCheck size={16} className="text-blue-400 shrink-0" />
+              <span className="font-semibold text-zinc-300 text-[11px] leading-tight">Statutory risk reduction</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white/5 p-2 rounded-xl border border-white/5">
+              <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />
+              <span className="font-semibold text-zinc-300 text-[11px] leading-tight">Emergency 24/7 response</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white/5 p-2 rounded-xl border border-white/5">
+              <Award size={16} className="text-[#C5A880] shrink-0" />
+              <span className="font-semibold text-zinc-300 text-[11px] leading-tight">Complete peace of mind</span>
+            </div>
           </div>
         </div>
 
-        {/* Right Column: Dynamic Interactive Service Stage */}
+        {/* Right Column: Dynamic Authentic Visual Stage with BorderBeam */}
         <div className="lg:col-span-6">
-          <div className="relative w-full h-[400px] sm:h-[460px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl border border-zinc-300/80 group bg-black">
-            <BorderBeam size={250} duration={14} colorFrom="#C5A880" colorTo="transparent" />
+          <div className="relative w-full h-[400px] sm:h-[460px] md:h-[500px] rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.8)] border border-zinc-800 group bg-zinc-950">
+            <BorderBeam size={240} duration={12} colorFrom="#C5A880" colorTo="transparent" />
+            
             <AnimatePresence mode="wait">
               <motion.div
                 key={current.id}
-                initial={{ opacity: 0, scale: 1.05 }}
+                initial={{ opacity: 0, scale: 1.04 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.4 }}
+                transition={{ duration: 0.35 }}
                 className="relative w-full h-full"
               >
                 <Image
                   src={current.image}
-                  alt={current.name}
+                  alt={current.title}
                   fill
                   className="object-cover"
                   priority
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
-                {/* Gradient vignette */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+                
+                {/* Gradient Vignette Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-black/20" />
 
-                {/* Top Badge */}
-                <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+                {/* Top Floating Badge */}
+                <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none z-10">
                   <span className="px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-[#C5A880] text-[10px] font-mono font-bold uppercase shadow-lg">
                     {current.badge}
                   </span>
-                  <div className="px-3 py-1 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-white text-[10px] font-mono font-bold uppercase shadow-lg">
-                    {current.stat}: {current.statLabel}
+                  <div className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/20 text-white text-[10px] font-mono font-bold uppercase shadow-lg">
+                    {current.metric}
                   </div>
                 </div>
 
-                {/* Bottom Floating Interactive Card */}
-                <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-xl rounded-2xl p-4 sm:p-5 border border-white/40 shadow-2xl space-y-3">
-                  <div className="flex items-center justify-between border-b border-zinc-100 pb-2">
+                {/* Bottom Information Card */}
+                <div className="absolute bottom-4 left-4 right-4 bg-zinc-900/90 backdrop-blur-xl rounded-2xl p-4 sm:p-5 border border-zinc-700/80 shadow-2xl space-y-2.5 z-10">
+                  <div className="flex items-center justify-between border-b border-zinc-800 pb-2">
                     <div>
-                      <span className="text-[9px] font-mono font-black text-[#C5A880] uppercase tracking-wider">
-                        {current.name}
+                      <span className="text-[9px] font-mono font-black text-[#C5A880] uppercase tracking-wider block">
+                        AUTHENTIC FIELD ARCHIVE
                       </span>
-                      <h3 className="text-sm sm:text-base font-black text-black tracking-tight">
-                        {current.headline}
+                      <h3 className="text-sm sm:text-base font-black text-white tracking-tight">
+                        {current.title}
                       </h3>
                     </div>
                     <Link
                       href={current.href}
-                      className="px-3.5 py-1.5 rounded-full bg-black text-white text-[11px] font-extrabold uppercase hover:bg-zinc-800 transition-colors flex items-center gap-1 shadow-xs"
+                      className="px-3.5 py-1.5 rounded-full bg-white text-black text-[11px] font-extrabold uppercase hover:bg-[#C5A880] transition-colors flex items-center gap-1 shadow-md"
                     >
                       <span>Explore</span>
-                      <ChevronRight size={12} className="text-[#C5A880]" />
+                      <ChevronRight size={12} />
                     </Link>
                   </div>
 
-                  <div className="flex flex-wrap gap-1.5">
+                  <p className="text-[11px] sm:text-xs text-zinc-300 font-normal line-clamp-2 leading-relaxed">
+                    {current.caption}
+                  </p>
+
+                  <div className="flex flex-wrap gap-1.5 pt-0.5">
                     {current.tags.map((t) => (
-                      <span key={t} className="px-2 py-0.5 rounded-md bg-[#fbf9f4] border border-zinc-200 text-[10px] font-bold text-zinc-700">
+                      <span key={t} className="px-2 py-0.5 rounded-md bg-zinc-800 border border-zinc-700 text-[10px] font-mono font-bold text-zinc-300">
                         ✓ {t}
                       </span>
                     ))}
@@ -261,25 +260,25 @@ export function HeroSection() {
       </div>
 
       {/* Interactive Tabs Selector Strip */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 max-w-4xl mx-auto w-full pt-3">
-        {showcaseServices.map((srv, idx) => {
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 max-w-4xl mx-auto w-full pt-3 z-10 relative">
+        {heroVisuals.map((vis, idx) => {
           const active = activeTab === idx;
           return (
             <button
-              key={srv.id}
+              key={vis.id}
               type="button"
               onClick={() => setActiveTab(idx)}
-              className={`p-3.5 sm:p-4 rounded-2xl text-xs font-bold transition-all text-left flex items-center justify-between border ${
+              className={`p-3 sm:p-3.5 rounded-2xl text-xs font-bold transition-all text-left flex items-center justify-between border cursor-pointer ${
                 active
-                  ? "bg-black text-white border-[#C5A880] shadow-[0_0_25px_rgba(197,168,128,0.35)] scale-[1.02]"
-                  : "bg-white/90 text-zinc-700 border-zinc-200/90 hover:border-[#C5A880] hover:shadow-[0_0_20px_rgba(197,168,128,0.25)] hover:bg-white hover:scale-[1.01]"
+                  ? "bg-[#C5A880] text-black border-[#C5A880] shadow-[0_0_25px_rgba(197,168,128,0.4)] scale-[1.02]"
+                  : "bg-zinc-900/80 text-zinc-400 border-zinc-800 hover:border-zinc-700 hover:text-white hover:bg-zinc-800/80"
               }`}
             >
-              <div className="flex items-center gap-2">
-                <span className={`w-2 h-2 rounded-full transition-colors ${active ? "bg-[#C5A880]" : "bg-zinc-300"}`} />
-                <span className="font-extrabold truncate">{srv.name}</span>
+              <div className="flex items-center gap-2 min-w-0">
+                <span className={`w-2 h-2 rounded-full shrink-0 transition-colors ${active ? "bg-black" : "bg-[#C5A880]"}`} />
+                <span className="font-extrabold truncate">{vis.title.split(" ")[0]} {vis.title.split(" ")[1]}</span>
               </div>
-              <ChevronRight size={13} className={active ? "text-[#C5A880]" : "text-zinc-400"} />
+              <ChevronRight size={13} className={active ? "text-black shrink-0" : "text-zinc-600 shrink-0"} />
             </button>
           );
         })}
