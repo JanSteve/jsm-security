@@ -77,7 +77,14 @@ export function LanguageSwitcher({ className }: { className?: string }) {
     setSelectedLang(lang);
     setIsOpen(false);
 
-    if (typeof window === "undefined") return;
+    try {
+      localStorage.setItem("jsm_selected_lang", lang.code);
+      window.dispatchEvent(new CustomEvent("jsm-language-change", { 
+        detail: { lang: lang.code, label: lang.label, native: lang.native } 
+      }));
+    } catch {
+      // ignore localStorage errors
+    }
 
     if (lang.code === "en") {
       document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";

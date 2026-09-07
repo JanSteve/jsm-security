@@ -17,12 +17,12 @@ export async function POST(req: NextRequest) {
       .replace(/\s+/g, " ")
       .trim();
 
-    // 1. Check ElevenLabs API Key (High-Fidelity Neural Friday/Jarvis Voice)
+    // 1. Check ElevenLabs API Key (High-Fidelity Neural British / Multilingual Voice)
     const elevenLabsApiKey = process.env.ELEVENLABS_API_KEY;
     if (elevenLabsApiKey) {
       try {
-        // Default to '21m00Tcm4TlvDq8ikWAM' (Rachel - natural, executive, calm corporate voice)
-        const selectedVoice = voiceId || "21m00Tcm4TlvDq8ikWAM";
+        // Default to 'pFZP5JQG7iQjIQuC4Bku' (Lily - Best British Female Voice on ElevenLabs)
+        const selectedVoice = voiceId || process.env.ELEVENLABS_VOICE_ID || "pFZP5JQG7iQjIQuC4Bku";
         const elevenLabsBuffer = await synthesizeElevenLabsAudio(cleanText, elevenLabsApiKey, selectedVoice);
         if (elevenLabsBuffer && elevenLabsBuffer.length > 0) {
           return new Response(new Uint8Array(elevenLabsBuffer), {
@@ -38,8 +38,14 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    // 2. High-speed Natural Speech Streaming Engine (₹0 Fallback)
-    const audioBuffer = await generateNaturalSpeech(cleanText, lang);
+    // 2. High-speed Natural Multilingual Speech Engine (Fallback)
+    // Support Tamil ('ta'), Hindi ('hi'), Telugu ('te'), Kannada ('kn'), Malayalam ('ml'), and British English ('en-gb')
+    let speechLang = lang;
+    if (!speechLang || speechLang === "en" || speechLang === "en-IN" || speechLang === "en-US") {
+      speechLang = "en-gb"; // British English accent for Priya
+    }
+
+    const audioBuffer = await generateNaturalSpeech(cleanText, speechLang);
 
     return new Response(new Uint8Array(audioBuffer), {
       headers: {
@@ -66,11 +72,11 @@ async function synthesizeElevenLabsAudio(text: string, apiKey: string, voiceId: 
     },
     body: JSON.stringify({
       text: text.slice(0, 1000), // Protect token limit per request
-      model_id: "eleven_turbo_v2_5",
+      model_id: "eleven_multilingual_v2", // Multilingual v2 supports English (British), Tamil, Hindi, etc.
       voice_settings: {
-        stability: 0.5,
-        similarity_boost: 0.8,
-        style: 0.0,
+        stability: 0.55,
+        similarity_boost: 0.85,
+        style: 0.1,
         use_speaker_boost: true
       }
     }),
@@ -123,3 +129,4 @@ async function generateNaturalSpeech(text: string, lang: string): Promise<Buffer
 
   return Buffer.concat(audioChunks);
 }
+
