@@ -225,9 +225,95 @@ export function Footer() {
 
         </div>
 
-        {/* 4-Column Navigation Directory on Deep Black */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-14 border-b border-white/15 text-sm">
-          {/* Three-Tier Services */}
+        {/* SOURCING / DGR & RECRUITMENT COMMAND ACTION HUB */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-14 p-8 sm:p-10 rounded-3xl bg-neutral-950 border-2 border-white/15 shadow-2xl">
+          {/* Sourcing / DGR Command Box */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-3.5">
+              <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center shrink-0">
+                <ShieldCheck size={26} strokeWidth={2.2} />
+              </div>
+              <div>
+                <h4 className="text-xl sm:text-2xl font-black text-white uppercase tracking-tight">
+                  Sourcing / DGR Operations
+                </h4>
+                <p className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider">
+                  Directorate General Resettlement &bull; MoD Empanelled Scheme
+                </p>
+              </div>
+            </div>
+            <p className="text-sm text-neutral-300 leading-relaxed">
+              Empanelled Ex-Servicemen security agency framework adhering to Ministry of Defence DGR guidelines, state-wise PSU deployment rosters, and direct GeM portal bidding with 100% legal indemnity.
+            </p>
+            <div className="flex flex-wrap items-center gap-2.5 pt-2">
+              <Link
+                href="/security-agencies"
+                className="px-4 py-2 rounded-full bg-white/10 hover:bg-white text-white hover:text-black text-xs font-bold font-mono transition-colors press-scale"
+              >
+                Security Agencies Scheme &rarr;
+              </Link>
+              <Link
+                href="/security-agencies#state-status"
+                className="px-4 py-2 rounded-full bg-white/10 hover:bg-white text-white hover:text-black text-xs font-bold font-mono transition-colors press-scale"
+              >
+                State-Wise Status &rarr;
+              </Link>
+              <a
+                href="/downloads/JSM-Compliance-Checklist.docx"
+                download
+                className="px-4 py-2 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold font-mono hover:bg-emerald-500 hover:text-white transition-colors press-scale"
+              >
+                &darr; Compliance Checklist (.docx)
+              </a>
+            </div>
+          </div>
+
+          {/* Recruitment & Enrolment Command Box */}
+          <div className="space-y-4 border-t lg:border-t-0 lg:border-l border-white/15 pt-6 lg:pt-0 lg:pl-8">
+            <div className="flex items-center gap-3.5">
+              <div className="w-12 h-12 rounded-2xl bg-blue-500/20 text-blue-400 border border-blue-500/30 flex items-center justify-center shrink-0">
+                <Award size={26} strokeWidth={2.2} />
+              </div>
+              <div>
+                <h4 className="text-xl sm:text-2xl font-black text-white uppercase tracking-tight">
+                  Recruitment &amp; Enrolment
+                </h4>
+                <p className="text-xs font-mono font-bold text-blue-400 uppercase tracking-wider">
+                  Officers &bull; JCOs &bull; Soldiers &bull; Manpower Portal
+                </p>
+              </div>
+            </div>
+            <p className="text-sm text-neutral-300 leading-relaxed">
+              Dedicated dual-track defense hiring: Commissioned Officers leadership and JCO / OR field induction alongside our Naukri-style live vacancy aggregator for verified career placements.
+            </p>
+            <div className="flex flex-wrap items-center gap-2.5 pt-2">
+              <Link
+                href="/careers"
+                className="px-4 py-2 rounded-full bg-white/10 hover:bg-white text-white hover:text-black text-xs font-bold font-mono transition-colors press-scale"
+              >
+                Officers &amp; JCO Tracks &rarr;
+              </Link>
+              <Link
+                href="/work-opportunities"
+                className="px-4 py-2 rounded-full bg-white/10 hover:bg-white text-white hover:text-black text-xs font-bold font-mono transition-colors press-scale"
+              >
+                Naukri-Style Job Portal &rarr;
+              </Link>
+              <a
+                href="https://wa.me/919080863448?text=Hello%20JSM%20Recruitment%20Team,%20I%20am%20applying%20for%20a%20position."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 rounded-full bg-[#25d366]/20 text-[#25d366] border border-[#25d366]/40 text-xs font-bold font-mono hover:bg-[#25d366] hover:text-white transition-colors press-scale"
+              >
+                WhatsApp Fast Apply &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* 5-Column Navigation Directory on Deep Black */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 py-14 border-b border-white/15 text-sm">
+          {/* Column 1: Three-Tier Services */}
           <div className="space-y-4">
             <h4 className="font-bold text-sm tracking-wider text-white border-b border-white/15 pb-2 uppercase font-mono">
               Three-Tier Model
@@ -261,10 +347,11 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* DGR & Recruitment */}
+          {/* Column 2: SOURCING / DGR */}
           <div className="space-y-4">
-            <h4 className="font-bold text-sm tracking-wider text-white border-b border-white/15 pb-2 uppercase font-mono">
-              DGR &amp; Careers
+            <h4 className="font-bold text-sm tracking-wider text-emerald-400 border-b border-emerald-500/30 pb-2 uppercase font-mono flex items-center gap-1.5">
+              <ShieldCheck size={16} className="text-emerald-400" />
+              <span>Sourcing / DGR</span>
             </h4>
             <ul className="space-y-2.5 text-xs text-neutral-300 font-medium">
               <li>
@@ -273,43 +360,79 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/work-opportunities" className="hover:text-emerald-400 transition-colors block py-0.5">
-                  Naukri-Style Job Aggregator
+                <Link href="/services" className="hover:text-emerald-400 transition-colors block py-0.5">
+                  GeM Tender Bidding &amp; Sourcing
                 </Link>
               </li>
               <li>
-                <Link href="/careers" className="hover:text-emerald-400 transition-colors block py-0.5">
-                  Officers Track Recruitment
+                <Link href="/security-agencies#schemes" className="hover:text-emerald-400 transition-colors block py-0.5">
+                  Defense Resettlement Schemes
                 </Link>
               </li>
               <li>
-                <Link href="/careers" className="hover:text-emerald-400 transition-colors block py-0.5">
-                  JCO &amp; Soldier Induction
+                <Link href="/security-agencies#state-status" className="hover:text-emerald-400 transition-colors block py-0.5">
+                  State-Wise Empanelment Status
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/private-security" className="hover:text-emerald-400 transition-colors block py-0.5">
+                  Ex-Servicemen Security Platoons
                 </Link>
               </li>
               <li>
                 <Link href="/newsletter" className="hover:text-emerald-400 transition-colors block py-0.5">
-                  ESM Intelligence Newsletter
+                  DGR Intelligence Newsletter
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* District Hubs */}
+          {/* Column 3: RECRUITMENT */}
           <div className="space-y-4">
-            <h4 className="font-bold text-sm tracking-wider text-white border-b border-white/15 pb-2 uppercase font-mono">
-              District Hubs
+            <h4 className="font-bold text-sm tracking-wider text-blue-400 border-b border-blue-500/30 pb-2 uppercase font-mono flex items-center gap-1.5">
+              <Award size={16} className="text-blue-400" />
+              <span>Recruitment</span>
             </h4>
             <ul className="space-y-2.5 text-xs text-neutral-300 font-medium">
-              <li><span className="text-white font-bold">Trichy:</span> Central Command HQ</li>
-              <li><span className="text-white font-bold">Chennai:</span> OMR IT Corridor Hub</li>
-              <li><span className="text-white font-bold">Coimbatore:</span> Industrial Outpost</li>
-              <li><span className="text-white font-bold">Hosur:</span> Automotive &amp; Tech SEZ</li>
-              <li><span className="text-white font-bold">Salem &amp; Erode:</span> Manufacturing Grid</li>
+              <li>
+                <Link href="/careers#officers" className="hover:text-blue-400 transition-colors block py-0.5">
+                  Commissioned Officers Track
+                </Link>
+              </li>
+              <li>
+                <Link href="/careers#jco" className="hover:text-blue-400 transition-colors block py-0.5">
+                  JCO &amp; Soldier Induction
+                </Link>
+              </li>
+              <li>
+                <Link href="/work-opportunities" className="hover:text-blue-400 transition-colors block py-0.5">
+                  Naukri-Style Job Aggregator
+                </Link>
+              </li>
+              <li>
+                <Link href="/careers" className="hover:text-blue-400 transition-colors block py-0.5">
+                  Ex-Servicemen (ESM) Field Intake
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/manpower" className="hover:text-blue-400 transition-colors block py-0.5">
+                  Corporate &amp; Industrial Staffing
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/919080863448?text=Hello%20JSM%20Recruitment%20Team,%20I%20am%20applying%20for%20a%20position."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#25d366] transition-colors block py-0.5 font-bold text-emerald-400"
+                >
+                  WhatsApp Recruitment Hotline &rarr;
+                </a>
+              </li>
             </ul>
           </div>
 
-          {/* Official Forms (.docx) */}
+          {/* Column 4: Official Forms (.docx) */}
           <div className="space-y-4">
             <h4 className="font-bold text-sm tracking-wider text-white border-b border-white/15 pb-2 uppercase font-mono">
               Download Forms (.docx)
@@ -331,10 +454,35 @@ export function Footer() {
                 </a>
               </li>
               <li>
+                <a href="/downloads/Form-ESM-2-Jawan.docx" download className="hover:text-emerald-400 transition-colors block py-0.5">
+                  &darr; Form-ESM-2: Jawan Induction
+                </a>
+              </li>
+              <li>
+                <a href="/downloads/Form-SL-1-Skilled-Labor.docx" download className="hover:text-emerald-400 transition-colors block py-0.5">
+                  &darr; Form-SL-1: Skilled Labor
+                </a>
+              </li>
+              <li>
                 <a href="/downloads/JSM-Compliance-Checklist.docx" download className="hover:text-emerald-400 transition-colors block py-0.5">
                   &darr; PSARA Compliance Checklist
                 </a>
               </li>
+            </ul>
+          </div>
+
+          {/* Column 5: District Hubs */}
+          <div className="space-y-4">
+            <h4 className="font-bold text-sm tracking-wider text-white border-b border-white/15 pb-2 uppercase font-mono">
+              District Hubs
+            </h4>
+            <ul className="space-y-2.5 text-xs text-neutral-300 font-medium">
+              <li><span className="text-white font-bold">Trichy:</span> Central Command HQ</li>
+              <li><span className="text-white font-bold">Chennai:</span> OMR IT Corridor Hub</li>
+              <li><span className="text-white font-bold">Coimbatore:</span> Industrial Outpost</li>
+              <li><span className="text-white font-bold">Hosur:</span> Automotive &amp; Tech SEZ</li>
+              <li><span className="text-white font-bold">Salem &amp; Erode:</span> Manufacturing Grid</li>
+              <li><span className="text-white font-bold">Madurai:</span> Healthcare &amp; Logistics</li>
             </ul>
           </div>
         </div>
