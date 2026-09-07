@@ -58,7 +58,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
   const fSchema = faqSchema(service.faqs);
 
   return (
-    <main className="min-h-screen bg-white text-zinc-800 pt-28 pb-24">
+    <main className="min-h-screen bg-white text-[#1d1d1f] pt-28 pb-24 selection:bg-[#0071e3]/15 selection:text-black">
       {/* Schema.org JSON-LD */}
       <script
         type="application/ld+json"
@@ -74,15 +74,15 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
       />
       
       {/* Hero Section */}
-      <section className="pt-8 pb-16 px-4 md:px-8 border-b border-zinc-200/80 bg-zinc-50/70">
+      <section className="pt-8 pb-16 px-4 md:px-8 border-b border-black/[0.08] bg-[#f5f5f7]">
         <div className="container mx-auto max-w-5xl">
           {/* Category & Phase Pill */}
           <div className="flex flex-wrap items-center gap-2 mb-6">
-            <span className="bg-black text-white text-xs font-bold py-1 px-3.5 rounded-full">
+            <span className="bg-white border border-black/[0.08] text-[#1d1d1f] text-xs font-semibold py-1 px-3.5 rounded-full">
               {service.categoryLabel}
             </span>
-            <span className={`text-xs font-bold py-1 px-3.5 rounded-full ${
-              service.isCoreLaunch ? 'bg-emerald-100 text-emerald-800' : 'bg-blue-100 text-blue-800'
+            <span className={`text-xs font-semibold py-1 px-3.5 rounded-full ${
+              service.isCoreLaunch ? 'bg-[#0071e3]/10 text-[#0071e3]' : 'bg-[#f5f5f7] text-[#86868b] border border-black/[0.08]'
             }`}>
               {service.phase}
             </span>
@@ -90,44 +90,44 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
           <div className="flex flex-col lg:flex-row gap-8 items-start justify-between">
             <div className="flex-1 space-y-4">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-black leading-tight tracking-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#1d1d1f] leading-tight tracking-tight">
                 {service.title}
               </h1>
-              <p className="text-sm sm:text-base md:text-lg text-zinc-600 font-medium leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg text-[#86868b] font-normal leading-relaxed">
                 {service.description}
               </p>
-              <p className="text-xs sm:text-sm font-bold text-[#C5A880]">
+              <p className="text-xs sm:text-sm font-semibold text-[#0071e3]">
                 {service.valueProposition}
               </p>
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3 pt-2">
-                <Button asChild size="lg" className="bg-black hover:bg-zinc-800 text-white rounded-full h-11 px-6 text-xs font-bold shadow-md">
+                <Button asChild size="lg" className="bg-[#0071e3] hover:bg-[#0077ed] text-white rounded-full h-11 px-7 text-xs font-semibold shadow-sm min-h-[44px]">
                   <Link href="/contact">
                     Request Scope Assessment <ArrowRight size={14} className="ml-1.5" />
                   </Link>
                 </Button>
                 <a
-              href="mailto:jsmintegratedservices@outlook.com?subject=Service%20Inquiry"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#0A1628] hover:bg-[#152336] text-white text-sm font-bold rounded-xl transition-all shadow-md"
-            >
-              <Mail size={16} />
-              Discuss via Email
-            </a>
+                  href="mailto:jsmintegratedservices@outlook.com?subject=Service%20Inquiry"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 bg-white hover:bg-[#e8e8ed] text-[#1d1d1f] border border-black/[0.08] text-xs font-semibold rounded-full transition-all shadow-sm min-h-[44px]"
+                >
+                  <Mail size={15} />
+                  Discuss via Email
+                </a>
               </div>
             </div>
 
-            <div className="p-6 bg-white rounded-3xl border border-zinc-200 shadow-sm flex-shrink-0 flex items-center justify-center">
-              <IconComponent className="text-black w-14 h-14" strokeWidth={1.5} />
+            <div className="p-6 bg-white rounded-[28px] border border-black/[0.08] shadow-sm flex-shrink-0 flex items-center justify-center">
+              <IconComponent className="text-[#0071e3] w-14 h-14" strokeWidth={1.5} />
             </div>
           </div>
 
           {/* Compliance Notice Banner if applicable */}
           {service.complianceNotice && (
-            <div className="mt-8 p-4 bg-zinc-100 border border-zinc-300/80 rounded-2xl flex items-start gap-3 text-xs text-zinc-700 font-medium leading-relaxed">
-              <ShieldCheck size={18} className="text-zinc-800 flex-shrink-0 mt-0.5" />
+            <div className="mt-8 p-4 bg-white border border-black/[0.08] rounded-2xl flex items-start gap-3 text-xs text-[#1d1d1f] font-normal leading-relaxed shadow-sm">
+              <ShieldCheck size={18} className="text-[#0071e3] flex-shrink-0 mt-0.5" />
               <div>
-                <strong className="text-zinc-900 block mb-0.5">Regulatory & Compliance Standard:</strong>
+                <strong className="text-[#1d1d1f] font-semibold block mb-0.5">Regulatory & Compliance Standard:</strong>
                 {service.complianceNotice}
               </div>
             </div>
@@ -136,18 +136,18 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
       </section>
 
       {/* Who It Is For Section */}
-      <section className="py-14 px-4 md:px-8 bg-white border-b border-zinc-200/80">
+      <section className="py-14 px-4 md:px-8 bg-white border-b border-black/[0.08]">
         <div className="container mx-auto max-w-5xl">
-          <h2 className="text-xs font-extrabold uppercase tracking-widest text-[#C5A880] mb-3">
+          <h2 className="text-xs font-semibold uppercase tracking-wider text-[#0071e3] mb-3">
             Target Deployments & Sectors
           </h2>
-          <h3 className="text-2xl font-black text-black tracking-tight mb-6">
+          <h3 className="text-2xl font-semibold text-[#1d1d1f] tracking-tight mb-6">
             Who this service is engineered for:
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {service.whoItIsFor.map((item, idx) => (
-              <div key={idx} className="flex items-center gap-2.5 p-3.5 bg-zinc-50 border border-zinc-200/60 rounded-2xl text-xs font-bold text-zinc-800">
-                <CheckCircle2 size={16} className="text-[#C5A880] flex-shrink-0" />
+              <div key={idx} className="flex items-center gap-2.5 p-3.5 bg-[#f5f5f7] border border-black/[0.06] rounded-2xl text-xs font-semibold text-[#1d1d1f]">
+                <CheckCircle2 size={16} className="text-[#0071e3] flex-shrink-0" />
                 <span>{item}</span>
               </div>
             ))}
@@ -156,13 +156,13 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
       </section>
 
       {/* Core Features Grid */}
-      <section className="py-20 px-4 md:px-8 bg-zinc-50 border-b border-zinc-200/80">
+      <section className="py-20 px-4 md:px-8 bg-[#f5f5f7] border-b border-black/[0.08]">
         <div className="container mx-auto max-w-5xl">
           <div className="text-center max-w-2xl mx-auto mb-14 space-y-2">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#C5A880]">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#0071e3]">
               Operational Capabilities
             </span>
-            <h2 className="text-3xl font-black text-black tracking-tight">
+            <h2 className="text-3xl font-semibold text-[#1d1d1f] tracking-tight">
               Standard Deliverables & Protocols
             </h2>
           </div>
@@ -171,29 +171,29 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
       </section>
 
       {/* 4-Step Process Timeline */}
-      <section className="py-20 px-4 md:px-8 bg-white border-b border-zinc-200/80">
+      <section className="py-20 px-4 md:px-8 bg-white border-b border-black/[0.08]">
         <div className="container mx-auto max-w-5xl">
           <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#C5A880]">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#0071e3]">
               Implementation Process
             </span>
-            <h2 className="text-3xl font-black text-black tracking-tight">
+            <h2 className="text-3xl font-semibold text-[#1d1d1f] tracking-tight">
               How We Deploy This Service
             </h2>
-            <p className="text-xs text-zinc-500 font-medium">From site survey to continuous shift supervision.</p>
+            <p className="text-sm text-[#86868b] font-normal">From site survey to continuous shift supervision.</p>
           </div>
           <ProcessTimeline steps={service.process} />
         </div>
       </section>
 
       {/* FAQs Section */}
-      <section className="py-20 px-4 md:px-8 bg-zinc-50 border-b border-zinc-200/80">
+      <section className="py-20 px-4 md:px-8 bg-[#f5f5f7] border-b border-black/[0.08]">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#C5A880]">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#0071e3]">
               Frequently Asked Questions
             </span>
-            <h2 className="text-3xl font-black text-black tracking-tight">
+            <h2 className="text-3xl font-semibold text-[#1d1d1f] tracking-tight">
               Operational Inquiries & Answers
             </h2>
           </div>
@@ -204,14 +204,14 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
       {/* Related Services */}
       <section className="py-20 px-4 md:px-8 bg-white">
         <div className="container mx-auto max-w-5xl space-y-8">
-          <div className="flex items-center justify-between border-b border-zinc-200/80 pb-4">
+          <div className="flex items-center justify-between border-b border-black/[0.08] pb-4">
             <div>
-              <span className="text-xs font-extrabold uppercase tracking-widest text-[#C5A880]">
+              <span className="text-xs font-semibold uppercase tracking-wider text-[#0071e3]">
                 Integrated Ecosystem
               </span>
-              <h3 className="text-xl font-bold text-black">Related Integrated Services</h3>
+              <h3 className="text-xl font-semibold text-[#1d1d1f]">Related Integrated Services</h3>
             </div>
-            <Link href="/services" className="text-xs font-bold text-black hover:underline flex items-center gap-1">
+            <Link href="/services" className="text-xs font-semibold text-[#0071e3] hover:underline flex items-center gap-1">
               View All Services <ArrowRight size={13} />
             </Link>
           </div>
@@ -223,14 +223,14 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 <Link
                   key={rel.slug}
                   href={`/services/${rel.slug}`}
-                  className="p-6 bg-zinc-50 border border-zinc-200/80 rounded-3xl hover:border-black hover:bg-white hover:shadow-md transition-all block space-y-3"
+                  className="p-6 bg-[#f5f5f7] border border-black/[0.08] rounded-[28px] hover:border-black/[0.2] hover:bg-white hover:shadow-md transition-all block space-y-3 shadow-sm"
                 >
-                  <div className="w-10 h-10 rounded-2xl bg-white border border-zinc-200 flex items-center justify-center text-black">
+                  <div className="w-10 h-10 rounded-2xl bg-white border border-black/[0.08] flex items-center justify-center text-[#1d1d1f]">
                     <RelIcon size={18} />
                   </div>
-                  <h4 className="text-base font-bold text-black">{rel.title}</h4>
-                  <p className="text-xs text-zinc-500 line-clamp-2">{rel.valueProposition}</p>
-                  <span className="text-xs font-bold text-black inline-flex items-center gap-1">
+                  <h4 className="text-base font-semibold text-[#1d1d1f]">{rel.title}</h4>
+                  <p className="text-xs text-[#86868b] line-clamp-2">{rel.valueProposition}</p>
+                  <span className="text-xs font-semibold text-[#0071e3] inline-flex items-center gap-1">
                     Explore Scope <ArrowRight size={12} />
                   </span>
                 </Link>

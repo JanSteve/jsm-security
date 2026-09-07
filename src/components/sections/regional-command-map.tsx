@@ -116,23 +116,19 @@ export function RegionalCommandMap() {
   const [selectedHub, setSelectedHub] = useState<RegionalHub>(REGIONAL_HUBS[0]);
 
   return (
-    <section className="py-16 md:py-20 bg-[#07090E] text-white relative overflow-hidden border-t border-white/10" id="regional-command">
-      {/* Subtle Glows */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#C5A880]/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
-
+    <section className="py-20 md:py-28 bg-[#f5f5f7] text-[#1d1d1f] relative overflow-hidden border-t border-black/[0.08]" id="regional-command">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-[#C5A880] text-xs font-mono font-bold tracking-wider uppercase">
-            <Radio size={14} className="animate-pulse text-[#C5A880]" />
-            <span>[Tamil Nadu Regional Command Network]</span>
+        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-black/[0.08] text-[#1d1d1f] text-xs font-semibold tracking-wide uppercase shadow-sm">
+            <Radio size={14} className="text-[#0071e3]" />
+            <span>Tamil Nadu Regional Command Network</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white text-balance">
-            Live deployment &amp; <span className="text-[#C5A880]">regional hubs</span>
+          <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight text-[#1d1d1f] text-balance">
+            Live deployment &amp; regional hubs.
           </h2>
-          <p className="text-zinc-400 text-sm sm:text-base leading-relaxed text-pretty">
-            <span className="tabular-nums">520+</span> trained personnel deployed across <span className="tabular-nums">52</span> contracted client facilities with a guaranteed <span className="tabular-nums">2-hour</span> relief replacement SLA in every major industrial corridor.
+          <p className="text-[#86868b] text-sm sm:text-base leading-relaxed text-pretty">
+            <span className="tabular-nums font-semibold text-[#1d1d1f]">520+</span> trained personnel deployed across <span className="tabular-nums font-semibold text-[#1d1d1f]">52</span> contracted client facilities with a guaranteed <span className="tabular-nums font-semibold text-[#1d1d1f]">2-hour</span> relief replacement SLA in every major industrial corridor.
           </p>
         </div>
 
@@ -141,7 +137,7 @@ export function RegionalCommandMap() {
           
           {/* Hub Selector List (5 cols) */}
           <div className="lg:col-span-5 space-y-3">
-            <span className="text-xs font-bold font-mono text-[#C5A880] tracking-wider uppercase block mb-2">
+            <span className="text-xs font-semibold text-[#86868b] tracking-wider uppercase block mb-2">
               Select Regional Operational Cluster:
             </span>
             
@@ -154,30 +150,30 @@ export function RegionalCommandMap() {
                   onClick={() => setSelectedHub(hub)}
                   className={`w-full p-4 rounded-2xl border text-left transition-all flex items-center justify-between cursor-pointer ${
                     isSelected
-                      ? "bg-zinc-800/90 border-[#C5A880] shadow-lg shadow-[#C5A880]/10"
-                      : "bg-zinc-900/60 border-zinc-800 text-zinc-400 hover:border-zinc-700 hover:bg-zinc-800/40"
+                      ? "bg-white border-[#0071e3] ring-2 ring-[#0071e3]/20 shadow-md"
+                      : "bg-white/70 border-black/[0.06] text-[#86868b] hover:border-black/[0.12] hover:bg-white"
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <div className={`p-2 rounded-xl ${isSelected ? "bg-[#C5A880] text-zinc-950" : "bg-zinc-800 text-[#C5A880]"}`}>
+                    <div className={`p-2.5 rounded-xl ${isSelected ? "bg-[#0071e3] text-white" : "bg-[#f5f5f7] text-[#1d1d1f]"}`}>
                       <MapPin size={16} />
                     </div>
                     <div>
-                      <div className="text-sm font-bold text-white flex items-center gap-2">
+                      <div className="text-sm font-semibold text-[#1d1d1f] flex items-center gap-2">
                         {hub.city}
                         {hub.hubType === "Central HQ" && (
-                          <span className="px-1.5 py-0.5 rounded bg-[#C5A880]/20 text-[#C5A880] text-[9px] font-mono font-black uppercase">
+                          <span className="px-2 py-0.5 rounded-full bg-[#0071e3]/10 text-[#0071e3] text-[9px] font-semibold uppercase">
                             Central HQ
                           </span>
                         )}
                       </div>
-                      <div className="text-xs text-zinc-400 font-mono mt-0.5">
+                      <div className="text-xs text-[#86868b] mt-0.5">
                         {hub.sitesGuarded} Facilities • {hub.personnelActive} Active Personnel
                       </div>
                     </div>
                   </div>
 
-                  <ChevronRight size={16} className={`transition-transform ${isSelected ? "text-[#C5A880] translate-x-1" : "text-zinc-600"}`} />
+                  <ChevronRight size={16} className={`transition-transform ${isSelected ? "text-[#0071e3] translate-x-1" : "text-[#86868b]"}`} />
                 </button>
               );
             })}
@@ -192,22 +188,22 @@ export function RegionalCommandMap() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.25 }}
-                className="bg-zinc-900/90 border-2 border-[#C5A880]/50 rounded-3xl p-6 sm:p-8 backdrop-blur-xl h-full flex flex-col justify-between shadow-2xl relative"
+                className="bg-white border border-black/[0.08] rounded-[28px] p-6 sm:p-8 h-full flex flex-col justify-between shadow-sm relative"
               >
                 <div>
                   {/* Card Header */}
-                  <div className="flex flex-wrap justify-between items-start gap-4 pb-6 border-b border-zinc-800">
+                  <div className="flex flex-wrap justify-between items-start gap-4 pb-6 border-b border-black/[0.08]">
                     <div>
-                      <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#C5A880]/20 text-[#C5A880] text-[10px] font-mono font-extrabold uppercase mb-2">
-                        <ShieldCheck size={12} /> {selectedHub.hubType}
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f5f5f7] text-[#1d1d1f] text-[11px] font-semibold uppercase mb-2">
+                        <ShieldCheck size={12} className="text-[#0071e3]" /> {selectedHub.hubType}
                       </div>
-                      <h3 className="text-2xl font-black text-white">{selectedHub.city}</h3>
-                      <p className="text-xs text-zinc-400 mt-0.5">{selectedHub.title}</p>
+                      <h3 className="text-2xl font-semibold text-[#1d1d1f]">{selectedHub.city}</h3>
+                      <p className="text-xs text-[#86868b] mt-0.5">{selectedHub.title}</p>
                     </div>
 
-                    <div className="bg-[#0A1628] border border-zinc-700 px-3.5 py-2 rounded-xl text-right">
-                      <span className="text-[10px] text-zinc-400 uppercase font-mono block">Relief SLA</span>
-                      <span className="text-base font-black text-emerald-400">
+                    <div className="bg-[#f5f5f7] border border-black/[0.06] px-4 py-2 rounded-2xl text-right">
+                      <span className="text-[10px] text-[#86868b] uppercase font-semibold block">Relief SLA</span>
+                      <span className="text-base font-semibold text-emerald-600">
                         &lt; {selectedHub.reliefTimeMinutes} Mins
                       </span>
                     </div>
@@ -215,38 +211,38 @@ export function RegionalCommandMap() {
 
                   {/* Operational Metrics Grid */}
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 my-6">
-                    <div className="bg-zinc-800/60 p-3 rounded-xl border border-zinc-700/50">
-                      <span className="text-[10px] text-zinc-400 font-mono block uppercase">Personnel</span>
-                      <span className="text-xl font-black text-[#C5A880]">{selectedHub.personnelActive}</span>
+                    <div className="bg-[#f5f5f7] p-3.5 rounded-2xl border border-black/[0.04]">
+                      <span className="text-[10px] text-[#86868b] font-semibold block uppercase">Personnel</span>
+                      <span className="text-xl font-semibold text-[#1d1d1f]">{selectedHub.personnelActive}</span>
                     </div>
-                    <div className="bg-zinc-800/60 p-3 rounded-xl border border-zinc-700/50">
-                      <span className="text-[10px] text-zinc-400 font-mono block uppercase">Client Sites</span>
-                      <span className="text-xl font-black text-white">{selectedHub.sitesGuarded}</span>
+                    <div className="bg-[#f5f5f7] p-3.5 rounded-2xl border border-black/[0.04]">
+                      <span className="text-[10px] text-[#86868b] font-semibold block uppercase">Client Sites</span>
+                      <span className="text-xl font-semibold text-[#1d1d1f]">{selectedHub.sitesGuarded}</span>
                     </div>
-                    <div className="bg-zinc-800/60 p-3 rounded-xl border border-zinc-700/50">
-                      <span className="text-[10px] text-zinc-400 font-mono block uppercase">Night Audits</span>
-                      <span className="text-xl font-black text-sky-400">{selectedHub.nightAuditRounds} / Night</span>
+                    <div className="bg-[#f5f5f7] p-3.5 rounded-2xl border border-black/[0.04]">
+                      <span className="text-[10px] text-[#86868b] font-semibold block uppercase">Night Audits</span>
+                      <span className="text-xl font-semibold text-[#0071e3]">{selectedHub.nightAuditRounds} / Night</span>
                     </div>
-                    <div className="bg-zinc-800/60 p-3 rounded-xl border border-zinc-700/50">
-                      <span className="text-[10px] text-zinc-400 font-mono block uppercase">Fulfillment</span>
-                      <span className="text-xl font-black text-emerald-400">100%</span>
+                    <div className="bg-[#f5f5f7] p-3.5 rounded-2xl border border-black/[0.04]">
+                      <span className="text-[10px] text-[#86868b] font-semibold block uppercase">Fulfillment</span>
+                      <span className="text-xl font-semibold text-emerald-600">100%</span>
                     </div>
                   </div>
 
                   {/* Description */}
-                  <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-6">
+                  <p className="text-xs sm:text-sm text-[#515154] leading-relaxed mb-6">
                     {selectedHub.description}
                   </p>
 
                   {/* Key Sectors Protected */}
-                  <div className="space-y-2 mb-6">
-                    <span className="text-[11px] font-mono font-bold text-zinc-400 uppercase tracking-wider block">
+                  <div className="space-y-2.5 mb-6">
+                    <span className="text-[11px] font-semibold text-[#86868b] uppercase tracking-wider block">
                       Key Facility Sectors Managed in this Cluster:
                     </span>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                       {selectedHub.keySectors.map((sector, i) => (
-                        <div key={i} className="flex items-center gap-2 bg-zinc-800/40 px-3 py-2 rounded-lg border border-zinc-700/40 text-zinc-200">
-                          <CheckCircle2 size={13} className="text-[#C5A880] flex-shrink-0" />
+                        <div key={i} className="flex items-center gap-2 bg-[#f5f5f7] px-3 py-2 rounded-xl border border-black/[0.04] text-[#1d1d1f]">
+                          <CheckCircle2 size={14} className="text-emerald-600 flex-shrink-0" />
                           <span>{sector}</span>
                         </div>
                       ))}
@@ -255,14 +251,14 @@ export function RegionalCommandMap() {
                 </div>
 
                 {/* Hub Footer */}
-                <div className="pt-6 border-t border-zinc-800 flex flex-wrap items-center justify-between gap-4">
-                  <div className="text-xs text-zinc-400">
-                    <span className="font-bold text-zinc-300 block">Dispatch Command Point:</span>
+                <div className="pt-6 border-t border-black/[0.08] flex flex-wrap items-center justify-between gap-4">
+                  <div className="text-xs text-[#86868b]">
+                    <span className="font-semibold text-[#1d1d1f] block">Dispatch Command Point:</span>
                     <span>{selectedHub.hubAddress}</span>
                   </div>
 
                   <Link href="/contact">
-                    <Button className="bg-[#C5A880] hover:bg-[#b09268] text-zinc-950 font-bold text-xs uppercase tracking-wider rounded-xl cursor-pointer">
+                    <Button className="bg-[#1d1d1f] hover:bg-black text-white font-semibold text-xs tracking-wide rounded-full px-6 py-2.5 cursor-pointer shadow-sm">
                       <span>Request Site Assessment</span>
                     </Button>
                   </Link>

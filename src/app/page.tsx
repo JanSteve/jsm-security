@@ -4,7 +4,6 @@ import {
   AboutShowcase,
   ServicesOverview, 
   FlagshipBentoGrid,
-  CommandTerminalSection,
   LeadershipSection,
   TestimonialsSection,
   FAQSection,
@@ -47,7 +46,7 @@ export default function Home() {
   const faqsJsonLd = faqSchema(homeFAQs);
 
   return (
-    <div className="relative bg-[#07090E] text-zinc-100 min-h-screen selection:bg-[#C5A880]/30 selection:text-white overflow-hidden">
+    <div className="relative bg-white text-[#1d1d1f] min-h-screen selection:bg-[#0071e3]/15 selection:text-black overflow-hidden">
       {/* Schema.org Structured Data */}
       <script
         type="application/ld+json"
@@ -66,18 +65,17 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqsJsonLd) }}
       />
 
-      {/* Enterprise Visual & Operational Flow - Framer SecurityForce DNA */}
+      {/* Pure Apple-Grade Visual & Operational Flow */}
       <HeroSection />
       <TrustBar />
       <AboutShowcase />
       <ServicesOverview />
       <FlagshipBentoGrid />
-      <CommandTerminalSection />
       <LeadershipSection />
       <TestimonialsSection />
-      <InteractiveCostSimulator />
-      <RegionalCommandMap />
       <ComplianceMatrix />
+      <RegionalCommandMap />
+      <InteractiveCostSimulator />
       <FAQSection />
       <CTASection />
     </div>

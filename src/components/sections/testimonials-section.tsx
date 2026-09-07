@@ -103,20 +103,20 @@ function Counter({ end, suffix }: { end: number, suffix: string }) {
 
 export function TestimonialsSection() {
   return (
-    <section className="py-16 md:py-20 bg-[#07090E] overflow-hidden text-zinc-100 border-t border-white/10">
+    <section className="py-20 md:py-28 bg-[#f5f5f7] overflow-hidden text-[#1d1d1f] border-t border-black/[0.08]">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
         
-        {/* Header - Framer SecurityForce 'Real Stories, Real Trust' */}
-        <div className="max-w-3xl mx-auto text-center mb-12 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-[#C5A880] text-xs font-mono font-bold tracking-wider uppercase">
-            <ShieldCheck size={14} />
-            <span>[Real Stories, Real Trust]</span>
+        {/* Header */}
+        <div className="max-w-3xl mx-auto text-center mb-14 space-y-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-black/[0.08] text-[#1d1d1f] text-xs font-semibold tracking-wide uppercase shadow-sm">
+            <ShieldCheck size={14} className="text-[#0071e3]" />
+            <span>Real Client Trust</span>
           </div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight text-balance"
+            className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#1d1d1f] tracking-tight text-balance"
           >
             Hear from those who rely on JSM to stay protected.
           </motion.h2>
@@ -125,58 +125,58 @@ export function TestimonialsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-sm sm:text-base text-zinc-400 font-normal text-pretty"
+            className="text-sm sm:text-base text-[#86868b] font-normal text-pretty"
           >
             Real operational results from verified enterprise partnerships across Tamil Nadu &amp; South India.
           </motion.p>
         </div>
 
         {/* Stats Counter */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-16">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
-              whileHover={{ scale: 1.03, y: -4 }}
+              whileHover={{ scale: 1.02, y: -2 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="bg-[#0B0F17] border border-zinc-800 rounded-3xl p-6 shadow-xl text-center flex flex-col items-center justify-center gap-3 hover:border-[#C5A880]/50 transition-all duration-300"
+              className="bg-white border border-black/[0.06] rounded-[28px] p-6 shadow-sm text-center flex flex-col items-center justify-center gap-3 hover:shadow-md transition-all duration-300"
             >
-              <stat.icon className="w-8 h-8 text-[#C5A880]" />
-              <div className="text-4xl text-white font-mono tabular-nums font-black">
+              <stat.icon className="w-8 h-8 text-[#0071e3]" />
+              <div className="text-4xl text-[#1d1d1f] tabular-nums font-semibold tracking-tight">
                 <Counter end={stat.value} suffix={stat.suffix} />
               </div>
-              <p className="text-zinc-400 font-semibold text-xs tracking-wider uppercase">{stat.label}</p>
+              <p className="text-[#86868b] font-semibold text-xs tracking-wider uppercase">{stat.label}</p>
             </motion.div>
           ))}
         </div>
 
-        {/* Testimonials Grid/Carousel */}
+        {/* Testimonials Grid */}
         <div className="flex md:grid md:grid-cols-3 gap-6 overflow-x-auto pb-8 snap-x snap-mandatory hide-scrollbar">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
-              whileHover={{ scale: 1.02, y: -4 }}
+              whileHover={{ scale: 1.01, y: -2 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="min-w-[85vw] md:min-w-0 snap-center shrink-0 bg-[#0B0F17] border border-zinc-800 rounded-3xl p-8 shadow-2xl relative flex flex-col hover:border-[#C5A880]/50 transition-all duration-300 group"
+              className="min-w-[85vw] md:min-w-0 snap-center shrink-0 bg-white border border-black/[0.06] rounded-[28px] p-8 shadow-sm relative flex flex-col hover:shadow-md transition-all duration-300 group"
             >
-              <Quote className="w-12 h-12 text-[#C5A880]/20 absolute top-6 right-6" />
+              <Quote className="w-10 h-10 text-black/[0.06] absolute top-6 right-6" />
               
-              <div className="flex gap-1 mb-6">
+              <div className="flex gap-1 mb-5">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-[#C5A880] text-[#C5A880]" />
+                  <Star key={i} className="w-4 h-4 fill-[#F5A623] text-[#F5A623]" />
                 ))}
               </div>
 
-              <p className="text-zinc-300 italic text-sm sm:text-base leading-relaxed flex-grow mb-8 text-pretty font-normal">
+              <p className="text-[#515154] italic text-sm sm:text-base leading-relaxed flex-grow mb-8 text-pretty font-normal">
                 "{testimonial.quote}"
               </p>
 
-              <div className="flex items-center gap-4 mt-auto pt-4 border-t border-zinc-800/80">
-                <div className="w-11 h-11 rounded-full bg-[#C5A880] text-zinc-950 flex items-center justify-center font-black text-sm shadow-md">
+              <div className="flex items-center gap-4 mt-auto pt-4 border-t border-black/[0.06]">
+                <div className="w-10 h-10 rounded-full bg-[#1d1d1f] text-white flex items-center justify-center font-semibold text-xs shadow-sm">
                   {testimonial.initials}
                 </div>
                 <div>
-                  <h4 className="text-white font-bold text-sm">{testimonial.name}</h4>
-                  <p className="text-xs text-zinc-400 font-normal">
+                  <h4 className="text-[#1d1d1f] font-semibold text-sm">{testimonial.name}</h4>
+                  <p className="text-xs text-[#86868b] font-normal">
                     {testimonial.role}, <br className="hidden md:block" /> {testimonial.company}
                   </p>
                 </div>

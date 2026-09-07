@@ -73,10 +73,10 @@ const trustItems = [
 
 export function TrustBar() {
   return (
-    <section className="relative border-y border-zinc-800/80 bg-[#07090E] py-4 overflow-hidden">
+    <section className="relative border-y border-black/[0.06] bg-[#f5f5f7] py-3.5 overflow-hidden">
       {/* Left/Right Gradient Edge Fades for Seamless Infinite Marquee */}
-      <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[#07090E] to-transparent z-10" />
-      <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[#07090E] to-transparent z-10" />
+      <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[#f5f5f7] to-transparent z-10" />
+      <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[#f5f5f7] to-transparent z-10" />
 
       <Marquee pauseOnHover duration={45} gap={16}>
         {trustItems.map((item, idx) => {
@@ -84,16 +84,16 @@ export function TrustBar() {
           return (
             <div
               key={idx}
-              className="inline-flex items-center gap-3 px-4 py-2.5 bg-[#0B0F17]/95 rounded-2xl border border-zinc-800/80 hover:border-[#C5A880]/50 shadow-sm transition-all duration-300 min-h-[44px] cursor-default press-scale group"
+              className="inline-flex items-center gap-3 px-4 py-2 bg-white rounded-full border border-black/[0.06] shadow-2xs transition-all duration-300 min-h-[40px] cursor-default press-scale group"
             >
-              <div className={`p-2 rounded-xl ${item.badgeColor} shrink-0 transition-transform group-hover:scale-105`}>
-                <Icon size={15} />
+              <div className="p-1.5 rounded-full bg-[#f5f5f7] text-[#1d1d1f] shrink-0 transition-transform group-hover:scale-105">
+                <Icon size={14} />
               </div>
               <div className="min-w-0 pr-1">
-                <span className="text-[10px] font-mono font-bold text-[#C5A880] tracking-wider block leading-none">
+                <span className="text-[9px] font-mono font-bold text-[#86868b] tracking-wider block leading-none uppercase">
                   {item.tag}
                 </span>
-                <span className="text-xs font-semibold text-zinc-200 leading-tight block whitespace-nowrap mt-1 tabular-nums">
+                <span className="text-xs font-semibold text-[#1d1d1f] leading-tight block whitespace-nowrap mt-0.5 tabular-nums">
                   {item.label}
                 </span>
               </div>

@@ -94,25 +94,21 @@ const EXECUTIVE_DOSSIERS: LeaderDossier[] = [
 
 export function LeadershipSection() {
   return (
-    <section className="py-16 md:py-20 bg-[#07090E] text-white border-t border-white/10 relative overflow-hidden">
-      {/* Background Accent Gradients */}
-      <div className="absolute top-0 right-1/4 w-[500px] h-[300px] bg-[#C5A880]/5 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 left-10 w-[400px] h-[250px] bg-emerald-600/5 rounded-full blur-[120px] pointer-events-none" />
-
+    <section className="py-20 md:py-28 bg-white text-[#1d1d1f] border-t border-black/[0.08] relative overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 lg:px-20 relative z-10 space-y-12">
-        {/* Header - Framer SecurityForce Meet Our Security Experts */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-white/10">
-          <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[#C5A880]">
-              <span className="w-2 h-2 rounded-full bg-[#C5A880] animate-pulse" />
-              <span className="text-xs font-mono font-bold tracking-wider uppercase">
-                [Meet Our Security Experts]
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-black/[0.08]">
+          <div className="space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f5f5f7] border border-black/[0.08] text-[#1d1d1f]">
+              <span className="w-2 h-2 rounded-full bg-emerald-500" />
+              <span className="text-xs font-semibold tracking-wide uppercase">
+                Meet Our Leadership
               </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white text-balance">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-[#1d1d1f] text-balance">
               Executive command &amp; field specialists.
             </h2>
-            <p className="text-xs sm:text-sm text-zinc-400 max-w-2xl font-normal leading-relaxed text-pretty">
+            <p className="text-sm sm:text-base text-[#86868b] max-w-2xl font-normal leading-relaxed text-pretty">
               Verifiable leadership and operational commanders. No anonymous brokerages or faceless subcontractors—every contract is signed, audited, and personally inspected.
             </p>
           </div>
@@ -120,29 +116,29 @@ export function LeadershipSection() {
           <div className="flex items-center gap-3 shrink-0">
             <Link
               href="/about"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 text-white text-xs font-mono font-bold transition-all press-scale min-touch-target"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#f5f5f7] hover:bg-black/[0.05] border border-black/[0.08] text-[#1d1d1f] text-xs font-semibold transition-all min-touch-target"
             >
               <span>View full credentials</span>
-              <ArrowRight size={13} className="text-[#C5A880]" />
+              <ArrowRight size={13} className="text-[#0071e3]" />
             </Link>
           </div>
         </div>
 
-        {/* Dossier Cards Grid (Cult UI / 21st.dev Style) */}
+        {/* Dossier Cards Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
           {EXECUTIVE_DOSSIERS.map((dossier, idx) => {
             const Icon = dossier.icon;
             return (
               <div
                 key={dossier.name}
-                className="group relative bg-[#111723] border border-zinc-800 hover:border-[#C5A880]/50 rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-6 transition-all duration-300 hover:shadow-[0_0_30px_rgba(197,168,128,0.12)] hover:-translate-y-1"
+                className="group relative bg-[#f5f5f7] border border-black/[0.06] hover:border-black/[0.12] rounded-[28px] p-6 sm:p-8 flex flex-col justify-between space-y-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
               >
                 {/* Top Badge & Tier Index */}
                 <div className="flex items-center justify-between">
-                  <span className={`px-3 py-1 rounded-full text-[10px] font-mono font-black tracking-wider uppercase border ${dossier.badgeColor}`}>
+                  <span className="px-3 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase border border-black/[0.08] bg-white text-[#1d1d1f]">
                     {dossier.badge}
                   </span>
-                  <span className="font-mono text-xs text-zinc-500 font-black">
+                  <span className="text-xs text-[#86868b] font-medium">
                     COMMAND 0{idx + 1}
                   </span>
                 </div>
@@ -150,46 +146,46 @@ export function LeadershipSection() {
                 {/* Profile Header */}
                 <div className="space-y-2">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-2xl bg-black border border-white/10 flex items-center justify-center text-[#C5A880] shrink-0 group-hover:scale-105 transition-transform">
+                    <div className="w-10 h-10 rounded-2xl bg-white border border-black/[0.08] flex items-center justify-center text-[#1d1d1f] shrink-0 group-hover:scale-105 transition-transform shadow-sm">
                       <Icon size={18} />
                     </div>
                     <div>
-                      <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+                      <h3 className="text-xl sm:text-2xl font-semibold text-[#1d1d1f] tracking-tight">
                         {dossier.name}
                       </h3>
-                      <p className="text-xs font-bold text-[#C5A880] font-mono">
+                      <p className="text-xs font-semibold text-[#0071e3]">
                         {dossier.designation}
                       </p>
                     </div>
                   </div>
-                  <span className="text-[10px] font-mono font-bold text-zinc-400 uppercase tracking-wide block pt-1">
+                  <span className="text-[11px] font-medium text-[#86868b] uppercase tracking-wide block pt-1">
                     {dossier.subtitle}
                   </span>
                 </div>
 
                 {/* Quote Box */}
-                <div className="p-4 rounded-2xl bg-black/40 border border-zinc-800/80 italic text-xs text-zinc-300 leading-relaxed">
+                <div className="p-4 rounded-2xl bg-white border border-black/[0.06] italic text-xs text-[#515154] leading-relaxed shadow-sm">
                   "{dossier.operationalQuote}"
                 </div>
 
                 {/* Core Responsibilities Checklist */}
                 <div className="space-y-2.5 pt-2">
-                  <span className="text-[10px] font-mono font-black text-zinc-400 uppercase tracking-wider block">
+                  <span className="text-[10px] font-bold text-[#86868b] uppercase tracking-wider block">
                     OPERATIONAL MANDATE
                   </span>
                   {dossier.coreResponsibilities.map((resp) => (
-                    <div key={resp} className="flex items-start gap-2 text-xs text-zinc-300">
-                      <CheckCircle2 size={13} className="text-emerald-400 mt-0.5 shrink-0" />
+                    <div key={resp} className="flex items-start gap-2 text-xs text-[#1d1d1f]">
+                      <CheckCircle2 size={14} className="text-emerald-600 mt-0.5 shrink-0" />
                       <span className="leading-snug">{resp}</span>
                     </div>
                   ))}
                 </div>
 
                 {/* Action Link */}
-                <div className="pt-4 border-t border-zinc-800/80 flex items-center justify-between">
+                <div className="pt-4 border-t border-black/[0.08] flex items-center justify-between">
                   <Link
                     href={dossier.directAction.href}
-                    className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#C5A880] hover:text-white transition-colors group-hover:underline"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0071e3] hover:underline"
                   >
                     <span>{dossier.directAction.label}</span>
                     <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
@@ -198,7 +194,7 @@ export function LeadershipSection() {
                   <a
                     href="mailto:contact@jsmintegratedservices.com"
                     aria-label={`Email ${dossier.name}`}
-                    className="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-white transition-colors"
+                    className="w-8 h-8 rounded-full bg-white hover:bg-black/[0.05] border border-black/[0.08] flex items-center justify-center text-[#1d1d1f] transition-colors shadow-sm"
                   >
                     <Mail size={13} />
                   </a>
@@ -209,19 +205,19 @@ export function LeadershipSection() {
         </div>
 
         {/* Proof of Physical Reality Strip */}
-        <div className="bg-[#111723]/90 border border-zinc-800 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="bg-[#f5f5f7] border border-black/[0.08] rounded-[28px] p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-[#C5A880]/10 border border-[#C5A880]/20 flex items-center justify-center text-[#C5A880] shrink-0">
-              <FileCheck2 size={24} />
+            <div className="w-12 h-12 rounded-2xl bg-white border border-black/[0.08] flex items-center justify-center text-[#1d1d1f] shrink-0 shadow-sm">
+              <FileCheck2 size={24} className="text-[#0071e3]" />
             </div>
             <div>
-              <span className="text-[10px] font-mono font-black text-[#C5A880] uppercase tracking-wider">
+              <span className="text-[11px] font-bold text-[#0071e3] uppercase tracking-wider">
                 OFFICIAL COMPANY CREDENTIALS
               </span>
-              <h4 className="text-sm sm:text-base font-bold text-white">
+              <h4 className="text-sm sm:text-base font-semibold text-[#1d1d1f]">
                 Verifiable Registration • UDYAM-TN-27-0097945 • Kottapattu HQ
               </h4>
-              <p className="text-xs text-zinc-400 mt-0.5">
+              <p className="text-xs text-[#86868b] mt-0.5">
                 Physical headquarters at No. 13, Dhandapani Pillai Nagar, Kottapattu, Trichy 620004.
               </p>
             </div>
@@ -230,14 +226,14 @@ export function LeadershipSection() {
           <div className="flex items-center gap-3 shrink-0">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-mono font-bold transition-all"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-black/[0.04] border border-black/[0.1] text-[#1d1d1f] text-xs font-semibold transition-all shadow-sm"
             >
               <span>Contact Headquarters</span>
-              <ArrowRight size={12} className="text-[#C5A880]" />
+              <ArrowRight size={12} className="text-[#0071e3]" />
             </Link>
             <Link
               href="/about"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#C5A880] hover:bg-[#b0936b] text-black text-xs font-black uppercase tracking-wider transition-all"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#1d1d1f] hover:bg-black text-white text-xs font-semibold transition-all shadow-sm"
             >
               <span>Verify Company Proof</span>
               <ArrowRight size={13} />

@@ -11,21 +11,21 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-black text-zinc-300 pt-16 pb-28 md:pb-12 border-t border-white/10">
+    <footer className="bg-[#f5f5f7] text-[#1d1d1f] pt-16 pb-28 md:pb-14 border-t border-black/[0.08]">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
         {/* Top Operational Strip */}
-        <div className="bg-white/5 border border-white/10 rounded-3xl p-6 md:p-8 mb-12 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 shadow-2xl backdrop-blur-md">
+        <div className="bg-white border border-black/[0.08] rounded-[28px] p-6 md:p-8 mb-12 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 shadow-sm">
           <div className="space-y-1.5 max-w-2xl">
             <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-              <p className="text-xs font-mono font-bold tracking-wider text-[#C5A880] uppercase">
-                [24/7 Operations Desk • Tamil Nadu &amp; India]
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+              <p className="text-xs font-semibold tracking-wider text-[#0071e3] uppercase">
+                24/7 Operations Desk • Tamil Nadu &amp; India
               </p>
             </div>
-            <h3 className="text-xl md:text-2xl font-black text-white tracking-tight text-balance">
+            <h3 className="text-xl md:text-2xl font-semibold text-[#1d1d1f] tracking-tight text-balance">
               Ready to unify your security, housekeeping, and staffing operations?
             </h3>
-            <p className="text-xs md:text-sm text-zinc-400 text-pretty">
+            <p className="text-xs md:text-sm text-[#86868b] text-pretty">
               Schedule a comprehensive on-site risk and requirement assessment today.
             </p>
           </div>
@@ -33,7 +33,7 @@ export function Footer() {
           <div className="flex flex-wrap items-center gap-3">
             <a
               href={`tel:${brandData.contact.phone}`}
-              className="flex items-center gap-2 px-5 py-3 rounded-full text-xs font-bold text-black bg-[#C5A880] hover:bg-[#b09570] transition-all shadow-md font-mono tabular-nums min-h-[44px] press-scale"
+              className="flex items-center gap-2 px-5 py-3 rounded-full text-xs font-semibold text-white bg-[#1d1d1f] hover:bg-black transition-all shadow-sm tabular-nums min-h-[44px]"
             >
               <Phone size={15} /> <span>Call: {brandData.contact.phoneDisplay}</span>
             </a>
@@ -41,11 +41,11 @@ export function Footer() {
               href={`https://wa.me/${brandData.contact.whatsapp}?text=Hello%20JSM%20Integrated%20Services,%20I%20would%20like%20to%20inquire%20about%20your%20services.`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-5 py-3 rounded-full text-xs font-bold text-emerald-400 bg-emerald-950/60 hover:bg-emerald-900/60 border border-emerald-500/40 transition-all shadow-md min-h-[44px] press-scale"
+              className="flex items-center gap-2 px-5 py-3 rounded-full text-xs font-semibold text-[#1d1d1f] bg-[#f5f5f7] hover:bg-black/[0.04] border border-black/[0.08] transition-all min-h-[44px]"
             >
-              <MessageCircle size={15} /> <span>WhatsApp</span>
+              <MessageCircle size={15} className="text-emerald-600" /> <span>WhatsApp</span>
             </a>
-            <Button asChild className="bg-white hover:bg-zinc-200 text-black font-bold rounded-full px-5 py-3 h-auto text-xs shadow-md min-h-[44px] press-scale">
+            <Button asChild className="bg-white hover:bg-black/[0.04] text-[#1d1d1f] border border-black/[0.1] font-semibold rounded-full px-5 py-3 h-auto text-xs shadow-sm min-h-[44px]">
               <Link href="/contact">
                 <span>Request site assessment</span>
               </Link>
@@ -58,7 +58,7 @@ export function Footer() {
           {/* Col 1: Brand & Identity */}
           <div className="lg:col-span-1 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black p-0.5 flex items-center justify-center border border-[#C5A880]/40 shadow-[0_0_12px_rgba(197,168,128,0.18)] overflow-hidden shrink-0">
+              <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white p-0.5 flex items-center justify-center border border-black/[0.08] shadow-sm overflow-hidden shrink-0">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/jsm_logo_transparent.png"
@@ -67,42 +67,42 @@ export function Footer() {
                 />
               </div>
               <div className="flex flex-col justify-center">
-                <span className="font-black text-white tracking-tight text-base leading-none">
+                <span className="font-semibold text-[#1d1d1f] tracking-tight text-base leading-none">
                   JSM INTEGRATED SERVICES
                 </span>
-                <span className="text-[9px] font-bold text-[#C5A880] tracking-wider uppercase mt-1 font-mono leading-none">
+                <span className="text-[10px] font-semibold text-[#0071e3] tracking-wider uppercase mt-1 leading-none">
                   ONE PARTNER. EVERY SOLUTION.
                 </span>
               </div>
             </div>
-            <p className="text-xs text-[#C5A880] font-bold tracking-wide">
+            <p className="text-xs text-[#0071e3] font-semibold tracking-wide">
               {brandData.tagline}
             </p>
-            <p className="text-xs text-zinc-400 leading-relaxed text-pretty">
+            <p className="text-xs text-[#86868b] leading-relaxed text-pretty">
               Founded under Proprietor &amp; Managing Director <strong>Sweety J</strong>, originating as <strong>JSMMANPOWER</strong> and proven by our landmark inaugural 2024 operations at <strong>Trichy International Airport</strong>.
             </p>
-            <div className="pt-2 text-xs text-zinc-400 space-y-2">
+            <div className="pt-2 text-xs text-[#515154] space-y-2">
               <p className="flex items-center gap-2">
-                <Phone size={14} className="text-[#C5A880]" />
-                <a href={`tel:${brandData.contact.phone}`} className="hover:text-white transition-colors font-mono font-bold tabular-nums">
+                <Phone size={14} className="text-[#0071e3]" />
+                <a href={`tel:${brandData.contact.phone}`} className="hover:text-[#1d1d1f] transition-colors font-semibold tabular-nums">
                   {brandData.contact.phoneDisplay}
                 </a>
               </p>
               <p className="flex items-center gap-2">
-                <Mail size={14} className="text-[#C5A880]" />
-                <a href={`mailto:${brandData.contact.email}`} className="hover:text-white transition-colors">
+                <Mail size={14} className="text-[#0071e3]" />
+                <a href={`mailto:${brandData.contact.email}`} className="hover:text-[#1d1d1f] transition-colors">
                   {brandData.contact.email}
                 </a>
               </p>
               <p className="flex items-start gap-2">
-                <MapPin size={14} className="text-[#C5A880] mt-0.5 flex-shrink-0" />
+                <MapPin size={14} className="text-[#0071e3] mt-0.5 flex-shrink-0" />
                 <span>{brandData.contact.address}</span>
               </p>
             </div>
 
             {/* Official Social Channels */}
             <div className="pt-2">
-              <span className="text-[10px] font-mono font-bold text-zinc-500 uppercase tracking-wider block mb-2">
+              <span className="text-[10px] font-semibold text-[#86868b] uppercase tracking-wider block mb-2">
                 Official channels
               </span>
               <div className="flex flex-wrap items-center gap-1.5">
@@ -110,7 +110,7 @@ export function Footer() {
                   href="https://www.linkedin.com/company/jsmintegratedservices"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-1.5 rounded-lg bg-zinc-900/90 hover:bg-[#0077b5] hover:text-white text-zinc-400 text-xs font-mono font-bold transition-colors min-h-[36px] inline-flex items-center press-scale border border-zinc-800"
+                  className="px-3 py-1.5 rounded-full bg-white hover:bg-black/[0.04] text-[#515154] hover:text-[#1d1d1f] text-xs font-semibold transition-colors min-h-[32px] inline-flex items-center border border-black/[0.08] shadow-sm"
                 >
                   LinkedIn
                 </a>
@@ -118,7 +118,7 @@ export function Footer() {
                   href="https://www.instagram.com/jsmintegratedservices"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-1.5 rounded-lg bg-zinc-900/90 hover:bg-[#e4405f] hover:text-white text-zinc-400 text-xs font-mono font-bold transition-colors min-h-[36px] inline-flex items-center press-scale border border-zinc-800"
+                  className="px-3 py-1.5 rounded-full bg-white hover:bg-black/[0.04] text-[#515154] hover:text-[#1d1d1f] text-xs font-semibold transition-colors min-h-[32px] inline-flex items-center border border-black/[0.08] shadow-sm"
                 >
                   Instagram
                 </a>
@@ -126,7 +126,7 @@ export function Footer() {
                   href="https://www.facebook.com/jsmintegratedservices"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-1.5 rounded-lg bg-zinc-900/90 hover:bg-[#1877f2] hover:text-white text-zinc-400 text-xs font-mono font-bold transition-colors min-h-[36px] inline-flex items-center press-scale border border-zinc-800"
+                  className="px-3 py-1.5 rounded-full bg-white hover:bg-black/[0.04] text-[#515154] hover:text-[#1d1d1f] text-xs font-semibold transition-colors min-h-[32px] inline-flex items-center border border-black/[0.08] shadow-sm"
                 >
                   Facebook
                 </a>
@@ -134,9 +134,9 @@ export function Footer() {
                   href="https://x.com/jsmintegrated"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-1.5 rounded-lg bg-zinc-900/90 hover:bg-zinc-800 hover:text-white text-zinc-400 text-xs font-mono font-bold transition-colors min-h-[36px] inline-flex items-center press-scale border border-zinc-800"
+                  className="px-3 py-1.5 rounded-full bg-white hover:bg-black/[0.04] text-[#515154] hover:text-[#1d1d1f] text-xs font-semibold transition-colors min-h-[32px] inline-flex items-center border border-black/[0.08] shadow-sm"
                 >
-                  X (Twitter)
+                  X
                 </a>
               </div>
             </div>
@@ -144,27 +144,27 @@ export function Footer() {
 
           {/* Col 2: Core Master Verticals (JSM-01 to JSM-03) */}
           <div className="space-y-3">
-            <h4 className="font-bold text-xs tracking-wider text-white border-b border-zinc-800 pb-2">
+            <h4 className="font-semibold text-xs tracking-wider text-[#1d1d1f] border-b border-black/[0.08] pb-2 uppercase">
               Core verticals (1–3)
             </h4>
-            <ul className="space-y-2.5 text-xs text-zinc-400 font-medium">
+            <ul className="space-y-2.5 text-xs text-[#515154]">
               <li>
-                <Link href="/services/private-security" className="hover:text-white transition-colors block py-1">
-                  <span className="text-[#C5A880] font-mono text-[10px] mr-1">JSM-01</span> Security &amp; protection
+                <Link href="/services/private-security" className="hover:text-[#1d1d1f] transition-colors block py-1">
+                  <span className="text-[#0071e3] font-medium mr-1">JSM-01</span> Security &amp; protection
                 </Link>
               </li>
               <li>
-                <Link href="/services/manpower" className="hover:text-white transition-colors block py-1">
-                  <span className="text-[#C5A880] font-mono text-[10px] mr-1">JSM-02</span> Manpower &amp; workforce
+                <Link href="/services/manpower" className="hover:text-[#1d1d1f] transition-colors block py-1">
+                  <span className="text-[#0071e3] font-medium mr-1">JSM-02</span> Manpower &amp; workforce
                 </Link>
               </li>
               <li>
-                <Link href="/services/housekeeping" className="hover:text-white transition-colors block py-1">
-                  <span className="text-[#C5A880] font-mono text-[10px] mr-1">JSM-03</span> Facility &amp; housekeeping
+                <Link href="/services/housekeeping" className="hover:text-[#1d1d1f] transition-colors block py-1">
+                  <span className="text-[#0071e3] font-medium mr-1">JSM-03</span> Facility &amp; housekeeping
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-[#C5A880] hover:underline font-bold pt-1 inline-block">
+                <Link href="/services" className="text-[#0071e3] hover:underline font-semibold pt-1 inline-block">
                   View master business matrix →
                 </Link>
               </li>
@@ -173,27 +173,27 @@ export function Footer() {
 
           {/* Col 3: Core Master Verticals (JSM-04 to JSM-06) */}
           <div className="space-y-3">
-            <h4 className="font-bold text-xs tracking-wider text-white border-b border-zinc-800 pb-2">
+            <h4 className="font-semibold text-xs tracking-wider text-[#1d1d1f] border-b border-black/[0.08] pb-2 uppercase">
               Core verticals (4–6)
             </h4>
-            <ul className="space-y-2.5 text-xs text-zinc-400 font-medium">
+            <ul className="space-y-2.5 text-xs text-[#515154]">
               <li>
-                <Link href="/services/tender-procurement-supply" className="hover:text-white transition-colors block py-1">
-                  <span className="text-[#C5A880] font-mono text-[10px] mr-1">JSM-04</span> Tender &amp; GeM procurement
+                <Link href="/services/tender-procurement-supply" className="hover:text-[#1d1d1f] transition-colors block py-1">
+                  <span className="text-[#0071e3] font-medium mr-1">JSM-04</span> Tender &amp; GeM procurement
                 </Link>
               </li>
               <li>
-                <Link href="/services/scanning-digitalization-it" className="hover:text-white transition-colors block py-1">
-                  <span className="text-[#C5A880] font-mono text-[10px] mr-1">JSM-05</span> Scanning, OCR &amp; IT
+                <Link href="/services/scanning-digitalization-it" className="hover:text-[#1d1d1f] transition-colors block py-1">
+                  <span className="text-[#0071e3] font-medium mr-1">JSM-05</span> Scanning, OCR &amp; IT
                 </Link>
               </li>
               <li>
-                <Link href="/services/csc-digital-citizen-services" className="hover:text-white transition-colors block py-1">
-                  <span className="text-[#C5A880] font-mono text-[10px] mr-1">JSM-06</span> CSC &amp; citizen services
+                <Link href="/services/csc-digital-citizen-services" className="hover:text-[#1d1d1f] transition-colors block py-1">
+                  <span className="text-[#0071e3] font-medium mr-1">JSM-06</span> CSC &amp; citizen services
                 </Link>
               </li>
               <li>
-                <Link href="/industries" className="text-[#C5A880] hover:underline font-bold pt-1 inline-block">
+                <Link href="/industries" className="text-[#0071e3] hover:underline font-semibold pt-1 inline-block">
                   Explore target industries →
                 </Link>
               </li>
@@ -202,32 +202,32 @@ export function Footer() {
 
           {/* Col 4: Corporate & Careers */}
           <div className="space-y-3">
-            <h4 className="font-bold text-xs tracking-wider text-white border-b border-zinc-800 pb-2">
+            <h4 className="font-semibold text-xs tracking-wider text-[#1d1d1f] border-b border-black/[0.08] pb-2 uppercase">
               Company &amp; standards
             </h4>
-            <ul className="space-y-2.5 text-xs text-zinc-400 font-medium">
+            <ul className="space-y-2.5 text-xs text-[#515154]">
               <li>
-                <Link href="/about" className="hover:text-white transition-colors block py-1">
+                <Link href="/about" className="hover:text-[#1d1d1f] transition-colors block py-1">
                   About JSM &amp; founder story
                 </Link>
               </li>
               <li>
-                <Link href="/careers" className="hover:text-white transition-colors block py-1">
+                <Link href="/careers" className="hover:text-[#1d1d1f] transition-colors block py-1">
                   Careers &amp; 5-day induction
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="hover:text-white transition-colors block py-1">
+                <Link href="/blog" className="hover:text-[#1d1d1f] transition-colors block py-1">
                   Articles &amp; operating insights
                 </Link>
               </li>
               <li>
-                <Link href="/get-quote" className="text-[#C5A880] hover:underline font-bold flex items-center gap-1.5 py-1">
+                <Link href="/get-quote" className="text-[#0071e3] hover:underline font-semibold flex items-center gap-1.5 py-1">
                   <span>Request a quote</span>
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-white hover:text-[#C5A880] font-bold flex items-center gap-1.5 py-1">
+                <Link href="/contact" className="text-[#1d1d1f] hover:text-[#0071e3] font-semibold flex items-center gap-1.5 py-1">
                   <span>Contact us</span>
                 </Link>
               </li>
@@ -236,20 +236,20 @@ export function Footer() {
 
           {/* Col 5: Tamil Nadu Coverage & Legal */}
           <div className="space-y-3">
-            <h4 className="font-bold text-xs tracking-wider text-white border-b border-zinc-800 pb-2">
+            <h4 className="font-semibold text-xs tracking-wider text-[#1d1d1f] border-b border-black/[0.08] pb-2 uppercase">
               Regional coverage
             </h4>
-            <p className="text-[11px] text-zinc-400 leading-relaxed text-pretty">
+            <p className="text-[11px] text-[#86868b] leading-relaxed text-pretty">
               Operating across Tiruchirappalli (Trichy), Chennai, Coimbatore, Madurai, Salem, Hosur, Erode, Tirunelveli, and all districts of Tamil Nadu &amp; India.
             </p>
-            <div className="pt-2 border-t border-zinc-800 space-y-2 text-xs">
-              <Link href="/legal/privacy" className="block text-zinc-500 hover:text-zinc-300 py-1">
+            <div className="pt-2 border-t border-black/[0.08] space-y-2 text-xs">
+              <Link href="/legal/privacy" className="block text-[#86868b] hover:text-[#1d1d1f] py-1">
                 Privacy policy
               </Link>
-              <Link href="/legal/terms" className="block text-zinc-500 hover:text-zinc-300 py-1">
+              <Link href="/legal/terms" className="block text-[#86868b] hover:text-[#1d1d1f] py-1">
                 Terms of service
               </Link>
-              <Link href="/legal/cookies" className="block text-zinc-500 hover:text-zinc-300 py-1">
+              <Link href="/legal/cookies" className="block text-[#86868b] hover:text-[#1d1d1f] py-1">
                 Cookie policy
               </Link>
             </div>
@@ -257,17 +257,17 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar & Anti-Hallucination Disclaimer */}
-        <div className="border-t border-zinc-800/80 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+        <div className="border-t border-black/[0.08] pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#86868b]">
           <div className="space-y-1 text-center md:text-left">
             <p className="tabular-nums">© {new Date().getFullYear()} JSM INTEGRATED SERVICES. All rights reserved. Registered domain: jsmintegratedservices.com</p>
-            <p className="text-[11px] text-zinc-600">
+            <p className="text-[11px] text-[#86868b]">
               Operational compliance: Guarding, housekeeping, and staffing deployments adhere strictly to applicable statutory norms, verified identity checks, and client-specific Service Level Agreements.
             </p>
           </div>
 
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 text-zinc-400 hover:text-white transition-colors text-xs font-semibold min-h-[44px] px-3 press-scale"
+            className="flex items-center gap-1.5 text-[#86868b] hover:text-[#1d1d1f] transition-colors text-xs font-semibold min-h-[44px] px-3 cursor-pointer"
             aria-label="Scroll to top of page"
           >
             <span>Back to top</span>

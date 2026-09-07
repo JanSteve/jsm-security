@@ -98,22 +98,19 @@ const solutions = [
 
 export function ServicesOverview() {
   return (
-    <section className="py-16 md:py-20 bg-[#07090E] border-t border-white/10 text-white relative overflow-hidden">
-      {/* Background illumination */}
-      <div className="absolute top-1/3 right-1/4 w-[500px] h-[350px] bg-[#C5A880]/5 rounded-full blur-[140px] pointer-events-none" />
-
+    <section className="py-16 md:py-24 bg-white border-t border-black/[0.08] text-[#1d1d1f] relative overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 lg:px-20 relative z-10 space-y-12">
         
-        {/* Section Header - Framer SecurityForce Style */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-white/10">
+        {/* Section Header - Apple Style */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-black/[0.08]">
           <div className="space-y-2">
-            <span className="text-xs font-mono font-bold tracking-wider text-[#C5A880] uppercase block">
-              [Our Security Solutions]
+            <span className="text-xs font-semibold tracking-wider text-[#86868b] uppercase block font-mono">
+              Our Security Solutions
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight text-balance">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1d1d1f] tracking-tight text-balance">
               Delivering professional &amp; reliable security services.
             </h2>
-            <p className="text-xs sm:text-sm text-zinc-400 max-w-2xl font-normal leading-relaxed text-pretty">
+            <p className="text-xs sm:text-sm text-[#515154] max-w-2xl font-normal leading-relaxed text-pretty">
               Precision guarding, certified housekeeping, and contractual workforce deployed with zero vendor fragmentation and single-point executive accountability.
             </p>
           </div>
@@ -121,15 +118,15 @@ export function ServicesOverview() {
           <div className="shrink-0">
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 text-white text-xs font-mono font-bold transition-all press-scale min-touch-target group"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#f5f5f7] hover:bg-[#e8e8ed] border border-black/[0.06] text-[#1d1d1f] text-xs font-semibold transition-all press-scale min-touch-target group"
             >
               <span>View all services</span>
-              <ArrowRight size={13} className="text-[#C5A880] group-hover:translate-x-1 transition-transform" />
+              <ArrowRight size={13} className="text-[#86868b] group-hover:translate-x-0.5 transition-transform" />
             </Link>
           </div>
         </div>
 
-        {/* Framer 6-Card Responsive Grid */}
+        {/* Apple 6-Card Responsive Grid */}
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -143,39 +140,39 @@ export function ServicesOverview() {
               <motion.div
                 key={item.code}
                 variants={fadeInUp}
-                className="bg-white/5 border border-white/10 hover:border-[#C5A880]/60 rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:shadow-[0_0_30px_rgba(197,168,128,0.12)] hover:-translate-y-1 group relative overflow-hidden"
+                className="bg-[#f5f5f7] border border-black/[0.04] hover:border-black/[0.12] rounded-[28px] p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:shadow-sm group relative overflow-hidden"
               >
                 <div className="space-y-5">
                   {/* Top Row: Code Pill + Icon */}
                   <div className="flex items-center justify-between">
-                    <span className="px-3 py-1 rounded-full bg-black/60 border border-white/10 text-[10px] font-mono font-black text-[#C5A880] uppercase tracking-wider">
+                    <span className="px-3 py-1 rounded-full bg-white border border-black/[0.06] text-[10px] font-mono font-bold text-[#1d1d1f] uppercase tracking-wider shadow-2xs">
                       {item.code}
                     </span>
-                    <div className="w-11 h-11 rounded-2xl bg-black/70 border border-white/10 text-[#C5A880] flex items-center justify-center group-hover:bg-[#C5A880] group-hover:text-black transition-colors shrink-0">
+                    <div className="w-11 h-11 rounded-2xl bg-white border border-black/[0.06] text-[#1d1d1f] flex items-center justify-center group-hover:bg-[#1d1d1f] group-hover:text-white transition-colors shrink-0 shadow-2xs">
                       <Icon size={20} />
                     </div>
                   </div>
 
                   {/* Title & Tagline */}
                   <div className="space-y-1">
-                    <span className="text-[9px] font-mono font-bold text-zinc-400 uppercase tracking-wider block">
+                    <span className="text-[9px] font-mono font-semibold text-[#86868b] uppercase tracking-wider block">
                       {item.tagline}
                     </span>
-                    <h3 className="text-lg sm:text-xl font-black text-white tracking-tight group-hover:text-[#C5A880] transition-colors">
+                    <h3 className="text-lg sm:text-xl font-bold text-[#1d1d1f] tracking-tight group-hover:text-[#0071e3] transition-colors">
                       {item.title}
                     </h3>
                   </div>
 
                   {/* Description */}
-                  <p className="text-xs text-zinc-300 font-normal leading-relaxed text-pretty">
+                  <p className="text-xs text-[#515154] font-normal leading-relaxed text-pretty">
                     {item.desc}
                   </p>
 
                   {/* Features List */}
-                  <div className="space-y-1.5 pt-1 border-t border-white/5">
+                  <div className="space-y-1.5 pt-1 border-t border-black/[0.04]">
                     {item.features.map((feat, fIdx) => (
-                      <div key={fIdx} className="flex items-center gap-2 text-[11px] text-zinc-300 font-medium">
-                        <CheckCircle2 size={12} className="text-[#C5A880] shrink-0" />
+                      <div key={fIdx} className="flex items-center gap-2 text-[11px] text-[#515154] font-medium">
+                        <CheckCircle2 size={12} className="text-[#0071e3] shrink-0" />
                         <span>{feat}</span>
                       </div>
                     ))}
@@ -183,16 +180,16 @@ export function ServicesOverview() {
                 </div>
 
                 {/* Bottom Action Link */}
-                <div className="pt-6 mt-4 border-t border-white/10 flex items-center justify-between">
+                <div className="pt-6 mt-4 border-t border-black/[0.06] flex items-center justify-between">
                   <Link
                     href={item.href}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-white group-hover:text-[#C5A880] transition-colors press-scale"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0071e3] hover:underline transition-colors press-scale"
                   >
                     <span>Explore now</span>
-                    <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
                   </Link>
 
-                  <span className="text-[10px] font-mono text-zinc-400 font-bold uppercase">
+                  <span className="text-[10px] font-mono text-[#86868b] font-medium uppercase">
                     SLA Guaranteed
                   </span>
                 </div>

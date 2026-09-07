@@ -81,7 +81,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-white font-sans antialiased text-zinc-900 selection:bg-[#C5A880]/30 selection:text-black",
+          "min-h-screen bg-white font-sans antialiased text-[#1d1d1f] selection:bg-[#0071e3]/15 selection:text-black",
           inter.variable,
           plusJakartaSans.variable,
           "pb-16 md:pb-0"

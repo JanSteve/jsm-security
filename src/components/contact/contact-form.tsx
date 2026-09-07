@@ -94,7 +94,7 @@ export function ContactForm() {
   };
 
   return (
-    <div className="bg-[#0B0F17] border border-zinc-800 rounded-3xl p-6 md:p-8 max-w-xl mx-auto shadow-2xl text-white">
+    <div className="bg-[#f5f5f7] border border-black/[0.08] rounded-[28px] p-6 md:p-8 max-w-xl mx-auto shadow-sm text-[#1d1d1f]">
       <AnimatePresence mode="wait">
         {!isSubmitted ? (
           <motion.div
@@ -104,12 +104,12 @@ export function ContactForm() {
             exit={{ opacity: 0 }}
           >
             {/* Progress Indicator */}
-            <div className="flex items-center justify-between mb-8 border-b border-zinc-800 pb-4">
+            <div className="flex items-center justify-between mb-8 border-b border-black/[0.08] pb-4">
               <div>
-                <span className="text-[10px] font-mono font-bold tracking-wider text-[#C5A880] block">
+                <span className="text-[10px] font-semibold tracking-wider text-[#0071e3] uppercase block">
                   Step {step} of 3
                 </span>
-                <p className="text-xs font-bold text-white mt-0.5">
+                <p className="text-xs font-semibold text-[#1d1d1f] mt-0.5">
                   {step === 1 && "Operational scope"}
                   {step === 2 && "Contact details"}
                   {step === 3 && "Requirement notes"}
@@ -120,7 +120,7 @@ export function ContactForm() {
                   <div
                     key={s}
                     className={`h-1.5 rounded-full transition-all duration-300 ${
-                      s === step ? "w-6 bg-[#C5A880]" : "w-2 bg-zinc-800"
+                      s === step ? "w-6 bg-[#0071e3]" : "w-2 bg-black/[0.1]"
                     }`}
                   />
                 ))}
@@ -137,13 +137,13 @@ export function ContactForm() {
                   className="space-y-4"
                 >
                   <div className="space-y-1.5">
-                    <Label htmlFor="service" className="text-xs font-mono font-bold uppercase text-zinc-300 block">
-                      Primary Service Needed <span className="text-[#C5A880]">*</span>
+                    <Label htmlFor="service" className="text-xs font-semibold uppercase text-[#515154] block">
+                      Primary Service Needed <span className="text-[#0071e3]">*</span>
                     </Label>
                     <select
                       id="service"
                       {...register("service")}
-                      className="w-full h-11 px-3.5 bg-[#07090E] border border-zinc-700 rounded-2xl text-xs font-medium text-white focus:outline-none focus:border-[#C5A880] min-h-[44px]"
+                      className="w-full h-11 px-3.5 bg-white border border-black/[0.08] rounded-2xl text-xs font-medium text-[#1d1d1f] focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] min-h-[44px]"
                     >
                       <option value="Private Security Guarding">Private Security Guarding (PSARA)</option>
                       <option value="Housekeeping & Facility Management">Housekeeping &amp; Facility Management</option>
@@ -157,26 +157,26 @@ export function ContactForm() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
-                      <Label htmlFor="city" className="text-xs font-mono font-bold uppercase text-zinc-300 block">
-                        Premises City / District <span className="text-[#C5A880]">*</span>
+                      <Label htmlFor="city" className="text-xs font-semibold uppercase text-[#515154] block">
+                        Premises City / District <span className="text-[#0071e3]">*</span>
                       </Label>
                       <Input
                         id="city"
                         placeholder="e.g. Trichy, Chennai, Coimbatore"
                         {...register("city")}
-                        className="h-11 rounded-2xl bg-[#07090E] border-zinc-700 text-xs text-white placeholder-zinc-500 focus:border-[#C5A880] min-h-[44px]"
+                        className="h-11 rounded-2xl bg-white border-black/[0.08] text-xs text-[#1d1d1f] placeholder-[#86868b] focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] min-h-[44px]"
                       />
-                      {errors.city && <p className="text-xs text-rose-400 mt-1 flex items-center gap-1">{errors.city.message}</p>}
+                      {errors.city && <p className="text-xs text-rose-600 mt-1 flex items-center gap-1">{errors.city.message}</p>}
                     </div>
 
                     <div className="space-y-1.5">
-                      <Label htmlFor="headcount" className="text-xs font-mono font-bold uppercase text-zinc-300 block">
+                      <Label htmlFor="headcount" className="text-xs font-semibold uppercase text-[#515154] block">
                         Estimated Headcount Needed
                       </Label>
                       <select
                         id="headcount"
                         {...register("headcount")}
-                        className="w-full h-11 px-3.5 bg-[#07090E] border border-zinc-700 rounded-2xl text-xs font-medium text-white focus:outline-none focus:border-[#C5A880] min-h-[44px]"
+                        className="w-full h-11 px-3.5 bg-white border border-black/[0.08] rounded-2xl text-xs font-medium text-[#1d1d1f] focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] min-h-[44px]"
                       >
                         <option value="1 - 5 Personnel">1 – 5 Personnel</option>
                         <option value="6 - 15 Personnel">6 – 15 Personnel</option>
@@ -190,9 +190,9 @@ export function ContactForm() {
                   <Button
                     type="button"
                     onClick={nextStep}
-                    className="w-full h-11 rounded-full bg-[#C5A880] hover:bg-[#b59870] text-black font-black text-xs mt-2 min-h-[44px] press-scale shadow-lg"
+                    className="w-full h-11 rounded-full bg-[#1d1d1f] hover:bg-black text-white font-semibold text-xs mt-2 min-h-[44px] shadow-sm"
                   >
-                    <span>Continue to contact details</span> <ArrowRight size={14} className="ml-1.5 text-black" />
+                    <span>Continue to contact details</span> <ArrowRight size={14} className="ml-1.5 text-white" />
                   </Button>
                 </motion.div>
               )}
@@ -207,36 +207,36 @@ export function ContactForm() {
                 >
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
-                      <Label htmlFor="name" className="text-xs font-mono font-bold uppercase text-zinc-300 block">
-                        Your Full Name <span className="text-[#C5A880]">*</span>
+                      <Label htmlFor="name" className="text-xs font-semibold uppercase text-[#515154] block">
+                        Your Full Name <span className="text-[#0071e3]">*</span>
                       </Label>
                       <Input
                         id="name"
                         placeholder="Enter full name"
                         {...register("name")}
-                        className="h-11 rounded-2xl bg-[#07090E] border-zinc-700 text-xs text-white placeholder-zinc-500 focus:border-[#C5A880] min-h-[44px]"
+                        className="h-11 rounded-2xl bg-white border-black/[0.08] text-xs text-[#1d1d1f] placeholder-[#86868b] focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] min-h-[44px]"
                       />
-                      {errors.name && <p className="text-xs text-rose-400 mt-1 flex items-center gap-1">{errors.name.message}</p>}
+                      {errors.name && <p className="text-xs text-rose-600 mt-1 flex items-center gap-1">{errors.name.message}</p>}
                     </div>
 
                     <div className="space-y-1.5">
-                      <Label htmlFor="phone" className="text-xs font-mono font-bold uppercase text-zinc-300 block">
-                        Phone / WhatsApp Number <span className="text-[#C5A880]">*</span>
+                      <Label htmlFor="phone" className="text-xs font-semibold uppercase text-[#515154] block">
+                        Phone / WhatsApp Number <span className="text-[#0071e3]">*</span>
                       </Label>
                       <Input
                         id="phone"
                         type="tel"
                         placeholder="+91 98765 43210"
                         {...register("phone")}
-                        className="h-11 rounded-2xl bg-[#07090E] border-zinc-700 text-xs text-white placeholder-zinc-500 focus:border-[#C5A880] font-mono tabular-nums min-h-[44px]"
+                        className="h-11 rounded-2xl bg-white border-black/[0.08] text-xs text-[#1d1d1f] placeholder-[#86868b] focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] tabular-nums min-h-[44px]"
                       />
-                      {errors.phone && <p className="text-xs text-rose-400 mt-1 flex items-center gap-1">{errors.phone.message}</p>}
+                      {errors.phone && <p className="text-xs text-rose-600 mt-1 flex items-center gap-1">{errors.phone.message}</p>}
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
-                      <Label htmlFor="email" className="text-xs font-mono font-bold uppercase text-zinc-300 block">
+                      <Label htmlFor="email" className="text-xs font-semibold uppercase text-[#515154] block">
                         Email Address (Optional)
                       </Label>
                       <Input
@@ -244,20 +244,20 @@ export function ContactForm() {
                         type="email"
                         placeholder="name@company.com"
                         {...register("email")}
-                        className="h-11 rounded-2xl bg-[#07090E] border-zinc-700 text-xs text-white placeholder-zinc-500 focus:border-[#C5A880] min-h-[44px]"
+                        className="h-11 rounded-2xl bg-white border-black/[0.08] text-xs text-[#1d1d1f] placeholder-[#86868b] focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] min-h-[44px]"
                       />
-                      {errors.email && <p className="text-xs text-rose-400 mt-1 flex items-center gap-1">{errors.email.message}</p>}
+                      {errors.email && <p className="text-xs text-rose-600 mt-1 flex items-center gap-1">{errors.email.message}</p>}
                     </div>
 
                     <div className="space-y-1.5">
-                      <Label htmlFor="company" className="text-xs font-mono font-bold uppercase text-zinc-300 block">
+                      <Label htmlFor="company" className="text-xs font-semibold uppercase text-[#515154] block">
                         Company / Society Name
                       </Label>
                       <Input
                         id="company"
                         placeholder="e.g. ABC Industrial Park / Tower RWA"
                         {...register("company")}
-                        className="h-11 rounded-2xl bg-[#07090E] border-zinc-700 text-xs text-white placeholder-zinc-500 focus:border-[#C5A880] min-h-[44px]"
+                        className="h-11 rounded-2xl bg-white border-black/[0.08] text-xs text-[#1d1d1f] placeholder-[#86868b] focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] min-h-[44px]"
                       />
                     </div>
                   </div>
@@ -267,16 +267,16 @@ export function ContactForm() {
                       type="button"
                       variant="outline"
                       onClick={prevStep}
-                      className="w-1/3 h-11 rounded-full text-xs font-semibold bg-[#07090E] hover:bg-zinc-800 text-zinc-300 border-zinc-700 min-h-[44px] press-scale"
+                      className="w-1/3 h-11 rounded-full text-xs font-semibold bg-white hover:bg-black/[0.04] text-[#515154] border-black/[0.1] min-h-[44px]"
                     >
                       Back
                     </Button>
                     <Button
                       type="button"
                       onClick={nextStep}
-                      className="w-2/3 h-11 rounded-full bg-[#C5A880] hover:bg-[#b59870] text-black font-black text-xs min-h-[44px] press-scale shadow-lg"
+                      className="w-2/3 h-11 rounded-full bg-[#1d1d1f] hover:bg-black text-white font-semibold text-xs min-h-[44px] shadow-sm"
                     >
-                      <span>Continue</span> <ArrowRight size={14} className="ml-1.5 text-black" />
+                      <span>Continue</span> <ArrowRight size={14} className="ml-1.5 text-white" />
                     </Button>
                   </div>
                 </motion.div>
@@ -291,7 +291,7 @@ export function ContactForm() {
                   className="space-y-4"
                 >
                   <div className="space-y-1.5">
-                    <Label htmlFor="requirements" className="text-xs font-mono font-bold uppercase text-zinc-300 block">
+                    <Label htmlFor="requirements" className="text-xs font-semibold uppercase text-[#515154] block">
                       Requirement Scope &amp; Shift Notes
                     </Label>
                     <Textarea
@@ -299,16 +299,16 @@ export function ContactForm() {
                       rows={3}
                       placeholder="Mention specific shift hours (e.g. 24/7 or Day only), property square footage, or target start date..."
                       {...register("requirements")}
-                      className="rounded-2xl bg-[#07090E] border-zinc-700 text-xs text-white placeholder-zinc-500 focus:border-[#C5A880] leading-relaxed resize-none"
+                      className="rounded-2xl bg-white border-black/[0.08] text-xs text-[#1d1d1f] placeholder-[#86868b] focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] leading-relaxed resize-none"
                     />
                   </div>
 
-                  <div className="p-3.5 bg-[#07090E] border border-zinc-800 rounded-2xl text-[11px] text-zinc-300 space-y-1">
-                    <p className="font-bold text-white flex items-center gap-1.5">
-                      <ShieldCheck size={14} className="text-[#C5A880]" />
+                  <div className="p-3.5 bg-white border border-black/[0.06] rounded-2xl text-[11px] text-[#515154] space-y-1 shadow-sm">
+                    <p className="font-semibold text-[#1d1d1f] flex items-center gap-1.5">
+                      <ShieldCheck size={14} className="text-[#0071e3]" />
                       JSM Service Commitment:
                     </p>
-                    <p className="text-zinc-400">An operations manager will review your submission and contact you within 2 business hours to schedule the free site assessment.</p>
+                    <p className="text-[#86868b]">An operations manager will review your submission and contact you within 2 business hours to schedule the free site assessment.</p>
                   </div>
 
                   <div className="flex gap-3 pt-2">
@@ -316,14 +316,14 @@ export function ContactForm() {
                       type="button"
                       variant="outline"
                       onClick={prevStep}
-                      className="w-1/3 h-11 rounded-full text-xs font-semibold bg-[#07090E] hover:bg-zinc-800 text-zinc-300 border-zinc-700 min-h-[44px] press-scale"
+                      className="w-1/3 h-11 rounded-full text-xs font-semibold bg-white hover:bg-black/[0.04] text-[#515154] border-black/[0.1] min-h-[44px]"
                     >
                       Back
                     </Button>
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-2/3 h-11 rounded-full bg-[#C5A880] hover:bg-[#b59870] text-black font-black text-xs shadow-lg min-h-[44px] press-scale"
+                      className="w-2/3 h-11 rounded-full bg-[#1d1d1f] hover:bg-black text-white font-semibold text-xs shadow-sm min-h-[44px]"
                     >
                       {isSubmitting ? "Dispatching to Operations Desk..." : "Submit Assessment Request"}
                     </Button>
@@ -340,16 +340,16 @@ export function ContactForm() {
             animate={{ opacity: 1, scale: 1 }}
             className="p-4 text-center space-y-5"
           >
-            <div className="w-14 h-14 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center mx-auto">
+            <div className="w-14 h-14 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center mx-auto">
               <CheckCircle2 size={28} />
             </div>
 
             <div className="space-y-1.5">
-              <span className="text-[10px] font-mono font-bold text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 px-3 py-1 rounded-full tabular-nums">
+              <span className="text-[10px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full tabular-nums">
                 Ticket Reference: {referenceId}
               </span>
-              <h3 className="text-xl font-black text-white pt-2">Assessment Request Received</h3>
-              <p className="text-xs text-zinc-300 max-w-sm mx-auto leading-relaxed text-pretty">
+              <h3 className="text-xl font-semibold text-[#1d1d1f] pt-2">Assessment Request Received</h3>
+              <p className="text-xs text-[#515154] max-w-sm mx-auto leading-relaxed text-pretty">
                 Thank you, <strong>{submittedData?.name}</strong>. Our operations desk has received your request for <strong>{submittedData?.service}</strong> in <strong>{submittedData?.city}</strong>.
               </p>
             </div>
@@ -361,7 +361,7 @@ export function ContactForm() {
                   setIsSubmitted(false);
                   setStep(1);
                 }}
-                className="text-xs text-zinc-400 hover:text-white font-semibold min-h-[44px] press-scale"
+                className="text-xs text-[#86868b] hover:text-[#1d1d1f] font-semibold min-h-[44px]"
               >
                 Submit another request
               </Button>

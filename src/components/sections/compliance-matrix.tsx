@@ -63,19 +63,19 @@ const COMPLIANCE_PILLARS = [
 
 export function ComplianceMatrix() {
   return (
-    <section className="py-16 md:py-20 bg-[#07090E] text-zinc-100 relative border-t border-white/10" id="statutory-compliance">
+    <section className="py-20 md:py-28 bg-white text-[#1d1d1f] relative border-t border-black/[0.08]" id="statutory-compliance">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-[#C5A880] text-xs font-mono font-bold tracking-wider uppercase">
-            <Lock size={14} className="text-[#C5A880]" />
-            <span>[Statutory &amp; Legal Trust Matrix]</span>
+        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#f5f5f7] border border-black/[0.08] text-[#1d1d1f] text-xs font-semibold tracking-wide uppercase">
+            <Lock size={14} className="text-[#0071e3]" />
+            <span>Statutory &amp; Legal Trust Matrix</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white text-balance">
-            100% zero-liability <span className="text-[#C5A880]">compliance</span>
+          <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight text-[#1d1d1f] text-balance">
+            100% zero-liability compliance.
           </h2>
-          <p className="text-zinc-400 text-sm sm:text-base leading-relaxed text-pretty">
+          <p className="text-[#86868b] text-sm sm:text-base leading-relaxed text-pretty">
             Enterprise procurement teams choose JSM for total legal safety. We eliminate labour disputes, statutory audit liabilities, and operational lapses through complete transparency.
           </p>
         </div>
@@ -87,38 +87,38 @@ export function ComplianceMatrix() {
             return (
               <div
                 key={i}
-                className="bg-[#0B0F17] border border-zinc-800 rounded-3xl p-6 sm:p-8 hover:border-[#C5A880]/50 shadow-xl transition-all duration-300 flex flex-col justify-between group"
+                className="bg-[#f5f5f7] border border-black/[0.06] rounded-[28px] p-6 sm:p-8 hover:border-black/[0.12] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
               >
                 <div>
                   <div className="flex items-start justify-between gap-4 mb-4">
                     <div className="flex items-center gap-3">
-                      <div className="p-3 rounded-2xl bg-[#07090E] border border-zinc-800 text-[#C5A880] group-hover:bg-[#C5A880] group-hover:text-black transition-colors">
-                        <Icon size={22} />
+                      <div className="p-3 rounded-2xl bg-white border border-black/[0.08] text-[#1d1d1f] group-hover:scale-105 transition-transform shadow-sm">
+                        <Icon size={22} className="text-[#0071e3]" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-black text-white">{pillar.title}</h3>
-                        <p className="text-xs text-zinc-400 font-medium">{pillar.subtitle}</p>
+                        <h3 className="text-lg font-semibold text-[#1d1d1f]">{pillar.title}</h3>
+                        <p className="text-xs text-[#86868b] font-medium">{pillar.subtitle}</p>
                       </div>
                     </div>
 
-                    <span className="px-2.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[10px] font-mono font-bold whitespace-nowrap">
+                    <span className="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-medium whitespace-nowrap">
                       {pillar.status}
                     </span>
                   </div>
 
-                  <ul className="space-y-2.5 my-6 text-xs sm:text-sm text-zinc-300">
+                  <ul className="space-y-2.5 my-6 text-xs sm:text-sm text-[#1d1d1f]">
                     {pillar.points.map((point, j) => (
                       <li key={j} className="flex items-start gap-2.5 leading-snug">
-                        <CheckCircle2 size={16} className="text-[#C5A880] flex-shrink-0 mt-0.5" />
+                        <CheckCircle2 size={16} className="text-emerald-600 flex-shrink-0 mt-0.5" />
                         <span>{point}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="pt-4 border-t border-zinc-800/80 text-[11px] text-zinc-400 font-mono flex items-center justify-between">
+                <div className="pt-4 border-t border-black/[0.06] text-[11px] text-[#86868b] flex items-center justify-between">
                   <span>Audit frequency: every billing cycle</span>
-                  <span className="font-bold text-[#C5A880]">Verified SLA</span>
+                  <span className="font-semibold text-[#0071e3]">Verified SLA</span>
                 </div>
               </div>
             );
@@ -126,18 +126,18 @@ export function ComplianceMatrix() {
         </div>
 
         {/* Bottom Callout Banner */}
-        <div className="bg-gradient-to-r from-[#0B0F17] to-[#121824] rounded-3xl p-8 sm:p-10 text-white flex flex-col md:flex-row items-center justify-between gap-6 border-2 border-[#C5A880]/30 shadow-2xl">
+        <div className="bg-[#f5f5f7] rounded-[28px] p-8 sm:p-10 text-[#1d1d1f] flex flex-col md:flex-row items-center justify-between gap-6 border border-black/[0.08] shadow-sm">
           <div className="space-y-2 text-center md:text-left">
-            <h3 className="text-xl sm:text-2xl font-black text-white text-balance">
+            <h3 className="text-xl sm:text-2xl font-semibold text-[#1d1d1f] text-balance">
               Need a vendor compliance audit package for your board?
             </h3>
-            <p className="text-xs sm:text-sm text-zinc-300 max-w-xl text-pretty">
+            <p className="text-xs sm:text-sm text-[#86868b] max-w-xl text-pretty">
               We provide formal compliance dossier packets containing sample SLA agreements, EPF/ESIC clearance templates, and PSARA verification documentation for procurement committee review.
             </p>
           </div>
 
           <Link href="/contact" className="flex-shrink-0">
-            <Button className="py-6 px-8 bg-[#C5A880] hover:bg-[#b09268] text-zinc-950 font-black text-xs tracking-wider rounded-xl cursor-pointer min-h-[44px] press-scale shadow-lg">
+            <Button className="py-3.5 px-7 bg-[#1d1d1f] hover:bg-black text-white font-semibold text-xs tracking-wide rounded-full cursor-pointer min-h-[44px] shadow-sm">
               <span>Request audit dossier</span>
               <ArrowRight size={14} className="ml-1" />
             </Button>

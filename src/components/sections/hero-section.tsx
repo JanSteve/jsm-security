@@ -89,67 +89,60 @@ export function HeroSection() {
   const current = heroVisuals[activeTab];
 
   return (
-    <section className="relative min-h-[92vh] flex flex-col justify-center px-4 sm:px-6 md:px-12 lg:px-20 pt-28 pb-16 md:py-24 max-w-[1440px] mx-auto bg-[#07090E] text-white overflow-hidden selection:bg-[#C5A880] selection:text-black">
+    <section className="relative min-h-[88vh] flex flex-col justify-center px-4 sm:px-6 md:px-12 lg:px-20 pt-28 pb-16 md:py-24 max-w-[1440px] mx-auto bg-white text-[#1d1d1f] overflow-hidden selection:bg-[#0071e3]/15 selection:text-black">
       
-      {/* Aceternity Style Background Illumination & Micro-Grid */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        {/* Radial ambient glow */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-gradient-to-b from-[#C5A880]/15 via-purple-500/5 to-transparent blur-[120px] rounded-full" />
-        {/* Architectural subtle grid lines */}
-        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:28px_28px] opacity-70" />
-      </div>
-
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 w-full z-10 relative items-center mb-8">
         
         {/* Left Column: Master Display Typography */}
         <div className="lg:col-span-6 space-y-6 text-left">
           
           {/* Live Command Telemetry Pill */}
-          <div className="flex flex-wrap items-center gap-2 text-[10px] sm:text-[11px] font-mono font-bold">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-zinc-300 shadow-md">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-white font-extrabold tracking-wide">24/7 COMMAND ACTIVE</span>
+          <div className="flex flex-wrap items-center gap-2 text-[10px] sm:text-[11px] font-mono font-medium">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f5f5f7] border border-black/[0.06] text-[#1d1d1f] shadow-2xs">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="text-[#1d1d1f] font-bold tracking-wide">24/7 COMMAND ACTIVE</span>
             </div>
             {liveTime && (
-              <span className="px-2.5 py-1 rounded-full bg-white/5 text-zinc-400 border border-white/10 font-mono">
+              <span className="px-2.5 py-1 rounded-full bg-[#f5f5f7] text-[#86868b] border border-black/[0.06] font-mono">
                 {liveTime}
               </span>
             )}
-            <span className="hidden sm:inline-block text-zinc-600">•</span>
-            <span className="text-[#C5A880] font-bold uppercase tracking-wider">
+            <span className="hidden sm:inline-block text-zinc-300">•</span>
+            <span className="text-[#86868b] font-semibold uppercase tracking-wider">
               TAMIL NADU &amp; PAN-INDIA
             </span>
           </div>
 
-          {/* Master Display Headline - Framer SecurityForce DNA */}
+          {/* Master Display Headline - Apple Style */}
           <div className="space-y-2">
-            <span className="text-xs sm:text-sm font-mono font-black tracking-[0.2em] text-[#C5A880] uppercase block">
-              YOUR TRUSTED PARTNER IN INTEGRATED SECURITY
+            <span className="text-xs font-semibold tracking-wider text-[#86868b] uppercase block font-mono">
+              INTEGRATED SECURITY &amp; WORKFORCE GOVERNANCE
             </span>
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-[-0.03em] leading-[1.08] text-balance">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-[#1d1d1f] tracking-[-0.03em] leading-[1.08] text-balance">
               Disciplined security &amp; facility operations for modern enterprise.
             </h1>
           </div>
 
-          {/* Ultra-Concise Executive Subheadline */}
-          <p className="text-sm sm:text-base text-zinc-300 max-w-xl font-normal leading-relaxed text-pretty">
+          {/* Executive Subheadline */}
+          <p className="text-sm sm:text-base text-[#515154] max-w-xl font-normal leading-relaxed text-pretty">
             At JSM Integrated Services, we deliver disciplined <strong>Private Guarding</strong>, <strong>Specialized Housekeeping</strong>, and <strong>Contractual Manpower</strong> across Tamil Nadu with guaranteed 2-hour relief SLAs and zero statutory liability.
           </p>
 
           {/* Conversion Action Strip */}
           <div className="flex flex-wrap items-center gap-3 pt-2">
-            <Link href="/get-quote" className="press-scale">
-              <ShimmerButton className="h-12 px-7 bg-[#C5A880] text-black font-black hover:bg-[#b59870] transition-colors shadow-lg">
-                <span>Request a quote</span>
-                <ArrowRight size={14} className="ml-2 text-black" strokeWidth={2.5} />
-              </ShimmerButton>
+            <Link
+              href="/get-quote"
+              className="inline-flex items-center justify-center h-12 px-7 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white font-semibold text-xs shadow-xs press-scale transition-all group min-touch-target"
+            >
+              <span>Request a quote</span>
+              <ArrowRight size={14} className="ml-2 text-white group-hover:translate-x-0.5 transition-transform" strokeWidth={2.5} />
             </Link>
 
             <a
               href={`tel:${brandData.contact.phone}`}
-              className="inline-flex items-center justify-center gap-2 px-5 h-12 rounded-full text-xs font-bold text-white bg-white/10 hover:bg-white/15 border border-white/15 transition-all shadow-sm active:scale-95 font-mono tabular-nums press-scale min-touch-target"
+              className="inline-flex items-center justify-center gap-2 px-5 h-12 rounded-full text-xs font-medium text-[#1d1d1f] bg-[#f5f5f7] hover:bg-[#e8e8ed] border border-black/[0.06] transition-all font-mono tabular-nums press-scale min-touch-target"
             >
-              <Phone size={14} className="text-[#C5A880]" strokeWidth={2} />
+              <Phone size={14} className="text-[#86868b]" strokeWidth={2} />
               <span>Emergency: {brandData.contact.phoneDisplay}</span>
             </a>
 
@@ -157,43 +150,42 @@ export function HeroSection() {
               href={`https://wa.me/${brandData.contact.whatsapp}?text=Hello%20JSM%20Integrated%20Services,%20I%20would%20like%20to%20inquire%20about%20your%20services.`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-4 h-12 rounded-full text-xs font-bold text-emerald-400 bg-emerald-950/60 hover:bg-emerald-900/60 border border-emerald-500/40 transition-all shadow-xs active:scale-95 press-scale min-touch-target"
+              className="inline-flex items-center justify-center gap-2 px-4 h-12 rounded-full text-xs font-medium text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200/60 transition-all press-scale min-touch-target"
             >
               <MessageCircle size={15} strokeWidth={2} />
               <span>WhatsApp</span>
             </a>
           </div>
 
-          {/* Framer 4-Pillar SecurityForce Confidence Strip */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-3 border-t border-white/10 text-xs">
-            <div className="flex items-center gap-2 bg-white/5 p-2 rounded-xl border border-white/5">
-              <ShieldCheck size={16} className="text-[#C5A880] shrink-0" />
-              <span className="font-semibold text-zinc-300 text-[11px] leading-tight">Ensuring safety &amp; security</span>
+          {/* Apple 4-Pillar Confidence Strip */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-3 border-t border-black/[0.06] text-xs">
+            <div className="flex items-center gap-2 bg-[#f5f5f7] p-2.5 rounded-2xl border border-black/[0.04]">
+              <ShieldCheck size={16} className="text-[#1d1d1f] shrink-0" />
+              <span className="font-medium text-[#1d1d1f] text-[11px] leading-tight">Ensuring safety &amp; security</span>
             </div>
-            <div className="flex items-center gap-2 bg-white/5 p-2 rounded-xl border border-white/5">
-              <FileCheck size={16} className="text-blue-400 shrink-0" />
-              <span className="font-semibold text-zinc-300 text-[11px] leading-tight">Statutory risk reduction</span>
+            <div className="flex items-center gap-2 bg-[#f5f5f7] p-2.5 rounded-2xl border border-black/[0.04]">
+              <FileCheck size={16} className="text-blue-600 shrink-0" />
+              <span className="font-medium text-[#1d1d1f] text-[11px] leading-tight">Statutory risk reduction</span>
             </div>
-            <div className="flex items-center gap-2 bg-white/5 p-2 rounded-xl border border-white/5">
-              <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />
-              <span className="font-semibold text-zinc-300 text-[11px] leading-tight">Emergency 24/7 response</span>
+            <div className="flex items-center gap-2 bg-[#f5f5f7] p-2.5 rounded-2xl border border-black/[0.04]">
+              <CheckCircle2 size={16} className="text-emerald-600 shrink-0" />
+              <span className="font-medium text-[#1d1d1f] text-[11px] leading-tight">Emergency 24/7 response</span>
             </div>
-            <div className="flex items-center gap-2 bg-white/5 p-2 rounded-xl border border-white/5">
-              <Award size={16} className="text-[#C5A880] shrink-0" />
-              <span className="font-semibold text-zinc-300 text-[11px] leading-tight">Complete peace of mind</span>
+            <div className="flex items-center gap-2 bg-[#f5f5f7] p-2.5 rounded-2xl border border-black/[0.04]">
+              <Award size={16} className="text-amber-600 shrink-0" />
+              <span className="font-medium text-[#1d1d1f] text-[11px] leading-tight">Complete peace of mind</span>
             </div>
           </div>
         </div>
 
-        {/* Right Column: Dynamic Authentic Visual Stage with BorderBeam */}
+        {/* Right Column: Dynamic Authentic Visual Stage */}
         <div className="lg:col-span-6">
-          <div className="relative w-full h-[400px] sm:h-[460px] md:h-[500px] rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.8)] border border-zinc-800 group bg-zinc-950">
-            <BorderBeam size={240} duration={12} colorFrom="#C5A880" colorTo="transparent" />
+          <div className="relative w-full h-[400px] sm:h-[460px] md:h-[500px] rounded-3xl overflow-hidden shadow-xl border border-black/[0.08] bg-[#f5f5f7] group">
             
             <AnimatePresence mode="wait">
               <motion.div
                 key={current.id}
-                initial={{ opacity: 0, scale: 1.04 }}
+                initial={{ opacity: 0, scale: 1.02 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.35 }}
@@ -208,46 +200,46 @@ export function HeroSection() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
                 
-                {/* Gradient Vignette Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-black/20" />
+                {/* Clean Subtle Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
 
-                {/* Top Floating Badge */}
+                {/* Top Floating Badges */}
                 <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none z-10">
-                  <span className="px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-[#C5A880] text-[10px] font-mono font-bold uppercase shadow-lg">
+                  <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-black/[0.08] text-[#1d1d1f] text-[10px] font-mono font-bold uppercase shadow-xs">
                     {current.badge}
                   </span>
-                  <div className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/20 text-white text-[10px] font-mono font-bold uppercase shadow-lg">
+                  <div className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-[10px] font-mono font-semibold uppercase shadow-xs">
                     {current.metric}
                   </div>
                 </div>
 
                 {/* Bottom Information Card */}
-                <div className="absolute bottom-4 left-4 right-4 bg-zinc-900/90 backdrop-blur-xl rounded-2xl p-4 sm:p-5 border border-zinc-700/80 shadow-2xl space-y-2.5 z-10">
-                  <div className="flex items-center justify-between border-b border-zinc-800 pb-2">
+                <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-xl rounded-2xl p-4 sm:p-5 border border-black/[0.08] shadow-lg space-y-2 z-10">
+                  <div className="flex items-center justify-between border-b border-black/[0.06] pb-2">
                     <div>
-                      <span className="text-[9px] font-mono font-black text-[#C5A880] uppercase tracking-wider block">
+                      <span className="text-[9px] font-mono font-bold text-[#86868b] uppercase tracking-wider block">
                         AUTHENTIC FIELD ARCHIVE
                       </span>
-                      <h3 className="text-sm sm:text-base font-black text-white tracking-tight">
+                      <h3 className="text-sm sm:text-base font-bold text-[#1d1d1f] tracking-tight">
                         {current.title}
                       </h3>
                     </div>
                     <Link
                       href={current.href}
-                      className="px-3.5 py-1.5 rounded-full bg-white text-black text-[11px] font-extrabold uppercase hover:bg-[#C5A880] transition-colors flex items-center gap-1 shadow-md"
+                      className="px-3.5 py-1.5 rounded-full bg-[#1d1d1f] text-white text-[11px] font-semibold hover:bg-black transition-colors flex items-center gap-1 shadow-xs"
                     >
                       <span>Explore</span>
                       <ChevronRight size={12} />
                     </Link>
                   </div>
 
-                  <p className="text-[11px] sm:text-xs text-zinc-300 font-normal line-clamp-2 leading-relaxed">
+                  <p className="text-[11px] sm:text-xs text-[#515154] font-normal line-clamp-2 leading-relaxed">
                     {current.caption}
                   </p>
 
                   <div className="flex flex-wrap gap-1.5 pt-0.5">
                     {current.tags.map((t) => (
-                      <span key={t} className="px-2 py-0.5 rounded-md bg-zinc-800 border border-zinc-700 text-[10px] font-mono font-bold text-zinc-300">
+                      <span key={t} className="px-2 py-0.5 rounded-md bg-[#f5f5f7] border border-black/[0.06] text-[10px] font-mono font-medium text-[#1d1d1f]">
                         ✓ {t}
                       </span>
                     ))}
@@ -268,17 +260,17 @@ export function HeroSection() {
               key={vis.id}
               type="button"
               onClick={() => setActiveTab(idx)}
-              className={`p-3 sm:p-3.5 rounded-2xl text-xs font-bold transition-all text-left flex items-center justify-between border cursor-pointer ${
+              className={`p-3 sm:p-3.5 rounded-2xl text-xs font-semibold transition-all text-left flex items-center justify-between border cursor-pointer ${
                 active
-                  ? "bg-[#C5A880] text-black border-[#C5A880] shadow-[0_0_25px_rgba(197,168,128,0.4)] scale-[1.02]"
-                  : "bg-zinc-900/80 text-zinc-400 border-zinc-800 hover:border-zinc-700 hover:text-white hover:bg-zinc-800/80"
+                  ? "bg-[#1d1d1f] text-white border-[#1d1d1f] shadow-xs"
+                  : "bg-[#f5f5f7] text-[#515154] border-black/[0.04] hover:bg-[#e8e8ed] hover:text-[#1d1d1f]"
               }`}
             >
               <div className="flex items-center gap-2 min-w-0">
-                <span className={`w-2 h-2 rounded-full shrink-0 transition-colors ${active ? "bg-black" : "bg-[#C5A880]"}`} />
-                <span className="font-extrabold truncate">{vis.title.split(" ")[0]} {vis.title.split(" ")[1]}</span>
+                <span className={`w-2 h-2 rounded-full shrink-0 transition-colors ${active ? "bg-emerald-400" : "bg-[#86868b]"}`} />
+                <span className="truncate">{vis.title.split(" ")[0]} {vis.title.split(" ")[1]}</span>
               </div>
-              <ChevronRight size={13} className={active ? "text-black shrink-0" : "text-zinc-600 shrink-0"} />
+              <ChevronRight size={13} className={active ? "text-white shrink-0" : "text-[#86868b] shrink-0"} />
             </button>
           );
         })}

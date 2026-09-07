@@ -45,43 +45,43 @@ export default async function IndustryDetailPage({ params }: { params: Promise<{
   ]);
 
   return (
-    <main className="min-h-screen bg-white text-zinc-800 pt-28 pb-24">
+    <main className="min-h-screen bg-white text-[#1d1d1f] pt-28 pb-24 selection:bg-[#0071e3]/15 selection:text-black">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(bSchema) }}
       />
 
       {/* Hero Header */}
-      <section className="pt-8 pb-16 px-4 md:px-8 border-b border-zinc-200/80 bg-zinc-50/70">
+      <section className="pt-8 pb-16 px-4 md:px-8 border-b border-black/[0.08] bg-[#f5f5f7]">
         <div className="container mx-auto max-w-5xl space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black text-white text-xs font-bold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-black/[0.08] text-[#1d1d1f] text-xs font-semibold">
             <span>SECTOR OPERATIONAL BLUEPRINT</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-black leading-tight tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#1d1d1f] leading-tight tracking-tight">
             {industry.title}
           </h1>
 
-          <p className="text-sm sm:text-base md:text-lg text-zinc-600 font-medium leading-relaxed max-w-3xl">
+          <p className="text-sm sm:text-base md:text-lg text-[#86868b] font-normal leading-relaxed max-w-3xl">
             {industry.summary}
           </p>
 
-          <p className="text-xs sm:text-sm font-bold text-[#C5A880]">
+          <p className="text-xs sm:text-sm font-semibold text-[#0071e3]">
             {industry.tagline}
           </p>
 
           {/* Action Buttons */}
           <div className="flex flex-wrap items-center gap-3 pt-2">
-            <Button asChild size="lg" className="bg-black hover:bg-zinc-800 text-white rounded-full h-11 px-6 text-xs font-bold shadow-md">
+            <Button asChild size="lg" className="bg-[#0071e3] hover:bg-[#0077ed] text-white rounded-full h-11 px-7 text-xs font-semibold shadow-sm min-h-[44px]">
               <Link href="/contact">
                 Schedule Site Assessment for {industry.shortTitle} <ArrowRight size={14} className="ml-1.5" />
               </Link>
             </Button>
             <a
               href="mailto:jsmintegratedservices@outlook.com?subject=Industry%20Consultation"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#0A1628] hover:bg-[#152336] text-white text-sm font-bold rounded-xl transition-all shadow-md"
+              className="inline-flex items-center gap-2 px-6 py-2.5 bg-white hover:bg-[#e8e8ed] text-[#1d1d1f] border border-black/[0.08] text-xs font-semibold rounded-full transition-all shadow-sm min-h-[44px]"
             >
-              <Mail size={16} />
+              <Mail size={15} />
               Discuss via Email
             </a>
           </div>
@@ -89,21 +89,21 @@ export default async function IndustryDetailPage({ params }: { params: Promise<{
       </section>
 
       {/* Challenges & JSM Solution Section */}
-      <section className="py-16 px-4 md:px-8 bg-white border-b border-zinc-200/80">
+      <section className="py-16 px-4 md:px-8 bg-white border-b border-black/[0.08]">
         <div className="container mx-auto max-w-5xl grid grid-cols-1 lg:grid-cols-2 gap-10">
           {/* Challenges */}
-          <div className="bg-zinc-50 border border-zinc-200/80 rounded-3xl p-8 space-y-4">
-            <h2 className="text-lg font-black text-black flex items-center gap-2">
+          <div className="bg-[#f5f5f7] border border-black/[0.08] rounded-[28px] p-8 space-y-4">
+            <h2 className="text-lg font-semibold text-[#1d1d1f] flex items-center gap-2">
               <AlertTriangle size={18} className="text-amber-600" />
               Key Operational Vulnerabilities
             </h2>
-            <p className="text-xs text-zinc-500 font-medium">
+            <p className="text-xs text-[#86868b] font-normal">
               Common bottlenecks that compromise security, hygiene, and efficiency in this sector:
             </p>
-            <ul className="space-y-3 text-xs text-zinc-700 font-medium">
+            <ul className="space-y-3 text-xs text-[#1d1d1f] font-normal">
               {industry.operationalChallenges.map((ch, i) => (
-                <li key={i} className="flex items-start gap-2.5 p-2 bg-white rounded-xl border border-zinc-200/60">
-                  <span className="text-red-500 font-bold">•</span>
+                <li key={i} className="flex items-start gap-2.5 p-3 bg-white rounded-xl border border-black/[0.06] shadow-sm">
+                  <span className="text-[#0071e3] font-bold">•</span>
                   <span>{ch}</span>
                 </li>
               ))}
@@ -111,26 +111,26 @@ export default async function IndustryDetailPage({ params }: { params: Promise<{
           </div>
 
           {/* JSM Solution */}
-          <div className="bg-zinc-900 text-white rounded-3xl p-8 space-y-4 border border-zinc-800 shadow-lg flex flex-col justify-between">
+          <div className="bg-[#f5f5f7] text-[#1d1d1f] rounded-[28px] p-8 space-y-4 border border-black/[0.08] shadow-sm flex flex-col justify-between">
             <div className="space-y-4">
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#C5A880]">
+              <span className="text-[12px] font-semibold uppercase tracking-wider text-[#0071e3]">
                 The JSM Operational Model
               </span>
-              <h2 className="text-xl font-black text-white leading-snug">
+              <h2 className="text-xl font-semibold text-[#1d1d1f] leading-snug">
                 How We Solve This
               </h2>
-              <p className="text-xs text-zinc-300 leading-relaxed font-medium">
+              <p className="text-xs text-[#86868b] leading-relaxed font-normal">
                 {industry.jsmSolution}
               </p>
             </div>
 
-            <div className="space-y-2 pt-4 border-t border-zinc-800">
-              <p className="text-[10px] font-bold uppercase tracking-wider text-[#C5A880]">
+            <div className="space-y-2 pt-4 border-t border-black/[0.06]">
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-[#86868b]">
                 Measurable Benefits:
               </p>
               {industry.keyBenefits.map((ben, idx) => (
-                <div key={idx} className="flex items-center gap-2 text-xs text-zinc-300 font-medium">
-                  <CheckCircle2 size={14} className="text-[#C5A880] flex-shrink-0" />
+                <div key={idx} className="flex items-center gap-2 text-xs text-[#1d1d1f] font-normal">
+                  <CheckCircle2 size={14} className="text-[#0071e3] flex-shrink-0" />
                   <span>{ben}</span>
                 </div>
               ))}
@@ -140,13 +140,13 @@ export default async function IndustryDetailPage({ params }: { params: Promise<{
       </section>
 
       {/* Recommended Services for this sector */}
-      <section className="py-16 px-4 md:px-8 bg-zinc-50 border-b border-zinc-200/80">
+      <section className="py-16 px-4 md:px-8 bg-[#f5f5f7] border-b border-black/[0.08]">
         <div className="container mx-auto max-w-5xl space-y-8">
           <div className="space-y-1">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#C5A880]">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#0071e3]">
               Recommended Service Stack
             </span>
-            <h2 className="text-2xl font-black text-black">
+            <h2 className="text-2xl font-semibold text-[#1d1d1f]">
               Integrated Capabilities for {industry.shortTitle}
             </h2>
           </div>
@@ -156,17 +156,17 @@ export default async function IndustryDetailPage({ params }: { params: Promise<{
               <Link
                 key={serv.slug}
                 href={`/services/${serv.slug}`}
-                className="p-6 bg-white border border-zinc-200/80 rounded-3xl hover:border-black hover:shadow-md transition-all block space-y-3"
+                className="p-6 bg-white border border-black/[0.08] rounded-[28px] hover:border-black/[0.2] hover:shadow-md transition-all block space-y-3 shadow-sm"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-zinc-100 text-zinc-700">
+                  <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-[#f5f5f7] text-[#1d1d1f]">
                     {serv.categoryLabel}
                   </span>
-                  <ArrowRight size={14} className="text-zinc-400" />
+                  <ArrowRight size={14} className="text-[#86868b]" />
                 </div>
-                <h3 className="text-base font-bold text-black">{serv.title}</h3>
-                <p className="text-xs text-zinc-500 line-clamp-2 leading-relaxed">{serv.valueProposition}</p>
-                <span className="text-xs font-bold text-black inline-flex items-center gap-1 pt-1">
+                <h3 className="text-base font-semibold text-[#1d1d1f]">{serv.title}</h3>
+                <p className="text-xs text-[#86868b] line-clamp-2 leading-relaxed">{serv.valueProposition}</p>
+                <span className="text-xs font-semibold text-[#0071e3] inline-flex items-center gap-1 pt-1">
                   View Service Scope →
                 </span>
               </Link>
@@ -177,14 +177,14 @@ export default async function IndustryDetailPage({ params }: { params: Promise<{
 
       {/* Bottom CTA */}
       <section className="container mx-auto px-4 md:px-8 pt-16 max-w-4xl text-center space-y-4">
-        <h3 className="text-2xl font-black text-black">
+        <h3 className="text-2xl font-semibold text-[#1d1d1f]">
           Need a site-specific operational assessment?
         </h3>
-        <p className="text-xs sm:text-sm text-zinc-600 max-w-xl mx-auto font-medium">
+        <p className="text-sm text-[#86868b] max-w-xl mx-auto font-normal">
           Our field operations team conducts thorough risk and requirement walkthroughs across all cities in Tamil Nadu.
         </p>
         <div className="pt-2">
-          <Button asChild className="bg-black hover:bg-zinc-800 text-white rounded-full px-7 h-11 text-xs font-bold">
+          <Button asChild className="bg-[#0071e3] hover:bg-[#0077ed] text-white rounded-full px-8 h-11 text-xs font-semibold shadow-sm min-h-[44px]">
             <Link href="/contact">Schedule Assessment Now</Link>
           </Button>
         </div>

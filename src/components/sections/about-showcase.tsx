@@ -39,14 +39,11 @@ const keyPoints = [
 
 export function AboutShowcase() {
   return (
-    <section className="py-16 md:py-20 bg-[#07090E] border-t border-white/10 text-white relative overflow-hidden">
-      {/* Subtle ambient lighting */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-[#C5A880]/5 rounded-full blur-[120px] pointer-events-none" />
-
+    <section className="py-16 md:py-24 bg-[#f5f5f7] border-t border-black/[0.08] text-[#1d1d1f] relative overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 lg:px-20 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Left Column: Authentic Photography Stage with Framer Glass Accents */}
+          {/* Left Column: Authentic Photography Stage */}
           <motion.div 
             initial="hidden"
             whileInView="visible"
@@ -54,7 +51,7 @@ export function AboutShowcase() {
             variants={fadeInUp}
             className="lg:col-span-6 order-2 lg:order-1"
           >
-            <div className="relative w-full h-[400px] sm:h-[480px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-zinc-950 group">
+            <div className="relative w-full h-[400px] sm:h-[480px] rounded-3xl overflow-hidden border border-black/[0.08] shadow-xl bg-white group">
               <Image
                 src="/images/real_jsm_welcome_trichy_salute.jpg"
                 alt="JSM Security Personnel in ceremonial salute at Trichy Airport entrance"
@@ -62,37 +59,37 @@ export function AboutShowcase() {
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
               {/* Top Glass Badge */}
               <div className="absolute top-4 left-4 z-10">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-[#C5A880] text-[10px] font-mono font-bold uppercase">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-black/[0.08] text-[#1d1d1f] text-[10px] font-mono font-bold uppercase shadow-xs">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                   CIVIL AVIATION SALUTE PROTOCOL
                 </span>
               </div>
 
               {/* Bottom Glass Caption */}
-              <div className="absolute bottom-4 left-4 right-4 z-10 bg-black/75 backdrop-blur-xl p-4 sm:p-5 rounded-2xl border border-white/10 space-y-2">
+              <div className="absolute bottom-4 left-4 right-4 z-10 bg-white/95 backdrop-blur-xl p-4 sm:p-5 rounded-2xl border border-black/[0.08] space-y-1.5 shadow-md">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono font-bold text-[#C5A880] uppercase tracking-wider">
+                  <span className="text-xs font-mono font-bold text-[#86868b] uppercase tracking-wider">
                     OPERATIONAL BENCHMARK
                   </span>
-                  <span className="text-[10px] font-mono text-zinc-400 font-bold">
+                  <span className="text-[10px] font-mono text-[#86868b] font-medium">
                     EST. 2011 • TAMIL NADU
                   </span>
                 </div>
-                <h3 className="text-sm sm:text-base font-black text-white">
+                <h3 className="text-sm sm:text-base font-bold text-[#1d1d1f]">
                   Trichy International Airport Terminal Security
                 </h3>
-                <p className="text-xs text-zinc-300 leading-relaxed">
+                <p className="text-xs text-[#515154] leading-relaxed">
                   Ceremonial and access gate personnel deployed under direct executive inspection of Managing Director Sweety J.
                 </p>
               </div>
             </div>
           </motion.div>
 
-          {/* Right Column: Framer Copy & 4 Key Highlights */}
+          {/* Right Column: Copy & 4 Key Highlights */}
           <motion.div 
             initial="hidden"
             whileInView="visible"
@@ -102,15 +99,15 @@ export function AboutShowcase() {
           >
             {/* Tag Badge */}
             <motion.div variants={fadeInUp}>
-              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-[#C5A880] text-xs font-mono font-bold tracking-wider uppercase">
-                [Anytime, Anywhere]
+              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-black/[0.06] text-[#86868b] text-xs font-mono font-medium tracking-wider uppercase shadow-2xs">
+                Anytime, Anywhere
               </span>
             </motion.div>
 
             {/* Headline */}
             <motion.h2 
               variants={fadeInUp}
-              className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white leading-[1.12] text-balance"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#1d1d1f] leading-[1.12] text-balance"
             >
               Dedicated to protecting what matters most.
             </motion.h2>
@@ -118,7 +115,7 @@ export function AboutShowcase() {
             {/* Subheadline Copy */}
             <motion.p 
               variants={fadeInUp}
-              className="text-sm sm:text-base text-zinc-300 font-normal leading-relaxed text-pretty"
+              className="text-sm sm:text-base text-[#515154] font-normal leading-relaxed text-pretty"
             >
               JSM Integrated Services has been a leading benchmark in the integrated facility and security industry across South India. Originating as <strong>JSMMANPOWER</strong> and solidified by our landmark 2024 operations at <strong>Trichy International Airport</strong>, we provide disciplined protection solutions for manufacturing corridors, institutions, IT campuses, and commercial enterprises.
             </motion.p>
@@ -134,17 +131,17 @@ export function AboutShowcase() {
                   <motion.div 
                     key={idx}
                     variants={fadeInUp}
-                    className="p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-[#C5A880]/50 transition-all space-y-2 group"
+                    className="p-4 rounded-2xl bg-white border border-black/[0.06] hover:border-black/[0.15] transition-all space-y-2 shadow-2xs"
                   >
                     <div className="flex items-center gap-2.5">
-                      <div className="p-2 rounded-xl bg-black/60 border border-white/10 text-[#C5A880] group-hover:bg-[#C5A880] group-hover:text-black transition-colors shrink-0">
+                      <div className="p-2 rounded-xl bg-[#f5f5f7] text-[#1d1d1f] shrink-0">
                         <Icon size={16} />
                       </div>
-                      <h4 className="text-xs sm:text-sm font-bold text-white tracking-tight">
+                      <h4 className="text-xs sm:text-sm font-semibold text-[#1d1d1f] tracking-tight">
                         {pt.title}
                       </h4>
                     </div>
-                    <p className="text-xs text-zinc-400 font-normal leading-relaxed text-pretty">
+                    <p className="text-xs text-[#86868b] font-normal leading-relaxed text-pretty">
                       {pt.desc}
                     </p>
                   </motion.div>
@@ -156,10 +153,10 @@ export function AboutShowcase() {
             <motion.div variants={fadeInUp} className="pt-2">
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 px-6 h-11 rounded-full bg-white text-black hover:bg-[#C5A880] text-xs font-black transition-all press-scale min-touch-target shadow-md group"
+                className="inline-flex items-center gap-2 px-6 h-11 rounded-full bg-[#1d1d1f] text-white hover:bg-black text-xs font-semibold transition-all press-scale min-touch-target shadow-xs group"
               >
                 <span>About us</span>
-                <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" strokeWidth={2.5} />
+                <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" strokeWidth={2.5} />
               </Link>
             </motion.div>
 

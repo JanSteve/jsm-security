@@ -38,30 +38,30 @@ export function FAQSection() {
   };
 
   return (
-    <section className="py-16 md:py-20 bg-[#07090E] border-t border-white/10 text-white relative overflow-hidden">
+    <section className="py-20 md:py-28 bg-white border-t border-black/[0.08] text-[#1d1d1f] relative overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 lg:px-20 relative z-10">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
           
           {/* Left Column: Heading & Contact Prompt */}
-          <div className="lg:col-span-5 space-y-5 text-left">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-[#C5A880] text-xs font-mono font-bold tracking-wider uppercase">
-              <HelpCircle size={14} />
-              <span>[Common Questions]</span>
+          <div className="lg:col-span-5 space-y-4 text-left">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#f5f5f7] border border-black/[0.08] text-[#1d1d1f] text-xs font-semibold tracking-wide uppercase">
+              <HelpCircle size={14} className="text-[#0071e3]" />
+              <span>Common Questions</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-[1.12] text-balance">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#1d1d1f] tracking-tight leading-[1.15] text-balance">
               Common questions &amp; expert guidance.
             </h2>
 
-            <p className="text-sm sm:text-base text-zinc-300 font-normal leading-relaxed text-pretty">
+            <p className="text-sm sm:text-base text-[#86868b] font-normal leading-relaxed text-pretty">
               Still curious about how JSM can elevate your facility standards? Reach out directly to our operations leadership for tailored advisory.
             </p>
 
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-6 h-11 rounded-full bg-white text-black hover:bg-[#C5A880] text-xs font-black transition-all press-scale min-touch-target shadow-md group"
+                className="inline-flex items-center gap-2 px-6 h-11 rounded-full bg-[#1d1d1f] text-white hover:bg-black text-xs font-semibold transition-all min-touch-target shadow-sm group"
               >
                 <span>Contact us</span>
                 <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" strokeWidth={2.5} />
@@ -71,9 +71,9 @@ export function FAQSection() {
                 href={`https://wa.me/${brandData.contact.whatsapp}?text=Hello%20JSM,%20I%20have%20a%20question%20regarding%20your%20services.`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 h-11 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 text-emerald-400 text-xs font-bold transition-all press-scale min-touch-target"
+                className="inline-flex items-center gap-2 px-5 h-11 rounded-full bg-[#f5f5f7] hover:bg-black/[0.04] border border-black/[0.08] text-[#1d1d1f] text-xs font-semibold transition-all min-touch-target"
               >
-                <MessageCircle size={14} />
+                <MessageCircle size={14} className="text-emerald-600" />
                 <span>Ask on WhatsApp</span>
               </a>
             </div>
@@ -86,7 +86,7 @@ export function FAQSection() {
               return (
                 <div
                   key={idx}
-                  className="bg-white/5 border border-white/10 hover:border-white/20 rounded-2xl overflow-hidden transition-all duration-200"
+                  className="bg-[#f5f5f7] border border-black/[0.06] hover:border-black/[0.12] rounded-2xl overflow-hidden transition-all duration-200"
                 >
                   <button
                     type="button"
@@ -94,11 +94,11 @@ export function FAQSection() {
                     className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none min-touch-target group"
                     aria-expanded={isOpen}
                   >
-                    <span className="text-sm sm:text-base font-bold text-white group-hover:text-[#C5A880] transition-colors leading-snug">
+                    <span className="text-sm sm:text-base font-semibold text-[#1d1d1f] transition-colors leading-snug">
                       {faq.q}
                     </span>
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 border transition-all duration-200 ${
-                      isOpen ? "bg-[#C5A880] text-black border-[#C5A880] rotate-180" : "bg-black/50 text-zinc-400 border-white/10 group-hover:text-white"
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 border transition-all duration-200 shadow-sm ${
+                      isOpen ? "bg-[#1d1d1f] text-white border-[#1d1d1f] rotate-180" : "bg-white text-[#1d1d1f] border-black/[0.08]"
                     }`}>
                       <ChevronDown size={16} />
                     </div>
@@ -113,7 +113,7 @@ export function FAQSection() {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.25, ease: "easeOut" }}
                       >
-                        <div className="px-5 pb-5 sm:px-6 sm:pb-6 text-xs sm:text-sm text-zinc-300 font-normal leading-relaxed border-t border-white/5 pt-4 text-pretty">
+                        <div className="px-5 pb-5 sm:px-6 sm:pb-6 text-xs sm:text-sm text-[#515154] font-normal leading-relaxed border-t border-black/[0.06] pt-4 text-pretty">
                           {faq.a}
                         </div>
                       </motion.div>
