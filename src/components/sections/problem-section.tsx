@@ -10,7 +10,7 @@ export function ProblemSection() {
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto space-y-2">
           <span className="text-xs font-semibold uppercase tracking-wider text-[#0071e3]">
-            WHY ONE PARTNER MATTERS
+            OPERATIONAL RESILIENCE &bull; UNIFIED COMMAND
           </span>
           <h2 className="text-2xl sm:text-4xl font-semibold text-[#1d1d1f] tracking-tight">
             Stop Managing 5 Separate Vendors.

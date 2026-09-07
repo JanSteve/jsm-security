@@ -2,25 +2,25 @@ export const brandData = {
   name: "JSM Integrated Services",
   shortName: "JSM",
   legalEntityNote: "Originally established as JSMMANPOWER; rebranded as JSM Integrated Services for comprehensive multi-vertical operations.",
-  tagline: "One Partner. Every Solution.",
-  subTagline: "Disciplined Manpower, Security, Housekeeping & Integrated Facility Operations across Tamil Nadu & India.",
+  tagline: "PSARA Licensed • ISO 9001:2015 Certified • DGR-Aligned",
+  subTagline: "Enterprise Security Guard Forces, ESM Supervisory Units & Integrated Facility Operations",
   establishedYear: "2024",
   inauguralProject: "Trichy International Airport Operations (2024)",
   
   leadership: [
     {
       name: "Sweety J",
-      role: "Proprietor & Managing Director",
+      role: "Proprietor and MD",
       bio: "Founding proprietor and managing director driving the strategic vision, statutory governance, and operational execution of JSM Integrated Services."
     },
     {
       name: "Major AR Devadoss (Army-Veteran)",
-      role: "Head of Operations",
+      role: "Head of Operations & Audit",
       bio: "Decorated Indian Army veteran directing enterprise security deployments, tactical operations, supervisory audits, and field discipline across South India."
     },
     {
       name: "R Jan Steve Daniel",
-      role: "Chief Technical Officer & Audit",
+      role: "Chief Technical Officer",
       bio: "Directing technology-enabled operations, digital attendance systems, OCR scanning digitization, statutory compliance audits, and client command platforms."
     }
   ],
@@ -40,6 +40,7 @@ export const brandData = {
     operatingCities: [
       "Tiruchirappalli (Trichy)",
       "Chennai",
+      "Chennai - OMR Tech Corridor",
       "Coimbatore",
       "Madurai",
       "Salem",

@@ -17,3 +17,6 @@ export { CommandTerminalSection } from './command-terminal';
 export { LeadershipSection } from './leadership-section';
 export { AboutShowcase } from './about-showcase';
 export { FAQSection } from './faq-section';
+export { StockGrowthChart } from './stock-growth-chart';
+export { BulletinTicker } from './bulletin-ticker';
+export { DistrictHubsSlideshow } from './district-hubs-slideshow';

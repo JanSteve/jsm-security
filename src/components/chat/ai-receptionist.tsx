@@ -56,7 +56,7 @@ export function AIReceptionist() {
     {
       id: "welcome-1",
       role: "assistant",
-      content: `Namaste! I am **Priya**, Executive Client Solutions Officer for **JSM Integrated Services** under Managing Director **Sweety J**.\n\nHow can I assist your facility or workforce requirements today? You can ask about our **rates**, our **Trichy Airport landmark contract**, **5-day induction training**, or calculate an instant estimate below.`,
+      content: `Namaste! I am **Priya**, Operations & Client Solutions Specialist for **JSM Integrated Services** under Proprietor and MD **Sweety J** and Head of Operations & Audit **Major AR Devadoss (Army-Veteran)**.\n\nHow can I assist you today? You can ask me about our **DGR-aligned security schemes**, **Ex-Servicemen (ESM) supervisory deployments**, **state wage guidelines**, **downloadable job forms (Form A/B)**, or click to **chat directly on WhatsApp** at +91 90808 63448.`,
       timestamp: "Just now",
     }
   ]);
@@ -257,12 +257,12 @@ export function AIReceptionist() {
 
   // Quick prompt chips
   const quickPrompts = [
-    { label: "💰 Guard Pricing", query: "What are your security guard charges per month in Tamil Nadu?" },
+    { label: "🛡️ DGR Security Schemes", query: "Explain your DGR-aligned security schemes and empanelment standards." },
+    { label: "🎖️ ESM Supervisors", query: "What are your Ex-Servicemen (ESM) security supervisor deployment options?" },
     { label: "✈️ Trichy Airport Contract", query: "Tell me about your 2024 Trichy International Airport assignment." },
-    { label: "🧹 Housekeeping SOP", query: "What is your 5-step housekeeping facility hygiene framework?" },
-    { label: "👷 Manpower Supply", query: "How quickly can you deploy contractual warehouse and factory manpower?" },
-    { label: "📅 Free Site Risk Audit", query: "I want to request a free site assessment for my property." },
-    { label: "📍 Tamil Nadu Coverage", query: "Which cities in Tamil Nadu do you currently provide service in?" }
+    { label: "📄 Download Job Form A/B", query: "How do I download and submit Form A or Form B for employment?" },
+    { label: "💬 WhatsApp Operations", query: "Connect me directly with the 24/7 Operations Desk on WhatsApp." },
+    { label: "📍 Regional Coverage", query: "Which cities in Tamil Nadu and South India do you currently cover?" }
   ];
 
   // Calculate Instant Estimate
@@ -414,7 +414,7 @@ export function AIReceptionist() {
                       {
                         id: `welcome-${Date.now()}`,
                         role: "assistant",
-                        content: `Namaste! I am **Priya**, Executive Client Solutions Officer for **JSM Integrated Services** under Managing Director **Sweety J**.\n\nHow can I assist your facility or workforce requirements today? You can ask about our **rates**, our **Trichy Airport landmark contract**, **5-day induction training**, or calculate an instant estimate below.`,
+                        content: `Namaste! I am **Priya**, Operations & Client Solutions Specialist for **JSM Integrated Services** under Proprietor and MD **Sweety J** and Head of Operations & Audit **Major AR Devadoss (Army-Veteran)**.\n\nHow can I assist you today? You can ask me about our **DGR-aligned security schemes**, **Ex-Servicemen (ESM) supervisory deployments**, **state wage guidelines**, **downloadable job forms (Form A/B)**, or click to **chat directly on WhatsApp** at +91 90808 63448.`,
                         timestamp: "Just now",
                       }
                     ]);

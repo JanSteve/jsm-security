@@ -9,8 +9,12 @@ import { brandData } from "@/data/brand";
 
 const faqs = [
   {
-    q: "What types of security and facility services does JSM offer?",
-    a: "JSM provides comprehensive integrated operations across three core verticals: (1) Disciplined Private Security Guarding under PSARA 2005 licensing with armed/unarmed guards, (2) Specialized Commercial Housekeeping & Facility Management following our 5-step closed-loop hygiene protocol, and (3) Contractual Industrial Manpower mobilized within 48–72 hours."
+    q: "What integrated security, staffing, and facility services does JSM provide?",
+    a: "JSM delivers a disciplined Three-Tier service framework: (1) Tier 1: Security Supervisors & Marshals (Ex-Servicemen & Private) under PSARA 2005 licensing, (2) Tier 2: Corporate, IT & Multi-Skill Contractual Staffing mobilized in 48–72 hours, and (3) Tier 3: Integrated Facility Management & Commercial Housekeeping following closed-loop hygiene protocols."
+  },
+  {
+    q: "How does JSM integrate Ex-Servicemen (ESM) and DGR operational standards?",
+    a: "JSM maintains high operational discipline under the advisory of defense veterans, offering dedicated recruitment and deployment tracks for Commissioned Officers, JCOs, and OR/Jawans. We align with DGR (Directorate General Resettlement) wage standards and operational SOPs for high-security industrial and aviation infrastructure."
   },
   {
     q: "How do I determine the right security and staffing configuration for my facility?",

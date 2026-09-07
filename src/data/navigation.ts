@@ -6,28 +6,34 @@ export interface NavItem {
 
 export const navigationData: NavItem[] = [
   {
-    title: "Home",
-    href: "/",
+    title: "About",
+    href: "/about",
   },
   {
     title: "Services",
     href: "/services",
   },
   {
-    title: "Industries",
-    href: "/industries",
-  },
-  {
-    title: "About",
-    href: "/about",
+    title: "Security Agencies",
+    href: "/security-agencies",
+    badge: "DGR",
   },
   {
     title: "Careers",
     href: "/careers",
   },
   {
-    title: "Blog",
-    href: "/blog",
+    title: "Work Opportunities",
+    href: "/work-opportunities",
+    badge: "Jobs",
+  },
+  {
+    title: "Newsletter",
+    href: "/newsletter",
+  },
+  {
+    title: "What's New",
+    href: "/whats-new",
   },
   {
     title: "Contact",

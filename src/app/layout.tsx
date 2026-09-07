@@ -36,7 +36,8 @@ export const metadata: Metadata = {
     "Trichy International Airport Operations Contractor",
     "JSMMANPOWER",
     "JSM Integrated Services",
-    "One Partner Every Solution"
+    "DGR Security Agency Tamil Nadu",
+    "Ex-Servicemen Security Guard Agency"
   ],
   authors: [{ name: "Sweety J (Proprietor & Managing Director)" }, { name: "JSM Operations Team" }],
   creator: brandData.name,

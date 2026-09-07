@@ -40,7 +40,7 @@ export async function POST(req: NextRequest) {
     console.error("AI Assistant API Error:", error);
     return NextResponse.json(
       { 
-        reply: "Thank you for reaching out to **JSM Integrated Services**! Our Managing Director **Sweety J** and operations desk are available.\n\n• **Email**: contact@jsmintegratedservices.com\n• **Website**: https://www.jsmintegratedservices.com\n\nPlease share your requirement and email here so our manager can reach out to you." 
+        reply: "Thank you for reaching out to **JSM Integrated Services**! Our Proprietor and MD **Sweety J** and operations desk are available 24/7.\n\n• **Direct WhatsApp**: https://wa.me/919080863448\n• **Email**: contact@jsmintegratedservices.com\n• **Hotline**: +91 90808 63448\n\nPlease share your requirement or contact details here so our operations team can connect with you." 
       }, 
       { status: 200 }
     );

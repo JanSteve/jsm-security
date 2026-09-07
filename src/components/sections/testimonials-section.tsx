@@ -131,7 +131,7 @@ export function TestimonialsSection() {
         <div className="max-w-3xl mx-auto text-center mb-14 space-y-3">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-black/[0.08] text-[#1d1d1f] text-xs font-semibold tracking-wide uppercase shadow-sm">
             <ShieldCheck size={14} className="text-[#0071e3]" />
-            <span>Real Client Trust • Interactive Showcase</span>
+            <span>Client Testimonials • Verified Operations</span>
           </div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}

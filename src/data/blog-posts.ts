@@ -169,7 +169,7 @@ When an independent security vendor experiences sudden guard absenteeism on a Su
 
 The shift from vendor fragmentation to **Integrated Facility Governance** is not simply a procurement decision — it is an operational upgrade.
 
-When **JSM Integrated Services** manages your property under the **One Partner. Every Solution.** framework, the entire operating dynamics invert:
+When **JSM Integrated Services** manages your property under our **Sovereign Integrated Operations Framework**, the entire operating dynamics invert:
 
 1. **One Dedicated Operations Manager**: A single executive point of contact who takes direct responsibility for security post discipline, lobby cleanliness, and staff turnout.
 2. **Synchronized Standard Operating Procedures (SOPs)**: The gate logbook, visitor badges, and 5-step hygiene checklists operate as one continuous workflow.
@@ -186,14 +186,14 @@ Your leadership team exists to build products, serve customers, and drive revenu
 
 Let operations professionals handle the operational discipline.
 
-**One Partner. Every Solution.**`,
+**Disciplined Security. Staff Excellence. Managed Assets.**`,
     category: 'Operations & Strategy',
-    author: 'Sweety J (Managing Director, JSM Integrated Services)',
+    author: 'Sweety J (Proprietor & MD, JSM Integrated Services)',
     date: '2025-01-10',
     readTime: '8 min read',
     metaTitle: 'The Cost of Five Vendors: Why Integrated Facility Management Wins | JSM',
     metaDescription: 'Explore the hidden operational costs of managing disconnected security, housekeeping, and manpower vendors, and why single-partner governance restores control.',
-    keywords: ['Integrated facility management', 'The cost of five vendors', 'Vendor consolidation Tamil Nadu', 'One partner every solution JSM', 'Facility management Trichy']
+    keywords: ['Integrated facility management', 'The cost of five vendors', 'Vendor consolidation Tamil Nadu', 'JSM Integrated Services', 'Facility management Trichy']
   },
   {
     slug: 'the-gate-is-only-the-beginning',

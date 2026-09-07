@@ -5,15 +5,17 @@ import {
   FlagshipBentoGrid,
   TestimonialsSection,
   FAQSection,
-  CTASection 
+  CTASection,
+  StockGrowthChart,
+  BulletinTicker,
+  DistrictHubsSlideshow
 } from "@/components/sections";
-import { RegionalCommandMap } from "@/components/sections/regional-command-map";
 import { organizationSchema, localBusinessSchema, websiteSchema, faqSchema } from "@/lib/schema";
 import { brandData } from "@/data/brand";
 
 export const metadata = {
-  title: `${brandData.name} | ${brandData.tagline}`,
-  description: `${brandData.name} delivers disciplined Private Security, Housekeeping & Facility Management, Contractual Manpower, and Integrated Operations across Tamil Nadu & India.`,
+  title: `${brandData.name} | Security, Manpower & Integrated Facility Management`,
+  description: `${brandData.name} delivers disciplined Ex-Servicemen & Private Security, Multi-Skill Corporate Manpower, and Integrated Facility Management across Tamil Nadu and Pan-India.`,
 };
 
 const homeFAQs = [
@@ -31,7 +33,7 @@ const homeFAQs = [
   },
   {
     question: "Which regions and cities are served by JSM Integrated Services?",
-    answer: "JSM operates across Tamil Nadu (Trichy, Chennai, Coimbatore, Madurai, Salem, Hosur, Erode, Tirunelveli) and provides scalable integrated facility operations throughout South India."
+    answer: "JSM operates across Tamil Nadu (Trichy, Chennai with OMR Tech Corridor, Coimbatore, Hosur, Madurai, Salem, Erode, Tirunelveli) and provides scalable integrated facility operations throughout South India."
   }
 ];
 
@@ -61,12 +63,14 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqsJsonLd) }}
       />
 
-      {/* Streamlined MNC Executive Flow: Short, Sweet & Simple */}
+      {/* DGR-Aligned Sovereign Executive Architecture */}
       <HeroSection />
+      <BulletinTicker />
       <TrustBar />
+      <StockGrowthChart />
       <ServicesOverview />
+      <DistrictHubsSlideshow />
       <FlagshipBentoGrid />
-      <RegionalCommandMap />
       <TestimonialsSection />
       <FAQSection />
       <CTASection />

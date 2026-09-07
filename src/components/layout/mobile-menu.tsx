@@ -62,6 +62,14 @@ export function MobileMenu() {
           </div>
 
           <nav className="flex flex-col space-y-1">
+            <Link
+              href="/"
+              onClick={() => setOpen(false)}
+              className="py-3 px-3.5 rounded-xl text-sm font-semibold text-neutral-200 hover:bg-neutral-900 hover:text-white transition-colors flex items-center justify-between press-scale min-touch-target"
+            >
+              <span>Home</span>
+              <ArrowRight size={14} className="text-neutral-400" strokeWidth={2} />
+            </Link>
             {navigationData.map((item) => (
               <Link
                 key={item.title}
@@ -72,7 +80,7 @@ export function MobileMenu() {
                 <div className="flex items-center gap-2">
                   <span>{item.title}</span>
                   {item.badge && (
-                    <span className="text-[9px] font-mono font-bold px-1.5 py-0.2 rounded-full bg-white/10 text-neutral-300 uppercase">
+                    <span className="text-[9px] font-mono font-bold px-1.5 py-0.2 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 uppercase">
                       {item.badge}
                     </span>
                   )}
@@ -80,6 +88,17 @@ export function MobileMenu() {
                 <ArrowRight size={14} className="text-neutral-400" strokeWidth={2} />
               </Link>
             ))}
+            <a
+              href="https://wa.me/919080863448?text=Hello%20JSM%20Integrated%20Services"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 py-3 px-3.5 rounded-xl text-sm font-semibold text-emerald-300 bg-emerald-950/40 border border-emerald-500/30 flex items-center justify-between"
+            >
+              <div className="flex items-center gap-2">
+                <span>WhatsApp Operations Desk</span>
+              </div>
+              <span className="text-xs font-mono font-bold text-emerald-400">Open</span>
+            </a>
           </nav>
         </div>
 

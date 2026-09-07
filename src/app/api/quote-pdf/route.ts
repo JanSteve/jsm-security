@@ -352,7 +352,7 @@ Sent from jsmintegratedservices.in/get-quote
       <div class="header">
         <div class="logo-area">
           <h1>JSM INTEGRATED SERVICES</h1>
-          <p>One Partner. Every Solution.</p>
+          <p>Deploy Security. Staff Excellence. Manage Assets.</p>
         </div>
         <div class="meta-area">
           <p><strong>Quote Ref:</strong> ${refNum}</p>

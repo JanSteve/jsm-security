@@ -1,14 +1,62 @@
 "use client";
 
 import React, { useState } from "react";
-import { openRoles, inductionPhilosophy, careerProgressionSteps, CareerRole } from "@/data/careers";
+import { openRoles, inductionPhilosophy, careerProgressionSteps } from "@/data/careers";
 import { brandData } from "@/data/brand";
-import { breadcrumbSchema } from "@/lib/schema";
 import Image from "next/image";
-import { ArrowRight, CheckCircle2, Award, Users, TrendingUp, Briefcase, MapPin, Clock, Send, MessageCircle, Sparkles, Mail, Phone } from "lucide-react";
+import Link from "next/link";
+import { 
+  ArrowRight, 
+  CheckCircle2, 
+  Award, 
+  Users, 
+  TrendingUp, 
+  Briefcase, 
+  MapPin, 
+  Clock, 
+  Send, 
+  MessageCircle, 
+  Sparkles, 
+  Mail, 
+  Phone, 
+  ShieldCheck, 
+  Download, 
+  FileText 
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+
+const defenseTracks = [
+  {
+    title: "Commissioned Officers Track",
+    cadre: "Army, Navy & Air Force Officers",
+    roles: "Chief Security Officer, Head of Operations, Regional Command Director",
+    highlights: [
+      "Strategic security architecture & enterprise risk assessment",
+      "Command and control of multi-location industrial deployments",
+      "Client liaison with corporate leadership and state authorities",
+      "DGR empanelment and executive compensation structure"
+    ],
+    form: "Form-A-Officer-Recruitment.docx",
+    formCode: "FORM-A (DOCX)",
+    badge: "Executive Leadership"
+  },
+  {
+    title: "JCO & OR / Soldier Track",
+    cadre: "Subedar, Naib Subedar, Havildar, Naik, Jawan",
+    roles: "Security Field Supervisor, Armed Marshal, Perimeter Commander",
+    highlights: [
+      "Rigid shift supervision, daily roll calls and night spot-audits",
+      "Arms handling protocol & civil aviation access compliance",
+      "Fast-track career progression with performance incentives",
+      "Guaranteed on-time payroll with 100% EPF, ESIC and gratuity"
+    ],
+    form: "Form-B-JCO-Application.docx",
+    formCode: "FORM-B (DOCX)",
+    badge: "Field Operations"
+  }
+];
 
 export default function CareersPage() {
   const [selectedRole, setSelectedRole] = useState<string>("sec-guard-trichy");
@@ -16,6 +64,7 @@ export default function CareersPage() {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
+    phone: "",
     city: "",
     position: "Security Guard / Gate Officer",
     experience: "Fresher",
@@ -23,11 +72,9 @@ export default function CareersPage() {
     consent: true
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.fullName || !formData.email) return;
+    if (!formData.fullName) return;
     setFormSubmitted(true);
   };
 
@@ -38,18 +85,106 @@ export default function CareersPage() {
         <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#f5f5f7] border border-black/[0.08] text-[#1d1d1f] text-xs font-semibold">
             <Sparkles size={13} className="text-[#0071e3]" />
-            <span>JOIN OUR DISCIPLINED TEAM</span>
+            <span>DISCIPLINED CAREERS &bull; TAMIL NADU</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-[#1d1d1f] tracking-tight leading-tight">
-            Build a career with discipline.<br />
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#1d1d1f] tracking-tight leading-tight">
+            Build a Career with Discipline.<br />
             <span className="text-[#86868b]">Grow with JSM.</span>
           </h1>
 
           <p className="text-base md:text-lg text-[#86868b] font-normal max-w-2xl mx-auto leading-relaxed">
-            "Our people are our product. Your first uniform should not be your final destination." We offer structured training, guaranteed on-time salaries, and clear promotion pathways.
+            &quot;Our people are our strength. Your first uniform should not be your final destination.&quot; Structured training, guaranteed on-time payroll, and clear promotion pathways for Ex-Servicemen and civilian professionals.
           </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+            <a
+              href={`https://wa.me/${brandData.contact.whatsapp}?text=Hello%20JSM,%20I%20wish%20to%20apply%20for%20a%20career%20opportunity.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold shadow-xs transition-colors"
+            >
+              <MessageCircle size={14} />
+              <span>Direct Apply on WhatsApp (+91 90808 63448)</span>
+            </a>
+            <Link
+              href="/work-opportunities"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#f5f5f7] hover:bg-[#e8e8ed] text-[#1d1d1f] border border-black/10 text-xs font-semibold transition-colors"
+            >
+              <Briefcase size={14} />
+              <span>Browse All Open Roles</span>
+            </Link>
+          </div>
         </div>
+
+        {/* Defense & Ex-Servicemen Dual Track (Officers vs JCO/OR) */}
+        <section className="mb-20 max-w-5xl mx-auto space-y-8">
+          <div className="text-center space-y-2">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-semibold">
+              <ShieldCheck size={14} />
+              <span>DGR &amp; Armed Forces Dedicated Tracks</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#1d1d1f]">
+              Specialized Enrolment for Indian Armed Forces Veterans
+            </h2>
+            <p className="text-xs sm:text-sm text-[#6e6e73] max-w-2xl mx-auto">
+              We provide honorable resettlement pathways tailored specifically to the operational rank and leadership experience of retired defense personnel.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {defenseTracks.map((track, idx) => (
+              <div
+                key={idx}
+                className="p-8 rounded-3xl bg-[#f5f5f7] border border-black/[0.08] hover:border-black/[0.18] transition-all flex flex-col justify-between space-y-6"
+              >
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="px-3 py-1 rounded-full bg-white border border-black/10 text-xs font-bold text-[#1d1d1f]">
+                      {track.badge}
+                    </span>
+                    <span className="text-xs font-mono font-bold text-emerald-700">{track.formCode}</span>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-[#1d1d1f]">{track.title}</h3>
+                    <p className="text-xs font-medium text-[#0071e3] mt-0.5">{track.cadre}</p>
+                    <p className="text-xs text-[#86868b] mt-1 font-mono">{track.roles}</p>
+                  </div>
+
+                  <ul className="space-y-2 pt-2 border-t border-black/[0.06]">
+                    {track.highlights.map((h, i) => (
+                      <li key={i} className="flex items-start gap-2 text-xs text-[#515154]">
+                        <CheckCircle2 size={13} className="text-emerald-600 shrink-0 mt-0.5" />
+                        <span>{h}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="pt-4 border-t border-black/[0.06] flex flex-col sm:flex-row gap-3">
+                  <a
+                    href={`/downloads/${track.form}`}
+                    download
+                    className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-white hover:bg-black text-[#1d1d1f] hover:text-white border border-black/10 text-xs font-semibold transition-all shadow-xs"
+                  >
+                    <Download size={14} />
+                    <span>Download Application Dossier</span>
+                  </a>
+                  <a
+                    href={`https://wa.me/${brandData.contact.whatsapp}?text=Hello%20JSM,%20I%20am%20an%20Ex-Serviceman%20applying%20for%20the%20${encodeURIComponent(track.title)}.`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-1.5 py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold transition-colors"
+                  >
+                    <MessageCircle size={14} />
+                    <span>WhatsApp Apply</span>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
 
         {/* 5-Day Induction Section */}
         <section className="mb-20">
@@ -64,7 +199,7 @@ export default function CareersPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 max-w-6xl mx-auto">
-            {inductionPhilosophy.map((day, idx) => (
+            {inductionPhilosophy.map((day) => (
               <div
                 key={day.day}
                 className="bg-[#f5f5f7] border border-black/[0.06] rounded-[24px] p-5 space-y-3 flex flex-col justify-between shadow-xs"
@@ -127,7 +262,7 @@ export default function CareersPage() {
               <div className="relative aspect-[3/4] w-full max-w-[300px] rounded-2xl overflow-hidden border border-black/[0.08] shadow-md group">
                 <Image
                   src="/images/real_jsm_fabrication_hiring.jpg"
-                  alt="JSM Outsourcing Services Fabrication Industry Hiring Poster"
+                  alt="JSM Integrated Services Technical Fabrication Hiring"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
@@ -137,7 +272,7 @@ export default function CareersPage() {
             <div className="md:col-span-7 space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-black/[0.08] text-[#0071e3] text-xs font-semibold">
                 <span className="w-2 h-2 rounded-full bg-[#0071e3] animate-pulse" />
-                <span>ACTIVE INDUSTRIAL RECRUITMENT • TAMIL NADU</span>
+                <span>ACTIVE INDUSTRIAL RECRUITMENT &bull; TAMIL NADU</span>
               </div>
 
               <h2 className="text-2xl sm:text-3xl font-semibold text-[#1d1d1f] tracking-tight">
@@ -145,7 +280,7 @@ export default function CareersPage() {
               </h2>
 
               <p className="text-xs sm:text-sm text-[#86868b] leading-relaxed font-normal">
-                JSM Outsourcing Services is actively recruiting skilled technical manpower for heavy engineering, manufacturing, and fabrication industries across Tamil Nadu and South India.
+                JSM Integrated Services is actively recruiting skilled technical manpower for heavy engineering, manufacturing, and fabrication industries across Tamil Nadu and South India.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 text-xs">
@@ -161,97 +296,21 @@ export default function CareersPage() {
 
               <div className="flex flex-wrap items-center gap-3 pt-3 border-t border-black/[0.06]">
                 <a
-                  href="https://wa.me/919600852141?text=Hello%20JSM,%20I%20am%20applying%20for%20the%20Fabrication%20Industry%20job."
+                  href={`https://wa.me/${brandData.contact.whatsapp}?text=Hello%20JSM,%20I%20am%20applying%20for%20the%20Fabrication%20Industry%20job.`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white font-semibold text-xs shadow-sm transition-all"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs shadow-sm transition-all"
                 >
-                  <MessageCircle size={14} /> WhatsApp: 9600852141
+                  <MessageCircle size={14} /> WhatsApp: +91 90808 63448
                 </a>
                 <a
-                  href="mailto:manpowerr@gmail.com?subject=Fabrication%20Industry%20Application"
+                  href="mailto:jsmintegratedservices@outlook.com?subject=Fabrication%20Industry%20Application"
                   className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white hover:bg-[#e8e8ed] text-[#1d1d1f] border border-black/[0.08] font-semibold text-xs shadow-sm transition-all"
                 >
                   <Mail size={14} /> Apply via Email
                 </a>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* Open Job Roles */}
-        <section className="mb-20 max-w-5xl mx-auto space-y-10">
-          <div className="text-center space-y-2">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#0071e3]">
-              Current Openings
-            </span>
-            <h2 className="text-3xl font-semibold text-[#1d1d1f] tracking-tight">
-              Open Positions Across Tamil Nadu
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {openRoles.map((role) => (
-              <div
-                key={role.id}
-                className="bg-[#f5f5f7] border border-black/[0.08] rounded-[28px] p-7 flex flex-col justify-between hover:border-black/[0.2] hover:bg-white hover:shadow-xl transition-all duration-300 shadow-sm"
-              >
-                <div className="space-y-4">
-                  <div className="flex flex-wrap items-center justify-between gap-2 border-b border-black/[0.06] pb-3">
-                    <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-white text-[#1d1d1f] border border-black/[0.06]">
-                      {role.department}
-                    </span>
-                    <span className="text-[11px] font-semibold text-[#0071e3] bg-[#0071e3]/10 px-2 py-0.5 rounded-full">
-                      {role.type}
-                    </span>
-                  </div>
-
-                  <div>
-                    <h3 className="text-lg font-semibold text-[#1d1d1f]">{role.title}</h3>
-                    <div className="flex items-center gap-4 text-xs text-[#86868b] font-normal mt-1">
-                      <span className="flex items-center gap-1"><MapPin size={13} /> {role.location}</span>
-                      <span className="flex items-center gap-1"><Briefcase size={13} /> {role.experience}</span>
-                    </div>
-                  </div>
-
-                  <p className="text-xs text-[#86868b] leading-relaxed font-normal">
-                    {role.description}
-                  </p>
-
-                  <div className="space-y-1.5 pt-2">
-                    <p className="text-[10px] font-semibold uppercase tracking-wider text-[#86868b]">
-                      Key Offerings:
-                    </p>
-                    {role.whatWeOffer.slice(0, 2).map((offer, i) => (
-                      <div key={i} className="flex items-center gap-1.5 text-xs text-[#1d1d1f] font-normal">
-                        <CheckCircle2 size={13} className="text-[#0071e3] flex-shrink-0" />
-                        <span>{offer}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="pt-5 mt-5 border-t border-black/[0.06] flex items-center justify-between">
-                  <button
-                    onClick={() => {
-                      setFormData({ ...formData, position: role.title });
-                      setSelectedRole(role.id);
-                      document.getElementById("apply-form")?.scrollIntoView({ behavior: "smooth" });
-                    }}
-                    className="text-xs font-semibold text-[#0071e3] hover:underline flex items-center gap-1"
-                  >
-                    Apply for this Role <ArrowRight size={13} />
-                  </button>
-
-                  <a
-                    href="mailto:jsmintegratedservices@outlook.com?subject=Career%20Inquiry"
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white hover:bg-[#e8e8ed] text-[#1d1d1f] text-[10px] font-semibold rounded-full border border-black/[0.08] transition-colors"
-                  >
-                    <Mail size={13} /> Ask via Email
-                  </a>
-                </div>
-              </div>
-            ))}
           </div>
         </section>
 
@@ -274,7 +333,7 @@ export default function CareersPage() {
               </div>
               <h3 className="text-xl font-semibold text-[#1d1d1f]">Application Successfully Received!</h3>
               <p className="text-xs text-[#86868b] max-w-md mx-auto leading-relaxed">
-                Thank you, <strong>{formData.fullName}</strong>. Your candidate file has been created. Our recruitment officer will contact your email (<strong>{formData.email}</strong>) for document scheduling.
+                Thank you, <strong>{formData.fullName}</strong>. Your candidate file has been created. Our recruitment officer will contact you for document scheduling.
               </p>
               <div className="pt-2">
                 <Button
@@ -296,6 +355,17 @@ export default function CareersPage() {
                     placeholder="Enter your name"
                     value={formData.fullName}
                     onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                    className="h-11 rounded-2xl bg-white border-black/[0.08] text-xs focus:border-[#0071e3]"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="text-[#1d1d1f]">Contact Number / WhatsApp *</label>
+                  <Input
+                    required
+                    type="tel"
+                    placeholder="+91 98765 43210"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="h-11 rounded-2xl bg-white border-black/[0.08] text-xs focus:border-[#0071e3]"
                   />
                 </div>
@@ -334,9 +404,9 @@ export default function CareersPage() {
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <label className="text-[#1d1d1f]">Years of Prior Experience</label>
+                  <label className="text-[#1d1d1f]">Years of Prior Experience / ESM Rank</label>
                   <Input
-                    placeholder="e.g. Fresher / 1 Year / 3 Years"
+                    placeholder="e.g. Ex-Jawan / Fresher / 3 Years"
                     value={formData.experience}
                     onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
                     className="h-11 rounded-2xl bg-white border-black/[0.08] text-xs focus:border-[#0071e3]"
@@ -345,10 +415,10 @@ export default function CareersPage() {
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-[#1d1d1f]">Short Introduction / Prior Roles (Optional)</label>
+                <label className="text-[#1d1d1f]">Short Introduction / Service Record (Optional)</label>
                 <Textarea
                   rows={3}
-                  placeholder="Mention previous security or facility work, language skills, or available shift timings..."
+                  placeholder="Mention previous defense regiment, security or facility experience, language proficiencies..."
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                   className="rounded-2xl bg-white border-black/[0.08] text-xs leading-relaxed focus:border-[#0071e3]"
@@ -371,9 +441,9 @@ export default function CareersPage() {
 
               <Button
                 type="submit"
-                className="w-full h-12 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white font-semibold text-xs shadow-sm min-h-[44px]"
+                className="w-full h-12 rounded-full bg-[#1d1d1f] hover:bg-black text-white font-semibold text-xs shadow-sm min-h-[44px]"
               >
-                <Send size={14} className="mr-1.5" /> Submit Application
+                <Send size={14} className="mr-1.5" /> Submit Application to JSM Desk
               </Button>
             </form>
           )}

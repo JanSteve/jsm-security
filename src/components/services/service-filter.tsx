@@ -15,15 +15,16 @@ interface ServiceFilterProps {
 }
 
 export function ServiceFilter({ categories, services }: ServiceFilterProps) {
-  const [activeCategory, setActiveCategory] = useState('All Services');
+  const [activeCategory, setActiveCategory] = useState('All Capabilities');
 
   const filteredServices = services.filter((s) => {
-    if (activeCategory === 'All Services') return true;
-    if (activeCategory === 'Core Operations (Phase 1)') return s.isCoreLaunch;
-    if (activeCategory === 'Integrated Business Solutions (Phase 2)') return !s.isCoreLaunch;
-    if (activeCategory === 'Security & Guarding') return s.category === 'security';
-    if (activeCategory === 'Facility & Housekeeping') return s.category === 'facilities';
-    if (activeCategory === 'Manpower & Staffing') return s.category === 'manpower';
+    if (activeCategory === 'All Capabilities' || activeCategory === 'All Services') return true;
+    if (activeCategory.includes('Tier 1')) return s.category === 'security';
+    if (activeCategory.includes('Tier 2')) return s.category === 'manpower';
+    if (activeCategory.includes('Tier 3')) return s.category === 'facilities';
+    if (activeCategory.includes('GeM')) return s.category === 'tender';
+    if (activeCategory.includes('IT')) return s.category === 'digital';
+    if (activeCategory.includes('Citizen')) return s.category === 'csc';
     return true;
   });
 
@@ -74,7 +75,7 @@ export function ServiceFilter({ categories, services }: ServiceFilterProps) {
                       ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' 
                       : 'bg-blue-50 text-blue-700 border border-blue-200'
                   }`}>
-                    {service.isCoreLaunch ? 'Core Phase 1' : 'Expansion Phase 2'}
+                    {service.phase}
                   </span>
                 </div>
                 
