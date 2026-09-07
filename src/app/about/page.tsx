@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, CheckCircle2, Shield, Sparkles, Users, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { OperationalProofSlideshow } from "@/components/about/operational-proof-slideshow";
 
 export const metadata = {
   title: "About JSM — The Architecture of Excellence",
@@ -106,64 +107,7 @@ export default function AboutPage() {
               </span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Photo 1: Airport Terminal Concourse Platoon */}
-              <div className="bg-[#f5f5f7] p-3.5 rounded-[28px] border border-black/[0.06] shadow-sm space-y-3 group hover:border-black/[0.12] transition-colors">
-                <div className="relative h-56 w-full rounded-2xl overflow-hidden">
-                  <Image
-                    src="/images/real_jsm_airport_terminal_platoon.jpg"
-                    alt="Managing Director Sweety J with Security Platoon at Trichy Airport"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute top-2.5 left-2.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm border border-black/[0.08] text-[#1d1d1f] text-[10px] font-semibold uppercase">
-                    Civil Aviation Benchmark
-                  </div>
-                </div>
-                <div className="p-2">
-                  <h4 className="text-sm font-semibold text-[#1d1d1f]">Trichy International Airport</h4>
-                  <p className="text-xs text-[#86868b] leading-relaxed text-pretty mt-0.5">MD Sweety J seated with full uniformed security platoon during our 2024 operations contract.</p>
-                </div>
-              </div>
-
-              {/* Photo 2: Fabrication Industry Hiring */}
-              <div className="bg-[#f5f5f7] p-3.5 rounded-[28px] border border-black/[0.06] shadow-sm space-y-3 group hover:border-black/[0.12] transition-colors">
-                <div className="relative h-56 w-full rounded-2xl overflow-hidden">
-                  <Image
-                    src="/images/real_jsm_fabrication_hiring.jpg"
-                    alt="JSM Fabrication Industry Recruitment Flyer"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute top-2.5 left-2.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm border border-black/[0.08] text-emerald-700 text-[10px] font-semibold uppercase">
-                    Industrial Workforce
-                  </div>
-                </div>
-                <div className="p-2">
-                  <h4 className="text-sm font-semibold text-[#1d1d1f]">Manufacturing &amp; Fabrication</h4>
-                  <p className="text-xs text-[#86868b] leading-relaxed text-pretty mt-0.5">Rapid staffing for industrial plants with 100% statutory EPF/ESI legal indemnity.</p>
-                </div>
-              </div>
-
-              {/* Photo 3: Shift Muster Protocol */}
-              <div className="bg-[#f5f5f7] p-3.5 rounded-[28px] border border-black/[0.06] shadow-sm space-y-3 group hover:border-black/[0.12] transition-colors">
-                <div className="relative h-56 w-full rounded-2xl overflow-hidden">
-                  <Image
-                    src="/images/real_jsm_shift_muster_day.jpg"
-                    alt="Daytime Shift Briefing and Roll Call"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute top-2.5 left-2.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm border border-black/[0.08] text-[#1d1d1f] text-[10px] font-semibold uppercase">
-                    Field Discipline
-                  </div>
-                </div>
-                <div className="p-2">
-                  <h4 className="text-sm font-semibold text-[#1d1d1f]">Daily Shift Muster</h4>
-                  <p className="text-xs text-[#86868b] leading-relaxed text-pretty mt-0.5">Pre-shift inspection, radio checks, and 2-Hour Relief standby replacement protocols.</p>
-                </div>
-              </div>
-            </div>
+            <OperationalProofSlideshow />
           </div>
         </section>
 

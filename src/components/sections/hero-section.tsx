@@ -13,6 +13,7 @@ import {
   CheckCircle2, 
   Award,
   ChevronRight,
+  ChevronLeft,
   Sparkles,
   QrCode,
   FileCheck
@@ -94,6 +95,14 @@ export function HeroSection() {
     }, 6000);
     return () => clearInterval(timer);
   }, [isPaused]);
+
+  const prevSlide = () => {
+    setActiveTab((prev) => (prev === 0 ? heroVisuals.length - 1 : prev - 1));
+  };
+
+  const nextSlide = () => {
+    setActiveTab((prev) => (prev + 1) % heroVisuals.length);
+  };
 
   const current = heroVisuals[activeTab];
 
@@ -190,6 +199,35 @@ export function HeroSection() {
             onMouseLeave={() => setIsPaused(false)}
             className="relative w-full h-[400px] sm:h-[460px] md:h-[500px] rounded-3xl overflow-hidden shadow-xl border border-black/[0.08] bg-[#f5f5f7] group"
           >
+            {/* Top Progress Bar */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-white/20 z-20 overflow-hidden">
+              <motion.div 
+                key={activeTab}
+                initial={{ width: "0%" }}
+                animate={{ width: "100%" }}
+                transition={{ duration: isPaused ? 0 : 6, ease: "linear" }}
+                className="h-full bg-[#0071e3]"
+              />
+            </div>
+
+            {/* Slideshow Arrow Controls */}
+            <div className="absolute inset-y-0 inset-x-3 z-20 flex items-center justify-between pointer-events-none">
+              <button
+                onClick={prevSlide}
+                className="pointer-events-auto w-10 h-10 rounded-full bg-black/50 hover:bg-black/80 backdrop-blur-md text-white border border-white/20 flex items-center justify-center transition-all press-scale shadow-lg opacity-80 hover:opacity-100"
+                aria-label="Previous slide"
+              >
+                <ChevronLeft size={18} strokeWidth={2.5} />
+              </button>
+
+              <button
+                onClick={nextSlide}
+                className="pointer-events-auto w-10 h-10 rounded-full bg-black/50 hover:bg-black/80 backdrop-blur-md text-white border border-white/20 flex items-center justify-center transition-all press-scale shadow-lg opacity-80 hover:opacity-100"
+                aria-label="Next slide"
+              >
+                <ChevronRight size={18} strokeWidth={2.5} />
+              </button>
+            </div>
             
             <AnimatePresence mode="wait">
               <motion.div

@@ -1,39 +1,112 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { 
   ShieldCheck, 
-  Sparkles, 
   Plane, 
   Award, 
   Clock, 
   Users, 
   ArrowRight, 
+  ChevronLeft, 
+  ChevronRight, 
   CheckCircle2, 
-  Phone, 
-  MessageCircle, 
-  ExternalLink, 
-  MapPin, 
-  Briefcase, 
-  FileCheck 
+  FileCheck,
+  Building2
 } from "lucide-react";
-import { SpotlightCard } from "@/components/ui/spotlight-card";
-import { BorderBeam } from "@/components/ui/border-beam";
-import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { brandData } from "@/data/brand";
 
+const operationalSlides = [
+  {
+    id: "airport-terminal",
+    tag: "CIVIL AVIATION BENCHMARK (2024)",
+    title: "Managing Director Sweety J & Trichy Airport Platoon",
+    badge: "Landmark Aviation Contract",
+    desc: "MD Sweety J seated with the full disciplined security squad at the international concourse entrance of Trichy International Airport. Proven 24/7 terminal vigilance, passenger assistance, and access control.",
+    metric: "Zero Security Incidents • 24/7 Gate Command",
+    image: "/images/real_jsm_airport_terminal_platoon.jpg",
+    tabLabel: "Airport Concourse Platoon",
+    href: "/about"
+  },
+  {
+    id: "chariot-platoon",
+    tag: "PSARA 2005 COMPLIANT MUSTER",
+    title: "Monument Landmark Ceremonial Honor Guard",
+    badge: "100% Police Verified",
+    desc: "Uniformed security detachment in full ceremonial turnout and bearing under the monumental chariot mural with MD Sweety J. Demonstrating five-day induction discipline, posture, and turn-out readiness.",
+    metric: "Aadhaar & Police Verified • 2:00 AM Spot-Audited",
+    image: "/images/real_jsm_chariot_platoon.jpg",
+    tabLabel: "Heritage Honor Guard",
+    href: "/services/private-security"
+  },
+  {
+    id: "printed-card",
+    tag: "AUTHENTIC CORPORATE CREDENTIALS",
+    title: "Official State PSARA Licensing & Registered Office",
+    badge: "300 DPI Physical Proof",
+    desc: "Official printed business card with metallic silver crest verifying Sweety J (Proprietor & MD), Operations Head Major AR Devadoss (Army-Veteran), and registered headquarters in Kottapattu, Trichy.",
+    metric: "Home Department Licensed • Statutory Adherence",
+    image: "/images/real_jsm_printed_card.jpg",
+    tabLabel: "Corporate Credentials",
+    href: "/about"
+  },
+  {
+    id: "fabrication-manpower",
+    tag: "ACTIVE INDUSTRIAL STAFFING",
+    title: "Manufacturing & Heavy Fabrication Workforce",
+    badge: "Rapid 48–72h Mobilization",
+    desc: "Active industrial staffing for Block & Pipe fabrication technicians deployed across Tamil Nadu's industrial manufacturing corridors with complete EPF and ESIC statutory legal indemnity.",
+    metric: "100% EPF/ESIC Adherence • Zero Client Liability",
+    image: "/images/real_jsm_fabrication_hiring.jpg",
+    tabLabel: "Industrial Workforce",
+    href: "/careers"
+  },
+  {
+    id: "shift-muster",
+    tag: "DAILY FIELD DISCIPLINE",
+    title: "Shift Muster Briefing & Radio Telemetry Check",
+    badge: "2-Hour Relief SLA",
+    desc: "Daily pre-shift muster, radio communication protocol verification, and post allocation. Any guard absence triggers our roving supervisor van with a verified substitute within 120 minutes.",
+    metric: "Guaranteed 2-Hour Relief Replacement SLA",
+    image: "/images/real_jsm_shift_muster_day.jpg",
+    tabLabel: "Daily Shift Muster",
+    href: "/services/private-security"
+  }
+];
+
 export function FlagshipBentoGrid() {
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % operationalSlides.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [isPaused]);
+
+  const prevSlide = () => {
+    setActiveSlide((prev) => (prev === 0 ? operationalSlides.length - 1 : prev - 1));
+  };
+
+  const nextSlide = () => {
+    setActiveSlide((prev) => (prev + 1) % operationalSlides.length);
+  };
+
+  const current = operationalSlides[activeSlide];
+
   return (
     <section className="py-16 md:py-24 px-4 sm:px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto bg-white border-t border-black/[0.08] text-[#1d1d1f]">
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-black/[0.08] gap-6">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-black/[0.08] gap-6">
         <div className="space-y-3">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f5f5f7] border border-black/[0.06] text-[#86868b] text-xs font-mono font-medium tracking-wider">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>Ground operations bento architecture</span>
+            <span>Interactive Operational Proof Slideshow</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-bold text-[#1d1d1f] tracking-tight text-balance">
             Real proof. Real people. <br />
@@ -45,245 +118,146 @@ export function FlagshipBentoGrid() {
         </p>
       </div>
 
-      {/* Bento Grid Layout */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
-        
-        {/* Tile 1: Flagship Airport Terminal Platoon (7 Cols) */}
-        <div className="md:col-span-12 lg:col-span-7 relative min-h-[480px] flex flex-col justify-between overflow-hidden group shadow-lg border border-black/[0.08] bg-[#f5f5f7] rounded-[28px]">
-          <div className="absolute inset-0 z-0">
-            <Image
-              src="/images/real_jsm_airport_terminal_platoon.jpg"
-              alt="Sweety J seated with full JSM security guard platoon at Trichy International Airport concourse"
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
-              sizes="(max-width: 1024px) 100vw, 60vw"
+      {/* Interactive Slideshow Player */}
+      <div 
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        className="space-y-6"
+      >
+        {/* Apple Tab Filter Strip */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+          {operationalSlides.map((slide, idx) => (
+            <button
+              key={slide.id}
+              onClick={() => setActiveSlide(idx)}
+              className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-300 press-scale flex items-center gap-2 ${
+                activeSlide === idx
+                  ? "bg-[#1d1d1f] text-white shadow-sm"
+                  : "bg-[#f5f5f7] text-[#515154] hover:bg-black/[0.06] hover:text-[#1d1d1f]"
+              }`}
+            >
+              <span className={`w-1.5 h-1.5 rounded-full ${activeSlide === idx ? "bg-[#0071e3]" : "bg-neutral-400"}`} />
+              <span>{slide.tabLabel}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* Cinematic Main Stage Viewport */}
+        <div className="relative w-full h-[460px] sm:h-[540px] md:h-[600px] rounded-[32px] overflow-hidden border border-black/[0.08] shadow-xl bg-[#1d1d1f] group">
+          {/* Top Progress Bar */}
+          <div className="absolute top-0 left-0 right-0 h-1 bg-white/20 z-20 overflow-hidden">
+            <motion.div 
+              key={activeSlide}
+              initial={{ width: "0%" }}
+              animate={{ width: "100%" }}
+              transition={{ duration: isPaused ? 0 : 6, ease: "linear" }}
+              className="h-full bg-[#0071e3]"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
           </div>
 
-          {/* Top Pill Badges */}
-          <div className="relative z-10 p-6 flex flex-wrap items-center justify-between gap-2 pointer-events-none">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-black/[0.08] text-[#1d1d1f] text-[11px] font-mono font-bold shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Trichy International Airport concourse</span>
-            </div>
-            <div className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-[11px] font-mono font-medium shadow-xs">
-              Civil aviation benchmark
-            </div>
+          {/* Background Slide Image with Crossfade */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current.id}
+              initial={{ opacity: 0, scale: 1.04 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.98 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="absolute inset-0 z-0"
+            >
+              <Image
+                src={current.image}
+                alt={current.title}
+                fill
+                className="object-cover"
+                sizes="(max-width: 1440px) 100vw, 1440px"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/20" />
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Top Slide Header Overlay */}
+          <div className="absolute top-6 inset-x-6 z-10 flex items-center justify-between pointer-events-none">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-[11px] font-mono font-semibold shadow-xs">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span>{current.tag}</span>
+            </span>
+
+            <span className="hidden sm:inline-flex px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md text-[#1d1d1f] text-xs font-semibold shadow-xs">
+              {current.badge}
+            </span>
           </div>
 
-          {/* Bottom Card Content */}
-          <div className="relative z-10 p-6 sm:p-8 space-y-3">
-            <div className="bg-white/95 backdrop-blur-xl p-6 rounded-2xl border border-black/[0.08] shadow-md space-y-3">
-              <div className="space-y-1">
-                <span className="text-xs font-mono font-bold text-[#86868b] tracking-wider block uppercase">
-                  Founder &amp; platoon command
-                </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#1d1d1f] tracking-tight text-balance">
-                  Managing Director Sweety J &amp; security squad
+          {/* Navigation Arrow Controls */}
+          <div className="absolute inset-y-0 inset-x-4 z-20 flex items-center justify-between pointer-events-none">
+            <button
+              onClick={prevSlide}
+              className="pointer-events-auto w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black/50 hover:bg-black/80 backdrop-blur-md text-white border border-white/20 flex items-center justify-center transition-all press-scale shadow-lg group-hover:opacity-100 opacity-90"
+              aria-label="Previous operational slide"
+            >
+              <ChevronLeft size={22} strokeWidth={2.5} />
+            </button>
+
+            <button
+              onClick={nextSlide}
+              className="pointer-events-auto w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black/50 hover:bg-black/80 backdrop-blur-md text-white border border-white/20 flex items-center justify-center transition-all press-scale shadow-lg group-hover:opacity-100 opacity-90"
+              aria-label="Next operational slide"
+            >
+              <ChevronRight size={22} strokeWidth={2.5} />
+            </button>
+          </div>
+
+          {/* Bottom High-Contrast Content Card */}
+          <div className="absolute bottom-6 inset-x-4 sm:inset-x-6 z-10 pointer-events-none">
+            <div className="pointer-events-auto max-w-3xl bg-white/95 backdrop-blur-2xl p-6 sm:p-7 rounded-2xl sm:rounded-[24px] border border-black/[0.08] shadow-2xl space-y-3">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <h3 className="text-lg sm:text-2xl font-bold text-[#1d1d1f] tracking-tight">
+                  {current.title}
                 </h3>
+                <span className="text-xs font-mono font-semibold text-[#0071e3] whitespace-nowrap">
+                  {current.metric}
+                </span>
               </div>
+
               <p className="text-xs sm:text-sm text-[#515154] font-normal leading-relaxed text-pretty">
-                Managing Director <strong>Sweety J</strong> seated with the full disciplined uniformed platoon at the glass concourse entrance of Trichy International Airport. Proven crowd control, passenger screening assistance, and zero-lapse vigilance.
+                {current.desc}
               </p>
 
-              <div className="flex flex-wrap items-center gap-3 pt-1">
+              <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-black/[0.06]">
                 <Link
-                  href="/about"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white text-xs font-semibold tracking-wider transition-all min-h-[40px] press-scale shadow-xs"
+                  href={current.href}
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0071e3] hover:underline transition-colors press-scale"
                 >
-                  <span>Explore company profile</span>
-                  <ArrowRight size={14} />
+                  <span>Learn more about this deployment</span>
+                  <ArrowRight size={13} />
                 </Link>
-                <span className="text-xs font-mono text-[#86868b] tabular-nums">
-                  100% verified platoon photograph
-                </span>
+
+                <div className="flex items-center gap-2">
+                  <span className="text-[11px] font-mono text-[#86868b] tabular-nums">
+                    0{activeSlide + 1} / 0{operationalSlides.length}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Tile 2: Heritage Landmark Chariot Platoon (5 Cols) */}
-        <div className="md:col-span-12 lg:col-span-5 relative min-h-[480px] flex flex-col justify-between overflow-hidden group shadow-lg border border-black/[0.08] bg-[#f5f5f7] rounded-[28px]">
-          <div className="absolute inset-0 z-0">
-            <Image
-              src="/images/real_jsm_chariot_platoon.jpg"
-              alt="JSM Uniformed Security Guard Platoon under landmark temple chariot mural"
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
-              sizes="(max-width: 1024px) 100vw, 40vw"
+        {/* Thumbnail Dots Bar */}
+        <div className="flex items-center justify-center gap-2 pt-1">
+          {operationalSlides.map((slide, idx) => (
+            <button
+              key={slide.id}
+              onClick={() => setActiveSlide(idx)}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                activeSlide === idx 
+                  ? "w-8 bg-[#0071e3]" 
+                  : "w-2 bg-black/15 hover:bg-black/30"
+              }`}
+              aria-label={`Slide ${idx + 1}`}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-          </div>
-
-          <div className="relative z-10 p-6 flex items-center justify-between pointer-events-none">
-            <span className="px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-black/[0.08] text-[#1d1d1f] text-[11px] font-mono font-bold shadow-xs">
-              Heritage sector command
-            </span>
-            <span className="px-2.5 py-1 rounded-full bg-emerald-600 text-white text-[11px] font-mono font-bold tabular-nums">
-              100% turnout
-            </span>
-          </div>
-
-          <div className="relative z-10 p-6 sm:p-8">
-            <div className="bg-white/95 backdrop-blur-xl p-5 rounded-2xl border border-black/[0.08] shadow-md space-y-2">
-              <span className="text-xs font-mono font-bold text-[#86868b] tracking-wider block uppercase">
-                Discipline &amp; bearing
-              </span>
-              <h3 className="text-lg sm:text-xl font-bold text-[#1d1d1f] tracking-tight text-balance">
-                Platoon honor guard &amp; muster call
-              </h3>
-              <p className="text-xs text-[#515154] font-normal leading-relaxed text-pretty">
-                Uniformed guard squad in ceremonial turnout under the monumental temple chariot mural. Every guard is 5-day pre-deployment trained and police verified.
-              </p>
-              <div className="pt-1">
-                <Link
-                  href="/services/private-security"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0071e3] hover:underline transition-colors min-h-[40px] press-scale"
-                >
-                  <span>Explore guard standards</span>
-                  <ArrowRight size={14} />
-                </Link>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
-
-        {/* Tile 3: Official Printed Business Card Proof (4 Cols) */}
-        <div className="md:col-span-6 lg:col-span-4 p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-sm border border-black/[0.06] bg-[#f5f5f7] rounded-[28px] group">
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <span className="px-3 py-1 rounded-full bg-white text-[#1d1d1f] border border-black/[0.06] text-[10px] font-mono font-bold shadow-2xs">
-                Executive credentials
-              </span>
-              <span className="text-[10px] font-mono text-[#86868b]">Physical proof</span>
-            </div>
-
-            <div className="relative aspect-[16/10] rounded-2xl overflow-hidden border border-black/[0.08] shadow-xs">
-              <Image
-                src="/images/real_jsm_printed_card.jpg"
-                alt="Authentic printed business card of JSM Integrated Services showing Sweety J and Major AR Devadoss"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-3">
-                <span className="text-[11px] text-white font-mono font-medium">
-                  Official metallic emblem card
-                </span>
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <h4 className="text-base font-bold text-[#1d1d1f]">
-                Leadership on record
-              </h4>
-              <ul className="text-xs text-[#515154] space-y-1.5 font-medium">
-                <li>• <strong className="text-[#1d1d1f]">Sweety J</strong>: Proprietor &amp; Managing Director</li>
-                <li>• <strong className="text-[#1d1d1f]">Major AR Devadoss</strong>: Head of Operations (Army-Veteran)</li>
-                <li>• <strong className="text-[#1d1d1f]">R Jan Steve Daniel</strong>: Chief Technical Officer &amp; Audit</li>
-              </ul>
-            </div>
-          </div>
-
-          <Link
-            href="/about"
-            className="inline-flex items-center justify-between w-full p-3.5 rounded-full bg-white hover:bg-[#1d1d1f] hover:text-white transition-all text-xs font-semibold text-[#1d1d1f] min-h-[44px] press-scale border border-black/[0.08] shadow-2xs"
-          >
-            <span>View executive credentials</span>
-            <ArrowRight size={14} />
-          </Link>
-        </div>
-
-        {/* Tile 4: Fabrication Industry Staffing (4 Cols) */}
-        <div className="md:col-span-6 lg:col-span-4 p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-sm border border-black/[0.06] bg-[#f5f5f7] rounded-[28px] group">
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <span className="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200/60 text-[10px] font-mono font-bold">
-                Active recruitment
-              </span>
-              <span className="text-[10px] font-mono text-[#86868b]">JSM-02 Manpower</span>
-            </div>
-
-            <div className="relative aspect-[16/10] rounded-2xl overflow-hidden border border-black/[0.08] shadow-xs">
-              <Image
-                src="/images/real_jsm_fabrication_hiring.jpg"
-                alt="JSM Outsourcing Services Fabrication Industry Hiring Poster"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-3">
-                <span className="text-[11px] text-white font-mono font-medium">
-                  Fabrication industry recruitment
-                </span>
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <h4 className="text-base font-bold text-[#1d1d1f]">
-                Technical &amp; industrial trades
-              </h4>
-              <p className="text-xs text-[#515154] leading-relaxed font-normal text-pretty">
-                Active hiring for block fabrication and pipe fabrication. Deployed across manufacturing plants with 100% EPF, ESIC, and minimum wage legal compliance.
-              </p>
-            </div>
-          </div>
-
-          <Link
-            href="/careers"
-            className="inline-flex items-center justify-between w-full p-3.5 rounded-full bg-white hover:bg-[#1d1d1f] hover:text-white transition-all text-xs font-semibold text-[#1d1d1f] min-h-[44px] press-scale border border-black/[0.08] shadow-2xs"
-          >
-            <span>Apply or request workforce</span>
-            <ArrowRight size={14} />
-          </Link>
-        </div>
-
-        {/* Tile 5: Operational Guarantees & SLAs (4 Cols) */}
-        <div className="md:col-span-12 lg:col-span-4 p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-sm border border-black/[0.06] bg-[#f5f5f7] rounded-[28px] text-[#1d1d1f]">
-          <div className="space-y-4">
-            <span className="px-3 py-1 rounded-full bg-white text-[#1d1d1f] border border-black/[0.06] text-[10px] font-mono font-bold inline-block shadow-2xs">
-              Statutory &amp; field SLAs
-            </span>
-
-            <h4 className="text-xl font-bold text-[#1d1d1f] tracking-tight text-balance">
-              Guaranteed operational metrics
-            </h4>
-
-            <div className="space-y-3 pt-1">
-              <div className="p-3.5 rounded-2xl bg-white border border-black/[0.04] space-y-1 shadow-2xs">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-semibold text-[#1d1d1f] tabular-nums">2:00 am night van audits</span>
-                  <Clock size={15} className="text-[#86868b]" />
-                </div>
-                <p className="text-[11px] text-[#515154] leading-relaxed">Unannounced mobile patrol inspections across all night duty posts.</p>
-              </div>
-
-              <div className="p-3.5 rounded-2xl bg-white border border-black/[0.04] space-y-1 shadow-2xs">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-semibold text-[#1d1d1f] tabular-nums">2-hour replacement SLA</span>
-                  <Award size={15} className="text-emerald-600" />
-                </div>
-                <p className="text-[11px] text-[#515154] leading-relaxed tabular-nums">Roving reserve personnel deployed within 120 minutes of absent reporting.</p>
-              </div>
-
-              <div className="p-3.5 rounded-2xl bg-white border border-black/[0.04] space-y-1 shadow-2xs">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-semibold text-[#1d1d1f] tabular-nums">100% EPF &amp; ESIC proof</span>
-                  <ShieldCheck size={15} className="text-blue-600" />
-                </div>
-                <p className="text-[11px] text-[#515154] leading-relaxed">Monthly statutory challan receipts furnished directly to corporate clients.</p>
-              </div>
-            </div>
-          </div>
-
-          <Link
-            href="/get-quote"
-            className="inline-flex items-center justify-center w-full h-11 px-6 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white font-semibold text-xs shadow-xs press-scale transition-all"
-          >
-            <span>Get instant quote</span>
-            <ArrowRight size={14} className="ml-1 text-white" />
-          </Link>
-        </div>
-
       </div>
     </section>
   );
