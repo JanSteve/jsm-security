@@ -62,13 +62,14 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.ico?v=4", sizes: "any" },
+      { url: "/icon.png?v=4", type: "image/png", sizes: "512x512" },
+      { url: "/icon-192.png?v=4", type: "image/png", sizes: "192x192" },
     ],
     apple: [
-      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+      { url: "/apple-icon.png?v=4", sizes: "180x180", type: "image/png" },
     ],
-    shortcut: "/icon.png",
+    shortcut: "/favicon.ico?v=4",
   },
 };
 
@@ -79,6 +80,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/favicon.ico?v=4" sizes="any" />
+        <link rel="icon" href="/icon.png?v=4" type="image/png" sizes="512x512" />
+        <link rel="apple-touch-icon" href="/apple-icon.png?v=4" sizes="180x180" />
+      </head>
       <body
         className={cn(
           "min-h-screen bg-white font-sans antialiased text-[#1d1d1f] selection:bg-[#0071e3]/15 selection:text-black",

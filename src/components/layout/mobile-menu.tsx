@@ -28,7 +28,7 @@ export function MobileMenu() {
       <SheetContent side="right" className="w-full sm:max-w-md bg-white border-l border-black/[0.08] p-0 flex flex-col h-full overflow-hidden text-[#1d1d1f]">
         <SheetHeader className="p-5 text-left border-b border-black/[0.08] flex flex-row items-center justify-between">
           <SheetTitle className="text-base font-bold tracking-tight text-[#1d1d1f] flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-white border border-black/[0.08] p-0.5 flex items-center justify-center font-bold text-xs shadow-xs overflow-hidden">
+            <div className="w-8 h-8 rounded-full flex items-center justify-center shadow-xs overflow-hidden shrink-0">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/images/jsm_logo_transparent.png" alt="JSM" className="w-full h-full object-contain" />
             </div>
