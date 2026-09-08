@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
+export const maxDuration = 60;
+
 export async function POST(req: NextRequest) {
   try {
     const { text, lang = "en", voiceId } = await req.json();
