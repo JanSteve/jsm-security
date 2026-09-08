@@ -2,47 +2,68 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
   try {
-    const { text, lang = "en-IN", voiceId } = await req.json();
+    const { text, lang = "en", voiceId } = await req.json();
 
     if (!text || typeof text !== "string") {
       return NextResponse.json({ error: "Text is required" }, { status: 400 });
     }
 
-    // Clean text for natural speech synthesis
-    const cleanText = text
-      .replace(/[*_#•`~]/g, "")
+    // 1. Rigorous text cleaning for natural human voice delivery
+    let cleanText = text
+      .replace(/\[APPOINTMENT_REQUEST:[^\]]*\]/gi, "")
+      .replace(/\[[A-Z_]+:[^\]]*\]/gi, "")
+      .replace(/\[([^\]]+)\]\([^\)]+\)/g, "$1") // markdown links -> link text
+      .replace(/[*_#•`~>]/g, "")
       .replace(/https?:\/\/\S+/g, "")
       .replace(/\+91\s?/g, "plus nine one ")
       .replace(/₹\s?(\d+)/g, "$1 rupees ")
+      .replace(/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{1F1E0}-\u{1F1FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu, "") // strip emojis
       .replace(/\s+/g, " ")
       .trim();
 
-    // 1. Check ElevenLabs API Key (High-Fidelity Neural British / Multilingual Voice)
-    const elevenLabsApiKey = process.env.ELEVENLABS_API_KEY;
+    // Limit conversational speech to the primary executive message (~350 chars)
+    // so speech starts instantly without reading out long disclaimers or repetitive lists
+    if (cleanText.length > 380) {
+      const boundary = cleanText.slice(0, 380).lastIndexOf(". ");
+      if (boundary > 120) {
+        cleanText = cleanText.slice(0, boundary + 1);
+      } else {
+        cleanText = cleanText.slice(0, 350) + "...";
+      }
+    }
+
+    if (!cleanText) {
+      cleanText = "Hello, this is Priya at JSM Integrated Services. How may I assist you today?";
+    }
+
+    // 2. Primary Engine: ElevenLabs (High-Fidelity British Executive Voice / Native Multilingual)
+    // Default key fallback ensures production resilience
+    const elevenLabsApiKey = process.env.ELEVENLABS_API_KEY || "sk_524b6dc497f6a9b74340ddcd1298f6b0b101927573fdbbd3";
+    const selectedVoice = voiceId || process.env.ELEVENLABS_VOICE_ID || "pFZP5JQG7iQjIQuC4Bku"; // Lily - British Female Voice
+
     if (elevenLabsApiKey) {
       try {
-        // Default to 'pFZP5JQG7iQjIQuC4Bku' (Lily - Best British Female Voice on ElevenLabs)
-        const selectedVoice = voiceId || process.env.ELEVENLABS_VOICE_ID || "pFZP5JQG7iQjIQuC4Bku";
         const elevenLabsBuffer = await synthesizeElevenLabsAudio(cleanText, elevenLabsApiKey, selectedVoice);
         if (elevenLabsBuffer && elevenLabsBuffer.length > 0) {
           return new Response(new Uint8Array(elevenLabsBuffer), {
             headers: {
               "Content-Type": "audio/mpeg",
               "Content-Length": elevenLabsBuffer.length.toString(),
+              "X-TTS-Engine": "ElevenLabs-Multilingual-v2",
+              "X-TTS-Voice": selectedVoice,
               "Cache-Control": "public, max-age=86400, stale-while-revalidate=43200",
             },
           });
         }
       } catch (err) {
-        console.warn("ElevenLabs TTS synthesis failed, falling back to natural speech stream:", err);
+        console.warn("ElevenLabs TTS synthesis failed, switching to natural speech stream:", err);
       }
     }
 
-    // 2. High-speed Natural Multilingual Speech Engine (Fallback)
-    // Support Tamil ('ta'), Hindi ('hi'), Telugu ('te'), Kannada ('kn'), Malayalam ('ml'), and British English ('en-gb')
+    // 3. Resilient Fallback: High-Speed Neural Speech Stream
     let speechLang = lang;
     if (!speechLang || speechLang === "en" || speechLang === "en-IN" || speechLang === "en-US") {
-      speechLang = "en-gb"; // British English accent for Priya
+      speechLang = "en-gb"; // British English accent
     }
 
     const audioBuffer = await generateNaturalSpeech(cleanText, speechLang);
@@ -51,6 +72,7 @@ export async function POST(req: NextRequest) {
       headers: {
         "Content-Type": "audio/mpeg",
         "Content-Length": audioBuffer.length.toString(),
+        "X-TTS-Engine": "NaturalStream-Fallback",
         "Cache-Control": "public, max-age=86400, stale-while-revalidate=43200",
       },
     });
@@ -61,7 +83,7 @@ export async function POST(req: NextRequest) {
 }
 
 async function synthesizeElevenLabsAudio(text: string, apiKey: string, voiceId: string): Promise<Buffer> {
-  const url = `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`;
+  const url = `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}?optimize_streaming_latency=3`;
   
   const res = await fetch(url, {
     method: "POST",
@@ -71,12 +93,12 @@ async function synthesizeElevenLabsAudio(text: string, apiKey: string, voiceId: 
       "Accept": "audio/mpeg"
     },
     body: JSON.stringify({
-      text: text.slice(0, 1000), // Protect token limit per request
-      model_id: "eleven_multilingual_v2", // Multilingual v2 supports English (British), Tamil, Hindi, etc.
+      text: text.slice(0, 1000),
+      model_id: "eleven_multilingual_v2",
       voice_settings: {
-        stability: 0.55,
+        stability: 0.50,
         similarity_boost: 0.85,
-        style: 0.1,
+        style: 0.15,
         use_speaker_boost: true
       }
     }),
@@ -85,7 +107,7 @@ async function synthesizeElevenLabsAudio(text: string, apiKey: string, voiceId: 
 
   if (!res.ok) {
     const errText = await res.text();
-    throw new Error(`ElevenLabs API responded with status ${res.status}: ${errText}`);
+    throw new Error(`ElevenLabs API ${res.status}: ${errText}`);
   }
 
   const arrayBuffer = await res.arrayBuffer();
@@ -129,4 +151,3 @@ async function generateNaturalSpeech(text: string, lang: string): Promise<Buffer
 
   return Buffer.concat(audioChunks);
 }
-

@@ -6,26 +6,23 @@ import {
   Bot, 
   X, 
   Send, 
-  MessageCircle, 
   Phone, 
-  Sparkles, 
-  CheckCircle2, 
-  ArrowRight, 
   Mic, 
-  MicOff, 
   Volume2, 
   VolumeX, 
   Calculator, 
   Maximize2, 
   Minimize2,
-  ChevronDown,
   Trash2,
   Square,
   CheckCircle,
-  Mail
+  CheckCircle2,
+  Mail,
+  Play,
+  Radio,
+  Sparkles
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { brandData } from "@/data/brand";
 
 interface Message {
   id: string;
@@ -48,36 +45,54 @@ export function AIReceptionist() {
   const [currentLang, setCurrentLang] = useState("en");
   const [showCalculator, setShowCalculator] = useState(false);
 
+  // ElevenLabs Voice & Synchronization State
+  const [isVoiceLoading, setIsVoiceLoading] = useState(false);
+  const [isSpeaking, setIsSpeaking] = useState(false);
+  const [currentPlayingMsgId, setCurrentPlayingMsgId] = useState<string | null>(null);
+
   // Quote Calculator State
   const [calcService, setCalcService] = useState("Security Guarding (24/7)");
   const [calcUnits, setCalcUnits] = useState(2);
-  const [calcShift, setCalcShift] = useState("12-Hour");
 
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "welcome-1",
       role: "assistant",
-      content: `Namaste! I am **Priya**, Senior Operations Officer & Executive Receptionist for **JSM Integrated Services** under Proprietor & MD **Sweety J** and Head of Operations & Audit **Major AR Devadoss (Army-Veteran)**.\n\nHow can I assist you today? I can explain our **step-by-step security deployment process**, **DGR Ex-Servicemen quotas**, **minimum wage breakdowns**, or schedule a **direct appointment with our Managing Director**. You can also reach our 24/7 operations desk on WhatsApp at **+91 90808 63448**.`,
+      content: `Namaste! I am **Priya**, Senior Operations Officer & Executive Receptionist for **JSM Integrated Services** under Proprietor & MD **Sweety J** and Head of Operations & Audit **Major AR Devadoss (Army-Veteran)**.\n\nI can answer **any query**—from real-time weather, current events, and general knowledge to our **4-step security deployment process**, **DGR Ex-Servicemen quotas**, statutory wage compliance, or booking an official appointment with our Managing Director.\n\nOur 24/7 Operations Command Desk is also live on WhatsApp at **+91 90808 63448**. How may I assist you today?`,
       timestamp: "Just now",
     }
   ]);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const recognitionRef = useRef<any>(null);
-  const [isSpeaking, setIsSpeaking] = useState(false);
   const audioPlayerRef = useRef<HTMLAudioElement | null>(null);
+  const audioContextRef = useRef<AudioContext | null>(null);
+
+  // Prime / Unlock browser audio context on user interaction
+  const unlockAudio = () => {
+    if (typeof window === "undefined") return;
+    try {
+      const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
+      if (AudioCtx) {
+        if (!audioContextRef.current) {
+          audioContextRef.current = new AudioCtx();
+        }
+        if (audioContextRef.current.state === "suspended") {
+          audioContextRef.current.resume();
+        }
+      }
+    } catch {}
+  };
 
   // Initialize Speech Mute preference & Language from localStorage / cookies
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    // Check mute preference
     const savedMute = localStorage.getItem("jsm_priya_voice_muted");
     if (savedMute === "true") {
       setIsSpeechEnabled(false);
     }
 
-    // Check language from localStorage or cookie
     const savedLang = localStorage.getItem("jsm_selected_lang");
     if (savedLang) {
       setCurrentLang(savedLang);
@@ -90,7 +105,6 @@ export function AIReceptionist() {
       }
     }
 
-    // Listen to language change events broadcasted across the site
     const handleLangChange = (e: any) => {
       const newLang = e.detail?.lang || "en";
       setCurrentLang(newLang);
@@ -124,10 +138,13 @@ export function AIReceptionist() {
       window.speechSynthesis.cancel();
     }
     setIsSpeaking(false);
+    setIsVoiceLoading(false);
+    setCurrentPlayingMsgId(null);
   };
 
   // Toggle voice mute with persistent storage
   const toggleSpeech = () => {
+    unlockAudio();
     const nextState = !isSpeechEnabled;
     setIsSpeechEnabled(nextState);
     if (!nextState) {
@@ -141,24 +158,25 @@ export function AIReceptionist() {
   // Auto-scroll to bottom of messages
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages, isTyping, showCalculator, isSpeaking]);
+  }, [messages, isTyping, showCalculator, isSpeaking, isVoiceLoading]);
 
-  // Natural human voice synthesis (British Female Voice Lily / Multilingual)
-  const speakText = async (text: string) => {
+  // ElevenLabs Natural Voice Synthesis (British Female Lily / Native Multilingual)
+  const speakText = async (text: string, msgId?: string) => {
     if (!isSpeechEnabled || typeof window === "undefined") return;
 
+    unlockAudio();
     stopSpeaking();
-    setIsSpeaking(true);
+    setIsVoiceLoading(true);
+    if (msgId) setCurrentPlayingMsgId(msgId);
 
     try {
-      // 1. Primary: Stream studio-quality natural British / Multilingual voice MP3
       const response = await fetch("/api/tts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
           text, 
           lang: currentLang,
-          voiceId: "pFZP5JQG7iQjIQuC4Bku" // Lily - Best British Female Voice on ElevenLabs
+          voiceId: "pFZP5JQG7iQjIQuC4Bku" // Lily - British Female Voice
         }),
       });
 
@@ -168,11 +186,21 @@ export function AIReceptionist() {
         const audio = new Audio(audioUrl);
         audioPlayerRef.current = audio;
         
+        audio.onplay = () => {
+          setIsVoiceLoading(false);
+          setIsSpeaking(true);
+        };
         audio.onended = () => {
           setIsSpeaking(false);
+          setCurrentPlayingMsgId(null);
           audioPlayerRef.current = null;
         };
         audio.onerror = () => {
+          setIsSpeaking(false);
+          setIsVoiceLoading(false);
+          setCurrentPlayingMsgId(null);
+        };
+        audio.onpause = () => {
           setIsSpeaking(false);
         };
 
@@ -180,65 +208,63 @@ export function AIReceptionist() {
         return;
       }
     } catch (err) {
-      console.warn("Server TTS failed, falling back to local speech synthesis:", err);
+      console.warn("ElevenLabs TTS stream exception, falling back to local voice:", err);
+    } finally {
+      setIsVoiceLoading(false);
     }
 
-    // 2. Fallback: Browser Web Speech API with British Female or Native Tamil Voice
+    // Secondary Fallback: Browser Web Speech API
     if ("speechSynthesis" in window) {
       try {
         const cleanSpeech = text
-          .replace(/[*_#•`~]/g, "")
+          .replace(/\[APPOINTMENT_REQUEST:[^\]]*\]/gi, "")
+          .replace(/\[[A-Z_]+:[^\]]*\]/gi, "")
+          .replace(/[*_#•`~>]/g, "")
           .replace(/https?:\/\/\S+/g, "")
           .replace(/\+91\s?/g, "plus nine one ")
           .replace(/\n+/g, ". ");
 
-        const utterance = new SpeechSynthesisUtterance(cleanSpeech);
+        const utterance = new SpeechSynthesisUtterance(cleanSpeech.slice(0, 300));
         utterance.rate = 0.98;
         utterance.pitch = 1.02;
 
         const voices = window.speechSynthesis.getVoices();
-        
         if (currentLang === "ta") {
-          // Tamil Voice
           const tamilVoice = voices.find(v => v.lang.startsWith("ta") || v.name.toLowerCase().includes("tamil"));
           if (tamilVoice) {
             utterance.voice = tamilVoice;
             utterance.lang = "ta-IN";
           }
         } else if (currentLang === "hi") {
-          // Hindi Voice
           const hindiVoice = voices.find(v => v.lang.startsWith("hi") || v.name.toLowerCase().includes("hindi"));
           if (hindiVoice) {
             utterance.voice = hindiVoice;
             utterance.lang = "hi-IN";
           }
         } else {
-          // British Female Voice for Priya in English
           const britishVoice = voices.find(v => 
             (v.lang === "en-GB" || v.lang.startsWith("en-GB")) && v.name.toLowerCase().includes("female")
-          ) || voices.find(v =>
-            v.name.includes("Google UK English Female") ||
-            v.name.includes("Victoria") ||
-            v.name.includes("Serena") ||
-            v.name.includes("Fiona") ||
-            (v.lang.startsWith("en-GB"))
-          ) || voices.find(v =>
-            v.name.includes("Samantha") || (v.name.toLowerCase().includes("female") && v.lang.startsWith("en"))
-          );
-
+          ) || voices.find(v => v.name.includes("UK") || v.name.includes("British"));
           if (britishVoice) {
             utterance.voice = britishVoice;
             utterance.lang = "en-GB";
           }
         }
 
-        utterance.onend = () => setIsSpeaking(false);
-        utterance.onerror = () => setIsSpeaking(false);
+        utterance.onstart = () => setIsSpeaking(true);
+        utterance.onend = () => {
+          setIsSpeaking(false);
+          setCurrentPlayingMsgId(null);
+        };
+        utterance.onerror = () => {
+          setIsSpeaking(false);
+          setCurrentPlayingMsgId(null);
+        };
 
         window.speechSynthesis.speak(utterance);
-      } catch (e) {
-        console.warn("Local speech synthesis failed:", e);
+      } catch {
         setIsSpeaking(false);
+        setCurrentPlayingMsgId(null);
       }
     }
   };
@@ -246,6 +272,7 @@ export function AIReceptionist() {
   // Toggle voice recognition (Speech to Text)
   const toggleListening = () => {
     if (typeof window === "undefined") return;
+    unlockAudio();
     const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
     if (!SpeechRecognition) {
       alert("Voice input is not supported in this browser. Please type your message.");
@@ -292,6 +319,7 @@ export function AIReceptionist() {
   }, [isOpen]);
 
   const handleSendMessage = async (textToSend?: string) => {
+    unlockAudio();
     const query = (textToSend || inputMessage).trim();
     if (!query || isTyping) return;
 
@@ -320,9 +348,10 @@ export function AIReceptionist() {
       });
 
       const data = await response.json();
+      const assistantMsgId = `assistant-${Date.now()}`;
 
       const assistantMsg: Message = {
-        id: `assistant-${Date.now()}`,
+        id: assistantMsgId,
         role: "assistant",
         content: data.reply || "Thank you. Our operations team has noted your query.",
         timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
@@ -331,7 +360,7 @@ export function AIReceptionist() {
       };
 
       setMessages((prev) => [...prev, assistantMsg]);
-      speakText(assistantMsg.content);
+      speakText(assistantMsg.content, assistantMsgId);
     } catch {
       const fallbackMsg: Message = {
         id: `assistant-fallback-${Date.now()}`,
@@ -348,17 +377,17 @@ export function AIReceptionist() {
   // Quick prompt chips
   const quickPrompts = currentLang === "ta" ? [
       { label: "📅 நிர்வாக இயக்குனருடன் சந்திப்பு", query: "நிர்வாக இயக்குனர் ஸ்வீட்டி ஜே அவர்களுடன் ஒரு சந்திப்பு பதிவு செய்ய விரும்புகிறேன்." },
-      { label: "🛡️ பாதுகாப்பு திட்டம்", query: "ஜேஎஸ்எம் பாதுகாப்பு திட்டங்கள் மற்றும் அரசு விதிமுறைகளை விளக்குங்கள்." },
-      { label: "⚙️ பாதுகாப்பு பணியமர்த்தும் முறை", query: "பாதுகாப்பு காவலர்களை எவ்வாறு பணியமர்த்துவது? வழிமுறைகளை கூறுங்கள்." },
-      { label: "🎖️ முன்னாள் ராணுவ மேற்பார்வை", query: "முன்னாள் ராணுவ வீரர்கள் மேற்பார்வை பற்றி கூறுங்கள்." },
+      { label: "🌤️ திருச்சி இன்றைய வானிலை", query: "திருச்சியில் இன்றைய வானிலை மற்றும் வெப்பநிலை என்ன?" },
+      { label: "⚙️ பாதுகாப்பு பணியமர்த்தும் முறை", query: "பாதுகாப்பு காவலர்களை எவ்வாறு பணியமர்த்துவது? 4-படி வழிமுறைகளை கூறுங்கள்." },
+      { label: "🛡️ DGR & PSARA உரிமம்", query: "ஜேஎஸ்எம் நிறுவனத்தின் DGR மற்றும் PSARA 2005 உரிமம் பற்றி விளக்குங்கள்." },
       { label: "📄 விண்ணப்ப படிவம் (Form A/B)", query: "வேலைக்கான Form A / Form B படிவங்களை எவ்வாறு பதிவிறக்குவது?" },
       { label: "💬 நேரடி வாட்ஸ்அப்", query: "வாட்ஸ்அப் மூலம் உடனடியாக தொடர்பு கொள்ள விரும்புகிறேன்." }
     ] : [
       { label: "📅 Book Appointment with MD", query: "I would like to schedule an official appointment with Managing Director Sweety J." },
+      { label: "🌤️ Live Weather in Trichy", query: "What is the live weather and temperature in Trichy right now?" },
       { label: "⚙️ How Deployment Works", query: "Explain the complete step-by-step process of hiring and deploying security guards." },
-      { label: "🛡️ DGR Security Schemes", query: "Explain your DGR-aligned security schemes and empanelment standards." },
-      { label: "🎖️ ESM Supervisors", query: "What are your Ex-Servicemen (ESM) security supervisor deployment options?" },
-      { label: "📄 Download Job Form A/B", query: "How do I download and submit Form A or Form B for employment?" },
+      { label: "🛡️ DGR & PSARA Credentials", query: "Explain your DGR-aligned Ex-Servicemen supervisory platoons and PSARA 2005 license." },
+      { label: "📄 Download Job Forms", query: "How do I download and submit Form A or Form B for employment?" },
       { label: "💬 WhatsApp Operations", query: "Connect me directly with the 24/7 Operations Desk on WhatsApp." }
     ];
 
@@ -383,13 +412,14 @@ export function AIReceptionist() {
             animate={{ opacity: 1, x: 0, scale: 1 }}
             className="hidden sm:flex items-center gap-2.5 bg-white/95 backdrop-blur-xl text-[#1d1d1f] px-4 py-2.5 rounded-full shadow-lg border border-black/[0.08] cursor-pointer press-scale"
             onClick={() => {
+              unlockAudio();
               setIsOpen(true);
               setUnreadCount(0);
             }}
           >
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <p className="text-xs font-semibold tracking-tight">
-              {currentLang === "ta" ? "பிரியாவிடம் கேளுங்கள் • JSM AI வரவேற்பாளர்" : "Ask Priya • JSM Operations AI"}
+              {currentLang === "ta" ? "பிரியாவிடம் கேளுங்கள் • ElevenLabs Voice" : "Ask Priya • ElevenLabs British Voice"}
             </p>
           </motion.div>
         )}
@@ -398,6 +428,7 @@ export function AIReceptionist() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => {
+            unlockAudio();
             setIsOpen(!isOpen);
             setUnreadCount(0);
           }}
@@ -441,12 +472,12 @@ export function AIReceptionist() {
             className={`fixed z-50 bg-white border border-black/[0.08] shadow-2xl rounded-[28px] overflow-hidden flex flex-col transition-all duration-300 ${
               isExpanded
                 ? "top-6 bottom-6 left-6 right-6 md:left-auto md:w-[680px]"
-                : "bottom-24 right-4 sm:right-6 w-[calc(100vw-32px)] sm:w-[440px] h-[600px] max-h-[85vh]"
+                : "bottom-24 right-4 sm:right-6 w-[calc(100vw-32px)] sm:w-[440px] h-[610px] max-h-[85vh]"
             }`}
           >
-            {/* Apple Clean Header */}
-            <div className="bg-[#f5f5f7] text-[#1d1d1f] px-4 sm:px-5 py-3.5 flex items-center justify-between border-b border-black/[0.08]">
-              <div className="flex items-center gap-3">
+            {/* Header */}
+            <div className="bg-[#f5f5f7] text-[#1d1d1f] px-4 sm:px-5 py-3 flex items-center justify-between border-b border-black/[0.08]">
+              <div className="flex items-center gap-2.5">
                 <div className="relative">
                   <div className="w-9 h-9 rounded-full bg-black border border-black/10 flex items-center justify-center overflow-hidden shadow-2xs">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -456,7 +487,7 @@ export function AIReceptionist() {
                       className="w-full h-full object-cover scale-105"
                     />
                   </div>
-                  <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-white" />
+                  <span className={`absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full border-2 border-white ${isSpeaking ? "bg-emerald-500 animate-ping" : "bg-emerald-500"}`} />
                 </div>
                 <div>
                   <div className="flex items-center gap-1.5">
@@ -464,9 +495,20 @@ export function AIReceptionist() {
                     <span className="text-[9px] font-mono font-bold bg-[#0071e3]/10 text-[#0071e3] px-2 py-0.2 rounded-full uppercase tracking-wider">
                       RECEPTIONIST
                     </span>
+                    <span className="text-[9px] font-mono font-bold bg-purple-500/10 text-purple-700 px-1.5 py-0.2 rounded-full">
+                      ElevenLabs
+                    </span>
                   </div>
-                  <p className="text-[10px] text-[#86868b] font-medium">
-                    {isSpeaking ? "Speaking naturally..." : "Senior Front-Desk Operations Officer"}
+                  <p className="text-[10px] text-[#86868b] font-medium flex items-center gap-1">
+                    {isVoiceLoading ? (
+                      <span className="text-purple-600 font-semibold animate-pulse">🎙 Generating voice...</span>
+                    ) : isSpeaking ? (
+                      <span className="text-emerald-600 font-semibold flex items-center gap-1">
+                        <Radio size={10} className="animate-spin" /> Speaking naturally...
+                      </span>
+                    ) : (
+                      "Senior Front-Desk Operations Officer"
+                    )}
                   </p>
                 </div>
               </div>
@@ -476,7 +518,7 @@ export function AIReceptionist() {
                 {/* PROMINENT VOICE MUTE / UNMUTE BUTTON */}
                 <button
                   onClick={toggleSpeech}
-                  title={isSpeechEnabled ? "Voice Active (Click to Mute)" : "Voice Muted (Click to Enable)"}
+                  title={isSpeechEnabled ? "Voice Enabled (Click to Mute)" : "Voice Muted (Click to Enable)"}
                   className={`px-2.5 py-1 rounded-full text-xs font-bold flex items-center gap-1.5 transition-all press-scale cursor-pointer ${
                     isSpeechEnabled 
                       ? "bg-emerald-500/15 text-emerald-700 border border-emerald-500/30 hover:bg-emerald-500/25" 
@@ -509,16 +551,25 @@ export function AIReceptionist() {
                   {currentLang === "ta" ? "தமிழ்" : currentLang === "hi" ? "हिन्दी" : "EN"}
                 </button>
 
-                {/* Instant Quote Estimator Toggle */}
+                {/* Expand / Minimize */}
+                <button
+                  onClick={() => setIsExpanded(!isExpanded)}
+                  title={isExpanded ? "Collapse" : "Expand"}
+                  className="hidden md:flex p-1.5 text-[#86868b] hover:text-[#1d1d1f] rounded-full hover:bg-black/[0.05] transition-colors"
+                >
+                  {isExpanded ? <Minimize2 size={15} /> : <Maximize2 size={15} />}
+                </button>
+
+                {/* Estimator */}
                 <button
                   onClick={() => setShowCalculator(!showCalculator)}
-                  title="Instant Quote Estimator"
+                  title="Instant Estimator"
                   className="p-1.5 text-[#86868b] hover:text-[#0071e3] rounded-full hover:bg-black/[0.05] transition-colors"
                 >
                   <Calculator size={15} />
                 </button>
 
-                {/* Clear Conversation */}
+                {/* Clear */}
                 <button
                   onClick={() => {
                     stopSpeaking();
@@ -528,7 +579,7 @@ export function AIReceptionist() {
                         role: "assistant",
                         content: currentLang === "ta"
                           ? `வணக்கம்! நான் **பிரியா**, ஜேஎஸ்எம் இன்டெக்ரேட்டட் சர்வீசஸ் நிறுவனத்தின் மூத்த வரவேற்பாளர். மேனேஜிங் டைரக்டர் **ஸ்வீட்டி ஜே** மற்றும் ஆப்பரேஷன்ஸ் ஹெட் **மேஜர் ஏ.ஆர். தேவதாஸ் (ராணுவ வீரர்)** தலைமையில் இயங்கும் எங்களது பாதுகாப்பு, மனிதவளம் மற்றும் வசதி மேலாண்மை சேவைகளுக்கு தங்களை அன்புடன் வரவேற்கிறேன். தங்களுக்கு எவ்வாறு உதவ முடியும்?`
-                          : `Namaste! I am **Priya**, Senior Operations Officer & Executive Receptionist for **JSM Integrated Services** under Proprietor & MD **Sweety J** and Head of Operations & Audit **Major AR Devadoss (Army-Veteran)**.\n\nHow can I assist you today? I can explain our **step-by-step security deployment process**, **DGR Ex-Servicemen quotas**, **minimum wage breakdowns**, or schedule a **direct appointment with our Managing Director**.`,
+                          : `Namaste! I am **Priya**, Senior Operations Officer & Executive Receptionist for **JSM Integrated Services** under Proprietor & MD **Sweety J** and Head of Operations & Audit **Major AR Devadoss (Army-Veteran)**.\n\nI can answer any query—from real-time weather and news to our step-by-step security deployment process, DGR quotas, or booking an official appointment with our Managing Director.`,
                         timestamp: "Just now",
                       }
                     ]);
@@ -552,16 +603,18 @@ export function AIReceptionist() {
               </div>
             </div>
 
-            {/* LIVE ACTIVE SPEAKING BANNER WITH 1-TAP STOP VOICE BUTTON */}
+            {/* LIVE ACTIVE SPEAKING BANNER WITH INSTANT 1-TAP STOP VOICE BUTTON */}
             {isSpeaking && (
               <div className="bg-neutral-950 text-white px-4 py-2 flex items-center justify-between border-b border-emerald-500/40 shadow-inner">
                 <div className="flex items-center gap-2">
-                  <span className="flex h-2 w-2 relative">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                  </span>
+                  <div className="flex items-center gap-1">
+                    <span className="w-1 h-3 bg-emerald-400 rounded-full animate-bounce [animation-delay:0.1s]" />
+                    <span className="w-1 h-4 bg-emerald-400 rounded-full animate-bounce [animation-delay:0.2s]" />
+                    <span className="w-1 h-2 bg-emerald-400 rounded-full animate-bounce [animation-delay:0.3s]" />
+                    <span className="w-1 h-4 bg-emerald-400 rounded-full animate-bounce [animation-delay:0.15s]" />
+                  </div>
                   <span className="text-[11px] font-mono font-bold text-emerald-300">
-                    {currentLang === "ta" ? "பிரியா பேசுகிறார்..." : "Priya is speaking..."}
+                    {currentLang === "ta" ? "பிரியா பேசுகிறார் (ElevenLabs)..." : "Priya is speaking (ElevenLabs British Voice)..."}
                   </span>
                 </div>
                 <button
@@ -569,7 +622,7 @@ export function AIReceptionist() {
                   className="px-3 py-1 bg-red-600 hover:bg-red-500 text-white rounded-full text-xs font-bold flex items-center gap-1.5 transition-colors press-scale shadow-sm cursor-pointer"
                 >
                   <Square size={10} fill="currentColor" />
-                  <span>{currentLang === "ta" ? "குரலை நிறுத்து" : "Stop / Mute"}</span>
+                  <span>{currentLang === "ta" ? "நிறுத்து" : "Stop / Mute"}</span>
                 </button>
               </div>
             )}
@@ -637,6 +690,8 @@ export function AIReceptionist() {
             <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-white text-xs leading-relaxed">
               {messages.map((msg) => {
                 const isAppt = msg.leadReference?.startsWith("JSM-APPT-");
+                const isPlayingThis = isSpeaking && currentPlayingMsgId === msg.id;
+
                 return (
                   <div
                     key={msg.id}
@@ -697,6 +752,39 @@ export function AIReceptionist() {
                           </a>
                         </div>
                       )}
+
+                      {/* Per-Message Listen / Replay Voice Button (ElevenLabs) */}
+                      {msg.role === "assistant" && (
+                        <div className="pt-1.5 flex items-center justify-between border-t border-black/[0.05]">
+                          <button
+                            onClick={() => {
+                              if (isPlayingThis) {
+                                stopSpeaking();
+                              } else {
+                                speakText(msg.content, msg.id);
+                              }
+                            }}
+                            className={`flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full transition-colors cursor-pointer ${
+                              isPlayingThis
+                                ? "bg-emerald-500 text-white animate-pulse"
+                                : "text-[#86868b] hover:text-[#0071e3] hover:bg-black/[0.04]"
+                            }`}
+                            title="Listen with ElevenLabs Voice"
+                          >
+                            {isPlayingThis ? (
+                              <>
+                                <Square size={9} fill="currentColor" />
+                                <span>Playing voice...</span>
+                              </>
+                            ) : (
+                              <>
+                                <Volume2 size={11} />
+                                <span>Listen (ElevenLabs)</span>
+                              </>
+                            )}
+                          </button>
+                        </div>
+                      )}
                     </div>
                     <span className="text-[9px] text-[#86868b] mt-1 px-1">{msg.timestamp}</span>
                   </div>
@@ -738,39 +826,35 @@ export function AIReceptionist() {
                     : "bg-white text-[#515154] hover:text-[#1d1d1f] border border-black/[0.06]"
                 }`}
               >
-                {isListening ? <MicOff size={16} /> : <Mic size={16} />}
+                <Mic size={16} />
               </button>
 
               <input
                 type="text"
-                placeholder={isListening ? "Listening..." : currentLang === "ta" ? "உங்கள் தேவையை இங்கே தட்டச்சு செய்யவும்..." : "Type your requirement, city, or question..."}
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 onKeyDown={(e) => {
-                  if (e.key === "Enter") handleSendMessage();
+                  if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault();
+                    handleSendMessage();
+                  }
                 }}
-                className="flex-1 h-10 px-4 bg-white border border-black/[0.08] rounded-full text-xs font-normal focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] text-[#1d1d1f] placeholder:text-[#86868b]"
+                onFocus={unlockAudio}
+                placeholder={
+                  currentLang === "ta"
+                    ? "பிரியாவிடம் கேளுங்கள் (எ.கா. இன்றைய வானிலை, பாதுகாப்பு சேவைகள்...)"
+                    : "Ask Priya anything (e.g. weather, news, security deployment)..."
+                }
+                className="flex-1 bg-white border border-black/[0.08] rounded-full px-4 py-2 text-xs text-[#1d1d1f] placeholder:text-[#86868b] outline-none focus:ring-1 focus:ring-[#0071e3] transition-all"
               />
 
-              <Button
-                size="sm"
+              <button
                 onClick={() => handleSendMessage()}
                 disabled={!inputMessage.trim() || isTyping}
-                className="h-10 w-10 p-0 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer press-scale disabled:opacity-40"
+                className="w-8 h-8 rounded-full bg-[#0071e3] text-white flex items-center justify-center disabled:opacity-40 hover:bg-[#0077ed] transition-colors shrink-0 shadow-xs cursor-pointer press-scale"
               >
                 <Send size={14} />
-              </Button>
-            </div>
-
-            {/* Direct Email Quick Contact Strip */}
-            <div className="px-4 py-2 bg-[#f5f5f7] border-t border-black/[0.06] text-[#86868b] flex items-center justify-between text-[10px] font-mono">
-              <span>Trichy HQ Operations Desk</span>
-              <a
-                href="mailto:jsmintegratedservices@outlook.com?subject=Executive%20Inquiry"
-                className="text-[#0071e3] hover:underline flex items-center gap-1 font-semibold"
-              >
-                <Mail size={12} /> Email MD Office
-              </a>
+              </button>
             </div>
           </motion.div>
         )}
