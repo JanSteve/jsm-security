@@ -61,7 +61,7 @@ const VISUAL_CARDS: VisualCard[] = [
     title: "Industrial Fabrication & Contractual Workforce",
     metricBadge: "Active Hiring • 100% PF/ESI",
     location: "Tamil Nadu Manufacturing Corridors",
-    image: "/images/real_jsm_fabrication_hiring.jpg",
+    image: "/images/real_jsm_guard_squad_night.jpg",
     highlightText: "Active recruitment and deployment of Block & Pipe fabrication specialists with statutory indemnity.",
   },
   {

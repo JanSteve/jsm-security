@@ -11,7 +11,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { brandData } from "@/data/brand";
 import { cn } from "@/lib/utils";
 
-import { Inter, Fraunces } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,9 +20,9 @@ const inter = Inter({
   display: "swap",
 });
 
-const fraunces = Fraunces({
+const displayFont = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["400", "600"],
+  weight: ["500", "600", "700", "800"],
   variable: "--font-display",
   display: "swap",
 });
@@ -116,7 +116,7 @@ export default function RootLayout({
         className={cn(
           "min-h-screen bg-white font-sans antialiased text-[#14181A] selection:bg-[#0B3D2E]/15 selection:text-black",
           inter.variable,
-          fraunces.variable
+          displayFont.variable
         )}
       >
         <Providers>

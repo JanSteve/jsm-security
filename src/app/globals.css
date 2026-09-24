@@ -52,7 +52,8 @@
 
 @theme inline {
   --font-sans: var(--font-body), "Inter", "General Sans", ui-sans-serif, -apple-system, "Segoe UI", sans-serif;
-  --font-serif: var(--font-display), "Fraunces", ui-serif, Georgia, "Times New Roman", serif;
+  --font-display: var(--font-display), "Plus Jakarta Sans", "Clash Display", ui-sans-serif, -apple-system, sans-serif;
+  --font-serif: var(--font-display), "Plus Jakarta Sans", ui-sans-serif, -apple-system, sans-serif;
   
   --color-background: var(--bg-primary);
   --color-foreground: var(--text-primary);
@@ -107,13 +108,28 @@
 
   h1, h2, h3, h4, h5, h6 {
     color: var(--text-primary);
+    font-family: var(--font-display);
     letter-spacing: -0.02em;
     text-wrap: balance;
   }
   
   .font-display {
-    font-family: var(--font-serif);
-    letter-spacing: -0.015em;
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  .eyebrow-label {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.8125rem;
+  }
+
+  .stat-number {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
 
   p {

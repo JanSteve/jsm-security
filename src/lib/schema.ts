@@ -53,11 +53,22 @@ export function organizationSchema() {
 }
 
 export function localBusinessSchema() {
+  const activeCities = [
+    { name: "Tiruchirappalli", role: "Headquarters & Central Command" },
+    { name: "Chennai", role: "OMR IT Corridor & Commercial Division" },
+    { name: "Coimbatore", role: "Industrial Manufacturing Outpost" },
+    { name: "Hosur", role: "Automotive & Electronics SEZ Division" },
+    { name: "Salem", role: "Heavy Engineering & Steel Corridor" },
+    { name: "Erode", role: "Textile & Processing SEZ" },
+    { name: "Madurai", role: "Southern Regional Operations" },
+    { name: "Tirunelveli", role: "Renewable Energy & IT SEZ" }
+  ];
+
   return {
     '@context': 'https://schema.org',
     '@type': ['LocalBusiness', 'SecurityService', 'EmploymentAgency'],
     name: brandData.name,
-    alternateName: 'JSMMANPOWER',
+    alternateName: ['JSMMANPOWER', 'JSM Security Tamil Nadu'],
     url: brandData.domain,
     logo: `${brandData.domain}/images/jsm_logo_black.png`,
     image: `${brandData.domain}/images/real_jsm_airport_terminal_platoon.jpg`,
@@ -77,7 +88,14 @@ export function localBusinessSchema() {
       latitude: 10.7850,
       longitude: 78.6940
     },
-    areaServed: ["Tiruchirappalli", "Chennai", "Coimbatore", "Hosur", "Salem", "Erode", "Madurai", "Tirunelveli"],
+    areaServed: activeCities.map((city) => ({
+      '@type': 'City',
+      name: city.name,
+      containedInPlace: {
+        '@type': 'State',
+        name: 'Tamil Nadu'
+      }
+    })),
     sameAs: [
       "https://www.linkedin.com/company/jsmintegratedservices",
       "https://www.instagram.com/jsmintegratedservices",
@@ -96,7 +114,7 @@ export function localBusinessSchema() {
       {
         "@type": "EducationalOccupationalCredential",
         "credentialCategory": "certification",
-        "name": "ISO 9001:2015"
+        "name": "ISO 9001:2015 Quality Management System"
       }
     ],
     openingHoursSpecification: {

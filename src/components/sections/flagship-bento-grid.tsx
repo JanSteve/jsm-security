@@ -60,7 +60,7 @@ const operationalSlides = [
     badge: "Rapid 48–72h Mobilization",
     desc: "Active industrial staffing for Block & Pipe fabrication technicians deployed across Tamil Nadu's industrial manufacturing corridors with complete EPF and ESIC statutory legal indemnity.",
     metric: "100% EPF/ESIC Adherence • Zero Client Liability",
-    image: "/images/real_jsm_fabrication_hiring.jpg",
+    image: "/images/real_jsm_guard_squad_night.jpg",
     tabLabel: "Industrial Workforce",
     href: "/careers"
   },

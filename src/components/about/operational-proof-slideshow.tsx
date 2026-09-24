@@ -30,7 +30,7 @@ const proofSlides = [
     category: "ACTIVE INDUSTRIAL RECRUITMENT",
     badge: "Rapid 48–72h Mobilization",
     description: "Block & Pipe fabrication technicians deployed across manufacturing corridors with complete EPF and ESIC statutory legal indemnity.",
-    image: "/images/real_jsm_fabrication_hiring.jpg",
+    image: "/images/real_jsm_guard_squad_night.jpg",
     metric: "100% Statutory Adherence • Zero Client Liability"
   },
   {

@@ -10,20 +10,24 @@ export const navigationData: NavItem[] = [
     href: "/services",
   },
   {
-    title: "About",
-    href: "/about",
+    title: "Locations",
+    href: "/locations",
+  },
+  {
+    title: "Knowledge Hub",
+    href: "/knowledge",
   },
   {
     title: "Compliance & DGR",
     href: "/security-agencies",
   },
   {
-    title: "Careers",
-    href: "/careers",
+    title: "About",
+    href: "/about",
   },
   {
-    title: "Dispatches",
-    href: "/newsletter",
+    title: "Careers",
+    href: "/careers",
   },
   {
     title: "Contact",
