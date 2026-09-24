@@ -1,7 +1,7 @@
 import { brandData } from "@/data/brand";
 
 export const metadata = {
-  title: "Privacy Policy | JSM Integrated Services",
+  title: "Privacy Policy",
   description: "Learn how JSM Integrated Services collects, uses, and secures client data in accordance with applicable Indian regulations.",
 };
 

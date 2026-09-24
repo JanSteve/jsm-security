@@ -3,70 +3,85 @@
 @plugin "../../node_modules/tailwindcss-animate";
 
 :root {
-  --background: #ffffff;
-  --foreground: #14181f;
-  --card: #ffffff;
-  --card-foreground: #14181f;
-  --popover: #ffffff;
-  --popover-foreground: #14181f;
-  
-  /* Brand Primary: Deep Forest Emerald */
-  --primary: #0b3d2e;
-  --primary-foreground: #ffffff;
-  --primary-hover: #082c21;
-  --primary-light: #eef5f2;
+  /* Backgrounds */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F7F6F2;   /* warm off-white for alternating sections */
+  --bg-dark: #0F1A17;        /* ONE dark section max per page */
 
-  /* Secondary & Surface */
-  --secondary: #f8f9fa;
-  --secondary-foreground: #14181f;
-  --muted: #f4f4f2;
-  --muted-foreground: #5a6578;
-  
-  /* Credential Brass Accent (Max 5% surface area) */
-  --brass: #b8925a;
-  --brass-light: #fbf7f0;
-  --brass-border: #e6d7c2;
-  
-  --destructive: #c53030;
-  --destructive-foreground: #ffffff;
-  
-  --border: #e7e5e0;
-  --input: #e7e5e0;
-  --ring: #0b3d2e;
+  /* Text */
+  --text-primary: #14181A;   /* near-black */
+  --text-secondary: #4B5259; /* muted body/supporting text */
+  --text-inverse: #F5F3EE;   /* text on dark sections */
 
-  /* Standardized Corner Radii */
-  --radius-card: 12px;
-  --radius-button: 8px;
-  --radius-badge: 9999px;
+  /* Brand accent — deep emerald */
+  --accent-900: #0B3D2E;
+  --accent-700: #145C43;
+  --accent-500: #1E7A58;     /* primary interactive color — links, active states */
+  --accent-100: #E4F0EB;     /* tint backgrounds for badges/highlights */
+
+  /* Secondary accent — muted brass (<5% surface area) */
+  --brass-600: #A67C3D;
+  --brass-100: #F4EBDB;
+
+  /* Structure */
+  --border: #E5E3DD;
+  --radius-sm: 8px;   /* buttons, inputs, small chips */
+  --radius-md: 12px;  /* cards */
+  --radius-lg: 20px;  /* large feature panels only */
+
+  /* Shadow — one system, never stacked */
+  --shadow-card: 0 1px 2px rgba(20, 24, 26, 0.04), 0 4px 12px rgba(20, 24, 26, 0.06);
+  --shadow-hover: 0 2px 4px rgba(20, 24, 26, 0.06), 0 8px 24px rgba(20, 24, 26, 0.10);
+
+  /* Framework Aliases */
+  --background: var(--bg-primary);
+  --foreground: var(--text-primary);
+  --card: var(--bg-primary);
+  --card-foreground: var(--text-primary);
+  --popover: var(--bg-primary);
+  --popover-foreground: var(--text-primary);
+  --primary: var(--accent-900);
+  --primary-foreground: #FFFFFF;
+  --secondary: var(--bg-secondary);
+  --secondary-foreground: var(--text-primary);
+  --muted: var(--bg-secondary);
+  --muted-foreground: var(--text-secondary);
+  --input: var(--border);
+  --ring: var(--accent-500);
 }
 
 @theme inline {
-  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-serif: var(--font-fraunces), Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: var(--font-body), "Inter", "General Sans", ui-sans-serif, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: var(--font-display), "Fraunces", ui-serif, Georgia, "Times New Roman", serif;
   
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary-hover: var(--primary-hover);
-  --color-primary-light: var(--primary-light);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-brass: var(--brass);
-  --color-brass-light: var(--brass-light);
-  --color-brass-border: var(--brass-border);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
+  --color-background: var(--bg-primary);
+  --color-foreground: var(--text-primary);
+  --color-card: var(--bg-primary);
+  --color-card-foreground: var(--text-primary);
+  
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-dark: var(--bg-dark);
+  
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-inverse: var(--text-inverse);
 
-  --radius-sm: 6px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
+  --color-accent-900: var(--accent-900);
+  --color-accent-700: var(--accent-700);
+  --color-accent-500: var(--accent-500);
+  --color-accent-100: var(--accent-100);
+
+  --color-brass-600: var(--brass-600);
+  --color-brass-100: var(--brass-100);
+
+  --color-border: var(--border);
+  --color-input: var(--border);
+  --color-ring: var(--accent-500);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
 }
 
 @layer base {
@@ -78,20 +93,20 @@
     color-scheme: light;
   }
   body {
-    background-color: var(--background);
-    color: var(--foreground);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     font-family: var(--font-sans);
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   ::selection {
-    background-color: rgba(11, 61, 46, 0.15);
-    color: #0b3d2e;
+    background-color: var(--accent-100);
+    color: var(--accent-900);
   }
 
   h1, h2, h3, h4, h5, h6 {
-    color: var(--foreground);
+    color: var(--text-primary);
     letter-spacing: -0.02em;
     text-wrap: balance;
   }
@@ -106,7 +121,7 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--primary);
+    outline: 2px solid var(--accent-500);
     outline-offset: 2px;
   }
 }
@@ -118,6 +133,12 @@
   .line-measure {
     max-width: 68ch;
   }
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  .shadow-hover {
+    box-shadow: var(--shadow-hover);
+  }
   .press-scale {
     transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1);
   }
@@ -127,5 +148,12 @@
   .min-touch-target {
     min-height: 44px;
     min-width: 44px;
+  }
+  .eyebrow-label {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    line-height: 1.2;
   }
 }

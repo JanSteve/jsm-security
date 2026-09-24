@@ -7,7 +7,7 @@ import { ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Integrated Capabilities & Service Directory | JSM Integrated Services',
+  title: 'Integrated Services Directory',
   description: 'Explore JSM Integrated Services three-tier operations model: PSARA security guarding, 100% compliant contract staffing, and commercial facility management across Tamil Nadu.',
 };
 

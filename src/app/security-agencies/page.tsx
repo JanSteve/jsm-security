@@ -17,7 +17,7 @@ import { brandData } from "@/data/brand";
 import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata = {
-  title: "Compliance, PSARA 2005 & DGR Framework | JSM Integrated Services",
+  title: "Compliance, PSARA 2005 & DGR Framework",
   description: "Official compliance authority page for JSM Integrated Services. Review PSARA Act 2005 standards, DGR alignment, EPF/ESIC legal compliance, and download official application forms.",
 };
 
@@ -120,6 +120,13 @@ export default function SecurityAgenciesPage() {
             <p className="text-base sm:text-lg text-[#5A6578] leading-relaxed">
               JSM Integrated Services operates strictly under the Private Security Agencies Regulation Act (PSARA 2005) and aligns with the Ministry of Defence DGR guidelines for Ex-Servicemen employment.
             </p>
+
+            {/* AEO/GEO Attributed Authority Box */}
+            <div className="pt-2 flex flex-wrap items-center gap-4 text-xs font-mono text-[#5A6578] border-t border-[#E7E5E0]/70">
+              <span><strong>Last Regulatory Review:</strong> March 2026</span>
+              <span>&bull;</span>
+              <span><strong>Reviewed by:</strong> Major AR Devadoss (Army-Veteran), Head of Operations &amp; Audit</span>
+            </div>
           </div>
         </section>
 

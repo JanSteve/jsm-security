@@ -2,8 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ShieldCheck, Users, Sparkles, ArrowRight, CheckCircle2, FileText, Cpu, Check } from "lucide-react";
-import { brandData } from "@/data/brand";
+import { ArrowRight, Check } from "lucide-react";
 
 const tierServices = [
   {
@@ -39,7 +38,7 @@ const tierServices = [
     code: "SAC 998533",
     title: "Integrated Facility Management & Housekeeping",
     slug: "/services/housekeeping",
-    badge: "Mechanized & Closed-Loop",
+    badge: "Closed-Loop Hygiene",
     description: "Commercial and industrial facility hygiene adhering to a 5-step closed-loop cleaning protocol with ride-on auto scrubbers and hospital-grade sanitization.",
     deliverables: [
       "Mechanized Ride-On Auto Scrubbing & Polishers",
@@ -54,74 +53,71 @@ const auxiliaryServices = [
   {
     title: "GeM & e-Procurement Tender Bidding",
     description: "Comprehensive GeM portal catalog management, technical bid documentation, and PO fulfillment for PSUs and Government departments.",
-    href: "/services"
   },
   {
     title: "Document Scanning, OCR & Digitization",
     description: "High-volume document digitization, OCR text extraction, and digital archiving under NIC 62099 IT service standards.",
-    href: "/services"
   },
   {
     title: "CSC & Digital Citizen Facilitation",
     description: "Authorized citizen digital services, government application assistance, certificate processing, and documentation desk support.",
-    href: "/services"
   }
 ];
 
 export function ServicesOverview() {
   return (
-    <section className="py-20 sm:py-28 bg-white border-b border-[#E7E5E0]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    <section className="py-20 sm:py-28 bg-white border-b border-[#E5E3DD]">
+      <div className="max-w-[1280px] mx-auto px-6 sm:px-8 space-y-16">
         {/* Section Header */}
-        <div className="max-w-3xl space-y-3">
-          <div className="text-xs font-semibold uppercase tracking-wider text-[#0B3D2E]">
+        <div className="max-w-3xl space-y-2">
+          <div className="eyebrow-label text-[#0B3D2E]">
             Core Operating Structure
           </div>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl text-[#14181F] font-normal tracking-tight">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl text-[#14181A] font-normal tracking-tight">
             The Three-Tier Integrated Operations Model
           </h2>
-          <p className="text-sm sm:text-base text-[#5A6578] leading-relaxed">
+          <p className="text-sm sm:text-base text-[#4B5259] leading-relaxed">
             Eliminate vendor fragmentation. Manage premises security, industrial contract staffing, and facility management under one contract and one accountable executive desk.
           </p>
         </div>
 
-        {/* 3 Tier Service Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* 3 Tier Service Cards Grid with exact hover and brass badges */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {tierServices.map((service, i) => (
             <div
               key={i}
-              className="rounded-xl border border-[#E7E5E0] bg-white p-7 flex flex-col justify-between hover:border-[#0B3D2E]/40 hover:shadow-md transition-all duration-200"
+              className="rounded-[12px] border border-[#E5E3DD] bg-white p-7 flex flex-col justify-between shadow-[0_1px_2px_rgba(20,24,26,0.04),0_4px_12px_rgba(20,24,26,0.06)] hover:shadow-[0_2px_4px_rgba(20,24,26,0.06),0_8px_24px_rgba(20,24,26,0.10)] hover:-translate-y-1 transition-all duration-200"
             >
               <div className="space-y-5">
                 {/* Header Badge Strip */}
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono font-bold text-[#0B3D2E] bg-[#0B3D2E]/8 px-2.5 py-1 rounded-md">
+                  <span className="text-xs font-mono font-bold text-[#A67C3D] bg-[#F4EBDB] px-2.5 py-1 rounded-[8px] border border-[#A67C3D]/20">
                     {service.tier} &bull; {service.code}
                   </span>
-                  <span className="text-[11px] font-medium text-[#5A6578] bg-[#F8F9FA] border border-[#E7E5E0] px-2 py-0.5 rounded-md">
+                  <span className="text-[11px] font-medium text-[#4B5259] bg-[#F7F6F2] border border-[#E5E3DD] px-2 py-0.5 rounded-[8px]">
                     {service.badge}
                   </span>
                 </div>
 
                 {/* Title & Description */}
                 <div className="space-y-2">
-                  <h3 className="text-lg sm:text-xl font-semibold text-[#14181F] tracking-tight">
+                  <h3 className="text-lg sm:text-xl font-semibold text-[#14181A] tracking-tight">
                     {service.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#5A6578] leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#4B5259] leading-relaxed">
                     {service.description}
                   </p>
                 </div>
 
-                {/* Deliverables Checklist */}
-                <div className="space-y-2 pt-2 border-t border-[#E7E5E0]/70">
-                  <span className="text-[11px] font-semibold uppercase tracking-wider text-[#14181F]">
+                {/* Exactly 4 Deliverables Checklist */}
+                <div className="space-y-2 pt-3 border-t border-[#E5E3DD]/70">
+                  <span className="text-[11px] font-semibold uppercase tracking-wider text-[#14181A]">
                     Key Deliverables
                   </span>
-                  <ul className="space-y-2 text-xs text-[#4A5568]">
+                  <ul className="space-y-2 text-xs text-[#4B5259]">
                     {service.deliverables.map((item, idx) => (
                       <li key={idx} className="flex items-start gap-2">
-                        <Check size={14} className="text-[#0B3D2E] shrink-0 mt-0.5" />
+                        <Check size={14} className="text-[#1E7A58] shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -130,10 +126,10 @@ export function ServicesOverview() {
               </div>
 
               {/* Bottom Link */}
-              <div className="pt-6 mt-6 border-t border-[#E7E5E0]">
+              <div className="pt-6 mt-6 border-t border-[#E5E3DD]">
                 <Link
                   href={service.slug}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0B3D2E] hover:text-[#082C21] group transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#1E7A58] hover:text-[#0B3D2E] group transition-colors"
                 >
                   <span>View Full Specification &amp; SLAs</span>
                   <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
@@ -144,19 +140,19 @@ export function ServicesOverview() {
         </div>
 
         {/* Auxiliary Capabilities Section */}
-        <div className="p-8 rounded-xl bg-[#F8F9FA] border border-[#E7E5E0] space-y-6">
+        <div className="p-8 rounded-[12px] bg-[#F7F6F2] border border-[#E5E3DD] space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#5A6578]">
+              <span className="text-xs font-semibold uppercase tracking-wider text-[#4B5259]">
                 Complementary Enterprise Verticals
               </span>
-              <h4 className="text-lg sm:text-xl font-semibold text-[#14181F]">
+              <h4 className="text-lg sm:text-xl font-semibold text-[#14181A]">
                 Auxiliary Capabilities: Tenders, Digitization &amp; Citizen Services
               </h4>
             </div>
             <Link
               href="/services"
-              className="text-xs font-semibold text-[#0B3D2E] hover:underline shrink-0"
+              className="text-xs font-semibold text-[#1E7A58] hover:underline shrink-0"
             >
               Explore All Verticals &rarr;
             </Link>
@@ -164,9 +160,9 @@ export function ServicesOverview() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
             {auxiliaryServices.map((aux, idx) => (
-              <div key={idx} className="p-4 bg-white rounded-lg border border-[#E7E5E0] space-y-2">
-                <h5 className="text-sm font-semibold text-[#14181F]">{aux.title}</h5>
-                <p className="text-xs text-[#5A6578] leading-relaxed">{aux.description}</p>
+              <div key={idx} className="p-4 bg-white rounded-[8px] border border-[#E5E3DD] space-y-2 shadow-2xs">
+                <h5 className="text-sm font-semibold text-[#14181A]">{aux.title}</h5>
+                <p className="text-xs text-[#4B5259] leading-relaxed">{aux.description}</p>
               </div>
             ))}
           </div>

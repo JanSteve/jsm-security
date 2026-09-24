@@ -57,18 +57,19 @@ export function localBusinessSchema() {
     '@context': 'https://schema.org',
     '@type': ['LocalBusiness', 'SecurityService', 'EmploymentAgency'],
     name: brandData.name,
-    image: `${brandData.domain}/images/real_jsm_airport_terminal_platoon.jpg`,
-    '@id': brandData.domain,
+    alternateName: 'JSMMANPOWER',
     url: brandData.domain,
-    telephone: brandData.contact.phone,
+    logo: `${brandData.domain}/images/jsm_logo_black.png`,
+    image: `${brandData.domain}/images/real_jsm_airport_terminal_platoon.jpg`,
+    telephone: '+91-90808-63448',
     email: brandData.contact.email,
     priceRange: '₹₹',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: brandData.contact.address,
-      addressLocality: brandData.contact.primaryCity,
-      addressRegion: brandData.contact.state,
-      postalCode: brandData.contact.pinCode,
+      streetAddress: 'Plot No: 112, SF No 122, RVS Nagar, Kottapattu Post',
+      addressLocality: 'Tiruchirappalli',
+      addressRegion: 'Tamil Nadu',
+      postalCode: '620021',
       addressCountry: 'IN'
     },
     geo: {
@@ -76,23 +77,33 @@ export function localBusinessSchema() {
       latitude: 10.7850,
       longitude: 78.6940
     },
+    areaServed: ["Tiruchirappalli", "Chennai", "Coimbatore", "Hosur", "Salem", "Erode", "Madurai", "Tirunelveli"],
+    sameAs: [
+      "https://www.linkedin.com/company/jsmintegratedservices",
+      "https://www.instagram.com/jsmintegratedservices",
+      "https://x.com/jsmintegrated"
+    ],
+    hasCredential: [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "license",
+        "name": "PSARA License (Private Security Agencies Regulation Act, 2005)",
+        "recognizedBy": {
+          "@type": "GovernmentOrganization",
+          "name": "Home Department, Government of Tamil Nadu"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certification",
+        "name": "ISO 9001:2015"
+      }
+    ],
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
       opens: '00:00',
       closes: '23:59'
-    },
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: 'Integrated Enterprise Services',
-      itemListElement: brandData.sixCoreVerticals.map((v, i) => ({
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: `${v.code}: ${v.name}`,
-          description: v.gstDescription
-        }
-      }))
     }
   };
 }

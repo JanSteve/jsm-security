@@ -21,8 +21,10 @@ import {
 import { brandData } from "@/data/brand";
 
 export const metadata = {
-  title: `${brandData.name} | PSARA Licensed Security, Manpower & Facility Management`,
-  description: `${brandData.name} delivers disciplined Ex-Servicemen & Private Security, 100% EPF/ESIC Manpower Staffing, and Commercial Facility Management across Tamil Nadu (Trichy, Chennai, Coimbatore, Hosur).`,
+  title: {
+    absolute: "JSM Integrated Services | PSARA Security, Manpower & Facility Management",
+  },
+  description: "PSARA-licensed Ex-Servicemen & Private Security, 100% EPF/ESIC Manpower Staffing, and Commercial Facility Management across Tamil Nadu.",
 };
 
 const homeFAQs = [

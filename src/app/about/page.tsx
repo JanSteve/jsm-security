@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "About Leadership & Governance | JSM Integrated Services",
+  title: "About Leadership & Governance",
   description: "Learn about JSM Integrated Services leadership: Managing Director Sweety J, Head of Operations Major AR Devadoss (Army-Veteran), and CTO R Jan Steve Daniel.",
 };
 

@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const service = servicesData.find((s) => s.slug === slug);
   if (!service) return { title: "Service Not Found" };
   return {
-    title: `${service.title} | JSM Integrated Services`,
+    title: service.title,
     description: service.metaDescription,
     alternates: {
       canonical: `${brandData.domain}/services/${service.slug}`,

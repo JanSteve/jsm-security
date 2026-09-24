@@ -15,13 +15,15 @@ import { Inter, Fraunces } from "next/font/google";
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["400", "500", "600"],
+  variable: "--font-body",
   display: "swap",
 });
 
 const fraunces = Fraunces({
   subsets: ["latin"],
-  variable: "--font-fraunces",
+  weight: ["400", "600"],
+  variable: "--font-display",
   display: "swap",
 });
 
@@ -112,7 +114,7 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          "min-h-screen bg-white font-sans antialiased text-[#14181F] selection:bg-[#0B3D2E]/15 selection:text-black",
+          "min-h-screen bg-white font-sans antialiased text-[#14181A] selection:bg-[#0B3D2E]/15 selection:text-black",
           inter.variable,
           fraunces.variable
         )}

@@ -4,7 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useScroll, useMotionValueEvent } from "motion/react";
-import { Phone, ArrowRight, ShieldCheck } from "lucide-react";
+import { Phone, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { navigationData } from "@/data/navigation";
 import { MobileMenu } from "./mobile-menu";
@@ -16,26 +16,26 @@ export function Header() {
   const [scrolled, setScrolled] = React.useState(false);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    setScrolled(latest > 20);
+    setScrolled(latest > 80);
   });
 
   return (
     <header
       className={cn(
-        "fixed top-0 inset-x-0 z-50 transition-all duration-200",
+        "fixed top-0 inset-x-0 z-50 transition-all duration-250 ease-out bg-white border-b border-[#E5E3DD]",
         scrolled
-          ? "bg-white/95 backdrop-blur-md border-b border-[#E7E5E0] shadow-[0_1px_3px_rgba(0,0,0,0.04)] py-3"
-          : "bg-white border-b border-[#E7E5E0]/60 py-4 sm:py-5"
+          ? "h-16 shadow-[0_1px_2px_rgba(20,24,26,0.04),0_4px_12px_rgba(20,24,26,0.06)]"
+          : "h-[88px]"
       )}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-6">
+      <div className="max-w-[1280px] h-full mx-auto px-6 sm:px-8 flex items-center justify-between gap-6">
         {/* Brand Logo & Name */}
         <Link
           href="/"
           className="flex items-center gap-3.5 group shrink-0"
           aria-label="JSM Integrated Services Home"
         >
-          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-[#0B3D2E] text-white flex items-center justify-center font-bold text-sm tracking-wider overflow-hidden border border-[#0B3D2E]/20">
+          <div className="w-10 h-10 rounded-[8px] bg-[#0B3D2E] text-white flex items-center justify-center font-bold text-sm tracking-wider overflow-hidden border border-[#0B3D2E]/20 shrink-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/jsm_logo_black.png"
@@ -43,12 +43,12 @@ export function Header() {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="flex flex-col">
-            <span className="font-semibold text-base sm:text-lg tracking-tight text-[#14181F] leading-tight">
+          <div className="flex flex-col justify-center">
+            <span className="font-semibold text-base sm:text-lg tracking-tight text-[#14181A] leading-tight">
               JSM Integrated Services
             </span>
-            <span className="text-[11px] text-[#5A6578] font-medium tracking-normal flex items-center gap-1.5">
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#0B3D2E]" />
+            <span className="text-[11px] text-[#4B5259] font-medium tracking-normal flex items-center gap-1.5">
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#1E7A58]" />
               PSARA Licensed &bull; ISO 9001:2015 &bull; DGR Aligned
             </span>
           </div>
@@ -65,23 +65,32 @@ export function Header() {
                 key={item.title}
                 href={item.href}
                 className={cn(
-                  "px-3.5 py-2 rounded-md text-sm font-medium transition-colors",
+                  "relative px-3.5 py-2 text-sm font-medium transition-colors group",
                   isActive
-                    ? "text-[#0B3D2E] bg-[#0B3D2E]/5 font-semibold"
-                    : "text-[#4A5568] hover:text-[#14181F] hover:bg-black/[0.03]"
+                    ? "text-[#1E7A58] font-semibold"
+                    : "text-[#4B5259] hover:text-[#14181A]"
                 )}
               >
-                {item.title}
+                <span>{item.title}</span>
+                {/* 2px animated underline on active link */}
+                <span
+                  className={cn(
+                    "absolute bottom-0 left-3.5 right-3.5 h-[2px] bg-[#1E7A58] transition-transform duration-200 ease-out origin-center",
+                    isActive
+                      ? "scale-x-100"
+                      : "scale-x-0 group-hover:scale-x-100 group-hover:bg-[#1E7A58]/40"
+                  )}
+                />
               </Link>
             );
           })}
         </nav>
 
-        {/* Right CTA Cluster: Direct Phone + Request Quote */}
+        {/* Right CTA Cluster: Direct Phone + Request Proposal */}
         <div className="flex items-center gap-3 sm:gap-4 shrink-0">
           <a
             href={`tel:${brandData.contact.phone}`}
-            className="hidden md:inline-flex items-center gap-2 text-xs font-semibold text-[#14181F] hover:text-[#0B3D2E] px-3 py-2 rounded-md transition-colors tabular-nums"
+            className="hidden md:inline-flex items-center gap-2 text-xs font-semibold text-[#14181A] hover:text-[#1E7A58] px-3 py-2 rounded-[8px] transition-colors tabular-nums min-h-[44px]"
             aria-label="Direct Phone Consultation"
           >
             <Phone size={14} className="text-[#0B3D2E]" />
@@ -90,9 +99,9 @@ export function Header() {
 
           <Link
             href="/get-quote"
-            className="inline-flex items-center justify-center gap-2 rounded-md text-xs sm:text-sm font-semibold text-white bg-[#0B3D2E] hover:bg-[#082C21] px-4 sm:px-5 py-2.5 transition-all shadow-xs press-scale"
+            className="inline-flex items-center justify-center gap-2 rounded-[8px] text-xs sm:text-sm font-semibold text-white bg-[#0B3D2E] hover:bg-[#145C43] px-4 sm:px-5 h-[48px] transition-all shadow-xs press-scale"
           >
-            <span>Request a Quote</span>
+            <span>Request a Proposal</span>
             <ArrowRight size={14} />
           </Link>
 

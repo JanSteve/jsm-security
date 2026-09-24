@@ -97,7 +97,7 @@ export const servicesData: Service[] = [
       { question: 'What is the GST SAC code for private security?', answer: 'Security services fall under SAC 998525 (Guard Services - Ex-servicemen & Private Male & Female).' }
     ],
     relatedSlugs: ['manpower', 'housekeeping', 'tender-procurement-supply'],
-    metaTitle: 'Security & Protection Services Tamil Nadu | JSM Integrated Services',
+    metaTitle: 'Security & Protection Services Tamil Nadu',
     metaDescription: 'PSARA compliant security guarding (ESM & Private Male & Female) with 2-hour relief SLAs and 2:00 AM supervisor van audits across Tamil Nadu.'
   },
   {
@@ -143,7 +143,7 @@ export const servicesData: Service[] = [
       { question: 'What trades and roles do you provide?', answer: 'We supply assembly technicians, warehouse loaders, packing operators, CNC machine assistants, office helpers, and shop-floor supervisors.' }
     ],
     relatedSlugs: ['private-security', 'housekeeping', 'tender-procurement-supply'],
-    metaTitle: 'Manpower & Corporate Staffing Solutions Tamil Nadu | JSM Integrated Services',
+    metaTitle: 'Manpower & Corporate Staffing Solutions',
     metaDescription: 'Reliable contractual manpower supply and industrial staffing (ESM & Private Male/Female) in Chennai, Coimbatore, Hosur, and Trichy.'
   },
   {
@@ -189,7 +189,7 @@ export const servicesData: Service[] = [
       { question: 'What is the GST SAC code for housekeeping?', answer: 'Housekeeping and cleaning services fall under SAC 998533 (Cleaning and facility support services).' }
     ],
     relatedSlugs: ['private-security', 'manpower', 'tender-procurement-supply'],
-    metaTitle: 'Commercial Housekeeping & Facility Management | JSM Integrated Services',
+    metaTitle: 'Commercial Housekeeping & Facility Management',
     metaDescription: 'Mechanized commercial housekeeping and corporate facility management across Tamil Nadu with 5-step hygiene protocols.'
   },
   {
@@ -234,7 +234,7 @@ export const servicesData: Service[] = [
       { question: 'How are goods and services classified for GST?', answer: 'Under GST rules, services use appropriate SAC codes while physical goods (PPE, stationery, equipment) use specific HSN codes.' }
     ],
     relatedSlugs: ['scanning-digitalization-it', 'private-security', 'manpower'],
-    metaTitle: 'Tender Management, GeM Seller & Procurement Support | JSM Integrated Services',
+    metaTitle: 'Tender Management, GeM Seller & Procurement',
     metaDescription: 'End-to-end tender management, GeM bidding, government/PSU supply, and procurement administration in Tamil Nadu.'
   },
   {
@@ -280,7 +280,7 @@ export const servicesData: Service[] = [
       { question: 'What is the Udyam NIC classification?', answer: 'It sits under NIC 62099 (Other information technology and computer service activities) and related data processing SACs.' }
     ],
     relatedSlugs: ['csc-digital-citizen-services', 'tender-procurement-supply', 'private-security'],
-    metaTitle: 'Document Scanning, OCR & Digitalization Services | JSM Integrated Services',
+    metaTitle: 'Document Scanning, OCR & Digitalization',
     metaDescription: 'Enterprise document scanning, bulk digitization, OCR indexing, data entry, and IT support services in Tamil Nadu.'
   },
   {
@@ -325,7 +325,7 @@ export const servicesData: Service[] = [
       { question: 'What citizen services are offered?', answer: 'We facilitate online government portal applications, digital form filling, document scanning, color printing, lamination, and utility bill payments.' }
     ],
     relatedSlugs: ['scanning-digitalization-it', 'tender-procurement-supply'],
-    metaTitle: 'CSC & Digital Citizen Services | JSM Integrated Services',
+    metaTitle: 'CSC & Digital Citizen Services',
     metaDescription: 'Authorized digital citizen facilitation, e-governance applications, form filling, and document printing in Tiruchirappalli, Tamil Nadu.'
   }
 ];

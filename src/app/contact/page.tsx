@@ -4,7 +4,7 @@ import { brandData } from "@/data/brand";
 import { breadcrumbSchema, localBusinessSchema } from "@/lib/schema";
 
 export const metadata = {
-  title: "Contact & Site Assessment | JSM Integrated Services",
+  title: "Contact & Site Assessment",
   description: "Contact JSM Integrated Services operations desk in Tiruchirappalli, Tamil Nadu. Request an on-site physical security or facility assessment with direct founder accountability.",
 };
 

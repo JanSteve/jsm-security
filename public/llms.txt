@@ -1,74 +1,19 @@
 # JSM Integrated Services
+> PSARA-licensed private security agency and integrated facility management company headquartered in Tiruchirappalli, Tamil Nadu, India.
 
-> PSARA-licensed, DGR-aligned integrated security, manpower, and facility management company in South India.
+## What we do
+- Security guarding: Ex-Servicemen (ESM) and private security supervisors/guards, PSARA Act 2005 compliant, 2-hour guard relief SLA.
+- Manpower staffing: contract industrial and corporate workforce, 100% EPF/ESIC statutory compliance.
+- Facility management: commercial and industrial housekeeping, 5-step closed-loop hygiene protocol.
 
-JSM Integrated Services is a PSARA-licensed, DGR-aligned integrated security, manpower, and facility management company headquartered in Tiruchirappalli, Tamil Nadu, India, serving clients across Tamil Nadu and South India.
+## Service area
+Tiruchirappalli (HQ), Chennai, Coimbatore, Hosur, Salem, Erode, Madurai, Tirunelveli — Tamil Nadu, India.
 
-## Company Details
-- **Legal Name**: JSM Integrated Services (formerly JSMMANPOWER)
-- **Proprietor & Managing Director**: Sweety J
-- **Head of Operations**: Major AR Devadoss (Army-Veteran)
-- **Chief Technical Officer**: R Jan Steve Daniel
-- **Founded**: 2024
-- **Headquarters**: Plot No: 112, SF No 122, RVS Nagar, Kottapattu Post, Tiruchirappalli, Tamil Nadu 620021
-- **Contact**: +91 90808 63448 | contact@jsmintegratedservices.com
-- **Website**: https://www.jsmintegratedservices.com
-
-## Core Services (Three-Tier Model)
-### Tier 1: Security Supervisors & Guards (ESM & Private)
-- PSARA Act 2005 licensed security deployment
-- Ex-Servicemen (ESM) officers, JCOs, and jawans
-- Male and female security supervisors
-- Civil aviation and industrial-grade protection
-- 2-Hour Relief Replacement SLA with 2:00 AM van spot-audits
-- Guaranteed police verification for all personnel
-
-### Tier 2: Corporate & Multi-Skill Staffing
-- IT, hospitality, technical, and non-technical workforce
-- Factory assembly, warehouse packing, CNC operators
-- 100% EPF/ESIC statutory compliance
-- 48-72 hour workforce mobilization
-
-### Tier 3: Integrated Facility Management & Housekeeping
-- Mechanized industrial housekeeping (ride-on scrubbers)
-- Hospital-grade environmental sanitization (NABH standards)
-- Color-coded microfiber cross-contamination prevention
-- Solid waste management
-
-## Auxiliary Services
-- GeM Tender Bidding & Government e-Procurement
-- Document Scanning, OCR & Digitization (NIC 62099)
-- CSC Digital Citizen Services
-
-## Compliance & Certifications
-- PSARA Licensed (Private Security Agencies Regulation Act, 2005)
-- Home Department, Government of Tamil Nadu
-- ISO 9001:2015 Certified
-- DGR (Directorate General Resettlement) Aligned
-- 100% EPF, ESIC, and Minimum Wages Act compliance
-- Mandatory 5-day pre-deployment training
-- Aadhaar + Police verification for all deployed guards
-
-## Operating Cities
-Tiruchirappalli (HQ), Chennai (OMR Tech Corridor), Coimbatore, Hosur, Madurai, Salem, Erode, Tirunelveli, Thanjavur
-
-## Key Differentiators
-- Single accountable partner for security + housekeeping + manpower
-- ESM military veteran supervisory units
-- Real-time digital attendance + QR patrol checkpoints
-- Founder-led responsiveness with direct executive accountability
-- 2-Hour Relief Replacement SLA
-
-## Pages
-- [/about](https://www.jsmintegratedservices.com/about) — Company history, leadership, vision and mission
-- [/services](https://www.jsmintegratedservices.com/services) — Full service directory with 3-tier model
-- [/services/private-security](https://www.jsmintegratedservices.com/services/private-security) — PSARA security guard services
-- [/services/manpower](https://www.jsmintegratedservices.com/services/manpower) — Corporate and industrial staffing
-- [/services/housekeeping](https://www.jsmintegratedservices.com/services/housekeeping) — Facility management and housekeeping
-- [/security-agencies](https://www.jsmintegratedservices.com/security-agencies) — DGR scheme, PSARA framework, state-wise status
-- [/careers](https://www.jsmintegratedservices.com/careers) — Join the team, officer and JCO tracks
-- [/work-opportunities](https://www.jsmintegratedservices.com/work-opportunities) — Job aggregator with active vacancies
-- [/newsletter](https://www.jsmintegratedservices.com/newsletter) — Intelligence dispatches and compliance gazette
-- [/contact](https://www.jsmintegratedservices.com/contact) — Get in touch, WhatsApp, email
-- [/get-quote](https://www.jsmintegratedservices.com/get-quote) — Request a custom quote
-- [/blog](https://www.jsmintegratedservices.com/blog) — Industry insights and operational guides
+## Key pages
+- Services overview: /services
+- Security guarding: /services/private-security
+- Manpower staffing: /services/manpower
+- Facility management: /services/housekeeping
+- Compliance & DGR empanelment: /security-agencies
+- About & leadership: /about
+- Contact / request a quote: /get-quote

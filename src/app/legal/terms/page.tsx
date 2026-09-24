@@ -1,7 +1,7 @@
 import { brandData } from "@/data/brand";
 
 export const metadata = {
-  title: "Terms of Service | JSM Integrated Services",
+  title: "Terms of Service",
   description: "Read the terms and operational conditions governing the use of JSM Integrated Services web platforms and proposals.",
 };
 
