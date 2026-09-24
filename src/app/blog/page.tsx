@@ -4,10 +4,13 @@ import { ArrowRight, Calendar, User, Clock, Sparkles } from "lucide-react";
 import { brandData } from "@/data/brand";
 import { breadcrumbSchema } from "@/lib/schema";
 
-export const metadata = {
-  title: "Operating Insights & Articles | JSM Integrated Services",
+import { constructMetadata } from "@/lib/seo";
+
+export const metadata = constructMetadata({
+  title: "Operating Insights & Field Dispatches",
   description: "Read practical guides on private security, commercial housekeeping, factory staffing, and facility standard operating procedures across Tamil Nadu.",
-};
+  path: "/blog",
+});
 
 export default function BlogListingPage() {
   const flagshipPost = blogPosts.find((p) => p.isFlagship) || blogPosts[0];

@@ -20,10 +20,13 @@ const iconMap: Record<string, React.ElementType> = {
   Briefcase
 };
 
-export const metadata = {
-  title: "Industries We Serve | Tailored Security, Housekeeping & Staffing",
-  description: "Specialized integrated operations for 12 key sectors: Residential Societies, Corporate Offices, Factories, Warehouses, Hospitals, Schools, and Real Estate in Tamil Nadu.",
-};
+import { constructMetadata } from "@/lib/seo";
+
+export const metadata = constructMetadata({
+  title: "Industries We Serve",
+  description: "Specialized integrated operations for 12 key sectors: Residential Societies, Corporate Offices, Factories, Warehouses, Hospitals, and Schools across Tamil Nadu.",
+  path: "/industries",
+});
 
 export default function IndustriesHubPage() {
   const breadcrumb = breadcrumbSchema([

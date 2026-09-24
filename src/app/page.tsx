@@ -25,6 +25,31 @@ export const metadata = {
     absolute: "JSM Integrated Services | PSARA Security, Manpower & Facility Management",
   },
   description: "PSARA-licensed Ex-Servicemen & Private Security, 100% EPF/ESIC Manpower Staffing, and Commercial Facility Management across Tamil Nadu.",
+  alternates: {
+    canonical: brandData.domain,
+  },
+  openGraph: {
+    title: "JSM Integrated Services | PSARA Security, Manpower & Facility Management",
+    description: "PSARA-licensed Ex-Servicemen & Private Security, 100% EPF/ESIC Manpower Staffing, and Commercial Facility Management across Tamil Nadu.",
+    url: brandData.domain,
+    siteName: brandData.name,
+    locale: "en_IN",
+    type: "website",
+    images: [
+      {
+        url: `${brandData.domain}/images/jsm_logo_black.png`,
+        width: 1200,
+        height: 630,
+        alt: "JSM Integrated Services - Security, Manpower & Facility Operations",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "JSM Integrated Services | PSARA Security, Manpower & Facility Management",
+    description: "PSARA-licensed Ex-Servicemen & Private Security, 100% EPF/ESIC Manpower Staffing, and Commercial Facility Management across Tamil Nadu.",
+    images: [`${brandData.domain}/images/jsm_logo_black.png`],
+  },
 };
 
 const homeFAQs = [

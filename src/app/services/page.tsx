@@ -6,10 +6,20 @@ import { breadcrumbSchema } from '@/lib/schema';
 import { ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 
-export const metadata = {
+import { constructMetadata } from '@/lib/seo';
+
+export const metadata = constructMetadata({
   title: 'Integrated Services Directory',
   description: 'Explore JSM Integrated Services three-tier operations model: PSARA security guarding, 100% compliant contract staffing, and commercial facility management across Tamil Nadu.',
-};
+  path: '/services',
+  keywords: [
+    'Integrated Services Directory',
+    'Security Guarding Services Tamil Nadu',
+    'Industrial Manpower Staffing',
+    'Commercial Facility Management',
+    'PSARA Security Agency Trichy Chennai Coimbatore'
+  ]
+});
 
 export default function ServicesHubPage() {
   const breadcrumb = breadcrumbSchema([

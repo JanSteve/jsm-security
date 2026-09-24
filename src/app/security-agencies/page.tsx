@@ -16,10 +16,19 @@ import {
 import { brandData } from "@/data/brand";
 import { breadcrumbSchema } from "@/lib/schema";
 
-export const metadata = {
+import { constructMetadata } from "@/lib/seo";
+
+export const metadata = constructMetadata({
   title: "Compliance, PSARA 2005 & DGR Framework",
   description: "Official compliance authority page for JSM Integrated Services. Review PSARA Act 2005 standards, DGR alignment, EPF/ESIC legal compliance, and download official application forms.",
-};
+  path: "/security-agencies",
+  keywords: [
+    "PSARA 2005 Tamil Nadu",
+    "DGR Ex-Servicemen Security",
+    "Statutory EPF ESIC Compliance",
+    "Security Agency License Verification"
+  ]
+});
 
 const stateStatus = [
   {

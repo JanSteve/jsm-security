@@ -12,25 +12,18 @@ export function generateStaticParams() {
   }));
 }
 
+import { constructMetadata } from "@/lib/seo";
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) return { title: "Publication Not Found" };
-  return {
-    title: post.metaTitle,
+  return constructMetadata({
+    title: post.title,
     description: post.metaDescription,
-    alternates: {
-      canonical: `${brandData.domain}/blog/${post.slug}`,
-    },
-    openGraph: {
-      title: `${post.title} | ${brandData.name}`,
-      description: post.metaDescription,
-      url: `${brandData.domain}/blog/${post.slug}`,
-      type: "article",
-      publishedTime: post.date,
-      authors: [post.author],
-    }
-  };
+    path: `/blog/${post.slug}`,
+    type: "article",
+  });
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {

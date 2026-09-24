@@ -1,9 +1,11 @@
 import { brandData } from "@/data/brand";
+import { constructMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = constructMetadata({
   title: "Privacy Policy",
   description: "Learn how JSM Integrated Services collects, uses, and secures client data in accordance with applicable Indian regulations.",
-};
+  path: "/legal/privacy",
+});
 
 export default function PrivacyPolicyPage() {
   return (

@@ -1,9 +1,11 @@
 import { brandData } from "@/data/brand";
+import { constructMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = constructMetadata({
   title: "Terms of Service",
   description: "Read the terms and operational conditions governing the use of JSM Integrated Services web platforms and proposals.",
-};
+  path: "/legal/terms",
+});
 
 export default function TermsOfServicePage() {
   return (

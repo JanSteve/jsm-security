@@ -13,22 +13,17 @@ export function generateStaticParams() {
   }));
 }
 
+import { constructMetadata } from "@/lib/seo";
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const industry = industriesData.find((i) => i.slug === slug);
   if (!industry) return { title: "Industry Not Found" };
-  return {
-    title: industry.metaTitle,
+  return constructMetadata({
+    title: industry.title,
     description: industry.metaDescription,
-    alternates: {
-      canonical: `${brandData.domain}/industries/${industry.slug}`,
-    },
-    openGraph: {
-      title: `${industry.title} | ${brandData.name}`,
-      description: industry.metaDescription,
-      url: `${brandData.domain}/industries/${industry.slug}`,
-    }
-  };
+    path: `/industries/${industry.slug}`,
+  });
 }
 
 export default async function IndustryDetailPage({ params }: { params: Promise<{ slug: string }> }) {

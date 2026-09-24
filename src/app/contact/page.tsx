@@ -3,10 +3,13 @@ import { Phone, Mail, MapPin, Clock, ShieldCheck, ArrowRight } from "lucide-reac
 import { brandData } from "@/data/brand";
 import { breadcrumbSchema, localBusinessSchema } from "@/lib/schema";
 
-export const metadata = {
+import { constructMetadata } from "@/lib/seo";
+
+export const metadata = constructMetadata({
   title: "Contact & Site Assessment",
   description: "Contact JSM Integrated Services operations desk in Tiruchirappalli, Tamil Nadu. Request an on-site physical security or facility assessment with direct founder accountability.",
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   const breadcrumb = breadcrumbSchema([

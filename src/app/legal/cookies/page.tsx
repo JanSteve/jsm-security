@@ -1,9 +1,11 @@
 import { brandData } from "@/data/brand";
+import { constructMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Cookie Policy | JSM Integrated Services",
+export const metadata = constructMetadata({
+  title: "Cookie Policy",
   description: "Read the cookie policy outlining how JSM Integrated Services optimizes your browsing and form sessions.",
-};
+  path: "/legal/cookies",
+});
 
 export default function CookiePolicyPage() {
   return (

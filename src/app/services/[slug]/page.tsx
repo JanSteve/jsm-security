@@ -9,6 +9,8 @@ import { serviceSchema, breadcrumbSchema, faqSchema, howToSchema } from "@/lib/s
 import { brandData } from "@/data/brand";
 import { ArrowRight, CheckCircle2, ShieldCheck, Phone, Check } from "lucide-react";
 
+import { constructMetadata } from "@/lib/seo";
+
 export function generateStaticParams() {
   return servicesData.map((service) => ({
     slug: service.slug,
@@ -19,18 +21,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const service = servicesData.find((s) => s.slug === slug);
   if (!service) return { title: "Service Not Found" };
-  return {
+  return constructMetadata({
     title: service.title,
     description: service.metaDescription,
-    alternates: {
-      canonical: `${brandData.domain}/services/${service.slug}`,
-    },
-    openGraph: {
-      title: `${service.title} | ${brandData.name}`,
-      description: service.metaDescription,
-      url: `${brandData.domain}/services/${service.slug}`,
-    }
-  };
+    path: `/services/${service.slug}`,
+    image: service.heroImage || '/images/jsm_logo_black.png',
+  });
 }
 
 export default async function ServiceDetailPage({ params }: { params: Promise<{ slug: string }> }) {

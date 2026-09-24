@@ -13,10 +13,14 @@ import {
   MapPin 
 } from "lucide-react";
 
-export const metadata = {
+import { constructMetadata } from "@/lib/seo";
+
+export const metadata = constructMetadata({
   title: "About Leadership & Governance",
   description: "Learn about JSM Integrated Services leadership: Managing Director Sweety J, Head of Operations Major AR Devadoss (Army-Veteran), and CTO R Jan Steve Daniel.",
-};
+  path: "/about",
+  image: "/images/real_jsm_printed_card.jpg",
+});
 
 const districtHubs = [
   { city: "Tiruchirappalli (Trichy)", role: "Headquarters & Central Command", address: "RVS Nagar, Kottapattu Post, Pin 620021" },
