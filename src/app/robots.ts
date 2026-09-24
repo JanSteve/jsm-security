@@ -5,12 +5,20 @@ export default function robots(): MetadataRoute.Robots {
   
   return {
     rules: [
+      // Standard search engine crawlers — full access
       {
         userAgent: '*',
         allow: '/',
+        disallow: ['/api/', '/_next/', '/admin/'],
+      },
+      // Google & Bing bots — full access with explicit allows
+      {
+        userAgent: ['Googlebot', 'Bingbot', 'Slurp', 'DuckDuckBot', 'Baiduspider', 'YandexBot'],
+        allow: ['/', '/llms.txt', '/llms-full.txt', '/services/', '/industries/', '/about', '/careers', '/contact', '/blog/', '/get-quote', '/security-agencies', '/work-opportunities', '/newsletter', '/whats-new'],
         disallow: ['/api/'],
       },
-      // Generative AI & LLM Search Engine Crawlers
+      // Generative AI & LLM Answer Engine Crawlers (AEO/GEO)
+      // These bots power Perplexity, ChatGPT Search, Claude, Google AI Overviews
       {
         userAgent: [
           'GPTBot',
@@ -21,9 +29,12 @@ export default function robots(): MetadataRoute.Robots {
           'Google-Extended',
           'Applebot-Extended',
           'CCBot',
-          'cohere-ai'
+          'cohere-ai',
+          'Bytespider',
+          'YouBot',
+          'PhindBot',
         ],
-        allow: ['/', '/llms.txt', '/services/', '/industries/', '/about', '/careers', '/contact', '/blog/', '/get-quote'],
+        allow: ['/', '/llms.txt', '/llms-full.txt', '/services/', '/industries/', '/about', '/careers', '/contact', '/blog/', '/get-quote', '/security-agencies', '/work-opportunities', '/newsletter', '/whats-new'],
         disallow: ['/api/'],
       },
     ],

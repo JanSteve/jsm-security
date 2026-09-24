@@ -11,8 +11,19 @@ import { Analytics } from "@vercel/analytics/react";
 import { brandData } from "@/data/brand";
 import { cn } from "@/lib/utils";
 
-const inter = { variable: "font-sans" };
-const plusJakartaSans = { variable: "font-sans" };
+import { Inter, Fraunces } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-fraunces",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(brandData.domain),
@@ -61,6 +72,19 @@ export const metadata: Metadata = {
   verification: {
     google: "QtF7HUSz_UrTPnpL5WByxS66elp-pyZyRMU-5Tes0go",
   },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      'max-video-preview': -1,
+      'max-image-preview': 'large' as const,
+      'max-snippet': -1,
+    },
+  },
   icons: {
     icon: [
       { url: "/favicon.ico?v=4", sizes: "any" },
@@ -88,10 +112,9 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          "min-h-screen bg-white font-sans antialiased text-[#1d1d1f] selection:bg-[#0071e3]/15 selection:text-black",
+          "min-h-screen bg-white font-sans antialiased text-[#14181F] selection:bg-[#0B3D2E]/15 selection:text-black",
           inter.variable,
-          plusJakartaSans.variable,
-          "pb-16 md:pb-0"
+          fraunces.variable
         )}
       >
         <Providers>
@@ -99,10 +122,7 @@ export default function RootLayout({
             <Header />
             <main className="flex-1 w-full">{children}</main>
             <Footer />
-            <MobileDock />
             <CookieBanner />
-            <AIReceptionist />
-            <EmergencyReliefModal />
           </div>
         </Providers>
       </body>

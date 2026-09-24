@@ -1,332 +1,174 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "motion/react";
-import { 
-  ShieldCheck, 
-  Sparkles, 
-  Users, 
-  ArrowRight,
-  CheckCircle2,
-  ChevronLeft,
-  ChevronRight,
-  FileCheck2,
-  Briefcase,
-  Layers,
-  Phone
-} from "lucide-react";
-import { cn } from "@/lib/utils";
+import { ShieldCheck, Users, Sparkles, ArrowRight, CheckCircle2, FileText, Cpu, Check } from "lucide-react";
+import { brandData } from "@/data/brand";
 
-const THREE_TIER_SERVICES = [
+const tierServices = [
   {
-    tier: "TIER 01",
-    title: "Security Supervisors (ESM & Private)",
-    tagline: "MALE & FEMALE SUPERVISORS • PSARA LICENSED • DGR-ALIGNED",
-    desc: "Elite Ex-Servicemen (ESM) military veterans and rigorously certified private security supervisors directing static guarding, armed escorts, night patrols, and high-stakes perimeter watch.",
-    features: [
-      "Ex-Servicemen (ESM) Officers & JCOs with armed forces discipline",
-      "Dedicated male and female supervisory units for corporate & retail hubs",
-      "Strict PSARA Act (2005) compliance & 100% police verification",
-      "Guaranteed 2-Hour Relief Replacement SLA with 2:00 AM van spot-audits"
-    ],
-    highlight: "Civil Aviation & Heavy Industrial Grade",
-    icon: ShieldCheck,
-    href: "/services/private-security"
+    tier: "Tier 1",
+    code: "SAC 998525",
+    title: "Security Supervisors & Guarding",
+    slug: "/services/private-security",
+    badge: "PSARA Licensed",
+    description: "Disciplined perimeter protection, visitor gate-pass registers, and access control led by Ex-Servicemen (ESM) and trained private security marshals.",
+    deliverables: [
+      "Ex-Servicemen & Private Marshals (Male & Female)",
+      "2-Hour Relief Replacement Guarantee SLA",
+      "2:00 AM Unannounced Supervisor Van Audits",
+      "Daily Digital Gate Registers & Incident Reports"
+    ]
   },
   {
-    tier: "TIER 02",
-    title: "Corporate & Multi-Skill Staffing",
-    tagline: "HOSPITALITY • TECHNICAL & NON-TECHNICAL • SKILLED & UNSKILLED",
-    desc: "End-to-end workforce outsourcing covering corporate office staff, hospitality personnel, factory assembly workers, warehouse packing teams, CNC operators, and general labor.",
-    features: [
-      "Hospitality & front-desk corporate customer experience professionals",
-      "Certified technical crew: electricians, plumbers, HVAC & maintenance",
-      "Factory & warehouse assembly workforce mobilized within 48–72 hours",
-      "100% statutory ESI/EPF compliance with client legal indemnity"
-    ],
-    highlight: "Zero Statutory Legal Liability",
-    icon: Users,
-    href: "/services/manpower"
+    tier: "Tier 2",
+    code: "SAC 998513",
+    title: "Contract Staffing & Manpower Supply",
+    slug: "/services/manpower",
+    badge: "100% EPF & ESIC",
+    description: "Multi-skilled industrial and corporate workforce with full statutory legal indemnity, monthly ECR challan verification, and rapid mobilization.",
+    deliverables: [
+      "Factory Assembly, Line Workers & Machine Operators",
+      "Corporate Office Administration & Data Staff",
+      "100% Statutory EPF, ESIC & Minimum Wage Proof",
+      "48 to 72 Hour Batch Deployment Mobilization"
+    ]
   },
   {
-    tier: "TIER 03",
-    title: "Integrated Facility & Housekeeping",
-    tagline: "MECHANIZED SANITATION • NABH STANDARDS • ASSET MAINTENANCE",
-    desc: "Industrial mechanized housekeeping, diamond floor scrubbing, hospital-grade environmental sanitization, and green waste management with verifiable supervisor audit logs.",
-    features: [
-      "Industrial ride-on sweepers & single-disc high-speed rotary scrubbers",
-      "NABH & multi-specialty healthcare pathogen control protocols",
-      "Color-coded microfiber cross-contamination prevention systems",
-      "Daily digital audit checklists with live photographic compliance logs"
-    ],
-    highlight: "Hospital & Clean-Room Certified",
-    icon: Sparkles,
-    href: "/services/housekeeping"
+    tier: "Tier 3",
+    code: "SAC 998533",
+    title: "Integrated Facility Management & Housekeeping",
+    slug: "/services/housekeeping",
+    badge: "Mechanized & Closed-Loop",
+    description: "Commercial and industrial facility hygiene adhering to a 5-step closed-loop cleaning protocol with ride-on auto scrubbers and hospital-grade sanitization.",
+    deliverables: [
+      "Mechanized Ride-On Auto Scrubbing & Polishers",
+      "5-Step Closed-Loop Hygiene: Clean to Verify",
+      "Restroom Logbooks & Hourly Inspection Registers",
+      "Corporate SEZ Campuses & Manufacturing Plants"
+    ]
+  }
+];
+
+const auxiliaryServices = [
+  {
+    title: "GeM & e-Procurement Tender Bidding",
+    description: "Comprehensive GeM portal catalog management, technical bid documentation, and PO fulfillment for PSUs and Government departments.",
+    href: "/services"
+  },
+  {
+    title: "Document Scanning, OCR & Digitization",
+    description: "High-volume document digitization, OCR text extraction, and digital archiving under NIC 62099 IT service standards.",
+    href: "/services"
+  },
+  {
+    title: "CSC & Digital Citizen Facilitation",
+    description: "Authorized citizen digital services, government application assistance, certificate processing, and documentation desk support.",
+    href: "/services"
   }
 ];
 
 export function ServicesOverview() {
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-
-  useEffect(() => {
-    if (isPaused) return;
-    const interval = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % THREE_TIER_SERVICES.length);
-    }, 5500);
-    return () => clearInterval(interval);
-  }, [isPaused]);
-
-  const prevSlide = () => {
-    setActiveSlide((prev) => (prev === 0 ? THREE_TIER_SERVICES.length - 1 : prev - 1));
-  };
-
-  const nextSlide = () => {
-    setActiveSlide((prev) => (prev + 1) % THREE_TIER_SERVICES.length);
-  };
-
-  const current = THREE_TIER_SERVICES[activeSlide];
-  const CurrentIcon = current.icon;
-
   return (
-    <section className="py-20 lg:py-28 bg-white border-b border-black/[0.08] relative overflow-hidden">
-      <div className="max-w-[1560px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
+    <section className="py-20 sm:py-28 bg-white border-b border-[#E7E5E0]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div className="space-y-2 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/[0.04] border border-black/[0.08] text-xs font-semibold text-[#1d1d1f] uppercase tracking-wider font-mono">
-              <Layers size={13} className="text-[#0071e3]" />
-              <span>Three-Tier Unified Operating Architecture</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1d1d1f] tracking-tight">
-              Specialized services. Absolute discipline.
-            </h2>
-            <p className="text-sm sm:text-base text-[#86868b] leading-relaxed">
-              Replacing fragmented multiple vendors with three specialized, audit-ready operational pillars across Tamil Nadu and South India.
-            </p>
+        <div className="max-w-3xl space-y-3">
+          <div className="text-xs font-semibold uppercase tracking-wider text-[#0B3D2E]">
+            Core Operating Structure
           </div>
-
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#0071e3] hover:underline self-start md:self-auto shrink-0 group"
-          >
-            <span>View Full Services &amp; GeM Matrix</span>
-            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-          </Link>
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl text-[#14181F] font-normal tracking-tight">
+            The Three-Tier Integrated Operations Model
+          </h2>
+          <p className="text-sm sm:text-base text-[#5A6578] leading-relaxed">
+            Eliminate vendor fragmentation. Manage premises security, industrial contract staffing, and facility management under one contract and one accountable executive desk.
+          </p>
         </div>
 
-        {/* Quick Select Tab Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-8 no-scrollbar">
-          {THREE_TIER_SERVICES.map((s, idx) => (
-            <button
-              key={s.tier}
-              onClick={() => setActiveSlide(idx)}
-              className={cn(
-                "px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold whitespace-nowrap transition-all cursor-pointer flex items-center gap-2 press-scale",
-                activeSlide === idx
-                  ? "bg-[#1d1d1f] text-white shadow-md"
-                  : "bg-[#f5f5f7] text-[#515154] hover:text-[#1d1d1f] hover:bg-neutral-200"
-              )}
+        {/* 3 Tier Service Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {tierServices.map((service, i) => (
+            <div
+              key={i}
+              className="rounded-xl border border-[#E7E5E0] bg-white p-7 flex flex-col justify-between hover:border-[#0B3D2E]/40 hover:shadow-md transition-all duration-200"
             >
-              <span className="font-mono text-[11px] font-bold text-emerald-400">{s.tier}</span>
-              <span>{s.title}</span>
-            </button>
+              <div className="space-y-5">
+                {/* Header Badge Strip */}
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-mono font-bold text-[#0B3D2E] bg-[#0B3D2E]/8 px-2.5 py-1 rounded-md">
+                    {service.tier} &bull; {service.code}
+                  </span>
+                  <span className="text-[11px] font-medium text-[#5A6578] bg-[#F8F9FA] border border-[#E7E5E0] px-2 py-0.5 rounded-md">
+                    {service.badge}
+                  </span>
+                </div>
+
+                {/* Title & Description */}
+                <div className="space-y-2">
+                  <h3 className="text-lg sm:text-xl font-semibold text-[#14181F] tracking-tight">
+                    {service.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#5A6578] leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
+
+                {/* Deliverables Checklist */}
+                <div className="space-y-2 pt-2 border-t border-[#E7E5E0]/70">
+                  <span className="text-[11px] font-semibold uppercase tracking-wider text-[#14181F]">
+                    Key Deliverables
+                  </span>
+                  <ul className="space-y-2 text-xs text-[#4A5568]">
+                    {service.deliverables.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-2">
+                        <Check size={14} className="text-[#0B3D2E] shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              {/* Bottom Link */}
+              <div className="pt-6 mt-6 border-t border-[#E7E5E0]">
+                <Link
+                  href={service.slug}
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0B3D2E] hover:text-[#082C21] group transition-colors"
+                >
+                  <span>View Full Specification &amp; SLAs</span>
+                  <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+              </div>
+            </div>
           ))}
         </div>
 
-        {/* The Apple-Grade Interactive Showcase Container */}
-        <div 
-          className="bg-[#f5f5f7] border border-black/[0.08] rounded-[36px] overflow-hidden shadow-lg"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-        >
-          {/* Running Progress Bar */}
-          <div className="h-1 bg-black/[0.06] w-full">
-            <motion.div
-              key={activeSlide}
-              initial={{ width: "0%" }}
-              animate={{ width: isPaused ? "100%" : "100%" }}
-              transition={{ duration: isPaused ? 0 : 5.5, ease: "linear" }}
-              className="h-full bg-[#0071e3]"
-            />
+        {/* Auxiliary Capabilities Section */}
+        <div className="p-8 rounded-xl bg-[#F8F9FA] border border-[#E7E5E0] space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <span className="text-xs font-semibold uppercase tracking-wider text-[#5A6578]">
+                Complementary Enterprise Verticals
+              </span>
+              <h4 className="text-lg sm:text-xl font-semibold text-[#14181F]">
+                Auxiliary Capabilities: Tenders, Digitization &amp; Citizen Services
+              </h4>
+            </div>
+            <Link
+              href="/services"
+              className="text-xs font-semibold text-[#0B3D2E] hover:underline shrink-0"
+            >
+              Explore All Verticals &rarr;
+            </Link>
           </div>
 
-          <div className="p-6 sm:p-10 lg:p-14">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeSlide}
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -16 }}
-                transition={{ duration: 0.3 }}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center"
-              >
-                {/* Left Pane: Detailed Specifications */}
-                <div className="lg:col-span-7 space-y-6">
-                  <div className="flex flex-wrap items-center gap-2.5">
-                    <span className="px-3.5 py-1 rounded-full bg-black text-white font-mono text-xs font-bold tracking-wider">
-                      {current.tier}
-                    </span>
-                    <span className="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-700 border border-emerald-500/20 text-xs font-semibold">
-                      {current.highlight}
-                    </span>
-                  </div>
-
-                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#1d1d1f] tracking-tight">
-                    {current.title}
-                  </h3>
-
-                  <p className="text-xs sm:text-sm font-mono font-bold text-[#0071e3] tracking-wide uppercase">
-                    {current.tagline}
-                  </p>
-
-                  <p className="text-sm sm:text-base text-[#515154] leading-relaxed text-pretty">
-                    {current.desc}
-                  </p>
-
-                  {/* Bulleted Specifications */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                    {current.features.map((feat) => (
-                      <div key={feat} className="flex items-start gap-2.5 bg-white p-3.5 rounded-2xl border border-black/[0.06] shadow-xs">
-                        <CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-0.5" />
-                        <span className="text-xs font-medium text-[#1d1d1f] leading-snug">{feat}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Action Bar */}
-                  <div className="pt-4 flex flex-wrap items-center gap-3">
-                    <Link
-                      href={current.href}
-                      className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white text-xs sm:text-sm font-semibold shadow-md press-scale transition-all"
-                    >
-                      <span>Explore {current.title}</span>
-                      <ArrowRight size={14} />
-                    </Link>
-                    <a
-                      href="https://wa.me/919080863448?text=Hello%20JSM%20Integrated%20Services,%20I%20am%20interested%20in%20your%20services"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-white hover:bg-neutral-100 text-[#1d1d1f] border border-black/[0.08] text-xs sm:text-sm font-semibold shadow-xs transition-all"
-                    >
-                      <span>WhatsApp Direct</span>
-                    </a>
-                  </div>
-                </div>
-
-                {/* Right Pane: Visual Dossier Badge */}
-                <div className="lg:col-span-5">
-                  <div className="rounded-[28px] bg-white border border-black/[0.08] p-8 shadow-md relative overflow-hidden flex flex-col justify-between min-h-[360px]">
-                    <div className="w-16 h-16 rounded-2xl bg-black text-white flex items-center justify-center shadow-lg mb-6">
-                      <CurrentIcon size={32} />
-                    </div>
-
-                    <div className="space-y-4">
-                      <div className="space-y-1">
-                        <span className="text-[11px] font-mono text-[#86868b] uppercase tracking-wider block">
-                          Verified Operational Standard
-                        </span>
-                        <h4 className="text-xl font-bold text-[#1d1d1f] tracking-tight">
-                          DGR &amp; PSARA Certified
-                        </h4>
-                      </div>
-
-                      <p className="text-xs text-[#86868b] leading-relaxed">
-                        Every supervisor and staff cadre passes comprehensive background verification, Aadhaar/ESIC onboarding, and site-specific standard operating procedure induction.
-                      </p>
-
-                      <div className="pt-2 border-t border-black/[0.08] flex items-center justify-between text-xs font-mono text-[#515154]">
-                        <span>ZERO CLIENT LEGAL LIABILITY</span>
-                        <span className="text-emerald-600 font-bold">100% EPF/ESIC</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Bottom Slideshow Navigation Footer */}
-            <div className="mt-10 pt-6 border-t border-black/[0.08] flex items-center justify-between">
-              <div className="flex items-center gap-2 font-mono text-xs text-[#86868b]">
-                <span className="text-black font-bold">0{activeSlide + 1}</span>
-                <span>/</span>
-                <span>0{THREE_TIER_SERVICES.length}</span>
-                <span className="ml-2 hidden sm:inline text-neutral-400">
-                  {isPaused ? "(Paused on Hover)" : "(Auto-Advancing 5.5s)"}
-                </span>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+            {auxiliaryServices.map((aux, idx) => (
+              <div key={idx} className="p-4 bg-white rounded-lg border border-[#E7E5E0] space-y-2">
+                <h5 className="text-sm font-semibold text-[#14181F]">{aux.title}</h5>
+                <p className="text-xs text-[#5A6578] leading-relaxed">{aux.description}</p>
               </div>
-
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={prevSlide}
-                  className="w-10 h-10 rounded-full bg-white hover:bg-neutral-100 border border-black/[0.08] flex items-center justify-center text-[#1d1d1f] transition-all cursor-pointer shadow-xs"
-                  aria-label="Previous service"
-                >
-                  <ChevronLeft size={18} />
-                </button>
-                <button
-                  onClick={nextSlide}
-                  className="w-10 h-10 rounded-full bg-white hover:bg-neutral-100 border border-black/[0.08] flex items-center justify-center text-[#1d1d1f] transition-all cursor-pointer shadow-xs"
-                  aria-label="Next service"
-                >
-                  <ChevronRight size={18} />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Clean Secondary Enterprise Matrix: GeM, Document Scanning, CSC */}
-        <div className="mt-14 pt-12 border-t border-black/[0.08]">
-          <div className="mb-6">
-            <h3 className="text-lg font-bold text-[#1d1d1f] tracking-tight">
-              Complementary Enterprise &amp; Government Solutions
-            </h3>
-            <p className="text-xs sm:text-sm text-[#86868b]">
-              Specialized procurement and citizen digitization services delivered with institutional precision.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-[#f5f5f7] p-6 rounded-2xl border border-black/[0.06] space-y-2">
-              <div className="flex items-center gap-2">
-                <Briefcase size={16} className="text-[#0071e3]" />
-                <h4 className="text-sm font-bold text-[#1d1d1f]">Government Tender &amp; GeM Procurement</h4>
-              </div>
-              <p className="text-xs text-[#515154] leading-relaxed">
-                Empanelled bidding, institutional supplies, and compliance fulfillment across Tamil Nadu public sector undertakings.
-              </p>
-              <Link href="/services" className="text-xs font-semibold text-[#0071e3] hover:underline inline-block pt-1">
-                Learn more →
-              </Link>
-            </div>
-
-            <div className="bg-[#f5f5f7] p-6 rounded-2xl border border-black/[0.06] space-y-2">
-              <div className="flex items-center gap-2">
-                <FileCheck2 size={16} className="text-[#0071e3]" />
-                <h4 className="text-sm font-bold text-[#1d1d1f]">Scanning, OCR &amp; IT Digitization</h4>
-              </div>
-              <p className="text-xs text-[#515154] leading-relaxed">
-                Large-format physical document scanning, institutional record archiving, and digital data migration for enterprises.
-              </p>
-              <Link href="/services" className="text-xs font-semibold text-[#0071e3] hover:underline inline-block pt-1">
-                Learn more →
-              </Link>
-            </div>
-
-            <div className="bg-[#f5f5f7] p-6 rounded-2xl border border-black/[0.06] space-y-2">
-              <div className="flex items-center gap-2">
-                <Layers size={16} className="text-[#0071e3]" />
-                <h4 className="text-sm font-bold text-[#1d1d1f]">CSC &amp; Citizen Services</h4>
-              </div>
-              <p className="text-xs text-[#515154] leading-relaxed">
-                Authorized Common Services Center operations delivering government schemes, citizen certificates, and pan-India registrations.
-              </p>
-              <Link href="/services" className="text-xs font-semibold text-[#0071e3] hover:underline inline-block pt-1">
-                Learn more →
-              </Link>
-            </div>
+            ))}
           </div>
         </div>
       </div>

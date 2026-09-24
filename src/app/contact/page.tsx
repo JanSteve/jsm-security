@@ -1,15 +1,14 @@
 import { ContactForm } from "@/components/contact/contact-form";
-import { Phone, Mail, MapPin, Clock, MessageCircle, Sparkles, ShieldCheck, ExternalLink, Navigation } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, ShieldCheck, ArrowRight } from "lucide-react";
 import { brandData } from "@/data/brand";
 import { breadcrumbSchema, localBusinessSchema } from "@/lib/schema";
 
 export const metadata = {
-  title: "Contact Us & Request Site Assessment | JSM Integrated Services",
-  description: "Schedule a free on-site security, housekeeping, or staffing assessment with JSM Integrated Services. Operations desks in Trichy, Chennai, Coimbatore, and across Tamil Nadu.",
+  title: "Contact & Site Assessment | JSM Integrated Services",
+  description: "Contact JSM Integrated Services operations desk in Tiruchirappalli, Tamil Nadu. Request an on-site physical security or facility assessment with direct founder accountability.",
 };
 
 export default function ContactPage() {
-
   const breadcrumb = breadcrumbSchema([
     { name: "Home", url: brandData.domain },
     { name: "Contact Us", url: `${brandData.domain}/contact` },
@@ -18,7 +17,7 @@ export default function ContactPage() {
   const localBusiness = localBusinessSchema();
 
   return (
-    <main className="min-h-screen bg-white text-[#1d1d1f] pt-52 sm:pt-60 md:pt-64 lg:pt-72 pb-24 px-4 sm:px-6 md:px-12 lg:px-20 selection:bg-[#0071e3]/15 selection:text-black">
+    <main className="min-h-screen bg-white text-[#14181F] pt-32 pb-24">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
@@ -28,111 +27,101 @@ export default function ContactPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
       />
 
-      <div className="max-w-[1440px] mx-auto">
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f5f5f7] border border-black/[0.08] text-[#1d1d1f] text-xs font-semibold shadow-sm">
-            <Sparkles size={13} className="text-[#0071e3]" />
-            <span>24/7 operational dispatch</span>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+        {/* Editorial Page Header */}
+        <section className="py-8 sm:py-12 border-b border-[#E7E5E0]">
+          <div className="max-w-3xl space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0B3D2E]/8 text-[#0B3D2E] text-xs font-semibold">
+              <ShieldCheck size={14} />
+              <span>Direct Operational Desk</span>
+            </div>
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl text-[#14181F] font-normal tracking-tight">
+              Contact &amp; Site Assessment
+            </h1>
+            <p className="text-base sm:text-lg text-[#5A6578] leading-relaxed">
+              Speak directly with our operations team in Tiruchirappalli. We schedule on-site threat assessments, discuss staffing rosters, and deliver transparent proposals.
+            </p>
           </div>
+        </section>
 
-          <h1 className="text-3xl sm:text-5xl font-semibold text-[#1d1d1f] tracking-tight text-balance">
-            Let’s discuss your requirement.
-          </h1>
-
-          <p className="text-xs sm:text-sm text-[#86868b] font-normal text-pretty">
-            Request an on-site physical security or facility assessment. We respond within 2 hours.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-5xl mx-auto">
-          {/* Left Form (7 cols) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          {/* Left: Contact Form (7 cols) */}
           <div className="lg:col-span-7">
             <ContactForm />
           </div>
 
-          {/* Right Contact Details & Google Maps Local Hub (5 cols) */}
-          <div className="lg:col-span-5 space-y-5">
-            <div className="bg-[#f5f5f7] border border-black/[0.08] rounded-[28px] p-6 space-y-5 shadow-sm">
-              <h3 className="text-base font-semibold text-[#1d1d1f] tracking-tight border-b border-black/[0.08] pb-3">
-                Operations &amp; command desk
-              </h3>
-              
-              <div className="space-y-3.5 text-xs font-medium">
-                {/* Official Hotline */}
-                <div className="flex gap-3 items-start p-3.5 rounded-2xl bg-white border border-black/[0.06] shadow-sm">
-                  <div className="p-2.5 bg-[#f5f5f7] border border-black/[0.06] rounded-xl text-[#0071e3]">
-                    <Phone size={16} />
-                  </div>
+          {/* Right: Contact Information & Headquarters Card (5 cols) */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="p-7 rounded-xl bg-[#F8F9FA] border border-[#E7E5E0] space-y-6">
+              <h2 className="font-display text-xl text-[#14181F] font-normal border-b border-[#E7E5E0] pb-3">
+                Head Office &amp; Operations
+              </h2>
+
+              <div className="space-y-4 text-xs sm:text-sm text-[#5A6578]">
+                {/* Physical Address */}
+                <div className="flex items-start gap-3">
+                  <MapPin size={18} className="text-[#0B3D2E] shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-semibold text-[#1d1d1f] text-xs">Official 24/7 operations line</h4>
-                    <a href={`tel:${brandData.contact.phone}`} className="text-sm font-semibold text-[#0071e3] hover:underline mt-0.5 block tabular-nums">
+                    <strong className="text-[#14181F] block">Central Headquarters:</strong>
+                    <span>Plot No: 112, SF No 122, RVS Nagar, Kottapattu Post, Tiruchirappalli Distt, Tamil Nadu State, Pin: 620 021</span>
+                  </div>
+                </div>
+
+                {/* Direct Phone */}
+                <div className="flex items-start gap-3">
+                  <Phone size={18} className="text-[#0B3D2E] shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-[#14181F] block">Direct Consultation / Hotline:</strong>
+                    <a href={`tel:${brandData.contact.phone}`} className="text-[#0B3D2E] font-semibold hover:underline tabular-nums">
                       {brandData.contact.phoneDisplay}
                     </a>
                   </div>
                 </div>
 
-                {/* WhatsApp Direct */}
-                <div className="flex gap-3 items-start p-3.5 rounded-2xl bg-white border border-black/[0.06] shadow-sm">
-                  <div className="p-2.5 bg-[#f5f5f7] border border-black/[0.06] rounded-xl text-emerald-600">
-                    <MessageCircle size={16} />
-                  </div>
+                {/* Email Contacts */}
+                <div className="flex items-start gap-3">
+                  <Mail size={18} className="text-[#0B3D2E] shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-semibold text-[#1d1d1f] text-xs">Instant WhatsApp desk</h4>
-                    <a
-                      href={`https://wa.me/${brandData.contact.whatsapp}?text=Hello%20JSM%20Integrated%20Services,%20I%20would%20like%20to%20inquire%20about%20your%20services.`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs font-semibold text-emerald-600 hover:underline mt-0.5 block tabular-nums"
-                    >
-                      Chat on WhatsApp (+91 90808 63448) →
-                    </a>
-                  </div>
-                </div>
-
-                {/* Email */}
-                <div className="flex gap-3 items-start p-3.5 rounded-2xl bg-white border border-black/[0.06] shadow-sm">
-                  <div className="p-2.5 bg-[#f5f5f7] border border-black/[0.06] rounded-xl text-[#0071e3]">
-                    <Mail size={16} />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-[#1d1d1f] text-xs">Official corporate inbox</h4>
-                    <a href={`mailto:${brandData.contact.email}`} className="text-xs font-semibold text-[#515154] hover:text-[#1d1d1f] mt-0.5 block">
+                    <strong className="text-[#14181F] block">Official Email:</strong>
+                    <a href={`mailto:${brandData.contact.email}`} className="text-[#0B3D2E] hover:underline block">
                       {brandData.contact.email}
                     </a>
+                    <span className="text-[11px] text-[#5A6578] block">Alternate: {brandData.contact.backupEmail}</span>
                   </div>
                 </div>
 
-                {/* Google Maps / Local Hub */}
-                <div className="flex gap-3 items-start p-3.5 rounded-2xl bg-white border border-black/[0.06] shadow-sm">
-                  <div className="p-2.5 bg-[#f5f5f7] border border-black/[0.06] rounded-xl text-[#0071e3]">
-                    <MapPin size={16} />
-                  </div>
-                  <div className="space-y-1">
-                    <h4 className="font-semibold text-[#1d1d1f] text-xs">Regional command centre</h4>
-                    <p className="text-[#86868b] text-xs leading-snug">
-                      Tiruchirappalli (Trichy), Tamil Nadu, India — PIN 620001
-                    </p>
-                    <a
-                      href="https://www.google.com/maps/search/?api=1&query=Tiruchirappalli+Tamil+Nadu+India"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0071e3] hover:underline pt-1"
-                    >
-                      <Navigation size={12} /> <span>Open in Google Maps</span> <ExternalLink size={11} />
-                    </a>
+                {/* Response SLA */}
+                <div className="flex items-start gap-3">
+                  <Clock size={18} className="text-[#0B3D2E] shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-[#14181F] block">Response Commitment:</strong>
+                    <span>Operational inquiries answered within 2 hours during active business shifts.</span>
                   </div>
                 </div>
+              </div>
+
+              {/* Direct WhatsApp Action */}
+              <div className="pt-2 border-t border-[#E7E5E0]">
+                <a
+                  href={`https://wa.me/${brandData.contact.whatsapp}?text=Hello%20JSM%20Integrated%20Services,%20I%20wish%20to%20inquire%20about%20your%20services.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-lg bg-[#0B3D2E] hover:bg-[#082C21] text-white text-xs sm:text-sm font-semibold transition-colors"
+                >
+                  <span>Open WhatsApp Operations Chat</span>
+                  <ArrowRight size={14} />
+                </a>
               </div>
             </div>
 
-            {/* Quick SLA Assurance Badge */}
-            <div className="p-4 rounded-2xl bg-[#f5f5f7] border border-black/[0.08] text-[#1d1d1f] flex items-center gap-3 shadow-sm">
-              <ShieldCheck size={22} className="text-[#0071e3] flex-shrink-0" />
-              <div className="text-xs">
-                <span className="font-semibold block text-[#1d1d1f] tabular-nums">2-hour response guarantee</span>
-                <span className="text-[11px] text-[#86868b]">All inquiries processed directly by operations officers.</span>
-              </div>
+            {/* Regional Outposts Notice */}
+            <div className="p-6 rounded-xl border border-[#E7E5E0] bg-white space-y-2">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-[#14181F]">
+                Regional Deployment Outposts
+              </h3>
+              <p className="text-xs text-[#5A6578] leading-relaxed">
+                Field supervisory units actively stationed in Chennai (OMR IT Corridor), Coimbatore (Sidco), Hosur (Sipcot), Salem, and Madurai.
+              </p>
             </div>
           </div>
         </div>

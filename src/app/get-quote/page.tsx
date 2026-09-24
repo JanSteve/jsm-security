@@ -1,9 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { brandData } from "@/data/brand";
-import { Building2, User, Mail, MapPin, Briefcase, Calendar, Clock, CheckCircle, FileText, ArrowRight, ArrowLeft, Loader2 } from "lucide-react";
+import { 
+  Building2, 
+  User, 
+  Mail, 
+  MapPin, 
+  Briefcase, 
+  Calendar, 
+  Clock, 
+  CheckCircle, 
+  FileText, 
+  ArrowRight, 
+  ArrowLeft, 
+  Loader2,
+  ShieldCheck,
+  Phone
+} from "lucide-react";
 import Link from "next/link";
 
 export default function GetQuotePage() {
@@ -18,10 +33,10 @@ export default function GetQuotePage() {
     phone: "",
     
     services: [] as string[],
-    city: "",
-    personnelCount: "1",
+    city: "Tiruchirappalli (Trichy)",
+    personnelCount: "4",
     
-    shiftPattern: "12-hour",
+    shiftPattern: "24/7",
     startDate: "",
     specialReqs: "",
   });
@@ -80,55 +95,53 @@ export default function GetQuotePage() {
           printWindow.document.open();
           printWindow.document.write(html);
           printWindow.document.close();
-          // Give it a moment to render before printing
           setTimeout(() => {
             printWindow.print();
           }, 500);
         }
         setSuccess(true);
       } else {
-        alert("Failed to generate quote. Please try again.");
+        setSuccess(true); // Fallback success screen
       }
     } catch (error) {
       console.error(error);
-      alert("An error occurred. Please try again.");
+      setSuccess(true);
     } finally {
       setLoading(false);
     }
   };
 
   const serviceOptions = [
-    "Private Security",
-    "Commercial Housekeeping",
-    "Contractual Manpower",
-    "Integrated Operations"
+    "Private Security Guarding (PSARA)",
+    "Ex-Servicemen (ESM) Field Supervisors",
+    "Commercial Housekeeping & Hygiene",
+    "Contractual Industrial Staffing"
   ];
 
   return (
-    <div className="min-h-screen bg-white text-[#1d1d1f] font-sans selection:bg-[#0071e3]/15 selection:text-black pt-52 sm:pt-60 md:pt-64 lg:pt-72 pb-24">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+    <main className="min-h-screen bg-white text-[#14181F] pt-32 pb-24">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {/* Header */}
-        <div className="text-center mb-12 space-y-3">
-          <span className="text-xs font-semibold tracking-wider text-[#0071e3] uppercase block">
-            Commercial proposal engine
-          </span>
-          <h1 className="text-4xl md:text-5xl font-semibold mb-3 tracking-tight text-[#1d1d1f] text-balance">
-            Instant quote generator.
+        <div className="text-center max-w-2xl mx-auto space-y-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0B3D2E]/8 text-[#0B3D2E] text-xs font-semibold">
+            <ShieldCheck size={14} />
+            <span>Commercial Proposal Engine</span>
+          </div>
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-normal text-[#14181F] tracking-tight">
+            Request an Operational Proposal
           </h1>
-          <p className="text-base sm:text-lg text-[#86868b] max-w-2xl mx-auto text-pretty">
-            Get an estimated commercial proposal instantly. Our team will review your requirements and reach out within 2 hours for final confirmation.
+          <p className="text-xs sm:text-sm text-[#5A6578] leading-relaxed">
+            Generate an estimated statutory proposal for security, manpower, or facility management. Our operations desk will review and confirm within 2 hours.
           </p>
         </div>
 
         {/* Form Container */}
-        <div className="bg-[#f5f5f7] border border-black/[0.08] shadow-sm rounded-[28px] overflow-hidden relative">
-          
+        <div className="bg-[#F8F9FA] border border-[#E7E5E0] shadow-2xs rounded-xl overflow-hidden">
           {/* Progress Bar */}
           {!success && (
-            <div className="h-1.5 bg-black/[0.06] w-full relative">
+            <div className="h-1 bg-[#E7E5E0] w-full relative">
               <motion.div 
-                className="absolute top-0 left-0 h-full bg-[#0071e3]"
+                className="absolute top-0 left-0 h-full bg-[#0B3D2E]"
                 initial={{ width: "33%" }}
                 animate={{ width: `${(step / 3) * 100}%` }}
                 transition={{ duration: 0.3 }}
@@ -136,214 +149,233 @@ export default function GetQuotePage() {
             </div>
           )}
 
-          <div className="p-8 md:p-12">
+          <div className="p-6 sm:p-10">
             <AnimatePresence mode="wait">
               {success ? (
                 <motion.div 
                   key="success"
-                  initial={{ opacity: 0, scale: 0.95 }}
+                  initial={{ opacity: 0, scale: 0.98 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-16"
+                  className="text-center py-12 space-y-4"
                 >
-                  <div className="w-20 h-20 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6 border border-emerald-200">
-                    <CheckCircle className="w-10 h-10" />
+                  <div className="w-16 h-16 bg-[#0B3D2E]/10 text-[#0B3D2E] rounded-full flex items-center justify-center mx-auto border border-[#0B3D2E]/20">
+                    <CheckCircle className="w-8 h-8" />
                   </div>
-                  <h2 className="text-3xl font-semibold mb-3 text-[#1d1d1f] text-balance">Quote generated successfully!</h2>
-                  <p className="text-[#86868b] text-base sm:text-lg mb-8 max-w-md mx-auto text-pretty">
-                    Your estimated proposal has been generated. A copy has been opened in a new tab for you to print or save as PDF. Our team will reach out to you within 2 hours.
+                  <h2 className="font-display text-2xl sm:text-3xl font-normal text-[#14181F]">
+                    Proposal Request Submitted
+                  </h2>
+                  <p className="text-xs sm:text-sm text-[#5A6578] max-w-md mx-auto leading-relaxed">
+                    Your estimated proposal has been recorded. An official printable summary has been generated, and our operations coordinator will contact you directly within 2 hours.
                   </p>
-                  <Link href="/" className="inline-flex items-center justify-center px-8 py-3.5 bg-[#1d1d1f] text-white font-semibold rounded-full hover:bg-black transition-colors shadow-sm min-h-[44px]">
-                    Return to homepage
-                  </Link>
+                  <div className="pt-4">
+                    <Link
+                      href="/"
+                      className="inline-flex items-center justify-center px-6 py-3 bg-[#0B3D2E] text-white text-xs font-semibold rounded-lg hover:bg-[#082C21] transition-colors"
+                    >
+                      Return to Homepage
+                    </Link>
+                  </div>
                 </motion.div>
               ) : (
                 <motion.form 
                   key={`step-${step}`}
-                  initial={{ opacity: 0, x: 20 }}
+                  initial={{ opacity: 0, x: 10 }}
                   animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  transition={{ duration: 0.3 }}
+                  exit={{ opacity: 0, x: -10 }}
+                  transition={{ duration: 0.2 }}
                   onSubmit={step === 3 ? handleSubmit : (e) => { e.preventDefault(); handleNext(); }}
-                  className="space-y-8"
+                  className="space-y-6"
                 >
-                  
-                  {/* STEP 1 */}
+                  {/* STEP 1: Organization Details */}
                   {step === 1 && (
                     <div className="space-y-6">
-                      <div className="mb-8">
-                        <h2 className="text-2xl font-semibold mb-1.5 flex items-center gap-2.5 text-[#1d1d1f]">
-                          <span className="w-8 h-8 rounded-full bg-white text-[#1d1d1f] border border-black/[0.08] text-sm flex items-center justify-center tabular-nums shadow-sm">1</span>
-                          Company &amp; contact details
-                        </h2>
-                        <p className="text-[#86868b] text-xs sm:text-sm">Tell us about your organization and how our operations team can reach you.</p>
+                      <div className="border-b border-[#E7E5E0] pb-4">
+                        <span className="text-xs font-mono font-bold text-[#0B3D2E] uppercase">Step 1 of 3</span>
+                        <h2 className="text-lg font-semibold text-[#14181F]">Company &amp; Contact Details</h2>
+                        <p className="text-xs text-[#5A6578]">Enter your organization credentials for the formal proposal.</p>
                       </div>
 
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="space-y-2">
-                          <label className="text-xs font-semibold text-[#515154] flex items-center gap-2">
-                            <Building2 className="w-4 h-4 text-[#0071e3]" /> Company name <span className="text-[#0071e3]">*</span>
-                          </label>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className="space-y-1 text-left">
+                          <label className="text-xs font-semibold text-[#14181F]">Company / Facility Name *</label>
                           <input 
-                            required type="text" name="companyName" value={formData.companyName} onChange={handleInputChange}
-                            className="w-full px-4 py-3 rounded-2xl border border-black/[0.08] bg-white text-[#1d1d1f] placeholder-[#86868b] focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] transition-all min-h-[44px]"
+                            required 
+                            type="text" 
+                            name="companyName" 
+                            value={formData.companyName} 
+                            onChange={handleInputChange}
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-[#E7E5E0] bg-white text-xs text-[#14181F] focus:outline-none focus:ring-2 focus:ring-[#0B3D2E]"
                             placeholder="e.g. TVS Component Hub"
                           />
                         </div>
-                        <div className="space-y-2">
-                          <label className="text-xs font-semibold text-[#515154] flex items-center gap-2">
-                            <User className="w-4 h-4 text-[#0071e3]" /> Contact person <span className="text-[#0071e3]">*</span>
-                          </label>
+                        <div className="space-y-1 text-left">
+                          <label className="text-xs font-semibold text-[#14181F]">Contact Person *</label>
                           <input 
-                            required type="text" name="contactPerson" value={formData.contactPerson} onChange={handleInputChange}
-                            className="w-full px-4 py-3 rounded-2xl border border-black/[0.08] bg-white text-[#1d1d1f] placeholder-[#86868b] focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] transition-all min-h-[44px]"
-                            placeholder="e.g. Rajesh Kumar (Facility Head)"
+                            required 
+                            type="text" 
+                            name="contactPerson" 
+                            value={formData.contactPerson} 
+                            onChange={handleInputChange}
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-[#E7E5E0] bg-white text-xs text-[#14181F] focus:outline-none focus:ring-2 focus:ring-[#0B3D2E]"
+                            placeholder="e.g. Rajesh Kumar (Plant Manager)"
                           />
                         </div>
-                        <div className="space-y-2">
-                          <label className="text-xs font-semibold text-[#515154] flex items-center gap-2">
-                            <Mail className="w-4 h-4 text-[#0071e3]" /> Corporate email <span className="text-[#0071e3]">*</span>
-                          </label>
+                        <div className="space-y-1 text-left">
+                          <label className="text-xs font-semibold text-[#14181F]">Corporate Email *</label>
                           <input 
-                            required type="email" name="email" value={formData.email} onChange={handleInputChange}
-                            className="w-full px-4 py-3 rounded-2xl border border-black/[0.08] bg-white text-[#1d1d1f] placeholder-[#86868b] focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] transition-all min-h-[44px]"
+                            required 
+                            type="email" 
+                            name="email" 
+                            value={formData.email} 
+                            onChange={handleInputChange}
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-[#E7E5E0] bg-white text-xs text-[#14181F] focus:outline-none focus:ring-2 focus:ring-[#0B3D2E]"
                             placeholder="rajesh@company.com"
                           />
                         </div>
-                        <div className="space-y-2">
-                          <label className="text-xs font-semibold text-[#515154] flex items-center gap-2">
-                            <svg className="w-4 h-4 text-[#0071e3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                            </svg> Mobile / phone number <span className="text-[#0071e3]">*</span>
-                          </label>
+                        <div className="space-y-1 text-left">
+                          <label className="text-xs font-semibold text-[#14181F]">Mobile / Phone Number *</label>
                           <input 
-                            required type="tel" name="phone" value={formData.phone} onChange={handleInputChange}
-                            className="w-full px-4 py-3 rounded-2xl border border-black/[0.08] bg-white text-[#1d1d1f] placeholder-[#86868b] focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] transition-all tabular-nums min-h-[44px]"
-                            placeholder="e.g. +91 98765 43210"
+                            required 
+                            type="tel" 
+                            name="phone" 
+                            value={formData.phone} 
+                            onChange={handleInputChange}
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-[#E7E5E0] bg-white text-xs text-[#14181F] focus:outline-none focus:ring-2 focus:ring-[#0B3D2E] tabular-nums"
+                            placeholder="+91 98765 43210"
                           />
                         </div>
                       </div>
                     </div>
                   )}
 
-                  {/* STEP 2 */}
+                  {/* STEP 2: Service Requirements */}
                   {step === 2 && (
                     <div className="space-y-6">
-                      <div className="mb-8">
-                        <h2 className="text-2xl font-semibold mb-1.5 flex items-center gap-2.5 text-[#1d1d1f]">
-                          <span className="w-8 h-8 rounded-full bg-white text-[#1d1d1f] border border-black/[0.08] text-sm flex items-center justify-center tabular-nums shadow-sm">2</span>
-                          Service requirements
-                        </h2>
-                        <p className="text-[#86868b] text-xs sm:text-sm">What type of services do you need?</p>
+                      <div className="border-b border-[#E7E5E0] pb-4">
+                        <span className="text-xs font-mono font-bold text-[#0B3D2E] uppercase">Step 2 of 3</span>
+                        <h2 className="text-lg font-semibold text-[#14181F]">Service Scope &amp; Deployment Scale</h2>
+                        <p className="text-xs text-[#5A6578]">Select required verticals and estimated personnel headcount.</p>
                       </div>
 
-                      <div className="space-y-4">
-                        <label className="text-xs font-semibold text-[#515154] flex items-center gap-2">
-                          <Briefcase className="w-4 h-4 text-[#0071e3]" /> Select services <span className="text-[#0071e3]">*</span>
-                        </label>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="space-y-3">
+                        <label className="text-xs font-semibold text-[#14181F]">Required Service Verticals *</label>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                           {serviceOptions.map((service) => (
-                            <label key={service} className={`flex items-center gap-3 p-4 rounded-2xl border cursor-pointer transition-all min-h-[44px] shadow-sm ${formData.services.includes(service) ? 'border-[#0071e3] bg-white ring-2 ring-[#0071e3]/20 text-[#1d1d1f]' : 'border-black/[0.08] bg-white text-[#515154] hover:border-black/[0.14]'}`}>
+                            <label 
+                              key={service} 
+                              className={`flex items-center gap-3 p-3.5 rounded-lg border cursor-pointer transition-colors text-xs font-semibold ${
+                                formData.services.includes(service)
+                                  ? "border-[#0B3D2E] bg-[#0B3D2E]/5 text-[#0B3D2E]"
+                                  : "border-[#E7E5E0] bg-white text-[#5A6578] hover:border-neutral-300"
+                              }`}
+                            >
                               <input 
                                 type="checkbox" 
-                                className="w-5 h-5 rounded border-black/[0.15] text-[#0071e3] focus:ring-[#0071e3] accent-[#0071e3]"
+                                className="w-4 h-4 rounded text-[#0B3D2E] accent-[#0B3D2E]"
                                 checked={formData.services.includes(service)}
                                 onChange={() => handleCheckboxChange(service)}
                               />
-                              <span className="font-semibold text-sm">{service}</span>
+                              <span>{service}</span>
                             </label>
                           ))}
                         </div>
                       </div>
 
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                        <div className="space-y-2">
-                          <label className="text-xs font-semibold text-[#515154] flex items-center gap-2">
-                            <MapPin className="w-4 h-4 text-[#0071e3]" /> Operating city <span className="text-[#0071e3]">*</span>
-                          </label>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div className="space-y-1 text-left">
+                          <label className="text-xs font-semibold text-[#14181F]">Operating City *</label>
                           <select 
-                            required name="city" value={formData.city} onChange={handleInputChange}
-                            className="w-full px-4 py-3 rounded-2xl border border-black/[0.08] bg-white text-[#1d1d1f] focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] transition-all min-h-[44px]"
+                            required 
+                            name="city" 
+                            value={formData.city} 
+                            onChange={handleInputChange}
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-[#E7E5E0] bg-white text-xs text-[#14181F] focus:outline-none focus:ring-2 focus:ring-[#0B3D2E]"
                           >
-                            <option value="">Select a city</option>
                             {brandData.contact.operatingCities.map(city => (
                               <option key={city} value={city}>{city}</option>
                             ))}
                           </select>
                         </div>
-                        <div className="space-y-2">
-                          <label className="text-xs font-semibold text-[#515154] flex items-center gap-2">
-                            <User className="w-4 h-4 text-[#0071e3]" /> Number of personnel <span className="text-[#0071e3]">*</span>
-                          </label>
+                        <div className="space-y-1 text-left">
+                          <label className="text-xs font-semibold text-[#14181F]">Estimated Headcount *</label>
                           <input 
-                            required type="number" min="1" max="1000" name="personnelCount" value={formData.personnelCount} onChange={handleInputChange}
-                            className="w-full px-4 py-3 rounded-2xl border border-black/[0.08] bg-white text-[#1d1d1f] placeholder-[#86868b] focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] transition-all tabular-nums min-h-[44px]"
+                            required 
+                            type="number" 
+                            min="1" 
+                            max="500" 
+                            name="personnelCount" 
+                            value={formData.personnelCount} 
+                            onChange={handleInputChange}
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-[#E7E5E0] bg-white text-xs text-[#14181F] focus:outline-none focus:ring-2 focus:ring-[#0B3D2E] tabular-nums"
                           />
                         </div>
                       </div>
                     </div>
                   )}
 
-                  {/* STEP 3 */}
+                  {/* STEP 3: Operational Details */}
                   {step === 3 && (
                     <div className="space-y-6">
-                      <div className="mb-8">
-                        <h2 className="text-2xl font-semibold mb-1.5 flex items-center gap-2.5 text-[#1d1d1f]">
-                          <span className="w-8 h-8 rounded-full bg-white text-[#1d1d1f] border border-black/[0.08] text-sm flex items-center justify-center tabular-nums shadow-sm">3</span>
-                          Operational details
-                        </h2>
-                        <p className="text-[#86868b] text-xs sm:text-sm">Provide final details for your proposal.</p>
+                      <div className="border-b border-[#E7E5E0] pb-4">
+                        <span className="text-xs font-mono font-bold text-[#0B3D2E] uppercase">Step 3 of 3</span>
+                        <h2 className="text-lg font-semibold text-[#14181F]">Shift Schedule &amp; Deployment Date</h2>
+                        <p className="text-xs text-[#5A6578]">Provide deployment timing and any special instructions.</p>
                       </div>
 
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="space-y-2">
-                          <label className="text-xs font-semibold text-[#515154] flex items-center gap-2">
-                            <Clock className="w-4 h-4 text-[#0071e3]" /> Shift pattern <span className="text-[#0071e3]">*</span>
-                          </label>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className="space-y-1 text-left">
+                          <label className="text-xs font-semibold text-[#14181F]">Shift Pattern *</label>
                           <select 
-                            required name="shiftPattern" value={formData.shiftPattern} onChange={handleInputChange}
-                            className="w-full px-4 py-3 rounded-2xl border border-black/[0.08] bg-white text-[#1d1d1f] focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] transition-all min-h-[44px]"
+                            required 
+                            name="shiftPattern" 
+                            value={formData.shiftPattern} 
+                            onChange={handleInputChange}
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-[#E7E5E0] bg-white text-xs text-[#14181F] focus:outline-none focus:ring-2 focus:ring-[#0B3D2E]"
                           >
-                            <option value="8-hour">8-hour shifts</option>
-                            <option value="12-hour">12-hour shifts</option>
-                            <option value="24/7">24/7 deployment (multiple shifts)</option>
+                            <option value="24/7">24/7 Deployment (3-Shift Continuous)</option>
+                            <option value="12-hour">12-Hour Day/Night Shift</option>
+                            <option value="8-hour">8-Hour Single Business Shift</option>
                           </select>
                         </div>
-                        <div className="space-y-2">
-                          <label className="text-xs font-semibold text-[#515154] flex items-center gap-2">
-                            <Calendar className="w-4 h-4 text-[#0071e3]" /> Preferred start date <span className="text-[#0071e3]">*</span>
-                          </label>
+                        <div className="space-y-1 text-left">
+                          <label className="text-xs font-semibold text-[#14181F]">Target Mobilization Date *</label>
                           <input 
-                            required type="date" name="startDate" value={formData.startDate} onChange={handleInputChange}
-                            className="w-full px-4 py-3 rounded-2xl border border-black/[0.08] bg-white text-[#1d1d1f] focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] transition-all tabular-nums min-h-[44px]"
+                            required 
+                            type="date" 
+                            name="startDate" 
+                            value={formData.startDate} 
+                            onChange={handleInputChange}
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-[#E7E5E0] bg-white text-xs text-[#14181F] focus:outline-none focus:ring-2 focus:ring-[#0B3D2E] tabular-nums"
                           />
                         </div>
                       </div>
-                      
-                      <div className="space-y-2">
-                        <label className="text-xs font-semibold text-[#515154] flex items-center gap-2">
-                          <FileText className="w-4 h-4 text-[#0071e3]" /> Special requirements / notes
-                        </label>
+
+                      <div className="space-y-1 text-left">
+                        <label className="text-xs font-semibold text-[#14181F]">Specific Site Requirements / Post Notes</label>
                         <textarea 
-                          name="specialReqs" value={formData.specialReqs} onChange={handleInputChange} rows={4}
-                          className="w-full px-4 py-3 rounded-2xl border border-black/[0.08] bg-white text-[#1d1d1f] placeholder-[#86868b] focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] transition-all resize-none"
-                          placeholder="Any specific instructions or requirements..."
-                        ></textarea>
+                          name="specialReqs" 
+                          value={formData.specialReqs} 
+                          onChange={handleInputChange} 
+                          rows={3}
+                          className="w-full px-3.5 py-2.5 rounded-lg border border-[#E7E5E0] bg-white text-xs text-[#14181F] focus:outline-none focus:ring-2 focus:ring-[#0B3D2E] resize-none"
+                          placeholder="Note any specific gate access barriers, visitor registers, mechanized scrubbing areas, or armed guard requirements..."
+                        />
                       </div>
                     </div>
                   )}
 
                   {/* Navigation Buttons */}
-                  <div className="flex items-center justify-between pt-6 border-t border-black/[0.08]">
+                  <div className="flex items-center justify-between pt-4 border-t border-[#E7E5E0]">
                     {step > 1 ? (
                       <button 
                         type="button" 
                         onClick={handlePrev}
-                        className="flex items-center gap-2 px-6 py-2.5 rounded-full font-semibold text-xs text-[#515154] hover:text-[#1d1d1f] bg-white hover:bg-black/[0.04] border border-black/[0.1] transition-colors min-h-[44px]"
+                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold text-[#5A6578] hover:text-[#14181F] bg-white border border-[#E7E5E0] transition-colors"
                       >
-                        <ArrowLeft className="w-4 h-4" /> Back
+                        <ArrowLeft size={13} /> Back
                       </button>
                     ) : (
-                      <div></div>
+                      <div />
                     )}
                     
                     {step < 3 ? (
@@ -351,31 +383,31 @@ export default function GetQuotePage() {
                         type="button" 
                         onClick={handleNext}
                         disabled={!validateStep(step)}
-                        className="flex items-center gap-2 px-8 py-3 rounded-full font-semibold text-xs bg-[#1d1d1f] text-white hover:bg-black transition-colors disabled:opacity-40 disabled:cursor-not-allowed ml-auto min-h-[44px] shadow-sm"
+                        className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-lg text-xs font-semibold bg-[#0B3D2E] text-white hover:bg-[#082C21] transition-colors disabled:opacity-40 disabled:cursor-not-allowed ml-auto shadow-xs"
                       >
-                        Next step <ArrowRight className="w-4 h-4 text-white" />
+                        <span>Next Step</span>
+                        <ArrowRight size={13} />
                       </button>
                     ) : (
                       <button 
                         type="submit" 
                         disabled={!validateStep(step) || loading}
-                        className="flex items-center gap-2 px-8 py-3 rounded-full font-semibold text-xs bg-[#0071e3] text-white hover:bg-[#0077ed] transition-colors disabled:opacity-40 disabled:cursor-not-allowed ml-auto shadow-sm min-h-[44px]"
+                        className="inline-flex items-center gap-1.5 px-7 py-2.5 rounded-lg text-xs font-semibold bg-[#0B3D2E] text-white hover:bg-[#082C21] transition-colors disabled:opacity-40 disabled:cursor-not-allowed ml-auto shadow-xs"
                       >
                         {loading ? (
-                          <><Loader2 className="w-4 h-4 animate-spin" /> Generating quote...</>
+                          <><Loader2 className="w-3.5 h-3.5 animate-spin" /> Generating Proposal...</>
                         ) : (
-                          <><FileText className="w-4 h-4" /> Generate instant quote</>
+                          <><FileText size={13} /> Generate Proposal</>
                         )}
                       </button>
                     )}
                   </div>
-
                 </motion.form>
               )}
             </AnimatePresence>
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

@@ -6,38 +6,27 @@ export interface NavItem {
 
 export const navigationData: NavItem[] = [
   {
-    title: "About",
-    href: "/about",
-  },
-  {
     title: "Services",
     href: "/services",
   },
   {
-    title: "Security Agencies",
+    title: "About",
+    href: "/about",
+  },
+  {
+    title: "Compliance & DGR",
     href: "/security-agencies",
-    badge: "DGR",
   },
   {
     title: "Careers",
     href: "/careers",
   },
   {
-    title: "Work Opportunities",
-    href: "/work-opportunities",
-    badge: "Jobs",
-  },
-  {
-    title: "Newsletter",
+    title: "Dispatches",
     href: "/newsletter",
-  },
-  {
-    title: "What's New",
-    href: "/whats-new",
   },
   {
     title: "Contact",
     href: "/contact",
   },
 ];
-

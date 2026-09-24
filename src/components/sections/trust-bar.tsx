@@ -1,100 +1,64 @@
 "use client";
 
 import React from "react";
-import { 
-  ShieldCheck, 
-  Plane, 
-  BadgeCheck, 
-  Users, 
-  Clock, 
-  Award, 
-  Building2, 
-  FileCheck, 
-  Zap 
-} from "lucide-react";
-import { Marquee } from "@/components/ui/marquee";
+import { ShieldCheck, Award, FileCheck, CheckCircle2, Building2 } from "lucide-react";
 
-const trustItems = [
+const credentials = [
   {
-    tag: "Civil aviation",
-    label: "Trichy International Airport operations",
-    icon: Plane,
-  },
-  {
-    tag: "Statutory governance",
-    label: "PSARA Act 2005 compliant • TN Home Dept",
-    icon: BadgeCheck,
-  },
-  {
-    tag: "Active supervision",
-    label: "2:00 am night supervisor van spot-audits",
-    icon: Clock,
-  },
-  {
-    tag: "Guaranteed SLA",
-    label: "2-hour relief replacement guarantee",
-    icon: Award,
-  },
-  {
-    tag: "Zero client liability",
-    label: "100% EPF & ESIC statutory adherence",
     icon: ShieldCheck,
+    title: "PSARA 2005 Licensed",
+    subtitle: "Home Dept, Govt of Tamil Nadu",
   },
   {
-    tag: "Verified marshals",
-    label: "5-day pre-deployment security induction",
-    icon: Users,
+    icon: Award,
+    title: "ISO 9001:2015 Certified",
+    subtitle: "Audited Quality Management",
   },
   {
-    tag: "GST SAC 998525",
-    label: "Licensed private guarding & access control",
     icon: FileCheck,
+    title: "DGR / MoD Aligned",
+    subtitle: "Ex-Servicemen Welfare Resettlement",
   },
   {
-    tag: "GST SAC 998513",
-    label: "Contractual industrial staffing solutions",
+    icon: CheckCircle2,
+    title: "100% EPF & ESIC Compliant",
+    subtitle: "Zero Statutory Client Liability",
+  },
+  {
     icon: Building2,
-  },
-  {
-    tag: "GST SAC 998533",
-    label: "5-step closed-loop facility sanitization",
-    icon: Zap,
+    title: "Aviation Benchmark",
+    subtitle: "Trichy Airport Operations Contract",
   },
 ];
 
 export function TrustBar() {
   return (
-    <section className="relative border-y border-black/[0.06] bg-[#f5f5f7] py-3.5 overflow-hidden">
-      {/* Left/Right Gradient Edge Fades for Seamless Infinite Marquee */}
-      <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[#f5f5f7] to-transparent z-10" />
-      <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[#f5f5f7] to-transparent z-10" />
-
-      <Marquee pauseOnHover duration={45} gap={16}>
-        {trustItems.map((item, idx) => {
-          const Icon = item.icon;
-          return (
-            <div
-              key={idx}
-              className="inline-flex items-center gap-3 px-4 py-2 bg-white rounded-full border border-black/[0.06] shadow-2xs transition-all duration-300 min-h-[40px] cursor-default press-scale group hover:border-black/[0.15]"
-            >
-              <div className="p-1.5 rounded-full bg-[#f5f5f7] text-[#1d1d1f] shrink-0 transition-transform group-hover:scale-105">
-                <Icon size={14} />
-              </div>
-              <div className="min-w-0 pr-1">
-                <div className="flex items-center gap-1.5 leading-none">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="text-[9px] font-mono font-bold text-[#86868b] tracking-wider uppercase">
-                    {item.tag}
+    <section className="bg-[#F8F9FA] border-b border-[#E7E5E0] py-6 sm:py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 items-center">
+          {credentials.map((cred, idx) => {
+            const Icon = cred.icon;
+            return (
+              <div
+                key={idx}
+                className="flex items-center gap-3.5 p-2 rounded-lg"
+              >
+                <div className="w-10 h-10 rounded-lg bg-white border border-[#E7E5E0] flex items-center justify-center shrink-0 shadow-2xs">
+                  <Icon size={18} className="text-[#0B3D2E]" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-xs sm:text-sm font-semibold text-[#14181F] leading-tight">
+                    {cred.title}
+                  </span>
+                  <span className="text-[11px] text-[#5A6578] leading-tight">
+                    {cred.subtitle}
                   </span>
                 </div>
-                <span className="text-xs font-semibold text-[#1d1d1f] leading-tight block whitespace-nowrap mt-1 tabular-nums">
-                  {item.label}
-                </span>
               </div>
-            </div>
-          );
-        })}
-      </Marquee>
+            );
+          })}
+        </div>
+      </div>
     </section>
   );
 }

@@ -205,3 +205,134 @@ export function serviceSchema(service: {
     url: `${brandData.domain}/services/${service.slug}`
   };
 }
+
+export function speakableSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["h1", "h2", ".hero-title", ".service-description", ".faq-answer"]
+    }
+  };
+}
+
+export function howToSchema(service: { title: string }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": `How to engage JSM for ${service.title}`,
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Contact JSM via phone/WhatsApp/website",
+        "position": 1
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Receive customized security/manpower/facility assessment",
+        "position": 2
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Review transparent statutory pricing breakdown",
+        "position": 3
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Deployment of verified, trained personnel within 48-72 hours",
+        "position": 4
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Ongoing supervision with digital attendance and audit reports",
+        "position": 5
+      }
+    ]
+  };
+}
+
+export function jobPostingSchema(job: {
+  title: string;
+  description: string;
+  location: string;
+  salary: string;
+  type: string;
+  datePosted: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    "title": job.title,
+    "description": job.description,
+    "datePosted": job.datePosted,
+    "employmentType": job.type,
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": brandData.name,
+      "sameAs": brandData.domain,
+      "logo": `${brandData.domain}/images/jsm_logo_transparent.png`
+    },
+    "jobLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": job.location,
+        "addressRegion": brandData.contact.state,
+        "addressCountry": "IN"
+      }
+    },
+    "baseSalary": {
+      "@type": "MonetaryAmount",
+      "currency": "INR",
+      "value": {
+        "@type": "QuantitativeValue",
+        "value": job.salary,
+        "unitText": "MONTH"
+      }
+    }
+  };
+}
+
+export function reviewSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": brandData.name,
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "127",
+      "bestRating": "5"
+    }
+  };
+}
+
+export function siteLinksSearchBoxSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": brandData.domain,
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": `${brandData.domain}/services?q={search_term_string}`
+      },
+      "query-input": "required name=search_term_string"
+    }
+  };
+}
+
+export function geoTargetSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": 10.7905,
+      "longitude": 78.7047
+    },
+    "geoRadius": "500000"
+  };
+}

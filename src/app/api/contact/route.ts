@@ -1,8 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { rateLimit, blockBadBots, sanitizeInput } from '@/lib/security';
 
 export async function POST(req: NextRequest) {
   try {
+    // Security guards
+    const botBlocked = blockBadBots(req);
+    if (botBlocked) return botBlocked;
+    const rateLimited = rateLimit(req, 10, 60_000); // Stricter: 10 per minute for contact
+    if (rateLimited) return rateLimited;
+
     const body = await req.json();
     const {
       name,
