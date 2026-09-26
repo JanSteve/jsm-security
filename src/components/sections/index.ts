@@ -6,3 +6,4 @@ export { StatsSection } from './stats-section';
 export { TestimonialsSection } from './testimonials-section';
 export { FAQSection } from './faq-section';
 export { CTASection } from './cta-section';
+export { CostComparisonSection } from './cost-comparison-section';

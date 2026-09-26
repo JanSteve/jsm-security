@@ -5,33 +5,47 @@
 :root {
   /* Backgrounds */
   --bg: #FFFFFF;
-  --bg-tint: #F6F7F9;       /* cool grey tint for alternating sections */
-  --bg-dark: #0F2A47;       /* solid navy for footer & primary CTA */
+  --bg-tint: #F8F9FA;       /* neutral off-white for alternating sections */
+  --bg-dark: #0F1922;       /* primary navy for dark sections & CTAs */
 
   /* Text & Ink */
-  --ink: #14181F;           /* primary high-contrast text */
+  --ink: #1A1F2E;           /* dark accessible text */
   --ink-muted: #4A5160;     /* secondary / caption text */
   --ink-inverse: #F8FAFC;   /* text on navy dark surfaces */
 
   /* Primary Brand — Navy */
-  --navy: #0F2A47;
-  --navy-hover: #0A1E33;
-  --navy-light: #1A3E63;
+  --navy: #0F1922;
+  --navy-hover: #080D12;
+  --navy-light: #1A2634;
   --navy-tint: #EFF4F9;
 
-  /* Restrained Accent — Brass (<5% surface area) */
+  /* Trust Blue & Accent Teal */
+  --trust-blue: #1E5BA8;
+  --trust-blue-hover: #164682;
+  --accent-teal: #0891B2;
+  --accent-teal-tint: #ECFEFF;
+
+  /* Conversion Success Green */
+  --success-green: #10A870;
+  --success-green-tint: #E8F8F2;
+
+  /* Warning / Premium Amber */
+  --warning-amber: #D97757;
+  --warning-amber-tint: #FDF4F0;
+
+  /* Restrained Accent — Brass */
   --brass: #9C7A3C;
   --brass-hover: #866730;
   --brass-tint: #F4EFEB;
 
   /* Structure & Hairline Dividers */
-  --line: #E4E7EC;
-  --border: #E4E7EC;
-  --radius-interactive: 4px; /* buttons, inputs only */
-  --radius-card: 0px;        /* content cards strictly 0px */
+  --line: #E5E7EB;
+  --border: #E5E7EB;
+  --radius-interactive: 4px; /* buttons, inputs */
+  --radius-card: 0px;        /* content containers */
 
   /* Subtle Shadow */
-  --shadow-subtle: 0 1px 2px rgba(15, 42, 71, 0.06);
+  --shadow-subtle: 0 1px 2px rgba(15, 25, 34, 0.06);
 
   /* Framework Aliases for shadcn / components */
   --background: var(--bg);
@@ -47,7 +61,7 @@
   --muted: var(--bg-tint);
   --muted-foreground: var(--ink-muted);
   --input: var(--line);
-  --ring: var(--navy);
+  --ring: var(--trust-blue);
 }
 
 @theme inline {
@@ -73,14 +87,17 @@
   --color-navy-light: var(--navy-light);
   --color-navy-tint: var(--navy-tint);
 
+  --color-trust-blue: var(--trust-blue);
+  --color-accent-teal: var(--accent-teal);
+  --color-success-green: var(--success-green);
+  --color-warning-amber: var(--warning-amber);
   --color-brass: var(--brass);
-  --color-brass-hover: var(--brass-hover);
   --color-brass-tint: var(--brass-tint);
 
   --color-line: var(--line);
   --color-border: var(--line);
   --color-input: var(--line);
-  --color-ring: var(--navy);
+  --color-ring: var(--trust-blue);
 
   --radius-sm: 4px;
   --radius-md: 4px;
@@ -104,11 +121,10 @@
     -moz-osx-font-smoothing: grayscale;
   }
   ::selection {
-    background-color: rgba(15, 42, 71, 0.12);
+    background-color: rgba(30, 91, 168, 0.15);
     color: var(--navy);
   }
 
-  /* Display & Section Headings: Source Serif 4, 600 weight, -0.01em */
   h1 {
     color: var(--ink);
     font-family: var(--font-serif);
@@ -127,7 +143,6 @@
     text-wrap: balance;
   }
 
-  /* Subheadings & Cards: Public Sans, 600 weight, 0 letter-spacing */
   h3, h4, h5, h6 {
     color: var(--ink);
     font-family: var(--font-sans);
@@ -145,7 +160,7 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--navy);
+    outline: 2px solid var(--trust-blue);
     outline-offset: 2px;
   }
 }

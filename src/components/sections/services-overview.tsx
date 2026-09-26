@@ -2,190 +2,177 @@
 
 import React from "react";
 import Link from "next/link";
-import { Shield, Users, Sparkles, Check, FileText, Scan, Building } from "lucide-react";
+import { Shield, Users, Sparkles, Check, ArrowRight, FileText, Scan, Building } from "lucide-react";
 
-const tierServices = [
+const threeTiers = [
   {
-    tier: "Tier 1",
+    tier: "Tier 1: Security Guarding",
+    target: "For Offices, Factories, Hospitals, IT Parks",
     code: "SAC 998525",
-    title: "Security Supervisors & Guarding Forces",
-    slug: "/services/private-security",
-    badge: "PSARA Licensed",
+    pricing: "Starts at ₹12K/month",
+    pricingNote: "(2-guard base package)",
     icon: Shield,
-    description: "Disciplined perimeter protection, visitor gate-pass registers, and access control led by Ex-Servicemen (ESM) and trained private security marshals.",
-    deliverables: [
-      "Ex-Servicemen & Private Marshals (Male & Female)",
+    slug: "/security",
+    features: [
+      "PSARA-licensed guards & Ex-Servicemen (ESM)",
       "Contractual 2-Hour Relief Replacement SLA",
-      "2:00 AM Unannounced Mobile Patrol Van Audits",
-      "Daily Digital Gate Registers & Incident Reports"
+      "Unannounced 2:00 AM mobile van audits",
+      "24/7 direct operations command desk access"
     ]
   },
   {
-    tier: "Tier 2",
+    tier: "Tier 2: Manpower Staffing",
+    target: "For Temp Roles, Assembly Lines, Admin Support",
     code: "SAC 998513",
-    title: "Contract Staffing & Industrial Manpower",
-    slug: "/services/manpower",
-    badge: "100% EPF & ESIC",
+    pricing: "₹18K–₹35K per worker",
+    pricingNote: "(100% EPF/ESIC statutory compliance)",
     icon: Users,
-    description: "Multi-skilled industrial and corporate workforce with full statutory legal indemnity, monthly ECR challan verification, and rapid 48-hour mobilization.",
-    deliverables: [
-      "Factory Assembly, Line Workers & Machine Operators",
-      "Corporate Office Administration & Data Staff",
-      "100% Statutory EPF, ESIC & Minimum Wage Proof",
-      "48 to 72 Hour Batch Deployment Mobilization"
+    slug: "/staffing",
+    features: [
+      "Pre-vetted industrial & clerical workforce",
+      "24–48 hour rapid batch mobilization",
+      "Zero co-employer liability with ECR proofs",
+      "Flexible temporary and project-based contracts"
     ]
   },
   {
-    tier: "Tier 3",
+    tier: "Tier 3: Facility Management",
+    target: "For Mechanized Cleaning, Maintenance, Sanitization",
     code: "SAC 998533",
-    title: "Integrated Facility Management & Housekeeping",
-    slug: "/services/housekeeping",
-    badge: "Closed-Loop Hygiene",
+    pricing: "Starts at ₹8K/month",
+    pricingNote: "(500 sq ft, 3x/week maintenance)",
     icon: Sparkles,
-    description: "Commercial and industrial facility hygiene adhering to a 5-step closed-loop cleaning protocol with ride-on auto scrubbers and hospital-grade sanitization.",
-    deliverables: [
-      "Mechanized Ride-On Auto Scrubbing & Polishers",
-      "5-Step Closed-Loop Hygiene: Clean to Verify",
-      "Restroom Logbooks & Hourly Inspection Registers",
-      "Corporate SEZ Campuses & Manufacturing Plants"
+    slug: "/housekeeping",
+    features: [
+      "5-Step Closed-Loop Hygiene protocol",
+      "Mechanized ride-on auto scrubbers & polishers",
+      "Restroom inspection registers & quality audits",
+      "Hospital-grade eco-friendly cleaning chemicals"
     ]
-  }
-];
-
-const auxiliaryServices = [
-  {
-    icon: FileText,
-    title: "GeM & e-Procurement Bidding",
-    description: "Government e-Marketplace catalog management, technical bid documentation, and PO fulfillment for PSUs and state departments.",
-  },
-  {
-    icon: Scan,
-    title: "Document Scanning & OCR Digitization",
-    description: "High-volume document scanning, OCR text conversion, and secure digital archiving under NIC 62099 IT service standards.",
-  },
-  {
-    icon: Building,
-    title: "CSC & Digital Citizen Facilitation",
-    description: "Authorized citizen digital facilitation, government application assistance, and institutional documentation desk support.",
   }
 ];
 
 export function ServicesOverview() {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-white border-b border-[#E4E7EC]">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        {/* Section Header — Left-Aligned, No All-Caps Eyebrow */}
+    <section className="py-16 sm:py-20 lg:py-24 bg-white border-b border-[#E5E7EB]" id="services">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        {/* Section Header */}
         <div className="max-w-3xl space-y-2 text-left">
-          <div className="text-xs font-semibold text-[#9C7A3C]">
-            Three-Tier Operations Model
+          <div className="text-xs font-semibold text-[#1E5BA8] uppercase tracking-wider">
+            Consolidated Operations Model
           </div>
-          <h2 className="font-serif text-2xl sm:text-3xl lg:text-[38px] leading-[1.18] text-[#14181F] font-semibold tracking-[-0.01em]">
-            Consolidated physical security, staffing and facility hygiene.
+          <h2 className="font-serif text-2xl sm:text-3xl lg:text-[38px] leading-[1.18] text-[#0F1922] font-semibold tracking-[-0.01em]">
+            Three Integrated Services. One Vendor. Complete Coverage.
           </h2>
           <p className="text-sm sm:text-base text-[#4A5160] leading-relaxed line-measure">
-            Eliminate vendor fragmentation. Manage premises security, industrial contract staffing, and facility management under one contract and one accountable executive desk.
+            Eliminate vendor fragmentation. Manage physical security, contractual staffing, and mechanized housekeeping under one single accountable master SLA.
           </p>
         </div>
 
-        {/* Divided List: Hairline dividers between items, NOT identical repeated cards */}
-        <div className="border-t border-[#E4E7EC] divide-y divide-[#E4E7EC]">
-          {tierServices.map((service, i) => {
-            const Icon = service.icon;
+        {/* 3 Tier Cards Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
+          {threeTiers.map((card, i) => {
+            const Icon = card.icon;
             return (
               <div
                 key={i}
-                className="py-8 sm:py-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start hover:bg-[#F6F7F9]/50 transition-colors"
+                className="bg-[#F8F9FA] border border-[#E5E7EB] hover:border-[#1E5BA8]/60 p-6 sm:p-7 flex flex-col justify-between space-y-6 text-left transition-colors shadow-subtle"
               >
-                {/* Left Column: Identifier & Service Title (5 cols) */}
-                <div className="lg:col-span-5 space-y-2 text-left">
-                  <div className="flex items-center gap-2 text-xs">
-                    <span className="font-mono font-semibold text-[#9C7A3C]">
-                      {service.tier} &bull; {service.code}
+                <div className="space-y-4">
+                  {/* Header */}
+                  <div className="flex items-start justify-between">
+                    <div className="w-10 h-10 rounded-[4px] bg-white border border-[#E5E7EB] flex items-center justify-center text-[#0F1922]">
+                      <Icon size={20} />
+                    </div>
+                    <span className="text-[11px] font-mono text-[#4A5160] bg-white px-2 py-0.5 border border-[#E5E7EB]">
+                      {card.code}
                     </span>
-                    <span className="text-[#4A5160]">&bull;</span>
-                    <span className="text-[#4A5160] font-medium">{service.badge}</span>
                   </div>
 
-                  <div className="flex items-start gap-3 pt-1">
-                    <div className="w-8 h-8 rounded-[4px] bg-[#F6F7F9] border border-[#E4E7EC] flex items-center justify-center text-[#0F2A47] shrink-0 mt-0.5">
-                      <Icon size={16} />
-                    </div>
-                    <div>
-                      <h3 className="text-lg sm:text-xl font-semibold text-[#14181F] tracking-normal">
-                        {service.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-[#4A5160] leading-relaxed pt-1.5">
-                        {service.description}
-                      </p>
-                    </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-[#0F1922]">
+                      {card.tier}
+                    </h3>
+                    <p className="text-xs text-[#4A5160] mt-0.5">
+                      {card.target}
+                    </p>
                   </div>
-                </div>
 
-                {/* Center Column: Deliverables Checklist (5 cols) */}
-                <div className="lg:col-span-5 text-left">
-                  <div className="text-xs font-semibold text-[#14181F] mb-2.5">
-                    Core Operational Deliverables
-                  </div>
-                  <ul className="space-y-2 text-xs text-[#4A5160]">
-                    {service.deliverables.map((item, idx) => (
+                  {/* Bullet Benefits */}
+                  <ul className="space-y-2 text-xs text-[#1A1F2E] pt-2 border-t border-[#E5E7EB]">
+                    {card.features.map((feat, idx) => (
                       <li key={idx} className="flex items-start gap-2">
-                        <Check size={14} className="text-[#9C7A3C] shrink-0 mt-0.5" />
-                        <span>{item}</span>
+                        <Check size={14} className="text-[#10A870] shrink-0 mt-0.5" />
+                        <span>{feat}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                {/* Right Column: Direct Specification Link (2 cols) */}
-                <div className="lg:col-span-2 flex lg:justify-end items-center pt-2 lg:pt-4">
-                  <Link
-                    href={service.slug}
-                    className="inline-flex items-center justify-center px-4 py-2 rounded-[4px] border border-[#0F2A47] text-[#0F2A47] hover:bg-[#0F2A47] hover:text-white text-xs font-semibold transition-colors min-touch-target"
-                  >
-                    <span>View Specifications</span>
-                  </Link>
+                {/* Price & Dual CTAs */}
+                <div className="pt-4 border-t border-[#E5E7EB] space-y-3">
+                  <div>
+                    <div className="text-base font-bold text-[#0F1922] tabular-nums">
+                      {card.pricing}
+                    </div>
+                    <div className="text-[11px] text-[#4A5160]">
+                      {card.pricingNote}
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2 pt-1">
+                    <Link
+                      href="/get-quote"
+                      className="px-3 py-2.5 rounded-[4px] bg-[#0F1922] hover:bg-[#080D12] text-white text-xs font-semibold flex items-center justify-center transition-colors min-touch-target"
+                    >
+                      <span>Get Quote</span>
+                    </Link>
+                    <Link
+                      href={card.slug}
+                      className="px-3 py-2.5 rounded-[4px] border border-[#0F1922] bg-white hover:bg-[#F8F9FA] text-[#0F1922] text-xs font-semibold flex items-center justify-center transition-colors min-touch-target"
+                    >
+                      <span>Learn More</span>
+                    </Link>
+                  </div>
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* Auxiliary Verticals — Divided Clean Strip */}
-        <div className="pt-8 border-t border-[#E4E7EC] space-y-6 text-left">
-          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+        {/* Auxiliary Strip */}
+        <div className="pt-8 border-t border-[#E5E7EB] space-y-4 text-left">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <div>
-              <span className="text-xs font-semibold text-[#4A5160]">
+              <span className="text-xs font-semibold text-[#1E5BA8] uppercase">
                 Auxiliary Enterprise Capabilities
               </span>
-              <h4 className="text-base sm:text-lg font-semibold text-[#14181F]">
-                Tender Bidding, Document Digitization &amp; Citizen Services
+              <h4 className="text-base font-semibold text-[#0F1922]">
+                GeM Tenders, Bulk Document Scanning &amp; Citizen Facilitation
               </h4>
             </div>
             <Link
               href="/services"
-              className="text-xs font-semibold text-[#0F2A47] hover:underline shrink-0"
+              className="text-xs font-semibold text-[#0F1922] hover:underline"
             >
-              All Capabilities Overview
+              View Full Capabilities Specification &rarr;
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-1">
-            {auxiliaryServices.map((aux, idx) => {
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {[
+              { icon: FileText, title: "GeM & e-Procurement Bidding", desc: "State and PSU tender management, technical documentation, and PO fulfillment." },
+              { icon: Scan, title: "Scanning & OCR Digitization", desc: "High-speed document scanning, text OCR, and secure digital archiving." },
+              { icon: Building, title: "CSC Citizen Services Desk", desc: "Authorized citizen digital assistance and institutional documentation support." },
+            ].map((aux, idx) => {
               const AuxIcon = aux.icon;
               return (
-                <div
-                  key={idx}
-                  className="p-4 bg-[#F6F7F9] border border-[#E4E7EC] space-y-1.5 text-left"
-                >
+                <div key={idx} className="p-4 bg-[#F8F9FA] border border-[#E5E7EB] space-y-1 text-left">
                   <div className="flex items-center gap-2">
-                    <AuxIcon size={15} className="text-[#0F2A47]" />
-                    <h5 className="text-xs sm:text-sm font-semibold text-[#14181F]">
-                      {aux.title}
-                    </h5>
+                    <AuxIcon size={15} className="text-[#0F1922]" />
+                    <h5 className="text-xs font-semibold text-[#1A1F2E]">{aux.title}</h5>
                   </div>
-                  <p className="text-xs text-[#4A5160] leading-relaxed">
-                    {aux.description}
-                  </p>
+                  <p className="text-[11px] text-[#4A5160] leading-relaxed">{aux.desc}</p>
                 </div>
               );
             })}
