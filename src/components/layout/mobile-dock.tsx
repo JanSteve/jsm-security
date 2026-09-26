@@ -1,53 +1,56 @@
 "use client";
 
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Phone, MessageCircle, Mail, ArrowUpRight } from "lucide-react";
+import { Phone, MessageSquare } from "lucide-react";
 import { brandData } from "@/data/brand";
-import { motion } from "motion/react";
 
 export function MobileDock() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 200) {
+        setVisible(true);
+      } else {
+        setVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  if (!visible) return null;
 
   return (
-    <div className="fixed bottom-4 inset-x-0 z-40 md:hidden flex justify-center px-4 pointer-events-none pb-[env(safe-area-inset-bottom)]">
-      <motion.nav
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ type: "spring", stiffness: 350, damping: 25 }}
-        aria-label="Quick Actions"
-        className="pointer-events-auto w-full max-w-[360px] bg-white/90 text-[#1d1d1f] backdrop-blur-2xl border border-black/[0.08] rounded-full p-1.5 shadow-[0_8px_30px_rgba(0,0,0,0.12)] flex items-center justify-between gap-1"
-      >
-        {/* Call Button */}
+    <aside
+      aria-label="Mobile Quick Conversion Bar"
+      className="fixed bottom-0 inset-x-0 z-40 md:hidden bg-white/95 backdrop-blur-md border-t border-[#E4E7EC] px-4 pt-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))] shadow-[0_-2px_10px_rgba(15,42,71,0.08)] transition-all duration-200"
+    >
+      <div className="flex items-center gap-2.5 max-w-md mx-auto">
+        {/* Button 1: Call Operations Desk */}
         <a
           href={`tel:${brandData.contact.phone}`}
-          className="flex-1 flex items-center justify-center gap-1.5 h-10 px-2.5 rounded-full hover:bg-black/[0.04] active:bg-black/[0.08] text-[#1d1d1f] text-xs font-semibold transition-all press-scale"
+          className="flex-1 inline-flex items-center justify-center gap-2 h-[46px] rounded-[4px] border border-[#0F2A47] bg-white text-[#0F2A47] text-xs font-semibold hover:bg-neutral-50 active:bg-neutral-100 transition-colors press-scale tabular-nums min-touch-target"
           aria-label="Call JSM Operations"
         >
-          <Phone size={13} className="text-[#0071e3]" />
-          <span>Call</span>
+          <Phone size={14} className="text-[#0F2A47]" />
+          <span>Call Desk</span>
         </a>
 
-        {/* WhatsApp Button */}
-        <a
-          href={`https://wa.me/${brandData.contact.whatsapp}?text=Hello%20JSM%20Integrated%20Services,%20I%20would%20like%20to%20inquire%20about%20your%20services.`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1 flex items-center justify-center gap-1.5 h-10 px-2.5 rounded-full hover:bg-black/[0.04] active:bg-black/[0.08] text-[#1d1d1f] text-xs font-semibold transition-all press-scale"
-          aria-label="WhatsApp JSM Operations"
-        >
-          <MessageCircle size={13} className="text-emerald-600" />
-          <span>WhatsApp</span>
-        </a>
-
-        {/* Highlighted Apple Blue Get Quote Action */}
+        {/* Button 2: Request Quote / WhatsApp */}
         <Link
           href="/get-quote"
-          className="flex-1 flex items-center justify-center gap-1 h-10 px-3 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white text-xs font-semibold shadow-xs press-scale transition-all"
-          aria-label="Get Instant Proposal"
+          className="flex-1 inline-flex items-center justify-center gap-2 h-[46px] rounded-[4px] bg-[#0F2A47] text-white text-xs font-semibold hover:bg-[#0A1E33] active:bg-[#081726] transition-colors shadow-subtle press-scale min-touch-target"
+          aria-label="Request an Operational Proposal"
         >
-          <span>Quote</span>
-          <ArrowUpRight size={12} className="text-white" />
+          <MessageSquare size={14} />
+          <span>Get a Quote</span>
         </Link>
-      </motion.nav>
-    </div>
+      </div>
+    </aside>
   );
 }

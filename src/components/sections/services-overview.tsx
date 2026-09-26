@@ -2,30 +2,32 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { Shield, Users, Sparkles, Check, FileText, Scan, Building } from "lucide-react";
 
 const tierServices = [
   {
     tier: "Tier 1",
     code: "SAC 998525",
-    title: "Security Supervisors & Guarding",
+    title: "Security Supervisors & Guarding Forces",
     slug: "/services/private-security",
     badge: "PSARA Licensed",
+    icon: Shield,
     description: "Disciplined perimeter protection, visitor gate-pass registers, and access control led by Ex-Servicemen (ESM) and trained private security marshals.",
     deliverables: [
       "Ex-Servicemen & Private Marshals (Male & Female)",
-      "2-Hour Relief Replacement Guarantee SLA",
-      "2:00 AM Unannounced Supervisor Van Audits",
+      "Contractual 2-Hour Relief Replacement SLA",
+      "2:00 AM Unannounced Mobile Patrol Van Audits",
       "Daily Digital Gate Registers & Incident Reports"
     ]
   },
   {
     tier: "Tier 2",
     code: "SAC 998513",
-    title: "Contract Staffing & Manpower Supply",
+    title: "Contract Staffing & Industrial Manpower",
     slug: "/services/manpower",
     badge: "100% EPF & ESIC",
-    description: "Multi-skilled industrial and corporate workforce with full statutory legal indemnity, monthly ECR challan verification, and rapid mobilization.",
+    icon: Users,
+    description: "Multi-skilled industrial and corporate workforce with full statutory legal indemnity, monthly ECR challan verification, and rapid 48-hour mobilization.",
     deliverables: [
       "Factory Assembly, Line Workers & Machine Operators",
       "Corporate Office Administration & Data Staff",
@@ -39,6 +41,7 @@ const tierServices = [
     title: "Integrated Facility Management & Housekeeping",
     slug: "/services/housekeeping",
     badge: "Closed-Loop Hygiene",
+    icon: Sparkles,
     description: "Commercial and industrial facility hygiene adhering to a 5-step closed-loop cleaning protocol with ride-on auto scrubbers and hospital-grade sanitization.",
     deliverables: [
       "Mechanized Ride-On Auto Scrubbing & Polishers",
@@ -51,120 +54,141 @@ const tierServices = [
 
 const auxiliaryServices = [
   {
-    title: "GeM & e-Procurement Tender Bidding",
-    description: "Comprehensive GeM portal catalog management, technical bid documentation, and PO fulfillment for PSUs and Government departments.",
+    icon: FileText,
+    title: "GeM & e-Procurement Bidding",
+    description: "Government e-Marketplace catalog management, technical bid documentation, and PO fulfillment for PSUs and state departments.",
   },
   {
-    title: "Document Scanning, OCR & Digitization",
-    description: "High-volume document digitization, OCR text extraction, and digital archiving under NIC 62099 IT service standards.",
+    icon: Scan,
+    title: "Document Scanning & OCR Digitization",
+    description: "High-volume document scanning, OCR text conversion, and secure digital archiving under NIC 62099 IT service standards.",
   },
   {
+    icon: Building,
     title: "CSC & Digital Citizen Facilitation",
-    description: "Authorized citizen digital services, government application assistance, certificate processing, and documentation desk support.",
+    description: "Authorized citizen digital facilitation, government application assistance, and institutional documentation desk support.",
   }
 ];
 
 export function ServicesOverview() {
   return (
-    <section className="py-20 sm:py-28 bg-white border-b border-[#E5E3DD]">
-      <div className="max-w-[1280px] mx-auto px-6 sm:px-8 space-y-16">
-        {/* Section Header */}
-        <div className="max-w-3xl space-y-2">
-          <div className="eyebrow-label text-[#0B3D2E]">
-            Core Operating Structure
+    <section className="py-16 sm:py-20 lg:py-24 bg-white border-b border-[#E4E7EC]">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        {/* Section Header — Left-Aligned, No All-Caps Eyebrow */}
+        <div className="max-w-3xl space-y-2 text-left">
+          <div className="text-xs font-semibold text-[#9C7A3C]">
+            Three-Tier Operations Model
           </div>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl text-[#14181A] font-normal tracking-tight">
-            The Three-Tier Integrated Operations Model
+          <h2 className="font-serif text-2xl sm:text-3xl lg:text-[38px] leading-[1.18] text-[#14181F] font-semibold tracking-[-0.01em]">
+            Consolidated physical security, staffing and facility hygiene.
           </h2>
-          <p className="text-sm sm:text-base text-[#4B5259] leading-relaxed">
+          <p className="text-sm sm:text-base text-[#4A5160] leading-relaxed line-measure">
             Eliminate vendor fragmentation. Manage premises security, industrial contract staffing, and facility management under one contract and one accountable executive desk.
           </p>
         </div>
 
-        {/* 3 Tier Service Cards Grid with exact hover and brass badges */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-          {tierServices.map((service, i) => (
-            <div
-              key={i}
-              className="rounded-[12px] border border-[#E5E3DD] bg-white p-7 flex flex-col justify-between shadow-[0_1px_2px_rgba(20,24,26,0.04),0_4px_12px_rgba(20,24,26,0.06)] hover:shadow-[0_2px_4px_rgba(20,24,26,0.06),0_8px_24px_rgba(20,24,26,0.10)] hover:-translate-y-1 transition-all duration-200"
-            >
-              <div className="space-y-5">
-                {/* Header Badge Strip */}
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono font-bold text-[#A67C3D] bg-[#F4EBDB] px-2.5 py-1 rounded-[8px] border border-[#A67C3D]/20">
-                    {service.tier} &bull; {service.code}
-                  </span>
-                  <span className="text-[11px] font-medium text-[#4B5259] bg-[#F7F6F2] border border-[#E5E3DD] px-2 py-0.5 rounded-[8px]">
-                    {service.badge}
-                  </span>
+        {/* Divided List: Hairline dividers between items, NOT identical repeated cards */}
+        <div className="border-t border-[#E4E7EC] divide-y divide-[#E4E7EC]">
+          {tierServices.map((service, i) => {
+            const Icon = service.icon;
+            return (
+              <div
+                key={i}
+                className="py-8 sm:py-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start hover:bg-[#F6F7F9]/50 transition-colors"
+              >
+                {/* Left Column: Identifier & Service Title (5 cols) */}
+                <div className="lg:col-span-5 space-y-2 text-left">
+                  <div className="flex items-center gap-2 text-xs">
+                    <span className="font-mono font-semibold text-[#9C7A3C]">
+                      {service.tier} &bull; {service.code}
+                    </span>
+                    <span className="text-[#4A5160]">&bull;</span>
+                    <span className="text-[#4A5160] font-medium">{service.badge}</span>
+                  </div>
+
+                  <div className="flex items-start gap-3 pt-1">
+                    <div className="w-8 h-8 rounded-[4px] bg-[#F6F7F9] border border-[#E4E7EC] flex items-center justify-center text-[#0F2A47] shrink-0 mt-0.5">
+                      <Icon size={16} />
+                    </div>
+                    <div>
+                      <h3 className="text-lg sm:text-xl font-semibold text-[#14181F] tracking-normal">
+                        {service.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-[#4A5160] leading-relaxed pt-1.5">
+                        {service.description}
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
-                {/* Title & Description */}
-                <div className="space-y-2">
-                  <h3 className="text-lg sm:text-xl font-semibold text-[#14181A] tracking-tight">
-                    {service.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-[#4B5259] leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
-
-                {/* Exactly 4 Deliverables Checklist */}
-                <div className="space-y-2 pt-3 border-t border-[#E5E3DD]/70">
-                  <span className="text-[11px] font-semibold uppercase tracking-wider text-[#14181A]">
-                    Key Deliverables
-                  </span>
-                  <ul className="space-y-2 text-xs text-[#4B5259]">
+                {/* Center Column: Deliverables Checklist (5 cols) */}
+                <div className="lg:col-span-5 text-left">
+                  <div className="text-xs font-semibold text-[#14181F] mb-2.5">
+                    Core Operational Deliverables
+                  </div>
+                  <ul className="space-y-2 text-xs text-[#4A5160]">
                     {service.deliverables.map((item, idx) => (
                       <li key={idx} className="flex items-start gap-2">
-                        <Check size={14} className="text-[#1E7A58] shrink-0 mt-0.5" />
+                        <Check size={14} className="text-[#9C7A3C] shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-              </div>
 
-              {/* Bottom Link */}
-              <div className="pt-6 mt-6 border-t border-[#E5E3DD]">
-                <Link
-                  href={service.slug}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#1E7A58] hover:text-[#0B3D2E] group transition-colors"
-                >
-                  <span>View Full Specification &amp; SLAs</span>
-                  <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
-                </Link>
+                {/* Right Column: Direct Specification Link (2 cols) */}
+                <div className="lg:col-span-2 flex lg:justify-end items-center pt-2 lg:pt-4">
+                  <Link
+                    href={service.slug}
+                    className="inline-flex items-center justify-center px-4 py-2 rounded-[4px] border border-[#0F2A47] text-[#0F2A47] hover:bg-[#0F2A47] hover:text-white text-xs font-semibold transition-colors min-touch-target"
+                  >
+                    <span>View Specifications</span>
+                  </Link>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        {/* Auxiliary Capabilities Section */}
-        <div className="p-8 rounded-[12px] bg-[#F7F6F2] border border-[#E5E3DD] space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        {/* Auxiliary Verticals — Divided Clean Strip */}
+        <div className="pt-8 border-t border-[#E4E7EC] space-y-6 text-left">
+          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
             <div>
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#4B5259]">
-                Complementary Enterprise Verticals
+              <span className="text-xs font-semibold text-[#4A5160]">
+                Auxiliary Enterprise Capabilities
               </span>
-              <h4 className="text-lg sm:text-xl font-semibold text-[#14181A]">
-                Auxiliary Capabilities: Tenders, Digitization &amp; Citizen Services
+              <h4 className="text-base sm:text-lg font-semibold text-[#14181F]">
+                Tender Bidding, Document Digitization &amp; Citizen Services
               </h4>
             </div>
             <Link
               href="/services"
-              className="text-xs font-semibold text-[#1E7A58] hover:underline shrink-0"
+              className="text-xs font-semibold text-[#0F2A47] hover:underline shrink-0"
             >
-              Explore All Verticals &rarr;
+              All Capabilities Overview
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
-            {auxiliaryServices.map((aux, idx) => (
-              <div key={idx} className="p-4 bg-white rounded-[8px] border border-[#E5E3DD] space-y-2 shadow-2xs">
-                <h5 className="text-sm font-semibold text-[#14181A]">{aux.title}</h5>
-                <p className="text-xs text-[#4B5259] leading-relaxed">{aux.description}</p>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-1">
+            {auxiliaryServices.map((aux, idx) => {
+              const AuxIcon = aux.icon;
+              return (
+                <div
+                  key={idx}
+                  className="p-4 bg-[#F6F7F9] border border-[#E4E7EC] space-y-1.5 text-left"
+                >
+                  <div className="flex items-center gap-2">
+                    <AuxIcon size={15} className="text-[#0F2A47]" />
+                    <h5 className="text-xs sm:text-sm font-semibold text-[#14181F]">
+                      {aux.title}
+                    </h5>
+                  </div>
+                  <p className="text-xs text-[#4A5160] leading-relaxed">
+                    {aux.description}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

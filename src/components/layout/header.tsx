@@ -4,7 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useScroll, useMotionValueEvent } from "motion/react";
-import { Phone, ArrowRight } from "lucide-react";
+import { Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { navigationData } from "@/data/navigation";
 import { MobileMenu } from "./mobile-menu";
@@ -16,26 +16,24 @@ export function Header() {
   const [scrolled, setScrolled] = React.useState(false);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    setScrolled(latest > 80);
+    setScrolled(latest > 60);
   });
 
   return (
     <header
       className={cn(
-        "fixed top-0 inset-x-0 z-50 transition-all duration-250 ease-out bg-white border-b border-[#E5E3DD]",
-        scrolled
-          ? "h-16 shadow-[0_1px_2px_rgba(20,24,26,0.04),0_4px_12px_rgba(20,24,26,0.06)]"
-          : "h-[88px]"
+        "fixed top-0 inset-x-0 z-50 transition-all duration-200 ease-out bg-white border-b border-[#E4E7EC]",
+        scrolled ? "h-16 shadow-[0_1px_2px_rgba(15,42,71,0.06)]" : "h-[74px] sm:h-[80px]"
       )}
     >
-      <div className="max-w-[1280px] h-full mx-auto px-6 sm:px-8 flex items-center justify-between gap-6">
-        {/* Brand Logo & Name */}
+      <div className="max-w-[1280px] h-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3 sm:gap-6">
+        {/* Brand Logo & Authority Label */}
         <Link
           href="/"
-          className="flex items-center gap-3.5 group shrink-0"
+          className="flex items-center gap-2.5 sm:gap-3 group shrink-0 min-h-[44px]"
           aria-label="JSM Integrated Services Home"
         >
-          <div className="w-10 h-10 rounded-[8px] bg-[#0B3D2E] text-white flex items-center justify-center font-bold text-sm tracking-wider overflow-hidden border border-[#0B3D2E]/20 shrink-0">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-[4px] bg-[#0F2A47] text-white flex items-center justify-center font-bold text-sm tracking-wider overflow-hidden border border-[#0F2A47]/20 shrink-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/jsm_logo_black.png"
@@ -44,11 +42,11 @@ export function Header() {
             />
           </div>
           <div className="flex flex-col justify-center">
-            <span className="font-semibold text-base sm:text-lg tracking-tight text-[#14181A] leading-tight">
+            <span className="font-semibold text-sm sm:text-base tracking-tight text-[#14181F] leading-tight">
               JSM Integrated Services
             </span>
-            <span className="text-[11px] text-[#4B5259] font-medium tracking-normal flex items-center gap-1.5">
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#1E7A58]" />
+            <span className="text-[11px] text-[#4A5160] font-medium tracking-normal hidden sm:flex items-center gap-1.5">
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#9C7A3C]" />
               PSARA Licensed &bull; ISO 9001:2015 &bull; DGR Aligned
             </span>
           </div>
@@ -65,20 +63,18 @@ export function Header() {
                 key={item.title}
                 href={item.href}
                 className={cn(
-                  "relative px-3.5 py-2 text-sm font-medium transition-colors group",
+                  "relative px-3 py-2 text-sm font-medium transition-colors min-h-[44px] flex items-center group",
                   isActive
-                    ? "text-[#1E7A58] font-semibold"
-                    : "text-[#4B5259] hover:text-[#14181A]"
+                    ? "text-[#0F2A47] font-semibold"
+                    : "text-[#4A5160] hover:text-[#14181F]"
                 )}
               >
                 <span>{item.title}</span>
-                {/* 2px animated underline on active link */}
+                {/* Brass 2px active underline */}
                 <span
                   className={cn(
-                    "absolute bottom-0 left-3.5 right-3.5 h-[2px] bg-[#1E7A58] transition-transform duration-200 ease-out origin-center",
-                    isActive
-                      ? "scale-x-100"
-                      : "scale-x-0 group-hover:scale-x-100 group-hover:bg-[#1E7A58]/40"
+                    "absolute bottom-0 left-3 right-3 h-[2px] bg-[#9C7A3C] transition-transform duration-200 ease-out origin-center",
+                    isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100 group-hover:bg-[#9C7A3C]/50"
                   )}
                 />
               </Link>
@@ -86,26 +82,28 @@ export function Header() {
           })}
         </nav>
 
-        {/* Right CTA Cluster: Direct Phone + Request Proposal */}
-        <div className="flex items-center gap-3 sm:gap-4 shrink-0">
+        {/* Actions Cluster: Phone + Get Quote + Mobile Menu */}
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          {/* Direct Phone Link - Accessible on mobile and desktop */}
           <a
             href={`tel:${brandData.contact.phone}`}
-            className="hidden md:inline-flex items-center gap-2 text-xs font-semibold text-[#14181A] hover:text-[#1E7A58] px-3 py-2 rounded-[8px] transition-colors tabular-nums min-h-[44px]"
-            aria-label="Direct Phone Consultation"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#14181F] hover:text-[#0F2A47] px-2.5 sm:px-3 h-[44px] rounded-[4px] border border-[#E4E7EC] hover:border-[#0F2A47] transition-colors tabular-nums min-touch-target"
+            aria-label={`Call Operations: ${brandData.contact.phoneDisplay}`}
           >
-            <Phone size={14} className="text-[#0B3D2E]" />
-            <span>{brandData.contact.phoneDisplay}</span>
+            <Phone size={14} className="text-[#0F2A47] shrink-0" />
+            <span className="hidden sm:inline">{brandData.contact.phoneDisplay}</span>
+            <span className="sm:hidden text-[11px]">Call</span>
           </a>
 
+          {/* Primary CTA - Visible on ALL Viewports, Never Buried */}
           <Link
             href="/get-quote"
-            className="inline-flex items-center justify-center gap-2 rounded-[8px] text-xs sm:text-sm font-semibold text-white bg-[#0B3D2E] hover:bg-[#145C43] px-4 sm:px-5 h-[48px] transition-all shadow-xs press-scale"
+            className="inline-flex items-center justify-center rounded-[4px] text-xs sm:text-sm font-semibold text-white bg-[#0F2A47] hover:bg-[#0A1E33] px-3.5 sm:px-5 h-[44px] transition-colors shadow-subtle press-scale min-touch-target"
           >
-            <span>Request a Proposal</span>
-            <ArrowRight size={14} />
+            <span>Get a Quote</span>
           </Link>
 
-          {/* Mobile Menu Trigger */}
+          {/* Mobile Hamburger Drawer Trigger */}
           <div className="lg:hidden">
             <MobileMenu />
           </div>

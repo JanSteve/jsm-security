@@ -2,66 +2,64 @@
 
 import React from "react";
 import Link from "next/link";
-import { Phone, Mail, MapPin, ArrowUpRight, ShieldCheck, Download } from "lucide-react";
+import { Phone, Mail, MapPin, Download } from "lucide-react";
 import { brandData } from "@/data/brand";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0F1A17] text-[#F5F3EE] border-t border-neutral-800">
-      {/* Upper Credential & Inquiry Banner */}
-      <div className="max-w-[1280px] mx-auto px-6 sm:px-8 py-12 border-b border-neutral-800/80">
+    <footer className="bg-[#0F2A47] text-[#F8FAFC] border-t border-[#1A3E63]">
+      {/* Upper Direct Contact & Inquiry Strip */}
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 border-b border-[#1A3E63]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center justify-between">
-          <div className="lg:col-span-7 space-y-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#145C43]/60 text-emerald-300 text-xs font-medium border border-emerald-500/30">
-              <ShieldCheck size={14} />
-              <span>Statutory Compliance Guaranteed</span>
+          <div className="lg:col-span-8 space-y-2">
+            <div className="inline-flex items-center gap-2 text-xs font-medium text-[#9C7A3C]">
+              <span>PSARA Act 2005 Licensed &bull; ISO 9001:2015 &bull; DGR Aligned</span>
             </div>
-            <h3 className="font-display text-2xl sm:text-3xl text-white font-normal">
-              Structured security, staffing &amp; facility operations.
+            <h3 className="font-serif text-2xl sm:text-3xl text-white font-normal tracking-tight">
+              Institutional security guarding, workforce staffing &amp; facility management.
             </h3>
-            <p className="text-neutral-400 text-sm max-w-2xl">
-              PSARA-licensed and ISO 9001:2015-certified partner managing complete premises protection, 100% EPF/ESIC-compliant manpower, and commercial facility hygiene across South India.
+            <p className="text-neutral-300 text-sm max-w-2xl leading-relaxed">
+              Operating under a single accountable partner model across Tamil Nadu. All deployments backed by 100% EPF/ESIC statutory compliance and a contractual 2-hour guard replacement SLA.
             </p>
           </div>
 
-          <div className="lg:col-span-5 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 lg:justify-end">
+          <div className="lg:col-span-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 lg:justify-end">
             <a
               href={`tel:${brandData.contact.phone}`}
-              className="inline-flex items-center justify-center gap-2 px-5 h-[48px] rounded-[8px] bg-neutral-800 hover:bg-neutral-700 text-white text-sm font-semibold transition-colors tabular-nums"
+              className="inline-flex items-center justify-center gap-2 px-4 h-[44px] rounded-[4px] bg-[#1A3E63] hover:bg-[#234E7B] text-white text-xs font-semibold transition-colors tabular-nums min-touch-target"
             >
-              <Phone size={15} className="text-emerald-400" />
+              <Phone size={14} className="text-[#9C7A3C]" />
               <span>{brandData.contact.phoneDisplay}</span>
             </a>
             <Link
               href="/get-quote"
-              className="inline-flex items-center justify-center gap-2 px-6 h-[48px] rounded-[8px] bg-[#1E7A58] hover:bg-[#145C43] text-white text-sm font-semibold transition-colors shadow-xs"
+              className="inline-flex items-center justify-center gap-2 px-5 h-[44px] rounded-[4px] bg-white text-[#0F2A47] text-xs font-semibold hover:bg-neutral-100 transition-colors shadow-subtle min-touch-target"
             >
-              <span>Request Quote</span>
-              <ArrowUpRight size={15} />
+              <span>Request a Proposal</span>
             </Link>
           </div>
         </div>
       </div>
 
-      {/* Main 4-Column Navigation Grid with Consistent Eyebrow Headers */}
-      <div className="max-w-[1280px] mx-auto px-6 sm:px-8 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-sm">
-          {/* Col 1: Three-Tier Operating Model */}
+      {/* Main 4-Column Navigation Grid */}
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 text-sm">
+          {/* Col 1: Services (Three-Tier Model) */}
           <div className="space-y-3">
-            <h4 className="text-[12px] font-semibold uppercase tracking-[0.06em] text-neutral-300">
-              Three-Tier Model
+            <h4 className="text-[13px] font-semibold text-white tracking-normal">
+              Services &amp; Operations
             </h4>
-            <ul className="space-y-2 text-xs text-neutral-400">
+            <ul className="space-y-2 text-xs text-neutral-300">
               <li>
                 <Link href="/services/private-security" className="hover:text-white transition-colors">
-                  Tier 1: Security Supervisors &amp; Guards (ESM/Pvt)
+                  Tier 1: Security Guards &amp; ESM Supervisors
                 </Link>
               </li>
               <li>
                 <Link href="/services/manpower" className="hover:text-white transition-colors">
-                  Tier 2: Contract Staffing &amp; Workforce
+                  Tier 2: Contract Staffing &amp; Industrial Workforce
                 </Link>
               </li>
               <li>
@@ -71,153 +69,137 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/services/tender-procurement-supply" className="hover:text-white transition-colors">
-                  Auxiliary: GeM Tender &amp; Procurement
+                  Auxiliary: GeM Tender &amp; e-Procurement Bidding
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="hover:text-white transition-colors">
-                  View All Capabilities &rarr;
+                <Link href="/services" className="hover:text-white transition-colors font-medium text-[#9C7A3C]">
+                  View All Services Specification
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 2: Company & Governance */}
+          {/* Col 2: Governance & Case Studies */}
           <div className="space-y-3">
-            <h4 className="text-[12px] font-semibold uppercase tracking-[0.06em] text-neutral-300">
+            <h4 className="text-[13px] font-semibold text-white tracking-normal">
               Governance &amp; Authority
             </h4>
-            <ul className="space-y-2 text-xs text-neutral-400">
+            <ul className="space-y-2 text-xs text-neutral-300">
               <li>
                 <Link href="/about" className="hover:text-white transition-colors">
                   Leadership (Sweety J &bull; Major AR Devadoss)
                 </Link>
               </li>
               <li>
+                <Link href="/case-studies/trichy-international-airport" className="hover:text-white transition-colors">
+                  Airport Case Study: Trichy Operations
+                </Link>
+              </li>
+              <li>
                 <Link href="/knowledge" className="hover:text-white transition-colors">
-                  Knowledge Hub &amp; Statutory Standards
+                  Knowledge Hub &amp; Compliance Guides
                 </Link>
               </li>
               <li>
                 <Link href="/compare/in-house-vs-outsourced-security" className="hover:text-white transition-colors">
-                  In-House vs Outsourced Cost Matrix
-                </Link>
-              </li>
-              <li>
-                <Link href="/case-studies/trichy-international-airport" className="hover:text-white transition-colors">
-                  Case Study: Trichy Airport Operations
+                  In-House vs Outsourced Cost Comparison
                 </Link>
               </li>
               <li>
                 <Link href="/security-agencies" className="hover:text-white transition-colors">
-                  PSARA &amp; DGR Legal Framework
+                  PSARA Act &amp; Statutory Legal Framework
                 </Link>
               </li>
               <li>
                 <Link href="/careers" className="hover:text-white transition-colors">
-                  Careers &amp; ESM Intake
+                  Careers &amp; Ex-Servicemen Intake
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: District Command Hubs */}
+          {/* Col 3: District Hubs */}
           <div className="space-y-3">
-            <h4 className="text-[12px] font-semibold uppercase tracking-[0.06em] text-neutral-300">
-              <Link href="/locations" className="hover:text-white transition-colors">
-                District Hubs &rarr;
+            <h4 className="text-[13px] font-semibold text-white tracking-normal">
+              <Link href="/locations" className="hover:text-[#9C7A3C] transition-colors">
+                District Hubs
               </Link>
             </h4>
-            <ul className="space-y-1.5 text-xs text-neutral-400">
+            <ul className="space-y-1.5 text-xs text-neutral-300">
               <li>
                 <Link href="/locations/trichy" className="hover:text-white transition-colors">
-                  <strong className="text-neutral-200">Trichy:</strong> Central Operations HQ
+                  <span className="font-semibold text-white">Trichy:</span> Central Operations HQ
                 </Link>
               </li>
               <li>
                 <Link href="/locations/chennai" className="hover:text-white transition-colors">
-                  <strong className="text-neutral-200">Chennai:</strong> OMR Tech Corridor
+                  <span className="font-semibold text-white">Chennai:</span> OMR Tech Corridor
                 </Link>
               </li>
               <li>
                 <Link href="/locations/coimbatore" className="hover:text-white transition-colors">
-                  <strong className="text-neutral-200">Coimbatore:</strong> Industrial Outpost
+                  <span className="font-semibold text-white">Coimbatore:</span> Industrial Outpost
                 </Link>
               </li>
               <li>
                 <Link href="/locations/hosur" className="hover:text-white transition-colors">
-                  <strong className="text-neutral-200">Hosur:</strong> Manufacturing SEZ
+                  <span className="font-semibold text-white">Hosur:</span> Manufacturing SEZ
                 </Link>
               </li>
               <li>
                 <Link href="/locations/salem" className="hover:text-white transition-colors">
-                  <strong className="text-neutral-200">Salem:</strong> Steel &amp; Heavy Industry
-                </Link>
-              </li>
-              <li>
-                <Link href="/locations/erode" className="hover:text-white transition-colors">
-                  <strong className="text-neutral-200">Erode:</strong> Textile &amp; SIPCOT
+                  <span className="font-semibold text-white">Salem:</span> Heavy Engineering Hub
                 </Link>
               </li>
               <li>
                 <Link href="/locations/madurai" className="hover:text-white transition-colors">
-                  <strong className="text-neutral-200">Madurai:</strong> Southern Regional Hub
+                  <span className="font-semibold text-white">Madurai:</span> Southern Regional Hub
                 </Link>
               </li>
               <li>
                 <Link href="/locations/tirunelveli" className="hover:text-white transition-colors">
-                  <strong className="text-neutral-200">Tirunelveli:</strong> Renewable Energy
+                  <span className="font-semibold text-white">Tirunelveli:</span> Renewable Energy Corridor
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 4: Compliance Downloads & Headquarters Contact */}
+          {/* Col 4: Operations Desk & Downloads */}
           <div className="space-y-3">
-            <h4 className="text-[12px] font-semibold uppercase tracking-[0.06em] text-neutral-300">
-              Compliance &amp; Feedback
+            <h4 className="text-[13px] font-semibold text-white tracking-normal">
+              Headquarters Operations
             </h4>
-            <ul className="space-y-2 text-xs text-neutral-400">
-              <li>
-                <a href="/downloads/Form-A-Officer-Recruitment.docx" download className="hover:text-white transition-colors inline-flex items-center gap-1.5">
-                  <Download size={12} className="text-neutral-500" />
-                  <span>Form-A: Officer Intake (.docx)</span>
-                </a>
-              </li>
-              <li>
-                <a href="/downloads/Form-B-JCO-Application.docx" download className="hover:text-white transition-colors inline-flex items-center gap-1.5">
-                  <Download size={12} className="text-neutral-500" />
-                  <span>Form-B: JCO Application (.docx)</span>
-                </a>
-              </li>
-              <li>
-                <a href="/downloads/JSM-Compliance-Checklist.docx" download className="hover:text-white transition-colors inline-flex items-center gap-1.5">
-                  <Download size={12} className="text-neutral-500" />
-                  <span>PSARA Audit Checklist (.docx)</span>
-                </a>
-              </li>
-              <li className="pt-1">
-                <a 
-                  href="https://maps.google.com/?q=JSM+Integrated+Services+Plot+112+RVS+Nagar+Kottapattu+Trichy" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="text-emerald-400 hover:text-emerald-300 transition-colors font-medium inline-flex items-center gap-1"
-                >
-                  <span>★ Review JSM on Google Profile</span>
-                  <ArrowUpRight size={11} />
-                </a>
-              </li>
-            </ul>
-
-            <div className="pt-2 text-[11px] text-neutral-400 border-t border-neutral-800 space-y-1">
-              <div className="flex items-start gap-1.5">
-                <MapPin size={12} className="shrink-0 mt-0.5 text-emerald-400" />
-                <span>RVS Nagar, Kottapattu, Trichy 620021</span>
+            <div className="space-y-2 text-xs text-neutral-300">
+              <div className="flex items-start gap-2">
+                <MapPin size={13} className="shrink-0 mt-0.5 text-[#9C7A3C]" />
+                <span>Plot No: 112, RVS Nagar, Kottapattu Post, Tiruchirappalli &ndash; 620021, Tamil Nadu</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <Mail size={12} className="shrink-0 text-emerald-400" />
-                <a href={`mailto:${brandData.contact.email}`} className="hover:text-white">
+              <div className="flex items-center gap-2">
+                <Mail size={13} className="shrink-0 text-[#9C7A3C]" />
+                <a href={`mailto:${brandData.contact.email}`} className="hover:text-white transition-colors">
                   {brandData.contact.email}
+                </a>
+              </div>
+            </div>
+
+            <div className="pt-2 border-t border-[#1A3E63] space-y-1.5 text-xs text-neutral-300">
+              <a
+                href="/downloads/JSM-Compliance-Checklist.docx"
+                download
+                className="hover:text-white transition-colors inline-flex items-center gap-1.5"
+              >
+                <Download size={12} className="text-[#9C7A3C]" />
+                <span>PSARA Vendor Audit Checklist (.docx)</span>
+              </a>
+              <div className="pt-1">
+                <a
+                  href="https://maps.google.com/?q=JSM+Integrated+Services+Plot+112+RVS+Nagar+Kottapattu+Trichy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#9C7A3C] hover:underline font-medium inline-block"
+                >
+                  Verified Google Business Profile
                 </a>
               </div>
             </div>
@@ -225,15 +207,15 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Bottom Legal & Attribution Bar */}
-      <div className="max-w-[1280px] mx-auto px-6 sm:px-8 py-6 border-t border-neutral-800/80 text-xs text-neutral-500 flex flex-col sm:flex-row items-center justify-between gap-4">
+      {/* Bottom Legal & Statutory Bar */}
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-5 border-t border-[#1A3E63] text-xs text-neutral-400 flex flex-col sm:flex-row items-center justify-between gap-3">
         <div>
-          &copy; {currentYear} JSM Integrated Services. All rights reserved. &bull; PSARA 2005 &bull; ISO 9001:2015 &bull; Home Dept Govt of Tamil Nadu
+          &copy; {currentYear} JSM Integrated Services. PSARA Act 2005 &bull; ISO 9001:2015 &bull; Controlling Authority, Home Dept, Govt of Tamil Nadu.
         </div>
-        <div className="flex items-center gap-5">
-          <Link href="/legal/privacy" className="hover:text-neutral-300 transition-colors">Privacy Policy</Link>
-          <Link href="/legal/terms" className="hover:text-neutral-300 transition-colors">Terms of Service</Link>
-          <Link href="/sitemap.xml" className="hover:text-neutral-300 transition-colors">Sitemap</Link>
+        <div className="flex items-center gap-4">
+          <Link href="/legal/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+          <Link href="/legal/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+          <Link href="/sitemap.xml" className="hover:text-white transition-colors">Sitemap</Link>
         </div>
       </div>
     </footer>

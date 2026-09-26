@@ -3,39 +3,39 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Award, CheckCircle2, ShieldCheck, ArrowRight } from "lucide-react";
+import { Award, CheckCircle2 } from "lucide-react";
 
 export function ProofSection() {
   return (
-    <section className="py-20 sm:py-28 bg-[#F8F9FA] border-b border-[#E7E5E0]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left: Real High-Res Photography Grid (5 cols) */}
-          <div className="lg:col-span-6 space-y-4">
-            <div className="rounded-xl overflow-hidden border border-[#E7E5E0] bg-white shadow-xs relative aspect-16/10">
+    <section className="py-16 sm:py-20 lg:py-24 bg-[#F6F7F9] border-b border-[#E4E7EC]">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          {/* Left: Verified Photography Grid (6 cols) */}
+          <div className="lg:col-span-6 space-y-3.5">
+            <div className="border border-[#E4E7EC] bg-white relative aspect-[16/10] overflow-hidden">
               <Image
                 src="/images/real_jsm_airport_terminal_platoon.jpg"
-                alt="JSM Security Platoon on site at Trichy International Airport"
+                alt="JSM Security Platoon deployed on site at Tiruchirappalli International Airport"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
             </div>
-            
-            <div className="grid grid-cols-2 gap-4">
-              <div className="rounded-xl overflow-hidden border border-[#E7E5E0] bg-white shadow-xs relative aspect-4/3">
+
+            <div className="grid grid-cols-2 gap-3.5">
+              <div className="border border-[#E4E7EC] bg-white relative aspect-[4/3] overflow-hidden">
                 <Image
                   src="/images/real_jsm_welcome_trichy_salute.jpg"
-                  alt="JSM Guards at Trichy Airport Terminal Entry Gate"
+                  alt="JSM Uniformed Guard at Tiruchirappalli Terminal Entry Gate"
                   fill
                   sizes="(max-width: 1024px) 50vw, 25vw"
                   className="object-cover"
                 />
               </div>
-              <div className="rounded-xl overflow-hidden border border-[#E7E5E0] bg-white shadow-xs relative aspect-4/3">
+              <div className="border border-[#E4E7EC] bg-white relative aspect-[4/3] overflow-hidden">
                 <Image
                   src="/images/real_jsm_shift_muster_day.jpg"
-                  alt="Daily Shift Muster & Turnout Inspection"
+                  alt="Daily Shift Briefing and Turnout Inspection"
                   fill
                   sizes="(max-width: 1024px) 50vw, 25vw"
                   className="object-cover"
@@ -45,60 +45,59 @@ export function ProofSection() {
           </div>
 
           {/* Right: Operational Case Study Details (6 cols) */}
-          <div className="lg:col-span-6 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0B3D2E]/8 text-[#0B3D2E] text-xs font-semibold">
-              <Award size={14} className="text-[#B8925A]" />
+          <div className="lg:col-span-6 space-y-5 text-left">
+            <div className="inline-flex items-center gap-2 text-xs font-semibold text-[#9C7A3C]">
+              <Award size={14} />
               <span>Operational Benchmark Assignment</span>
             </div>
 
-            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl text-[#14181F] font-normal tracking-tight">
+            <h2 className="font-serif text-2xl sm:text-3xl lg:text-[38px] leading-[1.18] text-[#14181F] font-semibold tracking-[-0.01em]">
               Tiruchirappalli International Airport Operations
             </h2>
 
-            <p className="text-sm sm:text-base text-[#4A5568] leading-relaxed">
-              JSM Integrated Services executed commercial concourse security and passenger access control operations at Tiruchirappalli International Airport in 2024. Managing continuous multi-shift rotations with zero incident tolerance proved our ability to manage high-security aviation environments.
+            <p className="text-sm sm:text-base text-[#4A5160] leading-relaxed line-measure">
+              JSM Integrated Services executed commercial concourse security and passenger access control operations at Tiruchirappalli International Airport in 2024. Managing continuous multi-shift rotations with zero incident tolerance proved our capability to protect high-consequence transport infrastructure.
             </p>
 
-            {/* Structured Proof Points */}
-            <div className="space-y-3 pt-2">
-              <div className="p-4 rounded-lg bg-white border border-[#E7E5E0] space-y-1">
+            {/* Structured Proof Points with Hairline Borders */}
+            <div className="space-y-2.5 pt-1">
+              <div className="p-3.5 bg-white border border-[#E4E7EC] space-y-1">
                 <div className="text-xs font-semibold text-[#14181F] flex items-center gap-2">
-                  <CheckCircle2 size={15} className="text-[#0B3D2E]" />
-                  <span>High-Density Passenger Flow &amp; Gate Vigilance</span>
+                  <CheckCircle2 size={14} className="text-[#0F2A47]" />
+                  <span>High-Density Concourse Access &amp; Barrier Control</span>
                 </div>
-                <p className="text-xs text-[#5A6578] pl-6">
-                  Maintained strict vehicular barrier access, passenger drop lane regulation, and dual-layer identity verification.
+                <p className="text-xs text-[#4A5160] pl-5 leading-normal">
+                  Regulated vehicular drop lanes, gate-barrier verification, and multi-tier visitor check protocols.
                 </p>
               </div>
 
-              <div className="p-4 rounded-lg bg-white border border-[#E7E5E0] space-y-1">
+              <div className="p-3.5 bg-white border border-[#E4E7EC] space-y-1">
                 <div className="text-xs font-semibold text-[#14181F] flex items-center gap-2">
-                  <CheckCircle2 size={15} className="text-[#0B3D2E]" />
-                  <span>100% Turnout &amp; Strict Inductions</span>
+                  <CheckCircle2 size={14} className="text-[#0F2A47]" />
+                  <span>100% Pre-Deployment Induction &amp; Turnout Audits</span>
                 </div>
-                <p className="text-xs text-[#5A6578] pl-6">
-                  Every deployed guard underwent the mandatory 5-day pre-deployment syllabus, grooming inspection, and Aadhaar-linked police verification.
+                <p className="text-xs text-[#4A5160] pl-5 leading-normal">
+                  All deployed marshals underwent mandatory PSARA 5-day syllabus training, Aadhaar verification, and police record checks.
                 </p>
               </div>
 
-              <div className="p-4 rounded-lg bg-white border border-[#E7E5E0] space-y-1">
+              <div className="p-3.5 bg-white border border-[#E4E7EC] space-y-1">
                 <div className="text-xs font-semibold text-[#14181F] flex items-center gap-2">
-                  <CheckCircle2 size={15} className="text-[#0B3D2E]" />
-                  <span>Founder-Led Daily Supervision</span>
+                  <CheckCircle2 size={14} className="text-[#0F2A47]" />
+                  <span>Direct Leadership Oversight on Ground</span>
                 </div>
-                <p className="text-xs text-[#5A6578] pl-6">
-                  Direct on-site reviews conducted by Proprietor Sweety J and Head of Operations Major AR Devadoss (Army-Veteran).
+                <p className="text-xs text-[#4A5160] pl-5 leading-normal">
+                  Daily shifts supervised directly by Proprietor Sweety J and Head of Operations Major AR Devadoss (Army-Veteran).
                 </p>
               </div>
             </div>
 
             <div className="pt-2">
               <Link
-                href="/about"
-                className="inline-flex items-center gap-2 text-xs font-semibold text-[#0B3D2E] hover:underline"
+                href="/case-studies/trichy-international-airport"
+                className="inline-flex items-center justify-center px-4 py-2 rounded-[4px] border border-[#0F2A47] text-[#0F2A47] hover:bg-[#0F2A47] hover:text-white text-xs font-semibold transition-colors min-touch-target"
               >
-                <span>Read Full Leadership &amp; Company Background</span>
-                <ArrowRight size={13} />
+                <span>Read Full Case Study</span>
               </Link>
             </div>
           </div>

@@ -22,14 +22,14 @@ import { brandData } from "@/data/brand";
 
 export const metadata = {
   title: {
-    absolute: "JSM Integrated Services | PSARA Security, Manpower & Facility Management",
+    absolute: "JSM Integrated Services — PSARA Security, Manpower & Facility Operations",
   },
   description: "PSARA-licensed Ex-Servicemen & Private Security, 100% EPF/ESIC Manpower Staffing, and Commercial Facility Management across Tamil Nadu.",
   alternates: {
     canonical: brandData.domain,
   },
   openGraph: {
-    title: "JSM Integrated Services | PSARA Security, Manpower & Facility Management",
+    title: "JSM Integrated Services — PSARA Security, Manpower & Facility Operations",
     description: "PSARA-licensed Ex-Servicemen & Private Security, 100% EPF/ESIC Manpower Staffing, and Commercial Facility Management across Tamil Nadu.",
     url: brandData.domain,
     siteName: brandData.name,
@@ -40,13 +40,13 @@ export const metadata = {
         url: `${brandData.domain}/images/jsm_logo_black.png`,
         width: 1200,
         height: 630,
-        alt: "JSM Integrated Services - Security, Manpower & Facility Operations",
+        alt: "JSM Integrated Services — Security, Manpower & Facility Operations",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "JSM Integrated Services | PSARA Security, Manpower & Facility Management",
+    title: "JSM Integrated Services — PSARA Security, Manpower & Facility Operations",
     description: "PSARA-licensed Ex-Servicemen & Private Security, 100% EPF/ESIC Manpower Staffing, and Commercial Facility Management across Tamil Nadu.",
     images: [`${brandData.domain}/images/jsm_logo_black.png`],
   },
@@ -55,19 +55,23 @@ export const metadata = {
 const homeFAQs = [
   {
     question: "What integrated facility and manpower services does JSM provide in India?",
-    answer: "JSM Integrated Services delivers disciplined Private Security guarding (PSARA compliant), Commercial Housekeeping & Facility Management, and Contractual Industrial Manpower under a single accountable partner across Tamil Nadu."
+    answer: "JSM Integrated Services delivers PSARA-compliant Private Security guarding, Commercial Housekeeping & Facility Management, and Contractual Industrial Staffing under a single accountable partner across Tamil Nadu."
   },
   {
     question: "Is JSM Integrated Services compliant with PSARA and statutory labour laws?",
-    answer: "Yes. JSM operates strictly within the Private Security Agencies Regulation Act (PSARA 2005) under the Home Department of Tamil Nadu with 100% EPF, ESIC, and minimum wage compliance."
+    answer: "Yes, JSM operates under the Private Security Agencies Regulation Act (PSARA 2005) with 100% statutory EPF, ESIC, and Minimum Wages Act compliance verified through monthly ECR challans."
   },
   {
     question: "What is JSM's guaranteed replacement SLA for absent personnel?",
-    answer: "JSM maintains a contractually binding 2-Hour Relief Replacement SLA where any absent personnel is replaced by a verified roving reserve staff member within 120 minutes."
+    answer: "JSM guarantees a contractually binding 2-Hour Relief Replacement SLA, deploying verified reserve marshals within 120 minutes of any reported post vacancy."
   },
   {
     question: "Which regions and cities are served by JSM Integrated Services?",
-    answer: "JSM operates across Tamil Nadu (Tiruchirappalli HQ, Chennai OMR Tech Corridor, Coimbatore, Hosur, Madurai, Salem, Erode, Tirunelveli) and provides scalable integrated facility operations throughout South India."
+    answer: "JSM operates across Tamil Nadu with hubs in Tiruchirappalli (HQ), Chennai OMR Corridor, Coimbatore, Hosur, Salem, Erode, Madurai, and Tirunelveli."
+  },
+  {
+    question: "How are security personnel vetted and trained prior to deployment?",
+    answer: "Every personnel undergoes mandatory biometric Aadhaar authentication, local police background clearance, and a structured 5-day pre-deployment syllabus covering access barrier regulation and fire response."
   }
 ];
 
@@ -117,28 +121,28 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(geoTarget) }}
       />
 
-      {/* 1. Hero Section with Real Operational Photography */}
+      {/* 1. Hero Section: Mobile-first text + primary CTA above fold */}
       <HeroSection />
 
-      {/* 2. Static Trust Credentials Bar */}
+      {/* 2. Plain Flat Trust Credentials Strip */}
       <TrustBar />
 
-      {/* 3. Three-Tier Integrated Operations Model */}
+      {/* 3. Divided List Three-Tier Operations Model */}
       <ServicesOverview />
 
       {/* 4. Operational Proof Case Study (Trichy International Airport) */}
       <ProofSection />
 
-      {/* 5. Single Clean Operational SLAs & Metrics Module */}
+      {/* 5. Audited Operational SLAs & Metrics Module */}
       <StatsSection />
 
-      {/* 6. Sector Deployment Standards & Experience */}
+      {/* 6. Industry Deployment Profiles */}
       <TestimonialsSection />
 
-      {/* 7. Direct Answer FAQ Accordion */}
+      {/* 7. Direct Quotable FAQ Accordion */}
       <FAQSection />
 
-      {/* 8. High-Contrast Closing Conversion CTA */}
+      {/* 8. Solid Navy Closing Conversion CTA Band */}
       <CTASection />
     </div>
   );

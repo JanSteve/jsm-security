@@ -11,19 +11,19 @@ import { Analytics } from "@vercel/analytics/react";
 import { brandData } from "@/data/brand";
 import { cn } from "@/lib/utils";
 
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { Public_Sans, Source_Serif_4 } from "next/font/google";
 
-const inter = Inter({
+const publicSans = Public_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
-  variable: "--font-body",
+  variable: "--font-sans",
   display: "swap",
 });
 
-const displayFont = Plus_Jakarta_Sans({
+const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
-  variable: "--font-display",
+  weight: ["600", "700"],
+  variable: "--font-serif",
   display: "swap",
 });
 
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(brandData.domain),
   title: {
     template: `%s | ${brandData.name}`,
-    default: `${brandData.name} | ${brandData.tagline}`,
+    default: `${brandData.name} — PSARA Security, Manpower & Facility Operations`,
   },
   description: `${brandData.name} delivers disciplined Private Security, Housekeeping & Facility Management, Contractual Manpower, and Integrated Business Solutions across Tamil Nadu and India.`,
   keywords: [
@@ -114,9 +114,9 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          "min-h-screen bg-white font-sans antialiased text-[#14181A] selection:bg-[#0B3D2E]/15 selection:text-black",
-          inter.variable,
-          displayFont.variable
+          "min-h-screen bg-white font-sans antialiased text-[#14181F] selection:bg-[#0F2A47]/10 selection:text-[#0F2A47]",
+          publicSans.variable,
+          sourceSerif.variable
         )}
       >
         <Providers>
@@ -124,6 +124,7 @@ export default function RootLayout({
             <Header />
             <main className="flex-1 w-full">{children}</main>
             <Footer />
+            <MobileDock />
             <CookieBanner />
           </div>
         </Providers>

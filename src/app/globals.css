@@ -4,140 +4,148 @@
 
 :root {
   /* Backgrounds */
-  --bg-primary: #FFFFFF;
-  --bg-secondary: #F7F6F2;   /* warm off-white for alternating sections */
-  --bg-dark: #0F1A17;        /* ONE dark section max per page */
+  --bg: #FFFFFF;
+  --bg-tint: #F6F7F9;       /* cool grey tint for alternating sections */
+  --bg-dark: #0F2A47;       /* solid navy for footer & primary CTA */
 
-  /* Text */
-  --text-primary: #14181A;   /* near-black */
-  --text-secondary: #4B5259; /* muted body/supporting text */
-  --text-inverse: #F5F3EE;   /* text on dark sections */
+  /* Text & Ink */
+  --ink: #14181F;           /* primary high-contrast text */
+  --ink-muted: #4A5160;     /* secondary / caption text */
+  --ink-inverse: #F8FAFC;   /* text on navy dark surfaces */
 
-  /* Brand accent — deep emerald */
-  --accent-900: #0B3D2E;
-  --accent-700: #145C43;
-  --accent-500: #1E7A58;     /* primary interactive color — links, active states */
-  --accent-100: #E4F0EB;     /* tint backgrounds for badges/highlights */
+  /* Primary Brand — Navy */
+  --navy: #0F2A47;
+  --navy-hover: #0A1E33;
+  --navy-light: #1A3E63;
+  --navy-tint: #EFF4F9;
 
-  /* Secondary accent — muted brass (<5% surface area) */
-  --brass-600: #A67C3D;
-  --brass-100: #F4EBDB;
+  /* Restrained Accent — Brass (<5% surface area) */
+  --brass: #9C7A3C;
+  --brass-hover: #866730;
+  --brass-tint: #F4EFEB;
 
-  /* Structure */
-  --border: #E5E3DD;
-  --radius-sm: 8px;   /* buttons, inputs, small chips */
-  --radius-md: 12px;  /* cards */
-  --radius-lg: 20px;  /* large feature panels only */
+  /* Structure & Hairline Dividers */
+  --line: #E4E7EC;
+  --border: #E4E7EC;
+  --radius-interactive: 4px; /* buttons, inputs only */
+  --radius-card: 0px;        /* content cards strictly 0px */
 
-  /* Shadow — one system, never stacked */
-  --shadow-card: 0 1px 2px rgba(20, 24, 26, 0.04), 0 4px 12px rgba(20, 24, 26, 0.06);
-  --shadow-hover: 0 2px 4px rgba(20, 24, 26, 0.06), 0 8px 24px rgba(20, 24, 26, 0.10);
+  /* Subtle Shadow */
+  --shadow-subtle: 0 1px 2px rgba(15, 42, 71, 0.06);
 
-  /* Framework Aliases */
-  --background: var(--bg-primary);
-  --foreground: var(--text-primary);
-  --card: var(--bg-primary);
-  --card-foreground: var(--text-primary);
-  --popover: var(--bg-primary);
-  --popover-foreground: var(--text-primary);
-  --primary: var(--accent-900);
+  /* Framework Aliases for shadcn / components */
+  --background: var(--bg);
+  --foreground: var(--ink);
+  --card: var(--bg);
+  --card-foreground: var(--ink);
+  --popover: var(--bg);
+  --popover-foreground: var(--ink);
+  --primary: var(--navy);
   --primary-foreground: #FFFFFF;
-  --secondary: var(--bg-secondary);
-  --secondary-foreground: var(--text-primary);
-  --muted: var(--bg-secondary);
-  --muted-foreground: var(--text-secondary);
-  --input: var(--border);
-  --ring: var(--accent-500);
+  --secondary: var(--bg-tint);
+  --secondary-foreground: var(--ink);
+  --muted: var(--bg-tint);
+  --muted-foreground: var(--ink-muted);
+  --input: var(--line);
+  --ring: var(--navy);
 }
 
 @theme inline {
-  --font-sans: var(--font-body), "Inter", "General Sans", ui-sans-serif, -apple-system, "Segoe UI", sans-serif;
-  --font-display: var(--font-display), "Plus Jakarta Sans", "Clash Display", ui-sans-serif, -apple-system, sans-serif;
-  --font-serif: var(--font-display), "Plus Jakarta Sans", ui-sans-serif, -apple-system, sans-serif;
-  
-  --color-background: var(--bg-primary);
-  --color-foreground: var(--text-primary);
-  --color-card: var(--bg-primary);
-  --color-card-foreground: var(--text-primary);
-  
-  --color-bg-primary: var(--bg-primary);
-  --color-bg-secondary: var(--bg-secondary);
+  --font-sans: var(--font-sans), "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: var(--font-serif), "Source Serif 4", Georgia, Cambria, serif;
+  --font-serif: var(--font-serif), "Source Serif 4", Georgia, Cambria, serif;
+
+  --color-background: var(--bg);
+  --color-foreground: var(--ink);
+  --color-card: var(--bg);
+  --color-card-foreground: var(--ink);
+
+  --color-bg: var(--bg);
+  --color-bg-tint: var(--bg-tint);
   --color-bg-dark: var(--bg-dark);
-  
-  --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
-  --color-text-inverse: var(--text-inverse);
 
-  --color-accent-900: var(--accent-900);
-  --color-accent-700: var(--accent-700);
-  --color-accent-500: var(--accent-500);
-  --color-accent-100: var(--accent-100);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-inverse: var(--ink-inverse);
 
-  --color-brass-600: var(--brass-600);
-  --color-brass-100: var(--brass-100);
+  --color-navy: var(--navy);
+  --color-navy-hover: var(--navy-hover);
+  --color-navy-light: var(--navy-light);
+  --color-navy-tint: var(--navy-tint);
 
-  --color-border: var(--border);
-  --color-input: var(--border);
-  --color-ring: var(--accent-500);
+  --color-brass: var(--brass);
+  --color-brass-hover: var(--brass-hover);
+  --color-brass-tint: var(--brass-tint);
 
-  --radius-sm: var(--radius-sm);
-  --radius-md: var(--radius-md);
-  --radius-lg: var(--radius-lg);
+  --color-line: var(--line);
+  --color-border: var(--line);
+  --color-input: var(--line);
+  --color-ring: var(--navy);
+
+  --radius-sm: 4px;
+  --radius-md: 4px;
+  --radius-lg: 4px;
 }
 
 @layer base {
   * {
-    border-color: var(--border);
+    border-color: var(--line);
   }
   html {
     scroll-behavior: smooth;
     color-scheme: light;
   }
   body {
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
+    background-color: var(--bg);
+    color: var(--ink);
     font-family: var(--font-sans);
-    line-height: 1.65;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   ::selection {
-    background-color: var(--accent-100);
-    color: var(--accent-900);
+    background-color: rgba(15, 42, 71, 0.12);
+    color: var(--navy);
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    color: var(--text-primary);
-    font-family: var(--font-display);
-    letter-spacing: -0.02em;
+  /* Display & Section Headings: Source Serif 4, 600 weight, -0.01em */
+  h1 {
+    color: var(--ink);
+    font-family: var(--font-serif);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.12;
     text-wrap: balance;
   }
-  
-  .font-display {
-    font-family: var(--font-display);
-    letter-spacing: -0.02em;
+
+  h2 {
+    color: var(--ink);
+    font-family: var(--font-serif);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.18;
+    text-wrap: balance;
   }
 
-  .eyebrow-label {
+  /* Subheadings & Cards: Public Sans, 600 weight, 0 letter-spacing */
+  h3, h4, h5, h6 {
+    color: var(--ink);
     font-family: var(--font-sans);
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-size: 0.8125rem;
-  }
-
-  .stat-number {
-    font-family: var(--font-display);
-    font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
+    line-height: 1.3;
   }
 
   p {
     text-wrap: pretty;
   }
 
+  button, input, select, textarea {
+    border-radius: 4px;
+  }
+
   :focus-visible {
-    outline: 2px solid var(--accent-500);
+    outline: 2px solid var(--navy);
     outline-offset: 2px;
   }
 }
@@ -147,13 +155,10 @@
     font-variant-numeric: tabular-nums;
   }
   .line-measure {
-    max-width: 68ch;
+    max-width: 72ch;
   }
-  .shadow-card {
-    box-shadow: var(--shadow-card);
-  }
-  .shadow-hover {
-    box-shadow: var(--shadow-hover);
+  .shadow-subtle {
+    box-shadow: var(--shadow-subtle);
   }
   .press-scale {
     transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1);
@@ -164,12 +169,5 @@
   .min-touch-target {
     min-height: 44px;
     min-width: 44px;
-  }
-  .eyebrow-label {
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    line-height: 1.2;
   }
 }

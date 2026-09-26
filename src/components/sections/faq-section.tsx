@@ -7,23 +7,23 @@ import { cn } from "@/lib/utils";
 export const homeFAQs = [
   {
     question: "What integrated facility and manpower services does JSM provide in India?",
-    answer: "JSM Integrated Services delivers disciplined Private Security guarding, Commercial Housekeeping & Facility Management, and Contractual Industrial Manpower across Tamil Nadu. Operating under a single accountable partner model, our three-tier framework eliminates vendor fragmentation for corporate, healthcare, aviation, and manufacturing clients."
+    answer: "JSM Integrated Services delivers PSARA-compliant Private Security guarding, Commercial Housekeeping & Facility Management, and Contractual Industrial Staffing under a single accountable partner across Tamil Nadu."
   },
   {
     question: "Is JSM Integrated Services compliant with PSARA and statutory labour laws?",
-    answer: "Yes, JSM Integrated Services operates with 100% PSARA Act 2005 compliance under the Home Department of the Government of Tamil Nadu. Every deployed staff member is backed by full statutory EPF, ESIC, and Minimum Wages Act coverage with verified monthly ECR challans."
+    answer: "Yes, JSM operates under the Private Security Agencies Regulation Act (PSARA 2005) with 100% statutory EPF, ESIC, and Minimum Wages Act compliance verified through monthly ECR challans."
   },
   {
     question: "What is JSM's guaranteed replacement SLA for absent personnel?",
-    answer: "JSM maintains a contractually binding 2-Hour Relief Replacement SLA guaranteeing absent personnel replacement within 120 minutes. We maintain dedicated reserve pools across district outposts in Trichy, Chennai, Coimbatore, Hosur, and Salem to ensure zero post downtime."
+    answer: "JSM guarantees a contractually binding 2-Hour Relief Replacement SLA, deploying verified reserve marshals within 120 minutes of any reported post vacancy."
   },
   {
     question: "Which regions and cities are served by JSM Integrated Services?",
-    answer: "JSM Integrated Services actively operates across Tamil Nadu, including Tiruchirappalli HQ, Chennai OMR Tech Corridor, Coimbatore, Hosur, Madurai, Salem, Erode, and Tirunelveli. We also manage cross-border industrial deployments in the Hosur-Bengaluru corridor and wider South India."
+    answer: "JSM operates across Tamil Nadu with hubs in Tiruchirappalli (HQ), Chennai OMR Corridor, Coimbatore, Hosur, Salem, Erode, Madurai, and Tirunelveli."
   },
   {
-    question: "How are guards trained and verified before deployment?",
-    answer: "All guards undergo mandatory Aadhaar authentication, local police background verification, and our structured 5-day pre-deployment syllabus. The training regimen covers access barrier control, visitor register logging, fire extinguisher operation, and emergency casualty response."
+    question: "How are security personnel vetted and trained prior to deployment?",
+    answer: "Every personnel undergoes mandatory biometric Aadhaar authentication, local police background clearance, and a structured 5-day pre-deployment syllabus covering access barrier regulation and fire response."
   }
 ];
 
@@ -35,51 +35,52 @@ export function FAQSection() {
   };
 
   return (
-    <section className="py-20 sm:py-28 bg-white border-b border-[#E5E3DD]">
-      <div className="max-w-[840px] mx-auto px-6 sm:px-8 space-y-12">
-        <div className="text-center space-y-2 max-w-2xl mx-auto">
-          <div className="eyebrow-label text-[#0B3D2E]">
-            Frequently Asked Questions
+    <section className="py-16 sm:py-20 lg:py-24 bg-white border-b border-[#E4E7EC]">
+      <div className="max-w-[880px] mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-left">
+        {/* Left-Aligned Header in Source Serif 4 */}
+        <div className="space-y-2 text-left">
+          <div className="text-xs font-semibold text-[#9C7A3C]">
+            Frequently Answered Inquiries
           </div>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl text-[#14181A] font-normal tracking-tight">
-            Direct answers on compliance, SLAs &amp; operations.
+          <h2 className="font-serif text-2xl sm:text-3xl lg:text-[38px] leading-[1.18] text-[#14181F] font-semibold tracking-[-0.01em]">
+            Direct answers on statutory compliance, SLAs and operations.
           </h2>
+          <p className="text-sm sm:text-base text-[#4A5160] leading-relaxed line-measure">
+            Concrete operational specifications for procurement officers, plant managers, and facility administrators.
+          </p>
         </div>
 
-        <div className="space-y-3">
+        {/* Clean Accordion with Hairline Borders */}
+        <div className="border-t border-[#E4E7EC] divide-y divide-[#E4E7EC]">
           {homeFAQs.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
-              <div
-                key={idx}
-                className="border border-[#E5E3DD] rounded-[8px] overflow-hidden bg-[#F7F6F2]/40 transition-colors"
-              >
+              <div key={idx} className="transition-colors">
                 <button
                   onClick={() => toggle(idx)}
-                  className="w-full p-5 text-left flex items-center justify-between gap-4 font-semibold text-sm sm:text-base text-[#14181A] hover:text-[#0B3D2E] transition-colors"
+                  className="w-full py-4 sm:py-5 text-left flex items-center justify-between gap-4 font-semibold text-sm sm:text-base text-[#14181F] hover:text-[#0F2A47] transition-colors min-touch-target"
                   aria-expanded={isOpen}
                 >
-                  <span>{faq.question}</span>
+                  <span className="pr-2">{faq.question}</span>
                   <ChevronDown
-                    size={18}
+                    size={17}
                     className={cn(
-                      "text-[#4B5259] shrink-0 transition-transform duration-200 ease-out",
-                      isOpen && "rotate-180 text-[#0B3D2E]"
+                      "text-[#4A5160] shrink-0 transition-transform duration-200 ease-out",
+                      isOpen && "rotate-180 text-[#0F2A47]"
                     )}
                   />
                 </button>
 
-                {/* CSS grid-template-rows transition (0fr -> 1fr) for 240ms smooth height */}
                 <div
                   className={cn(
-                    "grid transition-all duration-240 ease-out",
-                    isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                    "grid transition-all duration-200 ease-out",
+                    isOpen ? "grid-rows-[1fr] opacity-100 pb-5" : "grid-rows-[0fr] opacity-0 pb-0"
                   )}
                 >
                   <div className="overflow-hidden">
-                    <div className="px-5 pb-5 text-xs sm:text-sm text-[#4B5259] leading-relaxed border-t border-[#E5E3DD]/60 pt-3">
+                    <p className="text-xs sm:text-sm text-[#4A5160] leading-relaxed pr-6">
                       {faq.answer}
-                    </div>
+                    </p>
                   </div>
                 </div>
               </div>
