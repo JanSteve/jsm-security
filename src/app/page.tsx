@@ -6,13 +6,8 @@ import {
   StatsSection,
   TestimonialsSection,
   FAQSection,
-  CTASection,
-  CostComparisonSection
+  CTASection
 } from "@/components/sections";
-import { SmartCostCalculator } from "@/components/calculator/smart-cost-calculator";
-import { QuickQualifierModal } from "@/components/shared/quick-qualifier-modal";
-import { FloatingWhatsApp } from "@/components/shared/floating-whatsapp";
-import { LiveAvailabilityBadge } from "@/components/shared/live-availability-badge";
 import { 
   organizationSchema, 
   localBusinessSchema, 
@@ -27,14 +22,14 @@ import { brandData } from "@/data/brand";
 
 export const metadata = {
   title: {
-    absolute: "JSM Integrated Services — Security. Staffing. Housekeeping. One Partner.",
+    absolute: "JSM Integrated Services — PSARA Security, Manpower & Facility Operations",
   },
-  description: "PSARA-licensed Ex-Servicemen & Private Security, 100% EPF/ESIC Manpower Staffing, and Commercial Facility Management across Tamil Nadu. Contractual 2-Hour Relief SLA.",
+  description: "PSARA-licensed Ex-Servicemen & Private Security, 100% EPF/ESIC Manpower Staffing, and Commercial Facility Management across Tamil Nadu.",
   alternates: {
     canonical: brandData.domain,
   },
   openGraph: {
-    title: "JSM Integrated Services — Security. Staffing. Housekeeping. One Partner.",
+    title: "JSM Integrated Services — PSARA Security, Manpower & Facility Operations",
     description: "PSARA-licensed Ex-Servicemen & Private Security, 100% EPF/ESIC Manpower Staffing, and Commercial Facility Management across Tamil Nadu.",
     url: brandData.domain,
     siteName: brandData.name,
@@ -51,7 +46,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "JSM Integrated Services — Security. Staffing. Housekeeping. One Partner.",
+    title: "JSM Integrated Services — PSARA Security, Manpower & Facility Operations",
     description: "PSARA-licensed Ex-Servicemen & Private Security, 100% EPF/ESIC Manpower Staffing, and Commercial Facility Management across Tamil Nadu.",
     images: [`${brandData.domain}/images/jsm_logo_black.png`],
   },
@@ -91,8 +86,8 @@ export default function Home() {
   const geoTarget = geoTargetSchema();
 
   return (
-    <div className="relative bg-white text-[#1A1F2E] min-h-screen">
-      {/* Schema.org Structured Data */}
+    <div className="relative bg-white text-[#14181F] min-h-screen">
+      {/* Schema.org Structured Data — SEO / AEO / GEO */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
@@ -126,44 +121,29 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(geoTarget) }}
       />
 
-      {/* 1. Live Capacity & Operational Status Bar */}
-      <LiveAvailabilityBadge />
-
-      {/* 2. Hero Section: Active-Voice CTAs & 3-Column Trust Row */}
+      {/* 1. Hero Section: Mobile-first text + primary CTA above fold */}
       <HeroSection />
 
-      {/* 3. Credentials & Authority Strip */}
+      {/* 2. Plain Flat Trust Credentials Strip */}
       <TrustBar />
 
-      {/* 4. Three Integrated Tiers (With Inline Pricing) */}
+      {/* 3. Divided List Three-Tier Operations Model */}
       <ServicesOverview />
 
-      {/* 5. 60-Second Interactive Cost Calculator */}
-      <SmartCostCalculator />
-
-      {/* 6. In-House vs. Outsourced Financial Comparison */}
-      <CostComparisonSection />
-
-      {/* 7. Operational Proof Benchmark (Trichy International Airport) */}
+      {/* 4. Operational Proof Case Study (Trichy International Airport) */}
       <ProofSection />
 
-      {/* 8. Audited Operational SLAs & Metrics Module */}
+      {/* 5. Audited Operational SLAs & Metrics Module */}
       <StatsSection />
 
-      {/* 9. Sector Deployment Profiles */}
+      {/* 6. Industry Deployment Profiles */}
       <TestimonialsSection />
 
-      {/* 10. Direct Quotable FAQ Accordion */}
+      {/* 7. Direct Quotable FAQ Accordion */}
       <FAQSection />
 
-      {/* 11. Closing Conversion CTA Band */}
+      {/* 8. Solid Navy Closing Conversion CTA Band */}
       <CTASection />
-
-      {/* 12. Smart Quick Qualifier Modal */}
-      <QuickQualifierModal />
-
-      {/* 13. Floating WhatsApp Consultation Widget */}
-      <FloatingWhatsApp />
     </div>
   );
 }
