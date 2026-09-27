@@ -10,7 +10,6 @@ import {
   Mic, 
   Volume2, 
   VolumeX, 
-  Calculator, 
   Maximize2, 
   Minimize2,
   Trash2,
@@ -31,7 +30,6 @@ interface Message {
   timestamp: string;
   isLeadCard?: boolean;
   leadReference?: string;
-  showQuoteCalculator?: boolean;
 }
 
 export function AIReceptionist() {
@@ -43,16 +41,11 @@ export function AIReceptionist() {
   const [isListening, setIsListening] = useState(false);
   const [isSpeechEnabled, setIsSpeechEnabled] = useState(true);
   const [currentLang, setCurrentLang] = useState("en");
-  const [showCalculator, setShowCalculator] = useState(false);
 
   // ElevenLabs Voice & Synchronization State
   const [isVoiceLoading, setIsVoiceLoading] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [currentPlayingMsgId, setCurrentPlayingMsgId] = useState<string | null>(null);
-
-  // Quote Calculator State
-  const [calcService, setCalcService] = useState("Security Guarding (24/7)");
-  const [calcUnits, setCalcUnits] = useState(2);
 
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -158,7 +151,7 @@ export function AIReceptionist() {
   // Auto-scroll to bottom of messages
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages, isTyping, showCalculator, isSpeaking, isVoiceLoading]);
+  }, [messages, isTyping, isSpeaking, isVoiceLoading]);
 
   // ElevenLabs Natural Voice Synthesis (British Female Lily / Native Multilingual)
   const speakText = async (text: string, msgId?: string) => {
@@ -391,17 +384,6 @@ export function AIReceptionist() {
       { label: "💬 WhatsApp Operations", query: "Connect me directly with the 24/7 Operations Desk on WhatsApp." }
     ];
 
-  // Calculate Instant Estimate
-  const calculateEstimatedCost = () => {
-    let ratePerUnit = 18000;
-    if (calcService.includes("Housekeeping")) ratePerUnit = 14500;
-    if (calcService.includes("Manpower")) ratePerUnit = 16000;
-    if (calcService.includes("Event")) return `₹${(calcUnits * 1800).toLocaleString("en-IN")} / event day`;
-
-    const monthlyTotal = ratePerUnit * calcUnits;
-    return `₹${monthlyTotal.toLocaleString("en-IN")} / month`;
-  };
-
   return (
     <>
       {/* Floating Receptionist Badge Trigger */}
@@ -560,15 +542,6 @@ export function AIReceptionist() {
                   {isExpanded ? <Minimize2 size={15} /> : <Maximize2 size={15} />}
                 </button>
 
-                {/* Estimator */}
-                <button
-                  onClick={() => setShowCalculator(!showCalculator)}
-                  title="Instant Estimator"
-                  className="p-1.5 text-[#86868b] hover:text-[#0071e3] rounded-full hover:bg-black/[0.05] transition-colors"
-                >
-                  <Calculator size={15} />
-                </button>
-
                 {/* Clear */}
                 <button
                   onClick={() => {
@@ -624,65 +597,6 @@ export function AIReceptionist() {
                   <Square size={10} fill="currentColor" />
                   <span>{currentLang === "ta" ? "நிறுத்து" : "Stop / Mute"}</span>
                 </button>
-              </div>
-            )}
-
-            {/* In-Chat Instant Calculator Dropdown */}
-            {showCalculator && (
-              <div className="bg-[#f5f5f7] border-b border-black/[0.08] p-4 space-y-3 text-xs font-semibold text-[#1d1d1f] animate-in slide-in-from-top-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#0071e3] flex items-center gap-1.5">
-                    <Calculator size={13} /> Instant Commercial Estimator
-                  </span>
-                  <button onClick={() => setShowCalculator(false)} className="text-[#86868b] hover:text-[#1d1d1f] p-1 rounded-full hover:bg-black/[0.05]">
-                    <X size={14} />
-                  </button>
-                </div>
-
-                <div className="grid grid-cols-2 gap-2">
-                  <div>
-                    <label className="text-[10px] text-[#86868b] font-medium block mb-1">Service Type</label>
-                    <select
-                      value={calcService}
-                      onChange={(e) => setCalcService(e.target.value)}
-                      className="w-full h-8 px-2.5 bg-white border border-black/[0.08] rounded-xl text-xs text-[#1d1d1f] outline-none focus:ring-1 focus:ring-[#0071e3]"
-                    >
-                      <option value="Security Guarding (24/7)">Security Guarding</option>
-                      <option value="Commercial Housekeeping">Housekeeping &amp; Hygiene</option>
-                      <option value="Contractual Manpower">Contractual Manpower</option>
-                      <option value="Event Security Detail">Event Security / Bouncers</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="text-[10px] text-[#86868b] font-medium block mb-1">Headcount / Posts</label>
-                    <input
-                      type="number"
-                      min={1}
-                      max={100}
-                      value={calcUnits}
-                      onChange={(e) => setCalcUnits(Math.max(1, parseInt(e.target.value) || 1))}
-                      className="w-full h-8 px-2.5 bg-white border border-black/[0.08] rounded-xl text-xs text-[#1d1d1f] outline-none focus:ring-1 focus:ring-[#0071e3]"
-                    />
-                  </div>
-                </div>
-
-                <div className="p-3 bg-white rounded-2xl border border-black/[0.06] flex items-center justify-between shadow-2xs">
-                  <div>
-                    <p className="text-[10px] text-[#86868b]">Estimated Budget:</p>
-                    <p className="text-sm font-bold text-[#1d1d1f] tabular-nums">{calculateEstimatedCost()}</p>
-                  </div>
-                  <Button
-                    size="sm"
-                    onClick={() => {
-                      setShowCalculator(false);
-                      handleSendMessage(`I need a formal quote for ${calcUnits} personnel for ${calcService}.`);
-                    }}
-                    className="bg-[#0071e3] hover:bg-[#0077ed] text-white rounded-full text-[10px] font-semibold h-7 px-3.5 shadow-2xs"
-                  >
-                    Request Official RFP →
-                  </Button>
-                </div>
               </div>
             )}
 

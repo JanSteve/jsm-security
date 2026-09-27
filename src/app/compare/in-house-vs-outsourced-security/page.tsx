@@ -9,10 +9,8 @@ import {
   XCircle, 
   Scale, 
   AlertTriangle, 
-  Calculator, 
   Clock 
 } from "lucide-react";
-import { InteractiveCostSimulator } from "@/components/calculator/interactive-cost-simulator";
 
 export const metadata = constructMetadata({
   title: "In-House vs Outsourced Security Guards: Cost & Liability Comparison",
@@ -210,25 +208,6 @@ export default function InHouseVsOutsourcedPage() {
                 ))}
               </tbody>
             </table>
-          </div>
-        </section>
-
-        {/* Embedded Interactive Cost Simulator */}
-        <section className="space-y-6">
-          <div className="space-y-1">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#0B3D2E]">
-              Live Financial Simulator
-            </span>
-            <h2 className="font-display text-2xl sm:text-3xl text-[#14181F] font-bold">
-              Simulate Your Net Monthly & Annual Savings
-            </h2>
-            <p className="text-xs sm:text-sm text-[#5A6578]">
-              Adjust guard posts, housekeeping team sizes, and technical staff to calculate real-time savings versus direct in-house employment.
-            </p>
-          </div>
-
-          <div className="rounded-xl border border-[#E7E5E0] bg-[#F8F9FA] p-6 sm:p-10">
-            <InteractiveCostSimulator />
           </div>
         </section>
 

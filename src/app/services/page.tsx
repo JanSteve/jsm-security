@@ -1,6 +1,5 @@
 import { servicesData, serviceCategories } from '@/data/services';
 import { ServiceFilter } from '@/components/services/service-filter';
-import { InteractiveCostSimulator } from '@/components/calculator/interactive-cost-simulator';
 import { brandData } from '@/data/brand';
 import { breadcrumbSchema } from '@/lib/schema';
 import { ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react';
@@ -64,11 +63,6 @@ export default function ServicesHubPage() {
             </div>
           </div>
           <ServiceFilter categories={serviceCategories} services={servicesData} />
-        </section>
-
-        {/* Interactive Cost Simulator Section */}
-        <section className="rounded-xl overflow-hidden border border-[#E7E5E0] bg-[#F8F9FA] p-6 sm:p-10">
-          <InteractiveCostSimulator />
         </section>
 
         {/* Bottom Assessment CTA */}

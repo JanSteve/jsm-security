@@ -44,7 +44,7 @@ export async function POST(request: Request) {
           <div class="container">
             <div class="header">
               <h1>New Quote Proposal Request</h1>
-              <p>Generated via Instant Quote Calculator</p>
+              <p>Generated via Operational Proposal Portal</p>
             </div>
 
             <div class="content">
