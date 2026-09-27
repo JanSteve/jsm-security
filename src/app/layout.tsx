@@ -7,7 +7,7 @@ import { MobileDock } from "@/components/layout/mobile-dock";
 import CookieBanner from "@/components/shared/cookie-banner";
 import { AIReceptionist } from "@/components/chat/ai-receptionist";
 import { EmergencyReliefModal } from "@/components/ui/emergency-relief-modal";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
 import { brandData } from "@/data/brand";
 import { cn } from "@/lib/utils";
 
@@ -128,6 +128,7 @@ export default function RootLayout({
             <CookieBanner />
           </div>
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
