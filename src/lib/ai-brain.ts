@@ -142,15 +142,20 @@ export const JSM_ENTERPRISE_KNOWLEDGE: KnowledgeTopic[] = [
   },
   {
     id: 'contact-details',
-    keywords: ['contact', 'email', 'address', 'reach', 'office'],
-    title: 'Official JSM Contact Channels',
-    summary: '24/7 Active Operations Desk & Executive Office.',
-    detailedAnswer: `You can reach JSM Integrated Services immediately through:
+    keywords: ['contact', 'email', 'address', 'reach', 'office', 'sales', 'careers', 'help', 'support', 'hr', 'quote', 'tender', 'phone', 'whatsapp'],
+    title: 'Official JSM Contact & Department Inboxes',
+    summary: '24/7 Active Operations Desk, Departmental Inboxes & Executive Office.',
+    detailedAnswer: `You can reach JSM Integrated Services directly through our specialized department channels:
 
-• **Email (Fastest):** contact@jsmintegratedservices.com
-• **Trichy Headquarters:** Plot No: 112, SF No 122, RVS Nagar, Kottapattu Post, Tiruchirappalli - 620 021, Tamil Nadu, India.
+• **💼 Commercial Proposals & Sales:** sales@jsmintegratedservices.com (< 2 Hours SLA)
+• **🏢 General & Executive Office (MD Sweety J):** contact@jsmintegratedservices.com
+• **👥 Careers, Recruitment & Guard Intake:** careers@jsmintegratedservices.com
+• **🚨 24/7 Operations Desk & Emergency Relief:** help@jsmintegratedservices.com
+• **🛡️ Statutory Compliance & Verification:** info@jsmintegratedservices.com
+• **📞 24/7 Direct Hotline & WhatsApp:** +91 90808 63448
+• **📍 Trichy Headquarters:** Plot No: 112, SF No 122, RVS Nagar, Kottapattu Post, Tiruchirappalli - 620 021, Tamil Nadu, India.
 • **Executive Leadership**: Sweety J (Managing Director), Major AR Devadoss (Army-Veteran, Head of Operations), R Jan Steve Daniel (Chief Technical Officer & Audit).`,
-    suggestedFollowups: ['Send an email inquiry', 'Book site assessment'],
+    suggestedFollowups: ['Request custom quote from Sales', 'Submit resume to Careers', 'Connect on WhatsApp'],
     ctaType: 'assessment'
   }
 ];

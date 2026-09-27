@@ -165,8 +165,8 @@ Sent from jsmintegratedservices.in
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
           },
           body: JSON.stringify({
-            from: 'JSM Client Leads <onboarding@resend.dev>',
-            reply_to: email || targetRecipient,
+            from: 'JSM Integrated Services <contact@jsmintegratedservices.com>',
+            reply_to: email || 'contact@jsmintegratedservices.com',
             to: [targetRecipient],
             subject: `New Client Lead: ${name || 'Client'} — ${service || 'Site Assessment'} [${ticketRef}]`,
             text: textEmail,

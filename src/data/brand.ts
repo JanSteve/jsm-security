@@ -27,6 +27,10 @@ export const brandData = {
 
   contact: {
     email: "contact@jsmintegratedservices.com",
+    salesEmail: "sales@jsmintegratedservices.com",
+    careersEmail: "careers@jsmintegratedservices.com",
+    infoEmail: "info@jsmintegratedservices.com",
+    helpEmail: "help@jsmintegratedservices.com",
     backupEmail: "jsmintegratedservices@outlook.com",
     phone: "+919080863448",
     phoneDisplay: "+91 90808 63448",
@@ -37,6 +41,43 @@ export const brandData = {
     state: "Tamil Nadu",
     country: "India",
     pinCode: "620021",
+    departments: [
+      {
+        role: "Commercial Proposals & Pricing",
+        department: "Sales & Commercial Contracts",
+        email: "sales@jsmintegratedservices.com",
+        description: "Custom site security proposals, facility staffing tenders, rate cards, and GeM procurement inquiries.",
+        sla: "Within 2 Hours"
+      },
+      {
+        role: "Executive Secretariat & General Management",
+        department: "Corporate & Executive Office",
+        email: "contact@jsmintegratedservices.com",
+        description: "Managing Director Sweety J appointments, corporate partnerships, and institutional communications.",
+        sla: "Within 2 Hours"
+      },
+      {
+        role: "Guard Recruitment & Candidate Applications",
+        department: "Human Resources & Talent Intake",
+        email: "careers@jsmintegratedservices.com",
+        description: "Ex-Servicemen intake, security guard applications, field supervisor onboarding, and resume submissions.",
+        sla: "Within 24 Hours"
+      },
+      {
+        role: "24/7 Operations Desk & Emergency Relief",
+        department: "Operations Central Command",
+        email: "help@jsmintegratedservices.com",
+        description: "2-Hour guard replacement escalation, night audit coordination, and active site support.",
+        sla: "24/7 Immediate Response"
+      },
+      {
+        role: "Statutory Compliance & Legal Verification",
+        department: "Compliance & Governance Desk",
+        email: "info@jsmintegratedservices.com",
+        description: "PSARA licensing verification, EPF/ESIC compliance certifications, GST documentation, and audit dossiers.",
+        sla: "Same Business Day"
+      }
+    ],
     operatingCities: [
       "Tiruchirappalli (Trichy)",
       "Chennai",

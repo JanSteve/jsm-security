@@ -165,7 +165,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Col 4: Operations Desk & Downloads */}
+          {/* Col 4: Operations Desk & Departmental Inboxes */}
           <div className="space-y-3">
             <h4 className="text-[13px] font-semibold text-white tracking-normal">
               Headquarters Operations
@@ -175,11 +175,31 @@ export function Footer() {
                 <MapPin size={13} className="shrink-0 mt-0.5 text-[#9C7A3C]" />
                 <span>Plot No: 112, RVS Nagar, Kottapattu Post, Tiruchirappalli &ndash; 620021, Tamil Nadu</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Mail size={13} className="shrink-0 text-[#9C7A3C]" />
-                <a href={`mailto:${brandData.contact.email}`} className="hover:text-white transition-colors">
-                  {brandData.contact.email}
-                </a>
+              <div className="pt-1 space-y-1.5 border-t border-[#1A3E63]/70">
+                <div className="flex items-center gap-2">
+                  <span className="text-[11px] font-semibold text-[#9C7A3C] w-14 shrink-0">General:</span>
+                  <a href={`mailto:${brandData.contact.email}`} className="hover:text-white transition-colors">
+                    {brandData.contact.email}
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-[11px] font-semibold text-[#9C7A3C] w-14 shrink-0">Sales:</span>
+                  <a href={`mailto:${brandData.contact.salesEmail}`} className="hover:text-white transition-colors">
+                    {brandData.contact.salesEmail}
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-[11px] font-semibold text-[#9C7A3C] w-14 shrink-0">Careers:</span>
+                  <a href={`mailto:${brandData.contact.careersEmail}`} className="hover:text-white transition-colors">
+                    {brandData.contact.careersEmail}
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-[11px] font-semibold text-[#9C7A3C] w-14 shrink-0">24/7 Help:</span>
+                  <a href={`mailto:${brandData.contact.helpEmail}`} className="hover:text-white transition-colors">
+                    {brandData.contact.helpEmail}
+                  </a>
+                </div>
               </div>
             </div>
 

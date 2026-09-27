@@ -365,7 +365,7 @@ export function AIReceptionist() {
       const fallbackMsg: Message = {
         id: `assistant-fallback-${Date.now()}`,
         role: "assistant",
-        content: "Thank you for reaching out to JSM Integrated Services. Our operations desk is available via email at jsmintegratedservices@outlook.com or WhatsApp at +91 90808 63448 for immediate proposals and appointment bookings.",
+        content: "Thank you for reaching out to JSM Integrated Services. Our operations desk is available via email at contact@jsmintegratedservices.com (Sales: sales@jsmintegratedservices.com) or WhatsApp at +91 90808 63448 for immediate proposals and appointment bookings.",
         timestamp: "Now",
       };
       setMessages((prev) => [...prev, fallbackMsg]);
@@ -716,7 +716,7 @@ export function AIReceptionist() {
                             <span>OFFICIAL APPOINTMENT DOSSIER LOGGED</span>
                           </div>
                           <p className="text-[11px] text-neutral-300 leading-relaxed">
-                            Your appointment request has been dispatched directly to Managing Director <strong>Sweety J</strong> and Executive Secretariat at <strong>jsmintegratedservices@outlook.com</strong>.
+                            Your appointment request has been dispatched directly to Managing Director <strong>Sweety J</strong> and Executive Secretariat at <strong>contact@jsmintegratedservices.com</strong>.
                           </p>
                           <div className="p-2 rounded-xl bg-white/10 text-emerald-300 font-mono text-xs font-bold">
                             Reference: #{msg.leadReference}
@@ -745,7 +745,7 @@ export function AIReceptionist() {
                             Our Operations Desk in Trichy has created your priority file. An Operations Lead will connect with you within 2 business hours.
                           </p>
                           <a
-                            href={`mailto:jsmintegratedservices@outlook.com?subject=Chat%20Reference%20${msg.leadReference}&body=Hi%20JSM%20Operations,%20I%20chatted%20with%20Priya%20and%20received%20Reference%20${msg.leadReference}.`}
+                            href={`mailto:contact@jsmintegratedservices.com?subject=Chat%20Reference%20${msg.leadReference}&body=Hi%20JSM%20Operations,%20I%20chatted%20with%20Priya%20and%20received%20Reference%20${msg.leadReference}.`}
                             className="mt-2 w-full bg-white hover:bg-emerald-100/50 border border-emerald-200 text-emerald-800 text-xs font-semibold py-2 px-3 rounded-xl flex items-center justify-center gap-2 transition-colors shadow-2xs"
                           >
                             <Mail size={14} className="text-emerald-600" /> Fast-track via Email →

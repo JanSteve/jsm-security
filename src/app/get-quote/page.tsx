@@ -131,7 +131,7 @@ export default function GetQuotePage() {
             Request an Operational Proposal
           </h1>
           <p className="text-xs sm:text-sm text-[#5A6578] leading-relaxed">
-            Generate an estimated statutory proposal for security, manpower, or facility management. Our operations desk will review and confirm within 2 hours.
+            Generate an estimated statutory proposal for security, manpower, or facility management. Our commercial sales team at <strong className="text-[#0B3D2E]">sales@jsmintegratedservices.com</strong> will review and confirm within 2 hours.
           </p>
         </div>
 
@@ -165,12 +165,19 @@ export default function GetQuotePage() {
                     Proposal Request Submitted
                   </h2>
                   <p className="text-xs sm:text-sm text-[#5A6578] max-w-md mx-auto leading-relaxed">
-                    Your estimated proposal has been recorded. An official printable summary has been generated, and our operations coordinator will contact you directly within 2 hours.
+                    Your estimated proposal has been recorded and routed directly to <strong className="text-[#0B3D2E]">{brandData.contact.salesEmail}</strong>. An official printable summary has been generated, and our commercial sales lead will contact you within 2 hours.
                   </p>
-                  <div className="pt-4">
+                  <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <a
+                      href={`mailto:${brandData.contact.salesEmail}?subject=Commercial%20Proposal%20Follow-up%20(${encodeURIComponent(formData.companyName || 'Client')})`}
+                      className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#F8F9FA] border border-[#E7E5E0] text-[#14181F] text-xs font-semibold rounded-lg hover:bg-white transition-colors"
+                    >
+                      <Mail size={13} className="text-[#0B3D2E]" />
+                      <span>Email Sales Desk</span>
+                    </a>
                     <Link
                       href="/"
-                      className="inline-flex items-center justify-center px-6 py-3 bg-[#0B3D2E] text-white text-xs font-semibold rounded-lg hover:bg-[#082C21] transition-colors"
+                      className="inline-flex items-center justify-center px-6 py-2.5 bg-[#0B3D2E] text-white text-xs font-semibold rounded-lg hover:bg-[#082C21] transition-colors"
                     >
                       Return to Homepage
                     </Link>

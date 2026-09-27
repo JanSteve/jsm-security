@@ -279,12 +279,31 @@ export default function CareersPage() {
           </div>
 
           {submitted ? (
-            <div className="p-6 rounded-lg bg-[#0B3D2E]/10 border border-[#0B3D2E]/30 text-center space-y-2">
-              <CheckCircle2 size={28} className="text-[#0B3D2E] mx-auto" />
-              <h3 className="text-base font-semibold text-[#14181F]">Application Received</h3>
-              <p className="text-xs text-[#5A6578]">
-                Thank you for applying to JSM Integrated Services. Our HR desk will call you shortly.
+            <div className="p-8 rounded-xl bg-[#0B3D2E]/10 border border-[#0B3D2E]/30 text-center space-y-3">
+              <CheckCircle2 size={32} className="text-[#0B3D2E] mx-auto" />
+              <h3 className="text-lg font-semibold text-[#14181F]">Application Dossier Received</h3>
+              <p className="text-xs sm:text-sm text-[#5A6578] max-w-md mx-auto">
+                Thank you for applying to JSM Integrated Services. Your profile has been dispatched to our HR &amp; Recruitment team at <strong className="text-[#0B3D2E]">careers@jsmintegratedservices.com</strong>.
               </p>
+              <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a
+                  href={`mailto:${brandData.contact.careersEmail}?subject=Application%20Follow-up%20-%20${encodeURIComponent(formData.fullName || 'Candidate')}`}
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0B3D2E] hover:underline"
+                >
+                  <Mail size={13} />
+                  <span>Email HR Desk Directly</span>
+                </a>
+                <span className="hidden sm:inline text-[#CBD5E1]">&bull;</span>
+                <a
+                  href="https://wa.me/919080863448?text=Hello%20JSM%20Recruitment,%20I%20have%20submitted%20my%20application%20on%20the%20website."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0B3D2E] hover:underline"
+                >
+                  <Phone size={13} />
+                  <span>WhatsApp HR (+91 90808 63448)</span>
+                </a>
+              </div>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -357,21 +376,32 @@ export default function CareersPage() {
                 type="submit"
                 className="w-full py-3.5 rounded-lg bg-[#0B3D2E] hover:bg-[#082C21] text-white text-xs sm:text-sm font-semibold transition-colors shadow-xs"
               >
-                Submit Application
+                Submit Application to Recruitment Desk
               </button>
             </form>
           )}
 
-          <div className="pt-2 text-center text-xs text-[#5A6578]">
-            <span>Prefer WhatsApp? </span>
-            <a
-              href="https://wa.me/919080863448?text=Hello%20JSM%20Recruitment,%20I%20wish%20to%20apply%20for%20a%20position."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#0B3D2E] font-semibold hover:underline"
-            >
-              Message our HR desk directly (+91 90808 63448)
-            </a>
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4 text-xs text-[#5A6578]">
+            <div className="flex items-center gap-1.5">
+              <Mail size={13} className="text-[#0B3D2E]" />
+              <span>Direct Recruitment Inbox: </span>
+              <a href={`mailto:${brandData.contact.careersEmail}`} className="text-[#0B3D2E] font-semibold hover:underline">
+                {brandData.contact.careersEmail}
+              </a>
+            </div>
+            <span className="hidden sm:inline text-[#E7E5E0]">|</span>
+            <div className="flex items-center gap-1.5">
+              <Phone size={13} className="text-[#0B3D2E]" />
+              <span>WhatsApp HR Desk: </span>
+              <a
+                href="https://wa.me/919080863448?text=Hello%20JSM%20Recruitment,%20I%20wish%20to%20apply%20for%20a%20position."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#0B3D2E] font-semibold hover:underline"
+              >
+                +91 90808 63448
+              </a>
+            </div>
           </div>
         </section>
       </div>

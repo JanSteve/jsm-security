@@ -37,7 +37,8 @@ Sent from jsmintegratedservices.in
           Authorization: `Bearer ${resendApiKey.trim()}`,
         },
         body: JSON.stringify({
-          from: 'JSM Landing Leads <onboarding@resend.dev>',
+          from: 'JSM Integrated Services <contact@jsmintegratedservices.com>',
+          reply_to: email || 'contact@jsmintegratedservices.com',
           to: [targetRecipient],
           subject: `🚨 New Campaign Lead: ${name} (${source_page})`,
           text: mailText,

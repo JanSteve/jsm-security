@@ -174,7 +174,7 @@ function createFormDoc({ title, subtitle, formCode, sections }) {
       alignment: AlignmentType.CENTER,
       children: [
         new TextRun({
-          text: "Submit completed application via WhatsApp to +91 9080863448 or email to hr@jsmintegratedservices.com",
+          text: "Submit completed application via WhatsApp to +91 9080863448 or email to careers@jsmintegratedservices.com",
           size: 16,
           color: "0071E3",
           bold: true,

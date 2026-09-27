@@ -158,8 +158,8 @@ Sent from jsmintegratedservices.in/get-quote
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
           },
           body: JSON.stringify({
-            from: 'JSM Quote Desk <onboarding@resend.dev>',
-            reply_to: email || targetRecipient,
+            from: 'JSM Sales & Proposals <sales@jsmintegratedservices.com>',
+            reply_to: email || 'sales@jsmintegratedservices.com',
             to: [targetRecipient],
             subject: `New Quote Request: ${companyName || 'Client'} (${city || 'Tamil Nadu'})`,
             text: textEmail,
