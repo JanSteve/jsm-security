@@ -387,7 +387,7 @@ export function AIReceptionist() {
   return (
     <>
       {/* Floating Receptionist Badge Trigger */}
-      <div className="fixed bottom-20 md:bottom-6 right-4 sm:right-6 z-50 flex items-center gap-3">
+      <div className="fixed bottom-[88px] md:bottom-6 right-4 md:right-6 z-40 flex items-center gap-3">
         {!isOpen && unreadCount > 0 && (
           <motion.div
             initial={{ opacity: 0, x: 20, scale: 0.9 }}
@@ -451,10 +451,10 @@ export function AIReceptionist() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className={`fixed z-50 bg-white border border-black/[0.08] shadow-2xl rounded-[28px] overflow-hidden flex flex-col transition-all duration-300 ${
+            className={`fixed z-[60] bg-white border border-black/[0.08] shadow-2xl sm:rounded-[28px] overflow-hidden flex flex-col transition-all duration-300 ${
               isExpanded
-                ? "top-6 bottom-6 left-6 right-6 md:left-auto md:w-[680px]"
-                : "bottom-24 right-4 sm:right-6 w-[calc(100vw-32px)] sm:w-[440px] h-[610px] max-h-[85vh]"
+                ? "top-6 bottom-6 left-6 right-6 md:left-auto md:w-[680px] rounded-[28px]"
+                : "inset-x-2 bottom-2 top-16 sm:inset-auto sm:bottom-24 sm:right-4 sm:w-[440px] sm:h-[610px] sm:max-h-[85vh] rounded-2xl sm:rounded-[28px]"
             }`}
           >
             {/* Header */}
@@ -601,7 +601,7 @@ export function AIReceptionist() {
             )}
 
             {/* Chat Messages Container */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-white text-xs leading-relaxed">
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-white text-sm leading-relaxed">
               {messages.map((msg) => {
                 const isAppt = msg.leadReference?.startsWith("JSM-APPT-");
                 const isPlayingThis = isSpeaking && currentPlayingMsgId === msg.id;
@@ -734,13 +734,13 @@ export function AIReceptionist() {
               <button
                 onClick={toggleListening}
                 title={isListening ? "Listening... click to stop" : "Speak your message"}
-                className={`p-2 rounded-full transition-colors cursor-pointer ${
+                className={`w-11 h-11 flex items-center justify-center rounded-full transition-colors cursor-pointer shrink-0 ${
                   isListening
                     ? "bg-red-500 text-white animate-pulse"
                     : "bg-white text-[#515154] hover:text-[#1d1d1f] border border-black/[0.06]"
                 }`}
               >
-                <Mic size={16} />
+                <Mic size={18} />
               </button>
 
               <input
@@ -757,17 +757,17 @@ export function AIReceptionist() {
                 placeholder={
                   currentLang === "ta"
                     ? "பிரியாவிடம் கேளுங்கள் (எ.கா. இன்றைய வானிலை, பாதுகாப்பு சேவைகள்...)"
-                    : "Ask Priya anything (e.g. weather, news, security deployment)..."
+                    : "Ask Priya anything (e.g. weather, news)..."
                 }
-                className="flex-1 bg-white border border-black/[0.08] rounded-full px-4 py-2 text-xs text-[#1d1d1f] placeholder:text-[#86868b] outline-none focus:ring-1 focus:ring-[#0071e3] transition-all"
+                className="flex-1 h-11 bg-white border border-black/[0.08] rounded-full px-4 text-sm text-[#1d1d1f] placeholder:text-[#86868b] outline-none focus:ring-1 focus:ring-[#0071e3] transition-all"
               />
 
               <button
                 onClick={() => handleSendMessage()}
                 disabled={!inputMessage.trim() || isTyping}
-                className="w-8 h-8 rounded-full bg-[#0071e3] text-white flex items-center justify-center disabled:opacity-40 hover:bg-[#0077ed] transition-colors shrink-0 shadow-xs cursor-pointer press-scale"
+                className="w-11 h-11 rounded-full bg-[#0071e3] text-white flex items-center justify-center disabled:opacity-40 hover:bg-[#0077ed] transition-colors shrink-0 shadow-xs cursor-pointer press-scale"
               >
-                <Send size={14} />
+                <Send size={16} />
               </button>
             </div>
           </motion.div>

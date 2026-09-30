@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
 import { Shield, Users, Sparkles, Check, FileText, Scan, Building } from "lucide-react";
@@ -126,7 +124,7 @@ export function ServicesOverview() {
                   <div className="text-xs font-semibold text-[#14181F] mb-2.5">
                     Core Operational Deliverables
                   </div>
-                  <ul className="space-y-2 text-xs text-[#4A5160]">
+                  <ul className="space-y-2 text-sm sm:text-xs text-[#4A5160]">
                     {service.deliverables.map((item, idx) => (
                       <li key={idx} className="flex items-start gap-2">
                         <Check size={14} className="text-[#9C7A3C] shrink-0 mt-0.5" />
@@ -140,7 +138,7 @@ export function ServicesOverview() {
                 <div className="lg:col-span-2 flex lg:justify-end items-center pt-2 lg:pt-4">
                   <Link
                     href={service.slug}
-                    className="inline-flex items-center justify-center px-4 py-2 rounded-[4px] border border-[#0F2A47] text-[#0F2A47] hover:bg-[#0F2A47] hover:text-white text-xs font-semibold transition-colors min-touch-target"
+                    className="w-full lg:w-auto inline-flex items-center justify-center px-4 py-2 rounded-[4px] border border-[#0F2A47] text-[#0F2A47] hover:bg-[#0F2A47] hover:text-white text-xs font-semibold transition-colors min-touch-target"
                   >
                     <span>View Specifications</span>
                   </Link>

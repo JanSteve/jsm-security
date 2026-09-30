@@ -262,19 +262,19 @@ export function ContactForm() {
                     </div>
                   </div>
 
-                  <div className="flex gap-3 pt-2">
+                  <div className="flex flex-col sm:flex-row gap-3 pt-2">
                     <Button
                       type="button"
                       variant="outline"
                       onClick={prevStep}
-                      className="w-1/3 h-11 rounded-full text-xs font-semibold bg-white hover:bg-black/[0.04] text-[#515154] border-black/[0.1] min-h-[44px]"
+                      className="w-full sm:w-1/3 h-11 rounded-full text-xs font-semibold bg-white hover:bg-black/[0.04] text-[#515154] border-black/[0.1] min-h-[44px]"
                     >
                       Back
                     </Button>
                     <Button
                       type="button"
                       onClick={nextStep}
-                      className="w-2/3 h-11 rounded-full bg-[#1d1d1f] hover:bg-black text-white font-semibold text-xs min-h-[44px] shadow-sm"
+                      className="w-full sm:w-2/3 h-11 rounded-full bg-[#1d1d1f] hover:bg-black text-white font-semibold text-xs min-h-[44px] shadow-sm"
                     >
                       <span>Continue</span> <ArrowRight size={14} className="ml-1.5 text-white" />
                     </Button>
@@ -311,21 +311,21 @@ export function ContactForm() {
                     <p className="text-[#86868b]">An operations manager will review your submission and contact you within 2 business hours to schedule the free site assessment.</p>
                   </div>
 
-                  <div className="flex gap-3 pt-2">
+                  <div className="flex flex-col sm:flex-row gap-3 pt-2">
                     <Button
                       type="button"
                       variant="outline"
                       onClick={prevStep}
-                      className="w-1/3 h-11 rounded-full text-xs font-semibold bg-white hover:bg-black/[0.04] text-[#515154] border-black/[0.1] min-h-[44px]"
+                      className="w-full sm:w-1/3 h-11 rounded-full text-xs font-semibold bg-white hover:bg-black/[0.04] text-[#515154] border-black/[0.1] min-h-[44px]"
                     >
                       Back
                     </Button>
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-2/3 h-11 rounded-full bg-[#1d1d1f] hover:bg-black text-white font-semibold text-xs shadow-sm min-h-[44px]"
+                      className="w-full sm:w-2/3 h-11 rounded-full bg-[#1d1d1f] hover:bg-black text-white font-semibold text-xs shadow-sm min-h-[44px]"
                     >
-                      {isSubmitting ? "Dispatching to Operations Desk..." : "Submit Assessment Request"}
+                      {isSubmitting ? "Dispatching..." : "Submit Assessment Request"}
                     </Button>
                   </div>
                 </motion.div>

@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { Plane, Factory, Building2, Sparkles } from "lucide-react";
 

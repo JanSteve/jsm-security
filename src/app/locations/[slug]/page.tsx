@@ -9,14 +9,9 @@ import {
   ShieldCheck, 
   ArrowRight, 
   Clock, 
-  Phone, 
-  Mail, 
   CheckCircle2, 
   Building2, 
-  Check, 
-  FileCheck, 
-  Award 
-} from "lucide-react";
+  Check } from "lucide-react";
 
 export function generateStaticParams() {
   return locationsData.map((loc) => ({
@@ -110,9 +105,9 @@ export default async function LocationDetailPage({ params }: { params: Promise<{
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Header / Hero */}
-        <section className="py-8 sm:py-12 border-b border-[#E7E5E0]">
+        <section className="py-8 sm:py-12 border-b border-[#E4E7EC]">
           <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0B3D2E]/8 text-[#0B3D2E] text-xs font-semibold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0F2A47]/8 text-[#0F2A47] text-xs font-semibold">
               <MapPin size={14} />
               <span>{loc.regionType}</span>
             </div>
@@ -129,7 +124,7 @@ export default async function LocationDetailPage({ params }: { params: Promise<{
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           <div className="lg:col-span-7 space-y-6">
             <div className="space-y-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#0B3D2E]">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#0F2A47]">
                 Operational Scope & Capabilities
               </span>
               <h2 className="font-display text-2xl sm:text-3xl text-[#14181F] font-bold">
@@ -141,16 +136,16 @@ export default async function LocationDetailPage({ params }: { params: Promise<{
             </div>
 
             {/* Industrial Zones & Deployment Sectors */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-[#E7E5E0]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-[#E4E7EC]">
               <div className="space-y-3">
                 <h3 className="font-semibold text-sm text-[#14181F] flex items-center gap-2">
-                  <Building2 size={16} className="text-[#0B3D2E]" />
+                  <Building2 size={16} className="text-[#0F2A47]" />
                   <span>Key Industrial Zones</span>
                 </h3>
                 <ul className="space-y-2 text-xs text-[#5A6578]">
                   {loc.keyIndustrialZones.map((zone, idx) => (
                     <li key={idx} className="flex items-start gap-2">
-                      <Check size={14} className="text-[#0B3D2E] shrink-0 mt-0.5" />
+                      <Check size={14} className="text-[#0F2A47] shrink-0 mt-0.5" />
                       <span>{zone}</span>
                     </li>
                   ))}
@@ -159,13 +154,13 @@ export default async function LocationDetailPage({ params }: { params: Promise<{
 
               <div className="space-y-3">
                 <h3 className="font-semibold text-sm text-[#14181F] flex items-center gap-2">
-                  <ShieldCheck size={16} className="text-[#0B3D2E]" />
+                  <ShieldCheck size={16} className="text-[#0F2A47]" />
                   <span>Core Sectors Served</span>
                 </h3>
                 <ul className="space-y-2 text-xs text-[#5A6578]">
                   {loc.deploymentSectors.map((sector, idx) => (
                     <li key={idx} className="flex items-start gap-2">
-                      <Check size={14} className="text-[#0B3D2E] shrink-0 mt-0.5" />
+                      <Check size={14} className="text-[#0F2A47] shrink-0 mt-0.5" />
                       <span>{sector}</span>
                     </li>
                   ))}
@@ -176,9 +171,9 @@ export default async function LocationDetailPage({ params }: { params: Promise<{
 
           {/* District Operational Specs Card */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="rounded-xl border border-[#E7E5E0] bg-[#F8F9FA] p-6 sm:p-7 space-y-6">
-              <div className="border-b border-[#E7E5E0] pb-4">
-                <span className="text-[10px] font-mono font-bold uppercase text-[#0B3D2E] tracking-wider bg-[#0B3D2E]/8 px-2 py-0.5 rounded">
+            <div className="rounded-xl border border-[#E4E7EC] bg-[#F8F9FA] p-6 sm:p-7 space-y-6">
+              <div className="border-b border-[#E4E7EC] pb-4">
+                <span className="text-[10px] font-mono font-bold uppercase text-[#0F2A47] tracking-wider bg-[#0F2A47]/8 px-2 py-0.5 rounded">
                   {loc.district} Operational Roster
                 </span>
                 <h3 className="font-display text-lg font-bold text-[#14181F] mt-2">
@@ -190,7 +185,7 @@ export default async function LocationDetailPage({ params }: { params: Promise<{
                 <div>
                   <span className="text-[#5A6578] font-medium block">Response SLA:</span>
                   <span className="font-semibold text-[#14181F] text-sm flex items-center gap-1.5 mt-0.5">
-                    <Clock size={14} className="text-[#0B3D2E]" />
+                    <Clock size={14} className="text-[#0F2A47]" />
                     {loc.responseSla}
                   </span>
                 </div>
@@ -212,24 +207,24 @@ export default async function LocationDetailPage({ params }: { params: Promise<{
                 <div>
                   <span className="text-[#5A6578] font-medium block">Direct Operations Contact:</span>
                   <div className="flex items-center gap-4 mt-1">
-                    <a href={`tel:${loc.phone.replace(/[^0-9+]/g, '')}`} className="font-semibold text-[#0B3D2E] hover:underline">
+                    <a href={`tel:${loc.phone.replace(/[^0-9+]/g, '')}`} className="font-semibold text-[#0F2A47] hover:underline">
                       {loc.phone}
                     </a>
-                    <a href={`mailto:${loc.email}`} className="font-semibold text-[#0B3D2E] hover:underline">
+                    <a href={`mailto:${loc.email}`} className="font-semibold text-[#0F2A47] hover:underline">
                       Email Desk
                     </a>
                   </div>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-[#E7E5E0] space-y-2">
+              <div className="pt-4 border-t border-[#E4E7EC] space-y-2">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-[#5A6578]">
                   Statutory Guarantees:
                 </span>
                 <ul className="space-y-1.5 text-xs text-[#14181F]">
                   {loc.complianceHighlights.map((comp, idx) => (
                     <li key={idx} className="flex items-center gap-2">
-                      <CheckCircle2 size={13} className="text-[#0B3D2E] shrink-0" />
+                      <CheckCircle2 size={13} className="text-[#0F2A47] shrink-0" />
                       <span>{comp}</span>
                     </li>
                   ))}
@@ -238,7 +233,7 @@ export default async function LocationDetailPage({ params }: { params: Promise<{
 
               <Link
                 href="/get-quote"
-                className="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-[#0B3D2E] hover:bg-[#145C43] text-white text-xs font-semibold py-3 transition-colors shadow-xs"
+                className="w-full inline-flex items-center justify-center gap-2 rounded-md bg-[#0F2A47] hover:bg-[#0A1E33] text-white text-xs font-semibold py-3 transition-colors shadow-xs min-h-[44px]"
               >
                 <span>Request {loc.city} Proposal</span>
                 <ArrowRight size={13} />
@@ -248,9 +243,9 @@ export default async function LocationDetailPage({ params }: { params: Promise<{
         </section>
 
         {/* Local FAQs */}
-        <section className="space-y-6 pt-8 border-t border-[#E7E5E0]">
+        <section className="space-y-6 pt-8 border-t border-[#E4E7EC]">
           <div className="space-y-1">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#0B3D2E]">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#0F2A47]">
               District Clarifications
             </span>
             <h2 className="font-display text-2xl sm:text-3xl text-[#14181F] font-bold">
@@ -260,7 +255,7 @@ export default async function LocationDetailPage({ params }: { params: Promise<{
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {loc.localFaqs.map((faq, idx) => (
-              <div key={idx} className="p-5 rounded-lg border border-[#E7E5E0] bg-[#F8F9FA]/60 space-y-2">
+              <div key={idx} className="p-5 rounded-lg border border-[#E4E7EC] bg-[#F8F9FA]/60 space-y-2">
                 <h3 className="text-sm font-semibold text-[#14181F]">
                   {faq.question}
                 </h3>
@@ -273,7 +268,7 @@ export default async function LocationDetailPage({ params }: { params: Promise<{
         </section>
 
         {/* Bottom CTA */}
-        <section className="py-12 bg-[#0B3D2E] rounded-xl p-8 sm:p-12 text-center text-white space-y-6">
+        <section className="py-12 bg-[#0F2A47] rounded-xl p-8 sm:p-12 text-center text-white space-y-6">
           <h2 className="font-display text-2xl sm:text-3xl text-white font-bold tracking-tight max-w-2xl mx-auto">
             Schedule a physical security or facility assessment in {loc.city}
           </h2>
@@ -283,14 +278,14 @@ export default async function LocationDetailPage({ params }: { params: Promise<{
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               href="/get-quote"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-white text-[#0B3D2E] text-sm font-semibold hover:bg-neutral-100 transition-colors shadow-xs"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md bg-white text-[#0F2A47] text-sm font-semibold hover:bg-neutral-100 transition-colors shadow-xs min-h-[44px] w-full sm:w-auto"
             >
               <span>Get Proposal for {loc.city}</span>
               <ArrowRight size={14} />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-white/10 hover:bg-white/15 text-white border border-white/20 text-sm font-semibold transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md bg-white/10 hover:bg-white/15 text-white border border-white/20 text-sm font-semibold transition-colors min-h-[44px] w-full sm:w-auto"
             >
               <span>Contact Operations Desk</span>
             </Link>

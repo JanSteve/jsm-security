@@ -2,15 +2,10 @@ import { brandData } from "@/data/brand";
 import { constructMetadata } from "@/lib/seo";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import Link from "next/link";
-import { 
-  ShieldCheck, 
-  ArrowRight, 
+import { ArrowRight, 
   CheckCircle2, 
   XCircle, 
-  Scale, 
-  AlertTriangle, 
-  Clock 
-} from "lucide-react";
+  Scale } from "lucide-react";
 
 export const metadata = constructMetadata({
   title: "In-House vs Outsourced Security Guards: Cost & Liability Comparison",
@@ -109,9 +104,9 @@ export default function InHouseVsOutsourcedPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Editorial Header */}
-        <section className="py-8 sm:py-12 border-b border-[#E7E5E0]">
+        <section className="py-8 sm:py-12 border-b border-[#E4E7EC]">
           <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0B3D2E]/8 text-[#0B3D2E] text-xs font-semibold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0F2A47]/8 text-[#0F2A47] text-xs font-semibold">
               <Scale size={14} />
               <span>Decision Matrix & Financial Analysis</span>
             </div>
@@ -147,22 +142,22 @@ export default function InHouseVsOutsourcedPage() {
             </ul>
           </div>
 
-          <div className="rounded-xl border border-[#0B3D2E]/30 bg-[#0B3D2E]/5 p-7 sm:p-8 space-y-4">
-            <div className="flex items-center gap-2 text-[#0B3D2E] font-bold text-sm">
+          <div className="rounded-xl border border-[#0F2A47]/30 bg-[#0F2A47]/5 p-7 sm:p-8 space-y-4">
+            <div className="flex items-center gap-2 text-[#0F2A47] font-bold text-sm">
               <CheckCircle2 size={18} />
               <span>Outsourced PSARA Agency Model: Strategic Advantages</span>
             </div>
             <ul className="space-y-2.5 text-xs sm:text-sm text-neutral-800">
               <li className="flex items-start gap-2">
-                <span className="font-bold text-[#0B3D2E] shrink-0">•</span>
+                <span className="font-bold text-[#0F2A47] shrink-0">•</span>
                 <span><strong>Guaranteed 2-Hour Relief SLA:</strong> Absent guards are replaced immediately from our dedicated district standby reserve squads.</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="font-bold text-[#0B3D2E] shrink-0">•</span>
+                <span className="font-bold text-[#0F2A47] shrink-0">•</span>
                 <span><strong>100% Statutory Indemnity:</strong> Transparent monthly ECR challans eliminate client PF/ESIC liabilities completely.</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="font-bold text-[#0B3D2E] shrink-0">•</span>
+                <span className="font-bold text-[#0F2A47] shrink-0">•</span>
                 <span><strong>Unannounced 2:00 AM Van Audits:</strong> Decorated military veterans inspect guard alertness and perimeter lighting throughout the night.</span>
               </li>
             </ul>
@@ -172,7 +167,7 @@ export default function InHouseVsOutsourcedPage() {
         {/* Comparison Table */}
         <section className="space-y-6">
           <div className="space-y-1">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#0B3D2E]">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#0F2A47]">
               Direct Comparison Table
             </span>
             <h2 className="font-display text-2xl sm:text-3xl text-[#14181F] font-bold">
@@ -180,16 +175,16 @@ export default function InHouseVsOutsourcedPage() {
             </h2>
           </div>
 
-          <div className="overflow-x-auto rounded-xl border border-[#E7E5E0]">
-            <table className="w-full text-left text-xs sm:text-sm border-collapse">
+          <div className="overflow-x-auto rounded-xl border border-[#E4E7EC]">
+            <table className="w-full text-left text-xs sm:text-sm border-collapse min-h-[44px]">
               <thead>
-                <tr className="bg-[#F8F9FA] border-b border-[#E7E5E0] text-[#14181F]">
+                <tr className="bg-[#F8F9FA] border-b border-[#E4E7EC] text-[#14181F]">
                   <th className="p-4 font-bold w-1/4">Operational Parameter</th>
                   <th className="p-4 font-bold w-1/3">In-House Direct Hiring</th>
-                  <th className="p-4 font-bold w-1/3 text-[#0B3D2E] bg-[#0B3D2E]/5">JSM PSARA Outsourcing</th>
+                  <th className="p-4 font-bold w-1/3 text-[#0F2A47] bg-[#0F2A47]/5">JSM PSARA Outsourcing</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#E7E5E0]">
+              <tbody className="divide-y divide-[#E4E7EC]">
                 {comparisonRows.map((row, idx) => (
                   <tr key={idx} className="hover:bg-[#F8F9FA]/60 transition-colors">
                     <td className="p-4 font-semibold text-[#14181F] align-top">
@@ -198,9 +193,9 @@ export default function InHouseVsOutsourcedPage() {
                     <td className="p-4 text-[#5A6578] align-top leading-relaxed">
                       {row.inHouse}
                     </td>
-                    <td className="p-4 text-[#14181F] bg-[#0B3D2E]/5 font-medium align-top leading-relaxed">
+                    <td className="p-4 text-[#14181F] bg-[#0F2A47]/5 font-medium align-top leading-relaxed">
                       {row.outsourced}
-                      <span className="block mt-1 text-[11px] font-semibold text-[#0B3D2E]">
+                      <span className="block mt-1 text-[11px] font-semibold text-[#0F2A47]">
                         ✓ Advantage: {row.benefit}
                       </span>
                     </td>
@@ -212,9 +207,9 @@ export default function InHouseVsOutsourcedPage() {
         </section>
 
         {/* FAQs */}
-        <section className="space-y-6 pt-8 border-t border-[#E7E5E0]">
+        <section className="space-y-6 pt-8 border-t border-[#E4E7EC]">
           <div className="space-y-1">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#0B3D2E]">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#0F2A47]">
               Frequently Asked Questions
             </span>
             <h2 className="font-display text-2xl sm:text-3xl text-[#14181F] font-bold">
@@ -224,7 +219,7 @@ export default function InHouseVsOutsourcedPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {compareFaqs.map((faq, idx) => (
-              <div key={idx} className="p-5 rounded-lg border border-[#E7E5E0] bg-[#F8F9FA]/60 space-y-2">
+              <div key={idx} className="p-5 rounded-lg border border-[#E4E7EC] bg-[#F8F9FA]/60 space-y-2">
                 <h3 className="text-sm font-semibold text-[#14181F]">
                   {faq.question}
                 </h3>
@@ -237,7 +232,7 @@ export default function InHouseVsOutsourcedPage() {
         </section>
 
         {/* Bottom Assessment CTA */}
-        <section className="py-12 bg-[#0B3D2E] rounded-xl p-8 sm:p-12 text-center text-white space-y-6">
+        <section className="py-12 bg-[#0F2A47] rounded-xl p-8 sm:p-12 text-center text-white space-y-6">
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl text-white font-bold tracking-tight max-w-2xl mx-auto">
             Ready to transition from fragmented hiring to an accountable partner?
           </h2>
@@ -247,14 +242,14 @@ export default function InHouseVsOutsourcedPage() {
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               href="/get-quote"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-white text-[#0B3D2E] text-sm font-semibold hover:bg-neutral-100 transition-colors shadow-xs"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md bg-white text-[#0F2A47] text-sm font-semibold hover:bg-neutral-100 transition-colors shadow-xs min-h-[44px] w-full sm:w-auto"
             >
               <span>Request Transition Proposal</span>
               <ArrowRight size={14} />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-white/10 hover:bg-white/15 text-white border border-white/20 text-sm font-semibold transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md bg-white/10 hover:bg-white/15 text-white border border-white/20 text-sm font-semibold transition-colors min-h-[44px] w-full sm:w-auto"
             >
               <span>Speak with Operations Desk</span>
             </Link>

@@ -66,6 +66,25 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: '/work-opportunities',
+        destination: '/careers',
+        permanent: true,
+      },
+      {
+        source: '/whats-new',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/newsletter',
+        destination: '/blog',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

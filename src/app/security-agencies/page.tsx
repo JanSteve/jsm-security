@@ -2,17 +2,10 @@ import React from "react";
 import Link from "next/link";
 import { 
   ShieldCheck, 
-  FileText, 
   Download, 
   CheckCircle2, 
   Award, 
-  Users, 
-  Briefcase, 
-  ArrowRight,
-  Phone,
-  Building2,
-  FileCheck
-} from "lucide-react";
+  ArrowRight } from "lucide-react";
 import { brandData } from "@/data/brand";
 import { breadcrumbSchema } from "@/lib/schema";
 
@@ -117,9 +110,9 @@ export default function SecurityAgenciesPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Editorial Header */}
-        <section className="py-8 sm:py-12 border-b border-[#E7E5E0]">
+        <section className="py-8 sm:py-12 border-b border-[#E4E7EC]">
           <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0B3D2E]/8 text-[#0B3D2E] text-xs font-semibold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0F2A47]/8 text-[#0F2A47] text-xs font-semibold">
               <ShieldCheck size={14} />
               <span>Statutory Compliance &amp; DGR Architecture</span>
             </div>
@@ -131,7 +124,7 @@ export default function SecurityAgenciesPage() {
             </p>
 
             {/* AEO/GEO Attributed Authority Box */}
-            <div className="pt-2 flex flex-wrap items-center gap-4 text-xs font-mono text-[#5A6578] border-t border-[#E7E5E0]/70">
+            <div className="pt-2 flex flex-wrap items-center gap-4 text-xs font-mono text-[#5A6578] border-t border-[#E4E7EC]/70">
               <span><strong>Last Regulatory Review:</strong> March 2026</span>
               <span>&bull;</span>
               <span><strong>Reviewed by:</strong> Major AR Devadoss (Army-Veteran), Head of Operations &amp; Audit</span>
@@ -140,9 +133,9 @@ export default function SecurityAgenciesPage() {
         </section>
 
         {/* Regulatory Pillars (PSARA & DGR) */}
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-8 border-b border-[#E7E5E0] pb-16">
-          <div className="p-8 rounded-xl bg-[#F8F9FA] border border-[#E7E5E0] space-y-4">
-            <div className="flex items-center gap-2.5 text-[#0B3D2E]">
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-8 border-b border-[#E4E7EC] pb-16">
+          <div className="p-8 rounded-xl bg-[#F8F9FA] border border-[#E4E7EC] space-y-4">
+            <div className="flex items-center gap-2.5 text-[#0F2A47]">
               <ShieldCheck size={20} />
               <h2 className="font-display text-xl font-semibold text-[#14181F]">
                 PSARA Act 2005 Statutory Framework
@@ -153,21 +146,21 @@ export default function SecurityAgenciesPage() {
             </p>
             <ul className="space-y-2 text-xs text-[#4A5568] pt-2">
               <li className="flex items-start gap-2">
-                <CheckCircle2 size={14} className="text-[#0B3D2E] shrink-0 mt-0.5" />
+                <CheckCircle2 size={14} className="text-[#0F2A47] shrink-0 mt-0.5" />
                 <span>Mandatory 5-Day Pre-Deployment Training Syllabus</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 size={14} className="text-[#0B3D2E] shrink-0 mt-0.5" />
+                <CheckCircle2 size={14} className="text-[#0F2A47] shrink-0 mt-0.5" />
                 <span>Standardized Uniform, Crest &amp; Turnout Regulations</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 size={14} className="text-[#0B3D2E] shrink-0 mt-0.5" />
+                <CheckCircle2 size={14} className="text-[#0F2A47] shrink-0 mt-0.5" />
                 <span>Unannounced Supervisor Van Audits &amp; Logbook Checks</span>
               </li>
             </ul>
           </div>
 
-          <div className="p-8 rounded-xl bg-[#F8F9FA] border border-[#E7E5E0] space-y-4">
+          <div className="p-8 rounded-xl bg-[#F8F9FA] border border-[#E4E7EC] space-y-4">
             <div className="flex items-center gap-2.5 text-[#B8925A]">
               <Award size={20} />
               <h2 className="font-display text-xl font-semibold text-[#14181F]">
@@ -179,15 +172,15 @@ export default function SecurityAgenciesPage() {
             </p>
             <ul className="space-y-2 text-xs text-[#4A5568] pt-2">
               <li className="flex items-start gap-2">
-                <CheckCircle2 size={14} className="text-[#0B3D2E] shrink-0 mt-0.5" />
+                <CheckCircle2 size={14} className="text-[#0F2A47] shrink-0 mt-0.5" />
                 <span>Commissioned Officers as Chief Security Officers</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 size={14} className="text-[#0B3D2E] shrink-0 mt-0.5" />
+                <CheckCircle2 size={14} className="text-[#0F2A47] shrink-0 mt-0.5" />
                 <span>JCOs as Multi-Site Field Operations Coordinators</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 size={14} className="text-[#0B3D2E] shrink-0 mt-0.5" />
+                <CheckCircle2 size={14} className="text-[#0F2A47] shrink-0 mt-0.5" />
                 <span>Veterans as Gate Access &amp; Asset Protection Marshals</span>
               </li>
             </ul>
@@ -195,9 +188,9 @@ export default function SecurityAgenciesPage() {
         </section>
 
         {/* State-Wise Operational Deployment Matrix */}
-        <section className="space-y-6 border-b border-[#E7E5E0] pb-16">
+        <section className="space-y-6 border-b border-[#E4E7EC] pb-16">
           <div className="space-y-2">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#0B3D2E]">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#0F2A47]">
               Regional Jurisdiction
             </span>
             <h2 className="font-display text-2xl sm:text-3xl text-[#14181F] font-normal tracking-tight">
@@ -212,13 +205,13 @@ export default function SecurityAgenciesPage() {
             {stateStatus.map((item, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-xl border border-[#E7E5E0] bg-white space-y-3"
+                className="p-6 rounded-xl border border-[#E4E7EC] bg-white space-y-3"
               >
                 <div className="flex items-center justify-between">
                   <h3 className="font-semibold text-base text-[#14181F]">
                     {item.state}
                   </h3>
-                  <span className="text-[10px] font-mono font-bold text-[#0B3D2E] bg-[#0B3D2E]/8 px-2 py-0.5 rounded">
+                  <span className="text-[10px] font-mono font-bold text-[#0F2A47] bg-[#0F2A47]/8 px-2 py-0.5 rounded">
                     {item.dgrAlignment}
                   </span>
                 </div>
@@ -234,9 +227,9 @@ export default function SecurityAgenciesPage() {
         </section>
 
         {/* Downloadable Compliance Forms Library (.docx) */}
-        <section className="space-y-6 border-b border-[#E7E5E0] pb-16">
+        <section className="space-y-6 border-b border-[#E4E7EC] pb-16">
           <div className="space-y-2">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#0B3D2E]">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#0F2A47]">
               Official Documentation
             </span>
             <h2 className="font-display text-2xl sm:text-3xl text-[#14181F] font-normal tracking-tight">
@@ -251,11 +244,11 @@ export default function SecurityAgenciesPage() {
             {downloadableForms.map((doc, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-lg border border-[#E7E5E0] bg-[#F8F9FA] flex flex-col justify-between space-y-4"
+                className="p-5 rounded-lg border border-[#E4E7EC] bg-[#F8F9FA] flex flex-col justify-between space-y-4"
               >
                 <div className="space-y-2">
                   <div className="flex items-center justify-between text-xs">
-                    <span className="font-mono text-[#0B3D2E] font-bold text-[11px]">
+                    <span className="font-mono text-[#0F2A47] font-bold text-[11px]">
                       {doc.code}
                     </span>
                     <span className="text-neutral-400 font-mono text-[10px]">
@@ -273,7 +266,7 @@ export default function SecurityAgenciesPage() {
                 <a
                   href={`/downloads/${doc.filename}`}
                   download
-                  className="inline-flex items-center justify-center gap-2 py-2 px-3.5 rounded-md bg-white border border-[#E7E5E0] hover:border-[#0B3D2E] text-xs font-semibold text-[#0B3D2E] transition-colors shadow-2xs"
+                  className="inline-flex items-center justify-center gap-2 py-2 px-3.5 rounded-md bg-white border border-[#E4E7EC] hover:border-[#0F2A47] text-xs font-semibold text-[#0F2A47] transition-colors shadow-2xs min-h-[44px] w-full sm:w-auto"
                 >
                   <Download size={13} />
                   <span>Download Document (.docx)</span>
@@ -284,7 +277,7 @@ export default function SecurityAgenciesPage() {
         </section>
 
         {/* Verification Strip */}
-        <section className="p-8 rounded-xl bg-[#0B3D2E] text-white text-center space-y-4">
+        <section className="p-8 rounded-xl bg-[#0F2A47] text-white text-center space-y-4">
           <h3 className="font-display text-2xl sm:text-3xl text-white font-normal">
             Require formal statutory audit records for your enterprise?
           </h3>
@@ -294,7 +287,7 @@ export default function SecurityAgenciesPage() {
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-white text-[#0B3D2E] text-xs sm:text-sm font-semibold hover:bg-neutral-100 transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-white text-[#0F2A47] text-xs sm:text-sm font-semibold hover:bg-neutral-100 transition-colors min-h-[44px] w-full sm:w-auto"
             >
               <span>Contact Compliance Officer</span>
               <ArrowRight size={14} />

@@ -5,9 +5,6 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { MobileDock } from "@/components/layout/mobile-dock";
 import CookieBanner from "@/components/shared/cookie-banner";
-import { AIReceptionist } from "@/components/chat/ai-receptionist";
-import { EmergencyReliefModal } from "@/components/ui/emergency-relief-modal";
-import { Analytics } from "@vercel/analytics/react";
 import { brandData } from "@/data/brand";
 import { cn } from "@/lib/utils";
 
@@ -107,11 +104,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="icon" href="/favicon.ico?v=4" sizes="any" />
-        <link rel="icon" href="/icon.png?v=4" type="image/png" sizes="512x512" />
-        <link rel="apple-touch-icon" href="/apple-icon.png?v=4" sizes="180x180" />
-      </head>
       <body
         className={cn(
           "min-h-screen bg-white font-sans antialiased text-[#14181F] selection:bg-[#0F2A47]/10 selection:text-[#0F2A47]",
@@ -122,7 +114,7 @@ export default function RootLayout({
         <Providers>
           <div className="relative flex min-h-screen flex-col">
             <Header />
-            <main className="flex-1 w-full">{children}</main>
+            <main className="flex-1 w-full pb-20 md:pb-0">{children}</main>
             <Footer />
             <MobileDock />
             <CookieBanner />

@@ -32,9 +32,9 @@ export default function ContactPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Editorial Page Header */}
-        <section className="py-8 sm:py-12 border-b border-[#E7E5E0]">
+        <section className="py-8 sm:py-12 border-b border-[#E4E7EC]">
           <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0B3D2E]/8 text-[#0B3D2E] text-xs font-semibold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0F2A47]/8 text-[#0F2A47] text-xs font-semibold">
               <ShieldCheck size={14} />
               <span>Direct Operational Desk &amp; Departmental Inboxes</span>
             </div>
@@ -56,15 +56,15 @@ export default function ContactPage() {
 
           {/* Right: Contact Information & Headquarters Card (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="p-7 rounded-xl bg-[#F8F9FA] border border-[#E7E5E0] space-y-6">
-              <h2 className="font-display text-xl text-[#14181F] font-normal border-b border-[#E7E5E0] pb-3">
+            <div className="p-7 rounded-xl bg-[#F8F9FA] border border-[#E4E7EC] space-y-6">
+              <h2 className="font-display text-xl text-[#14181F] font-normal border-b border-[#E4E7EC] pb-3">
                 Head Office &amp; Operations
               </h2>
 
               <div className="space-y-4 text-xs sm:text-sm text-[#5A6578]">
                 {/* Physical Address */}
                 <div className="flex items-start gap-3">
-                  <MapPin size={18} className="text-[#0B3D2E] shrink-0 mt-0.5" />
+                  <MapPin size={18} className="text-[#0F2A47] shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-[#14181F] block">Central Headquarters:</strong>
                     <span>Plot No: 112, SF No 122, RVS Nagar, Kottapattu Post, Tiruchirappalli Distt, Tamil Nadu State, Pin: 620 021</span>
@@ -73,10 +73,10 @@ export default function ContactPage() {
 
                 {/* Direct Phone */}
                 <div className="flex items-start gap-3">
-                  <Phone size={18} className="text-[#0B3D2E] shrink-0 mt-0.5" />
+                  <Phone size={18} className="text-[#0F2A47] shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-[#14181F] block">Direct Consultation / Hotline:</strong>
-                    <a href={`tel:${brandData.contact.phone}`} className="text-[#0B3D2E] font-semibold hover:underline tabular-nums">
+                    <a href={`tel:${brandData.contact.phone}`} className="text-[#0F2A47] font-semibold hover:underline tabular-nums">
                       {brandData.contact.phoneDisplay}
                     </a>
                   </div>
@@ -84,10 +84,10 @@ export default function ContactPage() {
 
                 {/* Primary Email */}
                 <div className="flex items-start gap-3">
-                  <Mail size={18} className="text-[#0B3D2E] shrink-0 mt-0.5" />
+                  <Mail size={18} className="text-[#0F2A47] shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-[#14181F] block">Official Executive Email:</strong>
-                    <a href={`mailto:${brandData.contact.email}`} className="text-[#0B3D2E] font-medium hover:underline block">
+                    <a href={`mailto:${brandData.contact.email}`} className="text-[#0F2A47] font-medium hover:underline block">
                       {brandData.contact.email}
                     </a>
                     <span className="text-[11px] text-[#5A6578] block">Commercial Proposals: {brandData.contact.salesEmail}</span>
@@ -95,32 +95,32 @@ export default function ContactPage() {
                 </div>
 
                 {/* Department Email Inboxes */}
-                <div className="pt-3 border-t border-[#E7E5E0] space-y-2">
-                  <strong className="text-[#14181F] block text-xs uppercase tracking-wider text-[#0B3D2E]">
+                <div className="pt-3 border-t border-[#E4E7EC] space-y-2">
+                  <strong className="text-[#14181F] block text-xs uppercase tracking-wider text-[#0F2A47]">
                     Department Inboxes:
                   </strong>
                   <div className="grid grid-cols-1 gap-1.5 text-xs">
-                    <div className="flex items-center justify-between py-1 border-b border-[#E7E5E0]/60">
+                    <div className="flex items-center justify-between py-1 border-b border-[#E4E7EC]/60">
                       <span className="text-[#5A6578]">Sales &amp; Proposals:</span>
-                      <a href={`mailto:${brandData.contact.salesEmail}`} className="text-[#0B3D2E] font-medium hover:underline">
+                      <a href={`mailto:${brandData.contact.salesEmail}`} className="text-[#0F2A47] font-medium hover:underline">
                         {brandData.contact.salesEmail}
                       </a>
                     </div>
-                    <div className="flex items-center justify-between py-1 border-b border-[#E7E5E0]/60">
+                    <div className="flex items-center justify-between py-1 border-b border-[#E4E7EC]/60">
                       <span className="text-[#5A6578]">Careers &amp; Intake:</span>
-                      <a href={`mailto:${brandData.contact.careersEmail}`} className="text-[#0B3D2E] font-medium hover:underline">
+                      <a href={`mailto:${brandData.contact.careersEmail}`} className="text-[#0F2A47] font-medium hover:underline">
                         {brandData.contact.careersEmail}
                       </a>
                     </div>
-                    <div className="flex items-center justify-between py-1 border-b border-[#E7E5E0]/60">
+                    <div className="flex items-center justify-between py-1 border-b border-[#E4E7EC]/60">
                       <span className="text-[#5A6578]">24/7 Operations Desk:</span>
-                      <a href={`mailto:${brandData.contact.helpEmail}`} className="text-[#0B3D2E] font-medium hover:underline">
+                      <a href={`mailto:${brandData.contact.helpEmail}`} className="text-[#0F2A47] font-medium hover:underline">
                         {brandData.contact.helpEmail}
                       </a>
                     </div>
                     <div className="flex items-center justify-between py-1">
                       <span className="text-[#5A6578]">Statutory Compliance:</span>
-                      <a href={`mailto:${brandData.contact.infoEmail}`} className="text-[#0B3D2E] font-medium hover:underline">
+                      <a href={`mailto:${brandData.contact.infoEmail}`} className="text-[#0F2A47] font-medium hover:underline">
                         {brandData.contact.infoEmail}
                       </a>
                     </div>
@@ -129,7 +129,7 @@ export default function ContactPage() {
 
                 {/* Response SLA */}
                 <div className="flex items-start gap-3 pt-2">
-                  <Clock size={18} className="text-[#0B3D2E] shrink-0 mt-0.5" />
+                  <Clock size={18} className="text-[#0F2A47] shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-[#14181F] block">Response Commitment:</strong>
                     <span>Operational inquiries answered within 2 hours during active business shifts.</span>
@@ -138,12 +138,12 @@ export default function ContactPage() {
               </div>
 
               {/* Direct WhatsApp Action */}
-              <div className="pt-2 border-t border-[#E7E5E0]">
+              <div className="pt-2 border-t border-[#E4E7EC]">
                 <a
                   href={`https://wa.me/${brandData.contact.whatsapp}?text=Hello%20JSM%20Integrated%20Services,%20I%20wish%20to%20inquire%20about%20your%20services.`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-lg bg-[#0B3D2E] hover:bg-[#082C21] text-white text-xs sm:text-sm font-semibold transition-colors"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-md bg-[#0F2A47] hover:bg-[#0A1E33] text-white text-xs sm:text-sm font-semibold transition-colors min-h-[44px]"
                 >
                   <span>Open WhatsApp Operations Chat</span>
                   <ArrowRight size={14} />
@@ -152,7 +152,7 @@ export default function ContactPage() {
             </div>
 
             {/* Regional Outposts Notice */}
-            <div className="p-6 rounded-xl border border-[#E7E5E0] bg-white space-y-2">
+            <div className="p-6 rounded-xl border border-[#E4E7EC] bg-white space-y-2">
               <h3 className="text-xs font-semibold uppercase tracking-wider text-[#14181F]">
                 Regional Deployment Outposts
               </h3>

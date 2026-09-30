@@ -4,19 +4,14 @@ import Link from "next/link";
 import { brandData } from "@/data/brand";
 import { constructMetadata } from "@/lib/seo";
 import { breadcrumbSchema } from "@/lib/schema";
-import { 
-  BookOpen, 
-  ShieldCheck, 
+import { ShieldCheck, 
   ArrowRight, 
   Calendar, 
   Clock, 
   User, 
   CheckCircle2, 
   FileCheck, 
-  ArrowLeft, 
-  Share2, 
-  Phone 
-} from "lucide-react";
+  ArrowLeft } from "lucide-react";
 
 export function generateStaticParams() {
   return knowledgeArticles.map((art) => ({
@@ -96,20 +91,20 @@ export default async function KnowledgeArticlePage({ params }: { params: Promise
         {/* Back Link */}
         <Link
           href="/knowledge"
-          className="inline-flex items-center gap-2 text-xs font-semibold text-[#0B3D2E] hover:underline"
+          className="inline-flex items-center gap-2 text-xs font-semibold text-[#0F2A47] hover:underline min-h-[44px] py-2"
         >
           <ArrowLeft size={14} />
           <span>Back to Knowledge Center</span>
         </Link>
 
         {/* Article Header */}
-        <header className="space-y-4 border-b border-[#E7E5E0] pb-8">
+        <header className="space-y-4 border-b border-[#E4E7EC] pb-8">
           <div className="flex items-center gap-3">
-            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#0B3D2E] bg-[#0B3D2E]/8 px-2.5 py-1 rounded">
+            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#0F2A47] bg-[#0F2A47]/8 px-2.5 py-1 rounded">
               {art.categoryBadge}
             </span>
             <span className="text-xs text-[#5A6578] flex items-center gap-1 font-medium">
-              <Clock size={13} className="text-[#0B3D2E]" />
+              <Clock size={13} className="text-[#0F2A47]" />
               <span>{art.readTime}</span>
             </span>
           </div>
@@ -118,30 +113,30 @@ export default async function KnowledgeArticlePage({ params }: { params: Promise
             {art.title}
           </h1>
 
-          <div className="flex flex-wrap items-center justify-between gap-4 pt-4 text-xs text-[#5A6578] border-t border-[#E7E5E0]/60">
+          <div className="flex flex-wrap items-center justify-between gap-4 pt-4 text-xs text-[#5A6578] border-t border-[#E4E7EC]/60">
             <div className="flex items-center gap-2">
-              <User size={14} className="text-[#0B3D2E]" />
+              <User size={14} className="text-[#0F2A47]" />
               <span>
                 Authored by <strong className="text-[#14181F]">{art.author.name}</strong> ({art.author.role})
               </span>
             </div>
             <div className="flex items-center gap-2">
-              <Calendar size={14} className="text-[#0B3D2E]" />
+              <Calendar size={14} className="text-[#0F2A47]" />
               <span>Last regulatory update: {art.lastUpdated}</span>
             </div>
           </div>
         </header>
 
         {/* Key Takeaways Callout Box */}
-        <section className="rounded-xl border border-[#0B3D2E]/20 bg-[#0B3D2E]/4 p-6 sm:p-7 space-y-3">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#0B3D2E] flex items-center gap-1.5">
+        <section className="rounded-xl border border-[#0F2A47]/20 bg-[#0F2A47]/4 p-6 sm:p-7 space-y-3">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#0F2A47] flex items-center gap-1.5">
             <ShieldCheck size={16} />
             <span>Executive & Legal Takeaways</span>
           </span>
           <ul className="space-y-2 text-xs sm:text-sm text-[#14181F]">
             {art.keyTakeaways.map((takeaway, idx) => (
               <li key={idx} className="flex items-start gap-2 leading-relaxed">
-                <CheckCircle2 size={15} className="text-[#0B3D2E] shrink-0 mt-0.5" />
+                <CheckCircle2 size={15} className="text-[#0F2A47] shrink-0 mt-0.5" />
                 <span>{takeaway}</span>
               </li>
             ))}
@@ -159,7 +154,7 @@ export default async function KnowledgeArticlePage({ params }: { params: Promise
 
         {/* Actionable Audit Checklist if available */}
         {art.actionChecklist && (
-          <section className="rounded-xl border border-[#E7E5E0] bg-[#F8F9FA] p-6 sm:p-8 space-y-4">
+          <section className="rounded-xl border border-[#E4E7EC] bg-[#F8F9FA] p-6 sm:p-8 space-y-4">
             <div className="space-y-1">
               <span className="text-xs font-bold uppercase tracking-wider text-[#A67C3D] flex items-center gap-1.5">
                 <FileCheck size={16} />
@@ -171,8 +166,8 @@ export default async function KnowledgeArticlePage({ params }: { params: Promise
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
               {art.actionChecklist.map((item, idx) => (
-                <div key={idx} className="p-3 bg-white border border-[#E7E5E0] rounded-lg text-xs text-[#14181F] flex items-start gap-2">
-                  <CheckCircle2 size={14} className="text-[#0B3D2E] shrink-0 mt-0.5" />
+                <div key={idx} className="p-3 bg-white border border-[#E4E7EC] rounded-lg text-xs text-[#14181F] flex items-start gap-2">
+                  <CheckCircle2 size={14} className="text-[#0F2A47] shrink-0 mt-0.5" />
                   <span>{item}</span>
                 </div>
               ))}
@@ -181,7 +176,7 @@ export default async function KnowledgeArticlePage({ params }: { params: Promise
         )}
 
         {/* Bottom Contact Box */}
-        <footer className="pt-8 border-t border-[#E7E5E0] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <footer className="pt-8 border-t border-[#E4E7EC] flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="space-y-1 text-center sm:text-left">
             <h4 className="font-bold text-sm text-[#14181F]">
               Have questions regarding statutory compliance or PSARA norms?
@@ -192,7 +187,7 @@ export default async function KnowledgeArticlePage({ params }: { params: Promise
           </div>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-[#0B3D2E] text-white text-xs font-semibold hover:bg-[#145C43] transition-colors shrink-0 shadow-xs"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-[#0F2A47] text-white text-xs font-semibold hover:bg-[#0A1E33] transition-colors shrink-0 shadow-xs min-h-[44px] w-full sm:w-auto"
           >
             <span>Contact Operations Desk</span>
             <ArrowRight size={13} />

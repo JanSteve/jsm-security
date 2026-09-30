@@ -5,13 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { 
   Plane, 
-  ShieldCheck, 
   ArrowRight, 
   CheckCircle2, 
-  Clock, 
-  Users, 
-  Award, 
-  Building2, 
   ArrowLeft 
 } from "lucide-react";
 
@@ -70,20 +65,20 @@ export default function AirportCaseStudyPage() {
         {/* Navigation back */}
         <Link
           href="/about"
-          className="inline-flex items-center gap-2 text-xs font-semibold text-[#0B3D2E] hover:underline"
+          className="inline-flex items-center gap-2 text-xs font-semibold text-[#0F2A47] hover:underline min-h-[44px] py-2"
         >
           <ArrowLeft size={14} />
           <span>Back to Company Background</span>
         </Link>
 
         {/* Hero Header */}
-        <header className="space-y-4 border-b border-[#E7E5E0] pb-8">
+        <header className="space-y-4 border-b border-[#E4E7EC] pb-8">
           <div className="flex items-center gap-3">
-            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#0B3D2E] bg-[#0B3D2E]/8 px-2.5 py-1 rounded">
+            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#0F2A47] bg-[#0F2A47]/8 px-2.5 py-1 rounded">
               Aviation Operations • 2024
             </span>
             <span className="text-xs text-[#5A6578] flex items-center gap-1 font-medium">
-              <Plane size={13} className="text-[#0B3D2E]" />
+              <Plane size={13} className="text-[#0F2A47]" />
               <span>International Concourse Deployment</span>
             </span>
           </div>
@@ -98,31 +93,31 @@ export default function AirportCaseStudyPage() {
         </header>
 
         {/* Metrics Bar */}
-        <section className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-6 rounded-xl border border-[#E7E5E0] bg-[#F8F9FA]">
+        <section className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-6 rounded-xl border border-[#E4E7EC] bg-[#F8F9FA]">
           <div className="space-y-1">
             <span className="text-[11px] font-medium text-[#5A6578]">Operational SLA</span>
-            <div className="font-display text-2xl font-bold text-[#0B3D2E]">100%</div>
+            <div className="font-display text-2xl font-bold text-[#0F2A47]">100%</div>
             <p className="text-[10px] text-[#5A6578]">Muster Adherence</p>
           </div>
           <div className="space-y-1">
             <span className="text-[11px] font-medium text-[#5A6578]">Security Breaches</span>
-            <div className="font-display text-2xl font-bold text-[#0B3D2E]">Zero</div>
+            <div className="font-display text-2xl font-bold text-[#0F2A47]">Zero</div>
             <p className="text-[10px] text-[#5A6578]">Incident-Free Record</p>
           </div>
           <div className="space-y-1">
             <span className="text-[11px] font-medium text-[#5A6578]">Supervisory Unit</span>
-            <div className="font-display text-2xl font-bold text-[#0B3D2E]">ESM Led</div>
+            <div className="font-display text-2xl font-bold text-[#0F2A47]">ESM Led</div>
             <p className="text-[10px] text-[#5A6578]">Military Veteran Officers</p>
           </div>
           <div className="space-y-1">
             <span className="text-[11px] font-medium text-[#5A6578]">Shift Telemetry</span>
-            <div className="font-display text-2xl font-bold text-[#0B3D2E]">24 / 7</div>
+            <div className="font-display text-2xl font-bold text-[#0F2A47]">24 / 7</div>
             <p className="text-[10px] text-[#5A6578]">Live Radio Network</p>
           </div>
         </section>
 
         {/* Hero Image */}
-        <div className="rounded-xl overflow-hidden border border-[#E7E5E0] relative aspect-16/10 shadow-xs">
+        <div className="rounded-xl overflow-hidden border border-[#E4E7EC] relative aspect-16/10 shadow-xs">
           <Image
             src="/images/real_jsm_airport_terminal_platoon.jpg"
             alt="JSM Security Platoon Deployed at Trichy International Airport"
@@ -153,17 +148,17 @@ export default function AirportCaseStudyPage() {
             <p className="text-[#4B5259]">
               Directed by our Head of Operations, Major AR Devadoss (Army-Veteran), JSM deployed a specialized platoon of disciplined Ex-Servicemen supervisory marshals and rigorously trained security personnel.
             </p>
-            <ul className="space-y-2 text-xs sm:text-sm text-[#14181F] bg-[#F8F9FA] p-5 rounded-xl border border-[#E7E5E0]">
+            <ul className="space-y-2 text-xs sm:text-sm text-[#14181F] bg-[#F8F9FA] p-5 rounded-xl border border-[#E4E7EC]">
               <li className="flex items-start gap-2">
-                <CheckCircle2 size={16} className="text-[#0B3D2E] shrink-0 mt-0.5" />
+                <CheckCircle2 size={16} className="text-[#0F2A47] shrink-0 mt-0.5" />
                 <span><strong>Pre-Shift Radio Muster:</strong> Daily formal inspections, communication checks, and duty post rotations.</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 size={16} className="text-[#0B3D2E] shrink-0 mt-0.5" />
+                <CheckCircle2 size={16} className="text-[#0F2A47] shrink-0 mt-0.5" />
                 <span><strong>Concourse Crowd Segregation:</strong> Structured access flow management preventing bottlenecking at departure and arrival gates.</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 size={16} className="text-[#0B3D2E] shrink-0 mt-0.5" />
+                <CheckCircle2 size={16} className="text-[#0F2A47] shrink-0 mt-0.5" />
                 <span><strong>2-Hour Standby Reserves:</strong> On-call relief personnel staged in Tiruchirappalli ensuring 100% post occupancy 24/7.</span>
               </li>
             </ul>
@@ -180,7 +175,7 @@ export default function AirportCaseStudyPage() {
         </section>
 
         {/* Secondary Photo */}
-        <div className="rounded-xl overflow-hidden border border-[#E7E5E0] relative aspect-16/10 shadow-xs">
+        <div className="rounded-xl overflow-hidden border border-[#E4E7EC] relative aspect-16/10 shadow-xs">
           <Image
             src="/images/real_jsm_welcome_trichy_salute.jpg"
             alt="JSM Guard Unit Turnout Salute in Trichy"
@@ -190,7 +185,7 @@ export default function AirportCaseStudyPage() {
         </div>
 
         {/* Bottom CTA */}
-        <footer className="pt-8 border-t border-[#E7E5E0] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <footer className="pt-8 border-t border-[#E4E7EC] flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="space-y-1 text-center sm:text-left">
             <h4 className="font-bold text-sm text-[#14181F]">
               Need airport-standard security for your industrial or commercial facility?
@@ -201,7 +196,7 @@ export default function AirportCaseStudyPage() {
           </div>
           <Link
             href="/get-quote"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-[#0B3D2E] text-white text-xs font-semibold hover:bg-[#145C43] transition-colors shrink-0 shadow-xs"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-[#0F2A47] text-white text-xs font-semibold hover:bg-[#0A1E33] transition-colors shrink-0 shadow-xs min-h-[44px] w-full sm:w-auto"
           >
             <span>Request Site Proposal</span>
             <ArrowRight size={13} />

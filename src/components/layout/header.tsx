@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useScroll, useMotionValueEvent } from "motion/react";
 import { Phone } from "lucide-react";
@@ -34,15 +35,16 @@ export function Header() {
           aria-label="JSM Integrated Services Home"
         >
           <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-[4px] bg-[#0F2A47] text-white flex items-center justify-center font-bold text-sm tracking-wider overflow-hidden border border-[#0F2A47]/20 shrink-0">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/images/jsm_logo_black.png"
               alt="JSM Crest"
+              width={40}
+              height={40}
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="flex flex-col justify-center">
-            <span className="font-semibold text-sm sm:text-base tracking-tight text-[#14181F] leading-tight">
+          <div className="flex flex-col justify-center max-w-[120px] sm:max-w-none">
+            <span className="font-semibold text-sm sm:text-base tracking-tight text-[#14181F] leading-tight truncate">
               JSM Integrated Services
             </span>
             <span className="text-[11px] text-[#4A5160] font-medium tracking-normal hidden sm:flex items-center gap-1.5">
@@ -87,12 +89,11 @@ export function Header() {
           {/* Direct Phone Link - Accessible on mobile and desktop */}
           <a
             href={`tel:${brandData.contact.phone}`}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#14181F] hover:text-[#0F2A47] px-2.5 sm:px-3 h-[44px] rounded-[4px] border border-[#E4E7EC] hover:border-[#0F2A47] transition-colors tabular-nums min-touch-target"
+            className="inline-flex items-center justify-center text-xs font-semibold text-[#14181F] hover:text-[#0F2A47] w-[44px] sm:w-auto sm:px-3 h-[44px] rounded-[4px] border border-[#E4E7EC] hover:border-[#0F2A47] transition-colors tabular-nums min-touch-target"
             aria-label={`Call Operations: ${brandData.contact.phoneDisplay}`}
           >
-            <Phone size={14} className="text-[#0F2A47] shrink-0" />
-            <span className="hidden sm:inline">{brandData.contact.phoneDisplay}</span>
-            <span className="sm:hidden text-[11px]">Call</span>
+            <Phone size={14} className="text-[#0F2A47]" />
+            <span className="hidden sm:inline sm:ml-1.5">{brandData.contact.phoneDisplay}</span>
           </a>
 
           {/* Primary CTA - Visible on ALL Viewports, Never Buried */}

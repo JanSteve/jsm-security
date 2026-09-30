@@ -2,7 +2,7 @@ import { servicesData, serviceCategories } from '@/data/services';
 import { ServiceFilter } from '@/components/services/service-filter';
 import { brandData } from '@/data/brand';
 import { breadcrumbSchema } from '@/lib/schema';
-import { ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, ShieldCheck } from 'lucide-react';
 import Link from 'next/link';
 
 import { constructMetadata } from '@/lib/seo';
@@ -35,9 +35,9 @@ export default function ServicesHubPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Editorial Page Header */}
-        <section className="py-8 sm:py-12 border-b border-[#E7E5E0]">
+        <section className="py-8 sm:py-12 border-b border-[#E4E7EC]">
           <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0B3D2E]/8 text-[#0B3D2E] text-xs font-semibold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0F2A47]/8 text-[#0F2A47] text-xs font-semibold">
               <ShieldCheck size={14} />
               <span>Full Capability Matrix</span>
             </div>
@@ -66,7 +66,7 @@ export default function ServicesHubPage() {
         </section>
 
         {/* Bottom Assessment CTA */}
-        <section className="py-12 sm:py-16 bg-[#0B3D2E] rounded-xl p-8 sm:p-12 text-center text-white space-y-6">
+        <section className="py-12 sm:py-16 bg-[#0F2A47] rounded-xl p-8 sm:p-12 text-center text-white space-y-6">
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl text-white font-normal tracking-tight max-w-2xl mx-auto">
             Need a site-specific operational assessment?
           </h2>
@@ -76,14 +76,14 @@ export default function ServicesHubPage() {
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               href="/get-quote"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-white text-[#0B3D2E] text-sm font-semibold hover:bg-neutral-100 transition-colors shadow-xs"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md bg-white text-[#0F2A47] text-sm font-semibold hover:bg-neutral-100 transition-colors shadow-xs min-h-[44px] w-full sm:w-auto"
             >
               <span>Request Site Assessment</span>
               <ArrowRight size={14} />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-white/10 hover:bg-white/15 text-white border border-white/20 text-sm font-semibold transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md bg-white/10 hover:bg-white/15 text-white border border-white/20 text-sm font-semibold transition-colors min-h-[44px] w-full sm:w-auto"
             >
               <span>Contact Operations Desk</span>
             </Link>

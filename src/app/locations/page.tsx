@@ -5,14 +5,8 @@ import { breadcrumbSchema } from "@/lib/schema";
 import Link from "next/link";
 import { 
   MapPin, 
-  ShieldCheck, 
   ArrowRight, 
-  Clock, 
-  Phone, 
-  Building2, 
-  CheckCircle2, 
-  Sparkles 
-} from "lucide-react";
+  Clock } from "lucide-react";
 
 export const metadata = constructMetadata({
   title: "Operational Locations & District Command Hubs",
@@ -42,9 +36,9 @@ export default function LocationsHubPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Editorial Header */}
-        <section className="py-8 sm:py-12 border-b border-[#E7E5E0]">
+        <section className="py-8 sm:py-12 border-b border-[#E4E7EC]">
           <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0B3D2E]/8 text-[#0B3D2E] text-xs font-semibold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0F2A47]/8 text-[#0F2A47] text-xs font-semibold">
               <MapPin size={14} />
               <span>Regional Coverage • Tamil Nadu</span>
             </div>
@@ -66,17 +60,17 @@ export default function LocationsHubPage() {
                 key={loc.slug}
                 className={`rounded-xl border transition-all duration-200 flex flex-col justify-between p-6 sm:p-7 ${
                   isHq 
-                    ? "bg-[#0B3D2E]/4 border-[#0B3D2E]/30 shadow-xs ring-1 ring-[#0B3D2E]/20" 
-                    : "bg-[#F8F9FA]/70 border-[#E7E5E0] hover:border-[#0B3D2E]/40 hover:bg-white hover:shadow-xs"
+                    ? "bg-[#0F2A47]/4 border-[#0F2A47]/30 shadow-xs ring-1 ring-[#0F2A47]/20" 
+                    : "bg-[#F8F9FA]/70 border-[#E4E7EC] hover:border-[#0F2A47]/40 hover:bg-white hover:shadow-xs"
                 }`}
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#0B3D2E] bg-[#0B3D2E]/8 px-2.5 py-1 rounded">
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#0F2A47] bg-[#0F2A47]/8 px-2.5 py-1 rounded">
                       {isHq ? "Headquarters & Command" : "District Operations Node"}
                     </span>
                     <span className="text-[11px] text-[#5A6578] flex items-center gap-1 font-medium">
-                      <Clock size={12} className="text-[#0B3D2E]" />
+                      <Clock size={12} className="text-[#0F2A47]" />
                       <span>2h SLA</span>
                     </span>
                   </div>
@@ -85,7 +79,7 @@ export default function LocationsHubPage() {
                     <h2 className="font-display text-xl sm:text-2xl font-bold text-[#14181F]">
                       {loc.city}
                     </h2>
-                    <p className="text-xs font-medium text-[#0B3D2E] mt-0.5">
+                    <p className="text-xs font-medium text-[#0F2A47] mt-0.5">
                       {loc.role}
                     </p>
                   </div>
@@ -94,7 +88,7 @@ export default function LocationsHubPage() {
                     {loc.operationalOverview}
                   </p>
 
-                  <div className="pt-2 border-t border-[#E7E5E0]/80 space-y-1.5">
+                  <div className="pt-2 border-t border-[#E4E7EC]/80 space-y-1.5">
                     <span className="text-[10px] uppercase font-bold tracking-wider text-[#5A6578]">
                       Key Industrial Zones:
                     </span>
@@ -102,7 +96,7 @@ export default function LocationsHubPage() {
                       {loc.keyIndustrialZones.slice(0, 2).map((zone, idx) => (
                         <span 
                           key={idx}
-                          className="text-[11px] bg-white border border-[#E7E5E0] px-2 py-0.5 rounded text-[#14181F]"
+                          className="text-[11px] bg-white border border-[#E4E7EC] px-2 py-0.5 rounded text-[#14181F]"
                         >
                           {zone}
                         </span>
@@ -111,13 +105,13 @@ export default function LocationsHubPage() {
                   </div>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-[#E7E5E0]/80 flex items-center justify-between">
+                <div className="pt-6 mt-6 border-t border-[#E4E7EC]/80 flex items-center justify-between">
                   <span className="text-xs text-[#5A6578] font-medium">
                     {loc.district} District
                   </span>
                   <Link
                     href={`/locations/${loc.slug}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0B3D2E] hover:text-[#145C43] group"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0F2A47] hover:text-[#0A1E33] group min-h-[44px] py-2"
                   >
                     <span>View District Hub</span>
                     <ArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
@@ -129,7 +123,7 @@ export default function LocationsHubPage() {
         </section>
 
         {/* Multi-City Pan-India Scalability Notice */}
-        <section className="rounded-xl border border-[#E7E5E0] bg-[#F8F9FA] p-8 sm:p-10 space-y-4">
+        <section className="rounded-xl border border-[#E4E7EC] bg-[#F8F9FA] p-8 sm:p-10 space-y-4">
           <div className="max-w-3xl space-y-2">
             <span className="text-xs font-bold uppercase tracking-wider text-[#A67C3D]">
               Strategic Deployment Architecture
@@ -144,7 +138,7 @@ export default function LocationsHubPage() {
         </section>
 
         {/* Direct Action Bottom CTA */}
-        <section className="py-12 bg-[#0B3D2E] rounded-xl p-8 sm:p-12 text-center text-white space-y-6">
+        <section className="py-12 bg-[#0F2A47] rounded-xl p-8 sm:p-12 text-center text-white space-y-6">
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl text-white font-bold tracking-tight max-w-2xl mx-auto">
             Need localized security or manpower deployment?
           </h2>
@@ -154,14 +148,14 @@ export default function LocationsHubPage() {
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               href="/get-quote"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-white text-[#0B3D2E] text-sm font-semibold hover:bg-neutral-100 transition-colors shadow-xs"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md bg-white text-[#0F2A47] text-sm font-semibold hover:bg-neutral-100 transition-colors shadow-xs min-h-[44px] w-full sm:w-auto"
             >
               <span>Request District Proposal</span>
               <ArrowRight size={14} />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-white/10 hover:bg-white/15 text-white border border-white/20 text-sm font-semibold transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md bg-white/10 hover:bg-white/15 text-white border border-white/20 text-sm font-semibold transition-colors min-h-[44px] w-full sm:w-auto"
             >
               <span>Contact Operations Desk</span>
             </Link>

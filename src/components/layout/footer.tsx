@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
 import { Phone, Mail, MapPin, Download } from "lucide-react";
@@ -11,33 +9,18 @@ export function Footer() {
   return (
     <footer className="bg-[#0F2A47] text-[#F8FAFC] border-t border-[#1A3E63]">
       {/* Upper Direct Contact & Inquiry Strip */}
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 border-b border-[#1A3E63]">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center justify-between">
-          <div className="lg:col-span-8 space-y-2">
-            <div className="inline-flex items-center gap-2 text-xs font-medium text-[#9C7A3C]">
-              <span>PSARA Act 2005 Licensed &bull; ISO 9001:2015 &bull; DGR Aligned</span>
-            </div>
-            <h3 className="font-serif text-2xl sm:text-3xl text-white font-normal tracking-tight">
-              Institutional security guarding, workforce staffing &amp; facility management.
-            </h3>
-            <p className="text-neutral-300 text-sm max-w-2xl leading-relaxed">
-              Operating under a single accountable partner model across Tamil Nadu. All deployments backed by 100% EPF/ESIC statutory compliance and a contractual 2-hour guard replacement SLA.
-            </p>
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-6 border-b border-[#1A3E63]">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+          <div className="text-sm font-medium text-white">
+            <span className="text-[#9C7A3C]">JSM Operations:</span> PSARA Act 2005 Licensed &bull; ISO 9001:2015 &bull; 100% EPF/ESIC
           </div>
-
-          <div className="lg:col-span-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 lg:justify-end">
-            <a
-              href={`tel:${brandData.contact.phone}`}
-              className="inline-flex items-center justify-center gap-2 px-4 h-[44px] rounded-[4px] bg-[#1A3E63] hover:bg-[#234E7B] text-white text-xs font-semibold transition-colors tabular-nums min-touch-target"
-            >
+          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 text-xs font-semibold">
+            <a href={`tel:${brandData.contact.phone}`} className="flex items-center gap-2 hover:text-[#9C7A3C] transition-colors tabular-nums">
               <Phone size={14} className="text-[#9C7A3C]" />
               <span>{brandData.contact.phoneDisplay}</span>
             </a>
-            <Link
-              href="/get-quote"
-              className="inline-flex items-center justify-center gap-2 px-5 h-[44px] rounded-[4px] bg-white text-[#0F2A47] text-xs font-semibold hover:bg-neutral-100 transition-colors shadow-subtle min-touch-target"
-            >
-              <span>Request a Proposal</span>
+            <Link href="/get-quote" className="text-[#9C7A3C] hover:text-white transition-colors">
+              Request a Proposal &rarr;
             </Link>
           </div>
         </div>

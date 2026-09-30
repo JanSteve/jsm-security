@@ -33,7 +33,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.08, ease: "easeOut" }}
-              className="font-serif text-[34px] sm:text-[44px] lg:text-[56px] leading-[1.12] text-[#14181F] font-semibold tracking-[-0.01em] text-left"
+              className="font-serif text-[28px] sm:text-[44px] lg:text-[56px] leading-[1.12] text-[#14181F] font-semibold tracking-[-0.01em] text-left"
             >
               Disciplined security, verified manpower &amp; integrated facility operations.
             </motion.h1>
@@ -57,14 +57,14 @@ export function HeroSection() {
             >
               <Link
                 href="/get-quote"
-                className="inline-flex items-center justify-center px-6 h-[48px] rounded-[4px] bg-[#0F2A47] hover:bg-[#0A1E33] text-white text-sm font-semibold transition-colors shadow-subtle press-scale min-touch-target"
+                className="inline-flex w-full sm:w-auto items-center justify-center px-6 h-[48px] rounded-[4px] bg-[#0F2A47] hover:bg-[#0A1E33] text-white text-sm font-semibold transition-colors shadow-subtle press-scale min-touch-target"
               >
                 <span>Request a Proposal</span>
               </Link>
 
               <Link
                 href="/services"
-                className="inline-flex items-center justify-center px-6 h-[48px] rounded-[4px] bg-white hover:bg-[#F6F7F9] border border-[#0F2A47] text-[#0F2A47] text-sm font-semibold transition-colors press-scale min-touch-target"
+                className="inline-flex w-full sm:w-auto items-center justify-center px-6 h-[48px] rounded-[4px] bg-white hover:bg-[#F6F7F9] border border-[#0F2A47] text-[#0F2A47] text-sm font-semibold transition-colors press-scale min-touch-target"
               >
                 <span>Explore Three-Tier Model</span>
               </Link>
@@ -95,7 +95,7 @@ export function HeroSection() {
           {/* Right Supporting Photographic Proof Frame — 0px radius, hairline border */}
           <div className="lg:col-span-5 relative">
             <div className="relative border border-[#E4E7EC] bg-[#F6F7F9] shadow-subtle">
-              <div className="aspect-[4/3] relative w-full overflow-hidden">
+              <div className="aspect-square sm:aspect-[4/3] relative w-full overflow-hidden">
                 <Image
                   src="/images/real_jsm_airport_terminal_platoon.jpg"
                   alt="JSM Security Platoon on site at Tiruchirappalli International Airport"
@@ -115,7 +115,7 @@ export function HeroSection() {
                   </span>
                   <span className="text-[11px] font-mono text-[#4A5160]">2024 Benchmark</span>
                 </div>
-                <p className="text-[12px] text-[#4A5160] leading-snug">
+                <p className="text-[13px] text-[#4A5160] leading-snug mt-1">
                   Uniformed platoon muster and turnout briefing under leadership of Proprietor Sweety J.
                 </p>
               </div>

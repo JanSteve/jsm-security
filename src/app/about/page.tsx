@@ -4,12 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { 
   ShieldCheck, 
-  Award, 
-  Users, 
   CheckCircle2, 
   ArrowRight, 
-  Building2, 
-  FileCheck, 
   MapPin 
 } from "lucide-react";
 
@@ -47,9 +43,9 @@ export default function AboutPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Editorial Page Header */}
-        <section className="py-8 sm:py-12 border-b border-[#E7E5E0]">
+        <section className="py-8 sm:py-12 border-b border-[#E4E7EC]">
           <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0B3D2E]/8 text-[#0B3D2E] text-xs font-semibold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0F2A47]/8 text-[#0F2A47] text-xs font-semibold">
               <ShieldCheck size={14} />
               <span>Company Background &amp; Leadership</span>
             </div>
@@ -63,9 +59,9 @@ export default function AboutPage() {
         </section>
 
         {/* Company Genesis & History (JSMMANPOWER Origin) */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center border-b border-[#E7E5E0] pb-16">
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center border-b border-[#E4E7EC] pb-16">
           <div className="lg:col-span-7 space-y-5">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#0B3D2E]">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#0F2A47]">
               Origins &amp; Evolution
             </span>
             <h2 className="font-display text-2xl sm:text-3xl text-[#14181F] font-normal tracking-tight">
@@ -81,19 +77,19 @@ export default function AboutPage() {
             </div>
 
             <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-[#14181F] font-medium">
-              <div className="p-3.5 rounded-lg bg-[#F8F9FA] border border-[#E7E5E0] flex items-center gap-2">
-                <CheckCircle2 size={15} className="text-[#0B3D2E]" />
+              <div className="p-3.5 rounded-lg bg-[#F8F9FA] border border-[#E4E7EC] flex items-center gap-2">
+                <CheckCircle2 size={15} className="text-[#0F2A47]" />
                 <span>Proprietorship Legal Structure</span>
               </div>
-              <div className="p-3.5 rounded-lg bg-[#F8F9FA] border border-[#E7E5E0] flex items-center gap-2">
-                <CheckCircle2 size={15} className="text-[#0B3D2E]" />
+              <div className="p-3.5 rounded-lg bg-[#F8F9FA] border border-[#E4E7EC] flex items-center gap-2">
+                <CheckCircle2 size={15} className="text-[#0F2A47]" />
                 <span>GST Registered: Multi-Service SAC</span>
               </div>
             </div>
           </div>
 
           <div className="lg:col-span-5 relative">
-            <div className="rounded-xl overflow-hidden border border-[#E7E5E0] bg-[#F8F9FA] shadow-xs relative aspect-4/3">
+            <div className="rounded-xl overflow-hidden border border-[#E4E7EC] bg-[#F8F9FA] shadow-xs relative aspect-4/3">
               <Image
                 src="/images/real_jsm_printed_card.jpg"
                 alt="JSM Integrated Services Physical Corporate Credentials"
@@ -109,9 +105,9 @@ export default function AboutPage() {
         </section>
 
         {/* Named Leadership Bios (Sweety J, Major AR Devadoss, R Jan Steve Daniel) */}
-        <section className="space-y-10 border-b border-[#E7E5E0] pb-16">
+        <section className="space-y-10 border-b border-[#E4E7EC] pb-16">
           <div className="space-y-2">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#0B3D2E]">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#0F2A47]">
               Executive Board
             </span>
             <h2 className="font-display text-2xl sm:text-3xl text-[#14181F] font-normal tracking-tight">
@@ -126,10 +122,10 @@ export default function AboutPage() {
             {brandData.leadership.map((officer, idx) => (
               <div
                 key={idx}
-                className="p-7 rounded-xl border border-[#E7E5E0] bg-[#F8F9FA]/60 space-y-4"
+                className="p-7 rounded-xl border border-[#E4E7EC] bg-[#F8F9FA]/60 space-y-4"
               >
                 <div className="space-y-1">
-                  <span className="text-[10px] font-mono font-bold text-[#0B3D2E] uppercase bg-[#0B3D2E]/8 px-2 py-0.5 rounded">
+                  <span className="text-[10px] font-mono font-bold text-[#0F2A47] uppercase bg-[#0F2A47]/8 px-2 py-0.5 rounded">
                     {officer.role}
                   </span>
                   <h3 className="text-lg font-semibold text-[#14181F]">
@@ -145,8 +141,8 @@ export default function AboutPage() {
         </section>
 
         {/* Landmark Milestone: Trichy International Airport */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-b border-[#E7E5E0] pb-16">
-          <div className="lg:col-span-5 relative aspect-16/10 rounded-xl overflow-hidden border border-[#E7E5E0]">
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-b border-[#E4E7EC] pb-16">
+          <div className="lg:col-span-5 relative aspect-16/10 rounded-xl overflow-hidden border border-[#E4E7EC]">
             <Image
               src="/images/real_jsm_airport_terminal_platoon.jpg"
               alt="Trichy International Airport Operations Platoon"
@@ -167,11 +163,11 @@ export default function AboutPage() {
             </p>
             <div className="flex items-center gap-6 pt-2 text-xs text-[#14181F] font-medium">
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 size={14} className="text-[#0B3D2E]" />
+                <CheckCircle2 size={14} className="text-[#0F2A47]" />
                 Zero Security Incidents
               </span>
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 size={14} className="text-[#0B3D2E]" />
+                <CheckCircle2 size={14} className="text-[#0F2A47]" />
                 100% Muster Adherence
               </span>
             </div>
@@ -179,9 +175,9 @@ export default function AboutPage() {
         </section>
 
         {/* Consolidated District Hubs Directory */}
-        <section className="space-y-8 border-b border-[#E7E5E0] pb-16">
+        <section className="space-y-8 border-b border-[#E4E7EC] pb-16">
           <div className="space-y-2">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#0B3D2E]">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#0F2A47]">
               Regional Presence
             </span>
             <h2 className="font-display text-2xl sm:text-3xl text-[#14181F] font-normal tracking-tight">
@@ -196,15 +192,15 @@ export default function AboutPage() {
             {districtHubs.map((hub, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-lg border border-[#E7E5E0] bg-white space-y-1.5"
+                className="p-5 rounded-lg border border-[#E4E7EC] bg-white space-y-1.5"
               >
                 <div className="flex items-center gap-2">
-                  <MapPin size={15} className="text-[#0B3D2E] shrink-0" />
+                  <MapPin size={15} className="text-[#0F2A47] shrink-0" />
                   <h3 className="text-sm font-semibold text-[#14181F]">
                     {hub.city}
                   </h3>
                 </div>
-                <p className="text-xs font-medium text-[#0B3D2E]">
+                <p className="text-xs font-medium text-[#0F2A47]">
                   {hub.role}
                 </p>
                 <p className="text-[11px] text-[#5A6578]">
@@ -216,7 +212,7 @@ export default function AboutPage() {
         </section>
 
         {/* Closing Contact CTA */}
-        <section className="py-12 bg-[#F8F9FA] rounded-xl border border-[#E7E5E0] p-8 sm:p-12 text-center space-y-5">
+        <section className="py-12 bg-[#F8F9FA] rounded-xl border border-[#E4E7EC] p-8 sm:p-12 text-center space-y-5">
           <h2 className="font-display text-2xl sm:text-3xl text-[#14181F] font-normal tracking-tight">
             Consult directly with our leadership team
           </h2>
@@ -226,14 +222,14 @@ export default function AboutPage() {
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-[#0B3D2E] hover:bg-[#082C21] text-white text-xs sm:text-sm font-semibold transition-colors shadow-xs"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-[#0F2A47] hover:bg-[#0A1E33] text-white text-xs sm:text-sm font-semibold transition-colors shadow-xs min-h-[44px] w-full sm:w-auto"
             >
               <span>Contact Operations Desk</span>
               <ArrowRight size={14} />
             </Link>
             <Link
               href="/get-quote"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-white border border-[#E7E5E0] hover:bg-neutral-50 text-[#14181F] text-xs sm:text-sm font-semibold transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-white border border-[#E4E7EC] hover:bg-neutral-50 text-[#14181F] text-xs sm:text-sm font-semibold transition-colors min-h-[44px] w-full sm:w-auto"
             >
               <span>Request Quote</span>
             </Link>

@@ -64,7 +64,7 @@ export function EmergencyReliefModal() {
   return (
     <>
       {/* Floating Action Trigger Button (Bottom Left on Mobile/Desktop) */}
-      <div className="fixed bottom-20 md:bottom-6 left-4 sm:left-6 z-40">
+      <div className="fixed bottom-[88px] md:bottom-6 left-4 md:left-6 z-40">
         <motion.button
           whileHover={{ scale: 1.04 }}
           whileTap={{ scale: 0.96 }}
@@ -89,7 +89,7 @@ export function EmergencyReliefModal() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="bg-white border border-black/[0.08] rounded-[28px] p-6 sm:p-8 max-w-lg w-full shadow-2xl relative text-[#1d1d1f]"
+              className="bg-white border border-black/[0.08] rounded-[28px] p-6 sm:p-8 max-w-lg w-full max-h-[85vh] overflow-y-auto shadow-2xl relative text-[#1d1d1f]"
             >
               {/* Close Button */}
               <button

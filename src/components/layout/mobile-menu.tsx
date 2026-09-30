@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Sheet,
   SheetContent,
@@ -37,10 +38,11 @@ export function MobileMenu() {
         <SheetHeader className="p-4 sm:p-5 text-left border-b border-[#E4E7EC] flex flex-row items-center justify-between">
           <SheetTitle className="text-sm font-semibold tracking-tight text-[#14181F] flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-[4px] bg-[#0F2A47] text-white flex items-center justify-center overflow-hidden shrink-0">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/images/jsm_logo_black.png"
                 alt="JSM"
+                width={32}
+                height={32}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -63,7 +65,7 @@ export function MobileMenu() {
             <Link
               href="/"
               onClick={() => setOpen(false)}
-              className="py-3 px-3.5 rounded-[4px] text-sm font-medium text-[#14181F] hover:bg-[#F6F7F9] transition-colors flex items-center justify-between min-touch-target"
+              className="py-3 px-3.5 rounded-[4px] text-sm font-medium text-[#14181F] hover:bg-[#F6F7F9] transition-colors flex items-center justify-between min-touch-target min-h-[44px]"
             >
               <span>Home</span>
             </Link>
@@ -72,7 +74,7 @@ export function MobileMenu() {
                 key={item.title}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="py-3 px-3.5 rounded-[4px] text-sm font-medium text-[#14181F] hover:bg-[#F6F7F9] transition-colors flex items-center justify-between min-touch-target"
+                className="py-3 px-3.5 rounded-[4px] text-sm font-medium text-[#14181F] hover:bg-[#F6F7F9] transition-colors flex items-center justify-between min-touch-target min-h-[44px]"
               >
                 <span>{item.title}</span>
               </Link>
