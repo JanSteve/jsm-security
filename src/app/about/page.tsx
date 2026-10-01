@@ -19,7 +19,7 @@ export const metadata = constructMetadata({
 });
 
 const districtHubs = [
-  { city: "Tiruchirappalli (Trichy)", role: "Headquarters & Central Command", address: "RVS Nagar, Kottapattu Post, Pin 620021" },
+  { city: "Tiruchirappalli (Trichy)", role: "Headquarters & Central Command", address: "D.No. 87, Plot No. 112, Gandhi Nagar, Kottapattu Block - R.V.S. Nagar 2nd Cross Road, Pin 620021" },
   { city: "Chennai", role: "OMR IT Corridor & Commercial Division", address: "Sholinganallur & Guindy Hub" },
   { city: "Coimbatore", role: "Industrial & Manufacturing Outpost", address: "Peelamedu & Sidco Industrial Estate" },
   { city: "Hosur", role: "Automotive & Electronics SEZ Division", address: "Sipcot Industrial Complex" },

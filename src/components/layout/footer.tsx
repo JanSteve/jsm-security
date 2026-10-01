@@ -156,7 +156,7 @@ export function Footer() {
             <div className="space-y-2 text-xs text-neutral-300">
               <div className="flex items-start gap-2">
                 <MapPin size={13} className="shrink-0 mt-0.5 text-[#9C7A3C]" />
-                <span>Plot No: 112, RVS Nagar, Kottapattu Post, Tiruchirappalli &ndash; 620021, Tamil Nadu</span>
+                <span>{brandData.contact.address}</span>
               </div>
               <div className="pt-1 space-y-1.5 border-t border-[#1A3E63]/70">
                 <div className="flex items-center gap-2">
@@ -197,7 +197,7 @@ export function Footer() {
               </a>
               <div className="pt-1">
                 <a
-                  href="https://maps.google.com/?q=JSM+Integrated+Services+Plot+112+RVS+Nagar+Kottapattu+Trichy"
+                  href="https://maps.google.com/?q=JSM+Integrated+Services+Plot+112+Gandhi+Nagar+RVS+Nagar+Kottapattu+Trichy"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#9C7A3C] hover:underline font-medium inline-block"

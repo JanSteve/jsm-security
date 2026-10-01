@@ -67,7 +67,7 @@ export default function ContactPage() {
                   <MapPin size={18} className="text-[#0F2A47] shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-[#14181F] block">Central Headquarters:</strong>
-                    <span>Plot No: 112, SF No 122, RVS Nagar, Kottapattu Post, Tiruchirappalli Distt, Tamil Nadu State, Pin: 620 021</span>
+                    <span>{brandData.contact.address}</span>
                   </div>
                 </div>
 

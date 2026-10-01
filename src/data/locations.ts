@@ -29,7 +29,7 @@ export const locationsData: LocationData[] = [
     state: "Tamil Nadu",
     regionType: "Central Command & Corporate Headquarters",
     role: "Headquarters & 24/7 Operations Command",
-    address: "Plot No: 112, SF No 122, RVS Nagar, Kottapattu Post, Tiruchirappalli Distt, Tamil Nadu - 620021",
+    address: "D.No. 87, Plot No. 112, Gandhi Nagar, Kottapattu Block - R.V.S. Nagar 2nd Cross Road, Tiruchirappalli, Tamil Nadu - 620021",
     phone: "+91 90808 63448",
     email: "contact@jsmintegratedservices.com",
     metaTitle: "Security & Facility Services in Trichy",
@@ -60,7 +60,7 @@ export const locationsData: LocationData[] = [
     localFaqs: [
       {
         question: "Where is the JSM Trichy headquarters located?",
-        answer: "Our central operations headquarters is located at Plot No: 112, SF No 122, RVS Nagar, Kottapattu Post, Tiruchirappalli - 620021."
+        answer: "Our central operations headquarters is located at D.No. 87, Plot No. 112, Gandhi Nagar, Kottapattu Block - R.V.S. Nagar 2nd Cross Road, Tiruchirappalli - 620021."
       },
       {
         question: "How fast can JSM deploy security or manpower in Trichy?",

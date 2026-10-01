@@ -77,7 +77,7 @@ export function localBusinessSchema() {
     priceRange: '₹₹',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Plot No: 112, SF No 122, RVS Nagar, Kottapattu Post',
+      streetAddress: 'D.No. 87, Plot No. 112, Gandhi Nagar, Kottapattu Block - R.V.S. Nagar 2nd Cross Road',
       addressLocality: 'Tiruchirappalli',
       addressRegion: 'Tamil Nadu',
       postalCode: '620021',
