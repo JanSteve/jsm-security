@@ -12,7 +12,7 @@ export function Footer() {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-6 border-b border-[#1A3E63]">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div className="text-sm font-medium text-white">
-            <span className="text-[#9C7A3C]">JSM Operations:</span> PSARA Act 2005 Licensed &bull; ISO 9001:2015 &bull; 100% EPF/ESIC
+            <span className="text-[#9C7A3C]">JSM Operations:</span> Statutory Labour Law Compliant (Minimum Wages Act & ECR Challans) &bull; Professional Private Security & Facility Operations &bull; 100% EPF/ESIC
           </div>
           <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 text-xs font-semibold">
             <a href={`tel:${brandData.contact.phone}`} className="flex items-center gap-2 hover:text-[#9C7A3C] transition-colors tabular-nums">
@@ -91,7 +91,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/security-agencies" className="hover:text-white transition-colors">
-                  PSARA Act &amp; Statutory Legal Framework
+                  100% EPF & ESIC Compliant Act &amp; Statutory Legal Framework
                 </Link>
               </li>
               <li>
@@ -193,7 +193,7 @@ export function Footer() {
                 className="hover:text-white transition-colors inline-flex items-center gap-1.5"
               >
                 <Download size={12} className="text-[#9C7A3C]" />
-                <span>PSARA Vendor Audit Checklist (.docx)</span>
+                <span>100% EPF & ESIC Compliant Vendor Audit Checklist (.docx)</span>
               </a>
               <div className="pt-1">
                 <a
@@ -213,7 +213,7 @@ export function Footer() {
       {/* Bottom Legal & Statutory Bar */}
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-5 border-t border-[#1A3E63] text-xs text-neutral-400 flex flex-col sm:flex-row items-center justify-between gap-3">
         <div>
-          &copy; {currentYear} JSM Integrated Services. PSARA Act 2005 &bull; ISO 9001:2015 &bull; Controlling Authority, Home Dept, Govt of Tamil Nadu.
+          &copy; {currentYear} JSM Integrated Services. 100% EPF & ESIC Compliant Act 2005 &bull; Professional Private Security & Facility Operations &bull; Controlling Authority, Home Dept, Govt of Tamil Nadu.
         </div>
         <div className="flex items-center gap-4">
           <Link href="/legal/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>

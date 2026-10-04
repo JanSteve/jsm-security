@@ -4,12 +4,12 @@ import { ShieldCheck, Award, FileCheck, CheckCircle2, Plane } from "lucide-react
 const credentials = [
   {
     icon: ShieldCheck,
-    title: "PSARA 2005 Licensed",
+    title: "Statutory Labour Law Compliant Licensed",
     subtitle: "Home Dept, Govt of Tamil Nadu",
   },
   {
     icon: Award,
-    title: "ISO 9001:2015 Certified",
+    title: "Statutory Labour Compliant",
     subtitle: "Audited Quality Management",
   },
   {

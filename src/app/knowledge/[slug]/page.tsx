@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     keywords: [
       art.title,
       art.category,
-      "PSARA Compliance Tamil Nadu",
+      "100% EPF & ESIC Compliant Compliance Tamil Nadu",
       "Security Audits India"
     ]
   });
@@ -179,7 +179,7 @@ export default async function KnowledgeArticlePage({ params }: { params: Promise
         <footer className="pt-8 border-t border-[#E4E7EC] flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="space-y-1 text-center sm:text-left">
             <h4 className="font-bold text-sm text-[#14181F]">
-              Have questions regarding statutory compliance or PSARA norms?
+              Have questions regarding statutory compliance or 100% EPF & ESIC Compliant norms?
             </h4>
             <p className="text-xs text-[#5A6578]">
               Consult directly with our operations leadership team in Tiruchirappalli.

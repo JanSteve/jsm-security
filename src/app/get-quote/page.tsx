@@ -104,7 +104,7 @@ export default function GetQuotePage() {
   };
 
   const serviceOptions = [
-    "Private Security Guarding (PSARA)",
+    "Private Security Guarding (100% EPF & ESIC Compliant)",
     "Ex-Servicemen (ESM) Field Supervisors",
     "Commercial Housekeeping & Hygiene",
     "Contractual Industrial Staffing"

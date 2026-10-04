@@ -69,7 +69,7 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-3 text-sm text-[#5A6578] leading-relaxed">
               <p>
-                Originally established as <strong>JSMMANPOWER</strong>, our organization began with a core focus on contract industrial labor and specialized factory workforce supply. As clients sought to reduce vendor fragmentation, we expanded into full-spectrum security guarding under the Private Security Agencies Regulation Act (PSARA 2005) and mechanized commercial facility management.
+                Originally established as <strong>JSMMANPOWER</strong>, our organization began with a core focus on contract industrial labor and specialized factory workforce supply. As clients sought to reduce vendor fragmentation, we expanded into full-spectrum security guarding under the Private Security Agencies Regulation Act (Statutory Labour Law Compliant) and mechanized commercial facility management.
               </p>
               <p>
                 Today, rebranded as <strong>JSM Integrated Services</strong>, we deliver an integrated three-tier operational model backed by Ex-Servicemen supervisory officers and 100% statutory EPF/ESIC compliance.
@@ -99,7 +99,7 @@ export default function AboutPage() {
               />
             </div>
             <p className="text-[11px] text-[#5A6578] mt-2 text-center">
-              Official physical credentials carrying PSARA &amp; ISO 9001:2015 governance seals.
+              Official physical credentials carrying 100% EPF & ESIC Compliant &amp; Professional Private Security & Facility Operations governance seals.
             </p>
           </div>
         </section>

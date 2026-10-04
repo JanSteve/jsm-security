@@ -6,11 +6,11 @@ export interface FAQItem {
 export const homeFAQs: FAQItem[] = [
   {
     question: "What integrated facility and manpower services does JSM provide in India?",
-    answer: "JSM Integrated Services delivers PSARA-compliant Private Security guarding, Commercial Housekeeping & Facility Management, and Contractual Industrial Staffing under a single accountable partner across Tamil Nadu."
+    answer: "JSM Integrated Services delivers 100% EPF & ESIC Compliant-compliant Private Security guarding, Commercial Housekeeping & Facility Management, and Contractual Industrial Staffing under a single accountable partner across Tamil Nadu."
   },
   {
-    question: "Is JSM Integrated Services compliant with PSARA and statutory labour laws?",
-    answer: "Yes, JSM operates under the Private Security Agencies Regulation Act (PSARA 2005) with 100% statutory EPF, ESIC, and Minimum Wages Act compliance verified through monthly ECR challans."
+    question: "Is JSM Integrated Services compliant with 100% EPF & ESIC Compliant and statutory labour laws?",
+    answer: "Yes, JSM operates under the Private Security Agencies Regulation Act (Statutory Labour Law Compliant) with 100% statutory EPF, ESIC, and Minimum Wages Act compliance verified through monthly ECR challans."
   },
   {
     question: "What is JSM's guaranteed replacement SLA for absent personnel?",

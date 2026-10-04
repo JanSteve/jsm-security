@@ -145,7 +145,7 @@ export function ContactForm() {
                       {...register("service")}
                       className="w-full h-11 px-3.5 bg-white border border-black/[0.08] rounded-2xl text-xs font-medium text-[#1d1d1f] focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] min-h-[44px]"
                     >
-                      <option value="Private Security Guarding">Private Security Guarding (PSARA)</option>
+                      <option value="Private Security Guarding">Private Security Guarding (100% EPF & ESIC Compliant)</option>
                       <option value="Housekeeping & Facility Management">Housekeeping &amp; Facility Management</option>
                       <option value="Contractual Manpower Supply">Contractual Manpower Supply</option>
                       <option value="Tender & GeM Procurement Supply">Tender &amp; GeM Procurement Supply</option>

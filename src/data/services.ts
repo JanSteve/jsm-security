@@ -65,7 +65,7 @@ export const servicesData: Service[] = [
     category: 'security',
     categoryLabel: 'Tier 1: Security & Protection',
     valueProposition: 'Disciplined on-site guarding led by Ex-Servicemen & certified private security marshals with 2:00 AM supervisor spot-audits.',
-    description: 'JSM Integrated Services delivers structured, disciplined private security guarding across Tamil Nadu and South India. Operating with PSARA 2005 compliance, our security personnel comprise disciplined Ex-Servicemen (ESM) officers, seasoned private security supervisors, and vetted male & female security guards.',
+    description: 'JSM Integrated Services delivers structured, disciplined private security guarding across Tamil Nadu and South India. Operating with Statutory Labour Law Compliant compliance, our security personnel comprise disciplined Ex-Servicemen (ESM) officers, seasoned private security supervisors, and vetted male & female security guards.',
     whoItIsFor: [
       'Corporate IT Parks & SEZ Campuses (OMR, Sholinganallur)',
       'Manufacturing Plants & Industrial Warehouses',
@@ -76,7 +76,7 @@ export const servicesData: Service[] = [
     ],
     icon: 'Shield',
     heroImage: '/images/real_jsm_welcome_trichy_salute.jpg',
-    complianceNotice: '100% PSARA Act (2005) compliant under the Controlling Authority, Home Department, Government of Tamil Nadu. Deployed guards are 100% Aadhaar & Police verified with mandatory 5-day pre-deployment training.',
+    complianceNotice: '100% 100% EPF & ESIC Compliant Act (2005) compliant under the Controlling Authority, Home Department, Government of Tamil Nadu. Deployed guards are 100% Aadhaar & Police verified with mandatory 5-day pre-deployment training.',
     features: [
       { title: 'Ex-Servicemen & Private Marshals', description: 'Trained, vetted male and female guards backed by ex-defense supervisors.', icon: 'UserCheck' },
       { title: 'Strict Gate & Visitor Registers', description: 'Dual-barrier access control, under-vehicle mirrors, and barcode visitor passes.', icon: 'ClipboardCheck' },
@@ -98,7 +98,7 @@ export const servicesData: Service[] = [
     ],
     relatedSlugs: ['manpower', 'housekeeping', 'tender-procurement-supply'],
     metaTitle: 'Security & Protection Services Tamil Nadu',
-    metaDescription: 'PSARA compliant security guarding (ESM & Private Male & Female) with 2-hour relief SLAs and 2:00 AM supervisor van audits across Tamil Nadu.'
+    metaDescription: '100% EPF & ESIC Compliant compliant security guarding (ESM & Private Male & Female) with 2-hour relief SLAs and 2:00 AM supervisor van audits across Tamil Nadu.'
   },
   {
     slug: 'manpower',

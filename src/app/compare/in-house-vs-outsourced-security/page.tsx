@@ -9,12 +9,12 @@ import { ArrowRight,
 
 export const metadata = constructMetadata({
   title: "In-House vs Outsourced Security Guards: Cost & Liability Comparison",
-  description: "Comprehensive financial and legal comparison: In-House Security Guards vs PSARA-Licensed Security Agency. Compare wages, EPF/ESIC liabilities, and relief SLAs.",
+  description: "Comprehensive financial and legal comparison: In-House Security Guards vs 100% EPF & ESIC Compliant-Licensed Security Agency. Compare wages, EPF/ESIC liabilities, and relief SLAs.",
   path: "/compare/in-house-vs-outsourced-security",
   keywords: [
     "In house vs outsourced security guards",
     "Security guard cost comparison India",
-    "PSARA agency vs direct hiring",
+    "100% EPF & ESIC Compliant agency vs direct hiring",
     "Security vendor cost breakdown Tamil Nadu"
   ]
 });
@@ -44,7 +44,7 @@ const comparisonRows = [
   {
     parameter: "Police Verification & Background Checks",
     inHouse: "Company HR must coordinate with police stations across districts.",
-    outsourced: "Mandatory Aadhaar & Police antecedents verified under PSARA Act norms.",
+    outsourced: "Mandatory Aadhaar & Police antecedents verified under 100% EPF & ESIC Compliant Act norms.",
     winner: "outsourced",
     benefit: "Comprehensive pre-deployment vetting completed before deployment."
   },
@@ -74,11 +74,11 @@ const comparisonRows = [
 const compareFaqs = [
   {
     question: "Is outsourcing security guards cheaper than hiring in-house in Tamil Nadu?",
-    answer: "Yes. When accounting for the 1.25x reliever multiplier, EPF/ESIC employer contributions, uniform allowances, bonus, gratuity, and HR overhead, outsourcing through a PSARA-licensed agency typically delivers 18% to 28% net financial savings."
+    answer: "Yes. When accounting for the 1.25x reliever multiplier, EPF/ESIC employer contributions, uniform allowances, bonus, gratuity, and HR overhead, outsourcing through a 100% EPF & ESIC Compliant-licensed agency typically delivers 18% to 28% net financial savings."
   },
   {
     question: "How does outsourcing protect the Principal Employer from labour liability?",
-    answer: "A PSARA-licensed contractor provides monthly ECR challans, ESIC contribution proofs, and wage registers. This insulates the client from joint liability under Contract Labour Act Section 12."
+    answer: "A 100% EPF & ESIC Compliant-licensed contractor provides monthly ECR challans, ESIC contribution proofs, and wage registers. This insulates the client from joint liability under Contract Labour Act Section 12."
   }
 ];
 
@@ -111,7 +111,7 @@ export default function InHouseVsOutsourcedPage() {
               <span>Decision Matrix & Financial Analysis</span>
             </div>
             <h1 className="font-display text-3xl sm:text-4xl md:text-5xl text-[#14181F] font-bold tracking-tight">
-              In-House vs. Outsourced PSARA Security Guards
+              In-House vs. Outsourced 100% EPF & ESIC Compliant Security Guards
             </h1>
             <p className="text-base sm:text-lg text-[#5A6578] leading-relaxed">
               A comprehensive operational, statutory, and cost-benefit breakdown for Managing Directors, Facility Heads, and HR Directors evaluating physical security models in India.
@@ -145,7 +145,7 @@ export default function InHouseVsOutsourcedPage() {
           <div className="rounded-xl border border-[#0F2A47]/30 bg-[#0F2A47]/5 p-7 sm:p-8 space-y-4">
             <div className="flex items-center gap-2 text-[#0F2A47] font-bold text-sm">
               <CheckCircle2 size={18} />
-              <span>Outsourced PSARA Agency Model: Strategic Advantages</span>
+              <span>Outsourced 100% EPF & ESIC Compliant Agency Model: Strategic Advantages</span>
             </div>
             <ul className="space-y-2.5 text-xs sm:text-sm text-neutral-800">
               <li className="flex items-start gap-2">
@@ -181,7 +181,7 @@ export default function InHouseVsOutsourcedPage() {
                 <tr className="bg-[#F8F9FA] border-b border-[#E4E7EC] text-[#14181F]">
                   <th className="p-4 font-bold w-1/4">Operational Parameter</th>
                   <th className="p-4 font-bold w-1/3">In-House Direct Hiring</th>
-                  <th className="p-4 font-bold w-1/3 text-[#0F2A47] bg-[#0F2A47]/5">JSM PSARA Outsourcing</th>
+                  <th className="p-4 font-bold w-1/3 text-[#0F2A47] bg-[#0F2A47]/5">JSM 100% EPF & ESIC Compliant Outsourcing</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#E4E7EC]">

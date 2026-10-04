@@ -21,9 +21,9 @@ export function HeroSection() {
               className="inline-flex items-center gap-2 px-3 py-1 bg-[#F6F7F9] border border-[#E4E7EC] text-xs text-[#14181F]"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#9C7A3C]" />
-              <span className="font-semibold">PSARA Act 2005 Licensed</span>
+              <span className="font-semibold">Statutory Labour Law Compliant (Minimum Wages Act & ECR Challans)</span>
               <span className="text-[#4A5160]">&bull;</span>
-              <span className="text-[#4A5160]">ISO 9001:2015</span>
+              <span className="text-[#4A5160]">Professional Private Security & Facility Operations</span>
               <span className="text-[#4A5160]">&bull;</span>
               <span className="text-[#4A5160]">DGR Aligned</span>
             </motion.div>

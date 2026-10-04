@@ -23,15 +23,15 @@ import { brandData } from "@/data/brand";
 
 export const metadata = {
   title: {
-    absolute: "JSM Integrated Services — PSARA Security, Manpower & Facility Operations",
+    absolute: "JSM Integrated Services — 100% EPF & ESIC Compliant Security, Manpower & Facility Operations",
   },
-  description: "PSARA-licensed Ex-Servicemen & Private Security, 100% EPF/ESIC Manpower Staffing, and Commercial Facility Management across Tamil Nadu.",
+  description: "100% EPF & ESIC Compliant-licensed Ex-Servicemen & Private Security, 100% EPF/ESIC Manpower Staffing, and Commercial Facility Management across Tamil Nadu.",
   alternates: {
     canonical: brandData.domain,
   },
   openGraph: {
-    title: "JSM Integrated Services — PSARA Security, Manpower & Facility Operations",
-    description: "PSARA-licensed Ex-Servicemen & Private Security, 100% EPF/ESIC Manpower Staffing, and Commercial Facility Management across Tamil Nadu.",
+    title: "JSM Integrated Services — 100% EPF & ESIC Compliant Security, Manpower & Facility Operations",
+    description: "100% EPF & ESIC Compliant-licensed Ex-Servicemen & Private Security, 100% EPF/ESIC Manpower Staffing, and Commercial Facility Management across Tamil Nadu.",
     url: brandData.domain,
     siteName: brandData.name,
     locale: "en_IN",
@@ -47,8 +47,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "JSM Integrated Services — PSARA Security, Manpower & Facility Operations",
-    description: "PSARA-licensed Ex-Servicemen & Private Security, 100% EPF/ESIC Manpower Staffing, and Commercial Facility Management across Tamil Nadu.",
+    title: "JSM Integrated Services — 100% EPF & ESIC Compliant Security, Manpower & Facility Operations",
+    description: "100% EPF & ESIC Compliant-licensed Ex-Servicemen & Private Security, 100% EPF/ESIC Manpower Staffing, and Commercial Facility Management across Tamil Nadu.",
     images: [`${brandData.domain}/images/jsm_logo_black.png`],
   },
 };

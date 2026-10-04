@@ -401,7 +401,7 @@ Sent from jsmintegratedservices.in/get-quote
         </div>
         <div class="guarantee-card">
           <h3>100% Compliant</h3>
-          <p>Fully compliant with PSARA, Minimum Wages Act, and 100% EPF/ESI contributions.</p>
+          <p>Fully compliant with 100% EPF & ESIC Compliant, Minimum Wages Act, and 100% EPF/ESI contributions.</p>
         </div>
         <div class="guarantee-card">
           <h3>Trained Personnel</h3>

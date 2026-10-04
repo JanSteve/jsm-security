@@ -10,10 +10,10 @@ import {
 
 export const metadata = constructMetadata({
   title: "Knowledge Center & Regulatory Compliance Hub",
-  description: "Authoritative guides on PSARA 2005 licensing in Tamil Nadu, EPF/ESIC labour law liabilities, DGR Ex-Servicemen norms, and vendor audit checklists.",
+  description: "Authoritative guides on Statutory Labour Law Compliant licensing in Tamil Nadu, EPF/ESIC labour law liabilities, DGR Ex-Servicemen norms, and vendor audit checklists.",
   path: "/knowledge",
   keywords: [
-    "PSARA License Tamil Nadu Guide",
+    "100% EPF & ESIC Compliant License Tamil Nadu Guide",
     "Security Guard Compliance Checklist",
     "EPF ESIC Manpower Liability",
     "DGR Ex-Servicemen Security Norms",
@@ -127,7 +127,7 @@ export default function KnowledgeHubPage() {
               href="/security-agencies"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md bg-white/10 hover:bg-white/15 text-white border border-white/20 text-sm font-semibold transition-colors min-h-[44px] w-full sm:w-auto"
             >
-              <span>View PSARA Legal Framework</span>
+              <span>View 100% EPF & ESIC Compliant Legal Framework</span>
             </Link>
           </div>
         </section>

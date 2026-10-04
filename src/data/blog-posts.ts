@@ -16,7 +16,7 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     slug: 'hiring-security-facility-management-tamil-nadu-2026',
-    title: 'The 2026 Enterprise Guide to Security & Facility Management in Tamil Nadu: PSARA Compliance, Statutory Indemnity, and 2-Hour Relief SLAs',
+    title: 'The 2026 Enterprise Guide to Security & Facility Management in Tamil Nadu: 100% EPF & ESIC Compliant Compliance, Statutory Indemnity, and 2-Hour Relief SLAs',
     isFlagship: true,
     excerpt: 'A comprehensive procurement blueprint for Plant Heads, HR Directors, and Facility Managers in Sriperumbudur, Hosur, Coimbatore, and Chennai seeking zero-liability security and mechanized facility operations.',
     content: `When evaluating security, commercial housekeeping, and contractual workforce partners across Tamil Nadu’s expanding industrial corridors in 2026, corporate procurement committees face a critical choice: low-cost vendor shortcuts that expose the company to statutory liabilities, or structured single-point facility governance that protects operational continuity.
@@ -25,16 +25,16 @@ Whether overseeing a Tier-1 automotive manufacturing plant in Sriperumbudur, an 
 
 ---
 
-### 1. Mandatory PSARA Act 2005 Compliance & Police Verification
+### 1. Mandatory 100% EPF & ESIC Compliant Act 2005 Compliance & Police Verification
 
-Under the **Private Security Agencies (Regulation) Act (PSARA 2005)** administered by the Home Department of the Government of Tamil Nadu, operating private security guards without valid state licensing is a cognizable legal offense that holds the principal employer directly liable.
+Under the **Private Security Agencies (Regulation) Act (Statutory Labour Law Compliant)** administered by the Home Department of the Government of Tamil Nadu, operating private security guards without valid state licensing is a cognizable legal offense that holds the principal employer directly liable.
 
 #### Essential Verification Criteria:
-- **Controlling Authority License**: Ensure the agency holds an active Tamil Nadu PSARA license rather than a generic trade license.
+- **Controlling Authority License**: Ensure the agency holds an active Tamil Nadu 100% EPF & ESIC Compliant license rather than a generic trade license.
 - **100% District Police Clearance**: Every deployed guard must have a verifiable police background verification certificate on file.
 - **5-Day Mandatory Induction Syllabus**: Security marshals must undergo structured training covering access control, fire extinguisher operation, crowd management, and material inward/outward documentation.
 
-At **JSM Integrated Services**, all security marshals are PSARA-certified with verified badge IDs and compliance documentation detailed in our [Company Credentials](/about).
+At **JSM Integrated Services**, all security marshals are 100% EPF & ESIC Compliant-certified with verified badge IDs and compliance documentation detailed in our [Company Credentials](/about).
 
 ---
 
@@ -105,10 +105,10 @@ Originating from **JSMMANPOWER** and proven by our landmark inaugural operations
     date: '2026-08-31',
     readTime: '9 min read',
     metaTitle: 'Security & Facility Management Guide Tamil Nadu 2026 | JSM Integrated',
-    metaDescription: 'The comprehensive 2026 enterprise guide to PSARA security guarding, mechanized housekeeping, EPF/ESIC statutory compliance, and 2-Hour Relief SLAs in Tamil Nadu.',
+    metaDescription: 'The comprehensive 2026 enterprise guide to 100% EPF & ESIC Compliant security guarding, mechanized housekeeping, EPF/ESIC statutory compliance, and 2-Hour Relief SLAs in Tamil Nadu.',
     keywords: [
       'Top Security Guard Agency in Tamil Nadu 2026',
-      'PSARA Compliant Security Services Chennai Trichy Coimbatore',
+      '100% EPF & ESIC Compliant Compliant Security Services Chennai Trichy Coimbatore',
       'Industrial Housekeeping Contractor Rates Tamil Nadu',
       'Contractual Manpower Supply Sriperumbudur Hosur',
       'Statutory Labour Contract Agency EPF ESIC Indemnity',

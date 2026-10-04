@@ -1,7 +1,7 @@
 export interface KnowledgeArticle {
   slug: string;
   title: string;
-  category: "PSARA Regulation" | "Statutory Compliance" | "DGR Guidelines" | "Vendor Auditing";
+  category: "100% EPF & ESIC Compliant Regulation" | "Statutory Compliance" | "DGR Guidelines" | "Vendor Auditing";
   categoryBadge: string;
   readTime: string;
   publishDate: string;
@@ -21,10 +21,10 @@ export interface KnowledgeArticle {
 
 export const knowledgeArticles: KnowledgeArticle[] = [
   {
-    slug: "psara-license-renewal-tamil-nadu-2026",
-    title: "PSARA License Renewal Process in Tamil Nadu (2026 Regulatory Guide)",
-    category: "PSARA Regulation",
-    categoryBadge: "PSARA 2005 Norms",
+    slug: "statutory-compliance-renewal-tamil-nadu-2026",
+    title: "100% EPF & ESIC Compliant License Renewal Process in Tamil Nadu (2026 Regulatory Guide)",
+    category: "100% EPF & ESIC Compliant Regulation",
+    categoryBadge: "Statutory Labour Law Compliant Norms",
     readTime: "6 min read",
     publishDate: "2026-03-01",
     lastUpdated: "2026-03-24",
@@ -32,25 +32,25 @@ export const knowledgeArticles: KnowledgeArticle[] = [
       name: "Major AR Devadoss (Army-Veteran)",
       role: "Head of Operations & Audit, JSM Integrated Services"
     },
-    metaTitle: "PSARA License Renewal Process Tamil Nadu 2026",
-    metaDescription: "Step-by-step guide to PSARA license renewal in Tamil Nadu. Timeline, controlling authority procedures, police verification, and training compliance.",
-    excerpt: "The Private Security Agencies Regulation Act (PSARA 2005) mandates that private security licenses in Tamil Nadu be renewed every 5 years. Here is the operational protocol for maintaining continuous compliance without site disruption.",
+    metaTitle: "100% EPF & ESIC Compliant License Renewal Process Tamil Nadu 2026",
+    metaDescription: "Step-by-step guide to 100% EPF & ESIC Compliant license renewal in Tamil Nadu. Timeline, controlling authority procedures, police verification, and training compliance.",
+    excerpt: "The Private Security Agencies Regulation Act (Statutory Labour Law Compliant) mandates that private security licenses in Tamil Nadu be renewed every 5 years. Here is the operational protocol for maintaining continuous compliance without site disruption.",
     keyTakeaways: [
       "Applications for renewal must be submitted at least 45 to 90 days before expiration to the Controlling Authority, Home Department, Government of Tamil Nadu.",
       "Mandatory fresh character & antecedent verification of all directors/proprietor and guard training institute affiliation agreements.",
-      "Operating with an expired PSARA license exposes the principal employer to legal sanctions under Section 20 of PSARA 2005."
+      "Operating with an expired 100% EPF & ESIC Compliant license exposes the principal employer to legal sanctions under Section 20 of Statutory Labour Law Compliant."
     ],
     content: [
       "The Private Security Agencies (Regulation) Act, 2005, enforced by the Controlling Authority under the Home Department of the Government of Tamil Nadu, establishes mandatory standards for all private security service providers operating in the state.",
       "Under Section 7 of the Act, a license issued to an agency is valid for five years from the date of issuance unless cancelled earlier. To maintain uninterrupted operational legality, agencies must submit their renewal petitions strictly within the prescribed statutory window.",
       "Key documents required for the 5-year renewal cycle include: updated Form-V application, valid MoUs with recognized Security Training Institutes, updated police verification reports for all controlling executives, EPF and ESIC registration compliance certificates, and the requisite government treasury challan.",
-      "For commercial clients and facility managers, verifying that your security partner holds an active, unexpired PSARA license is a core fiduciary requirement. Contracts executed with un-licensed agencies place the principal employer under statutory vulnerability in case of security or criminal incidents on site."
+      "For commercial clients and facility managers, verifying that your security partner holds an active, unexpired 100% EPF & ESIC Compliant license is a core fiduciary requirement. Contracts executed with un-licensed agencies place the principal employer under statutory vulnerability in case of security or criminal incidents on site."
     ],
     actionChecklist: [
       "Verify Controlling Authority license number and valid expiry date.",
       "Inspect Form-V renewal filing acknowledgment if within 90 days of expiration.",
       "Confirm agency's empanelled training institute tie-up certificate.",
-      "Ensure all deployed guards carry valid PSARA photo identity cards."
+      "Ensure all deployed guards carry valid 100% EPF & ESIC Compliant photo identity cards."
     ]
   },
   {
@@ -143,7 +143,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
       "At JSM Integrated Services, our Head of Operations conducts routine unannounced mobile van audits across all client sites to guarantee 100% compliance with client SOPs."
     ],
     actionChecklist: [
-      "1. Check PSARA license validity and TN Home Department authorization.",
+      "1. Check 100% EPF & ESIC Compliant license validity and TN Home Department authorization.",
       "2. Perform unannounced 2:00 AM physical security checks at all access gates.",
       "3. Inspect daily breathalyzer testing logs and guard turnout.",
       "4. Audit monthly EPF/ESIC challans matched directly to site UANs.",

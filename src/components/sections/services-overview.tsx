@@ -8,7 +8,7 @@ const tierServices = [
     code: "SAC 998525",
     title: "Security Supervisors & Guarding Forces",
     slug: "/services/private-security",
-    badge: "PSARA Licensed",
+    badge: "Ex-Servicemen Led & DGR Aligned",
     icon: Shield,
     description: "Disciplined perimeter protection, visitor gate-pass registers, and access control led by Ex-Servicemen (ESM) and trained private security marshals.",
     deliverables: [

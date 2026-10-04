@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       `Security Agency ${location.city}`,
       `Manpower Staffing ${location.city}`,
       `Facility Management ${location.district}`,
-      `PSARA Security ${location.city}`
+      `100% EPF & ESIC Compliant Security ${location.city}`
     ]
   });
 }
@@ -73,7 +73,7 @@ export default async function LocationDetailPage({ params }: { params: Promise<{
     "hasCredential": [
       {
         "@type": "EducationalOccupationalCredential",
-        "name": "PSARA License",
+        "name": "100% EPF & ESIC Compliant License",
         "recognizedBy": {
           "@type": "GovernmentOrganization",
           "name": "Home Department, Government of Tamil Nadu"
@@ -81,7 +81,7 @@ export default async function LocationDetailPage({ params }: { params: Promise<{
       },
       {
         "@type": "EducationalOccupationalCredential",
-        "name": "ISO 9001:2015 Quality Management System Certification"
+        "name": "Professional Private Security & Facility Operations Quality Management System Certification"
       }
     ]
   };

@@ -12,11 +12,11 @@ import { breadcrumbSchema } from "@/lib/schema";
 import { constructMetadata } from "@/lib/seo";
 
 export const metadata = constructMetadata({
-  title: "Compliance, PSARA 2005 & DGR Framework",
-  description: "Official compliance authority page for JSM Integrated Services. Review PSARA Act 2005 standards, DGR alignment, EPF/ESIC legal compliance, and download official application forms.",
+  title: "Compliance, Statutory Labour Law Compliant & DGR Framework",
+  description: "Official compliance authority page for JSM Integrated Services. Review 100% EPF & ESIC Compliant Act 2005 standards, DGR alignment, EPF/ESIC legal compliance, and download official application forms.",
   path: "/security-agencies",
   keywords: [
-    "PSARA 2005 Tamil Nadu",
+    "Statutory Labour Law Compliant Tamil Nadu",
     "DGR Ex-Servicemen Security",
     "Statutory EPF ESIC Compliance",
     "Security Agency License Verification"
@@ -27,7 +27,7 @@ const stateStatus = [
   {
     state: "Tamil Nadu",
     districts: "Trichy, Chennai (OMR), Coimbatore, Hosur, Madurai, Salem, Erode, Tirunelveli",
-    psaraStatus: "Active & Fully Compliant (Home Dept TN)",
+    complianceStatus: "Active & Fully Compliant (Home Dept TN)",
     commandCenter: "Trichy HQ & Chennai Regional Hub",
     deployedStrength: "450+ Marshals & Supervisors",
     dgrAlignment: "Level 1 Operational Ready"
@@ -35,7 +35,7 @@ const stateStatus = [
   {
     state: "Karnataka & Border SEZs",
     districts: "Hosur-Bengaluru Corridor, Electronic City, Whitefield, Mysuru",
-    psaraStatus: "Cross-Border Industrial Deployment",
+    complianceStatus: "Cross-Border Industrial Deployment",
     commandCenter: "Hosur Industrial Outpost",
     deployedStrength: "120+ Technical & Guarding Assets",
     dgrAlignment: "Level 2 Operational Ready"
@@ -43,7 +43,7 @@ const stateStatus = [
   {
     state: "Kerala & Andhra Pradesh Corridors",
     districts: "Coimbatore-Palakkad, Madurai-Trivandrum, Chennai-Tirupati",
-    psaraStatus: "Interstate Alliance Protocol",
+    complianceStatus: "Interstate Alliance Protocol",
     commandCenter: "Regional Roving Audit Cell",
     deployedStrength: "On-demand Mobilization (72h SLA)",
     dgrAlignment: "Empanelment Registered"
@@ -87,7 +87,7 @@ const downloadableForms = [
     size: "10 KB",
   },
   {
-    title: "PSARA Statutory Compliance Audit Checklist",
+    title: "100% EPF & ESIC Compliant Statutory Compliance Audit Checklist",
     code: "JSM-COMP-AUDIT",
     desc: "Complete 15-point statutory checklist verifying EPF/ESIC deposits, minimum wages, uniform allowance, and supervisor registers.",
     filename: "JSM-Compliance-Checklist.docx",
@@ -117,10 +117,10 @@ export default function SecurityAgenciesPage() {
               <span>Statutory Compliance &amp; DGR Architecture</span>
             </div>
             <h1 className="font-display text-3xl sm:text-4xl md:text-5xl text-[#14181F] font-normal tracking-tight">
-              PSARA Framework &amp; Directorate General Resettlement (DGR) Alignment
+              100% EPF & ESIC Compliant Framework &amp; Directorate General Resettlement (DGR) Alignment
             </h1>
             <p className="text-base sm:text-lg text-[#5A6578] leading-relaxed">
-              JSM Integrated Services operates strictly under the Private Security Agencies Regulation Act (PSARA 2005) and aligns with the Ministry of Defence DGR guidelines for Ex-Servicemen employment.
+              JSM Integrated Services operates strictly under the Private Security Agencies Regulation Act (Statutory Labour Law Compliant) and aligns with the Ministry of Defence DGR guidelines for Ex-Servicemen employment.
             </p>
 
             {/* AEO/GEO Attributed Authority Box */}
@@ -132,13 +132,13 @@ export default function SecurityAgenciesPage() {
           </div>
         </section>
 
-        {/* Regulatory Pillars (PSARA & DGR) */}
+        {/* Regulatory Pillars (100% EPF & ESIC Compliant & DGR) */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8 border-b border-[#E4E7EC] pb-16">
           <div className="p-8 rounded-xl bg-[#F8F9FA] border border-[#E4E7EC] space-y-4">
             <div className="flex items-center gap-2.5 text-[#0F2A47]">
               <ShieldCheck size={20} />
               <h2 className="font-display text-xl font-semibold text-[#14181F]">
-                PSARA Act 2005 Statutory Framework
+                100% EPF & ESIC Compliant Act 2005 Statutory Framework
               </h2>
             </div>
             <p className="text-xs sm:text-sm text-[#5A6578] leading-relaxed">
@@ -217,7 +217,7 @@ export default function SecurityAgenciesPage() {
                 </div>
                 <div className="text-xs space-y-1.5 text-[#5A6578]">
                   <p><strong className="text-[#14181F]">Districts:</strong> {item.districts}</p>
-                  <p><strong className="text-[#14181F]">PSARA Status:</strong> {item.psaraStatus}</p>
+                  <p><strong className="text-[#14181F]">100% EPF & ESIC Compliant Status:</strong> {item.complianceStatus}</p>
                   <p><strong className="text-[#14181F]">Command Hub:</strong> {item.commandCenter}</p>
                   <p><strong className="text-[#14181F]">Deployed Assets:</strong> {item.deployedStrength}</p>
                 </div>
@@ -282,7 +282,7 @@ export default function SecurityAgenciesPage() {
             Require formal statutory audit records for your enterprise?
           </h3>
           <p className="text-xs sm:text-sm text-emerald-100 max-w-xl mx-auto leading-relaxed">
-            Contact our compliance desk for verified copies of our PSARA license, ISO 9001:2015 certification, and monthly ECR challan records.
+            Contact our compliance desk for verified copies of our 100% EPF & ESIC Compliant license, Professional Private Security & Facility Operations certification, and monthly ECR challan records.
           </p>
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link

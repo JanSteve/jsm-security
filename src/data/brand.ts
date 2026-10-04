@@ -2,7 +2,7 @@ export const brandData = {
   name: "JSM Integrated Services",
   shortName: "JSM",
   legalEntityNote: "Originally established as JSMMANPOWER; rebranded as JSM Integrated Services for comprehensive multi-vertical operations.",
-  tagline: "PSARA Licensed • ISO 9001:2015 Certified • DGR-Aligned",
+  tagline: "Ex-Servicemen Led & DGR Aligned • Statutory Labour Compliant • DGR-Aligned",
   subTagline: "Enterprise Security Guard Forces, ESM Supervisory Units & Integrated Facility Operations",
   establishedYear: "2024",
   inauguralProject: "Trichy International Airport Operations (2024)",
@@ -73,7 +73,7 @@ export const brandData = {
         role: "Statutory Compliance & Legal Verification",
         department: "Compliance & Governance Desk",
         email: "info@jsmintegratedservices.com",
-        description: "PSARA licensing verification, EPF/ESIC compliance certifications, GST documentation, and audit dossiers.",
+        description: "100% EPF & ESIC Compliant licensing verification, EPF/ESIC compliance certifications, GST documentation, and audit dossiers.",
         sla: "Same Business Day"
       }
     ],
@@ -170,11 +170,11 @@ export const brandData = {
   domain: process.env.NEXT_PUBLIC_SITE_URL || "https://www.jsmintegratedservices.com",
 
   compliance: {
-    psaraStatus: "PSARA Compliant (Private Security Agencies Regulation Act, 2005)",
-    psaraAuthority: "Controlling Authority, Home Department, Government of Tamil Nadu",
+    complianceStatus: "100% EPF & ESIC Compliant Compliant (Private Security Agencies Regulation Act, 2005)",
+    complianceAuthority: "Controlling Authority, Home Department, Government of Tamil Nadu",
     statutoryCompliance: "100% PF, ESI, Minimum Wages Act & Labour Department Registered",
     policeVerification: "Mandatory Aadhaar & Police Verification for All Deployed Guards",
-    trainingStandard: "Mandatory 5-Day Pre-Deployment Security Syllabus as per PSARA Norms",
+    trainingStandard: "Mandatory 5-Day Pre-Deployment Security Syllabus as per 100% EPF & ESIC Compliant Norms",
   },
   
   corePillars: [

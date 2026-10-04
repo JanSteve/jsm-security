@@ -9,7 +9,7 @@ export function CTASection() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
         <div className="inline-flex items-center gap-2 text-xs font-medium text-[#9C7A3C]">
           <ShieldCheck size={14} />
-          <span>Statutory Compliance Guaranteed &bull; PSARA 2005</span>
+          <span>Statutory Compliance Guaranteed &bull; Statutory Labour Law Compliant</span>
         </div>
 
         <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-white font-normal tracking-tight max-w-2xl mx-auto">
@@ -40,7 +40,7 @@ export function CTASection() {
         </div>
 
         <div className="text-xs text-neutral-400 pt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-1.5">
-          <span>PSARA Act 2005 Compliant</span>
+          <span>100% EPF & ESIC Compliant Act 2005 Compliant</span>
           <span>&bull;</span>
           <span>100% EPF &amp; ESIC Covered</span>
           <span>&bull;</span>

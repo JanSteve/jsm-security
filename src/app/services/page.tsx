@@ -9,14 +9,14 @@ import { constructMetadata } from '@/lib/seo';
 
 export const metadata = constructMetadata({
   title: 'Integrated Services Directory',
-  description: 'Explore JSM Integrated Services three-tier operations model: PSARA security guarding, 100% compliant contract staffing, and commercial facility management across Tamil Nadu.',
+  description: 'Explore JSM Integrated Services three-tier operations model: 100% EPF & ESIC Compliant security guarding, 100% compliant contract staffing, and commercial facility management across Tamil Nadu.',
   path: '/services',
   keywords: [
     'Integrated Services Directory',
     'Security Guarding Services Tamil Nadu',
     'Industrial Manpower Staffing',
     'Commercial Facility Management',
-    'PSARA Security Agency Trichy Chennai Coimbatore'
+    '100% EPF & ESIC Compliant Security Agency Trichy Chennai Coimbatore'
   ]
 });
 

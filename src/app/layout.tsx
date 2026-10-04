@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(brandData.domain),
   title: {
     template: `%s | ${brandData.name}`,
-    default: `${brandData.name} — PSARA Security, Manpower & Facility Operations`,
+    default: `${brandData.name} — 100% EPF & ESIC Compliant Security, Manpower & Facility Operations`,
   },
   description: `${brandData.name} delivers disciplined Private Security, Housekeeping & Facility Management, Contractual Manpower, and Integrated Business Solutions across Tamil Nadu and India.`,
   keywords: [
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     "Manpower Suppliers in Coimbatore",
     "Security Guard Agency in Trichy",
     "Security Services Chennai",
-    "PSARA Licensed Security Agency Tamil Nadu",
+    "Ex-Servicemen Led & DGR Aligned Security Agency Tamil Nadu",
     "Commercial Housekeeping Services Chennai",
     "Industrial Labour Contractors Hosur",
     "Factory Workforce Supplier Salem",

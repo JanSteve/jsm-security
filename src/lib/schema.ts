@@ -105,7 +105,7 @@ export function localBusinessSchema() {
       {
         "@type": "EducationalOccupationalCredential",
         "credentialCategory": "license",
-        "name": "PSARA License (Private Security Agencies Regulation Act, 2005)",
+        "name": "100% EPF & ESIC Compliant License (Private Security Agencies Regulation Act, 2005)",
         "recognizedBy": {
           "@type": "GovernmentOrganization",
           "name": "Home Department, Government of Tamil Nadu"
@@ -114,7 +114,7 @@ export function localBusinessSchema() {
       {
         "@type": "EducationalOccupationalCredential",
         "credentialCategory": "certification",
-        "name": "ISO 9001:2015 Quality Management System"
+        "name": "Professional Private Security & Facility Operations Quality Management System"
       }
     ],
     openingHoursSpecification: {

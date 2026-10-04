@@ -75,7 +75,7 @@ export function ProofSection() {
                   <span>100% Pre-Deployment Induction &amp; Turnout Audits</span>
                 </div>
                 <p className="text-xs text-[#4A5160] pl-5 leading-normal">
-                  All deployed marshals underwent mandatory PSARA 5-day syllabus training, Aadhaar verification, and police record checks.
+                  All deployed marshals underwent mandatory 100% EPF & ESIC Compliant 5-day syllabus training, Aadhaar verification, and police record checks.
                 </p>
               </div>
 

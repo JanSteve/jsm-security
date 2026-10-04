@@ -49,7 +49,7 @@ export function Header() {
             </span>
             <span className="text-[11px] text-[#4A5160] font-medium tracking-normal hidden sm:flex items-center gap-1.5">
               <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#9C7A3C]" />
-              PSARA Licensed &bull; ISO 9001:2015 &bull; DGR Aligned
+              Ex-Servicemen Led & DGR Aligned &bull; Professional Private Security & Facility Operations &bull; DGR Aligned
             </span>
           </div>
         </Link>
