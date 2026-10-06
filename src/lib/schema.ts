@@ -46,8 +46,10 @@ export function organizationSchema() {
     sameAs: [
       'https://www.linkedin.com/company/jsmintegratedservices',
       'https://www.instagram.com/jsmintegratedservices',
+      'https://www.youtube.com/@jsmintegratedservices',
       'https://www.facebook.com/jsmintegratedservices',
-      'https://x.com/jsmintegrated'
+      'https://x.com/jsmintegrated',
+      'https://maps.google.com/?q=JSM+Integrated+Services+Plot+112+Gandhi+Nagar+RVS+Nagar+Kottapattu+Trichy'
     ]
   };
 }
@@ -99,23 +101,9 @@ export function localBusinessSchema() {
     sameAs: [
       "https://www.linkedin.com/company/jsmintegratedservices",
       "https://www.instagram.com/jsmintegratedservices",
-      "https://x.com/jsmintegrated"
-    ],
-    hasCredential: [
-      {
-        "@type": "EducationalOccupationalCredential",
-        "credentialCategory": "license",
-        "name": "100% EPF & ESIC Compliant License (Private Security Agencies Regulation Act, 2005)",
-        "recognizedBy": {
-          "@type": "GovernmentOrganization",
-          "name": "Home Department, Government of Tamil Nadu"
-        }
-      },
-      {
-        "@type": "EducationalOccupationalCredential",
-        "credentialCategory": "certification",
-        "name": "Professional Private Security & Facility Operations Quality Management System"
-      }
+      "https://www.youtube.com/@jsmintegratedservices",
+      "https://x.com/jsmintegrated",
+      "https://maps.google.com/?q=JSM+Integrated+Services+Plot+112+Gandhi+Nagar+RVS+Nagar+Kottapattu+Trichy"
     ],
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',

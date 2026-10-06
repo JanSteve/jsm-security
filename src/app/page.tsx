@@ -23,15 +23,15 @@ import { brandData } from "@/data/brand";
 
 export const metadata = {
   title: {
-    absolute: "JSM Integrated Services — 100% EPF & ESIC Compliant Security, Manpower & Facility Operations",
+    absolute: "JSM Integrated Services | Private Security, Manpower Staffing & Facility Operations",
   },
-  description: "100% EPF & ESIC Compliant-licensed Ex-Servicemen & Private Security, 100% EPF/ESIC Manpower Staffing, and Commercial Facility Management across Tamil Nadu.",
+  description: "JSM Integrated Services (formerly JSMMANPOWER) provides disciplined Ex-Servicemen & Private Security Guarding, 100% EPF/ESIC Contract Manpower Staffing, and Mechanized Facility Management across Tamil Nadu.",
   alternates: {
     canonical: brandData.domain,
   },
   openGraph: {
-    title: "JSM Integrated Services — 100% EPF & ESIC Compliant Security, Manpower & Facility Operations",
-    description: "100% EPF & ESIC Compliant-licensed Ex-Servicemen & Private Security, 100% EPF/ESIC Manpower Staffing, and Commercial Facility Management across Tamil Nadu.",
+    title: "JSM Integrated Services | Private Security, Manpower Staffing & Facility Operations",
+    description: "JSM Integrated Services (formerly JSMMANPOWER) provides disciplined Ex-Servicemen & Private Security Guarding, 100% EPF/ESIC Contract Manpower Staffing, and Mechanized Facility Management across Tamil Nadu.",
     url: brandData.domain,
     siteName: brandData.name,
     locale: "en_IN",
@@ -47,8 +47,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "JSM Integrated Services — 100% EPF & ESIC Compliant Security, Manpower & Facility Operations",
-    description: "100% EPF & ESIC Compliant-licensed Ex-Servicemen & Private Security, 100% EPF/ESIC Manpower Staffing, and Commercial Facility Management across Tamil Nadu.",
+    title: "JSM Integrated Services | Private Security, Manpower Staffing & Facility Operations",
+    description: "JSM Integrated Services (formerly JSMMANPOWER) provides disciplined Ex-Servicemen & Private Security Guarding, 100% EPF/ESIC Contract Manpower Staffing, and Mechanized Facility Management across Tamil Nadu.",
     images: [`${brandData.domain}/images/jsm_logo_black.png`],
   },
 };

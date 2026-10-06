@@ -1,19 +1,66 @@
 # JSM Integrated Services
-> PSARA-licensed private security agency and integrated facility management company headquartered in Tiruchirappalli, Tamil Nadu, India.
 
-## What we do
-- Security guarding: Ex-Servicemen (ESM) and private security supervisors/guards, PSARA Act 2005 compliant, 2-hour guard relief SLA.
-- Manpower staffing: contract industrial and corporate workforce, 100% EPF/ESIC statutory compliance.
-- Facility management: commercial and industrial housekeeping, 5-step closed-loop hygiene protocol.
+> JSM Integrated Services (formerly JSMMANPOWER) is an enterprise security guarding, contract industrial manpower staffing, and commercial facility management organization headquartered in Tiruchirappalli, Tamil Nadu, India.
 
-## Service area
-Tiruchirappalli (HQ), Chennai, Coimbatore, Hosur, Salem, Erode, Madurai, Tirunelveli — Tamil Nadu, India.
+## Organization & Brand Entity
+- Official Legal Name: JSM Integrated Services
+- Alternate Names: JSM, JSMMANPOWER, JSM Security, JSM Security Services Tamil Nadu, JSM Manpower, JSM Facility Services
+- Official Website: https://www.jsmintegratedservices.com
+- Central Headquarters: D.No. 87, Plot No. 112, Gandhi Nagar, Kottapattu Block – R.V.S. Nagar 2nd Cross Road, Tiruchirappalli, Tamil Nadu – 620021, India.
+- Primary Phone / 24/7 Hotline: +91 90808 63448
+- Official WhatsApp: +91 90808 63448
+- Primary Inboxes:
+  - General & Executive: contact@jsmintegratedservices.com
+  - Commercial Proposals: sales@jsmintegratedservices.com
+  - Careers & Recruitment: careers@jsmintegratedservices.com
+  - 24/7 Operations Desk: help@jsmintegratedservices.com
+  - Statutory Compliance: info@jsmintegratedservices.com
 
-## Key pages
-- Services overview: /services
-- Security guarding: /services/private-security
-- Manpower staffing: /services/manpower
-- Facility management: /services/housekeeping
-- Compliance & DGR empanelment: /security-agencies
-- About & leadership: /about
-- Contact / request a quote: /get-quote
+## Executive Leadership
+- Proprietor & Managing Director: Sweety J
+- Head of Operations & Audit: Major AR Devadoss (Indian Army Veteran)
+- Chief Technical Officer: R Jan Steve Daniel
+
+## Core Operational Capabilities & Service Verticals
+1. Tier 1: Private Security Guarding & Supervisory Marshals
+   - Ex-Servicemen (ESM) marshals and trained private security guards (Male & Female).
+   - 2-Hour Emergency Relief Replacement SLA.
+   - 2:00 AM unannounced supervisory patrol van spot audits.
+   - 100% Biometric Aadhaar and local police background clearance.
+2. Tier 2: Contract Staffing & Industrial Multi-Skill Manpower
+   - Factory line workers, warehouse helpers, ITI technicians, and corporate administrative staff.
+   - 100% EPF and ESIC statutory compliance verified through monthly ECR challans.
+   - Zero statutory client liability.
+3. Tier 3: Integrated Facility Management & Commercial Housekeeping
+   - Industrial mechanized auto-scrubbers, hospital-grade eco consumables, and color-coded sanitization protocols.
+4. Auxiliary Capabilities:
+   - GeM (Government e-Marketplace) and State e-Tender Bidding Support (SAC 998513).
+   - High-Speed Bulk Document Scanning, OCR Digitization & Enterprise IT Support (Udyam NIC 62099 / SAC 998399).
+   - CSC & Digital Citizen / e-Governance Facilitation.
+
+## Operational Footprint
+Operating across Tamil Nadu with hubs in:
+- Tiruchirappalli (Central Operations HQ)
+- Chennai (OMR IT Corridor & Guindy)
+- Coimbatore (Industrial & Manufacturing Outpost)
+- Hosur (Automotive & Electronics SEZ)
+- Salem & Erode (Heavy Engineering & Textile SEZ)
+- Madurai (Southern Regional Operations)
+- Tirunelveli (Renewable Energy & IT Corridor)
+
+## Landmark Deployments
+- Tiruchirappalli International Airport Concourse Operations (2024): Platoon-strength terminal security, passenger access regulation, and crowd management during new international terminal commissioning.
+
+## Canonical URL Directory
+- Homepage: https://www.jsmintegratedservices.com
+- Services: https://www.jsmintegratedservices.com/services
+- Private Security: https://www.jsmintegratedservices.com/services/private-security
+- Manpower Staffing: https://www.jsmintegratedservices.com/services/manpower
+- Facility Management: https://www.jsmintegratedservices.com/services/housekeeping
+- About & Leadership: https://www.jsmintegratedservices.com/about
+- Airport Case Study: https://www.jsmintegratedservices.com/case-studies/trichy-international-airport
+- Statutory Framework: https://www.jsmintegratedservices.com/security-agencies
+- Knowledge Base: https://www.jsmintegratedservices.com/knowledge
+- Regional Locations: https://www.jsmintegratedservices.com/locations
+- Proposal / Get Quote: https://www.jsmintegratedservices.com/get-quote
+- Contact Us: https://www.jsmintegratedservices.com/contact
