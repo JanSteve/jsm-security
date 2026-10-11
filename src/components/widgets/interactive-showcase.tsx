@@ -1,23 +1,31 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Calculator, QrCode, Star, Sparkles } from 'lucide-react';
+import { Calculator, QrCode, Star, Sparkles, PlayCircle } from 'lucide-react';
 import { RoiCalculator } from './roi-calculator';
 import { QueueSimulator } from './queue-simulator';
 import { ReviewFilterWidget } from './review-filter-widget';
+import { DigitalVideoPlayer } from './digital-video-player';
 
 interface InteractiveShowcaseProps {
   className?: string;
-  initialTab?: 'roi' | 'queue' | 'review';
+  initialTab?: 'video' | 'roi' | 'queue' | 'review';
 }
 
 export function InteractiveShowcase({
   className = '',
-  initialTab = 'roi',
+  initialTab = 'video',
 }: InteractiveShowcaseProps) {
-  const [activeTab, setActiveTab] = useState<'roi' | 'queue' | 'review'>(initialTab);
+  const [activeTab, setActiveTab] = useState<'video' | 'roi' | 'queue' | 'review'>(initialTab);
 
   const tabs = [
+    {
+      id: 'video' as const,
+      label: '2x Video Explainer',
+      subtitle: 'Smart Automations & NFC Standee',
+      icon: PlayCircle,
+      badge: 'Fast Walkthrough',
+    },
     {
       id: 'roi' as const,
       label: 'Pricing & ROI Calculator',
@@ -53,12 +61,12 @@ export function InteractiveShowcase({
           Test Our Operational Engines &amp; Digital Automations
         </h2>
         <p className="text-sm sm:text-base text-[#4A5160] leading-relaxed">
-          Simulate real manpower budgets, clinic token tracking, direct table ordering, and Google review acceleration live in your browser.
+          Watch our fast-track 2x video walkthrough, simulate real manpower budgets, test clinic token tracking, and experience Google review acceleration live in your browser.
         </p>
       </div>
 
       {/* Segmented Tab Navigation */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-1.5 bg-[#F6F7F9] border border-[#E4E7EC] rounded-xl">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 p-1.5 bg-[#F6F7F9] border border-[#E4E7EC] rounded-xl">
         {tabs.map((tab) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
@@ -106,6 +114,7 @@ export function InteractiveShowcase({
 
       {/* Render Active Widget */}
       <div className="pt-2">
+        {activeTab === 'video' && <DigitalVideoPlayer />}
         {activeTab === 'roi' && <RoiCalculator />}
         {activeTab === 'queue' && <QueueSimulator />}
         {activeTab === 'review' && <ReviewFilterWidget />}
