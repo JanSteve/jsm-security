@@ -9,6 +9,7 @@ import {
   CTASection
 } from "@/components/sections";
 import { InteractiveShowcase } from "@/components/widgets/interactive-showcase";
+import { SecurityVideoShowcase } from "@/components/widgets/security-video-showcase";
 import { homeFAQs } from "@/data/faqs";
 import { 
   organizationSchema, 
@@ -42,7 +43,7 @@ export const metadata = {
         url: `${brandData.domain}/images/jsm_logo_black.png`,
         width: 1200,
         height: 630,
-        alt: "JSM Integrated Services — Security, Manpower, Facility & Digital Operations",
+        alt: "JSM Integrated Services - Private Security, Manpower Staffing, Facility Operations & Digital Automation",
       },
     ],
   },
@@ -108,6 +109,13 @@ export default function Home() {
 
       {/* 3. Divided List Three-Tier Operations Model */}
       <ServicesOverview />
+
+      {/* 3a. Official Security Brand Commercial & Tactical Video Theater */}
+      <section className="py-14 sm:py-18 bg-white">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+          <SecurityVideoShowcase />
+        </div>
+      </section>
 
       {/* 3b. Interactive Operations & Digital Automation Showcase */}
       <section className="py-16 sm:py-20 lg:py-24 bg-[#F6F7F9] border-y border-[#E4E7EC]">
