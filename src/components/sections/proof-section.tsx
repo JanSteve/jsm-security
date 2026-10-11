@@ -31,7 +31,7 @@ const airportSteps: StickyStepItem[] = [
       <div className="w-full h-full relative flex flex-col justify-between overflow-hidden rounded-lg group">
         <div className="absolute inset-0 bg-black/30 z-10" />
         <Image
-          src="/images/real_jsm_shift_muster_day.jpg"
+          src="/images/trichy-airport/trichy_airport_platoon_salute_day.jpg"
           alt="Daily Shift Briefing and Turnout Inspection at Tiruchirappalli International Airport"
           fill
           sizes="(max-width: 1024px) 100vw, 50vw"
@@ -44,7 +44,7 @@ const airportSteps: StickyStepItem[] = [
             <span>05:00 AM Shift Inspection</span>
           </span>
           <span className="text-[11px] font-mono text-white/80 bg-black/50 px-2 py-0.5 rounded">
-            Trichy Terminal
+            AAI Terminal
           </span>
         </div>
 
@@ -62,7 +62,7 @@ const airportSteps: StickyStepItem[] = [
     badge: "Phase 2 • 24/7 Concourse Control",
     subtitle: "Civil Aviation Security Standards",
     title: "High-Density Concourse Access & Barrier Control",
-    description: "Regulated vehicular drop lanes, terminal gate-barrier verification, and multi-tier passenger flow management during international peak departures and arrivals.",
+    description: "Regulated vehicular drop lanes, terminal gate-barrier verification, and multi-tier passenger flow management for Airports Authority of India (AAI) during international peak departures and arrivals.",
     deliverables: [
       "Vehicular Drop Lane Regulation & Anti-Congestion",
       "Terminal Entry Gate-Pass & Identity Verification",
@@ -82,8 +82,8 @@ const airportSteps: StickyStepItem[] = [
       <div className="w-full h-full relative flex flex-col justify-between overflow-hidden rounded-lg group">
         <div className="absolute inset-0 bg-black/30 z-10" />
         <Image
-          src="/images/real_jsm_welcome_trichy_salute.jpg"
-          alt="JSM Uniformed Guard at Tiruchirappalli Terminal Entry Gate"
+          src="/images/trichy-airport/trichy_airport_terminal_concourse_facade.jpg"
+          alt="JSM Uniformed Guard and Concourse Architecture at Tiruchirappalli Terminal"
           fill
           sizes="(max-width: 1024px) 100vw, 50vw"
           className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -111,9 +111,9 @@ const airportSteps: StickyStepItem[] = [
   {
     id: "airport-phase-3",
     badge: "Phase 3 • Benchmark Deployment",
-    subtitle: "2024 Infrastructure Operations",
+    subtitle: "Airports Authority of India (AAI) Client",
     title: "Consolidated Platoon Mobilization & Infrastructure Vigilance",
-    description: "JSM Integrated Services executed commercial concourse security and passenger access control operations at Tiruchirappalli International Airport in 2024. Managing continuous multi-shift rotations with zero incident tolerance proved our capability to protect high-consequence transport infrastructure.",
+    description: "JSM Integrated Services executed commercial concourse security and passenger access control operations at Tiruchirappalli International Airport in 2024 for Airports Authority of India (AAI). Managing continuous multi-shift rotations with zero incident tolerance proved our capability to protect high-consequence transport infrastructure.",
     deliverables: [
       "Full Platoon Mobilization Across International Terminal",
       "Direct Coordination with Airport & Transport Authorities",
@@ -133,7 +133,7 @@ const airportSteps: StickyStepItem[] = [
       <div className="w-full h-full relative flex flex-col justify-between overflow-hidden rounded-lg group">
         <div className="absolute inset-0 bg-black/25 z-10" />
         <Image
-          src="/images/real_jsm_airport_terminal_platoon.jpg"
+          src="/images/trichy-airport/trichy_airport_night_platoon_muster.jpg"
           alt="JSM Security Platoon deployed on site at Tiruchirappalli International Airport"
           fill
           sizes="(max-width: 1024px) 100vw, 50vw"
@@ -165,9 +165,9 @@ export function ProofSection() {
   return (
     <StickyScrollSequence
       steps={airportSteps}
-      eyebrow="Operational Benchmark Assignment"
+      eyebrow="Airports Authority of India (AAI) • Landmark Client"
       headline="Tiruchirappalli International Airport Operations"
-      description="JSM Integrated Services executed commercial concourse security and passenger access control operations at Tiruchirappalli International Airport in 2024. Managing continuous multi-shift rotations with zero incident tolerance proved our capability to protect high-consequence transport infrastructure."
+      description="JSM Integrated Services executed commercial concourse security and passenger access control operations at Tiruchirappalli International Airport in 2024 for Airports Authority of India (AAI). Managing continuous multi-shift rotations with zero incident tolerance proved our capability to protect high-consequence transport infrastructure."
       theme="sand"
     />
   );

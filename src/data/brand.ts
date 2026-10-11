@@ -6,6 +6,14 @@ export const brandData = {
   subTagline: "Enterprise Security Guard Forces, ESM Supervisory Units & Integrated Facility Operations",
   establishedYear: "2024",
   inauguralProject: "Trichy International Airport Operations (2024)",
+  institutionalClient: {
+    name: "Airports Authority of India (AAI)",
+    shortName: "AAI",
+    ministry: "Ministry of Civil Aviation, Government of India",
+    logo: "/images/clients/aai_logo.svg",
+    project: "Tiruchirappalli International Airport Concourse Operations (2024)",
+    status: "Verified Happy Client"
+  },
   
   leadership: [
     {

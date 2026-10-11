@@ -9,6 +9,7 @@ import {
   CheckCircle2, 
   ArrowLeft 
 } from "lucide-react";
+import { AirportGallery } from "@/components/widgets/airport-gallery";
 
 export const metadata = constructMetadata({
   title: "Case Study: Trichy International Airport Concourse Operations (2024)",
@@ -92,6 +93,35 @@ export default function AirportCaseStudyPage() {
           </p>
         </header>
 
+        {/* Happy Client Endorsement Box — Airports Authority of India (AAI) */}
+        <section className="p-6 sm:p-7 rounded-2xl bg-gradient-to-r from-[#F8F9FA] via-white to-[#EDF1F7] border border-[#D0D7E2] shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 text-center sm:text-left">
+            <div className="relative w-20 h-14 rounded-xl bg-white border border-[#D0D7E2] p-1.5 flex items-center justify-center shrink-0 shadow-xs">
+              <Image
+                src="/images/clients/aai_logo.svg"
+                alt="Airports Authority of India (AAI) Logo"
+                fill
+                className="object-contain p-1"
+              />
+            </div>
+            <div className="space-y-1">
+              <span className="text-[11px] font-mono uppercase font-bold text-[#9C7A3C]">
+                Official Institutional Client
+              </span>
+              <h2 className="font-serif text-xl sm:text-2xl font-bold text-[#0F2A47]">
+                Airports Authority of India (AAI)
+              </h2>
+              <p className="text-xs sm:text-sm text-[#4A5160]">
+                Ministry of Civil Aviation, Government of India &bull; Tiruchirappalli International Airport Concourse Operations (2024)
+              </p>
+            </div>
+          </div>
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-semibold shrink-0 shadow-xs">
+            <CheckCircle2 size={14} className="text-emerald-600" />
+            <span>Verified Happy Client</span>
+          </span>
+        </section>
+
         {/* Metrics Bar */}
         <section className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-6 rounded-xl border border-[#E4E7EC] bg-[#F8F9FA]">
           <div className="space-y-1">
@@ -174,15 +204,8 @@ export default function AirportCaseStudyPage() {
           </div>
         </section>
 
-        {/* Secondary Photo */}
-        <div className="rounded-xl overflow-hidden border border-[#E4E7EC] relative aspect-16/10 shadow-xs">
-          <Image
-            src="/images/real_jsm_welcome_trichy_salute.jpg"
-            alt="JSM Guard Unit Turnout Salute in Trichy"
-            fill
-            className="object-cover"
-          />
-        </div>
+        {/* Curated Operations Photographic Gallery */}
+        <AirportGallery className="py-8" />
 
         {/* Bottom CTA */}
         <footer className="pt-8 border-t border-[#E4E7EC] flex flex-col sm:flex-row items-center justify-between gap-4">

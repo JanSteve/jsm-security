@@ -11,6 +11,7 @@ import {
 } from "@/components/sections";
 import { InteractiveShowcase } from "@/components/widgets/interactive-showcase";
 import { SecurityVideoShowcase } from "@/components/widgets/security-video-showcase";
+import { AirportGallery } from "@/components/widgets/airport-gallery";
 import { homeFAQs } from "@/data/faqs";
 import { 
   organizationSchema, 
@@ -116,9 +117,9 @@ export default function Home() {
       <ServicesOverview />
 
       {/* 3a. Official Security Brand Commercial & Tactical Video Theater */}
-      <section className="py-14 sm:py-18 bg-white">
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="max-w-3xl space-y-2 text-left">
+      <section className="py-20 sm:py-24 lg:py-28 bg-white">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div className="max-w-3xl space-y-3 text-left">
             <div className="text-xs font-semibold text-[#9C7A3C]">
               Operational Excellence on Film
             </div>
@@ -136,7 +137,7 @@ export default function Home() {
       </section>
 
       {/* 3b. Interactive Operations & Digital Automation Showcase */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-[#F6F7F9] border-y border-[#E4E7EC]">
+      <section className="py-20 sm:py-26 lg:py-32 bg-[#F6F7F9] border-y border-[#E4E7EC]">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <InteractiveShowcase />
         </div>
@@ -144,6 +145,9 @@ export default function Home() {
 
       {/* 4. Operational Proof Case Study (Trichy International Airport) */}
       <ProofSection />
+
+      {/* 4a. Curated Trichy International Airport Operations Gallery (Filtered from 670+ Ground Records) */}
+      <AirportGallery />
 
       {/* 4b. Executive Leadership & Operational Command */}
       <ExecutiveLeadershipSection />
