@@ -11,9 +11,11 @@ import {
   Smartphone, 
   Monitor, 
   Zap,
-  ArrowRight
+  ArrowRight,
+  Phone
 } from 'lucide-react';
 import Link from 'next/link';
+import { SoundWaveVisualizer } from './sound-wave-visualizer';
 
 interface DigitalVideoPlayerProps {
   className?: string;
@@ -94,10 +96,10 @@ export function DigitalVideoPlayer({ className = '' }: DigitalVideoPlayerProps) 
   };
 
   return (
-    <div className={`p-6 sm:p-8 rounded-2xl bg-[#0F2A47] text-white shadow-lg border border-[#1A3E63] space-y-6 ${className}`}>
+    <div className={`p-6 sm:p-8 rounded-2xl bg-obsidian-mesh text-white shadow-2xl border border-[#9C7A3C]/35 border-gold-specular-top space-y-6 ${className}`}>
       
       {/* Top Header & Context */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#1A3E63] pb-6">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-white/10 pb-6">
         <div className="space-y-2 max-w-2xl text-left">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#9C7A3C]/20 text-[#D4AF37] text-xs font-semibold border border-[#9C7A3C]/30">
             <Zap size={14} className="animate-pulse text-[#D4AF37]" />
@@ -112,11 +114,11 @@ export function DigitalVideoPlayer({ className = '' }: DigitalVideoPlayerProps) 
         </div>
 
         {/* Video Mode Selector (Desktop & Mobile Pills) */}
-        <div className="flex items-center bg-[#071728] p-1.5 rounded-xl border border-[#1A3E63] shrink-0 self-start md:self-auto">
+        <div className="flex items-center bg-[#071728]/90 backdrop-blur-md p-1.5 rounded-xl border border-white/10 shrink-0 self-start md:self-auto">
           <button
             type="button"
             onClick={() => handleSwitchVideo('horizontal')}
-            className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-semibold transition-all ${
+            className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-semibold transition-all press-scale ${
               activeVideo === 'horizontal'
                 ? 'bg-[#0F2A47] text-white shadow-xs border border-[#9C7A3C]/40'
                 : 'text-neutral-400 hover:text-white'
@@ -128,7 +130,7 @@ export function DigitalVideoPlayer({ className = '' }: DigitalVideoPlayerProps) 
           <button
             type="button"
             onClick={() => handleSwitchVideo('vertical')}
-            className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-semibold transition-all ${
+            className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-semibold transition-all press-scale ${
               activeVideo === 'vertical'
                 ? 'bg-[#0F2A47] text-white shadow-xs border border-[#9C7A3C]/40'
                 : 'text-neutral-400 hover:text-white'
@@ -176,7 +178,7 @@ export function DigitalVideoPlayer({ className = '' }: DigitalVideoPlayerProps) 
               <button
                 type="button"
                 onClick={toggleSound}
-                className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-semibold transition-all shadow-lg backdrop-blur-md border ${
+                className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-semibold transition-all shadow-lg backdrop-blur-md border press-scale ${
                   isMuted 
                     ? 'bg-amber-500 hover:bg-amber-400 text-black border-amber-300 animate-bounce' 
                     : 'bg-emerald-600/90 hover:bg-emerald-500 text-white border-emerald-400/50'
@@ -215,14 +217,14 @@ export function DigitalVideoPlayer({ className = '' }: DigitalVideoPlayerProps) 
                     e.stopPropagation();
                     togglePlay();
                   }}
-                  className="p-1.5 rounded-lg bg-black/50 hover:bg-black/70 text-white backdrop-blur-md border border-white/10"
+                  className="p-1.5 rounded-lg bg-black/50 hover:bg-black/70 text-white backdrop-blur-md border border-white/10 press-scale"
                 >
                   {isPlaying ? <Pause size={14} /> : <Play size={14} />}
                 </button>
                 <button
                   type="button"
                   onClick={handleRestart}
-                  className="p-1.5 rounded-lg bg-black/50 hover:bg-black/70 text-white backdrop-blur-md border border-white/10"
+                  className="p-1.5 rounded-lg bg-black/50 hover:bg-black/70 text-white backdrop-blur-md border border-white/10 press-scale"
                   title="Replay from start"
                 >
                   <RotateCcw size={14} />
@@ -236,7 +238,7 @@ export function DigitalVideoPlayer({ className = '' }: DigitalVideoPlayerProps) 
                 <button
                   type="button"
                   onClick={toggleSound}
-                  className="p-1.5 rounded-lg bg-black/50 hover:bg-black/70 text-white backdrop-blur-md border border-white/10 sm:hidden"
+                  className="p-1.5 rounded-lg bg-black/50 hover:bg-black/70 text-white backdrop-blur-md border border-white/10 sm:hidden press-scale"
                 >
                   {isMuted ? <VolumeX size={14} /> : <Volume2 size={14} />}
                 </button>
@@ -281,7 +283,7 @@ export function DigitalVideoPlayer({ className = '' }: DigitalVideoPlayerProps) 
               <button
                 type="button"
                 onClick={toggleSound}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold transition-all shadow-md backdrop-blur-md border ${
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold transition-all shadow-md backdrop-blur-md border press-scale ${
                   isMuted 
                     ? 'bg-amber-500 hover:bg-amber-400 text-black border-amber-300 animate-bounce' 
                     : 'bg-emerald-600/90 hover:bg-emerald-500 text-white border-emerald-400/50'
@@ -310,14 +312,14 @@ export function DigitalVideoPlayer({ className = '' }: DigitalVideoPlayerProps) 
                     e.stopPropagation();
                     togglePlay();
                   }}
-                  className="p-1 rounded bg-black/50 text-white backdrop-blur-md"
+                  className="p-1 rounded bg-black/50 text-white backdrop-blur-md press-scale"
                 >
                   {isPlaying ? <Pause size={12} /> : <Play size={12} />}
                 </button>
                 <button
                   type="button"
                   onClick={handleRestart}
-                  className="p-1 rounded bg-black/50 text-white backdrop-blur-md"
+                  className="p-1 rounded bg-black/50 text-white backdrop-blur-md press-scale"
                 >
                   <RotateCcw size={12} />
                 </button>
@@ -330,11 +332,22 @@ export function DigitalVideoPlayer({ className = '' }: DigitalVideoPlayerProps) 
           </div>
         )}
 
+        {/* Integrated 24-Band Sound Wave Frequency Spectrum Visualizer */}
+        <div className="w-full max-w-4xl mt-5">
+          <SoundWaveVisualizer
+            isPlaying={isPlaying}
+            isMuted={isMuted}
+            videoRef={activeVideo === 'horizontal' ? horizontalRef : verticalRef}
+            label="DIGITAL DEMO AUDIO SPECTRUM &bull; 24-BAND FREQUENCY ANALYZER"
+            variant="hud"
+          />
+        </div>
+
       </div>
 
       {/* Feature Strip under Video */}
-      <div className="pt-2 border-t border-[#1A3E63]/80 grid grid-cols-1 sm:grid-cols-3 gap-3 text-left">
-        <div className="p-3 rounded-lg bg-[#071728]/70 border border-[#1A3E63]/60 space-y-1">
+      <div className="pt-2 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-3 text-left">
+        <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 space-y-1">
           <div className="flex items-center gap-1.5 text-xs font-semibold text-[#D4AF37]">
             <Sparkles size={13} />
             <span>Smart NFC Review Standee</span>
@@ -344,7 +357,7 @@ export function DigitalVideoPlayer({ className = '' }: DigitalVideoPlayerProps) 
           </p>
         </div>
 
-        <div className="p-3 rounded-lg bg-[#071728]/70 border border-[#1A3E63]/60 space-y-1">
+        <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 space-y-1">
           <div className="flex items-center gap-1.5 text-xs font-semibold text-[#D4AF37]">
             <Sparkles size={13} />
             <span>Zero-Commission QR Ordering</span>
@@ -354,7 +367,7 @@ export function DigitalVideoPlayer({ className = '' }: DigitalVideoPlayerProps) 
           </p>
         </div>
 
-        <div className="p-3 rounded-lg bg-[#071728]/70 border border-[#1A3E63]/60 space-y-1">
+        <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 space-y-1">
           <div className="flex items-center gap-1.5 text-xs font-semibold text-[#D4AF37]">
             <Sparkles size={13} />
             <span>Clinic Queue Token Tracker</span>
@@ -367,22 +380,29 @@ export function DigitalVideoPlayer({ className = '' }: DigitalVideoPlayerProps) 
 
       {/* Bottom CTA Row */}
       <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
-        <span className="text-neutral-400">
-          Interested in deploying any of these smart digital systems for your business?
+        <span className="text-neutral-300 text-center sm:text-left">
+          Deploy smart NFC standees, QR dining menus, or clinic token queues across Tamil Nadu.
         </span>
         <div className="flex items-center gap-2">
           <Link
-            href="/services/smart-review-filter-nfc"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#9C7A3C] hover:bg-[#B38D48] text-white font-semibold transition-colors shadow-xs"
+            href="/services/nfc-review-standees"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#9C7A3C] hover:bg-[#B38D48] text-white font-semibold transition-colors shadow-xs press-scale"
           >
-            <span>Explore Smart Review Standee</span>
+            <span>Explore Smart Standee</span>
             <ArrowRight size={13} />
           </Link>
+          <a
+            href="tel:+919080863448"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white font-semibold transition-colors border border-white/15 press-scale"
+          >
+            <Phone size={13} className="text-[#D4AF37]" />
+            <span>+91 90808 63448</span>
+          </a>
           <Link
             href="/get-quote"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white font-semibold transition-colors border border-white/15"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white font-semibold transition-colors border border-white/15 press-scale"
           >
-            <span>Get Instant Price Quote</span>
+            <span>Get Quote</span>
           </Link>
         </div>
       </div>

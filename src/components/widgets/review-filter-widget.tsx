@@ -9,12 +9,12 @@ import {
   MessageSquare, 
   CheckCircle2, 
   TrendingUp, 
-  Radio, 
   ShieldCheck, 
   ArrowRight,
   Sparkles,
-  Smartphone
+  Send
 } from 'lucide-react';
+import { NfcStandee3D } from './nfc-standee-3d';
 
 interface ReviewFilterWidgetProps {
   className?: string;
@@ -22,8 +22,6 @@ interface ReviewFilterWidgetProps {
 
 export function ReviewFilterWidget({ className = '' }: ReviewFilterWidgetProps) {
   const [selectedRating, setSelectedRating] = useState<number>(5);
-  const [hoverRating, setHoverRating] = useState<number | null>(null);
-  const [nfcTapped, setNfcTapped] = useState<boolean>(false);
   
   // Simulation Metrics
   const [positiveReviewsCount, setPositiveReviewsCount] = useState<number>(142);
@@ -34,7 +32,6 @@ export function ReviewFilterWidget({ className = '' }: ReviewFilterWidgetProps) 
   const [complaintText, setComplaintText] = useState<string>('Air conditioning in waiting hall was warm, and doctor arrived 15 mins late.');
   const [complaintSubmitted, setComplaintSubmitted] = useState<boolean>(false);
 
-  const activeRating = hoverRating !== null ? hoverRating : selectedRating;
   const isPositive = selectedRating >= 4;
 
   const handleSelectRating = (rating: number) => {
@@ -45,11 +42,6 @@ export function ReviewFilterWidget({ className = '' }: ReviewFilterWidgetProps) 
     } else {
       setInterceptedComplaintsCount((prev) => prev + 1);
     }
-  };
-
-  const handleNfcTap = () => {
-    setNfcTapped(true);
-    setTimeout(() => setNfcTapped(false), 1500);
   };
 
   return (
@@ -83,78 +75,13 @@ export function ReviewFilterWidget({ className = '' }: ReviewFilterWidgetProps) 
       <div className="p-6 sm:p-8 space-y-8">
         {/* Main Simulation Arena */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Column 1: Acrylic Standee Interactive Graphic (5 cols) */}
+          {/* Column 1: Acrylic Standee 3D Hardware Physics (5 cols) */}
           <div className="lg:col-span-5 flex flex-col items-center">
-            <div className="w-full max-w-xs rounded-2xl bg-[#0F2A47] p-6 text-white text-center shadow-xl border-4 border-[#9C7A3C]/40 relative overflow-hidden space-y-5">
-              {/* Standee Acrylic Glow Header */}
-              <div className="flex items-center justify-between border-b border-white/15 pb-3">
-                <span className="text-[10px] font-mono font-bold uppercase text-[#9C7A3C] tracking-widest">
-                  JSM REPUTATION SYSTEM
-                </span>
-                <Radio size={14} className="text-[#9C7A3C] animate-pulse" />
-              </div>
-
-              {/* NFC Sensor Ring */}
-              <div className="space-y-2 py-2">
-                <button
-                  type="button"
-                  onClick={handleNfcTap}
-                  className={`w-20 h-20 mx-auto rounded-full bg-white/10 hover:bg-white/15 border-2 border-dashed border-[#9C7A3C] flex items-center justify-center transition-all group cursor-pointer min-h-[44px] min-w-[44px] ${
-                    nfcTapped ? 'ring-4 ring-[#9C7A3C] scale-105' : ''
-                  }`}
-                  title="Simulate tapping smartphone to NFC Standee"
-                >
-                  <Smartphone size={32} className="text-[#9C7A3C] group-hover:scale-110 transition-transform" />
-                </button>
-                <span className="text-[11px] font-semibold text-slate-200 block">
-                  {nfcTapped ? '✓ NFC Standee Tapped!' : 'Tap Phone or Select Stars Below'}
-                </span>
-                <p className="text-[10px] text-slate-400">
-                  Simulated NFC Standee on Reception Desk
-                </p>
-              </div>
-
-              {/* 5-Star Rating Buttons */}
-              <div className="space-y-2 pt-2 bg-white/5 p-4 rounded-xl border border-white/10">
-                <span className="text-xs font-semibold text-white block">
-                  Rate Your Experience Today:
-                </span>
-                <div className="flex items-center justify-center gap-1.5 pt-1">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <button
-                      key={star}
-                      type="button"
-                      onClick={() => handleSelectRating(star)}
-                      onMouseEnter={() => setHoverRating(star)}
-                      onMouseLeave={() => setHoverRating(null)}
-                      className="p-1 rounded hover:scale-125 transition-transform cursor-pointer min-h-[44px] min-w-[44px] flex items-center justify-center"
-                      aria-label={`Rate ${star} Stars`}
-                    >
-                      <Star
-                        size={28}
-                        className={`transition-colors ${
-                          star <= activeRating
-                            ? 'text-amber-400 fill-amber-400'
-                            : 'text-slate-500 fill-transparent'
-                        }`}
-                      />
-                    </button>
-                  ))}
-                </div>
-                <span className="text-xs font-mono font-bold text-[#9C7A3C] block pt-1 tabular-nums">
-                  {selectedRating === 5 && '★★★★★ Excellent (5 Stars)'}
-                  {selectedRating === 4 && '★★★★☆ Very Good (4 Stars)'}
-                  {selectedRating === 3 && '★★★☆☆ Average (3 Stars)'}
-                  {selectedRating === 2 && '★★☆☆☆ Poor (2 Stars)'}
-                  {selectedRating === 1 && '★☆☆☆☆ Unsatisfied (1 Star)'}
-                </span>
-              </div>
-
-              {/* Standee Base */}
-              <div className="pt-2 text-[10px] text-slate-400 font-mono">
-                Model: ACRYLIC-GOLD-NFC-V2 &bull; QR Fallback
-              </div>
-            </div>
+            <NfcStandee3D 
+              initialRating={selectedRating}
+              onRatingSelect={handleSelectRating}
+              embeddedMode={true}
+            />
           </div>
 
           {/* Column 2: Dynamic Routing Logic & Live Visual Outcome (7 cols) */}
@@ -204,7 +131,7 @@ export function ReviewFilterWidget({ className = '' }: ReviewFilterWidgetProps) 
                 </div>
 
                 <p className="text-xs text-[#4A5160] leading-relaxed">
-                  Customer selected <strong className="text-emerald-800">{selectedRating} stars</strong>. The smart standee immediately redirects their mobile browser directly to your business&apos;s Google Review pop-up with 5 stars pre-selected.
+                  Customer selected <strong className="text-emerald-800">{selectedRating} stars</strong> on the acrylic standee. The smart NFC chip immediately redirects their mobile browser directly to your business&apos;s Google Review pop-up with 5 stars pre-selected.
                 </p>
 
                 {/* Simulated Google Maps Review Card */}
@@ -289,15 +216,16 @@ export function ReviewFilterWidget({ className = '' }: ReviewFilterWidgetProps) 
                     <button
                       type="button"
                       onClick={() => setComplaintSubmitted(true)}
-                      className="px-4 py-2 rounded-md bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-semibold transition-colors min-h-[44px]"
+                      className="px-4 py-2 rounded-md bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-semibold transition-colors min-h-[44px] flex items-center gap-1.5 cursor-pointer"
                     >
-                      {complaintSubmitted ? 'Transmitted' : 'Send to Owner WhatsApp'}
+                      <Send size={14} />
+                      <span>{complaintSubmitted ? 'Transmitted' : 'Send to Owner WhatsApp'}</span>
                     </button>
                   </div>
                 </div>
 
                 <div className="pt-2 text-xs text-amber-900 font-semibold flex items-center gap-1.5">
-                  <ShieldCheck size={14} className="text-amber-700" />
+                  <ShieldCheck size={14} />
                   <span>Public Google Rating Protected: 4.9★ Average Maintained</span>
                 </div>
               </div>

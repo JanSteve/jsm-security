@@ -5,11 +5,17 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "motion/react";
 import { Clock, ShieldCheck, Eye, Award } from "lucide-react";
+import { Hero3DScene, HologramShieldCanvas } from "@/components/3d";
 
 export function HeroSection() {
+  const [activeVisualTab, setActiveVisualTab] = React.useState<"photo" | "hologram">("photo");
+
   return (
     <section className="relative pt-24 pb-14 sm:pt-28 sm:pb-16 lg:pt-36 lg:pb-24 overflow-hidden bg-white border-b border-[#E4E7EC]">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 3D WebGL / Canvas Spatial Engine & Central Command Hologram */}
+      <Hero3DScene showShield={activeVisualTab === "photo"} />
+
+      <div className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Left Text Block — Text & CTA first on all devices */}
           <div className="lg:col-span-7 space-y-5 sm:space-y-6">
@@ -92,33 +98,87 @@ export function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Right Supporting Photographic Proof Frame — 0px radius, hairline border */}
+          {/* Right Supporting Visual / 3D Command Frame — 0px radius, hairline border */}
           <div className="lg:col-span-5 relative">
-            <div className="relative border border-[#E4E7EC] bg-[#F6F7F9] shadow-subtle">
-              <div className="aspect-square sm:aspect-[4/3] relative w-full overflow-hidden">
-                <Image
-                  src="/images/real_jsm_airport_terminal_platoon.jpg"
-                  alt="JSM Security Platoon on site at Tiruchirappalli International Airport"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 42vw"
-                  className="object-cover"
-                  priority
-                />
+            <div className="relative border border-[#E4E7EC] bg-[#F6F7F9] shadow-subtle overflow-hidden">
+              {/* Tab Selector: Field Platoon vs 3D Command Hologram */}
+              <div className="flex items-center justify-between border-b border-[#E4E7EC] bg-white px-3 py-2 text-xs">
+                <div className="flex items-center gap-1">
+                  <button
+                    type="button"
+                    onClick={() => setActiveVisualTab("photo")}
+                    className={`px-2.5 py-1 text-xs font-semibold rounded-[3px] transition-colors ${
+                      activeVisualTab === "photo"
+                        ? "bg-[#0F2A47] text-white"
+                        : "text-[#4A5160] hover:text-[#14181F] hover:bg-[#F6F7F9]"
+                    }`}
+                  >
+                    Platoon Operations
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setActiveVisualTab("hologram")}
+                    className={`px-2.5 py-1 text-xs font-semibold rounded-[3px] transition-colors flex items-center gap-1.5 ${
+                      activeVisualTab === "hologram"
+                        ? "bg-[#0F2A47] text-white"
+                        : "text-[#4A5160] hover:text-[#14181F] hover:bg-[#F6F7F9]"
+                    }`}
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse" />
+                    <span>3D Command Shield</span>
+                  </button>
+                </div>
+                <span className="text-[11px] font-mono text-[#9C7A3C] uppercase tracking-wider">
+                  {activeVisualTab === "photo" ? "Trichy Benchmark" : "WebGL Active"}
+                </span>
               </div>
 
-              {/* Verified Editorial Caption */}
-              <div className="p-4 bg-white border-t border-[#E4E7EC] space-y-1 text-left">
-                <div className="flex items-center justify-between text-xs">
-                  <span className="font-semibold text-[#14181F] flex items-center gap-1.5">
-                    <Award size={14} className="text-[#9C7A3C]" />
-                    <span>Trichy International Airport Operations</span>
-                  </span>
-                  <span className="text-[11px] font-mono text-[#4A5160]">2024 Benchmark</span>
+              {activeVisualTab === "photo" ? (
+                <>
+                  <div className="aspect-square sm:aspect-[4/3] relative w-full overflow-hidden">
+                    <Image
+                      src="/images/real_jsm_airport_terminal_platoon.jpg"
+                      alt="JSM Security Platoon on site at Tiruchirappalli International Airport"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 42vw"
+                      className="object-cover"
+                      priority
+                    />
+                  </div>
+
+                  {/* Verified Editorial Caption */}
+                  <div className="p-4 bg-white border-t border-[#E4E7EC] space-y-1 text-left">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="font-semibold text-[#14181F] flex items-center gap-1.5">
+                        <Award size={14} className="text-[#9C7A3C]" />
+                        <span>Trichy International Airport Operations</span>
+                      </span>
+                      <span className="text-[11px] font-mono text-[#4A5160]">2024 Benchmark</span>
+                    </div>
+                    <p className="text-[13px] text-[#4A5160] leading-snug mt-1">
+                      Uniformed platoon muster and turnout briefing under leadership of Proprietor Sweety J.
+                    </p>
+                  </div>
+                </>
+              ) : (
+                <div className="p-4 bg-[#0B0F17] text-white space-y-3">
+                  <div className="h-[280px] sm:h-[320px] relative w-full flex items-center justify-center">
+                    <HologramShieldCanvas />
+                  </div>
+                  <div className="pt-2 border-t border-[#1F2937] text-left space-y-1">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="font-semibold text-[#D4AF37] flex items-center gap-1.5">
+                        <ShieldCheck size={14} />
+                        <span>Central Command Hologram</span>
+                      </span>
+                      <span className="text-[11px] font-mono text-emerald-400">60 FPS Hardware Accelerated</span>
+                    </div>
+                    <p className="text-[12px] text-gray-400 leading-snug">
+                      Interactive 3D wireframe shield reacting to cursor position and scroll depth with concentric gyroscopes.
+                    </p>
+                  </div>
                 </div>
-                <p className="text-[13px] text-[#4A5160] leading-snug mt-1">
-                  Uniformed platoon muster and turnout briefing under leadership of Proprietor Sweety J.
-                </p>
-              </div>
+              )}
             </div>
           </div>
         </div>

@@ -9,9 +9,9 @@ import {
   Clock, 
   Sparkles, 
   Send,
-  CheckCircle2,
   AlertTriangle
 } from 'lucide-react';
+import { WhatsappPhone3D } from './whatsapp-phone-3d';
 
 interface QueueSimulatorProps {
   className?: string;
@@ -61,7 +61,6 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
   const [tableNumber, setTableNumber] = useState<number>(7);
   const [cart, setCart] = useState<Record<string, number>>({ '1': 1, '3': 2 });
   const [orderSent, setOrderSent] = useState<boolean>(false);
-  const [orderTimestamp, setOrderTimestamp] = useState<string>('12:42 PM');
 
   // Clinic Handlers
   const handleNextPatient = () => {
@@ -127,9 +126,6 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
   const aggregatorCommissionSaved = Math.round(cartSubtotal * 0.3);
 
   const handleSendOrder = () => {
-    const now = new Date();
-    const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    setOrderTimestamp(timeStr);
     setOrderSent(true);
   };
 
@@ -144,13 +140,13 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
           <div className="space-y-1.5">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[#9C7A3C] text-xs font-semibold">
               <Sparkles size={14} className="text-[#9C7A3C]" />
-              <span>Generative Digital Automation Simulator</span>
+              <span>Interactive 3D Hardware &amp; WhatsApp Simulator</span>
             </div>
             <h3 className="font-serif text-2xl sm:text-3xl font-semibold tracking-tight text-white">
               Live Queue &amp; QR Direct Order Flow
             </h3>
             <p className="text-xs sm:text-sm text-slate-300 max-w-2xl">
-              Simulate real-time clinic patient queues and table QR ordering with zero aggregator commissions.
+              Interact with our floating 3D glass smartphone mockup running live clinic patient tokens and table QR ordering with zero aggregator commissions.
             </p>
           </div>
 
@@ -159,7 +155,7 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
             <button
               type="button"
               onClick={() => setActiveTab('clinic')}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-md text-xs font-semibold transition-all min-h-[44px] ${
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-md text-xs font-semibold transition-all min-h-[44px] cursor-pointer ${
                 activeTab === 'clinic'
                   ? 'bg-white text-[#0F2A47] shadow-xs'
                   : 'text-white hover:text-white/80'
@@ -171,7 +167,7 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
             <button
               type="button"
               onClick={() => setActiveTab('restaurant')}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-md text-xs font-semibold transition-all min-h-[44px] ${
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-md text-xs font-semibold transition-all min-h-[44px] cursor-pointer ${
                 activeTab === 'restaurant'
                   ? 'bg-white text-[#0F2A47] shadow-xs'
                   : 'text-white hover:text-white/80'
@@ -188,8 +184,8 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
         {/* TAB 1: CLINIC TOKEN SIMULATOR */}
         {activeTab === 'clinic' && (
           <div className="space-y-8">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-              {/* Left Column: Doctor Console */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              {/* Left Column: Doctor Console (7 cols) */}
               <div className="lg:col-span-7 space-y-6">
                 {/* Now Serving Display Box */}
                 <div className="p-6 rounded-xl bg-[#0F2A47] text-white space-y-4 shadow-xs relative overflow-hidden">
@@ -228,7 +224,7 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
                     <button
                       type="button"
                       onClick={handleNextPatient}
-                      className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-md bg-white hover:bg-slate-100 text-[#0F2A47] text-xs font-semibold transition-all min-h-[44px] shadow-xs"
+                      className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-md bg-white hover:bg-slate-100 text-[#0F2A47] text-xs font-semibold transition-all min-h-[44px] shadow-xs cursor-pointer"
                     >
                       <Bell size={14} className="text-[#0F2A47]" />
                       <span>Call Next Patient</span>
@@ -236,7 +232,7 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
                     <button
                       type="button"
                       onClick={handleAddWalkin}
-                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs font-semibold transition-all min-h-[44px]"
+                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs font-semibold transition-all min-h-[44px] cursor-pointer"
                     >
                       <Plus size={14} />
                       <span>Walk-in Check-in</span>
@@ -244,7 +240,7 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
                     <button
                       type="button"
                       onClick={handleBroadcastDelay}
-                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-400/40 text-xs font-semibold transition-all min-h-[44px]"
+                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-400/40 text-xs font-semibold transition-all min-h-[44px] cursor-pointer"
                     >
                       <Clock size={14} />
                       <span>Broadcast Delay</span>
@@ -323,74 +319,12 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
                 </div>
               </div>
 
-              {/* Right Column: Simulated Patient Smartphone Screen */}
+              {/* Right Column: 3D Floating Glass WhatsApp Smartphone (5 cols) */}
               <div className="lg:col-span-5 flex flex-col items-center">
-                <div className="w-full max-w-sm rounded-[32px] border-4 border-[#0F2A47] bg-[#F6F7F9] p-4 shadow-lg space-y-4">
-                  {/* Phone Notch & Status */}
-                  <div className="flex items-center justify-between text-[11px] font-mono px-3 text-[#4A5160]">
-                    <span>9:41 AM</span>
-                    <span className="text-[10px] bg-emerald-100 text-emerald-800 font-semibold px-2 py-0.5 rounded-full">
-                      WhatsApp Live Sync
-                    </span>
-                    <span>100%</span>
-                  </div>
-
-                  {/* WhatsApp Bot Message Bubble */}
-                  <div className="bg-white border border-[#E4E7EC] rounded-2xl p-4 shadow-2xs space-y-3 text-left">
-                    <div className="flex items-center gap-2 border-b border-[#E4E7EC] pb-2">
-                      <div className="w-7 h-7 rounded-full bg-[#0F2A47] text-white flex items-center justify-center text-xs font-bold">
-                        J
-                      </div>
-                      <div>
-                        <h5 className="text-xs font-semibold text-[#14181F]">Dr. Ramanathan Clinic Bot</h5>
-                        <p className="text-[10px] text-[#4A5160]">Official Verified Business</p>
-                      </div>
-                    </div>
-
-                    <div className="space-y-1.5 text-xs text-[#14181F]">
-                      <p>
-                        Hello <strong>{nextPatient ? nextPatient.patientName : 'Patient'}</strong>, your live token status:
-                      </p>
-                      <div className="p-3 bg-[#0F2A47]/5 rounded-xl border border-[#0F2A47]/10 space-y-1">
-                        <div className="flex justify-between items-baseline">
-                          <span className="text-[11px] text-[#4A5160]">Your Token:</span>
-                          <span className="font-mono text-lg font-bold text-[#0F2A47] tabular-nums">
-                            #{nextPatient ? nextPatient.token : 15}
-                          </span>
-                        </div>
-                        <div className="flex justify-between items-baseline">
-                          <span className="text-[11px] text-[#4A5160]">Now Serving:</span>
-                          <span className="font-mono text-sm font-semibold text-emerald-700 tabular-nums">
-                            #{currentPatient ? currentPatient.token : 14}
-                          </span>
-                        </div>
-                        <div className="flex justify-between items-baseline">
-                          <span className="text-[11px] text-[#4A5160]">Estimated Wait:</span>
-                          <span className="font-mono text-sm font-semibold text-amber-700 tabular-nums">
-                            {nextPatient ? nextPatient.estWaitMin : 4} minutes
-                          </span>
-                        </div>
-                      </div>
-                      <p className="text-[11px] text-[#4A5160] pt-1 leading-relaxed">
-                        💡 Feel free to wait in your car or at a nearby cafe. We will buzz your phone when 1 patient remains ahead of you.
-                      </p>
-                    </div>
-
-                    <div className="pt-2 border-t border-[#E4E7EC] flex gap-2">
-                      <button
-                        type="button"
-                        onClick={handleNextPatient}
-                        className="w-full py-2 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-lg text-xs font-semibold transition-colors min-h-[44px]"
-                      >
-                        Refresh Token Status
-                      </button>
-                    </div>
-                  </div>
-
-                  <p className="text-[11px] text-center text-[#4A5160]">
-                    Zero waiting room congestion. Deployed across 30+ clinics in Trichy, Madurai, &amp; Chennai.
-                  </p>
-                </div>
+                <WhatsappPhone3D
+                  initialMode="clinic-token"
+                  onModeChange={(mode) => setActiveTab(mode === 'table-order' ? 'restaurant' : 'clinic')}
+                />
               </div>
             </div>
           </div>
@@ -399,8 +333,8 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
         {/* TAB 2: RESTAURANT TABLE QR SIMULATOR */}
         {activeTab === 'restaurant' && (
           <div className="space-y-8">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-              {/* Left Column: Digital Table Menu & Cart */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              {/* Left Column: Digital Table Menu & Cart (7 cols) */}
               <div className="lg:col-span-7 space-y-6">
                 <div className="flex items-center justify-between bg-[#F6F7F9] p-4 rounded-xl border border-[#E4E7EC]">
                   <div className="flex items-center gap-3">
@@ -419,7 +353,7 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
                         key={num}
                         type="button"
                         onClick={() => { setTableNumber(num); setOrderSent(false); }}
-                        className={`px-3 py-2 rounded-md text-xs font-semibold min-h-[44px] min-w-[44px] flex items-center justify-center ${
+                        className={`px-3 py-2 rounded-md text-xs font-semibold min-h-[44px] min-w-[44px] flex items-center justify-center cursor-pointer ${
                           tableNumber === num
                             ? 'bg-[#0F2A47] text-white'
                             : 'bg-white border border-[#E4E7EC] text-[#4A5160]'
@@ -457,7 +391,7 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
                                 <button
                                   type="button"
                                   onClick={() => updateQuantity(item.id, -1)}
-                                  className="w-11 h-11 rounded bg-white hover:bg-slate-100 text-[#14181F] font-bold text-sm flex items-center justify-center min-h-[44px] min-w-[44px]"
+                                  className="w-11 h-11 rounded bg-white hover:bg-slate-100 text-[#14181F] font-bold text-sm flex items-center justify-center min-h-[44px] min-w-[44px] cursor-pointer"
                                 >
                                   -
                                 </button>
@@ -465,7 +399,7 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
                                 <button
                                   type="button"
                                   onClick={() => updateQuantity(item.id, 1)}
-                                  className="w-11 h-11 rounded bg-[#0F2A47] text-white hover:bg-[#0A1E33] font-bold text-sm flex items-center justify-center min-h-[44px] min-w-[44px]"
+                                  className="w-11 h-11 rounded bg-[#0F2A47] text-white hover:bg-[#0A1E33] font-bold text-sm flex items-center justify-center min-h-[44px] min-w-[44px] cursor-pointer"
                                 >
                                   +
                                 </button>
@@ -474,7 +408,7 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
                               <button
                                 type="button"
                                 onClick={() => updateQuantity(item.id, 1)}
-                                className="px-4 py-2 rounded-lg bg-[#0F2A47] hover:bg-[#0A1E33] text-white text-xs font-semibold transition-colors min-h-[44px]"
+                                className="px-4 py-2 rounded-lg bg-[#0F2A47] hover:bg-[#0A1E33] text-white text-xs font-semibold transition-colors min-h-[44px] cursor-pointer"
                               >
                                 Add +
                               </button>
@@ -511,7 +445,7 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
                     type="button"
                     onClick={handleSendOrder}
                     disabled={cartSubtotal === 0}
-                    className="w-full py-3 rounded-lg bg-[#25D366] hover:bg-[#20ba59] text-white font-semibold text-sm transition-all shadow-xs flex items-center justify-center gap-2 min-h-[44px] disabled:opacity-50"
+                    className="w-full py-3 rounded-lg bg-[#25D366] hover:bg-[#20ba59] text-white font-semibold text-sm transition-all shadow-xs flex items-center justify-center gap-2 min-h-[44px] disabled:opacity-50 cursor-pointer"
                   >
                     <Send size={16} />
                     <span>Send Order Direct to Kitchen on WhatsApp</span>
@@ -519,71 +453,12 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
                 </div>
               </div>
 
-              {/* Right Column: Simulated Kitchen Display & WhatsApp Ticket */}
+              {/* Right Column: 3D Floating Glass WhatsApp Smartphone (5 cols) */}
               <div className="lg:col-span-5 flex flex-col items-center">
-                <div className="w-full max-w-sm rounded-[32px] border-4 border-[#0F2A47] bg-[#F6F7F9] p-4 shadow-lg space-y-4">
-                  {/* Phone Notch */}
-                  <div className="flex items-center justify-between text-[11px] font-mono px-3 text-[#4A5160]">
-                    <span>12:42 PM</span>
-                    <span className="text-[10px] bg-emerald-100 text-emerald-800 font-semibold px-2 py-0.5 rounded-full">
-                      Kitchen WhatsApp Ticket
-                    </span>
-                    <span>100%</span>
-                  </div>
-
-                  {/* Kitchen Order Ticket */}
-                  <div className="bg-white border border-[#E4E7EC] rounded-2xl p-5 shadow-2xs space-y-3 text-left">
-                    <div className="flex items-center justify-between border-b border-[#E4E7EC] pb-2">
-                      <div>
-                        <span className="text-[10px] font-mono text-emerald-700 font-bold uppercase tracking-wider block">
-                          {orderSent ? '✅ KITCHEN RECEIVED' : '⏳ PENDING SUBMISSION'}
-                        </span>
-                        <h5 className="text-sm font-bold text-[#14181F]">Table #{tableNumber} Ticket</h5>
-                      </div>
-                      <span className="text-xs font-mono text-[#4A5160] tabular-nums">{orderTimestamp}</span>
-                    </div>
-
-                    <div className="space-y-2 pt-1 font-mono text-xs">
-                      {Object.entries(cart).map(([id, qty]) => {
-                        const item = MENU_ITEMS.find((m) => m.id === id);
-                        if (!item) return null;
-                        return (
-                          <div key={id} className="flex justify-between items-center text-[#14181F]">
-                            <span>{qty}x {item.name}</span>
-                            <span className="font-semibold tabular-nums">₹{item.price * qty}</span>
-                          </div>
-                        );
-                      })}
-                      <div className="border-t border-dashed border-[#E4E7EC] pt-2 flex justify-between font-bold text-sm text-[#0F2A47]">
-                        <span>TOTAL PAYABLE:</span>
-                        <span className="tabular-nums">₹{cartSubtotal}</span>
-                      </div>
-                    </div>
-
-                    {orderSent ? (
-                      <div className="p-3 bg-emerald-50 border border-emerald-200 rounded-lg space-y-1">
-                        <div className="flex items-center gap-1.5 text-xs font-semibold text-emerald-800">
-                          <CheckCircle2 size={14} className="text-emerald-600" />
-                          <span>Kitchen Chef Station Buzzed</span>
-                        </div>
-                        <p className="text-[11px] text-emerald-700 leading-snug">
-                          Ticket printed automatically on POS thermal printer. Zero manual billing delay.
-                        </p>
-                      </div>
-                    ) : (
-                      <div className="p-3 bg-[#F6F7F9] rounded-lg text-[11px] text-[#4A5160] text-center">
-                        Add items and tap &quot;Send Order&quot; to test kitchen webhook trigger.
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="p-3 bg-white border border-[#E4E7EC] rounded-xl text-xs space-y-1 text-left">
-                    <span className="font-semibold text-[#14181F] block">Zero Hardware Investment:</span>
-                    <p className="text-[11px] text-[#4A5160]">
-                      Runs on standard laminated acrylic standees. No expensive tablet computers needed at every table.
-                    </p>
-                  </div>
-                </div>
+                <WhatsappPhone3D
+                  initialMode="table-order"
+                  onModeChange={(mode) => setActiveTab(mode === 'clinic-token' ? 'clinic' : 'restaurant')}
+                />
               </div>
             </div>
           </div>

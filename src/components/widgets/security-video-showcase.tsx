@@ -19,6 +19,7 @@ import {
   Clock
 } from 'lucide-react';
 import Link from 'next/link';
+import { SoundWaveVisualizer } from './sound-wave-visualizer';
 
 interface SecurityVideoShowcaseProps {
   className?: string;
@@ -42,7 +43,7 @@ export function SecurityVideoShowcase({
     setTimeout(() => {
       const vid = mode === 'ad' ? adVideoRef.current : storyboardVideoRef.current;
       if (vid) {
-        vid.muted = mode === 'ad' ? true : isMuted;
+        vid.muted = isMuted;
         vid.play().catch(() => {});
       }
     }, 100);
@@ -92,11 +93,11 @@ export function SecurityVideoShowcase({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`rounded-2xl bg-gradient-to-br from-[#0A1E33] via-[#0F2A47] to-[#061423] text-white p-6 sm:p-10 border border-[#9C7A3C]/30 shadow-2xl space-y-8 relative overflow-hidden ${className}`}
+      className={`rounded-2xl bg-obsidian-mesh text-white p-6 sm:p-10 border border-[#9C7A3C]/35 border-gold-specular-top shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] space-y-8 relative overflow-hidden ${className}`}
     >
       {/* Decorative Military Gold Accent Glows */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#9C7A3C]/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#0F2A47]/40 rounded-full blur-2xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#9C7A3C]/12 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#0F2A47]/45 rounded-full blur-2xl pointer-events-none" />
 
       {/* Header Bar */}
       <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-5 border-b border-white/10 pb-6">
@@ -111,16 +112,16 @@ export function SecurityVideoShowcase({
           </h3>
 
           <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
-            Led by Army-Veteran <strong className="text-white">Major AR Devadoss</strong> and Managing Director <strong className="text-white">Sweety J</strong>. We deliver disciplined security platoons, verified industrial manpower, and commercial facility management across Tamil Nadu.
+            Led by Managing Director <strong className="text-white">Sweety J</strong>, Operations Director Army-Veteran <strong className="text-white">Major AR Devadoss</strong>, and Executive Director <strong className="text-white">R Jan Steve Daniel</strong>. We deploy disciplined security platoons, verified industrial manpower, and commercial facility management across Tamil Nadu.
           </p>
         </div>
 
         {/* Mode Switcher */}
-        <div className="flex items-center bg-[#071728] p-1.5 rounded-xl border border-white/10 shrink-0 self-start md:self-auto">
+        <div className="flex items-center bg-[#071728]/90 backdrop-blur-md p-1.5 rounded-xl border border-white/10 shrink-0 self-start md:self-auto">
           <button
             type="button"
             onClick={() => handleSwitchMode('ad')}
-            className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all ${
+            className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all press-scale ${
               activeMode === 'ad'
                 ? 'bg-[#9C7A3C] text-white shadow-md'
                 : 'text-neutral-400 hover:text-white'
@@ -133,7 +134,7 @@ export function SecurityVideoShowcase({
           <button
             type="button"
             onClick={() => handleSwitchMode('storyboard')}
-            className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all ${
+            className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all press-scale ${
               activeMode === 'storyboard'
                 ? 'bg-[#9C7A3C] text-white shadow-md'
                 : 'text-neutral-400 hover:text-white'
@@ -159,7 +160,7 @@ export function SecurityVideoShowcase({
               src="/videos/jsm-integrated-services-ad.mp4"
               autoPlay
               loop
-              muted
+              muted={isMuted}
               playsInline
               preload="metadata"
               className="w-full h-full object-cover"
@@ -176,6 +177,23 @@ export function SecurityVideoShowcase({
               </span>
             </div>
 
+            {/* Top Right: Tap For Sound Button */}
+            <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-30">
+              <button
+                type="button"
+                onClick={toggleSound}
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold transition-all shadow-md backdrop-blur-md border press-scale ${
+                  isMuted 
+                    ? 'bg-amber-500 hover:bg-amber-400 text-black border-amber-300 animate-bounce' 
+                    : 'bg-emerald-600/90 hover:bg-emerald-500 text-white border-emerald-400/50'
+                }`}
+                title={isMuted ? "Tap to enable sound" : "Tap to mute sound"}
+              >
+                {isMuted ? <VolumeX size={13} /> : <Volume2 size={13} />}
+                <span>{isMuted ? 'SOUND OFF' : 'SOUND ON'}</span>
+              </button>
+            </div>
+
             {/* Bottom Floating Bar */}
             <div className="absolute bottom-3 sm:bottom-4 inset-x-3 sm:inset-x-4 z-20 flex items-center justify-between text-xs text-neutral-300">
               <div className="flex items-center gap-2">
@@ -185,17 +203,25 @@ export function SecurityVideoShowcase({
                     e.stopPropagation();
                     togglePlay();
                   }}
-                  className="p-2 rounded-lg bg-black/60 hover:bg-black/80 text-white backdrop-blur-md border border-white/15"
+                  className="p-2 rounded-lg bg-black/60 hover:bg-black/80 text-white backdrop-blur-md border border-white/15 press-scale"
                 >
                   {isPlaying ? <Pause size={14} /> : <Play size={14} />}
                 </button>
                 <button
                   type="button"
                   onClick={handleRestart}
-                  className="p-2 rounded-lg bg-black/60 hover:bg-black/80 text-white backdrop-blur-md border border-white/15"
+                  className="p-2 rounded-lg bg-black/60 hover:bg-black/80 text-white backdrop-blur-md border border-white/15 press-scale"
                   title="Replay from start"
                 >
                   <RotateCcw size={14} />
+                </button>
+                <button
+                  type="button"
+                  onClick={toggleSound}
+                  className="p-2 rounded-lg bg-black/60 hover:bg-black/80 text-white backdrop-blur-md border border-white/15 press-scale"
+                  title={isMuted ? "Unmute audio" : "Mute audio"}
+                >
+                  {isMuted ? <VolumeX size={14} className="text-amber-400" /> : <Volume2 size={14} className="text-emerald-400" />}
                 </button>
                 <span className="text-[11px] font-mono text-[#D4AF37] hidden sm:inline">
                   Commercial Broadcast Loop (10s)
@@ -243,7 +269,7 @@ export function SecurityVideoShowcase({
               <button
                 type="button"
                 onClick={toggleSound}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold transition-all shadow-md backdrop-blur-md border ${
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold transition-all shadow-md backdrop-blur-md border press-scale ${
                   isMuted 
                     ? 'bg-amber-500 hover:bg-amber-400 text-black border-amber-300 animate-bounce' 
                     : 'bg-emerald-600/90 hover:bg-emerald-500 text-white border-emerald-400/50'
@@ -263,14 +289,14 @@ export function SecurityVideoShowcase({
                     e.stopPropagation();
                     togglePlay();
                   }}
-                  className="p-1 rounded bg-black/60 text-white backdrop-blur-md"
+                  className="p-1 rounded bg-black/60 text-white backdrop-blur-md press-scale"
                 >
                   {isPlaying ? <Pause size={12} /> : <Play size={12} />}
                 </button>
                 <button
                   type="button"
                   onClick={handleRestart}
-                  className="p-1 rounded bg-black/60 text-white backdrop-blur-md"
+                  className="p-1 rounded bg-black/60 text-white backdrop-blur-md press-scale"
                 >
                   <RotateCcw size={12} />
                 </button>
@@ -282,6 +308,17 @@ export function SecurityVideoShowcase({
             </div>
           </div>
         )}
+
+        {/* Integrated 24-Band Military Sound Wave Frequency Spectrum Visualizer */}
+        <div className="w-full max-w-4xl mt-5">
+          <SoundWaveVisualizer
+            isPlaying={isPlaying}
+            isMuted={isMuted}
+            videoRef={activeMode === 'ad' ? adVideoRef : storyboardVideoRef}
+            label="TACTICAL AUDIO RADAR &bull; 24-BAND FREQUENCY SPECTRUM"
+            variant="hud"
+          />
+        </div>
 
       </div>
 
@@ -337,14 +374,14 @@ export function SecurityVideoShowcase({
         <div className="flex items-center gap-3">
           <Link
             href="/get-quote"
-            className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg bg-[#9C7A3C] hover:bg-[#B38D48] text-white font-semibold transition-colors shadow-md min-h-[40px]"
+            className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg bg-[#9C7A3C] hover:bg-[#B38D48] text-white font-semibold transition-colors shadow-md min-h-[40px] press-scale"
           >
             <span>Request Guarding Proposal</span>
             <ArrowRight size={13} />
           </Link>
           <a
             href="tel:+919080863448"
-            className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-semibold transition-colors border border-white/15 min-h-[40px]"
+            className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-semibold transition-colors border border-white/15 min-h-[40px] press-scale"
           >
             <Phone size={13} className="text-[#D4AF37]" />
             <span>+91 90808 63448</span>

@@ -22,6 +22,7 @@ import {
   geoTargetSchema 
 } from "@/lib/schema";
 import { brandData } from "@/data/brand";
+import { AmbientMagneticCursor, KineticTypography } from "@/components/motion";
 
 export const metadata = {
   title: {
@@ -67,6 +68,9 @@ export default function Home() {
 
   return (
     <div className="relative bg-white text-[#14181F] min-h-screen">
+      {/* Ambient Military Gold Magnetic Cursor */}
+      <AmbientMagneticCursor />
+
       {/* Schema.org Structured Data — SEO / AEO / GEO */}
       <script
         type="application/ld+json"
@@ -112,7 +116,20 @@ export default function Home() {
 
       {/* 3a. Official Security Brand Commercial & Tactical Video Theater */}
       <section className="py-14 sm:py-18 bg-white">
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div className="max-w-3xl space-y-2 text-left">
+            <div className="text-xs font-semibold text-[#9C7A3C]">
+              Operational Excellence on Film
+            </div>
+            <KineticTypography
+              as="h2"
+              text="Tactical Security Deployment & Ground Turnout in Action"
+              className="font-serif text-2xl sm:text-3xl lg:text-[38px] leading-[1.18] text-[#14181F] font-semibold tracking-[-0.01em]"
+            />
+            <p className="text-sm sm:text-base text-[#4A5160] leading-relaxed">
+              Ex-Servicemen drill inspections, rapid mobilization protocols, and live airport security operations recorded on ground.
+            </p>
+          </div>
           <SecurityVideoShowcase />
         </div>
       </section>

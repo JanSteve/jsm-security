@@ -1,68 +1,221 @@
+'use client';
+
 import React from "react";
 import Link from "next/link";
 import { 
   Shield, 
   Users, 
   Sparkles, 
-  Check, 
   FileText, 
   Scan, 
-  Building,
-  MessageSquare,
-  Star,
-  PhoneForwarded,
-  Utensils,
-  Globe,
-  MapPin,
-  ArrowRight,
-  Cpu
+  Building, 
+  MessageSquare, 
+  Star, 
+  PhoneForwarded, 
+  Utensils, 
+  Globe, 
+  MapPin, 
+  ArrowRight, 
+  Cpu,
+  ShieldCheck,
+  Award,
+  Clock,
+  Radio,
+  FileCheck2,
+  Workflow
 } from "lucide-react";
+import { StickyScrollSequence, type StickyStepItem } from "@/components/motion/sticky-scroll-sequence";
+import { PerspectiveTiltCard } from "@/components/motion/perspective-tilt-card";
+import { KineticTypography } from "@/components/motion/kinetic-typography";
 
-const tierServices = [
+const operationSteps: StickyStepItem[] = [
   {
-    tier: "Tier 1",
-    code: "SAC 998525",
+    id: "tier-1",
+    badge: "Tier 1 • SAC 998525",
     title: "Security Supervisors & Guarding Forces",
-    slug: "/services/private-security",
-    badge: "Ex-Servicemen Led & DGR Aligned",
-    icon: Shield,
-    description: "Disciplined perimeter protection, visitor gate-pass registers, and access control led by Ex-Servicemen (ESM) and trained private security marshals.",
+    subtitle: "Ex-Servicemen Led & DGR Aligned",
+    description: "Disciplined perimeter protection, visitor gate-pass registers, and access control led by Ex-Servicemen (ESM) and trained private security marshals with strict PSARA compliance.",
     deliverables: [
       "Ex-Servicemen & Private Marshals (Male & Female)",
       "Contractual 2-Hour Relief Replacement SLA",
-      "2:00 AM Unannounced Mobile Patrol Van Audits",
+      "02:00 AM Unannounced Mobile Patrol Van Audits",
       "Daily Digital Gate Registers & Incident Reports"
-    ]
+    ],
+    metrics: [
+      { value: "2-Hour", label: "Relief Replacement SLA" },
+      { value: "02:00 AM", label: "Patrol Van Night Audits" },
+      { value: "100%", label: "Police & Aadhaar Verified" }
+    ],
+    actionLink: {
+      href: "/services/private-security",
+      label: "View Tier 1 Specifications"
+    },
+    visualContent: (
+      <div className="w-full h-full flex flex-col justify-between p-4 sm:p-6 bg-gradient-to-br from-[#0F2A47] via-[#0A1E33] to-[#05070B] text-white rounded-lg relative overflow-hidden">
+        {/* Ambient watermark icon */}
+        <Shield className="absolute -right-6 -bottom-6 w-44 h-44 text-white/5 pointer-events-none" />
+
+        <div className="space-y-3 z-10">
+          <div className="flex items-center justify-between">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#9C7A3C]/20 border border-[#9C7A3C]/40 text-[#D4AF37] text-xs font-semibold">
+              <ShieldCheck size={14} />
+              <span>Armed &amp; Unarmed Guarding Command</span>
+            </div>
+            <span className="text-[11px] font-mono text-gray-400">SAC 998525</span>
+          </div>
+
+          <h4 className="text-xl sm:text-2xl font-serif font-semibold text-white">
+            Operational Turnout &amp; Muster Control
+          </h4>
+          <p className="text-xs text-gray-300 leading-relaxed max-w-md">
+            Directly supervised by Ex-Servicemen command officers. Active turnout inspections, barrier protocols, and rapid emergency platoon mobilization.
+          </p>
+        </div>
+
+        {/* Live Status Board Card */}
+        <div className="z-10 grid grid-cols-2 gap-3 pt-4 border-t border-white/10">
+          <div className="p-3 bg-white/5 backdrop-blur-md rounded-lg border border-white/10 space-y-1">
+            <div className="flex items-center gap-1.5 text-xs text-[#D4AF37] font-semibold">
+              <Radio size={12} className="animate-pulse" />
+              <span>Command Desk</span>
+            </div>
+            <div className="text-xs text-gray-200">24/7 Control Room &bull; Trichy HQ</div>
+          </div>
+
+          <div className="p-3 bg-white/5 backdrop-blur-md rounded-lg border border-white/10 space-y-1">
+            <div className="flex items-center gap-1.5 text-xs text-[#D4AF37] font-semibold">
+              <Clock size={12} />
+              <span>Relief Guarantee</span>
+            </div>
+            <div className="text-xs text-gray-200">2-Hour Maximum Response</div>
+          </div>
+        </div>
+      </div>
+    )
   },
   {
-    tier: "Tier 2",
-    code: "SAC 998513",
+    id: "tier-2",
+    badge: "Tier 2 • SAC 998513",
     title: "Contract Staffing & Industrial Manpower",
-    slug: "/services/manpower",
-    badge: "100% EPF & ESIC",
-    icon: Users,
-    description: "Multi-skilled industrial and corporate workforce with full statutory legal indemnity, monthly ECR challan verification, and rapid 48-hour mobilization.",
+    subtitle: "100% EPF & ESIC Compliant",
+    description: "Multi-skilled industrial and corporate workforce with full statutory legal indemnity, monthly ECR challan verification, and rapid 48-hour batch mobilization.",
     deliverables: [
       "Factory Assembly, Line Workers & Machine Operators",
       "Corporate Office Administration & Data Staff",
       "100% Statutory EPF, ESIC & Minimum Wage Proof",
       "48 to 72 Hour Batch Deployment Mobilization"
-    ]
+    ],
+    metrics: [
+      { value: "100%", label: "Statutory EPF & ESIC Proof" },
+      { value: "48-72h", label: "Batch Deployment SLA" },
+      { value: "ECR", label: "Monthly Challan Transparency" }
+    ],
+    actionLink: {
+      href: "/services/manpower",
+      label: "View Tier 2 Specifications"
+    },
+    visualContent: (
+      <div className="w-full h-full flex flex-col justify-between p-4 sm:p-6 bg-gradient-to-br from-[#14181F] via-[#0F2A47]/90 to-[#0A1E33] text-white rounded-lg relative overflow-hidden">
+        <Users className="absolute -right-6 -bottom-6 w-44 h-44 text-white/5 pointer-events-none" />
+
+        <div className="space-y-3 z-10">
+          <div className="flex items-center justify-between">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#9C7A3C]/20 border border-[#9C7A3C]/40 text-[#D4AF37] text-xs font-semibold">
+              <FileCheck2 size={14} />
+              <span>Full Statutory Legal Indemnity</span>
+            </div>
+            <span className="text-[11px] font-mono text-gray-400">SAC 998513</span>
+          </div>
+
+          <h4 className="text-xl sm:text-2xl font-serif font-semibold text-white">
+            Industrial Roster &amp; ECR Verification
+          </h4>
+          <p className="text-xs text-gray-300 leading-relaxed max-w-md">
+            Zero enterprise liability. Complete compliance with Minimum Wages Act, monthly electronic challan receipts, and vetted worker profiles.
+          </p>
+        </div>
+
+        <div className="z-10 grid grid-cols-2 gap-3 pt-4 border-t border-white/10">
+          <div className="p-3 bg-white/5 backdrop-blur-md rounded-lg border border-white/10 space-y-1">
+            <div className="flex items-center gap-1.5 text-xs text-[#D4AF37] font-semibold">
+              <Workflow size={12} />
+              <span>Staffing Pipeline</span>
+            </div>
+            <div className="text-xs text-gray-200">500+ Vetted Field Associates</div>
+          </div>
+
+          <div className="p-3 bg-white/5 backdrop-blur-md rounded-lg border border-white/10 space-y-1">
+            <div className="flex items-center gap-1.5 text-xs text-[#D4AF37] font-semibold">
+              <Award size={12} />
+              <span>Labour Audit Proof</span>
+            </div>
+            <div className="text-xs text-gray-200">Nil Litigation Record</div>
+          </div>
+        </div>
+      </div>
+    )
   },
   {
-    tier: "Tier 3",
-    code: "SAC 998533",
+    id: "tier-3",
+    badge: "Tier 3 • SAC 998533",
     title: "Integrated Facility Management & Housekeeping",
-    slug: "/services/housekeeping",
-    badge: "Closed-Loop Hygiene",
-    icon: Sparkles,
+    subtitle: "Closed-Loop Hygiene Protocol",
     description: "Commercial and industrial facility hygiene adhering to a 5-step closed-loop cleaning protocol with ride-on auto scrubbers and hospital-grade sanitization.",
     deliverables: [
       "Mechanized Ride-On Auto Scrubbing & Polishers",
       "5-Step Closed-Loop Hygiene: Clean to Verify",
       "Restroom Logbooks & Hourly Inspection Registers",
       "Corporate SEZ Campuses & Manufacturing Plants"
-    ]
+    ],
+    metrics: [
+      { value: "5-Step", label: "Closed-Loop Cleaning Flow" },
+      { value: "Auto-Scrub", label: "Heavy Mechanized Equipment" },
+      { value: "Hourly", label: "Digital Inspection Logs" }
+    ],
+    actionLink: {
+      href: "/services/housekeeping",
+      label: "View Tier 3 Specifications"
+    },
+    visualContent: (
+      <div className="w-full h-full flex flex-col justify-between p-4 sm:p-6 bg-gradient-to-br from-[#0F2A47] via-[#142336] to-[#0A1424] text-white rounded-lg relative overflow-hidden">
+        <Sparkles className="absolute -right-6 -bottom-6 w-44 h-44 text-white/5 pointer-events-none" />
+
+        <div className="space-y-3 z-10">
+          <div className="flex items-center justify-between">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#9C7A3C]/20 border border-[#9C7A3C]/40 text-[#D4AF37] text-xs font-semibold">
+              <Sparkles size={14} />
+              <span>Mechanized Campus Sanitization</span>
+            </div>
+            <span className="text-[11px] font-mono text-gray-400">SAC 998533</span>
+          </div>
+
+          <h4 className="text-xl sm:text-2xl font-serif font-semibold text-white">
+            Clean-to-Verify Closed-Loop Standards
+          </h4>
+          <p className="text-xs text-gray-300 leading-relaxed max-w-md">
+            Heavy-duty ride-on scrubbers, color-coded cross-contamination prevention, and digitized supervisor sign-offs for airports, SEZs, and hospitals.
+          </p>
+        </div>
+
+        <div className="z-10 grid grid-cols-2 gap-3 pt-4 border-t border-white/10">
+          <div className="p-3 bg-white/5 backdrop-blur-md rounded-lg border border-white/10 space-y-1">
+            <div className="flex items-center gap-1.5 text-xs text-[#D4AF37] font-semibold">
+              <Sparkles size={12} />
+              <span>Equipment Fleet</span>
+            </div>
+            <div className="text-xs text-gray-200">Industrial Auto-Scrubbers</div>
+          </div>
+
+          <div className="p-3 bg-white/5 backdrop-blur-md rounded-lg border border-white/10 space-y-1">
+            <div className="flex items-center gap-1.5 text-xs text-[#D4AF37] font-semibold">
+              <FileCheck2 size={12} />
+              <span>Hourly Audits</span>
+            </div>
+            <div className="text-xs text-gray-200">Digital Restroom Logbooks</div>
+          </div>
+        </div>
+      </div>
+    )
   }
 ];
 
@@ -131,87 +284,20 @@ const auxiliaryServices = [
 
 export function ServicesOverview() {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-white border-b border-[#E4E7EC]">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-        {/* Section Header — Left-Aligned, No All-Caps Eyebrow */}
-        <div className="max-w-3xl space-y-2 text-left">
-          <div className="text-xs font-semibold text-[#9C7A3C]">
-            Three-Tier Operations Model
-          </div>
-          <h2 className="font-serif text-2xl sm:text-3xl lg:text-[38px] leading-[1.18] text-[#14181F] font-semibold tracking-[-0.01em]">
-            Consolidated physical security, staffing and facility hygiene.
-          </h2>
-          <p className="text-sm sm:text-base text-[#4A5160] leading-relaxed line-measure">
-            Eliminate vendor fragmentation. Manage premises security, industrial contract staffing, and facility management under one contract and one accountable executive desk.
-          </p>
-        </div>
+    <div className="bg-white">
+      {/* Three-Tier Operations Model — Pinned Viewport Scrollytelling Sequence */}
+      <StickyScrollSequence
+        steps={operationSteps}
+        eyebrow="Three-Tier Operations Model"
+        headline="Consolidated physical security, staffing and facility hygiene."
+        description="Eliminate vendor fragmentation. Manage premises security, industrial contract staffing, and facility management under one contract and one accountable executive desk."
+        theme="light"
+      />
 
-        {/* Divided List: Hairline dividers between items */}
-        <div className="border-t border-[#E4E7EC] divide-y divide-[#E4E7EC]">
-          {tierServices.map((service, i) => {
-            const Icon = service.icon;
-            return (
-              <div
-                key={i}
-                className="py-8 sm:py-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start hover:bg-[#F6F7F9]/50 transition-colors"
-              >
-                {/* Left Column: Identifier & Service Title (5 cols) */}
-                <div className="lg:col-span-5 space-y-2 text-left">
-                  <div className="flex items-center gap-2 text-xs">
-                    <span className="font-mono font-semibold text-[#9C7A3C]">
-                      {service.tier} &bull; {service.code}
-                    </span>
-                    <span className="text-[#4A5160]">&bull;</span>
-                    <span className="text-[#4A5160] font-medium">{service.badge}</span>
-                  </div>
-
-                  <div className="flex items-start gap-3 pt-1">
-                    <div className="w-8 h-8 rounded-[4px] bg-[#F6F7F9] border border-[#E4E7EC] flex items-center justify-center text-[#0F2A47] shrink-0 mt-0.5">
-                      <Icon size={16} />
-                    </div>
-                    <div>
-                      <h3 className="text-lg sm:text-xl font-semibold text-[#14181F] tracking-normal">
-                        {service.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-[#4A5160] leading-relaxed pt-1.5">
-                        {service.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Center Column: Deliverables Checklist (5 cols) */}
-                <div className="lg:col-span-5 text-left">
-                  <div className="text-xs font-semibold text-[#14181F] mb-2.5">
-                    Core Operational Deliverables
-                  </div>
-                  <ul className="space-y-2 text-sm sm:text-xs text-[#4A5160]">
-                    {service.deliverables.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <Check size={14} className="text-[#9C7A3C] shrink-0 mt-0.5" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Right Column: Direct Specification Link (2 cols) */}
-                <div className="lg:col-span-2 flex lg:justify-end items-center pt-2 lg:pt-4">
-                  <Link
-                    href={service.slug}
-                    className="w-full lg:w-auto inline-flex items-center justify-center px-4 py-2 rounded-[4px] border border-[#0F2A47] text-[#0F2A47] hover:bg-[#0F2A47] hover:text-white text-xs font-semibold transition-colors min-touch-target"
-                  >
-                    <span>View Specifications</span>
-                  </Link>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Digital & Automation Solutions — Division Led by CTO R Jan Steve Daniel */}
-        <div className="pt-10 border-t border-[#E4E7EC] space-y-6 text-left">
-          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+      {/* Digital & Automation Solutions — Division Led by CTO R Jan Steve Daniel */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-white border-b border-[#E4E7EC]">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 text-left">
             <div>
               <div className="flex items-center gap-2">
                 <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#0F2A47]/10 text-[#0F2A47]">
@@ -220,9 +306,11 @@ export function ServicesOverview() {
                 </span>
                 <span className="text-xs text-[#9C7A3C] font-medium">Led by CTO R Jan Steve Daniel</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-serif font-semibold text-[#14181F] pt-1">
-                Digital Engineering, WhatsApp Automation &amp; Smart Systems
-              </h3>
+              <KineticTypography
+                as="h3"
+                text="Digital Engineering, WhatsApp Automation & Smart Systems"
+                className="text-xl sm:text-2xl lg:text-3xl font-serif font-semibold text-[#14181F] pt-2"
+              />
               <p className="text-xs sm:text-sm text-[#4A5160] max-w-2xl leading-relaxed pt-1">
                 Modern software, official Meta WhatsApp Business API bots, smart NFC review filtering standees, and high-conversion web platforms built to accelerate retail and corporate growth.
               </p>
@@ -236,83 +324,88 @@ export function ServicesOverview() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
+          {/* 3D Perspective Tilt Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {digitalServices.map((digital, idx) => {
               const DigitalIcon = digital.icon;
               return (
-                <Link
-                  key={idx}
-                  href={digital.slug}
-                  className="p-5 bg-white border border-[#E4E7EC] rounded-lg hover:border-[#0F2A47] hover:shadow-xs transition-all space-y-2.5 text-left group block"
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="w-8 h-8 rounded-[4px] bg-[#0F2A47]/8 flex items-center justify-center text-[#0F2A47] group-hover:bg-[#0F2A47] group-hover:text-white transition-colors">
-                      <DigitalIcon size={16} />
+                <PerspectiveTiltCard key={idx} maxTilt={8} className="h-full">
+                  <Link
+                    href={digital.slug}
+                    className="p-6 bg-white border border-[#E4E7EC] rounded-xl hover:border-[#0F2A47]/40 hover:shadow-lg transition-all space-y-3 text-left group block h-full flex flex-col justify-between"
+                  >
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between">
+                        <div className="w-10 h-10 rounded-[6px] bg-[#0F2A47]/8 flex items-center justify-center text-[#0F2A47] group-hover:bg-[#0F2A47] group-hover:text-white transition-colors">
+                          <DigitalIcon size={18} />
+                        </div>
+                        <span className="text-[10px] font-semibold tracking-wide uppercase px-2.5 py-0.5 rounded-full bg-[#F6F7F9] text-[#4A5160] border border-[#E4E7EC]">
+                          {digital.badge}
+                        </span>
+                      </div>
+                      <div>
+                        <h4 className="text-base font-semibold text-[#14181F] group-hover:text-[#0F2A47] transition-colors">
+                          {digital.title}
+                        </h4>
+                        <p className="text-xs text-[#4A5160] leading-relaxed pt-1.5 line-clamp-3">
+                          {digital.description}
+                        </p>
+                      </div>
                     </div>
-                    <span className="text-[10px] font-semibold tracking-wide uppercase px-2 py-0.5 rounded-full bg-[#F6F7F9] text-[#4A5160] border border-[#E4E7EC]">
-                      {digital.badge}
-                    </span>
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-semibold text-[#14181F] group-hover:text-[#0F2A47] transition-colors">
-                      {digital.title}
-                    </h4>
-                    <p className="text-xs text-[#4A5160] leading-relaxed pt-1 line-clamp-2">
-                      {digital.description}
+
+                    <div className="pt-3 border-t border-[#E4E7EC]/80 flex items-center gap-1 text-xs font-semibold text-[#0F2A47] group-hover:text-[#9C7A3C] transition-colors">
+                      <span>View Specifications &amp; Pricing</span>
+                      <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </Link>
+                </PerspectiveTiltCard>
+              );
+            })}
+          </div>
+
+          {/* Auxiliary Verticals — Divided Clean Strip */}
+          <div className="pt-8 border-t border-[#E4E7EC] space-y-6 text-left">
+            <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+              <div>
+                <span className="text-xs font-semibold text-[#4A5160]">
+                  Auxiliary Enterprise Capabilities
+                </span>
+                <h4 className="text-base sm:text-lg font-semibold text-[#14181F]">
+                  Tender Bidding, Document Digitization &amp; Citizen Services
+                </h4>
+              </div>
+              <Link
+                href="/services"
+                className="text-xs font-semibold text-[#0F2A47] hover:underline shrink-0"
+              >
+                All Capabilities Overview
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-1">
+              {auxiliaryServices.map((aux, idx) => {
+                const AuxIcon = aux.icon;
+                return (
+                  <div
+                    key={idx}
+                    className="p-4 bg-[#F6F7F9] border border-[#E4E7EC] space-y-1.5 text-left rounded-lg"
+                  >
+                    <div className="flex items-center gap-2">
+                      <AuxIcon size={15} className="text-[#0F2A47]" />
+                      <h5 className="text-xs sm:text-sm font-semibold text-[#14181F]">
+                        {aux.title}
+                      </h5>
+                    </div>
+                    <p className="text-xs text-[#4A5160] leading-relaxed">
+                      {aux.description}
                     </p>
                   </div>
-                  <div className="pt-1 flex items-center gap-1 text-[11px] font-semibold text-[#0F2A47] group-hover:text-[#9C7A3C] transition-colors">
-                    <span>View Specifications &amp; Pricing</span>
-                    <ArrowRight size={11} className="group-hover:translate-x-0.5 transition-transform" />
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Auxiliary Verticals — Divided Clean Strip */}
-        <div className="pt-8 border-t border-[#E4E7EC] space-y-6 text-left">
-          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
-            <div>
-              <span className="text-xs font-semibold text-[#4A5160]">
-                Auxiliary Enterprise Capabilities
-              </span>
-              <h4 className="text-base sm:text-lg font-semibold text-[#14181F]">
-                Tender Bidding, Document Digitization &amp; Citizen Services
-              </h4>
+                );
+              })}
             </div>
-            <Link
-              href="/services"
-              className="text-xs font-semibold text-[#0F2A47] hover:underline shrink-0"
-            >
-              All Capabilities Overview
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-1">
-            {auxiliaryServices.map((aux, idx) => {
-              const AuxIcon = aux.icon;
-              return (
-                <div
-                  key={idx}
-                  className="p-4 bg-[#F6F7F9] border border-[#E4E7EC] space-y-1.5 text-left"
-                >
-                  <div className="flex items-center gap-2">
-                    <AuxIcon size={15} className="text-[#0F2A47]" />
-                    <h5 className="text-xs sm:text-sm font-semibold text-[#14181F]">
-                      {aux.title}
-                    </h5>
-                  </div>
-                  <p className="text-xs text-[#4A5160] leading-relaxed">
-                    {aux.description}
-                  </p>
-                </div>
-              );
-            })}
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }

@@ -24,6 +24,19 @@
   --brass-hover: #866730;
   --brass-tint: #F4EFEB;
 
+  /* Luxury Spatial Obsidian Palette */
+  --obsidian-deep: #05070B;
+  --obsidian-surface: #0B0F17;
+  --obsidian-elevated: #101622;
+  --obsidian-glass: rgba(11, 15, 23, 0.75);
+
+  /* Military Gold Specular Palette */
+  --gold-statutory: #9C7A3C;
+  --gold-metallic: #D4AF37;
+  --gold-sheen: #FFF3B0;
+  --gold-hairline: rgba(156, 122, 60, 0.35);
+  --gold-specular: rgba(212, 175, 55, 0.65);
+
   /* Structure & Hairline Dividers */
   --line: #E4E7EC;
   --border: #E4E7EC;
@@ -76,6 +89,17 @@
   --color-brass: var(--brass);
   --color-brass-hover: var(--brass-hover);
   --color-brass-tint: var(--brass-tint);
+
+  --color-obsidian-deep: var(--obsidian-deep);
+  --color-obsidian-surface: var(--obsidian-surface);
+  --color-obsidian-elevated: var(--obsidian-elevated);
+  --color-obsidian-glass: var(--obsidian-glass);
+
+  --color-gold-statutory: var(--gold-statutory);
+  --color-gold-metallic: var(--gold-metallic);
+  --color-gold-sheen: var(--gold-sheen);
+  --color-gold-hairline: var(--gold-hairline);
+  --color-gold-specular: var(--gold-specular);
 
   --color-line: var(--line);
   --color-border: var(--line);
@@ -160,12 +184,84 @@
   .shadow-subtle {
     box-shadow: var(--shadow-subtle);
   }
+  
+  /* Tactile Micro-Interactions */
   .press-scale {
-    transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.12s ease;
   }
   .press-scale:active {
     transform: scale(0.98);
   }
+  .press-scale-sm {
+    transition: transform 0.10s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .press-scale-sm:active {
+    transform: scale(0.99);
+  }
+
+  /* Obsidian Mesh & Gradient Surfaces */
+  .bg-obsidian-mesh {
+    background-color: #05070B;
+    background-image: 
+      radial-gradient(circle at 50% -20%, rgba(156, 122, 60, 0.12), transparent 45%),
+      radial-gradient(circle at 100% 0%, rgba(15, 42, 71, 0.28), transparent 50%),
+      radial-gradient(circle at 0% 100%, rgba(11, 15, 23, 0.95), #05070B);
+  }
+  .bg-obsidian-surface {
+    background-color: #0B0F17;
+  }
+  .bg-obsidian-elevated {
+    background-color: #101622;
+  }
+  .bg-obsidian-gradient {
+    background: linear-gradient(135deg, #05070B 0%, #0B0F17 50%, #101622 100%);
+  }
+
+  /* Military Gold Hairline Borders & Specular Highlights */
+  .border-gold-hairline {
+    border: 1px solid rgba(156, 122, 60, 0.35);
+    box-shadow: 0 0 0 1px rgba(156, 122, 60, 0.12), 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+  }
+  .border-gold-specular-top {
+    position: relative;
+    border: 1px solid rgba(156, 122, 60, 0.30);
+  }
+  .border-gold-specular-top::before {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.7) 50%, transparent 100%);
+    pointer-events: none;
+    z-index: 10;
+  }
+  .glow-gold-hairline {
+    box-shadow: 0 0 16px -2px rgba(212, 175, 55, 0.25);
+  }
+
+  /* Frosted Glassmorphism */
+  .glass-obsidian-luxury {
+    background-color: rgba(11, 15, 23, 0.75);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(156, 122, 60, 0.25);
+  }
+  .glass-obsidian-card {
+    background-color: rgba(11, 15, 23, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(156, 122, 60, 0.28);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Metallic Gold Typography */
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #FFF3B0 0%, #D4AF37 50%, #9C7A3C 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
   .min-touch-target {
     min-height: 44px;
     min-width: 44px;

@@ -26,7 +26,14 @@ export async function GET(req: NextRequest) {
 function generateAutomatedReply(incomingText: string): { replyText: string; intent: string } {
   const lower = incomingText.toLowerCase();
 
-  if (lower.includes('price') || lower.includes('cost') || lower.includes('rate') || lower.includes('quote') || lower.includes('evlo')) {
+  if (
+    lower.includes('price') ||
+    lower.includes('pricing') ||
+    lower.includes('cost') ||
+    lower.includes('rate') ||
+    lower.includes('quote') ||
+    lower.includes('evlo')
+  ) {
     return {
       intent: 'PRICING_INQUIRY',
       replyText: 
