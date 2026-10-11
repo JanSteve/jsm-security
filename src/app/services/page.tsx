@@ -8,15 +8,18 @@ import Link from 'next/link';
 import { constructMetadata } from '@/lib/seo';
 
 export const metadata = constructMetadata({
-  title: 'Integrated Services Directory',
-  description: 'Explore JSM Integrated Services three-tier operations model: 100% EPF & ESIC Compliant security guarding, 100% compliant contract staffing, and commercial facility management across Tamil Nadu.',
+  title: 'Integrated Services Directory | Security, Manpower & Digital Automation',
+  description: 'Explore JSM Integrated Services complete capability matrix: 100% EPF & ESIC Compliant security guarding, industrial staffing, facility management, and enterprise digital & WhatsApp automation solutions across Tamil Nadu.',
   path: '/services',
   keywords: [
     'Integrated Services Directory',
     'Security Guarding Services Tamil Nadu',
     'Industrial Manpower Staffing',
     'Commercial Facility Management',
-    '100% EPF & ESIC Compliant Security Agency Trichy Chennai Coimbatore'
+    'WhatsApp Business API Automation Trichy Chennai',
+    'Smart NFC Review Filter Standees',
+    'Website Design Development Tamil Nadu',
+    'Missed Call Lead Recovery System'
   ]
 });
 
@@ -39,13 +42,13 @@ export default function ServicesHubPage() {
           <div className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0F2A47]/8 text-[#0F2A47] text-xs font-semibold">
               <ShieldCheck size={14} />
-              <span>Full Capability Matrix</span>
+              <span>Full Capability Matrix &bull; 21 Integrated Verticals</span>
             </div>
             <h1 className="font-display text-3xl sm:text-4xl md:text-5xl text-[#14181F] font-normal tracking-tight">
               Integrated Services Directory
             </h1>
             <p className="text-base sm:text-lg text-[#5A6578] leading-relaxed">
-              Structured operational security, compliant industrial staffing, and commercial facility management. Built to eliminate vendor fragmentation under a single accountable contract.
+              Consolidated physical security, compliant industrial staffing, mechanized facility hygiene, and enterprise digital &amp; WhatsApp automation solutions. Built to eliminate vendor fragmentation under a single accountable partner.
             </p>
           </div>
         </section>

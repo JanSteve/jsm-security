@@ -23,15 +23,15 @@ import { brandData } from "@/data/brand";
 
 export const metadata = {
   title: {
-    absolute: "JSM Integrated Services | Private Security, Manpower Staffing & Facility Operations",
+    absolute: "JSM Integrated Services | Private Security, Manpower Staffing, Facility Operations & Digital Automation",
   },
-  description: "JSM Integrated Services (formerly JSMMANPOWER) provides disciplined Ex-Servicemen & Private Security Guarding, 100% EPF/ESIC Contract Manpower Staffing, and Mechanized Facility Management across Tamil Nadu.",
+  description: "JSM Integrated Services delivers disciplined Ex-Servicemen & Private Security Guarding, 100% EPF/ESIC Contract Manpower Staffing, Mechanized Facility Management, and Enterprise Digital & WhatsApp Automation across Tamil Nadu.",
   alternates: {
     canonical: brandData.domain,
   },
   openGraph: {
-    title: "JSM Integrated Services | Private Security, Manpower Staffing & Facility Operations",
-    description: "JSM Integrated Services (formerly JSMMANPOWER) provides disciplined Ex-Servicemen & Private Security Guarding, 100% EPF/ESIC Contract Manpower Staffing, and Mechanized Facility Management across Tamil Nadu.",
+    title: "JSM Integrated Services | Private Security, Manpower Staffing, Facility Operations & Digital Automation",
+    description: "JSM Integrated Services delivers disciplined Ex-Servicemen & Private Security Guarding, 100% EPF/ESIC Contract Manpower Staffing, Mechanized Facility Management, and Enterprise Digital & WhatsApp Automation across Tamil Nadu.",
     url: brandData.domain,
     siteName: brandData.name,
     locale: "en_IN",
@@ -41,14 +41,14 @@ export const metadata = {
         url: `${brandData.domain}/images/jsm_logo_black.png`,
         width: 1200,
         height: 630,
-        alt: "JSM Integrated Services — Security, Manpower & Facility Operations",
+        alt: "JSM Integrated Services — Security, Manpower, Facility & Digital Operations",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "JSM Integrated Services | Private Security, Manpower Staffing & Facility Operations",
-    description: "JSM Integrated Services (formerly JSMMANPOWER) provides disciplined Ex-Servicemen & Private Security Guarding, 100% EPF/ESIC Contract Manpower Staffing, and Mechanized Facility Management across Tamil Nadu.",
+    title: "JSM Integrated Services | Private Security, Manpower Staffing, Facility Operations & Digital Automation",
+    description: "JSM Integrated Services delivers disciplined Ex-Servicemen & Private Security Guarding, 100% EPF/ESIC Contract Manpower Staffing, Mechanized Facility Management, and Enterprise Digital & WhatsApp Automation across Tamil Nadu.",
     images: [`${brandData.domain}/images/jsm_logo_black.png`],
   },
 };

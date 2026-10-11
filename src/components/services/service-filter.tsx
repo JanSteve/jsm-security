@@ -23,8 +23,13 @@ export function ServiceFilter({ categories, services }: ServiceFilterProps) {
     if (activeCategory.includes('Tier 2')) return s.category === 'manpower';
     if (activeCategory.includes('Tier 3')) return s.category === 'facilities';
     if (activeCategory.includes('GeM')) return s.category === 'tender';
-    if (activeCategory.includes('IT')) return s.category === 'digital';
+    if (activeCategory.includes('IT & Digitization')) return s.slug === 'scanning-digitalization-it';
     if (activeCategory.includes('Citizen')) return s.category === 'csc';
+    if (activeCategory.includes('Web & Software')) return s.category === 'software' || s.slug.includes('website') || s.slug.includes('custom-software');
+    if (activeCategory.includes('WhatsApp')) return s.category === 'automation' || s.slug.includes('whatsapp') || s.slug.includes('missed-call') || s.slug.includes('clinic') || s.slug.includes('garage');
+    if (activeCategory.includes('NFC') || activeCategory.includes('QR')) return s.slug.includes('nfc') || s.slug.includes('qr') || s.slug.includes('parking');
+    if (activeCategory.includes('Marketing') || activeCategory.includes('Growth')) return s.category === 'marketing' || s.slug.includes('seo') || s.slug.includes('ads') || s.slug.includes('linkedin') || s.slug.includes('email') || s.slug.includes('video');
+    if (activeCategory.includes('Digital') || activeCategory.includes('Automation')) return s.phase === 'Digital & Automation';
     return true;
   });
 

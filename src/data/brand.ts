@@ -21,7 +21,7 @@ export const brandData = {
     {
       name: "R Jan Steve Daniel",
       role: "Chief Technical Officer",
-      bio: "Directing technology-enabled operations, digital attendance systems, OCR scanning digitization, statutory compliance audits, and client command platforms."
+      bio: "Directing technology-enabled operations, Next.js web architectures, official Meta WhatsApp Business API bots, smart NFC/QR reputation systems, and enterprise business automation."
     }
   ],
 

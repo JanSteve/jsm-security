@@ -68,9 +68,9 @@ export function localBusinessSchema() {
 
   return {
     '@context': 'https://schema.org',
-    '@type': ['LocalBusiness', 'SecurityService', 'EmploymentAgency'],
+    '@type': ['LocalBusiness', 'SecurityService', 'EmploymentAgency', 'ProfessionalService'],
     name: brandData.name,
-    alternateName: ['JSMMANPOWER', 'JSM Security Tamil Nadu'],
+    alternateName: ['JSMMANPOWER', 'JSM Security Tamil Nadu', 'JSM Digital & Technology Solutions'],
     url: brandData.domain,
     logo: `${brandData.domain}/images/jsm_logo_black.png`,
     image: `${brandData.domain}/images/real_jsm_airport_terminal_platoon.jpg`,
@@ -98,6 +98,43 @@ export function localBusinessSchema() {
         name: 'Tamil Nadu'
       }
     })),
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'JSM Integrated Services & Technology Solutions',
+      itemListElement: [
+        {
+          '@type': 'OfferCatalog',
+          name: 'Core Security & Manpower Operations',
+          itemListElement: [
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Private Security Supervisors & Guards (ESM & Private)' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Contract Staffing & Industrial Manpower Solutions' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Commercial Facility Management & Mechanized Housekeeping' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'GeM Bidding & Government Tender Procurement' } }
+          ]
+        },
+        {
+          '@type': 'OfferCatalog',
+          name: 'Digital Engineering & Business Automation (Led by CTO R Jan Steve Daniel)',
+          itemListElement: [
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'High-Converting Website Design & Next.js Web Development' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Official WhatsApp Business API Automation & AI Chatbots' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Smart Review Filter NFC Standees & 5-Star Reputation Gatekeepers' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Automated Missed-Call to WhatsApp Lead Recovery System' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Direct-to-WhatsApp Table Ordering QR Menu (Zero-Commission)' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'App-Free WhatsApp Digital Loyalty Punch Cards' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Live Clinic & Hospital Waiting Token Queue Tracker on WhatsApp' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Garage Digital Job Card & WhatsApp Vehicle Service Stage Tracker' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Privacy-Safe Vehicle Emergency Parking QR Tags' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Google Business Profile (GBP) Local 3-Pack SEO Retainer' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Social Media Marketing (SMM) & High-ROI Meta Ad Campaigns' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'LinkedIn B2B Lead Generation & Executive Authority Branding' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Custom Business Software, Internal ERP & Workflow Portals' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Enterprise B2B Cold Email Outreach & Drip Automations' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Commercial Video Production & YouTube Channel Authority' } }
+          ]
+        }
+      ]
+    },
     sameAs: [
       "https://www.linkedin.com/company/jsmintegratedservices",
       "https://www.instagram.com/jsmintegratedservices",

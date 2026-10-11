@@ -56,8 +56,23 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/services/whatsapp-automation-crm" className="hover:text-white transition-colors">
+                  Digital: WhatsApp Business API &amp; Chatbots
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/nfc-review-standees" className="hover:text-white transition-colors">
+                  Digital: Smart NFC Review Standees
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/website-design-development" className="hover:text-white transition-colors">
+                  Digital: Next.js Websites &amp; Web Portals
+                </Link>
+              </li>
+              <li>
                 <Link href="/services" className="hover:text-white transition-colors font-medium text-[#9C7A3C]">
-                  View All Services Specification
+                  View All 21 Capabilities &rarr;
                 </Link>
               </li>
             </ul>
@@ -71,7 +86,7 @@ export function Footer() {
             <ul className="space-y-2 text-xs text-neutral-300">
               <li>
                 <Link href="/about" className="hover:text-white transition-colors">
-                  Leadership (Sweety J &bull; Major AR Devadoss)
+                  Leadership (Sweety J &bull; Maj. Devadoss &bull; R Jan Steve Daniel)
                 </Link>
               </li>
               <li>

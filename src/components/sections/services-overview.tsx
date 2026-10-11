@@ -1,6 +1,22 @@
 import React from "react";
 import Link from "next/link";
-import { Shield, Users, Sparkles, Check, FileText, Scan, Building } from "lucide-react";
+import { 
+  Shield, 
+  Users, 
+  Sparkles, 
+  Check, 
+  FileText, 
+  Scan, 
+  Building,
+  MessageSquare,
+  Star,
+  PhoneForwarded,
+  Utensils,
+  Globe,
+  MapPin,
+  ArrowRight,
+  Cpu
+} from "lucide-react";
 
 const tierServices = [
   {
@@ -50,6 +66,51 @@ const tierServices = [
   }
 ];
 
+const digitalServices = [
+  {
+    icon: MessageSquare,
+    badge: "Official Meta API",
+    title: "WhatsApp Business API & Automation",
+    slug: "/services/whatsapp-automation-crm",
+    description: "24/7 conversational chatbots, automated customer lead capture, and interactive catalog menus with official Meta Cloud API.",
+  },
+  {
+    icon: Star,
+    badge: "Reputation Guard",
+    title: "Smart Review Filter NFC Standees",
+    slug: "/services/nfc-review-standees",
+    description: "Double 5-star Google reviews on Maps while routing 1–3 star private complaints directly to your WhatsApp desk.",
+  },
+  {
+    icon: PhoneForwarded,
+    badge: "Lead Recovery",
+    title: "Missed-Call to WhatsApp Auto-Saver",
+    slug: "/services/missed-call-lead-recovery",
+    description: "Sub-5-second branded WhatsApp greeting and service menu sent automatically whenever a business phone call is missed.",
+  },
+  {
+    icon: Utensils,
+    badge: "Zero-Commission",
+    title: "Direct Table Ordering QR Menus",
+    slug: "/services/qr-table-ordering",
+    description: "Bypass 30% aggregator commissions. Diners scan table QR codes to send formatted orders straight to kitchen WhatsApp.",
+  },
+  {
+    icon: Globe,
+    badge: "Core Web Vitals 95+",
+    title: "High-Converting Websites & Portals",
+    slug: "/services/website-design-development",
+    description: "Custom-coded, lightning-fast Next.js business websites and lead portals with built-in WhatsApp conversion funnels.",
+  },
+  {
+    icon: MapPin,
+    badge: "Google Maps 3-Pack",
+    title: "Local Maps & GBP 3-Pack SEO",
+    slug: "/services/local-seo-gbp-ranking",
+    description: "Dominate Google Maps local 3-pack rankings with geotagged citations, photo EXIF optimization, and review velocity systems.",
+  }
+];
+
 const auxiliaryServices = [
   {
     icon: FileText,
@@ -71,7 +132,7 @@ const auxiliaryServices = [
 export function ServicesOverview() {
   return (
     <section className="py-16 sm:py-20 lg:py-24 bg-white border-b border-[#E4E7EC]">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Section Header — Left-Aligned, No All-Caps Eyebrow */}
         <div className="max-w-3xl space-y-2 text-left">
           <div className="text-xs font-semibold text-[#9C7A3C]">
@@ -85,7 +146,7 @@ export function ServicesOverview() {
           </p>
         </div>
 
-        {/* Divided List: Hairline dividers between items, NOT identical repeated cards */}
+        {/* Divided List: Hairline dividers between items */}
         <div className="border-t border-[#E4E7EC] divide-y divide-[#E4E7EC]">
           {tierServices.map((service, i) => {
             const Icon = service.icon;
@@ -146,6 +207,68 @@ export function ServicesOverview() {
               </div>
             );
           })}
+        </div>
+
+        {/* Digital & Automation Solutions — Division Led by CTO R Jan Steve Daniel */}
+        <div className="pt-10 border-t border-[#E4E7EC] space-y-6 text-left">
+          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#0F2A47]/10 text-[#0F2A47]">
+                  <Cpu size={12} />
+                  Technology Division
+                </span>
+                <span className="text-xs text-[#9C7A3C] font-medium">Led by CTO R Jan Steve Daniel</span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-serif font-semibold text-[#14181F] pt-1">
+                Digital Engineering, WhatsApp Automation &amp; Smart Systems
+              </h3>
+              <p className="text-xs sm:text-sm text-[#4A5160] max-w-2xl leading-relaxed pt-1">
+                Modern software, official Meta WhatsApp Business API bots, smart NFC review filtering standees, and high-conversion web platforms built to accelerate retail and corporate growth.
+              </p>
+            </div>
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-1 text-xs font-semibold text-[#0F2A47] hover:text-[#9C7A3C] transition-colors shrink-0"
+            >
+              <span>Explore All 15 Digital Services</span>
+              <ArrowRight size={13} />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
+            {digitalServices.map((digital, idx) => {
+              const DigitalIcon = digital.icon;
+              return (
+                <Link
+                  key={idx}
+                  href={digital.slug}
+                  className="p-5 bg-white border border-[#E4E7EC] rounded-lg hover:border-[#0F2A47] hover:shadow-xs transition-all space-y-2.5 text-left group block"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="w-8 h-8 rounded-[4px] bg-[#0F2A47]/8 flex items-center justify-center text-[#0F2A47] group-hover:bg-[#0F2A47] group-hover:text-white transition-colors">
+                      <DigitalIcon size={16} />
+                    </div>
+                    <span className="text-[10px] font-semibold tracking-wide uppercase px-2 py-0.5 rounded-full bg-[#F6F7F9] text-[#4A5160] border border-[#E4E7EC]">
+                      {digital.badge}
+                    </span>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-semibold text-[#14181F] group-hover:text-[#0F2A47] transition-colors">
+                      {digital.title}
+                    </h4>
+                    <p className="text-xs text-[#4A5160] leading-relaxed pt-1 line-clamp-2">
+                      {digital.description}
+                    </p>
+                  </div>
+                  <div className="pt-1 flex items-center gap-1 text-[11px] font-semibold text-[#0F2A47] group-hover:text-[#9C7A3C] transition-colors">
+                    <span>View Specifications &amp; Pricing</span>
+                    <ArrowRight size={11} className="group-hover:translate-x-0.5 transition-transform" />
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
         </div>
 
         {/* Auxiliary Verticals — Divided Clean Strip */}
