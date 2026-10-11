@@ -10,7 +10,10 @@ export default function CookieBanner() {
   useEffect(() => {
     const consent = localStorage.getItem("cookie-consent");
     if (!consent) {
-      setIsOpen(true);
+      const timer = setTimeout(() => {
+        setIsOpen(true);
+      }, 0);
+      return () => clearTimeout(timer);
     }
   }, []);
 
@@ -37,7 +40,7 @@ export default function CookieBanner() {
           <h4 className="text-lg font-bold text-black mb-2">Cookie Preferences</h4>
           <p className="text-sm text-zinc-500 font-medium mb-4 leading-relaxed">
             We use cookies to optimize our website, analyze traffic, and personalize content. 
-            By clicking "Accept", you agree to our cookie policy.
+            By clicking &quot;Accept&quot;, you agree to our cookie policy.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:justify-end">
             <Button

@@ -8,6 +8,7 @@ import {
   FAQSection,
   CTASection
 } from "@/components/sections";
+import { InteractiveShowcase } from "@/components/widgets/interactive-showcase";
 import { homeFAQs } from "@/data/faqs";
 import { 
   organizationSchema, 
@@ -107,6 +108,13 @@ export default function Home() {
 
       {/* 3. Divided List Three-Tier Operations Model */}
       <ServicesOverview />
+
+      {/* 3b. Interactive Operations & Digital Automation Showcase */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-[#F6F7F9] border-y border-[#E4E7EC]">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+          <InteractiveShowcase />
+        </div>
+      </section>
 
       {/* 4. Operational Proof Case Study (Trichy International Airport) */}
       <ProofSection />

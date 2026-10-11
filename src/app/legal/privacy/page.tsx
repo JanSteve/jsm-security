@@ -16,7 +16,7 @@ export default function PrivacyPolicyPage() {
 
         <section className="space-y-6 text-zinc-600 text-base leading-relaxed">
           <p>
-            At <strong>{brandData.name}</strong>, we prioritize the confidentiality, integrity, and safety of our clients' and employees' information. This Privacy Policy details our practices concerning data collection, transmission, and operational privacy.
+            At <strong>{brandData.name}</strong>, we prioritize the confidentiality, integrity, and safety of our clients&apos; and employees&apos; information. This Privacy Policy details our practices concerning data collection, transmission, and operational privacy.
           </p>
 
           <h2 className="text-2xl font-bold text-black mt-8 tracking-tight">1. Information We Collect</h2>

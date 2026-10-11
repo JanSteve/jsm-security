@@ -1,10 +1,10 @@
 import { servicesData } from "@/data/services";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getIcon } from "@/components/services/icon-map";
 import { FeatureGrid } from "@/components/services/feature-grid";
 import { ProcessTimeline } from "@/components/services/process-timeline";
 import { ServiceFAQ } from "@/components/services/service-faq";
+import { RoiCalculator, QueueSimulator, ReviewFilterWidget } from "@/components/widgets";
 import { serviceSchema, breadcrumbSchema, faqSchema, howToSchema } from "@/lib/schema";
 import { brandData } from "@/data/brand";
 import { ArrowRight, ShieldCheck, Phone, Check } from "lucide-react";
@@ -34,7 +34,10 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
   const service = servicesData.find((s) => s.slug === slug);
   if (!service) notFound();
 
-    const relatedServices = servicesData.filter((s) => service.relatedSlugs?.includes(s.slug) || s.slug !== service.slug).slice(0, 3);
+  const isReputationService = ['nfc-review-standees', 'local-seo-gbp-ranking', 'social-media-meta-ads', 'google-meta-ads-management'].includes(service.slug);
+  const isQueueService = ['clinic-token-tracker', 'qr-table-ordering', 'whatsapp-automation-crm', 'missed-call-lead-recovery', 'garage-service-tracker', 'garage-service-booking-system'].includes(service.slug);
+
+  const relatedServices = servicesData.filter((s) => service.relatedSlugs?.includes(s.slug) || s.slug !== service.slug).slice(0, 3);
 
   const sSchema = serviceSchema({
     title: service.title,
@@ -139,6 +142,29 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
             </h2>
           </div>
           <FeatureGrid features={service.features} />
+        </section>
+
+        {/* Interactive Capability Simulator */}
+        <section className="space-y-6 pt-8 border-t border-[#E4E7EC]">
+          <div className="space-y-1">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#0F2A47]">
+              Interactive Generative Tool
+            </span>
+            <h2 className="font-display text-2xl sm:text-3xl text-[#14181F] font-normal tracking-tight">
+              {isReputationService
+                ? "Simulate Dual-Routing Smart Review Filtration"
+                : isQueueService
+                ? "Simulate Real-Time Queue & Order Dispatch"
+                : "Simulate Statutory Cost Savings & ROI"}
+            </h2>
+          </div>
+          {isReputationService ? (
+            <ReviewFilterWidget />
+          ) : isQueueService ? (
+            <QueueSimulator />
+          ) : (
+            <RoiCalculator />
+          )}
         </section>
 
         {/* 4-Step Process Timeline */}

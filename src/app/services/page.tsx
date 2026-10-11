@@ -1,5 +1,6 @@
 import { servicesData, serviceCategories } from '@/data/services';
 import { ServiceFilter } from '@/components/services/service-filter';
+import { InteractiveShowcase } from '@/components/widgets/interactive-showcase';
 import { brandData } from '@/data/brand';
 import { breadcrumbSchema } from '@/lib/schema';
 import { ArrowRight, ShieldCheck } from 'lucide-react';
@@ -66,6 +67,11 @@ export default function ServicesHubPage() {
             </div>
           </div>
           <ServiceFilter categories={serviceCategories} services={servicesData} />
+        </section>
+
+        {/* Interactive Generative UI Operations & Automation Suite */}
+        <section className="pt-8 border-t border-[#E4E7EC]">
+          <InteractiveShowcase />
         </section>
 
         {/* Bottom Assessment CTA */}

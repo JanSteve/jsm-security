@@ -23,11 +23,11 @@ export function FeatureGrid({ features }: FeatureGridProps) {
   };
 
   const item = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 16 },
     show: { 
       opacity: 1, 
       y: 0, 
-      transition: { type: 'spring' as const, stiffness: 300, damping: 24 } 
+      transition: { duration: 0.35, ease: "easeOut" as const } 
     }
   };
 
@@ -45,14 +45,14 @@ export function FeatureGrid({ features }: FeatureGridProps) {
           <motion.div 
             key={i} 
             variants={item}
-            className="flex gap-4 p-6 bg-[#f5f5f7] rounded-[24px] border border-black/[0.06] hover:border-black/[0.15] hover:shadow-sm transition-all duration-300 group"
+            className="flex gap-4 p-6 bg-[#F6F7F9] rounded-xl border border-[#E4E7EC] hover:border-[#0F2A47]/30 hover:shadow-xs transition-all duration-300 group"
           >
-            <div className="p-3 bg-white border border-black/[0.06] rounded-2xl text-[#0071e3] group-hover:bg-[#1d1d1f] group-hover:text-white transition-colors duration-300 h-fit shadow-2xs">
+            <div className="p-3 bg-white border border-[#E4E7EC] rounded-lg text-[#0F2A47] group-hover:bg-[#0F2A47] group-hover:text-white transition-colors duration-300 h-fit shadow-2xs">
               <IconComponent size={22} />
             </div>
             <div>
-              <h4 className="text-base font-bold text-[#1d1d1f] mb-1.5 tracking-tight">{feature.title}</h4>
-              <p className="text-[#515154] text-xs sm:text-sm leading-relaxed font-normal">{feature.description}</p>
+              <h4 className="text-base font-bold text-[#14181F] mb-1.5 tracking-tight">{feature.title}</h4>
+              <p className="text-[#4A5160] text-xs sm:text-sm leading-relaxed font-normal">{feature.description}</p>
             </div>
           </motion.div>
         );

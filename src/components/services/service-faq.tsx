@@ -16,11 +16,11 @@ export function ServiceFAQ({ faqs }: { faqs: FAQ[] }) {
   return (
     <Accordion className="w-full max-w-3xl mx-auto">
       {faqs.map((faq, i) => (
-        <AccordionItem key={i} value={`item-${i}`} className="border-black/[0.08]">
-          <AccordionTrigger className="text-left text-[#1d1d1f] hover:text-[#0071e3] text-base sm:text-lg font-bold py-5 tracking-tight">
+        <AccordionItem key={i} value={`item-${i}`} className="border-[#E4E7EC]">
+          <AccordionTrigger className="text-left text-[#14181F] hover:text-[#0F2A47] text-base sm:text-lg font-bold py-5 tracking-tight min-h-[44px]">
             {faq.question}
           </AccordionTrigger>
-          <AccordionContent className="text-[#515154] text-xs sm:text-sm leading-relaxed pb-5 font-normal">
+          <AccordionContent className="text-[#4A5160] text-xs sm:text-sm leading-relaxed pb-5 font-normal">
             {faq.answer}
           </AccordionContent>
         </AccordionItem>

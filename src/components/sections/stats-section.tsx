@@ -65,20 +65,19 @@ const metrics: Metric[] = [
 ];
 
 function StatCard({ item }: { item: Metric }) {
-  const [count, setCount] = useState(item.animate ? 0 : item.targetNum);
+  const [count, setCount] = useState(() => {
+    if (!item.animate) return item.targetNum;
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return item.targetNum;
+    }
+    return 0;
+  });
   const cardRef = useRef<HTMLDivElement>(null);
   const Icon = item.icon;
 
   useEffect(() => {
-    if (typeof window === "undefined" || !item.animate) {
-      setCount(item.targetNum);
-      return;
-    }
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (mediaQuery.matches) {
-      setCount(item.targetNum);
-      return;
-    }
+    if (!item.animate) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     let animated = false;
     const observer = new IntersectionObserver(
@@ -120,7 +119,7 @@ function StatCard({ item }: { item: Metric }) {
       className="p-4 sm:p-5 bg-white border border-[#E4E7EC] space-y-2 text-left flex flex-col justify-between"
     >
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-0">
-        <span className="font-sans text-xl sm:text-3xl font-semibold text-[#0F2A47] tabular-nums">
+        <span className="font-sans text-xl sm:text-3xl font-semibold text-[#0F2A47] tabular-nums inline-block min-w-[2.5ch]">
           {item.prefix || ""}{count}{item.suffix}
         </span>
         <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-[4px] bg-[#F6F7F9] border border-[#E4E7EC] flex items-center justify-center text-[#9C7A3C] shrink-0 self-start sm:self-auto">

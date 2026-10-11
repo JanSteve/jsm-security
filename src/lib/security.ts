@@ -50,7 +50,9 @@ export function rateLimit(
   cleanupStaleEntries();
 
   const forwarded = request.headers.get('x-forwarded-for');
-  const ip = forwarded?.split(',')[0]?.trim() || 'unknown';
+  const realIp = request.headers.get('x-real-ip');
+  const cfIp = request.headers.get('cf-connecting-ip');
+  const ip = forwarded?.split(',')[0]?.trim() || realIp?.trim() || cfIp?.trim() || 'unknown';
 
   const now = Date.now();
   let entry = rateLimitMap.get(ip);
@@ -64,7 +66,7 @@ export function rateLimit(
 
   if (entry.count > maxRequests) {
     return NextResponse.json(
-      { error: 'Rate limit exceeded. Please try again later.' },
+      { success: false, error: 'Rate limit exceeded. Please try again later.' },
       {
         status: 429,
         headers: {
@@ -112,7 +114,7 @@ export function blockBadBots(request: Request): NextResponse | null {
   if (isGoodBot) return null;
 
   return NextResponse.json(
-    { error: 'Access denied.' },
+    { success: false, error: 'Access denied.' },
     { status: 403 }
   );
 }
@@ -143,6 +145,27 @@ export function sanitizeInput(input: string): string {
   // Also strip null bytes
   clean = clean.replace(/\0/g, '');
   return clean.trim();
+}
+
+/**
+ * Escape HTML characters to prevent XSS / HTML injection in templates and emails.
+ */
+export function escapeHtml(str: string): string {
+  if (!str) return '';
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+/**
+ * Combined utility to sanitize script patterns and escape HTML entities.
+ */
+export function sanitizeAndEscape(input: string): string {
+  if (!input) return '';
+  return escapeHtml(sanitizeInput(input));
 }
 
 /**

@@ -1,22 +1,55 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { brandData } from '@/data/brand';
+import { rateLimit, blockBadBots, sanitizeAndEscape } from '@/lib/security';
+import { quotePdfSchema, formatZodErrors } from '@/lib/validations';
+import { triggerLeadWebhook } from '@/lib/webhook';
 
 export async function POST(request: Request) {
   try {
-    const data = await request.json();
-    const {
-      companyName,
-      contactPerson,
-      email,
-      phone,
-      services,
-      city,
-      personnelCount,
-      shiftPattern,
-      startDate,
-      specialReqs,
-    } = data;
+    // Security guards
+    const botBlocked = blockBadBots(request);
+    if (botBlocked) return botBlocked;
+    const rateLimited = rateLimit(request, 15, 60_000);
+    if (rateLimited) return rateLimited;
+
+    let body: unknown;
+    try {
+      body = await request.json();
+    } catch {
+      return NextResponse.json(
+        { success: false, error: 'Invalid JSON payload' },
+        { status: 400 }
+      );
+    }
+
+    const validation = quotePdfSchema.safeParse(body);
+    if (!validation.success) {
+      const formatted = formatZodErrors(validation.error);
+      return NextResponse.json(
+        {
+          success: false,
+          error: formatted.message,
+          details: formatted.issues,
+        },
+        { status: 400 }
+      );
+    }
+
+    const data = validation.data;
+    const companyName = sanitizeAndEscape(data.companyName || data.company || 'Not Specified');
+    const contactPerson = sanitizeAndEscape(data.contactPerson || data.customerName || 'Not Provided');
+    const email = sanitizeAndEscape(data.email);
+    const phone = sanitizeAndEscape(data.phone);
+    const city = sanitizeAndEscape(data.city || 'Tamil Nadu');
+    const shiftPattern = data.shiftPattern || '24/7';
+    const startDate = sanitizeAndEscape(data.startDate || 'Immediate');
+    const specialReqs = sanitizeAndEscape(data.specialReqs || '');
+    const defaultPersonnel = data.personnelCount || 1;
+    const rawServices = data.services;
+    const personnelCount = defaultPersonnel;
+    const serviceNames = rawServices.map((s) => (typeof s === 'string' ? s : s.name));
+    const serviceListString = sanitizeAndEscape(serviceNames.join(', '));
 
     // Clean Corporate HTML Email Template
     const emailHtml = `
@@ -79,7 +112,7 @@ export async function POST(request: Request) {
 
               <div class="field-row">
                 <div class="field-label">Services Selected</div>
-                <div class="field-value">${Array.isArray(services) ? services.join(', ') : services}</div>
+                <div class="field-value">${serviceListString}</div>
               </div>
 
               <div class="field-row">
@@ -135,7 +168,7 @@ Contact Person: ${contactPerson}
 Mobile Phone: ${phone}
 Email: ${email}
 City: ${city}
-Services: ${Array.isArray(services) ? services.join(', ') : services}
+Services: ${serviceListString}
 Personnel Count: ${personnelCount}
 Shift Pattern: ${shiftPattern}
 Start Date: ${startDate}
@@ -144,8 +177,7 @@ Special Requirements: ${specialReqs || 'None'}
 Sent from jsmintegratedservices.in/get-quote
     `;
 
-    const defaultKey = Buffer.from('cmVfU3RrZXF1dE1fR0NOOXpDblFBNExBdUp6Z3VodDNhS1J1', 'base64').toString('utf-8');
-    const resendApiKey = process.env.RESEND_API_KEY || defaultKey;
+    const resendApiKey = process.env.RESEND_API_KEY;
     const targetRecipient = (process.env.CONTACT_NOTIFICATION_EMAIL || 'jsmintegratedservices@outlook.com').toLowerCase();
 
     if (resendApiKey) {
@@ -178,35 +210,100 @@ Sent from jsmintegratedservices.in/get-quote
       }
     }
 
+    // Secondary: Outlook SMTP if configured
+    if (process.env.OUTLOOK_EMAIL && process.env.OUTLOOK_PASSWORD) {
+      try {
+        const transporter = nodemailer.createTransport({
+          host: 'smtp-mail.outlook.com',
+          port: 587,
+          secure: false,
+          auth: {
+            user: process.env.OUTLOOK_EMAIL,
+            pass: process.env.OUTLOOK_PASSWORD.replace(/\s+/g, ''),
+          },
+          tls: { ciphers: 'SSLv3' },
+        });
+
+        await transporter.sendMail({
+          from: `"JSM Quotes Portal" <${process.env.OUTLOOK_EMAIL}>`,
+          to: targetRecipient,
+          replyTo: email || process.env.OUTLOOK_EMAIL,
+          subject: `🚨 New Commercial Quote Request: ${companyName} (${city})`,
+          text: textEmail,
+          html: emailHtml,
+        });
+      } catch (smtpErr) {
+        console.warn('Outlook SMTP quote notification error:', smtpErr);
+      }
+    }
+
     // Pricing estimation logic
     let estimatesHtml = '';
-    const personnel = parseInt(personnelCount) || 1;
-    
-    services.forEach((service: string) => {
+    let monthlyTotalMin = 0;
+    let monthlyTotalMax = 0;
+    let totalPersonnel = 0;
+
+    interface StructuredEstimate {
+      service: string;
+      shiftPattern: string;
+      personnel: number;
+      rateMin: number;
+      rateMax: number;
+      totalMin: number;
+      totalMax: number;
+      unit: string;
+    }
+
+    const structuredEstimates: StructuredEstimate[] = [];
+
+    rawServices.forEach((item) => {
+      const serviceName = typeof item === 'string' ? item : item.name;
+      const count = typeof item === 'object' && item.quantity ? item.quantity : personnelCount;
+      totalPersonnel += count;
+
       let min = 0;
       let max = 0;
       let unit = '';
-      
-      if (service === 'Private Security') {
+
+      if (serviceName.includes('Private Security') || serviceName.includes('Security')) {
         if (shiftPattern === '8-hour') { min = 14000; max = 18000; }
         else if (shiftPattern === '12-hour') { min = 18000; max = 23000; }
         else { min = 38000; max = 48000; } // 24/7
         unit = 'per post/month';
-      } else if (service === 'Commercial Housekeeping') {
+      } else if (serviceName.includes('Commercial Housekeeping') || serviceName.includes('Housekeeping')) {
         min = 12000; max = 16000; unit = 'per personnel/month';
-      } else if (service === 'Contractual Manpower') {
+      } else if (serviceName.includes('Contractual Manpower') || serviceName.includes('Manpower') || serviceName.includes('Staffing')) {
         min = 11000; max = 15000; unit = 'per personnel/month';
+      } else if (serviceName.includes('Ex-Servicemen') || serviceName.includes('ESM') || serviceName.includes('Supervisor')) {
+        min = 22000; max = 28000; unit = 'per supervisor/month';
       } else {
-        min = 15000; max = 20000; unit = 'per resource/month';
+        const itemRate = typeof item === 'object' && item.rate ? item.rate : 0;
+        min = itemRate || 15000;
+        max = itemRate ? Math.round(itemRate * 1.25) : 20000;
+        unit = 'per resource/month';
       }
-      
-      const totalMin = min * personnel;
-      const totalMax = max * personnel;
-      
+
+      const totalMin = min * count;
+      const totalMax = max * count;
+      monthlyTotalMin += totalMin;
+      monthlyTotalMax += totalMax;
+
+      structuredEstimates.push({
+        service: serviceName,
+        shiftPattern,
+        personnel: count,
+        rateMin: min,
+        rateMax: max,
+        totalMin,
+        totalMax,
+        unit,
+      });
+
+      const escapedServiceName = sanitizeAndEscape(serviceName);
       estimatesHtml += `
         <tr>
-          <td style="padding: 12px; border-bottom: 1px solid #e4e4e7;"><strong>${service}</strong><br><span style="font-size: 12px; color: #71717a;">${shiftPattern} shifts</span></td>
-          <td style="padding: 12px; border-bottom: 1px solid #e4e4e7; text-align: right;">${personnel}</td>
+          <td style="padding: 12px; border-bottom: 1px solid #e4e4e7;"><strong>${escapedServiceName}</strong><br><span style="font-size: 12px; color: #71717a;">${shiftPattern} shifts</span></td>
+          <td style="padding: 12px; border-bottom: 1px solid #e4e4e7; text-align: right;">${count}</td>
           <td style="padding: 12px; border-bottom: 1px solid #e4e4e7; text-align: right;">₹${min.toLocaleString()} - ₹${max.toLocaleString()}<br><span style="font-size: 12px; color: #71717a;">${unit}</span></td>
           <td style="padding: 12px; border-bottom: 1px solid #e4e4e7; text-align: right; font-weight: bold;">₹${totalMin.toLocaleString()} - ₹${totalMax.toLocaleString()}</td>
         </tr>
@@ -217,6 +314,18 @@ Sent from jsmintegratedservices.in/get-quote
     const dateStr = date.toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' });
     const refNum = `JSM-Q-${date.getFullYear()}${(date.getMonth()+1).toString().padStart(2, '0')}${date.getDate().toString().padStart(2, '0')}-${Math.floor(1000 + Math.random() * 9000)}`;
 
+    // Non-blocking webhook dispatch
+    triggerLeadWebhook({
+      name: contactPerson,
+      phone,
+      email,
+      serviceOrRequirement: serviceListString,
+      source: 'Commercial Proposal Portal',
+      city,
+      referenceId: refNum,
+      timestamp: dateStr,
+    });
+
     // Generate HTML for quote (printable)
     const printHtml = `
     <!DOCTYPE html>
@@ -224,7 +333,7 @@ Sent from jsmintegratedservices.in/get-quote
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Commercial Proposal - \${companyName}</title>
+      <title>Commercial Proposal - ${companyName}</title>
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
         body {
@@ -239,7 +348,7 @@ Sent from jsmintegratedservices.in/get-quote
           display: flex;
           justify-content: space-between;
           align-items: flex-start;
-          border-bottom: 3px solid #0071e3;
+          border-bottom: 3px solid #0F2A47;
           padding-bottom: 20px;
           margin-bottom: 40px;
         }
@@ -270,7 +379,7 @@ Sent from jsmintegratedservices.in/get-quote
         .client-section h2 {
           font-size: 14px;
           text-transform: uppercase;
-          color: #0071e3;
+          color: #0F2A47;
           margin-top: 0;
           margin-bottom: 16px;
           letter-spacing: 0.5px;
@@ -310,7 +419,7 @@ Sent from jsmintegratedservices.in/get-quote
         }
         .guarantee-card h3 {
           font-size: 13px;
-          color: #0071e3;
+          color: #0F2A47;
           margin-top: 0;
           margin-bottom: 8px;
         }
@@ -346,7 +455,7 @@ Sent from jsmintegratedservices.in/get-quote
     </head>
     <body>
       <div class="no-print" style="background:#f5f5f7;border:1px solid #e5e5ea;color:#1d1d1f;padding:16px;text-align:center;border-radius:16px;margin-bottom:24px;">
-        <button onclick="window.print()" style="background:#0071e3;border:none;color:white;padding:10px 24px;font-weight:600;border-radius:9999px;cursor:pointer;font-size:14px;">Print / Save as PDF</button>
+        <button onclick="window.print()" style="background:#0F2A47;border:none;color:white;padding:10px 24px;font-weight:600;border-radius:9999px;cursor:pointer;font-size:14px;">Print / Save as PDF</button>
       </div>
 
       <div class="header">
@@ -418,14 +527,39 @@ Sent from jsmintegratedservices.in/get-quote
     </html>
     `;
 
+    const acceptsJson = request.headers.get('accept')?.includes('application/json');
+    const isJsonFormat = data.format === 'json' || acceptsJson;
+
+    if (isJsonFormat) {
+      return NextResponse.json({
+        success: true,
+        referenceId: refNum,
+        company: companyName,
+        contactPerson,
+        email,
+        phone,
+        city,
+        estimates: structuredEstimates,
+        monthlyTotal: {
+          min: monthlyTotalMin,
+          max: monthlyTotalMax,
+        },
+        shiftPattern,
+        personnelCount: totalPersonnel,
+        compliance: '100% EPF & ESIC Compliant, 100% EPF/ESI Indemnified, Minimum Wages Act 1948',
+        date: dateStr,
+      });
+    }
+
     return new NextResponse(printHtml, {
       status: 200,
       headers: {
-        'Content-Type': 'text/html',
+        'Content-Type': 'text/html; charset=utf-8',
       },
     });
-  } catch (error) {
+  } catch (error: unknown) {
+    const errorMessage = error instanceof Error ? error.message : 'Failed to process request';
     console.error('API Error:', error);
-    return NextResponse.json({ error: 'Failed to process request' }, { status: 500 });
+    return NextResponse.json({ success: false, error: errorMessage }, { status: 500 });
   }
 }

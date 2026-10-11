@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
-import { rateLimit, blockBadBots, sanitizeInput } from '@/lib/security';
+import { rateLimit, blockBadBots, sanitizeAndEscape } from '@/lib/security';
+import { contactSchema, formatZodErrors } from '@/lib/validations';
+import { triggerLeadWebhook } from '@/lib/webhook';
 
 export async function POST(req: NextRequest) {
   try {
@@ -10,24 +12,56 @@ export async function POST(req: NextRequest) {
     const rateLimited = rateLimit(req, 10, 60_000); // Stricter: 10 per minute for contact
     if (rateLimited) return rateLimited;
 
-    const body = await req.json();
-    const {
-      name,
-      phone,
-      email,
-      facilityName,
-      service,
-      headcount,
-      location,
-      notes,
-      referenceId,
-    } = body;
+    let body: unknown;
+    try {
+      body = await req.json();
+    } catch {
+      return NextResponse.json(
+        { success: false, error: 'Invalid JSON payload' },
+        { status: 400 }
+      );
+    }
 
-    const ticketRef = referenceId || `JSM-REQ-${Math.floor(1000 + Math.random() * 9000)}`;
+    const validation = contactSchema.safeParse(body);
+    if (!validation.success) {
+      const formatted = formatZodErrors(validation.error);
+      return NextResponse.json(
+        {
+          success: false,
+          error: formatted.message,
+          details: formatted.issues,
+        },
+        { status: 400 }
+      );
+    }
+
+    const data = validation.data;
+    const name = sanitizeAndEscape(data.name);
+    const phone = sanitizeAndEscape(data.phone);
+    const email = data.email ? sanitizeAndEscape(data.email) : '';
+    const facilityName = sanitizeAndEscape(data.facilityName || data.company || '');
+    const service = sanitizeAndEscape(data.service || 'General Integrated Facility Support');
+    const headcount = sanitizeAndEscape(data.headcount || '');
+    const location = sanitizeAndEscape(data.location || data.city || 'Tamil Nadu');
+    const notes = sanitizeAndEscape(data.notes || data.message || '');
+    const ticketRef = data.referenceId || `JSM-REQ-${Math.floor(1000 + Math.random() * 9000)}`;
+
     const timestamp = new Date().toLocaleString('en-IN', {
       timeZone: 'Asia/Kolkata',
       dateStyle: 'full',
       timeStyle: 'medium',
+    });
+
+    // Non-blocking webhook dispatch for immediate notifications
+    triggerLeadWebhook({
+      name,
+      phone,
+      email,
+      serviceOrRequirement: service,
+      source: 'Contact Form',
+      city: location,
+      referenceId: ticketRef,
+      timestamp,
     });
 
     const targetRecipient = process.env.CONTACT_NOTIFICATION_EMAIL || 'jsmintegratedservices@outlook.com';
@@ -151,8 +185,7 @@ Notes: ${notes || 'None'}
 Sent from jsmintegratedservices.in
     `;
 
-    const defaultKey = Buffer.from('cmVfU3RrZXF1dE1fR0NOOXpDblFBNExBdUp6Z3VodDNhS1J1', 'base64').toString('utf-8');
-    const resendApiKey = process.env.RESEND_API_KEY || defaultKey;
+    const resendApiKey = process.env.RESEND_API_KEY;
 
     // 1. Primary: Dispatch directly via Resend API to Outlook
     if (resendApiKey) {
@@ -238,12 +271,13 @@ Sent from jsmintegratedservices.in
       referenceId: ticketRef,
       message: 'Request logged successfully. Set OUTLOOK_EMAIL & OUTLOOK_PASSWORD in Vercel to activate direct SMTP delivery.',
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const errorMessage = error instanceof Error ? error.message : 'Failed to dispatch notification email';
     console.error('Error handling contact form lead:', error);
     return NextResponse.json(
       {
         success: false,
-        error: error.message || 'Failed to dispatch notification email',
+        error: errorMessage,
       },
       { status: 500 }
     );

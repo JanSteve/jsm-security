@@ -15,7 +15,7 @@ export default function NotFound() {
         </h1>
 
         <h2 className="text-2xl sm:text-3xl font-semibold text-[#14181F] tracking-tight text-balance">
-          The page you're looking for can't be found.
+          The page you&apos;re looking for can&apos;t be found.
         </h2>
 
         <p className="text-sm sm:text-base text-[#5A6578] font-normal leading-relaxed max-w-md mx-auto text-pretty">

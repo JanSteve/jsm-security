@@ -4,9 +4,8 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Link from 'next/link';
 import { getIcon } from './icon-map';
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Service } from '@/data/services';
 
 interface ServiceFilterProps {
@@ -42,10 +41,10 @@ export function ServiceFilter({ categories, services }: ServiceFilterProps) {
             key={category}
             variant={activeCategory === category ? 'default' : 'outline'}
             onClick={() => setActiveCategory(category)}
-            className={`rounded-full transition-all px-5 min-h-[44px] text-xs font-semibold ${
+            className={`rounded-md transition-all px-5 min-h-[44px] text-xs font-semibold ${
               activeCategory === category 
-                ? 'bg-[#1d1d1f] text-white hover:bg-black border-transparent shadow-sm' 
-                : 'border-black/[0.08] text-[#515154] hover:text-[#1d1d1f] hover:bg-black/[0.04] bg-[#f5f5f7]'
+                ? 'bg-[#0F2A47] text-white hover:bg-[#0A1E33] border-transparent shadow-xs' 
+                : 'border-[#E4E7EC] text-[#4A5160] hover:text-[#14181F] hover:bg-[#E4E7EC]/40 bg-[#F6F7F9]'
             }`}
           >
             {category}
@@ -69,56 +68,56 @@ export function ServiceFilter({ categories, services }: ServiceFilterProps) {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.25 }}
-                className="group relative flex flex-col bg-[#f5f5f7] rounded-[28px] p-7 border border-black/[0.06] hover:border-black/[0.12] transition-all duration-300 shadow-sm hover:shadow-md"
+                className="group relative flex flex-col bg-[#F6F7F9] rounded-xl p-7 border border-[#E4E7EC] hover:border-[#0F2A47]/30 transition-all duration-300 shadow-xs hover:shadow-sm"
               >
                 <div className="mb-5 flex justify-between items-start">
-                  <div className="p-3 bg-white border border-black/[0.08] rounded-2xl text-[#0071e3] group-hover:scale-105 transition-transform duration-300 shadow-sm">
+                  <div className="p-3 bg-white border border-[#E4E7EC] rounded-lg text-[#0F2A47] group-hover:scale-105 transition-transform duration-300 shadow-2xs">
                     <IconComponent size={22} />
                   </div>
                   <span className={`text-[10px] font-semibold px-3 py-1 rounded-full uppercase ${
                     service.isCoreLaunch 
-                      ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' 
-                      : 'bg-blue-50 text-blue-700 border border-blue-200'
+                      ? 'bg-emerald-50 text-emerald-800 border border-emerald-200' 
+                      : 'bg-[#0F2A47]/8 text-[#0F2A47] border border-[#0F2A47]/15'
                   }`}>
                     {service.phase}
                   </span>
                 </div>
                 
-                <h3 className="text-xl font-semibold text-[#1d1d1f] mb-1.5 leading-snug">
+                <h3 className="text-xl font-semibold text-[#14181F] mb-1.5 leading-snug">
                   {service.title}
                 </h3>
-                <p className="text-xs font-semibold mb-3 text-[#0071e3]">
+                <p className="text-xs font-semibold mb-3 text-[#9C7A3C]">
                   {service.valueProposition}
                 </p>
-                <p className="text-[#515154] text-xs leading-relaxed mb-6 flex-grow font-normal text-pretty">
+                <p className="text-[#4A5160] text-xs leading-relaxed mb-6 flex-grow font-normal text-pretty">
                   {service.description}
                 </p>
 
                 {/* Who It Is For Sample */}
-                <div className="space-y-1.5 mb-6 pt-4 border-t border-black/[0.06]">
-                  <p className="text-[10px] font-semibold uppercase tracking-wider text-[#86868b]">
+                <div className="space-y-1.5 mb-6 pt-4 border-t border-[#E4E7EC]">
+                  <p className="text-[10px] font-semibold uppercase tracking-wider text-[#4A5160]">
                     Typical deployments:
                   </p>
                   <div className="flex flex-wrap gap-1.5">
                     {service.whoItIsFor.slice(0, 3).map((target, idx) => (
-                      <span key={idx} className="text-[10px] bg-white border border-black/[0.06] px-2.5 py-1 rounded-full text-[#515154] font-medium">
+                      <span key={idx} className="text-[10px] bg-white border border-[#E4E7EC] px-2.5 py-1 rounded-md text-[#4A5160] font-medium">
                         {target}
                       </span>
                     ))}
                   </div>
                 </div>
                 
-                <div className="pt-4 border-t border-black/[0.06] mt-auto flex items-center justify-between">
+                <div className="pt-4 border-t border-[#E4E7EC] mt-auto flex items-center justify-between">
                   <Link 
                     href={`/services/${service.slug}`}
-                    className="inline-flex items-center text-xs font-semibold text-[#0071e3] hover:underline gap-1.5 min-h-[44px]"
+                    className="inline-flex items-center text-xs font-semibold text-[#0F2A47] hover:text-[#9C7A3C] hover:underline gap-1.5 min-h-[44px]"
                   >
                     View scope &amp; checklists <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                   </Link>
 
                   <Link
                     href="/contact"
-                    className="text-[11px] font-medium text-[#86868b] hover:text-[#1d1d1f] min-h-[44px] inline-flex items-center"
+                    className="text-[11px] font-medium text-[#4A5160] hover:text-[#14181F] min-h-[44px] inline-flex items-center"
                   >
                     Request quote →
                   </Link>
