@@ -2,14 +2,17 @@ import { Metadata } from "next";
 import { constructMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = constructMetadata({
-  title: "Careers, Recruitment & ESM Enrolment",
-  description: "Join JSM Integrated Services. Explore careers for Ex-Servicemen supervisors, security officers, facility marshals, and administrative staff across Tamil Nadu.",
+  title: "Business Development Executive Internships (Remote & Field) | JSM Integrated Services",
+  description: "Apply for 3–6 month Business Development Executive (BDE) internships at JSM Integrated Services. Remote inside sales and on-ground field merchant acquisition roles in Chennai and Trichy with deal incentives, LOR, and PPO.",
   path: "/careers",
   keywords: [
-    "Security Guard Jobs Tamil Nadu",
-    "Ex-Servicemen Security Recruitment",
-    "Facility Management Careers Trichy Chennai",
-    "Security Supervisor Vacancies"
+    "Business Development Intern Chennai",
+    "BDE Internship Trichy",
+    "Remote Inside Sales Internship Tamil Nadu",
+    "Field Sales Intern Chennai Trichy",
+    "Unpaid Internship With Commission PPO",
+    "B2B Sales Internship Tamil Nadu",
+    "JSM Integrated Services Careers"
   ]
 });
 

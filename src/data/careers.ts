@@ -1,3 +1,23 @@
+export interface BdeInternRole {
+  id: string;
+  title: string;
+  roleType: 'Inside Sales (Remote Calling)' | 'Field Sales (On-Ground Acquisition)';
+  workMode: 'Remote (Tamil Nadu)' | 'On-Ground / Field (Chennai or Trichy)';
+  locations: string;
+  duration: string;
+  stipendType: string;
+  compensationDetails: string;
+  openings: number;
+  badge: string;
+  summary: string;
+  keyResponsibilities: string[];
+  dailyWorkflow: string[];
+  whatYouWillPitch: string[];
+  requirements: string[];
+  perks: string[];
+  idealFor: string;
+}
+
 export interface CareerRole {
   id: string;
   title: string;
@@ -11,175 +31,168 @@ export interface CareerRole {
   whatWeOffer: string[];
 }
 
-export interface InductionDay {
-  day: string;
-  title: string;
-  focus: string;
-  details: string[];
-}
-
-export const inductionPhilosophy: InductionDay[] = [
+export const internshipPerksOverview = [
   {
-    day: 'Day 01',
-    title: 'Values, Grooming & Discipline',
-    focus: 'Understanding the JSM standard of professional conduct.',
-    details: [
-      'Company mission, integrity, and client confidentiality standards.',
-      'Uniform etiquette, turn-out inspection, and personal grooming codes.',
-      'Punctuality norms and shift attendance accountability.'
-    ]
+    title: "Leadership-Provided Daily Leads",
+    description: "Zero blind searching. Company leadership supplies pre-verified phone numbers and business profiles every single morning.",
+    icon: "Target"
   },
   {
-    day: 'Day 02',
-    title: 'Post Duties & Visitor Logging',
-    focus: 'Mastering gatekeeping, access control, and documentation.',
-    details: [
-      'Visitor register documentation and delivery vehicle inspection.',
-      'Material inward/outward gate-pass verification.',
-      'Courteous telephone etiquette and visitor greeting standards.'
-    ]
+    title: "Lucrative Deal Closure Commissions",
+    description: "Uncapped per-deal cash incentives for every physical security, facility, or digital automation deal procured.",
+    icon: "TrendingUp"
   },
   {
-    day: 'Day 03',
-    title: 'Fire Safety, First Aid & Emergencies',
-    focus: 'Equipping staff to handle unexpected premises incidents.',
-    details: [
-      'Operating fire extinguishers (PASS method) and emergency exit routes.',
-      'Basic first aid response and casualty guidance.',
-      'Emergency reporting and escalation communication protocol.'
-    ]
+    title: "1-on-1 Founder & CTO Mentorship",
+    description: "Daily coaching from CTO R Jan Steve Daniel on commercial objection handling, consultative selling, and deal mechanics.",
+    icon: "Award"
   },
   {
-    day: 'Day 04',
-    title: 'Client-Specific SOP & Checklists',
-    focus: 'Aligning with the specific environment of deployment.',
-    details: [
-      'Understanding specific rules for corporate, residential, or industrial premises.',
-      'Checklist execution for housekeeping hygiene cycles.',
-      'Handling perimeter patrol schedules and clocking points.'
-    ]
-  },
-  {
-    day: 'Day 05',
-    title: 'Supervised Field Shadowing',
-    focus: 'Practical on-site training under an experienced supervisor.',
-    details: [
-      'Full-shift shadowing with a senior field officer.',
-      'Practical shift handover demonstration and logbook entries.',
-      'Final assessment and deployment sign-off.'
-    ]
+    title: "Verified LOR & Full-Time PPO Track",
+    description: "Official Letter of Recommendation (LOR), Internship Certificate, and fast-track Pre-Placement Offer for full-time BDE roles.",
+    icon: "FileCheck"
   }
 ];
 
-export const careerProgressionSteps = [
-  { rank: 'Step 01', title: 'Security Guard / Facility Staff', timeline: '0 - 12 Months', desc: 'Mastering post duties, attendance reliability, and disciplined checklist execution.' },
-  { rank: 'Step 02', title: 'Senior Guard / Shift Lead', timeline: '12 - 24 Months', desc: 'Guiding junior staff, managing shift roll-calls, and resolving routine client queries.' },
-  { rank: 'Step 03', title: 'Field Supervisory Officer', timeline: '2 - 3 Years', desc: 'Conducting surprise site checks, training recruits, and auditing daily logbooks across multiple sites.' },
-  { rank: 'Step 04', title: 'Operations Coordinator', timeline: '3 - 5 Years', desc: 'Direct client liaison, roster management, emergency mobilization, and service SLA audits.' },
-  { rank: 'Step 05', title: 'Regional Operations Manager', timeline: '5+ Years', desc: 'Leading district operations, regional compliance, team leadership, and multi-vertical growth.' }
-];
-
-export const openRoles: CareerRole[] = [
+export const internshipWorkflowSteps = [
   {
-    id: 'sec-guard-trichy',
-    title: 'Security Guard / Gate Officer',
-    department: 'Security Operations',
-    location: 'Trichy, Chennai & Coimbatore (Tamil Nadu)',
-    type: 'Full-Time / Shifts',
-    experience: 'Fresher to 2 Years',
-    description: 'We are hiring disciplined, alert security guards for corporate offices, residential communities, and industrial facilities. Full uniform, 5-day induction training, and on-time salary provided.',
-    responsibilities: [
-      'Maintain alert entry and exit gate surveillance.',
-      'Record visitor details and verify vehicle passes accurately.',
-      'Conduct perimeter patrolling rounds during assigned shifts.',
-      'Coordinate with field supervisors during daily shift handovers.'
-    ],
-    requirements: [
-      'Minimum age 21 years with good physical fitness.',
-      'Clear background record with Aadhaar and address verification.',
-      'Basic reading and writing ability (Tamil/English).',
-      'Disciplined attitude and commitment to shift punctuality.'
-    ],
-    whatWeOffer: [
-      'Guaranteed on-time monthly salary disbursement.',
-      'Complete company-provided uniform and safety equipment.',
-      '5-Day structured induction training with certification.',
-      'Clear promotion pathways to Senior Guard and Supervisor.'
-    ]
+    step: "01",
+    title: "Morning Lead Dispatch",
+    desc: "Leadership hands you targeted prospect phone numbers (clinics, salons, restaurants, factories) with background context."
   },
   {
-    id: 'hk-supervisor-tn',
-    title: 'Housekeeping & Facility Supervisor',
-    department: 'Facility Management',
-    location: 'Trichy & Chennai (Tamil Nadu)',
-    type: 'Full-Time',
-    experience: '1 to 3 Years in Facility/Cleaning Supervision',
-    description: 'Seeking an experienced housekeeping supervisor to manage cleaning crews, verify hourly restroom inspection checklists, and coordinate with corporate facility managers.',
-    responsibilities: [
-      'Oversee daily cleaning teams across commercial or residential client sites.',
-      'Inspect hygiene quality against checklists: Clean → Inspect → Report → Correct → Verify.',
-      'Manage cleaning consumable inventory and equipment maintenance.',
-      'Coordinate shift attendance and arrange timely staff replacements.'
-    ],
-    requirements: [
-      'Prior experience supervising commercial housekeeping or facility operations.',
-      'Working knowledge of cleaning chemicals, scrubbing machines, and safety norms.',
-      'Good communication skills in Tamil and basic English.',
-      'Strong leadership and problem-solving mindset.'
-    ],
-    whatWeOffer: [
-      'Competitive monthly remuneration + travel allowances.',
-      'Growth opportunities into Area Operations Coordinator.',
-      'Respectful, supportive management culture.'
-    ]
+    step: "02",
+    title: "Outreach & Pitching",
+    desc: "Dial prospects remotely or walk in on-ground to demonstrate JSM's physical and smart digital solutions."
   },
   {
-    id: 'field-officer-ops',
-    title: 'Field Operations Officer',
-    department: 'Operations & Compliance',
-    location: 'Tiruchirappalli (Trichy), Tamil Nadu',
-    type: 'Full-Time (Field/Mobile)',
-    experience: '2 to 4 Years',
-    description: 'Responsible for conducting unannounced day/night spot-checks across client sites, auditing guard alert status, resolving client operational queries, and training site personnel.',
-    responsibilities: [
-      'Conduct structured surprise visits to assigned security and facility posts.',
-      'Audit logbooks, visitor registers, and attendance registers on-site.',
-      'Conduct on-the-job training refreshers for guards and housekeeping staff.',
-      'Liaise directly with client estate managers to ensure SLA adherence.'
-    ],
-    requirements: [
-      'Must possess two-wheeler driving license for local site visits.',
-      'Prior experience in private security, facility management, or armed forces/police background.',
-      'High level of integrity, alertness, and leadership authority.'
-    ],
-    whatWeOffer: [
-      'Competitive salary + vehicle fuel & mobile allowance.',
-      'Performance incentives based on site quality audits.',
-      'Fast-track leadership development.'
-    ]
+    step: "03",
+    title: "Discovery & Qualification",
+    desc: "Uncover pain points (negative reviews, missed calls, high Swiggy fees, staff shortages) and quantify ROI."
   },
   {
-    id: 'recruitment-exec',
-    title: 'Manpower Recruitment Executive',
-    department: 'Human Resources',
-    location: 'Trichy Hub, Tamil Nadu',
-    type: 'Full-Time',
-    experience: '1 to 2 Years in Staffing/Recruitment',
-    description: 'Help scale JSM\'s workforce network across Tamil Nadu. Responsible for sourcing candidates, managing background check documentation, and coordinating the 5-day induction batches.',
-    responsibilities: [
-      'Source and screen candidates for security, housekeeping, and industrial staffing roles.',
-      'Collect and authenticate candidate verification documents (Aadhaar, address, references).',
-      'Coordinate with operations team to schedule training batches.',
-      'Maintain digital applicant records and attendance onboarding files.'
-    ],
-    requirements: [
-      'Degree or Diploma with relevant experience in recruitment or HR coordination.',
-      'Fluency in Tamil and English with good phone communication skills.',
-      'Familiarity with spreadsheet documentation and candidate databases.'
-    ],
-    whatWeOffer: [
-      'Stable corporate role with incentive bonuses on successful hiring targets.',
-      'Professional, modern office working environment in Trichy.'
-    ]
+    step: "04",
+    title: "Executive Handoff & Closure",
+    desc: "Lock in merchant commitment and connect them with leadership to finalize commercial contracts and close the deal."
   }
 ];
+
+export const openInternshipRoles: BdeInternRole[] = [
+  {
+    id: "bde-intern-remote-calling",
+    title: "Business Development Executive Intern (Inside Sales & Remote Outreach)",
+    roleType: "Inside Sales (Remote Calling)",
+    workMode: "Remote (Tamil Nadu)",
+    locations: "Remote (Chennai or Trichy candidates preferred)",
+    duration: "3 to 6 Months (Flexible Tenure)",
+    stipendType: "Unpaid Internship + Performance Deal Commissions",
+    compensationDetails: "Unpaid baseline with generous per-deal cash closing incentives, performance milestone bonuses, official LOR, and direct Pre-Placement Offer (PPO) pathway.",
+    openings: 1,
+    badge: "Inside Sales & Tele-Calling",
+    summary: "Are you an articulate, confident communicator with a passion for high-velocity sales? We are seeking 1 Remote BDE Intern to spearhead telephonic outreach across Chennai, Trichy, and Tamil Nadu. Every day, leadership will provide you with verified lead lists and phone numbers of business owners (clinics, diagnostic labs, salons, family restaurants, and commercial firms). Your mission: dial decision-makers, deliver high-impact value pitches, qualify requirements, warm up prospects, and secure deal commitments before handing them to our Founder/CTO for final contract closure.",
+    keyResponsibilities: [
+      "Conduct structured outbound calls daily from verified lead sheets provided by leadership.",
+      "Deliver punchy, value-first phone pitches introducing JSM's physical operations and smart automation tools.",
+      "Engage business owners, clinic managers, and proprietors in consultative discovery conversations.",
+      "Overcome initial skepticism, answer product queries, and communicate clear return on investment (ROI).",
+      "Qualify prospect interest, capture specific business requirements, and schedule closing calls for the Founder/CTO.",
+      "Log daily call outcomes, follow-up dates, and feedback into the central sales CRM tracker."
+    ],
+    dailyWorkflow: [
+      "9:30 AM: Morning alignment with leadership & download of daily verified lead lists (40-60 target numbers).",
+      "10:00 AM - 1:00 PM: High-focus outbound telephonic outreach and discovery calls.",
+      "2:00 PM - 4:30 PM: Follow-up calls, WhatsApp pitch deck dispatches, and prospect requirement mapping.",
+      "4:30 PM - 5:30 PM: Lead qualification handoff meetings with Founder/CTO for hot prospects ready to close.",
+      "5:30 PM - 6:00 PM: Daily pipeline review and review of deal commissions earned."
+    ],
+    whatYouWillPitch: [
+      "Smart Review Filter NFC Standees: Doubling 5-star Google Maps reviews while routing 1-3 star complaints to WhatsApp.",
+      "Missed-Call to WhatsApp Lead Recovery: Recovering ₹25,000+ monthly in lost inquiries within 5 seconds.",
+      "WhatsApp Direct Table Ordering QR Menus: Zero-commission dining menus eliminating 30% aggregator commissions.",
+      "Live Clinic Waiting Token Tracker: Real-time patient queue updates eliminating reception chaos.",
+      "Corporate Security & Facility Manpower: Armed/unarmed guard platoons, mechanized housekeeping, and industrial staffing."
+    ],
+    requirements: [
+      "Enrolled in or recent graduate of an undergraduate/postgraduate degree (BBA, B.Com, B.E./B.Tech, MBA, or any discipline).",
+      "Exceptional verbal communication skills in Tamil and working fluency in English.",
+      "Unafraid of the telephone: highly energetic, resilient, polite, and persistent telephone demeanor.",
+      "Strong active listening skills with the ability to identify client pain points quickly.",
+      "Disciplined self-starter with reliable personal laptop/smartphone and high-speed internet connection.",
+      "Hungry to learn B2B deal negotiation and sales psychology directly from experienced founders."
+    ],
+    perks: [
+      "Attractive cash commission on every deal closed and signed from your qualified pipeline.",
+      "Official JSM Internship Certificate of Completion upon 3–6 months tenure.",
+      "Personalized, verified Letter of Recommendation (LOR) signed by the Founder & CTO.",
+      "Direct pathway to a full-time Pre-Placement Offer (PPO) as Full-Time Business Development Executive.",
+      "Real-world sales experience pitching both high-ticket physical contracts and high-growth digital tech."
+    ],
+    idealFor: "Ambitious students or freshers who love talking to people over the phone, want to master cold calling & B2B sales psychology, and want to build a standout sales resume."
+  },
+  {
+    id: "bde-intern-field-sales",
+    title: "Field Business Development Executive Intern (On-Ground Merchant Acquisition)",
+    roleType: "Field Sales (On-Ground Acquisition)",
+    workMode: "On-Ground / Field (Chennai or Trichy)",
+    locations: "Chennai (OMR, Anna Nagar, T. Nagar) OR Tiruchirappalli (Thillai Nagar, Cantonment, Central)",
+    duration: "3 to 6 Months (Flexible Tenure)",
+    stipendType: "Unpaid Internship + Field Incentives + Deal Commissions",
+    compensationDetails: "Unpaid baseline with generous per-signed-merchant cash commissions, travel/conveyance expense support, official LOR, and priority PPO for City Sales Lead.",
+    openings: 1,
+    badge: "Field Sales & Merchant Acquisition",
+    summary: "Do you thrive in the real world meeting business owners face-to-face? We are hiring 1 Field BDE Intern to hit the ground running across high-density commercial markets in Chennai or Trichy. Armed with live product samples (such as our Smart NFC Review Filter Standees and WhatsApp QR Ordering demos), you will walk into local businesses—salons, clinics, specialty cafes, auto detailing garages, wedding venues, and commercial complexes. You will give live in-person demos, build instant rapport with store owners, secure deals on the spot, and hand off client requirements to leadership for contract execution.",
+    keyResponsibilities: [
+      "Execute territory coverage across prime commercial hubs in Chennai (OMR, Anna Nagar, T. Nagar) or Trichy (Thillai Nagar, Cantonment).",
+      "Conduct 15 to 20 in-person walk-ins daily to meet business proprietors, clinic directors, and store managers.",
+      "Demonstrate live smart hardware on-the-spot (tap the NFC standee on the owner's phone to prove instant Google Review capture).",
+      "Diagnose business vulnerabilities (poor Google ratings, lost phone enquiries, high delivery commissions, hygiene/guarding needs).",
+      "Pitch JSM's integrated value proposition, procure commercial intent, and capture contract requirements.",
+      "Secure immediate deals and coordinate with leadership to execute service agreements and collect onboarding deposits."
+    ],
+    dailyWorkflow: [
+      "10:00 AM: Territory planning & collection of demonstration kits (NFC standees, QR samples, brochure dossiers).",
+      "10:30 AM - 1:30 PM: Morning commercial merchant visits & live on-ground product demonstrations.",
+      "2:30 PM - 5:00 PM: Afternoon visits to clinics, diagnostic centers, automotive workshops, and restaurants.",
+      "5:00 PM - 6:00 PM: Closing walk-ins, collecting warm owner contacts, and logging deal commitments with Founder/CTO.",
+      "6:00 PM: Daily debrief, commission tracking, and mapping tomorrow's commercial street route."
+    ],
+    whatYouWillPitch: [
+      "Smart Review Filter NFC Standee (Live Demo Kit): Physical standee that business owners instantly test on their own phone.",
+      "WhatsApp Direct Table Ordering QR Standees: Proven solution to eliminate 30% food aggregator deductions.",
+      "WhatsApp Digital Loyalty Punch Cards: Instant loyalty capture for premium grooming salons and bakeries.",
+      "Live Clinic Waiting Token System: Clean waiting room technology for high-volume doctors.",
+      "Commercial Facility Management & Security: Physical security guard Platoons and mechanized housekeeping contracts."
+    ],
+    requirements: [
+      "Must be based locally in Chennai or Tiruchirappalli (Trichy) with reliable local two-wheeler transit.",
+      "Charismatic, confident, and professional in-person presence with neat business-casual attire.",
+      "Fluent in spoken Tamil; natural ease in striking up conversations with shop owners and managers.",
+      "High stamina and enthusiasm for on-ground fieldwork and door-to-door commercial pitching.",
+      "Strong observational skills: spotting businesses that clearly suffer from negative reviews or poor signage.",
+      "Goal-driven attitude: passionate about closing real-world deals and pocketing substantial commission payouts."
+    ],
+    perks: [
+      "High-ticket cash commissions paid on every onboarded merchant and signed physical contract.",
+      "Travel and fuel conveyance allowance to support daily territory field visits.",
+      "Official JSM Internship Certificate of Completion upon 3–6 months tenure.",
+      "Personalized Letter of Recommendation (LOR) highlighting proven on-ground commercial acumen.",
+      "Fast-track Pre-Placement Offer (PPO) for Full-Time Territory Sales Lead / City Commercial Head.",
+      "Hands-on merchant acquisition experience that sets you apart from 99% of peers sitting behind desks."
+    ],
+    idealFor: "Energetic individuals who love being on the move, enjoy meeting store owners and doctors face-to-face, and want to master the art of in-person dealmaking."
+  }
+];
+
+// Open roles mapped for standard interfaces and schema compatibility
+export const openRoles: CareerRole[] = openInternshipRoles.map((intern) => ({
+  id: intern.id,
+  title: intern.title,
+  department: "Business Development & Commercial Growth",
+  location: intern.locations,
+  type: `Internship (Unpaid + Performance Commission) • ${intern.duration}`,
+  experience: "Fresher / College Student / Ambitious Go-Getter",
+  description: intern.summary,
+  responsibilities: intern.keyResponsibilities,
+  requirements: intern.requirements,
+  whatWeOffer: intern.perks
+}));
