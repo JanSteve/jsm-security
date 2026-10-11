@@ -6,7 +6,8 @@ import {
   ShieldCheck, 
   CheckCircle2, 
   ArrowRight, 
-  MapPin 
+  MapPin,
+  Award
 } from "lucide-react";
 
 import { constructMetadata } from "@/lib/seo";
@@ -24,9 +25,8 @@ const districtHubs = [
   { city: "Chennai", role: "OMR IT Corridor & Commercial Division", address: "Sholinganallur & Guindy Hub" },
   { city: "Coimbatore", role: "Industrial & Manufacturing Outpost", address: "Peelamedu & Sidco Industrial Estate" },
   { city: "Hosur", role: "Automotive & Electronics SEZ Division", address: "Sipcot Industrial Complex" },
-  { city: "Salem & Erode", role: "Fabrication & Textile Workforce Hub", address: "Steel Plant Road & Perundurai SEZ" },
-  { city: "Madurai", role: "Southern Regional Operations Division", address: "K.K. Nagar & Mattuthavani Sector" },
-  { city: "Tirunelveli", role: "Renewable Energy & Infrastructure Unit", address: "Gangaikondan IT Park" }
+  { city: "Salem & Erode", role: "Fabrication & Workforce Hub", address: "Steel Plant Road & Perundurai SEZ" },
+  { city: "Madurai", role: "Southern Regional Operations Division", address: "K.K. Nagar & Mattuthavani Sector" }
 ];
 
 export default function AboutPage() {
@@ -36,61 +36,61 @@ export default function AboutPage() {
   ]);
 
   return (
-    <main className="min-h-screen bg-white text-[#14181F] pt-32 pb-24">
+    <main className="min-h-screen bg-black text-white pt-28 pb-20">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {/* Editorial Page Header */}
-        <section className="py-8 sm:py-12 border-b border-[#E4E7EC]">
-          <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0F2A47]/8 text-[#0F2A47] text-xs font-semibold">
+        <section className="py-8 sm:py-10 border-b border-white/10">
+          <div className="max-w-3xl space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[#D4AF37] text-xs font-bold">
               <ShieldCheck size={14} />
               <span>Company Background &amp; Leadership</span>
             </div>
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl text-[#14181F] font-normal tracking-tight">
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white font-bold tracking-tight">
               Executive Leadership &amp; Operational Governance
             </h1>
-            <p className="text-base sm:text-lg text-[#5A6578] leading-relaxed">
+            <p className="text-base sm:text-lg text-neutral-300 leading-relaxed">
               JSM Integrated Services is an enterprise facilities, manpower, and security agency headquartered in Tiruchirappalli, Tamil Nadu. Built on strict military discipline and direct founder accountability.
             </p>
           </div>
         </section>
 
-        {/* Company Genesis & History (JSMMANPOWER Origin) */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center border-b border-[#E4E7EC] pb-16">
-          <div className="lg:col-span-7 space-y-5">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#0F2A47]">
+        {/* Company Genesis & History */}
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-b border-white/10 pb-12">
+          <div className="lg:col-span-7 space-y-4">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#D4AF37]">
               Origins &amp; Evolution
             </span>
-            <h2 className="font-display text-2xl sm:text-3xl text-[#14181F] font-normal tracking-tight">
+            <h2 className="font-serif text-2xl sm:text-3xl text-white font-bold tracking-tight">
               From JSMMANPOWER to Integrated Enterprise Services
             </h2>
-            <div className="space-y-3 text-sm text-[#5A6578] leading-relaxed">
+            <div className="space-y-2 text-sm text-neutral-300 leading-relaxed">
               <p>
-                Originally established as <strong>JSMMANPOWER</strong>, our organization began with a core focus on contract industrial labor and specialized factory workforce supply. As clients sought to reduce vendor fragmentation, we expanded into full-spectrum security guarding under the Private Security Agencies Regulation Act (Statutory Labour Law Compliant) and mechanized commercial facility management.
+                Originally established as <strong>JSMMANPOWER</strong>, our organization began with industrial staffing. Expanding to meet enterprise demands, we integrated full-spectrum Ex-Servicemen security guarding and mechanized commercial facility management.
               </p>
               <p>
-                Today, rebranded as <strong>JSM Integrated Services</strong>, we deliver an integrated three-tier operational model backed by Ex-Servicemen supervisory officers and 100% statutory EPF/ESIC compliance.
+                Today, rebranded as <strong>JSM Integrated Services</strong>, we deliver a cohesive three-tier model backed by Ex-Servicemen supervisory officers and 100% statutory EPF/ESIC compliance.
               </p>
             </div>
 
-            <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-[#14181F] font-medium">
-              <div className="p-3.5 rounded-lg bg-[#F8F9FA] border border-[#E4E7EC] flex items-center gap-2">
-                <CheckCircle2 size={15} className="text-[#0F2A47]" />
+            <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-semibold text-white">
+              <div className="p-3.5 rounded-lg bg-[#070B12] border border-white/10 flex items-center gap-2">
+                <CheckCircle2 size={15} className="text-[#D4AF37]" />
                 <span>Proprietorship Legal Structure</span>
               </div>
-              <div className="p-3.5 rounded-lg bg-[#F8F9FA] border border-[#E4E7EC] flex items-center gap-2">
-                <CheckCircle2 size={15} className="text-[#0F2A47]" />
+              <div className="p-3.5 rounded-lg bg-[#070B12] border border-white/10 flex items-center gap-2">
+                <CheckCircle2 size={15} className="text-[#D4AF37]" />
                 <span>GST Registered: Multi-Service SAC</span>
               </div>
             </div>
           </div>
 
           <div className="lg:col-span-5 relative">
-            <div className="rounded-xl overflow-hidden border border-[#E4E7EC] bg-[#F8F9FA] shadow-xs relative aspect-4/3">
+            <div className="rounded-xl overflow-hidden border border-white/15 bg-[#070B12] shadow-xl relative aspect-4/3">
               <Image
                 src="/images/real_jsm_printed_card.jpg"
                 alt="JSM Integrated Services Physical Corporate Credentials"
@@ -99,8 +99,8 @@ export default function AboutPage() {
                 className="object-cover"
               />
             </div>
-            <p className="text-[11px] text-[#5A6578] mt-2 text-center">
-              Official physical credentials carrying 100% EPF & ESIC Compliant &amp; Professional Private Security & Facility Operations governance seals.
+            <p className="text-[11px] text-neutral-400 mt-2 text-center">
+              Official physical credentials carrying 100% EPF/ESIC and professional statutory governance seals.
             </p>
           </div>
         </section>
@@ -109,12 +109,12 @@ export default function AboutPage() {
         <ExecutiveLeadershipSection 
           showTitle={true} 
           darkTheme={true} 
-          className="rounded-3xl border border-[#1A2333] shadow-2xl my-10" 
+          className="rounded-2xl border border-white/10 shadow-2xl my-8" 
         />
 
         {/* Landmark Milestone: Trichy International Airport */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-b border-[#E4E7EC] pb-16">
-          <div className="lg:col-span-5 relative aspect-16/10 rounded-xl overflow-hidden border border-[#E4E7EC]">
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-b border-white/10 pb-12">
+          <div className="lg:col-span-5 relative aspect-16/10 rounded-xl overflow-hidden border border-white/15">
             <Image
               src="/images/real_jsm_airport_terminal_platoon.jpg"
               alt="Trichy International Airport Operations Platoon"
@@ -123,59 +123,56 @@ export default function AboutPage() {
               className="object-cover"
             />
           </div>
-          <div className="lg:col-span-7 space-y-4">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#B8925A]">
+          <div className="lg:col-span-7 space-y-3">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#D4AF37]">
               Landmark Assignment
             </span>
-            <h2 className="font-display text-2xl sm:text-3xl text-[#14181F] font-normal tracking-tight">
+            <h2 className="font-serif text-2xl sm:text-3xl text-white font-bold tracking-tight">
               Tiruchirappalli International Airport Concourse Operations (2024)
             </h2>
-            <p className="text-sm text-[#5A6578] leading-relaxed">
-              JSM Integrated Services executed commercial terminal security and passenger access management for the international terminal in 2024. This landmark contract established our high-density crowd management and uncompromised turnout standards.
+            <p className="text-sm text-neutral-300 leading-relaxed">
+              JSM Integrated Services executed round-the-clock concourse security and passenger access management for the international terminal expansion for Airports Authority of India (AAI) with zero security breaches and 100% muster compliance.
             </p>
-            <div className="flex items-center gap-6 pt-2 text-xs text-[#14181F] font-medium">
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 size={14} className="text-[#0F2A47]" />
+            <div className="flex items-center gap-6 pt-1 text-xs text-white font-semibold">
+              <span className="flex items-center gap-1.5 text-emerald-400">
+                <CheckCircle2 size={14} />
                 Zero Security Incidents
               </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 size={14} className="text-[#0F2A47]" />
+              <span className="flex items-center gap-1.5 text-[#D4AF37]">
+                <CheckCircle2 size={14} />
                 100% Muster Adherence
               </span>
             </div>
           </div>
         </section>
 
-        {/* Consolidated District Hubs Directory */}
-        <section className="space-y-8 border-b border-[#E4E7EC] pb-16">
-          <div className="space-y-2">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#0F2A47]">
+        {/* Regional District Hubs Directory */}
+        <section className="space-y-6 border-b border-white/10 pb-12">
+          <div className="space-y-1 text-left">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#D4AF37]">
               Regional Presence
             </span>
-            <h2 className="font-display text-2xl sm:text-3xl text-[#14181F] font-normal tracking-tight">
+            <h2 className="font-serif text-2xl sm:text-3xl text-white font-bold tracking-tight">
               District Operations Hubs in Tamil Nadu
             </h2>
-            <p className="text-sm text-[#5A6578]">
-              Decentralized supervisory outposts ensuring adherence to our 2-hour relief replacement SLA across all districts.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {districtHubs.map((hub, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-lg border border-[#E4E7EC] bg-white space-y-1.5"
+                className="p-4 rounded-xl border border-white/10 bg-[#070B12] space-y-1 text-left"
               >
                 <div className="flex items-center gap-2">
-                  <MapPin size={15} className="text-[#0F2A47] shrink-0" />
-                  <h3 className="text-sm font-semibold text-[#14181F]">
+                  <MapPin size={15} className="text-[#D4AF37] shrink-0" />
+                  <h3 className="text-sm font-bold text-white">
                     {hub.city}
                   </h3>
                 </div>
-                <p className="text-xs font-medium text-[#0F2A47]">
+                <p className="text-xs font-semibold text-[#D4AF37]">
                   {hub.role}
                 </p>
-                <p className="text-[11px] text-[#5A6578]">
+                <p className="text-[11px] text-neutral-400">
                   {hub.address}
                 </p>
               </div>
@@ -184,26 +181,20 @@ export default function AboutPage() {
         </section>
 
         {/* Closing Contact CTA */}
-        <section className="py-12 bg-[#F8F9FA] rounded-xl border border-[#E4E7EC] p-8 sm:p-12 text-center space-y-5">
-          <h2 className="font-display text-2xl sm:text-3xl text-[#14181F] font-normal tracking-tight">
+        <section className="py-10 bg-[#070A0F] rounded-2xl border border-white/10 p-6 sm:p-10 text-center space-y-4">
+          <h2 className="font-serif text-2xl sm:text-3xl text-white font-bold tracking-tight">
             Consult directly with our leadership team
           </h2>
-          <p className="text-xs sm:text-sm text-[#5A6578] max-w-xl mx-auto">
-            Discuss premises security audits, contractual staffing requirements, or multi-site facility management with Managing Director Sweety J.
+          <p className="text-xs sm:text-sm text-neutral-300 max-w-xl mx-auto">
+            Discuss security deployments, workforce staffing, or facility operations with Managing Director Sweety J and Operations Head Major AR Devadoss.
           </p>
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-[#0F2A47] hover:bg-[#0A1E33] text-white text-xs sm:text-sm font-semibold transition-colors shadow-xs min-h-[44px] w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-[#D4AF37] hover:bg-[#E5C158] text-black text-xs sm:text-sm font-bold transition-all shadow-md min-h-[44px] w-full sm:w-auto"
             >
               <span>Contact Operations Desk</span>
               <ArrowRight size={14} />
-            </Link>
-            <Link
-              href="/get-quote"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-white border border-[#E4E7EC] hover:bg-neutral-50 text-[#14181F] text-xs sm:text-sm font-semibold transition-colors min-h-[44px] w-full sm:w-auto"
-            >
-              <span>Request Quote</span>
             </Link>
           </div>
         </section>

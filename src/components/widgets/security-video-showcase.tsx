@@ -38,6 +38,13 @@ export function SecurityVideoShowcase({
   const adVideoRef = useRef<HTMLVideoElement>(null);
   const storyboardVideoRef = useRef<HTMLVideoElement>(null);
 
+  // Auto-detect mobile screen: vertical format plays first on mobile!
+  React.useEffect(() => {
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      setActiveMode('storyboard');
+    }
+  }, []);
+
   const handleSwitchMode = (mode: 'ad' | 'storyboard') => {
     setActiveMode(mode);
     setIsPlaying(true);
@@ -113,7 +120,7 @@ export function SecurityVideoShowcase({
           </h3>
 
           <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
-            Led by Managing Director <strong className="text-white">Sweety J</strong>, Operations Director Army-Veteran <strong className="text-white">Major AR Devadoss</strong>, and Executive Director <strong className="text-white">R Jan Steve Daniel</strong>. We deploy disciplined security platoons, verified industrial manpower, and commercial facility management across Tamil Nadu.
+            Direct Ex-Servicemen command, disciplined muster parades, and round-the-clock patrol units across Tamil Nadu.
           </p>
 
           {/* Executive Leadership Avatars */}

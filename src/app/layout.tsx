@@ -109,7 +109,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-white font-sans antialiased text-[#14181F] selection:bg-[#0F2A47]/10 selection:text-[#0F2A47]",
+          "min-h-screen bg-black font-sans antialiased text-white selection:bg-[#D4AF37]/30 selection:text-white",
           publicSans.variable,
           sourceSerif.variable
         )}

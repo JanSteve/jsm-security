@@ -9,11 +9,41 @@ import {
   Clock, 
   Sparkles, 
   Send,
-  AlertTriangle
+  AlertTriangle 
 } from 'lucide-react';
-import { WhatsappPhone3D } from './whatsapp-phone-3d';
 
-interface QueueSimulatorProps {
+function FlatWhatsAppPreview({ mode }: { mode: 'clinic-token' | 'table-order' }) {
+  return (
+    <div className="w-full max-w-[320px] rounded-2xl bg-[#0b141a] text-white overflow-hidden border border-white/15 shadow-2xl">
+      <div className="bg-[#1f2c34] p-3 flex items-center gap-2.5 border-b border-white/10">
+        <div className="w-8 h-8 rounded-full bg-[#25D366] text-black font-bold flex items-center justify-center text-xs">JSM</div>
+        <div className="text-left flex-1 min-w-0">
+          <div className="text-xs font-semibold text-white truncate">
+            {mode === 'clinic-token' ? 'Dr. Clinic Token Desk' : 'Restaurant Table Order'}
+          </div>
+          <div className="text-[10px] text-emerald-400">WhatsApp Business API &bull; Active</div>
+        </div>
+      </div>
+      <div className="p-4 space-y-3 bg-[#0b141a] min-h-[220px] text-left text-xs font-sans">
+        <div className="p-3 rounded-lg bg-[#005c4b] text-white shadow space-y-1 max-w-[90%] self-end ml-auto">
+          <div className="text-[10px] text-emerald-200 font-bold uppercase">
+            {mode === 'clinic-token' ? '🏥 TOKEN PASS DISPATCH' : '🍽️ TABLE ORDER CONFIRMED'}
+          </div>
+          <p className="text-xs text-white leading-relaxed">
+            {mode === 'clinic-token' 
+              ? 'Hello Murugan K., your Token #14 is consulting with the doctor. Estimated wait: 0 mins.'
+              : 'Order Received! Table #4: 2x Ghee Roast Dosa, 1x Filter Coffee. Total: ₹210. Direct to kitchen.'}
+          </p>
+          <div className="text-[9px] text-emerald-200 text-right">Just now &bull; ✓✓ Delivered</div>
+        </div>
+      </div>
+      <div className="p-2.5 bg-[#1f2c34] text-[10px] text-neutral-400 text-center border-t border-white/10 font-mono">
+        AUTOMATED VIA JSM WHATSAPP CLOUD API
+      </div>
+    </div>
+  );
+}
+export interface QueueSimulatorProps {
   className?: string;
 }
 
@@ -319,12 +349,9 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
                 </div>
               </div>
 
-              {/* Right Column: 3D Floating Glass WhatsApp Smartphone (5 cols) */}
+              {/* Right Column: Sleek WhatsApp Dispatch Card (5 cols) */}
               <div className="lg:col-span-5 flex flex-col items-center">
-                <WhatsappPhone3D
-                  initialMode="clinic-token"
-                  onModeChange={(mode) => setActiveTab(mode === 'table-order' ? 'restaurant' : 'clinic')}
-                />
+                <FlatWhatsAppPreview mode="clinic-token" />
               </div>
             </div>
           </div>
@@ -453,12 +480,9 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
                 </div>
               </div>
 
-              {/* Right Column: 3D Floating Glass WhatsApp Smartphone (5 cols) */}
+              {/* Right Column: Sleek WhatsApp Dispatch Card (5 cols) */}
               <div className="lg:col-span-5 flex flex-col items-center">
-                <WhatsappPhone3D
-                  initialMode="table-order"
-                  onModeChange={(mode) => setActiveTab(mode === 'clinic-token' ? 'clinic' : 'restaurant')}
-                />
+                <FlatWhatsAppPreview mode="table-order" />
               </div>
             </div>
           </div>

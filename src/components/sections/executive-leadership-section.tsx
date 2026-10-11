@@ -52,9 +52,7 @@ export function ExecutiveLeadershipSection({
   return (
     <section 
       id="executive-leadership"
-      className={`py-16 sm:py-20 lg:py-24 relative overflow-hidden ${
-        darkTheme ? 'bg-[#070B12] text-white border-y border-[#1A2333]' : 'bg-white text-[#14181F]'
-      } ${className}`}
+      className={`py-16 sm:py-20 lg:py-24 relative overflow-hidden bg-black text-white border-y border-white/10 ${className}`}
     >
       {/* Background Radial Glow */}
       <div 

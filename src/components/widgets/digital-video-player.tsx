@@ -31,6 +31,13 @@ export function DigitalVideoPlayer({ className = '' }: DigitalVideoPlayerProps) 
   const horizontalRef = useRef<HTMLVideoElement>(null);
   const verticalRef = useRef<HTMLVideoElement>(null);
 
+  // Auto-detect mobile screen: vertical format plays first on mobile!
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      setActiveVideo('vertical');
+    }
+  }, []);
+
   // Sync playback speed
   useEffect(() => {
     const currentVideo = activeVideo === 'horizontal' ? horizontalRef.current : verticalRef.current;

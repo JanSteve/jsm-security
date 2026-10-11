@@ -116,21 +116,21 @@ function StatCard({ item }: { item: Metric }) {
   return (
     <div
       ref={cardRef}
-      className="p-4 sm:p-5 bg-white border border-[#E4E7EC] space-y-2 text-left flex flex-col justify-between"
+      className="p-4 sm:p-5 bg-[#070B12] border border-white/10 rounded-xl space-y-2 text-left flex flex-col justify-between hover:border-[#D4AF37]/40 transition-colors"
     >
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-0">
-        <span className="font-sans text-xl sm:text-3xl font-semibold text-[#0F2A47] tabular-nums inline-block min-w-[2.5ch]">
+        <span className="font-sans text-xl sm:text-3xl font-bold text-[#D4AF37] tabular-nums inline-block min-w-[2.5ch]">
           {item.prefix || ""}{count}{item.suffix}
         </span>
-        <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-[4px] bg-[#F6F7F9] border border-[#E4E7EC] flex items-center justify-center text-[#9C7A3C] shrink-0 self-start sm:self-auto">
+        <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-[#D4AF37] shrink-0 self-start sm:self-auto">
           <Icon size={14} className="sm:w-[15px] sm:h-[15px]" />
         </div>
       </div>
       <div>
-        <h3 className="text-[13px] sm:text-sm font-semibold text-[#14181F] leading-tight">
+        <h3 className="text-[13px] sm:text-sm font-bold text-white leading-tight">
           {item.label}
         </h3>
-        <p className="text-[11px] sm:text-xs text-[#4A5160] leading-relaxed pt-1">
+        <p className="text-[11px] sm:text-xs text-neutral-400 leading-relaxed pt-1">
           {item.description}
         </p>
       </div>
@@ -140,13 +140,13 @@ function StatCard({ item }: { item: Metric }) {
 
 export function StatsSection() {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-white border-b border-[#E4E7EC]">
+    <section className="py-16 sm:py-20 lg:py-24 bg-black border-b border-white/10 text-white">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
         <div className="max-w-3xl space-y-2 text-left">
-          <div className="text-xs font-semibold text-[#9C7A3C]">
+          <div className="text-xs font-bold text-[#D4AF37] uppercase tracking-wider">
             Audited Operational Metrics
           </div>
-          <h2 className="font-serif text-2xl sm:text-3xl lg:text-[38px] leading-[1.18] text-[#14181F] font-semibold tracking-[-0.01em]">
+          <h2 className="font-serif text-2xl sm:text-3xl lg:text-[38px] leading-[1.18] text-white font-bold tracking-[-0.01em]">
             Accountability governed by SLA contracts, not estimates.
           </h2>
         </div>

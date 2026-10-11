@@ -69,18 +69,78 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: '/industries/:path*',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/industries',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/locations/:path*',
+        destination: '/contact',
+        permanent: true,
+      },
+      {
+        source: '/locations',
+        destination: '/contact',
+        permanent: true,
+      },
+      {
+        source: '/knowledge/:path*',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/knowledge',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/blog/:path*',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/blog',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/compare/:path*',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/compare',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/security-agencies',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/careers',
+        destination: '/contact',
+        permanent: true,
+      },
+      {
         source: '/work-opportunities',
-        destination: '/careers',
+        destination: '/contact',
         permanent: true,
       },
       {
         source: '/whats-new',
-        destination: '/blog',
+        destination: '/about',
         permanent: true,
       },
       {
         source: '/newsletter',
-        destination: '/blog',
+        destination: '/about',
         permanent: true,
       },
     ];

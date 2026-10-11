@@ -3,64 +3,64 @@
 @plugin "../../node_modules/tailwindcss-animate";
 
 :root {
-  /* Backgrounds */
-  --bg: #FFFFFF;
-  --bg-tint: #F6F7F9;       /* cool grey tint for alternating sections */
-  --bg-dark: #0F2A47;       /* solid navy for footer & primary CTA */
+  /* Backgrounds — Pure Pitch Black & Obsidian Dark */
+  --bg: #000000;
+  --bg-tint: #070A0F;       /* sleek dark obsidian tint for alternating sections */
+  --bg-dark: #000000;       /* pure pitch black */
 
-  /* Text & Ink */
-  --ink: #14181F;           /* primary high-contrast text */
-  --ink-muted: #4A5160;     /* secondary / caption text */
-  --ink-inverse: #F8FAFC;   /* text on navy dark surfaces */
+  /* Text & Ink — Crisp Pure White Typography */
+  --ink: #FFFFFF;           /* primary high-contrast white text */
+  --ink-muted: #D1D5DB;     /* secondary / caption text in readable light gray */
+  --ink-inverse: #000000;   /* inverse text */
 
-  /* Primary Brand — Navy */
+  /* Primary Brand — Dark Navy Accents */
   --navy: #0F2A47;
-  --navy-hover: #0A1E33;
-  --navy-light: #1A3E63;
-  --navy-tint: #EFF4F9;
+  --navy-hover: #1A3E63;
+  --navy-light: #244C78;
+  --navy-tint: #0B1320;
 
-  /* Restrained Accent — Brass (<5% surface area) */
-  --brass: #9C7A3C;
-  --brass-hover: #866730;
-  --brass-tint: #F4EFEB;
+  /* Restrained Accent — Brass & Metallic Gold */
+  --brass: #D4AF37;
+  --brass-hover: #E5C158;
+  --brass-tint: #1C180E;
 
   /* Luxury Spatial Obsidian Palette */
-  --obsidian-deep: #05070B;
-  --obsidian-surface: #0B0F17;
-  --obsidian-elevated: #101622;
-  --obsidian-glass: rgba(11, 15, 23, 0.75);
+  --obsidian-deep: #000000;
+  --obsidian-surface: #070B12;
+  --obsidian-elevated: #0E1522;
+  --obsidian-glass: rgba(7, 11, 18, 0.85);
 
   /* Military Gold Specular Palette */
-  --gold-statutory: #9C7A3C;
+  --gold-statutory: #D4AF37;
   --gold-metallic: #D4AF37;
   --gold-sheen: #FFF3B0;
-  --gold-hairline: rgba(156, 122, 60, 0.35);
-  --gold-specular: rgba(212, 175, 55, 0.65);
+  --gold-hairline: rgba(212, 175, 55, 0.35);
+  --gold-specular: rgba(212, 175, 55, 0.75);
 
   /* Structure & Hairline Dividers */
-  --line: #E4E7EC;
-  --border: #E4E7EC;
+  --line: #1F2937;
+  --border: #1F2937;
   --radius-interactive: 4px; /* buttons, inputs only */
-  --radius-card: 0px;        /* content cards strictly 0px */
+  --radius-card: 8px;        /* sleek modern corners */
 
   /* Subtle Shadow */
-  --shadow-subtle: 0 1px 2px rgba(15, 42, 71, 0.06);
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.6);
 
   /* Framework Aliases for shadcn / components */
-  --background: var(--bg);
-  --foreground: var(--ink);
-  --card: var(--bg);
-  --card-foreground: var(--ink);
-  --popover: var(--bg);
-  --popover-foreground: var(--ink);
-  --primary: var(--navy);
-  --primary-foreground: #FFFFFF;
-  --secondary: var(--bg-tint);
-  --secondary-foreground: var(--ink);
-  --muted: var(--bg-tint);
-  --muted-foreground: var(--ink-muted);
-  --input: var(--line);
-  --ring: var(--navy);
+  --background: #000000;
+  --foreground: #FFFFFF;
+  --card: #070B12;
+  --card-foreground: #FFFFFF;
+  --popover: #070B12;
+  --popover-foreground: #FFFFFF;
+  --primary: #D4AF37;
+  --primary-foreground: #000000;
+  --secondary: #0E1522;
+  --secondary-foreground: #FFFFFF;
+  --muted: #0E1522;
+  --muted-foreground: #9CA3AF;
+  --input: #1F2937;
+  --ring: #D4AF37;
 }
 
 @theme inline {

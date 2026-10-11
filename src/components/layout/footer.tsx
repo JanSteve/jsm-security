@@ -7,20 +7,20 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0F2A47] text-[#F8FAFC] border-t border-[#1A3E63]">
+    <footer className="bg-[#030508] text-white border-t border-white/10">
       {/* Upper Direct Contact & Inquiry Strip */}
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-6 border-b border-[#1A3E63]">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-6 border-b border-white/10">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div className="text-sm font-medium text-white">
-            <span className="text-[#9C7A3C]">JSM Operations:</span> Statutory Labour Law Compliant (Minimum Wages Act & ECR Challans) &bull; Professional Private Security & Facility Operations &bull; 100% EPF/ESIC
+            <span className="text-[#D4AF37] font-semibold">JSM Central Operations:</span> Ex-Servicemen Led &bull; Airports Authority of India Client &bull; 100% EPF/ESIC Compliant
           </div>
           <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 text-xs font-semibold">
-            <a href={`tel:${brandData.contact.phone}`} className="flex items-center gap-2 hover:text-[#9C7A3C] transition-colors tabular-nums">
-              <Phone size={14} className="text-[#9C7A3C]" />
+            <a href={`tel:${brandData.contact.phone}`} className="flex items-center gap-2 text-white hover:text-[#D4AF37] transition-colors tabular-nums">
+              <Phone size={14} className="text-[#D4AF37]" />
               <span>{brandData.contact.phoneDisplay}</span>
             </a>
-            <Link href="/get-quote" className="text-[#9C7A3C] hover:text-white transition-colors">
-              Request a Proposal &rarr;
+            <Link href="/contact" className="text-[#D4AF37] hover:text-white transition-colors">
+              Request Quote &rarr;
             </Link>
           </div>
         </div>
@@ -29,50 +29,40 @@ export function Footer() {
       {/* Main 4-Column Navigation Grid */}
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 text-sm">
-          {/* Col 1: Services (Three-Tier Model) */}
+          {/* Col 1: Services */}
           <div className="space-y-3">
-            <h4 className="text-[13px] font-semibold text-white tracking-normal">
-              Services &amp; Operations
+            <h4 className="text-[13px] font-bold text-white tracking-normal uppercase text-xs text-[#D4AF37]">
+              Core Operations
             </h4>
             <ul className="space-y-2 text-xs text-neutral-300">
               <li>
-                <Link href="/services/private-security" className="hover:text-white transition-colors">
+                <Link href="/services" className="hover:text-white transition-colors">
                   Tier 1: Security Guards &amp; ESM Supervisors
                 </Link>
               </li>
               <li>
-                <Link href="/services/manpower" className="hover:text-white transition-colors">
+                <Link href="/services" className="hover:text-white transition-colors">
                   Tier 2: Contract Staffing &amp; Industrial Workforce
                 </Link>
               </li>
               <li>
-                <Link href="/services/housekeeping" className="hover:text-white transition-colors">
+                <Link href="/services" className="hover:text-white transition-colors">
                   Tier 3: Facility Management &amp; Hygiene
                 </Link>
               </li>
               <li>
-                <Link href="/services/tender-procurement-supply" className="hover:text-white transition-colors">
-                  Auxiliary: GeM Tender &amp; e-Procurement Bidding
+                <Link href="/services" className="hover:text-white transition-colors">
+                  Digital: WhatsApp Business API &amp; CRM
                 </Link>
               </li>
               <li>
-                <Link href="/services/whatsapp-automation-crm" className="hover:text-white transition-colors">
-                  Digital: WhatsApp Business API &amp; Chatbots
+                <Link href="/services" className="hover:text-white transition-colors">
+                  Digital: Smart NFC Review Filter Standees
                 </Link>
               </li>
               <li>
-                <Link href="/services/nfc-review-standees" className="hover:text-white transition-colors">
-                  Digital: Smart NFC Review Standees
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/website-design-development" className="hover:text-white transition-colors">
-                  Digital: Next.js Websites &amp; Web Portals
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="hover:text-white transition-colors font-medium text-[#9C7A3C]">
-                  View All 21 Capabilities &rarr;
+                <Link href="/services" className="hover:text-white transition-colors font-semibold text-[#D4AF37]">
+                  View Full Services Matrix &rarr;
                 </Link>
               </li>
             </ul>
@@ -80,145 +70,77 @@ export function Footer() {
 
           {/* Col 2: Governance & Case Studies */}
           <div className="space-y-3">
-            <h4 className="text-[13px] font-semibold text-white tracking-normal">
-              Governance &amp; Authority
+            <h4 className="text-[13px] font-bold text-white tracking-normal uppercase text-xs text-[#D4AF37]">
+              Credentials &amp; Proof
             </h4>
             <ul className="space-y-2 text-xs text-neutral-300">
               <li>
+                <Link href="/case-studies/trichy-international-airport" className="hover:text-white transition-colors font-medium text-white">
+                  ✈️ Trichy International Airport Contract
+                </Link>
+              </li>
+              <li>
                 <Link href="/about" className="hover:text-white transition-colors">
-                  Leadership (Sweety J &bull; Maj. Devadoss &bull; R Jan Steve Daniel)
+                  Leadership (Major AR Devadoss &bull; Sweety J &bull; R Jan Steve Daniel)
                 </Link>
               </li>
               <li>
-                <Link href="/case-studies/trichy-international-airport" className="hover:text-white transition-colors">
-                  Airport Case Study: Trichy Operations
+                <Link href="/about" className="hover:text-white transition-colors">
+                  100% EPF &amp; ESIC Statutory Compliance
                 </Link>
               </li>
               <li>
-                <Link href="/knowledge" className="hover:text-white transition-colors">
-                  Knowledge Hub &amp; Compliance Guides
-                </Link>
-              </li>
-              <li>
-                <Link href="/compare/in-house-vs-outsourced-security" className="hover:text-white transition-colors">
-                  In-House vs Outsourced Cost Comparison
-                </Link>
-              </li>
-              <li>
-                <Link href="/security-agencies" className="hover:text-white transition-colors">
-                  100% EPF & ESIC Compliant Act &amp; Statutory Legal Framework
-                </Link>
-              </li>
-              <li>
-                <Link href="/careers" className="hover:text-white transition-colors">
-                  Careers &amp; Ex-Servicemen Intake
+                <Link href="/contact" className="hover:text-white transition-colors">
+                  24/7 Operations Desk &amp; Quick Dispatch
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: District Hubs */}
+          {/* Col 3: District Coverage */}
           <div className="space-y-3">
-            <h4 className="text-[13px] font-semibold text-white tracking-normal">
-              <Link href="/locations" className="hover:text-[#9C7A3C] transition-colors">
-                District Hubs
-              </Link>
+            <h4 className="text-[13px] font-bold text-white tracking-normal uppercase text-xs text-[#D4AF37]">
+              Tamil Nadu Coverage
             </h4>
             <ul className="space-y-1.5 text-xs text-neutral-300">
-              <li>
-                <Link href="/locations/trichy" className="hover:text-white transition-colors">
-                  <span className="font-semibold text-white">Trichy:</span> Central Operations HQ
-                </Link>
-              </li>
-              <li>
-                <Link href="/locations/chennai" className="hover:text-white transition-colors">
-                  <span className="font-semibold text-white">Chennai:</span> OMR Tech Corridor
-                </Link>
-              </li>
-              <li>
-                <Link href="/locations/coimbatore" className="hover:text-white transition-colors">
-                  <span className="font-semibold text-white">Coimbatore:</span> Industrial Outpost
-                </Link>
-              </li>
-              <li>
-                <Link href="/locations/hosur" className="hover:text-white transition-colors">
-                  <span className="font-semibold text-white">Hosur:</span> Manufacturing SEZ
-                </Link>
-              </li>
-              <li>
-                <Link href="/locations/salem" className="hover:text-white transition-colors">
-                  <span className="font-semibold text-white">Salem:</span> Heavy Engineering Hub
-                </Link>
-              </li>
-              <li>
-                <Link href="/locations/madurai" className="hover:text-white transition-colors">
-                  <span className="font-semibold text-white">Madurai:</span> Southern Regional Hub
-                </Link>
-              </li>
-              <li>
-                <Link href="/locations/tirunelveli" className="hover:text-white transition-colors">
-                  <span className="font-semibold text-white">Tirunelveli:</span> Renewable Energy Corridor
-                </Link>
-              </li>
+              <li><span className="font-semibold text-white">Trichy:</span> Central Operations Command</li>
+              <li><span className="font-semibold text-white">Chennai:</span> OMR &amp; Commercial Corridor</li>
+              <li><span className="font-semibold text-white">Coimbatore:</span> Industrial &amp; Manufacturing</li>
+              <li><span className="font-semibold text-white">Hosur:</span> Automotive &amp; Electronics SEZ</li>
+              <li><span className="font-semibold text-white">Salem:</span> Heavy Engineering &amp; Metals</li>
+              <li><span className="font-semibold text-white">Madurai:</span> Southern Commercial Hub</li>
             </ul>
           </div>
 
-          {/* Col 4: Operations Desk & Departmental Inboxes */}
+          {/* Col 4: Contact & Verification */}
           <div className="space-y-3">
-            <h4 className="text-[13px] font-semibold text-white tracking-normal">
-              Headquarters Operations
+            <h4 className="text-[13px] font-bold text-white tracking-normal uppercase text-xs text-[#D4AF37]">
+              Headquarters Command
             </h4>
             <div className="space-y-2 text-xs text-neutral-300">
               <div className="flex items-start gap-2">
-                <MapPin size={13} className="shrink-0 mt-0.5 text-[#9C7A3C]" />
+                <MapPin size={13} className="shrink-0 mt-0.5 text-[#D4AF37]" />
                 <span>{brandData.contact.address}</span>
               </div>
-              <div className="pt-1 space-y-1.5 border-t border-[#1A3E63]/70">
+              <div className="pt-2 space-y-1.5 border-t border-white/10">
                 <div className="flex items-center gap-2">
-                  <span className="text-[11px] font-semibold text-[#9C7A3C] w-14 shrink-0">General:</span>
+                  <span className="text-[11px] font-semibold text-[#D4AF37] w-14 shrink-0">Desk:</span>
+                  <a href={`tel:${brandData.contact.phone}`} className="hover:text-white transition-colors">
+                    {brandData.contact.phoneDisplay}
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-[11px] font-semibold text-[#D4AF37] w-14 shrink-0">Email:</span>
                   <a href={`mailto:${brandData.contact.email}`} className="hover:text-white transition-colors">
                     {brandData.contact.email}
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-[11px] font-semibold text-[#9C7A3C] w-14 shrink-0">Sales:</span>
-                  <a href={`mailto:${brandData.contact.salesEmail}`} className="hover:text-white transition-colors">
-                    {brandData.contact.salesEmail}
+                  <span className="text-[11px] font-semibold text-[#D4AF37] w-14 shrink-0">WhatsApp:</span>
+                  <a href={`https://wa.me/${brandData.contact.whatsapp}`} className="hover:text-white transition-colors">
+                    +91 {brandData.contact.whatsapp}
                   </a>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-[11px] font-semibold text-[#9C7A3C] w-14 shrink-0">Careers:</span>
-                  <a href={`mailto:${brandData.contact.careersEmail}`} className="hover:text-white transition-colors">
-                    {brandData.contact.careersEmail}
-                  </a>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-[11px] font-semibold text-[#9C7A3C] w-14 shrink-0">24/7 Help:</span>
-                  <a href={`mailto:${brandData.contact.helpEmail}`} className="hover:text-white transition-colors">
-                    {brandData.contact.helpEmail}
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-2 border-t border-[#1A3E63] space-y-1.5 text-xs text-neutral-300">
-              <a
-                href="/downloads/JSM-Compliance-Checklist.docx"
-                download
-                className="hover:text-white transition-colors inline-flex items-center gap-1.5"
-              >
-                <Download size={12} className="text-[#9C7A3C]" />
-                <span>100% EPF & ESIC Compliant Vendor Audit Checklist (.docx)</span>
-              </a>
-              <div className="pt-1">
-                <a
-                  href="https://maps.google.com/?q=JSM+Integrated+Services+Plot+112+Gandhi+Nagar+RVS+Nagar+Kottapattu+Trichy"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#9C7A3C] hover:underline font-medium inline-block"
-                >
-                  Verified Google Business Profile
-                </a>
               </div>
             </div>
           </div>
@@ -226,14 +148,14 @@ export function Footer() {
       </div>
 
       {/* Bottom Legal & Statutory Bar */}
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-5 border-t border-[#1A3E63] text-xs text-neutral-400 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-5 border-t border-white/10 text-xs text-neutral-400 flex flex-col sm:flex-row items-center justify-between gap-3">
         <div>
-          &copy; {currentYear} JSM Integrated Services. 100% EPF & ESIC Compliant Act 2005 &bull; Professional Private Security & Facility Operations &bull; Controlling Authority, Home Dept, Govt of Tamil Nadu.
+          &copy; {currentYear} JSM Integrated Services. All Rights Reserved &bull; Managing Director Sweety J &bull; Indian Army Veteran Major AR Devadoss &bull; CTO R Jan Steve Daniel
         </div>
         <div className="flex items-center gap-4">
-          <Link href="/legal/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-          <Link href="/legal/terms" className="hover:text-white transition-colors">Terms of Service</Link>
-          <Link href="/sitemap.xml" className="hover:text-white transition-colors">Sitemap</Link>
+          <Link href="/legal/privacy" className="hover:text-white transition-colors">Privacy</Link>
+          <Link href="/legal/terms" className="hover:text-white transition-colors">Terms</Link>
+          <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
         </div>
       </div>
     </footer>

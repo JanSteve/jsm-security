@@ -165,10 +165,10 @@ export function ProofSection() {
   return (
     <StickyScrollSequence
       steps={airportSteps}
-      eyebrow="Airports Authority of India (AAI) • Landmark Client"
-      headline="Tiruchirappalli International Airport Operations"
-      description="JSM Integrated Services executed commercial concourse security and passenger access control operations at Tiruchirappalli International Airport in 2024 for Airports Authority of India (AAI). Managing continuous multi-shift rotations with zero incident tolerance proved our capability to protect high-consequence transport infrastructure."
-      theme="sand"
+      eyebrow="Airports Authority of India (AAI) • Landmark Contract"
+      headline="Tiruchirappalli International Airport Concourse Operations"
+      description="Round-the-clock commercial concourse security and passenger access control executed for Airports Authority of India (AAI) with zero security breaches and 100% muster compliance."
+      theme="dark"
     />
   );
 }

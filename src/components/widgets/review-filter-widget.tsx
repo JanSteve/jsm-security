@@ -14,7 +14,6 @@ import {
   Sparkles,
   Send
 } from 'lucide-react';
-import { NfcStandee3D } from './nfc-standee-3d';
 
 interface ReviewFilterWidgetProps {
   className?: string;
@@ -75,13 +74,45 @@ export function ReviewFilterWidget({ className = '' }: ReviewFilterWidgetProps) 
       <div className="p-6 sm:p-8 space-y-8">
         {/* Main Simulation Arena */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Column 1: Acrylic Standee 3D Hardware Physics (5 cols) */}
+          {/* Column 1: Sleek Counter NFC Standee Simulator (5 cols) */}
           <div className="lg:col-span-5 flex flex-col items-center">
-            <NfcStandee3D 
-              initialRating={selectedRating}
-              onRatingSelect={handleSelectRating}
-              embeddedMode={true}
-            />
+            <div className="w-full max-w-[280px] rounded-2xl bg-[#070B12] text-white p-6 border-2 border-[#D4AF37]/50 shadow-2xl text-center space-y-4">
+              <div className="w-12 h-12 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 mx-auto flex items-center justify-center text-[#D4AF37]">
+                <Sparkles size={22} />
+              </div>
+              <div className="space-y-1">
+                <span className="text-[10px] font-mono text-[#D4AF37] uppercase tracking-wider font-bold">
+                  SMART NFC COUNTER STANDEE
+                </span>
+                <h4 className="text-sm font-bold text-white tracking-wide">
+                  Tap to Rate Experience
+                </h4>
+                <p className="text-[11px] text-neutral-300">
+                  Select stars below to simulate customer tap:
+                </p>
+              </div>
+
+              {/* Clickable 5-Star Ratings */}
+              <div className="flex justify-center gap-1.5 py-2">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <button
+                    key={star}
+                    type="button"
+                    onClick={() => handleSelectRating(star)}
+                    className={`p-1.5 rounded-lg transition-transform hover:scale-110 cursor-pointer ${
+                      selectedRating >= star ? 'text-amber-400' : 'text-neutral-600'
+                    }`}
+                    aria-label={`Rate ${star} stars`}
+                  >
+                    <Star size={24} fill={selectedRating >= star ? 'currentColor' : 'none'} />
+                  </button>
+                ))}
+              </div>
+
+              <div className="pt-2 border-t border-white/10 text-[10px] text-neutral-400 font-mono">
+                {selectedRating >= 4 ? '🟢 ROUTING: GOOGLE MAPS' : '🟡 ROUTING: PRIVATE WHATSAPP'}
+              </div>
+            </div>
           </div>
 
           {/* Column 2: Dynamic Routing Logic & Live Visual Outcome (7 cols) */}

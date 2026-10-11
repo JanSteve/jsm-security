@@ -69,7 +69,7 @@ export default function Home() {
   const geoTarget = geoTargetSchema();
 
   return (
-    <div className="relative bg-white text-[#14181F] min-h-screen">
+    <div className="relative bg-black text-white min-h-screen">
       {/* Ambient Military Gold Magnetic Cursor */}
       <AmbientMagneticCursor />
 
@@ -107,7 +107,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(geoTarget) }}
       />
 
-      {/* 1. Hero Section: Mobile-first text + primary CTA above fold */}
+      {/* 1. Hero Section: Mobile-first video reel + punchy copy */}
       <HeroSection />
 
       {/* 2. Plain Flat Trust Credentials Strip */}
@@ -117,18 +117,18 @@ export default function Home() {
       <ServicesOverview />
 
       {/* 3a. Official Security Brand Commercial & Tactical Video Theater */}
-      <section className="py-20 sm:py-24 lg:py-28 bg-white">
+      <section className="py-16 sm:py-20 lg:py-24 bg-black border-b border-white/10 text-white">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <div className="max-w-3xl space-y-3 text-left">
-            <div className="text-xs font-semibold text-[#9C7A3C]">
+          <div className="max-w-3xl space-y-2 text-left">
+            <div className="text-xs font-bold text-[#D4AF37] uppercase tracking-wider">
               Operational Excellence on Film
             </div>
             <KineticTypography
               as="h2"
               text="Tactical Security Deployment & Ground Turnout in Action"
-              className="font-serif text-2xl sm:text-3xl lg:text-[38px] leading-[1.18] text-[#14181F] font-semibold tracking-[-0.01em]"
+              className="font-serif text-2xl sm:text-3xl lg:text-[38px] leading-[1.18] text-white font-bold tracking-[-0.01em]"
             />
-            <p className="text-sm sm:text-base text-[#4A5160] leading-relaxed">
+            <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
               Ex-Servicemen drill inspections, rapid mobilization protocols, and live airport security operations recorded on ground.
             </p>
           </div>
@@ -137,7 +137,7 @@ export default function Home() {
       </section>
 
       {/* 3b. Interactive Operations & Digital Automation Showcase */}
-      <section className="py-20 sm:py-26 lg:py-32 bg-[#F6F7F9] border-y border-[#E4E7EC]">
+      <section className="py-16 sm:py-20 lg:py-24 bg-black border-b border-white/10 text-white">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <InteractiveShowcase />
         </div>

@@ -34,51 +34,51 @@ const sectors = [
 
 export function TestimonialsSection() {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-[#F6F7F9] border-b border-[#E4E7EC]">
+    <section className="py-16 sm:py-20 lg:py-24 bg-black border-b border-white/10 text-white">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         {/* Section Header */}
         <div className="max-w-3xl space-y-2 text-left">
-          <div className="text-xs font-semibold text-[#9C7A3C]">
+          <div className="text-xs font-bold text-[#D4AF37] uppercase tracking-wider">
             Industry Deployment Profiles
           </div>
-          <h2 className="font-serif text-2xl sm:text-3xl lg:text-[38px] leading-[1.18] text-[#14181F] font-semibold tracking-[-0.01em]">
+          <h2 className="font-serif text-2xl sm:text-3xl lg:text-[38px] leading-[1.18] text-white font-bold tracking-[-0.01em]">
             Deployment standards formulated for high-consequence environments.
           </h2>
-          <p className="text-sm sm:text-base text-[#4A5160] leading-relaxed line-measure">
+          <p className="text-sm sm:text-base text-neutral-300 leading-relaxed line-measure">
             Every facility operates under tailored standard operating procedures matched to the statutory and physical security demands of each industry sector.
           </p>
         </div>
 
-        {/* 4 Sector Cards Grid — Plain Grid, No 01/02 Numbered Markers */}
+        {/* 4 Sector Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           {sectors.map((sec, idx) => {
             const Icon = sec.icon;
             return (
               <div
                 key={idx}
-                className="p-6 bg-white border border-[#E4E7EC] space-y-4 text-left"
+                className="p-6 bg-[#070B12] border border-white/10 hover:border-[#D4AF37]/40 rounded-xl space-y-4 text-left transition-colors"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-[4px] bg-[#F6F7F9] border border-[#E4E7EC] flex items-center justify-center text-[#0F2A47] shrink-0">
-                    <Icon size={17} />
+                  <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-[#D4AF37] shrink-0">
+                    <Icon size={18} />
                   </div>
                   <div>
-                    <h3 className="text-sm sm:text-base font-semibold text-[#14181F]">
+                    <h3 className="text-sm sm:text-base font-bold text-white">
                       {sec.sector}
                     </h3>
-                    <p className="text-xs text-[#4A5160]">
+                    <p className="text-xs text-neutral-400">
                       {sec.location}
                     </p>
                   </div>
                 </div>
 
-                <p className="text-xs sm:text-sm text-[#4A5160] leading-relaxed">
+                <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
                   {sec.profile}
                 </p>
 
-                <div className="pt-3 border-t border-[#E4E7EC] flex flex-wrap gap-2 text-[11px] text-[#0F2A47] font-medium">
+                <div className="pt-3 border-t border-white/10 flex flex-wrap gap-2 text-[11px] text-[#D4AF37] font-medium">
                   {sec.standards.map((std, sIdx) => (
-                    <span key={sIdx} className="px-2.5 py-0.5 bg-[#F6F7F9] border border-[#E4E7EC]">
+                    <span key={sIdx} className="px-2.5 py-0.5 bg-white/5 border border-white/10 rounded-md">
                       {std}
                     </span>
                   ))}

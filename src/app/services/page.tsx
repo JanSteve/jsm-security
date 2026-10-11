@@ -31,7 +31,7 @@ export default function ServicesHubPage() {
   ]);
 
   return (
-    <main className="min-h-screen bg-white text-[#14181F] pt-32 pb-24">
+    <main className="min-h-screen bg-black text-white pt-32 pb-24">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
@@ -39,17 +39,17 @@ export default function ServicesHubPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Editorial Page Header */}
-        <section className="py-8 sm:py-12 border-b border-[#E4E7EC]">
+        <section className="py-8 sm:py-12 border-b border-white/10">
           <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0F2A47]/8 text-[#0F2A47] text-xs font-semibold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#D4AF37] border border-[#D4AF37]/20 text-xs font-semibold">
               <ShieldCheck size={14} />
               <span>Full Capability Matrix &bull; 21 Integrated Verticals</span>
             </div>
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl text-[#14181F] font-normal tracking-tight">
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl text-white font-normal tracking-tight">
               Integrated Services Directory
             </h1>
-            <p className="text-base sm:text-lg text-[#5A6578] leading-relaxed">
-              Consolidated physical security, compliant industrial staffing, mechanized facility hygiene, and enterprise digital &amp; WhatsApp automation solutions. Built to eliminate vendor fragmentation under a single accountable partner.
+            <p className="text-base sm:text-lg text-neutral-300 leading-relaxed">
+              Consolidated security guarding, industrial staffing, facility hygiene, and enterprise digital &amp; WhatsApp automation under one verified partner.
             </p>
           </div>
         </section>
@@ -58,41 +58,41 @@ export default function ServicesHubPage() {
         <section className="space-y-8">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <h2 className="font-display text-2xl sm:text-3xl text-[#14181F] font-normal">
+              <h2 className="font-display text-2xl sm:text-3xl text-white font-normal">
                 Select Capability Tier
               </h2>
-              <p className="text-xs sm:text-sm text-[#5A6578]">
-                Browse core operational tiers and auxiliary government contracting verticals.
+              <p className="text-xs sm:text-sm text-neutral-400">
+                Filter core physical security, industrial manpower, and digital automation tools.
               </p>
             </div>
           </div>
           <ServiceFilter categories={serviceCategories} services={servicesData} />
         </section>
 
-        {/* Interactive Generative UI Operations & Automation Suite */}
-        <section className="pt-8 border-t border-[#E4E7EC]">
+        {/* Interactive Operations & Automation Suite */}
+        <section className="pt-8 border-t border-white/10">
           <InteractiveShowcase />
         </section>
 
         {/* Bottom Assessment CTA */}
-        <section className="py-12 sm:py-16 bg-[#0F2A47] rounded-xl p-8 sm:p-12 text-center text-white space-y-6">
+        <section className="py-12 sm:py-16 bg-[#070B12] border border-white/10 rounded-2xl p-8 sm:p-12 text-center text-white space-y-6">
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl text-white font-normal tracking-tight max-w-2xl mx-auto">
             Need a site-specific operational assessment?
           </h2>
-          <p className="text-xs sm:text-sm text-emerald-100 max-w-xl mx-auto leading-relaxed">
+          <p className="text-xs sm:text-sm text-neutral-300 max-w-xl mx-auto leading-relaxed">
             Our operations team conducts on-site vulnerability inspections and provides transparent statutory pricing breakdowns within 24 hours.
           </p>
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               href="/get-quote"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md bg-white text-[#0F2A47] text-sm font-semibold hover:bg-neutral-100 transition-colors shadow-xs min-h-[44px] w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-[#D4AF37] text-black text-sm font-semibold hover:bg-[#E5C158] transition-colors shadow-lg min-h-[44px] w-full sm:w-auto"
             >
               <span>Request Site Assessment</span>
               <ArrowRight size={14} />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md bg-white/10 hover:bg-white/15 text-white border border-white/20 text-sm font-semibold transition-colors min-h-[44px] w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-white/10 hover:bg-white/15 text-white border border-white/20 text-sm font-semibold transition-colors min-h-[44px] w-full sm:w-auto"
             >
               <span>Contact Operations Desk</span>
             </Link>

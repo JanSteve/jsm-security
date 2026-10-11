@@ -14,7 +14,7 @@ export default function robots(): MetadataRoute.Robots {
       // Google & Bing bots — full access with explicit allows
       {
         userAgent: ['Googlebot', 'Bingbot', 'Slurp', 'DuckDuckBot', 'Baiduspider', 'YandexBot'],
-        allow: ['/', '/llms.txt', '/llms-full.txt', '/services/', '/industries/', '/about', '/careers', '/contact', '/blog/', '/get-quote', '/security-agencies', '/careers', '/blog', '/blog'],
+        allow: ['/', '/llms.txt', '/llms-full.txt', '/services/', '/about', '/contact', '/case-studies/', '/get-quote'],
         disallow: ['/api/'],
       },
       // Generative AI & LLM Answer Engine Crawlers (AEO/GEO)
@@ -34,7 +34,7 @@ export default function robots(): MetadataRoute.Robots {
           'YouBot',
           'PhindBot',
         ],
-        allow: ['/', '/llms.txt', '/llms-full.txt', '/services/', '/industries/', '/about', '/careers', '/contact', '/blog/', '/get-quote', '/security-agencies', '/careers', '/blog', '/blog'],
+        allow: ['/', '/llms.txt', '/llms-full.txt', '/services/', '/about', '/contact', '/case-studies/', '/get-quote'],
         disallow: ['/api/'],
       },
     ],

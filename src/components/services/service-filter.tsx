@@ -34,7 +34,7 @@ export function ServiceFilter({ categories, services }: ServiceFilterProps) {
   });
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-10 text-left">
       {/* Category Pills */}
       <div className="flex flex-wrap justify-center gap-2 md:gap-3">
         {categories.map((category) => (
@@ -42,10 +42,10 @@ export function ServiceFilter({ categories, services }: ServiceFilterProps) {
             key={category}
             variant={activeCategory === category ? 'default' : 'outline'}
             onClick={() => setActiveCategory(category)}
-            className={`rounded-md transition-all px-5 min-h-[44px] text-xs font-semibold ${
+            className={`rounded-lg transition-all px-4 min-h-[44px] text-xs font-bold cursor-pointer ${
               activeCategory === category 
-                ? 'bg-[#0F2A47] text-white hover:bg-[#0A1E33] border-transparent shadow-xs' 
-                : 'border-[#E4E7EC] text-[#4A5160] hover:text-[#14181F] hover:bg-[#E4E7EC]/40 bg-[#F6F7F9]'
+                ? 'bg-[#D4AF37] text-black hover:bg-[#E5C158] border-transparent shadow-md' 
+                : 'border-white/15 text-neutral-300 hover:text-white hover:bg-white/10 bg-[#070B12]'
             }`}
           >
             {category}
@@ -71,56 +71,56 @@ export function ServiceFilter({ categories, services }: ServiceFilterProps) {
                 transition={{ duration: 0.25 }}
                 className="h-full"
               >
-                <PerspectiveTiltCard maxTilt={8} className="h-full">
-                  <div className="group relative flex flex-col h-full bg-[#F6F7F9] rounded-xl p-7 border border-[#E4E7EC] hover:border-[#0F2A47]/30 transition-all duration-300 shadow-xs hover:shadow-sm">
+                <PerspectiveTiltCard maxTilt={6} className="h-full">
+                  <div className="group relative flex flex-col h-full bg-[#070B12] rounded-xl p-7 border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-300 shadow-xl hover:shadow-2xl text-white">
                     <div className="mb-5 flex justify-between items-start">
-                      <div className="p-3 bg-white border border-[#E4E7EC] rounded-lg text-[#0F2A47] group-hover:scale-105 transition-transform duration-300 shadow-2xs">
+                      <div className="p-3 bg-white/5 border border-white/10 rounded-lg text-[#D4AF37] group-hover:scale-105 transition-transform duration-300">
                         <IconComponent size={22} />
                       </div>
-                      <span className={`text-[10px] font-semibold px-3 py-1 rounded-full uppercase ${
+                      <span className={`text-[10px] font-bold px-3 py-1 rounded-full uppercase ${
                         service.isCoreLaunch 
-                          ? 'bg-emerald-50 text-emerald-800 border border-emerald-200' 
-                          : 'bg-[#0F2A47]/8 text-[#0F2A47] border border-[#0F2A47]/15'
+                          ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-400/40' 
+                          : 'bg-white/5 text-[#D4AF37] border border-white/10'
                       }`}>
                         {service.phase}
                       </span>
                     </div>
                     
-                    <h3 className="text-xl font-semibold text-[#14181F] mb-1.5 leading-snug">
+                    <h3 className="text-xl font-bold text-white mb-1.5 leading-snug">
                       {service.title}
                     </h3>
-                    <p className="text-xs font-semibold mb-3 text-[#9C7A3C]">
+                    <p className="text-xs font-bold mb-3 text-[#D4AF37]">
                       {service.valueProposition}
                     </p>
-                    <p className="text-[#4A5160] text-xs leading-relaxed mb-6 flex-grow font-normal text-pretty">
+                    <p className="text-neutral-300 text-xs leading-relaxed mb-6 flex-grow font-normal text-pretty">
                       {service.description}
                     </p>
 
-                    {/* Who It Is For Sample */}
-                    <div className="space-y-1.5 mb-6 pt-4 border-t border-[#E4E7EC]">
-                      <p className="text-[10px] font-semibold uppercase tracking-wider text-[#4A5160]">
+                    {/* Typical Deployments */}
+                    <div className="space-y-1.5 mb-6 pt-4 border-t border-white/10">
+                      <p className="text-[10px] font-bold uppercase tracking-wider text-[#D4AF37]">
                         Typical deployments:
                       </p>
                       <div className="flex flex-wrap gap-1.5">
                         {service.whoItIsFor.slice(0, 3).map((target, idx) => (
-                          <span key={idx} className="text-[10px] bg-white border border-[#E4E7EC] px-2.5 py-1 rounded-md text-[#4A5160] font-medium">
+                          <span key={idx} className="text-[10px] bg-white/5 border border-white/10 px-2.5 py-1 rounded-md text-neutral-300 font-medium">
                             {target}
                           </span>
                         ))}
                       </div>
                     </div>
                     
-                    <div className="pt-4 border-t border-[#E4E7EC] mt-auto flex items-center justify-between">
+                    <div className="pt-4 border-t border-white/10 mt-auto flex items-center justify-between">
                       <Link 
                         href={`/services/${service.slug}`}
-                        className="inline-flex items-center text-xs font-semibold text-[#0F2A47] hover:text-[#9C7A3C] hover:underline gap-1.5 min-h-[44px]"
+                        className="inline-flex items-center text-xs font-bold text-[#D4AF37] hover:text-white gap-1.5 min-h-[44px]"
                       >
-                        View scope &amp; checklists <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                        View scope &amp; SLAs <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                       </Link>
 
                       <Link
                         href="/contact"
-                        className="text-[11px] font-medium text-[#4A5160] hover:text-[#14181F] min-h-[44px] inline-flex items-center"
+                        className="text-[11px] font-semibold text-neutral-400 hover:text-white min-h-[44px] inline-flex items-center"
                       >
                         Request quote →
                       </Link>

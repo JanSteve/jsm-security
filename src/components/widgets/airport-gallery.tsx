@@ -217,33 +217,33 @@ export function AirportGallery({ className = '', compact = false }: AirportGalle
   return (
     <section 
       id="trichy-airport-gallery" 
-      className={`relative py-16 sm:py-24 lg:py-28 overflow-hidden bg-white text-[#14181F] ${className}`}
+      className={`relative py-16 sm:py-24 lg:py-28 overflow-hidden bg-black text-white border-y border-white/10 ${className}`}
     >
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
         
         {/* Section Header with Official AAI Client Endorsement Badge */}
-        <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 pb-4 border-b border-[#E4E7EC]">
-          <div className="max-w-3xl space-y-4 text-left">
+        <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 pb-6 border-b border-white/10">
+          <div className="max-w-3xl space-y-3 text-left">
             {/* Happy Customer AAI Badge */}
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#0F2A47]/8 border border-[#0F2A47]/15 text-[#0F2A47] text-xs font-semibold">
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/35 text-[#D4AF37] text-xs font-bold">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span>Happy Institutional Client &bull; Airports Authority of India (AAI)</span>
             </div>
 
             <KineticTypography
               as="h2"
-              text="Tiruchirappalli International Airport Concourse Contract"
-              className="font-serif text-2xl sm:text-3xl lg:text-[40px] leading-[1.18] font-bold tracking-tight text-[#14181F]"
+              text="Tiruchirappalli International Airport Concourse Operations"
+              className="font-serif text-2xl sm:text-3xl lg:text-[40px] leading-[1.18] font-bold tracking-tight text-white"
             />
 
-            <p className="text-sm sm:text-base text-[#4A5160] leading-relaxed">
-              Curated photographic documentation from our landmark 2024 deployment. Filtered from 670+ daily shift inspection records to showcase real platoon musters, AAI access portals, and mechanized facility maintenance.
+            <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
+              Curated photographic documentation from our landmark 2024 deployment. Filtered from 670+ daily shift inspection records to showcase real platoon musters, AAI barrier checkpoints, and mechanized facility maintenance.
             </p>
           </div>
 
           {/* Official AAI Client Card */}
-          <div className="w-full lg:w-auto p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-[#F8F9FA] to-[#EDF1F7] border border-[#D0D7E2] shadow-sm flex items-center gap-4 shrink-0">
-            <div className="relative w-16 h-12 rounded-lg bg-white border border-[#D0D7E2] p-1 flex items-center justify-center shrink-0 shadow-xs">
+          <div className="w-full lg:w-auto p-4 sm:p-5 rounded-2xl bg-[#070B12] border border-white/15 shadow-xl flex items-center gap-4 shrink-0">
+            <div className="relative w-16 h-12 rounded-lg bg-white border border-white/20 p-1 flex items-center justify-center shrink-0 shadow-xs">
               <Image
                 src="/images/clients/aai_logo.svg"
                 alt="Airports Authority of India Logo"
@@ -252,20 +252,20 @@ export function AirportGallery({ className = '', compact = false }: AirportGalle
               />
             </div>
             <div className="text-left space-y-0.5">
-              <div className="text-xs font-bold text-[#0F2A47] uppercase tracking-wide">
+              <div className="text-xs font-bold text-white uppercase tracking-wide">
                 Airports Authority of India (AAI)
               </div>
-              <div className="text-[11px] text-[#4A5160]">
+              <div className="text-[11px] text-neutral-400">
                 Institutional Client &bull; Ministry of Civil Aviation
               </div>
-              <div className="text-[11px] font-semibold text-[#9C7A3C] flex items-center gap-1">
+              <div className="text-[11px] font-semibold text-[#D4AF37] flex items-center gap-1">
                 <span>100% SLA Adherence &bull; Zero Breaches</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Filter Category Tabs — Generous spacing, accessible tap targets */}
+        {/* Filter Category Tabs — Dark Obsidian Pills */}
         <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none snap-x">
           {categories.map(cat => {
             const Icon = cat.icon;
@@ -280,11 +280,11 @@ export function AirportGallery({ className = '', compact = false }: AirportGalle
                 }}
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all press-scale shrink-0 snap-start min-h-[44px] ${
                   isActive
-                    ? 'bg-[#0F2A47] text-white shadow-md'
-                    : 'bg-[#F4F6F8] text-[#4A5160] hover:bg-[#E8EDF2] hover:text-[#14181F] border border-[#E4E7EC]'
+                    ? 'bg-[#D4AF37] text-black shadow-md font-bold'
+                    : 'bg-[#070B12] text-neutral-400 hover:bg-white/10 hover:text-white border border-white/10'
                 }`}
               >
-                <Icon size={15} className={isActive ? 'text-[#D4AF37]' : 'text-[#5A6578]'} />
+                <Icon size={15} className={isActive ? 'text-black' : 'text-[#D4AF37]'} />
                 <span>{cat.label}</span>
               </button>
             );
@@ -304,10 +304,10 @@ export function AirportGallery({ className = '', compact = false }: AirportGalle
               >
                 <article
                   onClick={() => setLightboxIndex(idx)}
-                  className="group cursor-pointer h-full flex flex-col justify-between rounded-2xl overflow-hidden bg-white border border-[#E4E7EC] hover:border-[#9C7A3C]/60 shadow-sm hover:shadow-xl transition-all duration-300"
+                  className="group cursor-pointer h-full flex flex-col justify-between rounded-2xl overflow-hidden bg-[#070B12] border border-white/10 hover:border-[#D4AF37]/50 shadow-xl transition-all duration-300 text-white"
                 >
-                  {/* Photo Media Frame with Generous Proportions */}
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-black/5">
+                  {/* Photo Media Frame */}
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-black/40">
                     <Image
                       src={photo.src}
                       alt={photo.title}
@@ -317,16 +317,16 @@ export function AirportGallery({ className = '', compact = false }: AirportGalle
                     />
 
                     {/* Gradient Overlay for Crisp Metadata Visibility */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent pointer-events-none" />
 
                     {/* Top Inset Tag */}
                     <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between pointer-events-none">
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-[11px] font-semibold text-white shadow-sm">
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-[11px] font-semibold text-white shadow-sm">
                         <Clock size={12} className="text-[#D4AF37]" />
                         <span>{photo.tag}</span>
                       </span>
 
-                      <span className="w-7 h-7 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="w-7 h-7 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                         <Maximize2 size={13} />
                       </span>
                     </div>
@@ -344,16 +344,16 @@ export function AirportGallery({ className = '', compact = false }: AirportGalle
 
                   {/* Body Caption with generous whitespace */}
                   <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4 text-left">
-                    <p className="text-xs sm:text-sm text-[#4A5160] leading-relaxed line-clamp-3">
+                    <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed line-clamp-3">
                       {photo.caption}
                     </p>
 
-                    <div className="pt-3 border-t border-[#E4E7EC] flex items-center justify-between text-xs text-[#5A6578]">
-                      <span className="font-mono text-[11px] text-[#0F2A47] font-semibold">
+                    <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs text-neutral-400">
+                      <span className="font-mono text-[11px] text-white font-semibold">
                         Trichy International Terminal
                       </span>
-                      <span className="text-[#9C7A3C] font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                        <span>Inspect Full High-Res</span>
+                      <span className="text-[#D4AF37] font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                        <span>High-Res Photo</span>
                         <ExternalLink size={12} />
                       </span>
                     </div>
@@ -365,19 +365,19 @@ export function AirportGallery({ className = '', compact = false }: AirportGalle
         </div>
 
         {/* Decongested Verification Footer */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-[#F8F9FA] border border-[#E4E7EC] flex flex-col sm:flex-row items-center justify-between gap-6 text-left">
+        <div className="p-6 sm:p-8 rounded-2xl bg-[#070B12] border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6 text-left">
           <div className="space-y-1">
-            <div className="font-serif text-lg sm:text-xl font-bold text-[#14181F]">
-              Comprehensive Contract Case Study Available
+            <div className="font-serif text-lg sm:text-xl font-bold text-white">
+              Official Contract Case Study &amp; Verification
             </div>
-            <p className="text-xs sm:text-sm text-[#4A5160] max-w-2xl leading-relaxed">
-              Read the complete operational case study detailing our 24/7 rotational muster, Bureau of Civil Aviation Security (BCAS) compliance, and zero-defect audit record for the Airports Authority of India.
+            <p className="text-xs sm:text-sm text-neutral-300 max-w-2xl leading-relaxed">
+              Read the complete operational case study detailing our 24/7 rotational muster, civil aviation security protocols, and 100% compliance record for Airports Authority of India.
             </p>
           </div>
 
           <a
             href="/case-studies/trichy-international-airport"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold bg-[#0F2A47] hover:bg-[#1A3D63] text-white transition-all shadow-sm shrink-0 press-scale"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-bold bg-[#D4AF37] hover:bg-[#E5C158] text-black transition-all shadow-md shrink-0 press-scale"
           >
             <span>Read Trichy Airport Case Study</span>
             <ExternalLink size={14} />

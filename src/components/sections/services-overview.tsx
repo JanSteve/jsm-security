@@ -284,77 +284,77 @@ const auxiliaryServices = [
 
 export function ServicesOverview() {
   return (
-    <div className="bg-white">
+    <div className="bg-black text-white">
       {/* Three-Tier Operations Model — Pinned Viewport Scrollytelling Sequence */}
       <StickyScrollSequence
         steps={operationSteps}
         eyebrow="Three-Tier Operations Model"
         headline="Consolidated physical security, staffing and facility hygiene."
         description="Eliminate vendor fragmentation. Manage premises security, industrial contract staffing, and facility management under one contract and one accountable executive desk."
-        theme="light"
+        theme="dark"
       />
 
       {/* Digital & Automation Solutions — Division Led by CTO R Jan Steve Daniel */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-white border-b border-[#E4E7EC]">
+      <section className="py-16 sm:py-20 lg:py-24 bg-black border-b border-white/10 text-white">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 text-left">
             <div>
               <div className="flex items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#0F2A47]/10 text-[#0F2A47]">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#D4AF37]/15 border border-[#D4AF37]/35 text-[#D4AF37]">
                   <Cpu size={12} />
                   Technology Division
                 </span>
-                <span className="text-xs text-[#9C7A3C] font-medium">Led by CTO R Jan Steve Daniel</span>
+                <span className="text-xs text-neutral-300 font-medium">Led by CTO R Jan Steve Daniel</span>
               </div>
               <KineticTypography
                 as="h3"
                 text="Digital Engineering, WhatsApp Automation & Smart Systems"
-                className="text-xl sm:text-2xl lg:text-3xl font-serif font-semibold text-[#14181F] pt-2"
+                className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold text-white pt-2"
               />
-              <p className="text-xs sm:text-sm text-[#4A5160] max-w-2xl leading-relaxed pt-1">
-                Modern software, official Meta WhatsApp Business API bots, smart NFC review filtering standees, and high-conversion web platforms built to accelerate retail and corporate growth.
+              <p className="text-xs sm:text-sm text-neutral-300 max-w-2xl leading-relaxed pt-1">
+                Official Meta WhatsApp Business API bots, smart NFC review filtering standees, and custom web portals built to accelerate retail and corporate growth.
               </p>
             </div>
             <Link
               href="/services"
-              className="inline-flex items-center gap-1 text-xs font-semibold text-[#0F2A47] hover:text-[#9C7A3C] transition-colors shrink-0"
+              className="inline-flex items-center gap-1 text-xs font-bold text-[#D4AF37] hover:text-[#E5C158] transition-colors shrink-0"
             >
-              <span>Explore All 15 Digital Services</span>
+              <span>Explore All Digital Services</span>
               <ArrowRight size={13} />
             </Link>
           </div>
 
-          {/* 3D Perspective Tilt Cards Grid */}
+          {/* Perspective Tilt Cards Grid — Obsidian Surfaces */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {digitalServices.map((digital, idx) => {
               const DigitalIcon = digital.icon;
               return (
-                <PerspectiveTiltCard key={idx} maxTilt={8} className="h-full">
+                <PerspectiveTiltCard key={idx} maxTilt={6} className="h-full">
                   <Link
                     href={digital.slug}
-                    className="p-6 bg-white border border-[#E4E7EC] rounded-xl hover:border-[#0F2A47]/40 hover:shadow-lg transition-all space-y-3 text-left group block h-full flex flex-col justify-between"
+                    className="p-6 bg-[#070B12] border border-white/10 rounded-xl hover:border-[#D4AF37]/50 hover:shadow-2xl transition-all space-y-3 text-left group block h-full flex flex-col justify-between text-white"
                   >
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
-                        <div className="w-10 h-10 rounded-[6px] bg-[#0F2A47]/8 flex items-center justify-center text-[#0F2A47] group-hover:bg-[#0F2A47] group-hover:text-white transition-colors">
+                        <div className="w-10 h-10 rounded-[6px] bg-white/5 border border-white/10 flex items-center justify-center text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-black transition-colors">
                           <DigitalIcon size={18} />
                         </div>
-                        <span className="text-[10px] font-semibold tracking-wide uppercase px-2.5 py-0.5 rounded-full bg-[#F6F7F9] text-[#4A5160] border border-[#E4E7EC]">
+                        <span className="text-[10px] font-bold tracking-wide uppercase px-2.5 py-0.5 rounded-full bg-white/5 text-[#D4AF37] border border-white/10">
                           {digital.badge}
                         </span>
                       </div>
                       <div>
-                        <h4 className="text-base font-semibold text-[#14181F] group-hover:text-[#0F2A47] transition-colors">
+                        <h4 className="text-base font-bold text-white group-hover:text-[#D4AF37] transition-colors">
                           {digital.title}
                         </h4>
-                        <p className="text-xs text-[#4A5160] leading-relaxed pt-1.5 line-clamp-3">
+                        <p className="text-xs text-neutral-300 leading-relaxed pt-1.5 line-clamp-3">
                           {digital.description}
                         </p>
                       </div>
                     </div>
 
-                    <div className="pt-3 border-t border-[#E4E7EC]/80 flex items-center gap-1 text-xs font-semibold text-[#0F2A47] group-hover:text-[#9C7A3C] transition-colors">
-                      <span>View Specifications &amp; Pricing</span>
+                    <div className="pt-3 border-t border-white/10 flex items-center gap-1 text-xs font-semibold text-[#D4AF37] group-hover:text-white transition-colors">
+                      <span>View Specifications</span>
                       <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                     </div>
                   </Link>
@@ -364,19 +364,19 @@ export function ServicesOverview() {
           </div>
 
           {/* Auxiliary Verticals — Divided Clean Strip */}
-          <div className="pt-8 border-t border-[#E4E7EC] space-y-6 text-left">
+          <div className="pt-8 border-t border-white/10 space-y-6 text-left">
             <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
               <div>
-                <span className="text-xs font-semibold text-[#4A5160]">
-                  Auxiliary Enterprise Capabilities
+                <span className="text-xs font-semibold text-[#D4AF37] uppercase tracking-wider">
+                  Auxiliary Capabilities
                 </span>
-                <h4 className="text-base sm:text-lg font-semibold text-[#14181F]">
-                  Tender Bidding, Document Digitization &amp; Citizen Services
+                <h4 className="text-base sm:text-lg font-bold text-white">
+                  Tender Bidding, Document Digitization &amp; Citizen Facilitation
                 </h4>
               </div>
               <Link
                 href="/services"
-                className="text-xs font-semibold text-[#0F2A47] hover:underline shrink-0"
+                className="text-xs font-semibold text-[#D4AF37] hover:underline shrink-0"
               >
                 All Capabilities Overview
               </Link>
@@ -388,15 +388,15 @@ export function ServicesOverview() {
                 return (
                   <div
                     key={idx}
-                    className="p-4 bg-[#F6F7F9] border border-[#E4E7EC] space-y-1.5 text-left rounded-lg"
+                    className="p-4 bg-[#070A0F] border border-white/10 space-y-1.5 text-left rounded-xl"
                   >
                     <div className="flex items-center gap-2">
-                      <AuxIcon size={15} className="text-[#0F2A47]" />
-                      <h5 className="text-xs sm:text-sm font-semibold text-[#14181F]">
+                      <AuxIcon size={15} className="text-[#D4AF37]" />
+                      <h5 className="text-xs sm:text-sm font-bold text-white">
                         {aux.title}
                       </h5>
                     </div>
-                    <p className="text-xs text-[#4A5160] leading-relaxed">
+                    <p className="text-xs text-neutral-300 leading-relaxed">
                       {aux.description}
                     </p>
                   </div>
