@@ -14,18 +14,33 @@ export function organizationSchema() {
     founder: {
       '@type': 'Person',
       name: 'Sweety J',
-      jobTitle: 'Proprietor & Managing Director'
+      jobTitle: 'Proprietor & Managing Director',
+      image: `${brandData.domain}/images/leadership/sweety-j.jpg`,
+      worksFor: {
+        '@type': 'Organization',
+        name: brandData.name
+      }
     },
     employee: [
       {
         '@type': 'Person',
         name: 'Major AR Devadoss (Army-Veteran)',
-        jobTitle: 'Head of Operations'
+        jobTitle: 'Head of Operations & Audit',
+        image: `${brandData.domain}/images/leadership/major-ar-devadoss.jpg`,
+        worksFor: {
+          '@type': 'Organization',
+          name: brandData.name
+        }
       },
       {
         '@type': 'Person',
         name: 'R Jan Steve Daniel',
-        jobTitle: 'Chief Technical Officer & Audit'
+        jobTitle: 'Chief Technical Officer',
+        image: `${brandData.domain}/images/leadership/r-jan-steve-daniel.jpg`,
+        worksFor: {
+          '@type': 'Organization',
+          name: brandData.name
+        }
       }
     ],
     address: {

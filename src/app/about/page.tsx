@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 
 import { constructMetadata } from "@/lib/seo";
+import { ExecutiveLeadershipSection } from "@/components/sections";
 
 export const metadata = constructMetadata({
   title: "About Leadership & Governance",
@@ -104,41 +105,12 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Named Leadership Bios (Sweety J, Major AR Devadoss, R Jan Steve Daniel) */}
-        <section className="space-y-10 border-b border-[#E4E7EC] pb-16">
-          <div className="space-y-2">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#0F2A47]">
-              Executive Board
-            </span>
-            <h2 className="font-display text-2xl sm:text-3xl text-[#14181F] font-normal tracking-tight">
-              Named Operational Officers
-            </h2>
-            <p className="text-sm text-[#5A6578]">
-              Direct leadership accessibility. Our senior leadership team actively oversees field deployments and monthly audits.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {brandData.leadership.map((officer, idx) => (
-              <div
-                key={idx}
-                className="p-7 rounded-xl border border-[#E4E7EC] bg-[#F8F9FA]/60 space-y-4"
-              >
-                <div className="space-y-1">
-                  <span className="text-[10px] font-mono font-bold text-[#0F2A47] uppercase bg-[#0F2A47]/8 px-2 py-0.5 rounded">
-                    {officer.role}
-                  </span>
-                  <h3 className="text-lg font-semibold text-[#14181F]">
-                    {officer.name}
-                  </h3>
-                </div>
-                <p className="text-xs sm:text-sm text-[#5A6578] leading-relaxed">
-                  {officer.bio}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
+        {/* Named Leadership Bios (Major AR Devadoss, Sweety J, R Jan Steve Daniel) */}
+        <ExecutiveLeadershipSection 
+          showTitle={true} 
+          darkTheme={true} 
+          className="rounded-3xl border border-[#1A2333] shadow-2xl my-10" 
+        />
 
         {/* Landmark Milestone: Trichy International Airport */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-b border-[#E4E7EC] pb-16">

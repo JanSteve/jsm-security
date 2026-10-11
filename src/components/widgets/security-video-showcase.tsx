@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
+import Image from 'next/image';
 import { motion } from 'motion/react';
 import { 
   ShieldCheck, 
@@ -114,6 +115,24 @@ export function SecurityVideoShowcase({
           <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
             Led by Managing Director <strong className="text-white">Sweety J</strong>, Operations Director Army-Veteran <strong className="text-white">Major AR Devadoss</strong>, and Executive Director <strong className="text-white">R Jan Steve Daniel</strong>. We deploy disciplined security platoons, verified industrial manpower, and commercial facility management across Tamil Nadu.
           </p>
+
+          {/* Executive Leadership Avatars */}
+          <div className="flex items-center gap-3 pt-1">
+            <div className="flex -space-x-2.5 overflow-hidden">
+              <div className="relative w-8 h-8 rounded-full border-2 border-[#071728] overflow-hidden bg-black shrink-0" title="Major AR Devadoss (Army-Veteran) - Head of Operations & Audit">
+                <Image src="/images/leadership/major-ar-devadoss.jpg" alt="Major AR Devadoss" fill className="object-cover" />
+              </div>
+              <div className="relative w-8 h-8 rounded-full border-2 border-[#071728] overflow-hidden bg-black ring-1 ring-[#D4AF37] shrink-0" title="Sweety J - Proprietor and MD">
+                <Image src="/images/leadership/sweety-j.jpg" alt="Sweety J" fill className="object-cover" />
+              </div>
+              <div className="relative w-8 h-8 rounded-full border-2 border-[#071728] overflow-hidden bg-black shrink-0" title="R Jan Steve Daniel - Chief Technical Officer">
+                <Image src="/images/leadership/r-jan-steve-daniel.jpg" alt="R Jan Steve Daniel" fill className="object-cover" />
+              </div>
+            </div>
+            <span className="text-[11px] font-mono text-neutral-300">
+              Indian Army Veteran &bull; Founder MD &bull; CTO Command
+            </span>
+          </div>
         </div>
 
         {/* Mode Switcher */}

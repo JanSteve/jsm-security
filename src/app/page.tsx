@@ -6,7 +6,8 @@ import {
   StatsSection,
   TestimonialsSection,
   FAQSection,
-  CTASection
+  CTASection,
+  ExecutiveLeadershipSection
 } from "@/components/sections";
 import { InteractiveShowcase } from "@/components/widgets/interactive-showcase";
 import { SecurityVideoShowcase } from "@/components/widgets/security-video-showcase";
@@ -143,6 +144,9 @@ export default function Home() {
 
       {/* 4. Operational Proof Case Study (Trichy International Airport) */}
       <ProofSection />
+
+      {/* 4b. Executive Leadership & Operational Command */}
+      <ExecutiveLeadershipSection />
 
       {/* 5. Audited Operational SLAs & Metrics Module */}
       <StatsSection />

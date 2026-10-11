@@ -9,19 +9,52 @@ export const brandData = {
   
   leadership: [
     {
-      name: "Sweety J",
-      role: "Proprietor and MD",
-      bio: "Founding proprietor and managing director driving the strategic vision, statutory governance, and operational execution of JSM Integrated Services."
-    },
-    {
       name: "Major AR Devadoss (Army-Veteran)",
       role: "Head of Operations & Audit",
-      bio: "Decorated Indian Army veteran directing enterprise security deployments, tactical operations, supervisory audits, and field discipline across South India."
+      badge: "Indian Army Veteran • Operational Command",
+      image: "/images/leadership/major-ar-devadoss.jpg",
+      bio: "Decorated Indian Armed Forces veteran directing enterprise security deployments, tactical operations, supervisory audits, and field discipline across South India.",
+      qualification: "Commissioned Army Veteran",
+      focus: "Tactical Guard Deployments, ESM Supervision & Night Reconnaissance Audits",
+      highlights: [
+        "Decorated Armed Forces Veteran Command",
+        "Trichy International Airport Operations",
+        "2:00 AM Surprise Night Audits & Protocol Enforcement"
+      ],
+      email: "contact@jsmintegratedservices.com",
+      phone: "+919080863448"
+    },
+    {
+      name: "Sweety J",
+      role: "Proprietor and MD",
+      badge: "Founding Managing Director • Executive Governance",
+      image: "/images/leadership/sweety-j.jpg",
+      bio: "Founding proprietor and managing director driving the strategic vision, statutory governance, and operational execution of JSM Integrated Services across Tamil Nadu.",
+      qualification: "Proprietor & Managing Director",
+      focus: "Executive Leadership, 100% Statutory Compliance & Enterprise Client Relations",
+      highlights: [
+        "100% EPF, ESIC & Labour Law Governance",
+        "Direct Client Escalation & Rapid Relief",
+        "Central Command in Tiruchirappalli & Chennai"
+      ],
+      email: "contact@jsmintegratedservices.com",
+      phone: "+919080863448"
     },
     {
       name: "R Jan Steve Daniel",
       role: "Chief Technical Officer",
-      bio: "Directing technology-enabled operations, Next.js web architectures, official Meta WhatsApp Business API bots, smart NFC/QR reputation systems, and enterprise business automation."
+      badge: "Chief Technical Officer • Enterprise Systems",
+      image: "/images/leadership/r-jan-steve-daniel.jpg",
+      bio: "Directing technology-enabled operations, Next.js web architectures, official Meta WhatsApp Business API bots, smart NFC/QR reputation systems, and enterprise business automation.",
+      qualification: "Chief Technical Officer",
+      focus: "Enterprise Web Architecture, Meta Cloud WhatsApp Automation & Smart NFC Systems",
+      highlights: [
+        "Official Meta Cloud WhatsApp Business API",
+        "Real-Time Smart NFC Review Routing Systems",
+        "Zero-CLS High-Velocity Web & Mobile Architectures"
+      ],
+      email: "contact@jsmintegratedservices.com",
+      phone: "+919080863448"
     }
   ],
 
