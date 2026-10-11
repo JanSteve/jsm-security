@@ -1,1 +1,42 @@
-{}
+{
+  "+919876543210": {
+    "name": "Dr. Arul Nathan",
+    "business": "Apollo Dental Care",
+    "category": "clinic",
+    "sent_at": "2026-10-11T08:21:57.922445",
+    "status": "SENT",
+    "provider": "dry_run"
+  },
+  "+919840123456": {
+    "name": "Karthik Raman",
+    "business": "Madras Chai Cafe",
+    "category": "restaurant",
+    "sent_at": "2026-10-11T08:22:12.922767",
+    "status": "SENT",
+    "provider": "dry_run"
+  },
+  "+919789123456": {
+    "name": "Suresh Kumar",
+    "business": "Green Trends Salon",
+    "category": "salon",
+    "sent_at": "2026-10-11T08:22:27.923666",
+    "status": "SENT",
+    "provider": "dry_run"
+  },
+  "+919443123456": {
+    "name": "Venkatesh Babu",
+    "business": "Trichy Auto Garage",
+    "category": "garage",
+    "sent_at": "2026-10-11T08:22:35.924350",
+    "status": "SENT",
+    "provider": "dry_run"
+  },
+  "+919940123456": {
+    "name": "Praveen Raj",
+    "business": "Apex Logistics SEZ",
+    "category": "commercial",
+    "sent_at": "2026-10-11T08:22:43.924966",
+    "status": "SENT",
+    "provider": "dry_run"
+  }
+}
