@@ -57,7 +57,7 @@ const operationSteps: StickyStepItem[] = [
 
         <div className="space-y-3 z-10">
           <div className="flex items-center justify-between">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#9C7A3C]/20 border border-[#9C7A3C]/40 text-[#D4AF37] text-xs font-semibold">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold">
               <ShieldCheck size={14} />
               <span>Armed &amp; Unarmed Guarding Command</span>
             </div>
@@ -75,7 +75,7 @@ const operationSteps: StickyStepItem[] = [
         {/* Live Status Board Card */}
         <div className="z-10 grid grid-cols-2 gap-3 pt-4 border-t border-white/10">
           <div className="p-3 bg-white/5 backdrop-blur-md rounded-lg border border-white/10 space-y-1">
-            <div className="flex items-center gap-1.5 text-xs text-[#D4AF37] font-semibold">
+            <div className="flex items-center gap-1.5 text-xs text-white font-semibold">
               <Radio size={12} className="animate-pulse" />
               <span>Command Desk</span>
             </div>
@@ -83,7 +83,7 @@ const operationSteps: StickyStepItem[] = [
           </div>
 
           <div className="p-3 bg-white/5 backdrop-blur-md rounded-lg border border-white/10 space-y-1">
-            <div className="flex items-center gap-1.5 text-xs text-[#D4AF37] font-semibold">
+            <div className="flex items-center gap-1.5 text-xs text-white font-semibold">
               <Clock size={12} />
               <span>Relief Guarantee</span>
             </div>
@@ -120,7 +120,7 @@ const operationSteps: StickyStepItem[] = [
 
         <div className="space-y-3 z-10">
           <div className="flex items-center justify-between">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#9C7A3C]/20 border border-[#9C7A3C]/40 text-[#D4AF37] text-xs font-semibold">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold">
               <FileCheck2 size={14} />
               <span>Full Statutory Legal Indemnity</span>
             </div>
@@ -137,7 +137,7 @@ const operationSteps: StickyStepItem[] = [
 
         <div className="z-10 grid grid-cols-2 gap-3 pt-4 border-t border-white/10">
           <div className="p-3 bg-white/5 backdrop-blur-md rounded-lg border border-white/10 space-y-1">
-            <div className="flex items-center gap-1.5 text-xs text-[#D4AF37] font-semibold">
+            <div className="flex items-center gap-1.5 text-xs text-white font-semibold">
               <Workflow size={12} />
               <span>Staffing Pipeline</span>
             </div>
@@ -145,7 +145,7 @@ const operationSteps: StickyStepItem[] = [
           </div>
 
           <div className="p-3 bg-white/5 backdrop-blur-md rounded-lg border border-white/10 space-y-1">
-            <div className="flex items-center gap-1.5 text-xs text-[#D4AF37] font-semibold">
+            <div className="flex items-center gap-1.5 text-xs text-white font-semibold">
               <Award size={12} />
               <span>Labour Audit Proof</span>
             </div>
@@ -182,7 +182,7 @@ const operationSteps: StickyStepItem[] = [
 
         <div className="space-y-3 z-10">
           <div className="flex items-center justify-between">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#9C7A3C]/20 border border-[#9C7A3C]/40 text-[#D4AF37] text-xs font-semibold">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold">
               <Sparkles size={14} />
               <span>Mechanized Campus Sanitization</span>
             </div>
@@ -199,7 +199,7 @@ const operationSteps: StickyStepItem[] = [
 
         <div className="z-10 grid grid-cols-2 gap-3 pt-4 border-t border-white/10">
           <div className="p-3 bg-white/5 backdrop-blur-md rounded-lg border border-white/10 space-y-1">
-            <div className="flex items-center gap-1.5 text-xs text-[#D4AF37] font-semibold">
+            <div className="flex items-center gap-1.5 text-xs text-white font-semibold">
               <Sparkles size={12} />
               <span>Equipment Fleet</span>
             </div>
@@ -207,7 +207,7 @@ const operationSteps: StickyStepItem[] = [
           </div>
 
           <div className="p-3 bg-white/5 backdrop-blur-md rounded-lg border border-white/10 space-y-1">
-            <div className="flex items-center gap-1.5 text-xs text-[#D4AF37] font-semibold">
+            <div className="flex items-center gap-1.5 text-xs text-white font-semibold">
               <FileCheck2 size={12} />
               <span>Hourly Audits</span>
             </div>
@@ -300,7 +300,7 @@ export function ServicesOverview() {
           <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 text-left">
             <div>
               <div className="flex items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#D4AF37]/15 border border-[#D4AF37]/35 text-[#D4AF37]">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-white/10 border border-white/20 text-white">
                   <Cpu size={12} />
                   Technology Division
                 </span>
@@ -317,7 +317,7 @@ export function ServicesOverview() {
             </div>
             <Link
               href="/services"
-              className="inline-flex items-center gap-1 text-xs font-bold text-[#D4AF37] hover:text-[#E5C158] transition-colors shrink-0"
+              className="inline-flex items-center gap-1 text-xs font-bold text-white hover:text-neutral-300 transition-colors shrink-0 underline underline-offset-4"
             >
               <span>Explore All Digital Services</span>
               <ArrowRight size={13} />
@@ -332,19 +332,19 @@ export function ServicesOverview() {
                 <PerspectiveTiltCard key={idx} maxTilt={6} className="h-full">
                   <Link
                     href={digital.slug}
-                    className="p-6 bg-[#070B12] border border-white/10 rounded-xl hover:border-[#D4AF37]/50 hover:shadow-2xl transition-all space-y-3 text-left group block h-full flex flex-col justify-between text-white"
+                    className="p-6 bg-[#070B12] border border-white/10 rounded-xl hover:border-white/40 hover:shadow-2xl transition-all space-y-3 text-left group block h-full flex flex-col justify-between text-white"
                   >
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
-                        <div className="w-10 h-10 rounded-[6px] bg-white/5 border border-white/10 flex items-center justify-center text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-black transition-colors">
+                        <div className="w-10 h-10 rounded-[6px] bg-white/5 border border-white/10 flex items-center justify-center text-white group-hover:bg-white group-hover:text-black transition-colors">
                           <DigitalIcon size={18} />
                         </div>
-                        <span className="text-[10px] font-bold tracking-wide uppercase px-2.5 py-0.5 rounded-full bg-white/5 text-[#D4AF37] border border-white/10">
+                        <span className="text-[10px] font-bold tracking-wide uppercase px-2.5 py-0.5 rounded-full bg-white/5 text-white border border-white/10 font-mono">
                           {digital.badge}
                         </span>
                       </div>
                       <div>
-                        <h4 className="text-base font-bold text-white group-hover:text-[#D4AF37] transition-colors">
+                        <h4 className="text-base font-bold text-white group-hover:text-neutral-200 transition-colors">
                           {digital.title}
                         </h4>
                         <p className="text-xs text-neutral-300 leading-relaxed pt-1.5 line-clamp-3">
@@ -353,7 +353,7 @@ export function ServicesOverview() {
                       </div>
                     </div>
 
-                    <div className="pt-3 border-t border-white/10 flex items-center gap-1 text-xs font-semibold text-[#D4AF37] group-hover:text-white transition-colors">
+                    <div className="pt-3 border-t border-white/10 flex items-center gap-1 text-xs font-semibold text-white group-hover:text-white transition-colors">
                       <span>View Specifications</span>
                       <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                     </div>
@@ -367,7 +367,7 @@ export function ServicesOverview() {
           <div className="pt-8 border-t border-white/10 space-y-6 text-left">
             <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
               <div>
-                <span className="text-xs font-semibold text-[#D4AF37] uppercase tracking-wider">
+                <span className="text-xs font-semibold text-white font-mono uppercase tracking-wider">
                   Auxiliary Capabilities
                 </span>
                 <h4 className="text-base sm:text-lg font-bold text-white">
@@ -376,7 +376,7 @@ export function ServicesOverview() {
               </div>
               <Link
                 href="/services"
-                className="text-xs font-semibold text-[#D4AF37] hover:underline shrink-0"
+                className="text-xs font-semibold text-white hover:underline shrink-0"
               >
                 All Capabilities Overview
               </Link>
@@ -391,7 +391,7 @@ export function ServicesOverview() {
                     className="p-4 bg-[#070A0F] border border-white/10 space-y-1.5 text-left rounded-xl"
                   >
                     <div className="flex items-center gap-2">
-                      <AuxIcon size={15} className="text-[#D4AF37]" />
+                      <AuxIcon size={15} className="text-white" />
                       <h5 className="text-xs sm:text-sm font-bold text-white">
                         {aux.title}
                       </h5>

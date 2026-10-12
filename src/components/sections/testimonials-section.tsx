@@ -38,7 +38,7 @@ export function TestimonialsSection() {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         {/* Section Header */}
         <div className="max-w-3xl space-y-2 text-left">
-          <div className="text-xs font-bold text-[#D4AF37] uppercase tracking-wider">
+          <div className="text-xs font-bold text-white font-mono uppercase tracking-wider">
             Industry Deployment Profiles
           </div>
           <h2 className="font-serif text-2xl sm:text-3xl lg:text-[38px] leading-[1.18] text-white font-bold tracking-[-0.01em]">
@@ -56,10 +56,10 @@ export function TestimonialsSection() {
             return (
               <div
                 key={idx}
-                className="p-6 bg-[#070B12] border border-white/10 hover:border-[#D4AF37]/40 rounded-xl space-y-4 text-left transition-colors"
+                className="p-6 bg-[#070B12] border border-white/10 hover:border-white/30 rounded-xl space-y-4 text-left transition-colors"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-[#D4AF37] shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white shrink-0">
                     <Icon size={18} />
                   </div>
                   <div>
@@ -76,7 +76,7 @@ export function TestimonialsSection() {
                   {sec.profile}
                 </p>
 
-                <div className="pt-3 border-t border-white/10 flex flex-wrap gap-2 text-[11px] text-[#D4AF37] font-medium">
+                <div className="pt-3 border-t border-white/10 flex flex-wrap gap-2 text-[11px] text-white font-mono font-medium">
                   {sec.standards.map((std, sIdx) => (
                     <span key={sIdx} className="px-2.5 py-0.5 bg-white/5 border border-white/10 rounded-md">
                       {std}

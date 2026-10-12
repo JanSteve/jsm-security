@@ -56,7 +56,7 @@ export function TrustBar() {
             </div>
 
             <div className="space-y-1.5 max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/35 text-[#D4AF37] text-xs font-bold">
+              <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-bold">
                 <Plane size={13} />
                 <span>Happy Institutional Client &bull; Aviation Operations Benchmark</span>
               </div>
@@ -72,7 +72,7 @@ export function TrustBar() {
           {/* Direct Link to Verified Case Study */}
           <Link
             href="/case-studies/trichy-international-airport"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold bg-[#D4AF37] hover:bg-[#E5C158] text-black transition-all shadow-md shrink-0 press-scale"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold bg-white hover:bg-neutral-200 text-black transition-all shadow-xl shrink-0 press-scale"
           >
             <span>View Airport Contract &amp; Photos</span>
             <ArrowRight size={14} />
@@ -86,9 +86,9 @@ export function TrustBar() {
             return (
               <div
                 key={idx}
-                className="flex items-start gap-3.5 p-4 rounded-xl bg-[#070A0F] border border-white/10 hover:border-[#D4AF37]/40 text-left transition-all duration-200"
+                className="flex items-start gap-3.5 p-4 rounded-xl bg-[#070A0F] border border-white/10 hover:border-white/30 text-left transition-all duration-200"
               >
-                <div className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5 text-[#D4AF37]">
+                <div className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5 text-white">
                   <Icon size={18} />
                 </div>
                 <div className="space-y-0.5 min-w-0">

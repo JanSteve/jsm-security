@@ -34,17 +34,17 @@ export function MobileDock() {
         {/* Button 1: Call Operations Desk */}
         <a
           href={`tel:${brandData.contact.phone}`}
-          className="flex-1 inline-flex items-center justify-center gap-2 h-[48px] rounded-[6px] border border-white/20 bg-black/80 text-white text-xs font-semibold hover:bg-white/10 active:bg-white/15 transition-colors press-scale tabular-nums min-touch-target"
+          className="flex-1 inline-flex items-center justify-center gap-2 h-[48px] rounded-lg border border-white/20 bg-black/80 text-white text-xs font-semibold hover:bg-white/10 active:bg-white/15 transition-colors press-scale tabular-nums min-touch-target"
           aria-label="Call JSM Operations"
         >
-          <Phone size={14} className="text-[#D4AF37]" />
+          <Phone size={14} className="text-white" />
           <span>Call Desk</span>
         </a>
 
-        {/* Button 2: Request Quote / WhatsApp */}
+        {/* Button 2: Request Quote */}
         <Link
           href="/contact"
-          className="flex-1 inline-flex items-center justify-center gap-2 h-[48px] rounded-[6px] bg-[#D4AF37] hover:bg-[#E5C158] text-black text-xs font-bold transition-colors shadow-lg press-scale min-touch-target"
+          className="flex-1 inline-flex items-center justify-center gap-2 h-[48px] rounded-lg bg-white hover:bg-neutral-200 text-black text-xs font-bold transition-colors shadow-xl press-scale min-touch-target"
           aria-label="Request an Operational Proposal"
         >
           <MessageSquare size={14} />

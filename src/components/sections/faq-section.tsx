@@ -17,7 +17,7 @@ export function FAQSection() {
       <div className="max-w-[880px] mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-left">
         {/* Left-Aligned Header */}
         <div className="space-y-2 text-left">
-          <div className="text-xs font-bold text-[#D4AF37] uppercase tracking-wider">
+          <div className="text-xs font-bold text-white font-mono uppercase tracking-wider">
             Frequently Answered Inquiries
           </div>
           <h2 className="font-serif text-2xl sm:text-3xl lg:text-[38px] leading-[1.18] text-white font-bold tracking-[-0.01em]">
@@ -36,7 +36,7 @@ export function FAQSection() {
               <div key={idx} className="transition-colors">
                 <button
                   onClick={() => toggle(idx)}
-                  className="w-full py-4 sm:py-5 text-left flex items-center justify-between gap-4 font-bold text-sm sm:text-base text-white hover:text-[#D4AF37] transition-colors min-touch-target"
+                  className="w-full py-4 sm:py-5 text-left flex items-center justify-between gap-4 font-bold text-sm sm:text-base text-white hover:text-neutral-300 transition-colors min-touch-target"
                   aria-expanded={isOpen}
                 >
                   <span className="pr-2">{faq.question}</span>
@@ -44,7 +44,7 @@ export function FAQSection() {
                     size={17}
                     className={cn(
                       "text-neutral-400 shrink-0 transition-transform duration-200 ease-out",
-                      isOpen && "rotate-180 text-[#D4AF37]"
+                      isOpen && "rotate-180 text-white"
                     )}
                   />
                 </button>

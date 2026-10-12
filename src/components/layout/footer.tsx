@@ -12,14 +12,14 @@ export function Footer() {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-6 border-b border-white/10">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div className="text-sm font-medium text-white">
-            <span className="text-[#D4AF37] font-semibold">JSM Central Operations:</span> Ex-Servicemen Led &bull; Airports Authority of India Client &bull; 100% EPF/ESIC Compliant
+            <span className="text-white font-semibold">JSM Central Operations:</span> Ex-Servicemen Led &bull; Airports Authority of India Client &bull; 100% EPF/ESIC Compliant
           </div>
           <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 text-xs font-semibold">
-            <a href={`tel:${brandData.contact.phone}`} className="flex items-center gap-2 text-white hover:text-[#D4AF37] transition-colors tabular-nums">
-              <Phone size={14} className="text-[#D4AF37]" />
+            <a href={`tel:${brandData.contact.phone}`} className="flex items-center gap-2 text-white hover:text-neutral-300 transition-colors tabular-nums">
+              <Phone size={14} className="text-white" />
               <span>{brandData.contact.phoneDisplay}</span>
             </a>
-            <Link href="/contact" className="text-[#D4AF37] hover:text-white transition-colors">
+            <Link href="/contact" className="text-white hover:text-neutral-300 transition-colors underline underline-offset-4">
               Request Quote &rarr;
             </Link>
           </div>
@@ -31,7 +31,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 text-sm">
           {/* Col 1: Services */}
           <div className="space-y-3">
-            <h4 className="text-[13px] font-bold text-white tracking-normal uppercase text-xs text-[#D4AF37]">
+            <h4 className="text-[13px] font-bold text-white tracking-normal uppercase text-xs">
               Core Operations
             </h4>
             <ul className="space-y-2 text-xs text-neutral-300">
@@ -61,7 +61,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="hover:text-white transition-colors font-semibold text-[#D4AF37]">
+                <Link href="/services" className="hover:text-white transition-colors font-semibold text-white underline underline-offset-4">
                   View Full Services Matrix &rarr;
                 </Link>
               </li>
@@ -70,7 +70,7 @@ export function Footer() {
 
           {/* Col 2: Governance & Case Studies */}
           <div className="space-y-3">
-            <h4 className="text-[13px] font-bold text-white tracking-normal uppercase text-xs text-[#D4AF37]">
+            <h4 className="text-[13px] font-bold text-white tracking-normal uppercase text-xs">
               Credentials &amp; Proof
             </h4>
             <ul className="space-y-2 text-xs text-neutral-300">
@@ -99,7 +99,7 @@ export function Footer() {
 
           {/* Col 3: District Coverage */}
           <div className="space-y-3">
-            <h4 className="text-[13px] font-bold text-white tracking-normal uppercase text-xs text-[#D4AF37]">
+            <h4 className="text-[13px] font-bold text-white tracking-normal uppercase text-xs">
               Tamil Nadu Coverage
             </h4>
             <ul className="space-y-1.5 text-xs text-neutral-300">
@@ -114,29 +114,29 @@ export function Footer() {
 
           {/* Col 4: Contact & Verification */}
           <div className="space-y-3">
-            <h4 className="text-[13px] font-bold text-white tracking-normal uppercase text-xs text-[#D4AF37]">
+            <h4 className="text-[13px] font-bold text-white tracking-normal uppercase text-xs">
               Headquarters Command
             </h4>
             <div className="space-y-2 text-xs text-neutral-300">
               <div className="flex items-start gap-2">
-                <MapPin size={13} className="shrink-0 mt-0.5 text-[#D4AF37]" />
+                <MapPin size={13} className="shrink-0 mt-0.5 text-white" />
                 <span>{brandData.contact.address}</span>
               </div>
               <div className="pt-2 space-y-1.5 border-t border-white/10">
                 <div className="flex items-center gap-2">
-                  <span className="text-[11px] font-semibold text-[#D4AF37] w-14 shrink-0">Desk:</span>
+                  <span className="text-[11px] font-semibold text-neutral-400 w-14 shrink-0">Desk:</span>
                   <a href={`tel:${brandData.contact.phone}`} className="hover:text-white transition-colors">
                     {brandData.contact.phoneDisplay}
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-[11px] font-semibold text-[#D4AF37] w-14 shrink-0">Email:</span>
+                  <span className="text-[11px] font-semibold text-neutral-400 w-14 shrink-0">Email:</span>
                   <a href={`mailto:${brandData.contact.email}`} className="hover:text-white transition-colors">
                     {brandData.contact.email}
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-[11px] font-semibold text-[#D4AF37] w-14 shrink-0">WhatsApp:</span>
+                  <span className="text-[11px] font-semibold text-neutral-400 w-14 shrink-0">WhatsApp:</span>
                   <a href={`https://wa.me/${brandData.contact.whatsapp}`} className="hover:text-white transition-colors">
                     +91 {brandData.contact.whatsapp}
                   </a>

@@ -23,7 +23,7 @@ export function ProcessTimeline({ steps }: { steps: ProcessStep[] }) {
             transition={{ delay: i * 0.12, duration: 0.35, ease: 'easeOut' }}
             className="flex lg:flex-col items-start lg:items-center gap-6 lg:gap-4 relative z-10 lg:w-1/4"
           >
-            <div className="w-14 h-14 rounded-full bg-[#D4AF37] text-black flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-lg border-2 border-black">
+            <div className="w-14 h-14 rounded-full bg-white text-black flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-xl border-2 border-black">
               {i + 1}
             </div>
             <div className="lg:text-center pt-2 lg:pt-0">

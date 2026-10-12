@@ -37,7 +37,7 @@ export function MobileMenu() {
         {/* Header */}
         <SheetHeader className="p-4 sm:p-5 text-left border-b border-white/10 flex flex-row items-center justify-between">
           <SheetTitle className="text-sm font-semibold tracking-tight text-white flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-[6px] bg-[#0F2A47] text-white flex items-center justify-center overflow-hidden shrink-0 border border-[#D4AF37]/40">
+            <div className="w-8 h-8 rounded-[6px] bg-[#0A0E17] text-white flex items-center justify-center overflow-hidden shrink-0 border border-white/20">
               <Image
                 src="/images/jsm_logo_black.png"
                 alt="JSM"
@@ -78,7 +78,7 @@ export function MobileMenu() {
               >
                 <span>{item.title}</span>
                 {item.badge && (
-                  <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#D4AF37]/20 border border-[#D4AF37]/40 text-[#D4AF37]">
+                  <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-white/10 border border-white/20 text-white font-semibold">
                     {item.badge}
                   </span>
                 )}
@@ -88,7 +88,7 @@ export function MobileMenu() {
 
           {/* Operational Presence Notice */}
           <div className="p-4 bg-[#0A0E17] border border-white/10 rounded-[6px] space-y-1.5">
-            <div className="text-xs font-semibold text-[#D4AF37]">
+            <div className="text-xs font-semibold text-white">
               Central Operations HQ &bull; Tiruchirappalli
             </div>
             <p className="text-xs text-neutral-300 leading-relaxed">
@@ -103,7 +103,7 @@ export function MobileMenu() {
             href={`https://wa.me/${brandData.contact.whatsapp}?text=Hello%20JSM%20Integrated%20Services,%20I%20would%20like%20to%20request%20an%20operational%20quote.`}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full flex items-center justify-center gap-2 h-[48px] rounded-[6px] bg-[#D4AF37] hover:bg-[#E5C158] text-black text-sm font-bold transition-colors shadow-md press-scale min-touch-target"
+            className="w-full flex items-center justify-center gap-2 h-[48px] rounded-[6px] bg-white hover:bg-neutral-200 text-black text-sm font-bold transition-colors shadow-md press-scale min-touch-target"
           >
             <MessageSquare size={16} />
             <span>WhatsApp Operations Desk</span>
@@ -113,7 +113,7 @@ export function MobileMenu() {
             href={`tel:${brandData.contact.phone}`}
             className="w-full flex items-center justify-center gap-2 h-[48px] rounded-[6px] bg-black hover:bg-white/5 text-white border border-white/20 text-sm font-semibold transition-colors tabular-nums press-scale min-touch-target"
           >
-            <Phone size={15} className="text-[#D4AF37]" />
+            <Phone size={15} className="text-white" />
             <span>Call {brandData.contact.phoneDisplay}</span>
           </a>
         </div>

@@ -53,7 +53,7 @@ export function InteractiveShowcase({
     <section className={`space-y-6 text-left ${className}`}>
       {/* Section Header */}
       <div className="max-w-2xl space-y-2">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[#D4AF37] text-xs font-semibold">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold font-mono">
           <ShieldCheck size={14} />
           <span>Interactive Operations &amp; Digital Suite</span>
         </div>
@@ -77,7 +77,7 @@ export function InteractiveShowcase({
               onClick={() => setActiveTab(tab.id)}
               className={`p-3 rounded-lg text-left transition-all flex flex-col justify-between min-h-[52px] border cursor-pointer ${
                 isActive
-                  ? 'bg-black border-[#D4AF37]/50 shadow-md text-white'
+                  ? 'bg-black border-white/40 shadow-md text-white'
                   : 'bg-transparent border-transparent hover:bg-white/5 text-neutral-400 hover:text-white'
               }`}
             >
@@ -86,7 +86,7 @@ export function InteractiveShowcase({
                   <div
                     className={`w-6 h-6 rounded-md flex items-center justify-center shrink-0 ${
                       isActive
-                        ? 'bg-[#D4AF37] text-black font-bold'
+                        ? 'bg-white text-black font-bold'
                         : 'bg-white/5 border border-white/10 text-neutral-400'
                     }`}
                   >
@@ -102,7 +102,7 @@ export function InteractiveShowcase({
                 <span
                   className={`text-[8px] font-mono font-semibold px-1.5 py-0.5 rounded-full uppercase shrink-0 ${
                     isActive
-                      ? 'bg-[#D4AF37]/20 text-[#D4AF37] border border-[#D4AF37]/30'
+                      ? 'bg-white/20 text-white border border-white/30'
                       : 'bg-white/5 text-neutral-400'
                   }`}
                 >

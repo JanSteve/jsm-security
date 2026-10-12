@@ -272,7 +272,7 @@ export function SoundWaveVisualizer({
   return (
     <div
       ref={containerRef}
-      className={`rounded-xl bg-[#070B12]/90 border border-[#9C7A3C]/30 p-3 sm:p-4 backdrop-blur-xl shadow-xl transition-all duration-300 ${className}`}
+      className={`rounded-xl bg-[#070B12]/90 border border-white/15 p-3 sm:p-4 backdrop-blur-xl shadow-xl transition-all duration-300 ${className}`}
     >
       {/* Micro-HUD Telemetry Header Bar */}
       {showBadge && (
@@ -286,7 +286,7 @@ export function SoundWaveVisualizer({
                     telemetry.mode === 'REAL_STREAM'
                       ? 'bg-emerald-400'
                       : telemetry.mode === 'HARMONIC_SIM'
-                      ? 'bg-[#D4AF37]'
+                      ? 'bg-white'
                       : 'bg-zinc-600'
                   }`}
                 />
@@ -296,7 +296,7 @@ export function SoundWaveVisualizer({
                   telemetry.mode === 'REAL_STREAM'
                     ? 'bg-emerald-500'
                     : telemetry.mode === 'HARMONIC_SIM'
-                    ? 'bg-[#D4AF37]'
+                    ? 'bg-white'
                     : 'bg-zinc-600'
                 }`}
               />
@@ -311,7 +311,7 @@ export function SoundWaveVisualizer({
                 telemetry.mode === 'REAL_STREAM'
                   ? 'bg-emerald-950/70 text-emerald-400 border border-emerald-500/40'
                   : telemetry.mode === 'HARMONIC_SIM'
-                  ? 'bg-[#9C7A3C]/20 text-[#D4AF37] border border-[#9C7A3C]/40'
+                  ? 'bg-white/10 text-white border border-white/20'
                   : 'bg-white/5 text-neutral-400 border border-white/10'
               }`}
             >
@@ -326,13 +326,13 @@ export function SoundWaveVisualizer({
           {/* Right Metrics: dB & Activity */}
           <div className="flex items-center gap-3 font-mono text-[10px] text-neutral-400">
             <span className="hidden sm:inline-flex items-center gap-1">
-              <Activity size={11} className="text-[#D4AF37]" />
+              <Activity size={11} className="text-white" />
               <span className="text-neutral-300">PK-B{telemetry.peakBand}</span>
             </span>
 
             <span className="inline-flex items-center gap-1">
               {isMuted ? (
-                <VolumeX size={11} className="text-amber-400" />
+                <VolumeX size={11} className="text-white" />
               ) : (
                 <Volume2 size={11} className="text-emerald-400" />
               )}
@@ -370,10 +370,10 @@ export function SoundWaveVisualizer({
                 peaksRef.current[index] = el;
               }}
               style={{ bottom: '12%' }}
-              className="absolute w-full h-[2px] bg-[#FFF3B0] rounded-full shadow-[0_0_6px_#D4AF37] z-10 transition-all pointer-events-none"
+              className="absolute w-full h-[2px] bg-white rounded-full shadow-[0_0_6px_rgba(255,255,255,0.8)] z-10 transition-all pointer-events-none"
             />
 
-            {/* Dynamic Spring-Interpolated Equalizer Bar with Military Gold Gradient */}
+            {/* Dynamic Spring-Interpolated Equalizer Bar with Titanium Platinum Gradient */}
             <div
               ref={(el) => {
                 barsRef.current[index] = el;
@@ -381,9 +381,9 @@ export function SoundWaveVisualizer({
               style={{
                 height: '8%',
                 background:
-                  'linear-gradient(to top, #9C7A3C 0%, #B89248 45%, #D4AF37 80%, #FFF3B0 100%)',
+                  'linear-gradient(to top, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.5) 45%, rgba(255,255,255,0.85) 80%, #FFFFFF 100%)',
               }}
-              className="relative w-full rounded-t-[2px] shadow-[0_0_8px_rgba(212,175,55,0.35)] transition-[opacity] duration-75"
+              className="relative w-full rounded-t-[2px] shadow-[0_0_8px_rgba(255,255,255,0.35)] transition-[opacity] duration-75"
             />
           </div>
         ))}

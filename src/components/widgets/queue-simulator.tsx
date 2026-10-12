@@ -168,8 +168,8 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
       <div className="bg-[#0F2A47] text-white p-6 sm:p-8">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="space-y-1.5">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[#9C7A3C] text-xs font-semibold">
-              <Sparkles size={14} className="text-[#9C7A3C]" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white font-mono text-xs font-semibold">
+              <Sparkles size={14} className="text-white" />
               <span>Interactive 3D Hardware &amp; WhatsApp Simulator</span>
             </div>
             <h3 className="font-serif text-2xl sm:text-3xl font-semibold tracking-tight text-white">
@@ -220,7 +220,7 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
                 {/* Now Serving Display Box */}
                 <div className="p-6 rounded-xl bg-[#0F2A47] text-white space-y-4 shadow-xs relative overflow-hidden">
                   <div className="flex items-center justify-between border-b border-white/15 pb-3">
-                    <span className="text-[11px] font-mono uppercase text-[#9C7A3C] font-semibold tracking-wider flex items-center gap-1.5">
+                    <span className="text-[11px] font-mono uppercase text-white font-semibold tracking-wider flex items-center gap-1.5">
                       <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                       Doctor Consultation Terminal &bull; Room #2
                     </span>

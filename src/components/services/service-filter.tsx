@@ -44,8 +44,8 @@ export function ServiceFilter({ categories, services }: ServiceFilterProps) {
             onClick={() => setActiveCategory(category)}
             className={`rounded-lg transition-all px-4 min-h-[44px] text-xs font-bold cursor-pointer ${
               activeCategory === category 
-                ? 'bg-[#D4AF37] text-black hover:bg-[#E5C158] border-transparent shadow-md' 
-                : 'border-white/15 text-neutral-300 hover:text-white hover:bg-white/10 bg-[#070B12]'
+                ? 'bg-white text-black hover:bg-neutral-200 border-transparent shadow-xl' 
+                : 'border-white/15 text-neutral-300 hover:text-white hover:bg-white/10 bg-[#080C14]'
             }`}
           >
             {category}
@@ -72,15 +72,15 @@ export function ServiceFilter({ categories, services }: ServiceFilterProps) {
                 className="h-full"
               >
                 <PerspectiveTiltCard maxTilt={6} className="h-full">
-                  <div className="group relative flex flex-col h-full bg-[#070B12] rounded-xl p-7 border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-300 shadow-xl hover:shadow-2xl text-white">
+                  <div className="group relative flex flex-col h-full bg-[#080C14] rounded-xl p-7 border border-white/10 hover:border-white/40 transition-all duration-300 shadow-xl hover:shadow-2xl text-white">
                     <div className="mb-5 flex justify-between items-start">
-                      <div className="p-3 bg-white/5 border border-white/10 rounded-lg text-[#D4AF37] group-hover:scale-105 transition-transform duration-300">
+                      <div className="p-3 bg-white/5 border border-white/10 rounded-lg text-white group-hover:scale-105 transition-transform duration-300">
                         <IconComponent size={22} />
                       </div>
                       <span className={`text-[10px] font-bold px-3 py-1 rounded-full uppercase ${
                         service.isCoreLaunch 
                           ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-400/40' 
-                          : 'bg-white/5 text-[#D4AF37] border border-white/10'
+                          : 'bg-white/5 text-white border border-white/10 font-mono'
                       }`}>
                         {service.phase}
                       </span>
@@ -89,7 +89,7 @@ export function ServiceFilter({ categories, services }: ServiceFilterProps) {
                     <h3 className="text-xl font-bold text-white mb-1.5 leading-snug">
                       {service.title}
                     </h3>
-                    <p className="text-xs font-bold mb-3 text-[#D4AF37]">
+                    <p className="text-xs font-bold mb-3 text-white">
                       {service.valueProposition}
                     </p>
                     <p className="text-neutral-300 text-xs leading-relaxed mb-6 flex-grow font-normal text-pretty">
@@ -98,7 +98,7 @@ export function ServiceFilter({ categories, services }: ServiceFilterProps) {
 
                     {/* Typical Deployments */}
                     <div className="space-y-1.5 mb-6 pt-4 border-t border-white/10">
-                      <p className="text-[10px] font-bold uppercase tracking-wider text-[#D4AF37]">
+                      <p className="text-[10px] font-bold uppercase tracking-wider text-white font-mono">
                         Typical deployments:
                       </p>
                       <div className="flex flex-wrap gap-1.5">
@@ -113,7 +113,7 @@ export function ServiceFilter({ categories, services }: ServiceFilterProps) {
                     <div className="pt-4 border-t border-white/10 mt-auto flex items-center justify-between">
                       <Link 
                         href={`/services/${service.slug}`}
-                        className="inline-flex items-center text-xs font-bold text-[#D4AF37] hover:text-white gap-1.5 min-h-[44px]"
+                        className="inline-flex items-center text-xs font-bold text-white hover:text-neutral-300 gap-1.5 min-h-[44px] underline underline-offset-4"
                       >
                         View scope &amp; SLAs <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                       </Link>

@@ -76,14 +76,14 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
       />
       
       {/* Hero Section */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 border-b border-white/10 bg-[#070B12]">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 border-b border-white/10 bg-[#080C14]">
         <div className="max-w-5xl mx-auto space-y-6">
           {/* Category & Phase Pill */}
           <div className="flex flex-wrap items-center gap-2">
             <span className="bg-white/5 border border-white/15 text-neutral-300 text-xs font-semibold py-1 px-3.5 rounded-full">
               {service.categoryLabel}
             </span>
-            <span className="text-xs font-semibold py-1 px-3.5 rounded-full bg-[#D4AF37]/10 text-[#D4AF37] border border-[#D4AF37]/20">
+            <span className="text-xs font-semibold py-1 px-3.5 rounded-full bg-white/10 text-white border border-white/20">
               {service.phase} &bull; {service.gstSac}
             </span>
           </div>
@@ -95,7 +95,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
             <p className="text-base sm:text-lg text-neutral-300 font-normal leading-relaxed max-w-3xl">
               {service.description}
             </p>
-            <p className="text-sm font-semibold text-[#D4AF37]">
+            <p className="text-sm font-semibold text-[#CBD5E1]">
               {service.valueProposition}
             </p>
           </div>
@@ -104,7 +104,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
           <div className="pt-2 flex flex-wrap items-center gap-3">
             <Link
               href="/get-quote"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-[#D4AF37] hover:bg-[#E5C158] text-black text-xs sm:text-sm font-bold transition-colors shadow-lg min-h-[44px] w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-white hover:bg-neutral-200 text-black text-xs sm:text-sm font-bold transition-colors shadow-xl press-scale min-h-[44px] w-full sm:w-auto"
             >
               <span>Request Custom Proposal</span>
               <ArrowRight size={14} />
@@ -113,7 +113,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
               href={`tel:${brandData.contact.phone}`}
               className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-white/5 border border-white/15 hover:bg-white/10 text-white text-xs sm:text-sm font-semibold transition-colors tabular-nums min-h-[44px] w-full sm:w-auto"
             >
-              <Phone size={14} className="text-[#D4AF37]" />
+              <Phone size={14} className="text-white" />
               <span>{brandData.contact.phoneDisplay}</span>
             </a>
           </div>
@@ -121,7 +121,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
           {/* Compliance Notice Banner */}
           {service.complianceNotice && (
             <div className="p-4 bg-white/5 border border-white/10 rounded-xl flex items-start gap-3 mt-4">
-              <ShieldCheck size={18} className="text-[#D4AF37] shrink-0 mt-0.5" />
+              <ShieldCheck size={18} className="text-white shrink-0 mt-0.5" />
               <p className="text-xs text-neutral-300 leading-relaxed">
                 <strong className="text-white">Statutory Compliance Basis:</strong> {service.complianceNotice}
               </p>
@@ -135,7 +135,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         {/* Deliverables Feature Grid */}
         <section className="space-y-6">
           <div className="space-y-1">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#D4AF37]">
+            <span className="text-xs font-semibold uppercase tracking-wider text-neutral-400 font-mono">
               Operational Scope
             </span>
             <h2 className="font-display text-2xl sm:text-3xl text-white font-normal tracking-tight">
@@ -148,7 +148,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         {/* Interactive Capability Simulator & Video Showcase */}
         <section className="space-y-6 pt-8 border-t border-white/10">
           <div className="space-y-1">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#D4AF37]">
+            <span className="text-xs font-semibold uppercase tracking-wider text-neutral-400 font-mono">
               {isSecurityService ? "Operational Video & Deployment Proof" : "Interactive Live Demonstration"}
             </span>
             <h2 className="font-display text-2xl sm:text-3xl text-white font-normal tracking-tight">
@@ -175,7 +175,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         {/* 4-Step Process Timeline */}
         <section className="space-y-6 pt-8 border-t border-white/10">
           <div className="space-y-1">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#D4AF37]">
+            <span className="text-xs font-semibold uppercase tracking-wider text-neutral-400 font-mono">
               Engagement Methodology
             </span>
             <h2 className="font-display text-2xl sm:text-3xl text-white font-normal tracking-tight">
@@ -188,7 +188,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         {/* Who It Is For (Target Sectors) */}
         <section className="space-y-6 pt-8 border-t border-white/10">
           <div className="space-y-1">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#D4AF37]">
+            <span className="text-xs font-semibold uppercase tracking-wider text-neutral-400 font-mono">
               Deployment Environments
             </span>
             <h2 className="font-display text-2xl sm:text-3xl text-white font-normal tracking-tight">
@@ -199,9 +199,9 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
             {service.whoItIsFor.map((item, idx) => (
               <div
                 key={idx}
-                className="p-4 rounded-xl bg-[#070B12] border border-white/10 flex items-start gap-2.5"
+                className="p-4 rounded-xl bg-[#080C14] border border-white/10 flex items-start gap-2.5"
               >
-                <Check size={16} className="text-[#D4AF37] shrink-0 mt-0.5" />
+                <Check size={16} className="text-white shrink-0 mt-0.5" />
                 <span className="text-xs sm:text-sm font-medium text-white">{item}</span>
               </div>
             ))}
@@ -212,7 +212,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         {service.faqs && service.faqs.length > 0 && (
           <section className="space-y-6 pt-8 border-t border-white/10">
             <div className="space-y-1">
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#D4AF37]">
+              <span className="text-xs font-semibold uppercase tracking-wider text-neutral-400 font-mono">
                 Clarifications
               </span>
               <h2 className="font-display text-2xl sm:text-3xl text-white font-normal tracking-tight">
@@ -233,9 +233,9 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
               <Link
                 key={idx}
                 href={`/services/${rel.slug}`}
-                className="p-4 rounded-xl bg-[#070B12] border border-white/10 hover:border-[#D4AF37]/50 hover:shadow-lg transition-all space-y-1 block min-h-[44px]"
+                className="p-4 rounded-xl bg-[#080C14] border border-white/10 hover:border-white/40 hover:shadow-xl transition-all space-y-1 block min-h-[44px]"
               >
-                <span className="text-[10px] font-mono font-bold text-[#D4AF37] uppercase">
+                <span className="text-[10px] font-mono font-bold text-white uppercase">
                   {rel.phase}
                 </span>
                 <h4 className="text-xs sm:text-sm font-semibold text-white">

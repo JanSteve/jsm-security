@@ -145,7 +145,7 @@ export function RoiCalculator({ className = '' }: RoiCalculatorProps) {
             </p>
           </div>
           <div className="hidden lg:flex flex-col items-end text-right">
-            <span className="text-[11px] font-mono text-[#9C7A3C] uppercase tracking-wider font-semibold">
+            <span className="text-[11px] font-mono text-white uppercase tracking-wider font-semibold">
               Statutory Basis
             </span>
             <span className="text-xs text-slate-300 font-medium">
@@ -406,7 +406,7 @@ export function RoiCalculator({ className = '' }: RoiCalculatorProps) {
         {/* Executive ROI Summary Banner */}
         <div className="bg-[#0F2A47] text-white p-6 sm:p-8 rounded-xl flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center md:text-left">
-            <div className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-[#9C7A3C] uppercase tracking-wider">
+            <div className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-white uppercase tracking-wider">
               <TrendingUp size={14} />
               <span>Projected Annual Economic Impact</span>
             </div>

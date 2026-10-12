@@ -115,7 +115,7 @@ export default function GetQuotePage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#D4AF37] border border-[#D4AF37]/20 text-xs font-semibold">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white border border-white/20 text-xs font-semibold backdrop-blur-md">
             <ShieldCheck size={14} />
             <span>Commercial Proposal Engine</span>
           </div>
@@ -123,17 +123,17 @@ export default function GetQuotePage() {
             Request an Operational Proposal
           </h1>
           <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
-            Generate an estimated statutory proposal for security, manpower, or facility management. Our commercial sales team at <strong className="text-[#D4AF37]">{brandData.contact.salesEmail}</strong> will review and confirm within 2 hours.
+            Generate an estimated statutory proposal for security, manpower, or facility management. Our commercial sales team at <strong className="text-white">{brandData.contact.salesEmail}</strong> will review and confirm within 2 hours.
           </p>
         </div>
 
         {/* Form Container */}
-        <div className="bg-[#070B12] border border-white/10 shadow-2xl rounded-2xl overflow-hidden">
+        <div className="bg-[#080C14] border border-white/10 shadow-2xl rounded-2xl overflow-hidden">
           {/* Progress Bar */}
           {!success && (
             <div className="h-1 bg-white/10 w-full relative">
               <motion.div 
-                className="absolute top-0 left-0 h-full bg-[#D4AF37]"
+                className="absolute top-0 left-0 h-full bg-white"
                 initial={{ width: "33%" }}
                 animate={{ width: `${(step / 3) * 100}%` }}
                 transition={{ duration: 0.3 }}
@@ -157,19 +157,19 @@ export default function GetQuotePage() {
                     Proposal Request Submitted
                   </h2>
                   <p className="text-xs sm:text-sm text-neutral-300 max-w-md mx-auto leading-relaxed">
-                    Your estimated proposal has been recorded and routed directly to <strong className="text-[#D4AF37]">{brandData.contact.salesEmail}</strong>. An official printable summary has been generated, and our commercial sales lead will contact you within 2 hours.
+                    Your estimated proposal has been recorded and routed directly to <strong className="text-white">{brandData.contact.salesEmail}</strong>. An official printable summary has been generated, and our commercial sales lead will contact you within 2 hours.
                   </p>
                   <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
                     <a
                       href={`mailto:${brandData.contact.salesEmail}?subject=Commercial%20Proposal%20Follow-up%20(${encodeURIComponent(formData.companyName || 'Client')})`}
                       className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-white/5 border border-white/15 text-white text-xs font-semibold rounded-lg hover:bg-white/10 transition-colors min-h-[44px] w-full sm:w-auto"
                     >
-                      <Mail size={13} className="text-[#D4AF37]" />
+                      <Mail size={13} className="text-white" />
                       <span>Email Sales Desk</span>
                     </a>
                     <Link
                       href="/"
-                      className="inline-flex items-center justify-center px-6 py-2.5 bg-[#D4AF37] text-black text-xs font-bold rounded-lg hover:bg-[#E5C158] transition-colors min-h-[44px] w-full sm:w-auto shadow-lg"
+                      className="inline-flex items-center justify-center px-6 py-2.5 bg-white text-black text-xs font-semibold rounded-lg hover:bg-neutral-200 transition-all min-h-[44px] w-full sm:w-auto shadow-2xl press-scale"
                     >
                       Return to Homepage
                     </Link>
@@ -189,7 +189,7 @@ export default function GetQuotePage() {
                   {step === 1 && (
                     <div className="space-y-6">
                       <div className="border-b border-white/10 pb-4">
-                        <span className="text-xs font-mono font-bold text-[#D4AF37] uppercase">Step 1 of 3</span>
+                        <span className="text-xs font-mono font-bold text-neutral-400 uppercase">Step 1 of 3</span>
                         <h2 className="text-lg font-semibold text-white">Company &amp; Contact Details</h2>
                         <p className="text-xs text-neutral-400">Enter your organization credentials for the formal proposal.</p>
                       </div>
@@ -203,7 +203,7 @@ export default function GetQuotePage() {
                             name="companyName" 
                             value={formData.companyName} 
                             onChange={handleInputChange}
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-white/15 bg-[#0D131F] text-xs text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/30 focus:border-[#D4AF37] min-h-[44px]"
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-white/15 bg-[#080C14] text-xs text-white focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-white/40 min-h-[44px]"
                             placeholder="e.g. TVS Component Hub"
                           />
                         </div>
@@ -215,7 +215,7 @@ export default function GetQuotePage() {
                             name="contactPerson" 
                             value={formData.contactPerson} 
                             onChange={handleInputChange}
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-white/15 bg-[#0D131F] text-xs text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/30 focus:border-[#D4AF37] min-h-[44px]"
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-white/15 bg-[#080C14] text-xs text-white focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-white/40 min-h-[44px]"
                             placeholder="e.g. Rajesh Kumar (Plant Manager)"
                           />
                         </div>
@@ -227,7 +227,7 @@ export default function GetQuotePage() {
                             name="email" 
                             value={formData.email} 
                             onChange={handleInputChange}
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-white/15 bg-[#0D131F] text-xs text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/30 focus:border-[#D4AF37] min-h-[44px]"
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-white/15 bg-[#080C14] text-xs text-white focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-white/40 min-h-[44px]"
                             placeholder="rajesh@company.com"
                           />
                         </div>
@@ -239,7 +239,7 @@ export default function GetQuotePage() {
                             name="phone" 
                             value={formData.phone} 
                             onChange={handleInputChange}
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-white/15 bg-[#0D131F] text-xs text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/30 focus:border-[#D4AF37] tabular-nums min-h-[44px]"
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-white/15 bg-[#080C14] text-xs text-white focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-white/40 tabular-nums min-h-[44px]"
                             placeholder="+91 98765 43210"
                           />
                         </div>
@@ -251,7 +251,7 @@ export default function GetQuotePage() {
                   {step === 2 && (
                     <div className="space-y-6">
                       <div className="border-b border-white/10 pb-4">
-                        <span className="text-xs font-mono font-bold text-[#D4AF37] uppercase">Step 2 of 3</span>
+                        <span className="text-xs font-mono font-bold text-neutral-400 uppercase">Step 2 of 3</span>
                         <h2 className="text-lg font-semibold text-white">Service Scope &amp; Deployment Scale</h2>
                         <p className="text-xs text-neutral-400">Select required verticals and estimated personnel headcount.</p>
                       </div>
@@ -264,13 +264,13 @@ export default function GetQuotePage() {
                               key={service} 
                               className={`flex items-center gap-3 p-3.5 rounded-xl border cursor-pointer transition-colors text-xs font-semibold ${
                                 formData.services.includes(service)
-                                  ? "border-[#D4AF37] bg-[#D4AF37]/10 text-white"
-                                  : "border-white/15 bg-[#0D131F] text-neutral-300 hover:border-white/30"
+                                  ? "border-white/40 bg-white/10 text-white"
+                                  : "border-white/15 bg-[#080C14] text-neutral-300 hover:border-white/30"
                               }`}
                             >
                               <input 
                                 type="checkbox" 
-                                className="w-4 h-4 rounded text-[#D4AF37] accent-[#D4AF37]"
+                                className="w-4 h-4 rounded text-white accent-white"
                                 checked={formData.services.includes(service)}
                                 onChange={() => handleCheckboxChange(service)}
                               />
@@ -288,10 +288,10 @@ export default function GetQuotePage() {
                             name="city" 
                             value={formData.city} 
                             onChange={handleInputChange}
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-white/15 bg-[#0D131F] text-xs text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/30 focus:border-[#D4AF37] min-h-[44px]"
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-white/15 bg-[#080C14] text-xs text-white focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-white/40 min-h-[44px]"
                           >
                             {brandData.contact.operatingCities.map(city => (
-                              <option key={city} value={city} className="bg-[#070B12] text-white">{city}</option>
+                              <option key={city} value={city} className="bg-[#080C14] text-white">{city}</option>
                             ))}
                           </select>
                         </div>
@@ -305,7 +305,7 @@ export default function GetQuotePage() {
                             name="personnelCount" 
                             value={formData.personnelCount} 
                             onChange={handleInputChange}
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-white/15 bg-[#0D131F] text-xs text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/30 focus:border-[#D4AF37] tabular-nums min-h-[44px]"
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-white/15 bg-[#080C14] text-xs text-white focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-white/40 tabular-nums min-h-[44px]"
                           />
                         </div>
                       </div>
@@ -316,7 +316,7 @@ export default function GetQuotePage() {
                   {step === 3 && (
                     <div className="space-y-6">
                       <div className="border-b border-white/10 pb-4">
-                        <span className="text-xs font-mono font-bold text-[#D4AF37] uppercase">Step 3 of 3</span>
+                        <span className="text-xs font-mono font-bold text-neutral-400 uppercase">Step 3 of 3</span>
                         <h2 className="text-lg font-semibold text-white">Shift Schedule &amp; Deployment Date</h2>
                         <p className="text-xs text-neutral-400">Provide deployment timing and any special instructions.</p>
                       </div>
@@ -329,11 +329,11 @@ export default function GetQuotePage() {
                             name="shiftPattern" 
                             value={formData.shiftPattern} 
                             onChange={handleInputChange}
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-white/15 bg-[#0D131F] text-xs text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/30 focus:border-[#D4AF37] min-h-[44px]"
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-white/15 bg-[#080C14] text-xs text-white focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-white/40 min-h-[44px]"
                           >
-                            <option value="24/7" className="bg-[#070B12] text-white">24/7 Deployment (3-Shift Continuous)</option>
-                            <option value="12-hour" className="bg-[#070B12] text-white">12-Hour Day/Night Shift</option>
-                            <option value="8-hour" className="bg-[#070B12] text-white">8-Hour Single Business Shift</option>
+                            <option value="24/7" className="bg-[#080C14] text-white">24/7 Deployment (3-Shift Continuous)</option>
+                            <option value="12-hour" className="bg-[#080C14] text-white">12-Hour Day/Night Shift</option>
+                            <option value="8-hour" className="bg-[#080C14] text-white">8-Hour Single Business Shift</option>
                           </select>
                         </div>
                         <div className="space-y-1 text-left">
@@ -344,7 +344,7 @@ export default function GetQuotePage() {
                             name="startDate" 
                             value={formData.startDate} 
                             onChange={handleInputChange}
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-white/15 bg-[#0D131F] text-xs text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/30 focus:border-[#D4AF37] tabular-nums min-h-[44px]"
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-white/15 bg-[#080C14] text-xs text-white focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-white/40 tabular-nums min-h-[44px]"
                           />
                         </div>
                       </div>
@@ -356,7 +356,7 @@ export default function GetQuotePage() {
                           value={formData.specialReqs} 
                           onChange={handleInputChange} 
                           rows={3}
-                          className="w-full px-3.5 py-2.5 rounded-lg border border-white/15 bg-[#0D131F] text-xs text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/30 focus:border-[#D4AF37] resize-none min-h-[44px]"
+                          className="w-full px-3.5 py-2.5 rounded-lg border border-white/15 bg-[#080C14] text-xs text-white focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-white/40 resize-none min-h-[44px]"
                           placeholder="Note any specific gate access barriers, visitor registers, mechanized scrubbing areas, or armed guard requirements..."
                         />
                       </div>
@@ -382,7 +382,7 @@ export default function GetQuotePage() {
                         type="button" 
                         onClick={handleNext}
                         disabled={!validateStep(step)}
-                        className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-lg text-xs font-bold bg-[#D4AF37] text-black hover:bg-[#E5C158] transition-colors disabled:opacity-40 disabled:cursor-not-allowed ml-auto shadow-lg min-h-[44px] w-full sm:w-auto"
+                        className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-lg text-xs font-semibold bg-white text-black hover:bg-neutral-200 transition-all disabled:opacity-40 disabled:cursor-not-allowed ml-auto shadow-2xl press-scale min-h-[44px] w-full sm:w-auto"
                       >
                         <span>Next Step</span>
                         <ArrowRight size={13} />
@@ -391,7 +391,7 @@ export default function GetQuotePage() {
                       <button 
                         type="submit" 
                         disabled={!validateStep(step) || loading}
-                        className="inline-flex items-center gap-1.5 px-7 py-2.5 rounded-lg text-xs font-bold bg-[#D4AF37] text-black hover:bg-[#E5C158] transition-colors disabled:opacity-40 disabled:cursor-not-allowed ml-auto shadow-lg min-h-[44px] w-full sm:w-auto"
+                        className="inline-flex items-center gap-1.5 px-7 py-2.5 rounded-lg text-xs font-semibold bg-white text-black hover:bg-neutral-200 transition-all disabled:opacity-40 disabled:cursor-not-allowed ml-auto shadow-2xl press-scale min-h-[44px] w-full sm:w-auto"
                       >
                         {loading ? (
                           <><Loader2 className="w-3.5 h-3.5 animate-spin" /> Generating Proposal...</>

@@ -225,7 +225,7 @@ export function AirportGallery({ className = '', compact = false }: AirportGalle
         <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 pb-6 border-b border-white/10">
           <div className="max-w-3xl space-y-3 text-left">
             {/* Happy Customer AAI Badge */}
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/35 text-[#D4AF37] text-xs font-bold">
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-bold">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span>Happy Institutional Client &bull; Airports Authority of India (AAI)</span>
             </div>
@@ -258,7 +258,7 @@ export function AirportGallery({ className = '', compact = false }: AirportGalle
               <div className="text-[11px] text-neutral-400">
                 Institutional Client &bull; Ministry of Civil Aviation
               </div>
-              <div className="text-[11px] font-semibold text-[#D4AF37] flex items-center gap-1">
+              <div className="text-[11px] font-semibold text-white font-mono flex items-center gap-1">
                 <span>100% SLA Adherence &bull; Zero Breaches</span>
               </div>
             </div>
@@ -280,11 +280,11 @@ export function AirportGallery({ className = '', compact = false }: AirportGalle
                 }}
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all press-scale shrink-0 snap-start min-h-[44px] ${
                   isActive
-                    ? 'bg-[#D4AF37] text-black shadow-md font-bold'
+                    ? 'bg-white text-black shadow-md font-bold'
                     : 'bg-[#070B12] text-neutral-400 hover:bg-white/10 hover:text-white border border-white/10'
                 }`}
               >
-                <Icon size={15} className={isActive ? 'text-black' : 'text-[#D4AF37]'} />
+                <Icon size={15} className={isActive ? 'text-black' : 'text-white'} />
                 <span>{cat.label}</span>
               </button>
             );
@@ -299,12 +299,12 @@ export function AirportGallery({ className = '', compact = false }: AirportGalle
                 key={photo.id}
                 maxTilt={5}
                 scaleOnHover={1.015}
-                spotlightColor="rgba(156, 122, 60, 0.15)"
+                spotlightColor="rgba(255, 255, 255, 0.12)"
                 className="h-full"
               >
                 <article
                   onClick={() => setLightboxIndex(idx)}
-                  className="group cursor-pointer h-full flex flex-col justify-between rounded-2xl overflow-hidden bg-[#070B12] border border-white/10 hover:border-[#D4AF37]/50 shadow-xl transition-all duration-300 text-white"
+                  className="group cursor-pointer h-full flex flex-col justify-between rounded-2xl overflow-hidden bg-[#070B12] border border-white/10 hover:border-white/40 shadow-xl transition-all duration-300 text-white"
                 >
                   {/* Photo Media Frame */}
                   <div className="relative aspect-[4/3] w-full overflow-hidden bg-black/40">
@@ -322,7 +322,7 @@ export function AirportGallery({ className = '', compact = false }: AirportGalle
                     {/* Top Inset Tag */}
                     <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between pointer-events-none">
                       <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-[11px] font-semibold text-white shadow-sm">
-                        <Clock size={12} className="text-[#D4AF37]" />
+                        <Clock size={12} className="text-white" />
                         <span>{photo.tag}</span>
                       </span>
 
@@ -333,7 +333,7 @@ export function AirportGallery({ className = '', compact = false }: AirportGalle
 
                     {/* Bottom Title on Image */}
                     <div className="absolute bottom-3.5 left-3.5 right-3.5 pointer-events-none text-left">
-                      <div className="text-[10px] font-mono uppercase tracking-wider text-[#D4AF37] font-bold">
+                      <div className="text-[10px] font-mono uppercase tracking-wider text-white font-bold">
                         {photo.categoryLabel}
                       </div>
                       <h3 className="font-serif text-lg font-bold text-white tracking-tight leading-snug drop-shadow-sm">
@@ -352,7 +352,7 @@ export function AirportGallery({ className = '', compact = false }: AirportGalle
                       <span className="font-mono text-[11px] text-white font-semibold">
                         Trichy International Terminal
                       </span>
-                      <span className="text-[#D4AF37] font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                      <span className="text-white font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                         <span>High-Res Photo</span>
                         <ExternalLink size={12} />
                       </span>
@@ -377,7 +377,7 @@ export function AirportGallery({ className = '', compact = false }: AirportGalle
 
           <a
             href="/case-studies/trichy-international-airport"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-bold bg-[#D4AF37] hover:bg-[#E5C158] text-black transition-all shadow-md shrink-0 press-scale"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-bold bg-white hover:bg-neutral-200 text-black transition-all shadow-xl shrink-0 press-scale"
           >
             <span>Read Trichy Airport Case Study</span>
             <ExternalLink size={14} />
@@ -448,7 +448,7 @@ export function AirportGallery({ className = '', compact = false }: AirportGalle
             <div className="p-5 sm:p-6 bg-[#0E1522] border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-left">
               <div className="space-y-1 max-w-3xl">
                 <div className="flex items-center gap-2.5 text-xs">
-                  <span className="font-mono uppercase font-bold text-[#D4AF37] bg-[#D4AF37]/15 px-2 py-0.5 rounded">
+                  <span className="font-mono uppercase font-bold text-white bg-white/10 border border-white/20 px-2 py-0.5 rounded">
                     {currentLightboxPhoto.tag}
                   </span>
                   <span className="text-neutral-400">

@@ -101,17 +101,17 @@ export function SecurityVideoShowcase({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`rounded-2xl bg-obsidian-mesh text-white p-6 sm:p-10 border border-[#9C7A3C]/35 border-gold-specular-top shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] space-y-8 relative overflow-hidden ${className}`}
+      className={`rounded-2xl bg-[#080C14] text-white p-6 sm:p-10 border border-white/15 border-titanium-specular-top shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] space-y-8 relative overflow-hidden ${className}`}
     >
-      {/* Decorative Military Gold Accent Glows */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#9C7A3C]/12 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#0F2A47]/45 rounded-full blur-2xl pointer-events-none" />
+      {/* Decorative Subtle Ambient Glows */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-neutral-900/40 rounded-full blur-2xl pointer-events-none" />
 
       {/* Header Bar */}
       <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-5 border-b border-white/10 pb-6">
         <div className="space-y-2.5 max-w-2xl text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#9C7A3C]/20 border border-[#9C7A3C]/40 text-[#D4AF37] text-xs font-semibold tracking-wide">
-            <ShieldCheck size={14} className="text-[#D4AF37]" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold tracking-wide font-mono">
+            <ShieldCheck size={14} className="text-white" />
             <span>Official Brand Film &bull; Military-Grade Security Operations</span>
           </div>
 
@@ -129,7 +129,7 @@ export function SecurityVideoShowcase({
               <div className="relative w-8 h-8 rounded-full border-2 border-[#071728] overflow-hidden bg-black shrink-0" title="Major AR Devadoss (Army-Veteran) - Head of Operations & Audit">
                 <Image src="/images/leadership/major-ar-devadoss.jpg" alt="Major AR Devadoss" fill className="object-cover" />
               </div>
-              <div className="relative w-8 h-8 rounded-full border-2 border-[#071728] overflow-hidden bg-black ring-1 ring-[#D4AF37] shrink-0" title="Sweety J - Proprietor and MD">
+              <div className="relative w-8 h-8 rounded-full border-2 border-[#071728] overflow-hidden bg-black ring-1 ring-white/40 shrink-0" title="Sweety J - Proprietor and MD">
                 <Image src="/images/leadership/sweety-j.jpg" alt="Sweety J" fill className="object-cover" />
               </div>
               <div className="relative w-8 h-8 rounded-full border-2 border-[#071728] overflow-hidden bg-black shrink-0" title="R Jan Steve Daniel - Chief Technical Officer">
@@ -149,7 +149,7 @@ export function SecurityVideoShowcase({
             onClick={() => handleSwitchMode('ad')}
             className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all press-scale ${
               activeMode === 'ad'
-                ? 'bg-[#9C7A3C] text-white shadow-md'
+                ? 'bg-white text-black font-bold shadow-md'
                 : 'text-neutral-400 hover:text-white'
             }`}
           >
@@ -162,7 +162,7 @@ export function SecurityVideoShowcase({
             onClick={() => handleSwitchMode('storyboard')}
             className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all press-scale ${
               activeMode === 'storyboard'
-                ? 'bg-[#9C7A3C] text-white shadow-md'
+                ? 'bg-white text-black font-bold shadow-md'
                 : 'text-neutral-400 hover:text-white'
             }`}
           >
@@ -179,7 +179,7 @@ export function SecurityVideoShowcase({
         {activeMode === 'ad' && (
           <div 
             onClick={togglePlay}
-            className="group relative w-full max-w-4xl aspect-video rounded-xl sm:rounded-2xl overflow-hidden bg-black shadow-2xl border-2 border-[#9C7A3C]/40 cursor-pointer select-none"
+            className="group relative w-full max-w-4xl aspect-video rounded-xl sm:rounded-2xl overflow-hidden bg-black shadow-2xl border border-white/20 cursor-pointer select-none"
           >
             <video
               ref={adVideoRef}
@@ -197,7 +197,7 @@ export function SecurityVideoShowcase({
 
             {/* Top Left: Infinite Seamless Loop Badge */}
             <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-20 flex items-center gap-2 pointer-events-none">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-black/70 backdrop-blur-md border border-[#9C7A3C]/40 text-[11px] font-mono font-bold text-[#D4AF37]">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-black/70 backdrop-blur-md border border-white/20 text-[11px] font-mono font-bold text-white">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
                 <span>OFFICIAL COMMERCIAL &bull; CONTINUOUS BROADCAST</span>
               </span>
@@ -210,8 +210,8 @@ export function SecurityVideoShowcase({
                 onClick={toggleSound}
                 className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold transition-all shadow-md backdrop-blur-md border press-scale ${
                   isMuted 
-                    ? 'bg-amber-500 hover:bg-amber-400 text-black border-amber-300 animate-bounce' 
-                    : 'bg-emerald-600/90 hover:bg-emerald-500 text-white border-emerald-400/50'
+                    ? 'bg-white/10 hover:bg-white/20 text-white border-white/30' 
+                    : 'bg-white/20 hover:bg-white/30 text-white border-white/50'
                 }`}
                 title={isMuted ? "Tap to enable sound" : "Tap to mute sound"}
               >
@@ -247,9 +247,9 @@ export function SecurityVideoShowcase({
                   className="p-2 rounded-lg bg-black/60 hover:bg-black/80 text-white backdrop-blur-md border border-white/15 press-scale"
                   title={isMuted ? "Unmute audio" : "Mute audio"}
                 >
-                  {isMuted ? <VolumeX size={14} className="text-amber-400" /> : <Volume2 size={14} className="text-emerald-400" />}
+                  {isMuted ? <VolumeX size={14} className="text-white" /> : <Volume2 size={14} className="text-emerald-400" />}
                 </button>
-                <span className="text-[11px] font-mono text-[#D4AF37] hidden sm:inline">
+                <span className="text-[11px] font-mono text-white hidden sm:inline">
                   Commercial Broadcast Loop (10s)
                 </span>
               </div>
@@ -257,7 +257,7 @@ export function SecurityVideoShowcase({
               <div className="flex items-center gap-2 text-[11px] text-neutral-300 bg-black/60 px-3 py-1.5 rounded-lg border border-white/10 backdrop-blur-md">
                 <span>100% EPF &amp; ESIC Compliant</span>
                 <span>&bull;</span>
-                <span className="text-[#D4AF37]">Tamil Nadu Central Command</span>
+                <span className="text-white font-mono">Tamil Nadu Central Command</span>
               </div>
             </div>
           </div>
@@ -267,7 +267,7 @@ export function SecurityVideoShowcase({
         {activeMode === 'storyboard' && (
           <div 
             onClick={togglePlay}
-            className="group relative w-full max-w-[280px] sm:max-w-[320px] aspect-[9/16] rounded-2xl sm:rounded-3xl overflow-hidden bg-black shadow-2xl border-4 border-[#9C7A3C]/50 ring-2 ring-white/10 cursor-pointer select-none"
+            className="group relative w-full max-w-[280px] sm:max-w-[320px] aspect-[9/16] rounded-2xl sm:rounded-3xl overflow-hidden bg-black shadow-2xl border-2 border-white/30 ring-2 ring-white/10 cursor-pointer select-none"
           >
             <video
               ref={storyboardVideoRef}
@@ -285,7 +285,7 @@ export function SecurityVideoShowcase({
 
             {/* Top Left: Reel Badge */}
             <div className="absolute top-3 left-3 z-20 pointer-events-none">
-              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded bg-black/70 backdrop-blur-md border border-[#9C7A3C]/30 text-[10px] font-mono font-bold text-[#D4AF37]">
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded bg-black/70 backdrop-blur-md border border-white/20 text-[10px] font-mono font-bold text-white">
                 <span>TACTICAL REEL</span>
               </span>
             </div>
@@ -297,8 +297,8 @@ export function SecurityVideoShowcase({
                 onClick={toggleSound}
                 className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold transition-all shadow-md backdrop-blur-md border press-scale ${
                   isMuted 
-                    ? 'bg-amber-500 hover:bg-amber-400 text-black border-amber-300 animate-bounce' 
-                    : 'bg-emerald-600/90 hover:bg-emerald-500 text-white border-emerald-400/50'
+                    ? 'bg-white/10 hover:bg-white/20 text-white border-white/30' 
+                    : 'bg-white/20 hover:bg-white/30 text-white border-white/50'
                 }`}
               >
                 {isMuted ? <VolumeX size={13} /> : <Volume2 size={13} />}
@@ -351,7 +351,7 @@ export function SecurityVideoShowcase({
       {/* Trust & Operational Credentials Bar */}
       <div className="relative z-10 grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 text-left">
         <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 space-y-1">
-          <div className="flex items-center gap-1.5 text-xs font-semibold text-[#D4AF37]">
+          <div className="flex items-center gap-1.5 text-xs font-semibold text-white">
             <Clock size={13} />
             <span>2-Hour Guard Relief</span>
           </div>
@@ -361,7 +361,7 @@ export function SecurityVideoShowcase({
         </div>
 
         <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 space-y-1">
-          <div className="flex items-center gap-1.5 text-xs font-semibold text-[#D4AF37]">
+          <div className="flex items-center gap-1.5 text-xs font-semibold text-white">
             <Eye size={13} />
             <span>2:00 AM Van Audits</span>
           </div>
@@ -371,7 +371,7 @@ export function SecurityVideoShowcase({
         </div>
 
         <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 space-y-1">
-          <div className="flex items-center gap-1.5 text-xs font-semibold text-[#D4AF37]">
+          <div className="flex items-center gap-1.5 text-xs font-semibold text-white">
             <Award size={13} />
             <span>100% EPF &amp; ESIC</span>
           </div>
@@ -381,7 +381,7 @@ export function SecurityVideoShowcase({
         </div>
 
         <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 space-y-1">
-          <div className="flex items-center gap-1.5 text-xs font-semibold text-[#D4AF37]">
+          <div className="flex items-center gap-1.5 text-xs font-semibold text-white">
             <ShieldCheck size={13} />
             <span>Ex-Servicemen Cadre</span>
           </div>
@@ -400,7 +400,7 @@ export function SecurityVideoShowcase({
         <div className="flex items-center gap-3">
           <Link
             href="/get-quote"
-            className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg bg-[#9C7A3C] hover:bg-[#B38D48] text-white font-semibold transition-colors shadow-md min-h-[40px] press-scale"
+            className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg bg-white hover:bg-neutral-200 text-black font-bold transition-colors shadow-xl min-h-[40px] press-scale"
           >
             <span>Request Guarding Proposal</span>
             <ArrowRight size={13} />
@@ -409,7 +409,7 @@ export function SecurityVideoShowcase({
             href="tel:+919080863448"
             className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-semibold transition-colors border border-white/15 min-h-[40px] press-scale"
           >
-            <Phone size={13} className="text-[#D4AF37]" />
+            <Phone size={13} className="text-white" />
             <span>+91 90808 63448</span>
           </a>
         </div>

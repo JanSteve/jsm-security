@@ -16,13 +16,13 @@ export interface PerspectiveTiltCardProps {
 
 /**
  * PerspectiveTiltCard creates an interactive 3D perspective tilt card
- * with spring physics and a dynamic military gold spotlight sheen.
+ * with spring physics and a dynamic titanium platinum spotlight sheen.
  */
 export function PerspectiveTiltCard({
   children,
   className,
   maxTilt = 8,
-  spotlightColor = 'rgba(156, 122, 60, 0.16)',
+  spotlightColor = 'rgba(255, 255, 255, 0.12)',
   enableTilt = true,
   scaleOnHover = 1.02,
 }: PerspectiveTiltCardProps) {
@@ -98,13 +98,13 @@ export function PerspectiveTiltCard({
         transition={{ scale: { duration: 0.22, ease: 'easeOut' } }}
         className="w-full h-full relative rounded-xl overflow-hidden transition-shadow duration-300"
       >
-        {/* Dynamic Military Gold Spotlight Sheen Overlay */}
+        {/* Dynamic Titanium Platinum Spotlight Sheen Overlay */}
         {isFinePointer && !prefersReducedMotion && (
           <div
             className="absolute inset-0 pointer-events-none transition-opacity duration-300 z-20 rounded-[inherit]"
             style={{
               opacity: isHovered ? 1 : 0,
-              background: `radial-gradient(circle 380px at ${spotlightPos.x}% ${spotlightPos.y}%, ${spotlightColor} 0%, rgba(156, 122, 60, 0.04) 40%, transparent 70%)`,
+              background: `radial-gradient(circle 380px at ${spotlightPos.x}% ${spotlightPos.y}%, ${spotlightColor} 0%, rgba(255, 255, 255, 0.03) 40%, transparent 70%)`,
             }}
           />
         )}

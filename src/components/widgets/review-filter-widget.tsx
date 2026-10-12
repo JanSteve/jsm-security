@@ -49,8 +49,8 @@ export function ReviewFilterWidget({ className = '' }: ReviewFilterWidgetProps) 
       <div className="bg-[#0F2A47] text-white p-6 sm:p-8">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="space-y-1.5">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[#9C7A3C] text-xs font-semibold">
-              <Sparkles size={14} className="text-[#9C7A3C]" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white border border-white/20 text-xs font-semibold backdrop-blur-md">
+              <Sparkles size={14} className="text-white" />
               <span>Smart NFC Standee Demonstration</span>
             </div>
             <h3 className="font-serif text-2xl sm:text-3xl font-semibold tracking-tight text-white">
@@ -61,7 +61,7 @@ export function ReviewFilterWidget({ className = '' }: ReviewFilterWidgetProps) 
             </p>
           </div>
           <div className="hidden lg:flex flex-col items-end text-right">
-            <span className="text-[11px] font-mono text-[#9C7A3C] uppercase tracking-wider font-semibold">
+            <span className="text-[11px] font-mono text-neutral-300 uppercase tracking-wider font-semibold">
               Google Algorithm Safe
             </span>
             <span className="text-xs text-slate-300 font-medium">
@@ -76,12 +76,12 @@ export function ReviewFilterWidget({ className = '' }: ReviewFilterWidgetProps) 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Column 1: Sleek Counter NFC Standee Simulator (5 cols) */}
           <div className="lg:col-span-5 flex flex-col items-center">
-            <div className="w-full max-w-[280px] rounded-2xl bg-[#070B12] text-white p-6 border-2 border-[#D4AF37]/50 shadow-2xl text-center space-y-4">
-              <div className="w-12 h-12 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 mx-auto flex items-center justify-center text-[#D4AF37]">
+            <div className="w-full max-w-[280px] rounded-2xl bg-[#080C14] text-white p-6 border border-white/20 shadow-2xl text-center space-y-4">
+              <div className="w-12 h-12 rounded-full bg-white/10 border border-white/20 mx-auto flex items-center justify-center text-white">
                 <Sparkles size={22} />
               </div>
               <div className="space-y-1">
-                <span className="text-[10px] font-mono text-[#D4AF37] uppercase tracking-wider font-bold">
+                <span className="text-[10px] font-mono text-neutral-300 uppercase tracking-wider font-bold">
                   SMART NFC COUNTER STANDEE
                 </span>
                 <h4 className="text-sm font-bold text-white tracking-wide">

@@ -53,10 +53,10 @@ export function HeroSection() {
 
   return (
     <section className="relative pt-24 pb-14 sm:pt-28 sm:pb-16 lg:pt-36 lg:pb-24 overflow-hidden bg-black text-white border-b border-white/10">
-      {/* Subtle Ambient Gold Backlight Sheen (Pure CSS) */}
+      {/* Subtle Ambient Backlight Sheen (Pure CSS) */}
       <div 
         aria-hidden="true" 
-        className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gradient-to-tr from-[#D4AF37]/12 via-[#0F2A47]/20 to-transparent blur-[120px] pointer-events-none rounded-full" 
+        className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gradient-to-tr from-white/5 via-neutral-900/30 to-transparent blur-[120px] pointer-events-none rounded-full" 
       />
 
       <div className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -70,10 +70,10 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-[#D4AF37]/40 text-xs text-white"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/20 text-xs text-white"
             >
-              <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse" />
-              <span className="font-bold text-[#D4AF37]">Ex-Servicemen Led</span>
+              <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+              <span className="font-bold text-white">Ex-Servicemen Led</span>
               <span className="text-neutral-500">&bull;</span>
               <span className="text-neutral-200">Airports Authority of India Client</span>
               <span className="text-neutral-500">&bull;</span>
@@ -97,7 +97,7 @@ export function HeroSection() {
               transition={{ duration: 0.35, delay: 0.1 }}
               className="text-base sm:text-lg text-neutral-300 leading-relaxed max-w-2xl"
             >
-              Trusted by <strong className="text-white font-semibold">Airports Authority of India (AAI)</strong>. We deliver Ex-Servicemen security forces, verified contract staffing, and commercial facility management with a <strong className="text-[#D4AF37] font-semibold">2-hour relief replacement guarantee</strong> across Tamil Nadu.
+              Trusted by <strong className="text-white font-semibold">Airports Authority of India (AAI)</strong>. We deliver Ex-Servicemen security forces, verified contract staffing, and commercial facility management with a <strong className="text-white font-semibold">2-hour relief replacement guarantee</strong> across Tamil Nadu.
             </motion.p>
 
             {/* Primary & Secondary Action CTAs */}
@@ -109,7 +109,7 @@ export function HeroSection() {
             >
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-7 h-[50px] rounded-[6px] bg-[#D4AF37] hover:bg-[#E5C158] text-black text-sm font-bold transition-all shadow-lg press-scale min-touch-target"
+                className="inline-flex items-center justify-center gap-2 px-7 h-[50px] rounded-[6px] bg-white hover:bg-neutral-200 text-black text-sm font-bold transition-all shadow-xl press-scale min-touch-target"
               >
                 <span>Request Immediate Quote</span>
                 <ArrowRight size={15} />
@@ -119,7 +119,7 @@ export function HeroSection() {
                 href={`tel:${brandData.contact.phone}`}
                 className="inline-flex items-center justify-center gap-2 px-6 h-[50px] rounded-[6px] bg-black/80 hover:bg-white/10 border border-white/25 text-white text-sm font-semibold transition-all press-scale min-touch-target"
               >
-                <Phone size={15} className="text-[#D4AF37]" />
+                <Phone size={15} className="text-white" />
                 <span>Call Desk: {brandData.contact.phoneDisplay}</span>
               </a>
             </motion.div>
@@ -131,25 +131,25 @@ export function HeroSection() {
               transition={{ duration: 0.35, delay: 0.2 }}
               className="pt-4 border-t border-white/10 grid grid-cols-3 gap-2.5 sm:gap-4 max-w-lg"
             >
-              <div className="p-2.5 rounded-lg bg-[#070A0F] border border-white/10">
+              <div className="p-2.5 rounded-lg bg-[#080C14] border border-white/10">
                 <div className="text-sm sm:text-base font-bold text-white flex items-center gap-1">
-                  <Clock size={14} className="text-[#D4AF37]" />
+                  <Clock size={14} className="text-white" />
                   <span>2 Hours</span>
                 </div>
                 <div className="text-[11px] text-neutral-400 font-medium">Relief Guarantee</div>
               </div>
 
-              <div className="p-2.5 rounded-lg bg-[#070A0F] border border-white/10">
+              <div className="p-2.5 rounded-lg bg-[#080C14] border border-white/10">
                 <div className="text-sm sm:text-base font-bold text-white flex items-center gap-1">
-                  <Eye size={14} className="text-[#D4AF37]" />
+                  <Eye size={14} className="text-white" />
                   <span>02:00 AM</span>
                 </div>
                 <div className="text-[11px] text-neutral-400 font-medium">Patrol Van Audits</div>
               </div>
 
-              <div className="p-2.5 rounded-lg bg-[#070A0F] border border-white/10">
+              <div className="p-2.5 rounded-lg bg-[#080C14] border border-white/10">
                 <div className="text-sm sm:text-base font-bold text-white flex items-center gap-1">
-                  <Plane size={14} className="text-[#D4AF37]" />
+                  <Plane size={14} className="text-white" />
                   <span>AAI Contract</span>
                 </div>
                 <div className="text-[11px] text-neutral-400 font-medium">Trichy Airport</div>
@@ -159,7 +159,7 @@ export function HeroSection() {
 
           {/* Right Supporting Visual / Mobile-First Real Media Showcase */}
           <div className="lg:col-span-5 relative">
-            <div className="relative rounded-xl border border-white/15 bg-[#070B12] shadow-2xl overflow-hidden">
+            <div className="relative rounded-xl border border-white/15 bg-[#080C14] shadow-2xl overflow-hidden">
               
               {/* Media Switcher Tab */}
               <div className="flex items-center justify-between border-b border-white/10 bg-black/80 px-3.5 py-2.5">
@@ -169,7 +169,7 @@ export function HeroSection() {
                     onClick={() => setActiveVisualTab("video")}
                     className={`px-3 py-1.5 text-xs font-bold rounded-[4px] transition-all flex items-center gap-1.5 ${
                       activeVisualTab === "video"
-                        ? "bg-[#D4AF37] text-black shadow-sm"
+                        ? "bg-white text-black shadow-sm font-bold"
                         : "text-neutral-300 hover:text-white hover:bg-white/5"
                     }`}
                   >
@@ -182,7 +182,7 @@ export function HeroSection() {
                     onClick={() => setActiveVisualTab("photo")}
                     className={`px-3 py-1.5 text-xs font-semibold rounded-[4px] transition-all flex items-center gap-1.5 ${
                       activeVisualTab === "photo"
-                        ? "bg-[#D4AF37] text-black shadow-sm"
+                        ? "bg-white text-black shadow-sm font-bold"
                         : "text-neutral-300 hover:text-white hover:bg-white/5"
                     }`}
                   >
@@ -198,8 +198,8 @@ export function HeroSection() {
                     onClick={toggleSound}
                     className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold transition-all border ${
                       isMuted 
-                        ? 'bg-amber-500/20 text-amber-300 border-amber-400/50 hover:bg-amber-500/30' 
-                        : 'bg-emerald-500/20 text-emerald-300 border-emerald-400/50 hover:bg-emerald-500/30'
+                        ? 'bg-white/10 text-white border-white/25 hover:bg-white/20' 
+                        : 'bg-white/20 text-white border-white/40 hover:bg-white/30'
                     }`}
                     title={isMuted ? "Tap to enable sound" : "Tap to mute sound"}
                   >
@@ -242,7 +242,7 @@ export function HeroSection() {
 
                   {/* Bottom Caption Overlay */}
                   <div className="absolute bottom-0 inset-x-0 p-3.5 bg-gradient-to-t from-black via-black/80 to-transparent text-left space-y-1">
-                    <div className="text-xs font-bold text-[#D4AF37] flex items-center gap-1.5">
+                    <div className="text-xs font-bold text-white flex items-center gap-1.5">
                       <ShieldCheck size={13} />
                       <span>Ex-Servicemen Field Turnout &amp; Parade Inspection</span>
                     </div>
@@ -268,10 +268,10 @@ export function HeroSection() {
                   <div className="absolute bottom-0 inset-x-0 p-3.5 text-left space-y-1">
                     <div className="flex items-center justify-between text-xs">
                       <span className="font-bold text-white flex items-center gap-1.5">
-                        <Award size={13} className="text-[#D4AF37]" />
+                        <Award size={13} className="text-white" />
                         <span>Trichy International Airport Detachment</span>
                       </span>
-                      <span className="text-[10px] font-mono text-[#D4AF37] bg-black/60 px-2 py-0.5 rounded border border-[#D4AF37]/30">
+                      <span className="text-[10px] font-mono text-white bg-white/10 px-2 py-0.5 rounded border border-white/20 font-bold">
                         AAI Benchmark
                       </span>
                     </div>

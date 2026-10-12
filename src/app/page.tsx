@@ -70,7 +70,7 @@ export default function Home() {
 
   return (
     <div className="relative bg-black text-white min-h-screen">
-      {/* Ambient Military Gold Magnetic Cursor */}
+      {/* Ambient Titanium Platinum Magnetic Cursor */}
       <AmbientMagneticCursor />
 
       {/* Schema.org Structured Data — SEO / AEO / GEO */}
@@ -120,7 +120,7 @@ export default function Home() {
       <section className="py-16 sm:py-20 lg:py-24 bg-black border-b border-white/10 text-white">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="max-w-3xl space-y-2 text-left">
-            <div className="text-xs font-bold text-[#D4AF37] uppercase tracking-wider">
+            <div className="text-xs font-bold text-white font-mono uppercase tracking-wider">
               Operational Excellence on Film
             </div>
             <KineticTypography

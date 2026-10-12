@@ -39,7 +39,7 @@ const airportSteps: StickyStepItem[] = [
         />
 
         <div className="relative z-20 p-4 sm:p-5 flex justify-between items-start">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-[#D4AF37] border border-[#9C7A3C]/40 text-xs font-semibold">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white border border-white/20 text-xs font-semibold">
             <Clock size={13} />
             <span>05:00 AM Shift Inspection</span>
           </span>
@@ -49,7 +49,7 @@ const airportSteps: StickyStepItem[] = [
         </div>
 
         <div className="relative z-20 p-4 sm:p-5 bg-gradient-to-t from-black/90 via-black/60 to-transparent text-white space-y-1">
-          <div className="text-xs font-semibold text-[#D4AF37]">Muster Inspection &amp; Turnout</div>
+          <div className="text-xs font-semibold text-white">Muster Inspection &amp; Turnout</div>
           <p className="text-xs text-gray-200 leading-snug">
             All marshals undergo 100% physical inspection before occupying concourse barriers and passenger lanes.
           </p>
@@ -90,7 +90,7 @@ const airportSteps: StickyStepItem[] = [
         />
 
         <div className="relative z-20 p-4 sm:p-5 flex justify-between items-start">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-[#D4AF37] border border-[#9C7A3C]/40 text-xs font-semibold">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white border border-white/20 text-xs font-semibold">
             <ShieldCheck size={13} />
             <span>Terminal Gate Access Control</span>
           </span>
@@ -100,7 +100,7 @@ const airportSteps: StickyStepItem[] = [
         </div>
 
         <div className="relative z-20 p-4 sm:p-5 bg-gradient-to-t from-black/90 via-black/60 to-transparent text-white space-y-1">
-          <div className="text-xs font-semibold text-[#D4AF37]">Passenger Flow &amp; Greeting Protocol</div>
+          <div className="text-xs font-semibold text-white">Passenger Flow &amp; Greeting Protocol</div>
           <p className="text-xs text-gray-200 leading-snug">
             Professional demeanor combined with vigilant identity checks at commercial passenger thresholds.
           </p>
@@ -141,7 +141,7 @@ const airportSteps: StickyStepItem[] = [
         />
 
         <div className="relative z-20 p-4 sm:p-5 flex justify-between items-start">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-[#D4AF37] border border-[#9C7A3C]/40 text-xs font-semibold">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white border border-white/20 text-xs font-semibold">
             <Award size={13} />
             <span>International Airport Platoon</span>
           </span>
@@ -151,7 +151,7 @@ const airportSteps: StickyStepItem[] = [
         </div>
 
         <div className="relative z-20 p-4 sm:p-5 bg-gradient-to-t from-black/90 via-black/60 to-transparent text-white space-y-1">
-          <div className="text-xs font-semibold text-[#D4AF37]">Operational Proof on Ground</div>
+          <div className="text-xs font-semibold text-white">Operational Proof on Ground</div>
           <p className="text-xs text-gray-200 leading-snug">
             Real battalion mobilized under leadership of Proprietor Sweety J and Operations Head Major AR Devadoss.
           </p>

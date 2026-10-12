@@ -7,7 +7,7 @@ export function CTASection() {
   return (
     <section className="py-16 sm:py-20 lg:py-24 bg-[#070A0F] border-t border-white/10 text-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-        <div className="inline-flex items-center gap-2 text-xs font-bold text-[#D4AF37] uppercase tracking-wider">
+        <div className="inline-flex items-center gap-2 text-xs font-bold text-white font-mono uppercase tracking-wider">
           <ShieldCheck size={14} />
           <span>Statutory Compliance Guaranteed &bull; 100% EPF/ESIC</span>
         </div>
@@ -21,10 +21,10 @@ export function CTASection() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-2">
-          {/* Primary CTA: Solid Gold Accent Button */}
+          {/* Primary CTA: Tactile Pure White Button */}
           <Link
             href="/contact"
-            className="w-full sm:w-auto inline-flex items-center justify-center px-8 h-[50px] rounded-[6px] bg-[#D4AF37] hover:bg-[#E5C158] text-black text-sm font-bold transition-all shadow-lg press-scale min-touch-target"
+            className="w-full sm:w-auto inline-flex items-center justify-center px-8 h-[50px] rounded-[6px] bg-white hover:bg-neutral-200 text-black text-sm font-bold transition-all shadow-xl press-scale min-touch-target"
           >
             <span>Request Immediate Quote</span>
           </Link>
@@ -34,7 +34,7 @@ export function CTASection() {
             href={`tel:${brandData.contact.phone}`}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 h-[50px] rounded-[6px] border border-white/25 hover:border-white text-white text-sm font-semibold transition-all tabular-nums press-scale min-touch-target"
           >
-            <Phone size={14} className="text-[#D4AF37]" />
+            <Phone size={14} className="text-white" />
             <span>Call Desk: {brandData.contact.phoneDisplay}</span>
           </a>
         </div>

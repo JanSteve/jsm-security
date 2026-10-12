@@ -89,7 +89,7 @@ export function MagneticWrapper({
 }
 
 /**
- * AmbientMagneticCursor renders a luxury military gold tracking orb
+ * AmbientMagneticCursor renders a hairline titanium tracking orb
  * that smoothly follows the cursor on pointer-capable desktop screens.
  */
 export function AmbientMagneticCursor() {
@@ -138,7 +138,7 @@ export function AmbientMagneticCursor() {
     <motion.div
       style={{ x: smoothX, y: smoothY }}
       aria-hidden="true"
-      className="fixed top-0 left-0 w-8 h-8 rounded-full border border-[#9C7A3C]/40 bg-[#9C7A3C]/10 pointer-events-none z-50 backdrop-blur-[1px] transition-opacity duration-200"
+      className="fixed top-0 left-0 w-8 h-8 rounded-full border border-white/20 bg-white/5 pointer-events-none z-50 backdrop-blur-[1px] transition-opacity duration-200"
     />
   );
 }

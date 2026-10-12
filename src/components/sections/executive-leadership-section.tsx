@@ -33,13 +33,13 @@ export function ExecutiveLeadershipSection({
   const getRoleIcon = (idx: number) => {
     switch (idx) {
       case 0:
-        return <ShieldCheck className="w-4 h-4 text-[#D4AF37]" />;
+        return <ShieldCheck className="w-4 h-4 text-white" />;
       case 1:
-        return <Award className="w-4 h-4 text-[#D4AF37]" />;
+        return <Award className="w-4 h-4 text-white" />;
       case 2:
-        return <Cpu className="w-4 h-4 text-[#D4AF37]" />;
+        return <Cpu className="w-4 h-4 text-white" />;
       default:
-        return <ShieldCheck className="w-4 h-4 text-[#D4AF37]" />;
+        return <ShieldCheck className="w-4 h-4 text-white" />;
     }
   };
 
@@ -57,14 +57,14 @@ export function ExecutiveLeadershipSection({
       {/* Background Radial Glow */}
       <div 
         aria-hidden="true" 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-tr from-[#9C7A3C]/10 via-[#0F2A47]/20 to-transparent blur-3xl pointer-events-none rounded-full" 
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-tr from-white/5 via-neutral-900/30 to-transparent blur-3xl pointer-events-none rounded-full" 
       />
 
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
         {showTitle && (
           <div className="max-w-3xl space-y-3 text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#9C7A3C]/15 border border-[#9C7A3C]/40 text-[#D4AF37] text-xs font-semibold tracking-wide">
-              <Award size={14} className="text-[#D4AF37]" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold tracking-wide font-mono">
+              <Award size={14} className="text-white" />
               <span>Executive Governance &bull; Direct Operational Accountability</span>
             </div>
 
@@ -95,14 +95,14 @@ export function ExecutiveLeadershipSection({
                 key={leader.name}
                 maxTilt={6}
                 scaleOnHover={1.015}
-                spotlightColor="rgba(212, 175, 55, 0.18)"
+                spotlightColor="rgba(255, 255, 255, 0.12)"
                 className="h-full"
               >
                 <article
                   className={`h-full flex flex-col justify-between rounded-2xl overflow-hidden transition-all duration-300 border ${
                     isCenterFounder
-                      ? 'bg-gradient-to-b from-[#0E1522] via-[#090D15] to-[#06090F] border-[#9C7A3C]/60 shadow-[0_12px_40px_rgba(156,122,60,0.15)] ring-1 ring-[#D4AF37]/30'
-                      : 'bg-gradient-to-b from-[#0B0F17] to-[#05080E] border-white/10 hover:border-[#9C7A3C]/40 shadow-xl'
+                      ? 'bg-gradient-to-b from-[#0E1522] via-[#090D15] to-[#06090F] border-white/30 shadow-[0_12px_40px_rgba(255,255,255,0.05)] ring-1 ring-white/20'
+                      : 'bg-gradient-to-b from-[#0B0F17] to-[#05080E] border-white/10 hover:border-white/30 shadow-xl'
                   }`}
                 >
                   {/* Portrait Media Frame */}
@@ -127,7 +127,7 @@ export function ExecutiveLeadershipSection({
                       </span>
 
                       {isCenterFounder && (
-                        <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-[#9C7A3C] text-white shadow-sm">
+                        <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-white text-black shadow-sm">
                           Founding MD
                         </span>
                       )}
@@ -135,7 +135,7 @@ export function ExecutiveLeadershipSection({
 
                     {/* Bottom Floating Identity Bar */}
                     <div className="absolute bottom-3 left-3.5 right-3.5 pointer-events-none">
-                      <div className="text-[11px] font-mono uppercase tracking-wider text-[#D4AF37] font-semibold">
+                      <div className="text-[11px] font-mono uppercase tracking-wider text-white font-semibold">
                         {leader.role}
                       </div>
                       <h3 className="font-serif text-xl sm:text-2xl font-bold text-white tracking-tight drop-shadow-sm">
@@ -154,7 +154,7 @@ export function ExecutiveLeadershipSection({
 
                       {/* Operational Focus */}
                       <div className="pt-2 border-t border-white/10 space-y-1.5">
-                        <div className="text-[11px] font-mono text-[#D4AF37] uppercase tracking-wider font-semibold">
+                        <div className="text-[11px] font-mono text-white uppercase tracking-wider font-semibold">
                           Executive Focus &amp; Oversight
                         </div>
                         <p className="text-xs text-neutral-400 leading-snug">
@@ -167,7 +167,7 @@ export function ExecutiveLeadershipSection({
                         <div className="space-y-1.5 pt-1">
                           {leader.highlights.map((item, hIdx) => (
                             <div key={hIdx} className="flex items-start gap-2 text-[12px] text-neutral-300">
-                              <CheckCircle2 size={13} className="text-[#D4AF37] shrink-0 mt-0.5" />
+                              <CheckCircle2 size={13} className="text-white shrink-0 mt-0.5" />
                               <span className="leading-tight">{item}</span>
                             </div>
                           ))}
@@ -196,7 +196,7 @@ export function ExecutiveLeadershipSection({
                           title="Call Operations Desk"
                           aria-label={`Call operations desk for ${leader.name}`}
                         >
-                          <PhoneCall size={14} className="text-[#D4AF37]" />
+                          <PhoneCall size={14} className="text-white" />
                         </a>
 
                         <a
@@ -224,7 +224,7 @@ export function ExecutiveLeadershipSection({
         {/* Corporate Trust Footer Strip */}
         <div className="p-4 sm:p-5 rounded-xl bg-white/5 border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-300 text-center sm:text-left">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-full bg-[#9C7A3C]/20 border border-[#9C7A3C]/50 flex items-center justify-center text-[#D4AF37] shrink-0 font-bold">
+            <div className="w-9 h-9 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white shrink-0 font-bold">
               ✓
             </div>
             <div>
@@ -234,7 +234,7 @@ export function ExecutiveLeadershipSection({
           </div>
           <Link
             href="/about"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold bg-[#9C7A3C] hover:bg-[#B8925A] text-white transition-all shadow-sm shrink-0 press-scale"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold bg-white hover:bg-neutral-200 text-black transition-all shadow-xl shrink-0 press-scale font-bold"
           >
             <span>Read Corporate History &amp; Credentials</span>
             <ExternalLink size={12} />

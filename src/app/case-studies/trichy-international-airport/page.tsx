@@ -66,7 +66,7 @@ export default function AirportCaseStudyPage() {
         {/* Navigation back */}
         <Link
           href="/about"
-          className="inline-flex items-center gap-2 text-xs font-semibold text-[#D4AF37] hover:underline min-h-[44px] py-2"
+          className="inline-flex items-center gap-2 text-xs font-semibold text-white hover:text-neutral-300 hover:underline min-h-[44px] py-2"
         >
           <ArrowLeft size={14} />
           <span>Back to Company &amp; Leadership</span>
@@ -75,11 +75,11 @@ export default function AirportCaseStudyPage() {
         {/* Hero Header */}
         <header className="space-y-4 border-b border-white/10 pb-8">
           <div className="flex items-center gap-3">
-            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#D4AF37] bg-[#D4AF37]/10 border border-[#D4AF37]/20 px-2.5 py-1 rounded">
+            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-white bg-white/10 border border-white/20 px-2.5 py-1 rounded">
               Aviation Operations &bull; 2024
             </span>
             <span className="text-xs text-neutral-400 flex items-center gap-1 font-medium">
-              <Plane size={13} className="text-[#D4AF37]" />
+              <Plane size={13} className="text-white" />
               <span>International Concourse Deployment</span>
             </span>
           </div>
@@ -105,7 +105,7 @@ export default function AirportCaseStudyPage() {
               />
             </div>
             <div className="space-y-1">
-              <span className="text-[11px] font-mono uppercase font-bold text-[#D4AF37]">
+              <span className="text-[11px] font-mono uppercase font-bold text-neutral-400">
                 Official Institutional Client
               </span>
               <h2 className="font-serif text-xl sm:text-2xl font-bold text-white">
@@ -123,10 +123,10 @@ export default function AirportCaseStudyPage() {
         </section>
 
         {/* Metrics Bar */}
-        <section className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-6 rounded-xl border border-white/10 bg-[#070B12]">
+        <section className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-6 rounded-xl border border-white/10 bg-[#080C14]">
           <div className="space-y-1">
             <span className="text-[11px] font-medium text-neutral-400">Operational SLA</span>
-            <div className="font-display text-2xl font-bold text-[#D4AF37]">100%</div>
+            <div className="font-display text-2xl font-bold text-white">100%</div>
             <p className="text-[10px] text-neutral-400">Muster Adherence</p>
           </div>
           <div className="space-y-1">
@@ -136,7 +136,7 @@ export default function AirportCaseStudyPage() {
           </div>
           <div className="space-y-1">
             <span className="text-[11px] font-medium text-neutral-400">Supervisory Unit</span>
-            <div className="font-display text-2xl font-bold text-[#D4AF37]">ESM Led</div>
+            <div className="font-display text-2xl font-bold text-white">ESM Led</div>
             <p className="text-[10px] text-neutral-400">Military Veteran Officers</p>
           </div>
           <div className="space-y-1">
@@ -175,17 +175,17 @@ export default function AirportCaseStudyPage() {
             <p className="text-neutral-300">
               Directed by Head of Operations Major AR Devadoss (Army-Veteran), JSM deployed a specialized platoon of disciplined Ex-Servicemen supervisory marshals and trained security guards.
             </p>
-            <ul className="space-y-2 text-xs sm:text-sm text-neutral-200 bg-[#070B12] p-5 rounded-xl border border-white/10">
+            <ul className="space-y-2 text-xs sm:text-sm text-neutral-200 bg-[#080C14] p-5 rounded-xl border border-white/10">
               <li className="flex items-start gap-2">
-                <CheckCircle2 size={16} className="text-[#D4AF37] shrink-0 mt-0.5" />
+                <CheckCircle2 size={16} className="text-white shrink-0 mt-0.5" />
                 <span><strong>Pre-Shift Radio Muster:</strong> Daily formal inspections, communication checks, and duty post rotations.</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 size={16} className="text-[#D4AF37] shrink-0 mt-0.5" />
+                <CheckCircle2 size={16} className="text-white shrink-0 mt-0.5" />
                 <span><strong>Concourse Crowd Segregation:</strong> Structured access flow management preventing bottlenecking at departure and arrival gates.</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 size={16} className="text-[#D4AF37] shrink-0 mt-0.5" />
+                <CheckCircle2 size={16} className="text-white shrink-0 mt-0.5" />
                 <span><strong>2-Hour Standby Reserves:</strong> On-call relief personnel staged in Tiruchirappalli ensuring 100% post occupancy 24/7.</span>
               </li>
             </ul>
@@ -216,7 +216,7 @@ export default function AirportCaseStudyPage() {
           </div>
           <Link
             href="/get-quote"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-[#D4AF37] text-black text-xs font-semibold hover:bg-[#E5C158] transition-colors shrink-0 shadow-lg min-h-[44px] w-full sm:w-auto"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-white text-black text-xs font-bold hover:bg-neutral-200 transition-colors shrink-0 shadow-xl press-scale min-h-[44px] w-full sm:w-auto"
           >
             <span>Request Site Proposal</span>
             <ArrowRight size={13} />

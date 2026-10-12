@@ -75,8 +75,8 @@ function StepTextContent({
       className="absolute inset-0 flex flex-col justify-center space-y-4 text-left pointer-events-auto"
     >
       <div className="flex items-center gap-2">
-        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-[#9C7A3C]/12 text-[#9C7A3C] border border-[#9C7A3C]/25">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#9C7A3C]" />
+        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-white/10 text-white border border-white/20">
+          <span className="w-1.5 h-1.5 rounded-full bg-white" />
           <span>{step.badge}</span>
         </span>
         {step.subtitle && (
@@ -111,7 +111,7 @@ function StepTextContent({
                 key={dIdx}
                 className={cn('flex items-start gap-2', isDark ? 'text-gray-300' : 'text-[#4A5160]')}
               >
-                <Check size={14} className="text-[#9C7A3C] shrink-0 mt-0.5" />
+                <Check size={14} className="text-white shrink-0 mt-0.5" />
                 <span>{item}</span>
               </li>
             ))}
@@ -130,7 +130,7 @@ function StepTextContent({
                 isDark ? 'bg-white/5 border-white/10' : 'bg-white border-[#E4E7EC]'
               )}
             >
-              <div className="text-base sm:text-lg font-bold font-mono text-[#9C7A3C]">
+              <div className="text-base sm:text-lg font-bold font-mono text-white">
                 {m.value}
               </div>
               <div className={cn('text-[10px] font-medium leading-tight pt-0.5', isDark ? 'text-gray-400' : 'text-[#4A5160]')}>
@@ -279,7 +279,7 @@ export function StickyScrollSequence({
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 space-y-10">
           {(eyebrow || headline || description) && (
             <div className="max-w-3xl space-y-2 text-left">
-              {eyebrow && <div className="text-xs font-semibold text-[#9C7A3C]">{eyebrow}</div>}
+              {eyebrow && <div className="text-xs font-semibold text-neutral-400 uppercase tracking-wider">{eyebrow}</div>}
               {headline && (
                 <h2 className={cn('font-serif text-2xl sm:text-3xl font-semibold', isDark ? 'text-white' : 'text-[#14181F]')}>
                   {headline}
@@ -303,7 +303,7 @@ export function StickyScrollSequence({
                 )}
               >
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-[#9C7A3C]/12 text-[#9C7A3C] border border-[#9C7A3C]/25">
+                  <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-white/10 text-white border border-white/20">
                     {step.badge}
                   </span>
                   {step.subtitle && (
@@ -321,7 +321,7 @@ export function StickyScrollSequence({
                   <ul className="space-y-1.5 text-xs">
                     {step.deliverables.map((item, dIdx) => (
                       <li key={dIdx} className="flex items-start gap-2">
-                        <Check size={13} className="text-[#9C7A3C] shrink-0 mt-0.5" />
+                        <Check size={13} className="text-white shrink-0 mt-0.5" />
                         <span className={isDark ? 'text-gray-300' : 'text-[#4A5160]'}>{item}</span>
                       </li>
                     ))}
@@ -336,7 +336,7 @@ export function StickyScrollSequence({
                   <div className="pt-2">
                     <Link
                       href={step.actionLink.href}
-                      className="inline-flex items-center gap-1 text-xs font-semibold text-[#0F2A47] hover:text-[#9C7A3C]"
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-[#0F2A47] hover:text-white"
                     >
                       <span>{step.actionLink.label}</span>
                       <ArrowRight size={13} />
@@ -373,7 +373,7 @@ export function StickyScrollSequence({
           {(eyebrow || headline || description) && (
             <div className="max-w-3xl mb-6 space-y-1.5 text-left">
               {eyebrow && (
-                <div className="text-xs font-semibold text-[#9C7A3C] tracking-wide">
+                <div className="text-xs font-semibold text-neutral-400 uppercase tracking-wider">
                   {eyebrow}
                 </div>
               )}

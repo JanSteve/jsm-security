@@ -41,7 +41,7 @@ export default function ServicesHubPage() {
         {/* Editorial Page Header */}
         <section className="py-8 sm:py-12 border-b border-white/10">
           <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#D4AF37] border border-[#D4AF37]/20 text-xs font-semibold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white border border-white/20 text-xs font-semibold">
               <ShieldCheck size={14} />
               <span>Full Capability Matrix &bull; 21 Integrated Verticals</span>
             </div>
@@ -75,7 +75,7 @@ export default function ServicesHubPage() {
         </section>
 
         {/* Bottom Assessment CTA */}
-        <section className="py-12 sm:py-16 bg-[#070B12] border border-white/10 rounded-2xl p-8 sm:p-12 text-center text-white space-y-6">
+        <section className="py-12 sm:py-16 bg-[#080C14] border border-white/10 rounded-2xl p-8 sm:p-12 text-center text-white space-y-6">
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl text-white font-normal tracking-tight max-w-2xl mx-auto">
             Need a site-specific operational assessment?
           </h2>
@@ -85,7 +85,7 @@ export default function ServicesHubPage() {
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               href="/get-quote"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-[#D4AF37] text-black text-sm font-semibold hover:bg-[#E5C158] transition-colors shadow-lg min-h-[44px] w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-white text-black text-sm font-bold hover:bg-neutral-200 transition-colors shadow-xl press-scale min-h-[44px] w-full sm:w-auto"
             >
               <span>Request Site Assessment</span>
               <ArrowRight size={14} />
