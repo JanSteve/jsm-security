@@ -3,7 +3,6 @@ import {
   TrustBar, 
   ServicesOverview, 
   StatsSection, 
-  TestimonialsSection, 
   FAQSection, 
   CTASection, 
   ExecutiveLeadershipSection 
@@ -116,11 +115,8 @@ export default function Home() {
       {/* 5. Executive Leadership & Operational Command */}
       <ExecutiveLeadershipSection />
 
-      {/* 5. Audited Operational SLAs & Metrics Module */}
+      {/* 6. Audited Operational SLAs & Metrics Module */}
       <StatsSection />
-
-      {/* 6. Industry Deployment Profiles */}
-      <TestimonialsSection />
 
       {/* 7. Direct Quotable FAQ Accordion */}
       <FAQSection />

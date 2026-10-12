@@ -9,7 +9,6 @@ import {
   Award, 
   Phone, 
   Clock, 
-  CheckCircle2, 
   Volume2, 
   VolumeX, 
   Play, 
@@ -19,7 +18,6 @@ import {
   ArrowRight,
   MessageSquare
 } from "lucide-react";
-import { brandData } from "@/data/brand";
 
 export function HeroSection() {
   const [activeVisualTab, setActiveVisualTab] = useState<"video" | "photo">("video");
@@ -53,7 +51,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative pt-24 pb-14 sm:pt-28 sm:pb-16 lg:pt-36 lg:pb-24 overflow-hidden bg-black text-white border-b border-white/10">
+    <section className="relative pt-24 pb-10 sm:pt-28 sm:pb-12 lg:pt-32 lg:pb-16 overflow-hidden bg-black text-white border-b border-white/10">
       {/* Subtle Ambient Backlight Sheen (Pure CSS) */}
       <div 
         aria-hidden="true" 
@@ -96,9 +94,9 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.35, delay: 0.1 }}
-              className="text-base sm:text-lg text-neutral-300 leading-relaxed max-w-2xl"
+              className="text-sm sm:text-base text-neutral-300 leading-relaxed max-w-xl"
             >
-              <strong className="text-white font-semibold">Airports Authority of India (AAI)</strong> verified contractor delivering Ex-Servicemen security forces, industrial staffing, and mechanized facility management with a <strong className="text-white font-semibold">contractually binding 2-hour relief replacement guarantee</strong> across Tamil Nadu.
+              Airports Authority of India (AAI) concourse security contractor. Ex-Servicemen supervisory command, 100% EPF/ESIC statutory compliance, and guaranteed 2-hour relief replacement across Tamil Nadu.
             </motion.p>
 
             {/* Above-The-Fold High-Intent Conversion Cluster: 3 Vectors */}

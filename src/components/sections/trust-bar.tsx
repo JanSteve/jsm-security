@@ -9,8 +9,7 @@ import {
   FileCheck, 
   CheckCircle2, 
   Plane, 
-  ArrowRight,
-  ExternalLink 
+  ArrowRight 
 } from 'lucide-react';
 
 const statutoryCredentials = [
@@ -38,7 +37,7 @@ const statutoryCredentials = [
 
 export function TrustBar() {
   return (
-    <section className="bg-black border-b border-white/10 py-10 sm:py-14 overflow-hidden text-white">
+    <section className="bg-black border-b border-white/10 py-8 sm:py-10 overflow-hidden text-white">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         
         {/* Tier 1: Featured Happy Client — Airports Authority of India (AAI) */}

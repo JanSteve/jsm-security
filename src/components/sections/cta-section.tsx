@@ -5,7 +5,7 @@ import { brandData } from "@/data/brand";
 
 export function CTASection() {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-[#070A0F] border-t border-white/10 text-white">
+    <section className="py-12 sm:py-16 bg-[#070A0F] border-t border-white/10 text-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
         <div className="inline-flex items-center gap-2 text-xs font-bold text-white font-mono uppercase tracking-wider">
           <ShieldCheck size={14} />

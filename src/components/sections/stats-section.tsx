@@ -19,7 +19,7 @@ const metrics: Metric[] = [
     targetNum: 2,
     suffix: " Hours",
     label: "Relief Replacement SLA",
-    description: "Contractually binding replacement of any absent guard within 120 minutes from regional reserve pools.",
+    description: "120-minute reserve deployment guarantee.",
     animate: false
   },
   {
@@ -27,7 +27,7 @@ const metrics: Metric[] = [
     targetNum: 100,
     suffix: "%",
     label: "Police & Aadhaar Verified",
-    description: "Every security guard, supervisor, and facility staff member is verified before site deployment.",
+    description: "100% background-checked before deployment.",
     animate: true
   },
   {
@@ -35,7 +35,7 @@ const metrics: Metric[] = [
     targetNum: 100,
     suffix: "%",
     label: "Statutory EPF & ESIC",
-    description: "Zero client legal liability with transparent monthly wage sheets and verified ECR challans.",
+    description: "Zero client legal liability & monthly ECR proof.",
     animate: true
   },
   {
@@ -43,7 +43,7 @@ const metrics: Metric[] = [
     targetNum: 2,
     suffix: ":00 AM",
     label: "Night Supervisor Audits",
-    description: "Unannounced mobile patrol van inspections ensuring alertness during peak vulnerability hours.",
+    description: "Unannounced mobile patrol van inspections.",
     animate: false
   },
   {
@@ -51,7 +51,7 @@ const metrics: Metric[] = [
     targetNum: 5,
     suffix: " Days",
     label: "Mandatory Induction",
-    description: "Structured pre-deployment syllabus covering fire response, gate registers, and emergency protocols.",
+    description: "Pre-deployment fire & gate protocol syllabus.",
     animate: false
   },
   {
@@ -59,7 +59,7 @@ const metrics: Metric[] = [
     targetNum: 8,
     suffix: " Hubs",
     label: "District Outposts",
-    description: "Operational response units in Trichy HQ, Chennai, Coimbatore, Hosur, Salem, Madurai, Tirunelveli, Erode.",
+    description: "Trichy HQ, Chennai, Coimbatore & 5 districts.",
     animate: false
   }
 ];
@@ -140,7 +140,7 @@ function StatCard({ item }: { item: Metric }) {
 
 export function StatsSection() {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-black border-b border-white/10 text-white">
+    <section className="py-12 sm:py-16 bg-black border-b border-white/10 text-white">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
         <div className="max-w-3xl space-y-2 text-left">
           <div className="text-xs font-bold text-white font-mono uppercase tracking-wider">
