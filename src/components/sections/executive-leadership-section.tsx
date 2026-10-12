@@ -79,7 +79,7 @@ export function ExecutiveLeadershipSection({
             <p className={`text-sm sm:text-base leading-relaxed ${
               darkTheme ? 'text-neutral-300' : 'text-[#4A5160]'
             }`}>
-              Zero anonymous subcontractors. Founded by Managing Director Sweety J, commanded in the field by Indian Army Veteran Major AR Devadoss, and architected by Chief Technical Officer R Jan Steve Daniel.
+              Direct executive accountability: founded by Sweety J, commanded in the field by Indian Army Veteran Major AR Devadoss, and engineered by CTO R Jan Steve Daniel.
             </p>
           </div>
         )}

@@ -17,22 +17,22 @@ const statutoryCredentials = [
   {
     icon: ShieldCheck,
     title: "Licensed Private Security Agency",
-    subtitle: "Governed by Home Department, Govt of Tamil Nadu",
+    subtitle: "Tamil Nadu Home Department licensed",
   },
   {
     icon: FileCheck,
     title: "DGR / MoD Alignment",
-    subtitle: "Ex-Servicemen Welfare & Resettlement Standards",
+    subtitle: "Resettlement-trained defense veterans",
   },
   {
     icon: CheckCircle2,
     title: "100% EPF & ESIC Compliant",
-    subtitle: "Zero Statutory Client Liability & Direct Bank Remittance",
+    subtitle: "Zero client liability, direct bank remittance",
   },
   {
     icon: Award,
     title: "Ex-Servicemen Field Leadership",
-    subtitle: "Daily Turnout Audits Directed by Major AR Devadoss",
+    subtitle: "Daily field audits by Major AR Devadoss",
   },
 ];
 
@@ -64,7 +64,7 @@ export function TrustBar() {
                 Airports Authority of India (AAI)
               </h3>
               <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
-                Executed 24/7 concourse security and passenger access management for Tiruchirappalli International Terminal in 2024 with zero security breaches and 100% muster turnout.
+                24/7 concourse security and access control for Tiruchirappalli International Terminal in 2024—zero security breaches, 100% muster turnout.
               </p>
             </div>
           </div>
@@ -74,7 +74,7 @@ export function TrustBar() {
             href="/case-studies/trichy-international-airport"
             className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold bg-white hover:bg-neutral-200 text-black transition-all shadow-xl shrink-0 press-scale"
           >
-            <span>Inspect Airport Contract Dossier &amp; Operations Gallery</span>
+            <span>Inspect AAI Contract Dossier</span>
             <ArrowRight size={14} />
           </Link>
         </div>

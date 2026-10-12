@@ -34,7 +34,7 @@ const operationSteps: StickyStepItem[] = [
     badge: "Tier 1 • SAC 998525",
     title: "Security Supervisors & Guarding Forces",
     subtitle: "Ex-Servicemen Led & DGR Aligned",
-    description: "Ex-Servicemen supervisory command, gate-barrier access control, and 2:00 AM unannounced patrol van audits with a 2-hour relief SLA.",
+    description: "Ex-Servicemen commanded security forces with gate-barrier access control, 2:00 AM unannounced patrol van audits, and a 2-hour relief SLA.",
     deliverables: [
       "Ex-Servicemen & Private Marshals (Male & Female)",
       "Contractual 2-Hour Relief Replacement SLA",
@@ -51,7 +51,7 @@ const operationSteps: StickyStepItem[] = [
       label: "View Tier 1 Specifications"
     },
     visualContent: (
-      <div className="w-full h-full flex flex-col justify-between p-4 sm:p-6 bg-gradient-to-br from-[#0F2A47] via-[#0A1E33] to-[#05070B] text-white rounded-lg relative overflow-hidden">
+      <div className="w-full h-full flex flex-col justify-between p-4 sm:p-6 bg-gradient-to-br from-[#0C101A] via-[#080C14] to-[#04060A] text-white rounded-lg border border-white/15 relative overflow-hidden">
         {/* Ambient watermark icon */}
         <Shield className="absolute -right-6 -bottom-6 w-44 h-44 text-white/5 pointer-events-none" />
 
@@ -61,13 +61,13 @@ const operationSteps: StickyStepItem[] = [
               <ShieldCheck size={14} />
               <span>Armed &amp; Unarmed Guarding Command</span>
             </div>
-            <span className="text-[11px] font-mono text-gray-400">SAC 998525</span>
+            <span className="text-[11px] font-mono text-neutral-400">SAC 998525</span>
           </div>
 
           <h4 className="text-xl sm:text-2xl font-serif font-semibold text-white">
             Operational Turnout &amp; Muster Control
           </h4>
-          <p className="text-xs text-gray-300 leading-relaxed max-w-md">
+          <p className="text-xs text-neutral-300 leading-relaxed max-w-md">
             Directly supervised by Ex-Servicemen command officers. Active turnout inspections, barrier protocols, and rapid emergency platoon mobilization.
           </p>
         </div>
@@ -79,7 +79,7 @@ const operationSteps: StickyStepItem[] = [
               <Radio size={12} className="animate-pulse" />
               <span>Command Desk</span>
             </div>
-            <div className="text-xs text-gray-200">24/7 Control Room &bull; Trichy HQ</div>
+            <div className="text-xs text-neutral-200">24/7 Control Room &bull; Trichy HQ</div>
           </div>
 
           <div className="p-3 bg-white/5 backdrop-blur-md rounded-lg border border-white/10 space-y-1">
@@ -87,7 +87,7 @@ const operationSteps: StickyStepItem[] = [
               <Clock size={12} />
               <span>Relief Guarantee</span>
             </div>
-            <div className="text-xs text-gray-200">2-Hour Maximum Response</div>
+            <div className="text-xs text-neutral-200">2-Hour Maximum Response</div>
           </div>
         </div>
       </div>
@@ -98,7 +98,7 @@ const operationSteps: StickyStepItem[] = [
     badge: "Tier 2 • SAC 998513",
     title: "Contract Staffing & Industrial Manpower",
     subtitle: "100% EPF & ESIC Compliant",
-    description: "Pre-vetted industrial and corporate workforce backed by 100% statutory EPF/ESIC remittance and monthly ECR challan transparency.",
+    description: "Pre-vetted industrial and corporate contract workforce backed by 100% statutory EPF/ESIC remittance and monthly ECR challan transparency.",
     deliverables: [
       "Factory Assembly, Line Workers & Machine Operators",
       "Corporate Office Administration & Data Staff",
@@ -115,7 +115,7 @@ const operationSteps: StickyStepItem[] = [
       label: "View Tier 2 Specifications"
     },
     visualContent: (
-      <div className="w-full h-full flex flex-col justify-between p-4 sm:p-6 bg-gradient-to-br from-[#14181F] via-[#0F2A47]/90 to-[#0A1E33] text-white rounded-lg relative overflow-hidden">
+      <div className="w-full h-full flex flex-col justify-between p-4 sm:p-6 bg-gradient-to-br from-[#0C101A] via-[#080C14] to-[#04060A] text-white rounded-lg border border-white/15 relative overflow-hidden">
         <Users className="absolute -right-6 -bottom-6 w-44 h-44 text-white/5 pointer-events-none" />
 
         <div className="space-y-3 z-10">
@@ -124,13 +124,13 @@ const operationSteps: StickyStepItem[] = [
               <FileCheck2 size={14} />
               <span>Full Statutory Legal Indemnity</span>
             </div>
-            <span className="text-[11px] font-mono text-gray-400">SAC 998513</span>
+            <span className="text-[11px] font-mono text-neutral-400">SAC 998513</span>
           </div>
 
           <h4 className="text-xl sm:text-2xl font-serif font-semibold text-white">
             Industrial Roster &amp; ECR Verification
           </h4>
-          <p className="text-xs text-gray-300 leading-relaxed max-w-md">
+          <p className="text-xs text-neutral-300 leading-relaxed max-w-md">
             Zero enterprise liability. Complete compliance with Minimum Wages Act, monthly electronic challan receipts, and vetted worker profiles.
           </p>
         </div>
@@ -141,7 +141,7 @@ const operationSteps: StickyStepItem[] = [
               <Workflow size={12} />
               <span>Staffing Pipeline</span>
             </div>
-            <div className="text-xs text-gray-200">500+ Vetted Field Associates</div>
+            <div className="text-xs text-neutral-200">500+ Vetted Field Associates</div>
           </div>
 
           <div className="p-3 bg-white/5 backdrop-blur-md rounded-lg border border-white/10 space-y-1">
@@ -149,7 +149,7 @@ const operationSteps: StickyStepItem[] = [
               <Award size={12} />
               <span>Labour Audit Proof</span>
             </div>
-            <div className="text-xs text-gray-200">Nil Litigation Record</div>
+            <div className="text-xs text-neutral-200">Nil Litigation Record</div>
           </div>
         </div>
       </div>
@@ -160,7 +160,7 @@ const operationSteps: StickyStepItem[] = [
     badge: "Tier 3 • SAC 998533",
     title: "Integrated Facility Management & Housekeeping",
     subtitle: "Closed-Loop Hygiene Protocol",
-    description: "Mechanized campus sanitation adhering to a 5-step closed-loop hygiene protocol with industrial auto-scrubbers and hourly digital inspection logs.",
+    description: "Mechanized campus sanitation executing 5-step closed-loop hygiene with industrial ride-on auto-scrubbers and hourly digital inspection logs.",
     deliverables: [
       "Mechanized Ride-On Auto Scrubbing & Polishers",
       "5-Step Closed-Loop Hygiene: Clean to Verify",
@@ -177,7 +177,7 @@ const operationSteps: StickyStepItem[] = [
       label: "View Tier 3 Specifications"
     },
     visualContent: (
-      <div className="w-full h-full flex flex-col justify-between p-4 sm:p-6 bg-gradient-to-br from-[#0F2A47] via-[#142336] to-[#0A1424] text-white rounded-lg relative overflow-hidden">
+      <div className="w-full h-full flex flex-col justify-between p-4 sm:p-6 bg-gradient-to-br from-[#0C101A] via-[#080C14] to-[#04060A] text-white rounded-lg border border-white/15 relative overflow-hidden">
         <Sparkles className="absolute -right-6 -bottom-6 w-44 h-44 text-white/5 pointer-events-none" />
 
         <div className="space-y-3 z-10">
@@ -186,13 +186,13 @@ const operationSteps: StickyStepItem[] = [
               <Sparkles size={14} />
               <span>Mechanized Campus Sanitization</span>
             </div>
-            <span className="text-[11px] font-mono text-gray-400">SAC 998533</span>
+            <span className="text-[11px] font-mono text-neutral-400">SAC 998533</span>
           </div>
 
           <h4 className="text-xl sm:text-2xl font-serif font-semibold text-white">
             Clean-to-Verify Closed-Loop Standards
           </h4>
-          <p className="text-xs text-gray-300 leading-relaxed max-w-md">
+          <p className="text-xs text-neutral-300 leading-relaxed max-w-md">
             Heavy-duty ride-on scrubbers, color-coded cross-contamination prevention, and digitized supervisor sign-offs for airports, SEZs, and hospitals.
           </p>
         </div>
@@ -203,7 +203,7 @@ const operationSteps: StickyStepItem[] = [
               <Sparkles size={12} />
               <span>Equipment Fleet</span>
             </div>
-            <div className="text-xs text-gray-200">Industrial Auto-Scrubbers</div>
+            <div className="text-xs text-neutral-200">Industrial Auto-Scrubbers</div>
           </div>
 
           <div className="p-3 bg-white/5 backdrop-blur-md rounded-lg border border-white/10 space-y-1">
@@ -211,7 +211,7 @@ const operationSteps: StickyStepItem[] = [
               <FileCheck2 size={12} />
               <span>Hourly Audits</span>
             </div>
-            <div className="text-xs text-gray-200">Digital Restroom Logbooks</div>
+            <div className="text-xs text-neutral-200">Digital Restroom Logbooks</div>
           </div>
         </div>
       </div>
@@ -225,42 +225,42 @@ const digitalServices = [
     badge: "Official Meta API",
     title: "WhatsApp Business API & Automation",
     slug: "/services/whatsapp-automation-crm",
-    description: "24/7 conversational chatbots, automated customer lead capture, and interactive catalog menus with official Meta Cloud API.",
+    description: "Official Meta Cloud API chatbots with automated lead capture and 24/7 catalog menus.",
   },
   {
     icon: Star,
     badge: "Reputation Guard",
     title: "Smart Review Filter NFC Standees",
     slug: "/services/nfc-review-standees",
-    description: "Double 5-star Google reviews on Maps while routing 1–3 star private complaints directly to your WhatsApp desk.",
+    description: "Route 5-star ratings to Google Maps and divert 1–3 star complaints directly to private WhatsApp.",
   },
   {
     icon: PhoneForwarded,
     badge: "Lead Recovery",
     title: "Missed-Call to WhatsApp Auto-Saver",
     slug: "/services/missed-call-lead-recovery",
-    description: "Sub-5-second branded WhatsApp greeting and service menu sent automatically whenever a business phone call is missed.",
+    description: "Automated sub-5-second branded WhatsApp greeting and menu dispatched upon every missed business call.",
   },
   {
     icon: Utensils,
     badge: "Zero-Commission",
     title: "Direct Table Ordering QR Menus",
     slug: "/services/qr-table-ordering",
-    description: "Bypass 30% aggregator commissions. Diners scan table QR codes to send formatted orders straight to kitchen WhatsApp.",
+    description: "Zero-commission table QR ordering routing instant guest food orders directly to kitchen WhatsApp.",
   },
   {
     icon: Globe,
     badge: "Core Web Vitals 95+",
     title: "High-Converting Websites & Portals",
     slug: "/services/website-design-development",
-    description: "Custom-coded, lightning-fast Next.js business websites and lead portals with built-in WhatsApp conversion funnels.",
+    description: "Sub-second Next.js enterprise portals with integrated WhatsApp lead capture funnels.",
   },
   {
     icon: MapPin,
     badge: "Google Maps 3-Pack",
     title: "Local Maps & GBP 3-Pack SEO",
     slug: "/services/local-seo-gbp-ranking",
-    description: "Dominate Google Maps local 3-pack rankings with geotagged citations, photo EXIF optimization, and review velocity systems.",
+    description: "Dominate local Google 3-Pack rankings with geotagged citations, EXIF photo optimization, and review velocity.",
   }
 ];
 
@@ -290,7 +290,7 @@ export function ServicesOverview() {
         steps={operationSteps}
         eyebrow="Three-Tier Operations Model"
         headline="Unified Physical Security, Contract Staffing & Mechanized Facility Management."
-        description="Eliminate vendor fragmentation by consolidating premises security, industrial contract staffing, and mechanized facility management under one contract and one accountable executive desk."
+        description="Consolidate premises security, industrial staffing, and mechanized facility management under one contract, one invoice, and one accountable executive desk."
         theme="dark"
       />
 
@@ -312,7 +312,7 @@ export function ServicesOverview() {
                 className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold text-white pt-2"
               />
               <p className="text-xs sm:text-sm text-neutral-300 max-w-2xl leading-relaxed pt-1">
-                Engineered by CTO R Jan Steve Daniel: official Meta Cloud WhatsApp Business API bots, smart review filtering NFC standees, and high-velocity web portals for retail and enterprise scale.
+                Engineered by CTO R Jan Steve Daniel: official Meta Cloud WhatsApp bots, smart NFC review filters, and fast web portals.
               </p>
             </div>
             <Link

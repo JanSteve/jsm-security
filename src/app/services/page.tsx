@@ -49,7 +49,7 @@ export default function ServicesHubPage() {
               Integrated Services Directory
             </h1>
             <p className="text-base sm:text-lg text-neutral-300 leading-relaxed">
-              Consolidated security guarding, industrial staffing, facility hygiene, and enterprise digital &amp; WhatsApp automation under one verified partner.
+              Consolidated security guarding, industrial staffing, and mechanized facility management backed by Ex-Servicemen leadership and 100% EPF/ESIC compliance.
             </p>
           </div>
         </section>
@@ -80,7 +80,7 @@ export default function ServicesHubPage() {
             Need a site-specific operational assessment?
           </h2>
           <p className="text-xs sm:text-sm text-neutral-300 max-w-xl mx-auto leading-relaxed">
-            Our operations team conducts on-site vulnerability inspections and provides transparent statutory pricing breakdowns within 24 hours.
+            Our operations team conducts on-site vulnerability inspections and provides transparent statutory pricing breakdowns within 2 hours.
           </p>
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link

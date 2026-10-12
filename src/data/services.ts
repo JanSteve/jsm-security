@@ -68,7 +68,7 @@ export const servicesData: Service[] = [
     category: 'security',
     categoryLabel: 'Tier 1: Security & Protection',
     valueProposition: 'Disciplined on-site guarding led by Ex-Servicemen & certified private security marshals with 2:00 AM supervisor spot-audits.',
-    description: 'JSM Integrated Services delivers structured, disciplined private security guarding across Tamil Nadu and South India. Operating under strict compliance with the Private Security Agencies (Regulation) Act (PSARA) and Tamil Nadu Home Department rules, our security personnel comprise disciplined Ex-Servicemen (ESM) officers, seasoned private security supervisors, and vetted male & female security guards.',
+    description: 'PSARA-compliant security guarding led by Ex-Servicemen officers with 2:00 AM supervisor van audits and a guaranteed 2-hour relief replacement SLA across Tamil Nadu.',
     whoItIsFor: [
       'Corporate IT Parks & SEZ Campuses (OMR, Sholinganallur)',
       'Manufacturing Plants & Industrial Warehouses',
@@ -116,7 +116,7 @@ export const servicesData: Service[] = [
     category: 'manpower',
     categoryLabel: 'Tier 2: Manpower & Staffing',
     valueProposition: 'Pre-vetted industrial and technical contract staffing deployed within 48–72 hours with complete EPF/ESIC legal indemnity and monthly ECR verification.',
-    description: 'Originating as JSMMANPOWER, JSM Integrated Services supplies reliable, compliant, and pre-trained workforce for manufacturing assembly lines, warehouse logistics, facility operations, and administrative functions across South India.',
+    description: 'Pre-vetted industrial and corporate contract workforce deployed within 48–72 hours with 100% EPF/ESIC legal indemnity and monthly ECR challan transparency.',
     whoItIsFor: [
       'Automotive & Engineering Assembly Plants',
       'E-Commerce Fulfilment & Logistics Warehouses',

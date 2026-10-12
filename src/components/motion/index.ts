@@ -15,7 +15,6 @@ export {
 } from './kinetic-typography';
 
 export {
-  AmbientMagneticCursor,
   MagneticWrapper,
   type MagneticWrapperProps,
 } from './magnetic-cursor';

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useState, useEffect, useSyncExternalStore } from 'react';
+import React, { useRef, useSyncExternalStore } from 'react';
 import { motion, useSpring, useMotionValue, useReducedMotion } from 'motion/react';
 import { cn } from '@/lib/utils';
 
@@ -88,57 +88,3 @@ export function MagneticWrapper({
   );
 }
 
-/**
- * AmbientMagneticCursor renders a hairline titanium tracking orb
- * that smoothly follows the cursor on pointer-capable desktop screens.
- */
-export function AmbientMagneticCursor() {
-  const isFinePointer = useIsFinePointer();
-  const prefersReducedMotion = useReducedMotion();
-  const [isVisible, setIsVisible] = useState(false);
-
-  const cursorX = useMotionValue(-100);
-  const cursorY = useMotionValue(-100);
-
-  const springConfig = { stiffness: 500, damping: 30, mass: 0.5 };
-  const smoothX = useSpring(cursorX, springConfig);
-  const smoothY = useSpring(cursorY, springConfig);
-
-  useEffect(() => {
-    if (prefersReducedMotion || !isFinePointer) return;
-
-    const onMouseMove = (e: MouseEvent) => {
-      cursorX.set(e.clientX - 16);
-      cursorY.set(e.clientY - 16);
-      setIsVisible(true);
-    };
-
-    const onMouseLeave = () => {
-      setIsVisible(false);
-    };
-
-    const onMouseEnter = () => {
-      setIsVisible(true);
-    };
-
-    window.addEventListener('mousemove', onMouseMove, { passive: true });
-    document.addEventListener('mouseleave', onMouseLeave);
-    document.addEventListener('mouseenter', onMouseEnter);
-
-    return () => {
-      window.removeEventListener('mousemove', onMouseMove);
-      document.removeEventListener('mouseleave', onMouseLeave);
-      document.removeEventListener('mouseenter', onMouseEnter);
-    };
-  }, [cursorX, cursorY, isFinePointer, prefersReducedMotion]);
-
-  if (!isFinePointer || prefersReducedMotion || !isVisible) return null;
-
-  return (
-    <motion.div
-      style={{ x: smoothX, y: smoothY }}
-      aria-hidden="true"
-      className="fixed top-0 left-0 w-8 h-8 rounded-full border border-white/20 bg-white/5 pointer-events-none z-50 backdrop-blur-[1px] transition-opacity duration-200"
-    />
-  );
-}

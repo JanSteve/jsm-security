@@ -54,7 +54,7 @@ export default function AboutPage() {
               Executive Leadership &amp; Operational Governance
             </h1>
             <p className="text-base sm:text-lg text-neutral-300 leading-relaxed">
-              JSM Integrated Services is an enterprise facilities, manpower, and security agency headquartered in Tiruchirappalli, Tamil Nadu. Built on strict military discipline and direct founder accountability.
+              Headquartered in Tiruchirappalli, JSM Integrated Services delivers Ex-Servicemen security forces, industrial staffing, and mechanized facility management with direct founder accountability.
             </p>
           </div>
         </section>
@@ -68,12 +68,9 @@ export default function AboutPage() {
             <h2 className="font-serif text-2xl sm:text-3xl text-white font-bold tracking-tight">
               From JSMMANPOWER to Integrated Enterprise Services
             </h2>
-            <div className="space-y-2 text-sm text-neutral-300 leading-relaxed">
+            <div className="text-sm text-neutral-300 leading-relaxed">
               <p>
-                Originally established as <strong>JSMMANPOWER</strong>, our organization began with industrial staffing. Expanding to meet enterprise demands, we integrated full-spectrum Ex-Servicemen security guarding and mechanized commercial facility management.
-              </p>
-              <p>
-                Today, rebranded as <strong>JSM Integrated Services</strong>, we deliver a cohesive three-tier model backed by Ex-Servicemen supervisory officers and 100% statutory EPF/ESIC compliance.
+                Established as <strong>JSMMANPOWER</strong> and rebranded as <strong>JSM Integrated Services</strong>, we consolidate Ex-Servicemen security guarding, industrial staffing, and mechanized facility hygiene under 100% EPF/ESIC statutory compliance.
               </p>
             </div>
 
@@ -131,7 +128,7 @@ export default function AboutPage() {
               Tiruchirappalli International Airport Concourse Operations (2024)
             </h2>
             <p className="text-sm text-neutral-300 leading-relaxed">
-              JSM Integrated Services executed round-the-clock concourse security and passenger access management for the international terminal expansion for Airports Authority of India (AAI) with zero security breaches and 100% muster compliance.
+              Executed 24/7 concourse security for Airports Authority of India (AAI) at Tiruchirappalli International Airport with zero security breaches and 100% muster compliance.
             </p>
             <div className="flex items-center gap-6 pt-1 text-xs text-white font-semibold">
               <span className="flex items-center gap-1.5 text-emerald-400">
@@ -186,7 +183,7 @@ export default function AboutPage() {
             Consult directly with our leadership team
           </h2>
           <p className="text-xs sm:text-sm text-neutral-300 max-w-xl mx-auto">
-            Discuss security deployments, workforce staffing, or facility operations with Managing Director Sweety J and Operations Head Major AR Devadoss.
+            Direct consultation with Managing Director Sweety J and Operations Head Major AR Devadoss—response guaranteed within 2 hours.
           </p>
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link

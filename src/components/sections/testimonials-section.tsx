@@ -6,28 +6,28 @@ const sectors = [
     icon: Plane,
     sector: "Civil Aviation & Public Transit",
     location: "Aviation Hubs & Passenger Terminals",
-    profile: "Passenger concourse access regulation, vehicle drop-off barrier management, and high-density crowd screening operating under zero-incident tolerance protocols.",
+    profile: "Concourse access regulation, drop-lane barrier control, and zero-defect crowd screening under strict aviation protocols.",
     standards: ["AVSEC-aware personnel", "100% Turnout inspection", "Surprise night audits"]
   },
   {
     icon: Factory,
     sector: "Manufacturing & Heavy Engineering",
     location: "Industrial Corridors (Hosur, Sriperumbudur, Salem)",
-    profile: "Dual-barrier inward/outward gate pass validation, worker physical baggage checks, material shrinkage prevention, and 2:00 AM supervisor patrol van audits.",
+    profile: "Dual-barrier gate pass validation, material shrinkage prevention, and 2:00 AM unannounced supervisor patrol van audits.",
     standards: ["2-Hour Relief SLA", "Zero client liability", "100% EPF/ESIC compliance"]
   },
   {
     icon: Building2,
     sector: "Corporate IT Parks & SEZs",
     location: "Technology Corridors (Chennai OMR, Coimbatore)",
-    profile: "Polite, bilingual visitor verification, badge access management, executive escort, and prompt 2-hour staff replacement guarantees.",
+    profile: "Bilingual visitor verification, badge access control, executive escort, and guaranteed 2-hour relief replacement.",
     standards: ["Bilingual security guards", "Visitor digital pass logs", "Trained first responders"]
   },
   {
     icon: Sparkles,
     sector: "Healthcare & Institutional Campuses",
     location: "Commercial Facilities & Hospitals",
-    profile: "Commercial facility hygiene executing 5-step closed-loop cleaning protocols (Clean, Inspect, Report, Correct, Verify) with mechanized ride-on auto scrubbers.",
+    profile: "Mechanized 5-step closed-loop campus hygiene with ride-on auto scrubbers and hourly digital restroom audits.",
     standards: ["Hourly restroom logs", "Color-coded microfibers", "Hospital-grade chemicals"]
   },
 ];
@@ -45,7 +45,7 @@ export function TestimonialsSection() {
             Deployment standards formulated for high-consequence environments.
           </h2>
           <p className="text-sm sm:text-base text-neutral-300 leading-relaxed line-measure">
-            Every facility operates under tailored standard operating procedures matched to the statutory and physical security demands of each industry sector.
+            Site-specific standard operating procedures calibrated to the statutory and physical security demands of each vertical.
           </p>
         </div>
 

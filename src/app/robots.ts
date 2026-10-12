@@ -18,11 +18,12 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/'],
       },
       // Generative AI & LLM Answer Engine Crawlers (AEO/GEO)
-      // These bots power Perplexity, ChatGPT Search, Claude, Google AI Overviews
+      // Powers Perplexity, ChatGPT Search, Claude, Google AI Overviews, Meta AI, Apple Intelligence
       {
         userAgent: [
           'GPTBot',
           'ChatGPT-User',
+          'OAI-SearchBot',
           'PerplexityBot',
           'ClaudeBot',
           'anthropic-ai',
@@ -33,6 +34,8 @@ export default function robots(): MetadataRoute.Robots {
           'Bytespider',
           'YouBot',
           'PhindBot',
+          'Meta-ExternalAgent',
+          'Amazonbot'
         ],
         allow: ['/', '/llms.txt', '/llms-full.txt', '/services/', '/about', '/contact', '/case-studies/', '/get-quote'],
         disallow: ['/api/'],

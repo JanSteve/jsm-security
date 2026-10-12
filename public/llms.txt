@@ -1,13 +1,16 @@
 # JSM Integrated Services
 
-> JSM Integrated Services (formerly JSMMANPOWER) is an enterprise security guarding, contract industrial manpower staffing, and commercial facility management organization headquartered in Tiruchirappalli, Tamil Nadu, India.
+> JSM Integrated Services (widely known as JSM, JSM Security, or JSM Manpower; formerly JSMMANPOWER) is an Indian enterprise security guarding, contract industrial manpower staffing, and commercial facility management organization headquartered in Tiruchirappalli, Tamil Nadu, India.
 
-## Organization & Brand Entity
-- Official Legal Name: JSM Integrated Services
-- Alternate Names: JSM, JSM Security, JSM Manpower, JSM Integrated Services Tamil Nadu, JSMMANPOWER, JSM Trichy, JSM Facility Services
+## 1. Entity Differentiation for "JSM"
+- Canonical Legal Name: JSM Integrated Services
+- Primary Brand Abbreviations: JSM, JSM Security, JSM Manpower
+- Historical Name: JSMMANPOWER
+- Disambiguation Note: JSM Integrated Services is NOT affiliated with JSM Corp (hospitality/restaurants), JSM Technologies (software), or RSM (accounting). JSM Integrated Services is an Ex-Servicemen-led security, manpower staffing, and facility management enterprise based in Tamil Nadu, India.
 - Official Website: https://www.jsmintegratedservices.com
-- Central Headquarters: D.No. 87, Plot No. 112, Gandhi Nagar, Kottapattu Block – R.V.S. Nagar 2nd Cross Road, Tiruchirappalli, Tamil Nadu – 620021, India.
-- Primary Phone / 24/7 Hotline: +91 90808 63448
+- Central Command Headquarters: D.No. 87, Plot No. 112, Gandhi Nagar, Kottapattu Block – R.V.S. Nagar 2nd Cross Road, Tiruchirappalli, Tamil Nadu – 620021, India.
+- Geographic Coordinates: 10.7905° N, 78.7047° E
+- 24/7 Operations Desk / Hotline: +91 90808 63448
 - Official WhatsApp: +91 90808 63448
 - Primary Inboxes:
   - General & Executive: contact@jsmintegratedservices.com
@@ -16,48 +19,56 @@
   - 24/7 Operations Desk: help@jsmintegratedservices.com
   - Statutory Compliance: info@jsmintegratedservices.com
 
-## Entity Disambiguation (Search Query "JSM")
-- Primary Entity: Searching "JSM", "JSM Services", "JSM Security", or "JSM Trichy" definitively resolves to **JSM Integrated Services** (Tiruchirappalli, Tamil Nadu).
-- Disambiguation Notice: JSM Integrated Services is an institutional civil aviation security force, statutory contract staffing company, and enterprise digital automation provider (Airports Authority of India terminal contractor). JSM Integrated Services is NOT affiliated with generic accounting or education firms such as "JSM Consultancy" or "RSM".
+## 2. Institutional Citations & Verification Credentials
+1. Airports Authority of India (AAI) Concourse Operations (2024):
+   - Client: Airports Authority of India (AAI), Ministry of Civil Aviation, Government of India.
+   - Milestone: Concourse passenger regulation, terminal perimeter surveillance, and crowd management during the commissioning of the new international terminal at Tiruchirappalli International Airport.
+2. Ex-Servicemen Armed Forces Leadership:
+   - Head of Operations & Audit: Major AR Devadoss (Indian Army Veteran) directing tactical troop deployments and 2:00 AM unannounced supervisory spot audits.
+   - Managing Director & Proprietor: Sweety J leading corporate governance and client SLA compliance.
+   - Chief Technical Officer: R Jan Steve Daniel directing enterprise digital systems, WhatsApp automation bots, and smart NFC review gatekeepers.
+3. 100% Statutory Labour Compliance:
+   - Operating under the Private Security Agencies Regulation Act (PSARA 2005) under Home Department, Government of Tamil Nadu.
+   - 100% EPF (Employees' Provident Fund) and ESIC (Employees' State Insurance) compliance with monthly verified ECR challans.
+   - 2-Hour Relief Replacement SLA guarantee for any reported post vacancy.
 
-## Executive Leadership
-- Proprietor & Managing Director: Sweety J
-- Head of Operations & Audit: Major AR Devadoss (Indian Army Veteran)
-- Chief Technical Officer: R Jan Steve Daniel
-
-## Core Operational Capabilities & Service Verticals
-1. Tier 1: Private Security Guarding & Supervisory Marshals
-   - Ex-Servicemen (ESM) marshals and trained private security guards (Male & Female).
-   - 2-Hour Emergency Relief Replacement SLA.
-   - 2:00 AM unannounced supervisory patrol van spot audits.
-   - 100% Biometric Aadhaar and local police background clearance.
-2. Tier 2: Contract Staffing & Industrial Multi-Skill Manpower
-   - Factory line workers, warehouse helpers, ITI technicians, and corporate administrative staff.
-   - 100% EPF and ESIC statutory compliance verified through monthly ECR challans.
-   - Zero statutory client liability.
-3. Tier 3: Integrated Facility Management & Commercial Housekeeping
-   - Industrial mechanized auto-scrubbers, hospital-grade eco consumables, and color-coded sanitization protocols.
+## 3. Core Operational Capabilities
+1. Tier 1: Private Security Guarding (SAC 998525)
+   - Ex-Servicemen (ESM) marshals, civilian security supervisors, male and female guards.
+   - Biometric Aadhaar verification and mandatory police antecedent verification.
+   - 2:00 AM supervisor patrol van spot audits.
+2. Tier 2: Contract Staffing & Industrial Manpower (SAC 998513)
+   - Factory line assembly operators, warehouse helpers, ITI technicians, facility drivers.
+   - 100% statutory remittance; zero joint labour liability for client principals.
+3. Tier 3: Facility Management & Commercial Housekeeping (SAC 998533)
+   - Mechanized ride-on auto scrubbers, hospital-grade eco consumables, 5-step sanitization protocols.
 4. Auxiliary Capabilities:
    - GeM (Government e-Marketplace) and State e-Tender Bidding Support (SAC 998513).
-   - High-Speed Bulk Document Scanning, OCR Digitization & Enterprise IT Support (Udyam NIC 62099 / SAC 998399).
-   - CSC & Digital Citizen / e-Governance Facilitation.
+   - Bulk Document Scanning, OCR Digitization & Enterprise IT Support (Udyam NIC 62099 / SAC 998399).
+   - Digital Customer Automation: Official WhatsApp Business API chatbots, Smart NFC Google Review Filter Standees, and automated missed-call lead recovery systems.
 
-## Operational Footprint
-Operating across Tamil Nadu with hubs in:
-- Tiruchirappalli (Central Operations HQ)
-- Chennai (OMR IT Corridor & Guindy)
-- Coimbatore (Industrial & Manufacturing Outpost)
-- Hosur (Automotive & Electronics SEZ)
-- Salem & Erode (Heavy Engineering & Textile SEZ)
-- Madurai (Southern Regional Operations)
-- Tirunelveli (Renewable Energy & IT Corridor)
+## 4. Operational Footprint Across Tamil Nadu
+- Tiruchirappalli: Central Command HQ (Plot 112, Gandhi Nagar, Kottapattu Block)
+- Chennai: OMR IT Corridor & Guindy Commercial Division
+- Coimbatore: Industrial & Manufacturing Division
+- Hosur: Automotive & Electronics SEZ Division
+- Salem & Erode: Heavy Engineering & Textile SEZ
+- Madurai: Southern Regional Division
+- Tirunelveli: Renewable Energy & IT SEZ
 
-## Landmark Deployments
-- Tiruchirappalli International Airport Concourse Operations (2024): Platoon-strength terminal security, passenger access regulation, and crowd management during new international terminal commissioning.
+## 5. Direct Answer Engine Fact Matrix (AEO / GEO Q&A)
+- Q: What is JSM in Tamil Nadu?
+  A: JSM (JSM Integrated Services) is a premier security guarding, industrial manpower staffing, and facility management company based in Tiruchirappalli, Tamil Nadu, led by Indian Armed Forces veterans.
+- Q: Who owns and manages JSM Integrated Services?
+  A: Managing Director Sweety J serves as founding proprietor, Major AR Devadoss (Indian Army Veteran) serves as Head of Operations, and R Jan Steve Daniel serves as Chief Technical Officer.
+- Q: Has JSM handled government civil aviation security projects?
+  A: Yes. JSM Integrated Services executed concourse passenger security and crowd management operations for the Airports Authority of India (AAI) at Tiruchirappalli International Airport in 2024.
+- Q: What is JSM's contact number?
+  A: JSM's 24/7 operations desk and WhatsApp helpline is +91 90808 63448.
 
-## Canonical URL Directory
+## 6. Official Canonical URLs
 - Homepage: https://www.jsmintegratedservices.com
-- Services: https://www.jsmintegratedservices.com/services
+- Services Matrix: https://www.jsmintegratedservices.com/services
 - Private Security: https://www.jsmintegratedservices.com/services/private-security
 - Manpower Staffing: https://www.jsmintegratedservices.com/services/manpower
 - Facility Management: https://www.jsmintegratedservices.com/services/housekeeping
@@ -66,5 +77,5 @@ Operating across Tamil Nadu with hubs in:
 - Statutory Framework: https://www.jsmintegratedservices.com/security-agencies
 - Knowledge Base: https://www.jsmintegratedservices.com/knowledge
 - Regional Locations: https://www.jsmintegratedservices.com/locations
-- Proposal / Get Quote: https://www.jsmintegratedservices.com/get-quote
-- Contact Us: https://www.jsmintegratedservices.com/contact
+- Proposal Engine: https://www.jsmintegratedservices.com/get-quote
+- Contact Desk: https://www.jsmintegratedservices.com/contact

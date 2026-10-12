@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Phone, ShieldCheck } from "lucide-react";
+import { Phone, ShieldCheck, MessageSquare } from "lucide-react";
 import { brandData } from "@/data/brand";
 
 export function CTASection() {
@@ -17,7 +17,7 @@ export function CTASection() {
         </h2>
 
         <p className="text-sm sm:text-base text-neutral-300 max-w-xl mx-auto leading-relaxed">
-          Receive a customized operational proposal and transparent statutory cost estimate for your facility within 24 hours.
+          Get an audited site deployment proposal and transparent statutory cost estimate within 2 hours.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-2">
@@ -28,6 +28,17 @@ export function CTASection() {
           >
             <span>Request Immediate Quote</span>
           </Link>
+
+          {/* WhatsApp Direct Trigger */}
+          <a
+            href={`https://wa.me/${brandData.contact.whatsapp}?text=${encodeURIComponent("Hello JSM Integrated Services, I need an audited deployment proposal and statutory cost estimate within 2 hours.")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 h-[50px] rounded-[6px] bg-[#25D366]/20 hover:bg-[#25D366]/30 border border-[#25D366]/40 text-[#25D366] text-sm font-bold transition-all press-scale min-touch-target"
+          >
+            <MessageSquare size={16} />
+            <span>WhatsApp Quick Deploy</span>
+          </a>
 
           {/* Secondary CTA: Clean Outline Button */}
           <a

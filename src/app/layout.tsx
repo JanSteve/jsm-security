@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/footer";
 import { MobileDock } from "@/components/layout/mobile-dock";
 import CookieBanner from "@/components/shared/cookie-banner";
 import { brandData } from "@/data/brand";
+import { getUnifiedKnowledgeGraph } from "@/lib/schema";
 import { cn } from "@/lib/utils";
 
 import { Public_Sans, Source_Serif_4 } from "next/font/google";
@@ -27,19 +28,18 @@ const sourceSerif = Source_Serif_4({
 export const metadata: Metadata = {
   metadataBase: new URL(brandData.domain),
   title: {
-    template: `%s | ${brandData.name}`,
-    default: `${brandData.name} | Security Guarding, Manpower & Facility Operations`,
+    template: `%s | JSM Integrated Services`,
+    default: `JSM | JSM Integrated Services | Ex-Servicemen Security, Manpower & Facility Operations`,
   },
   description: `${brandData.name} (formerly JSMMANPOWER) delivers disciplined Private Security, Housekeeping & Facility Management, Contractual Manpower Staffing, and Integrated Business Solutions across Tamil Nadu.`,
   keywords: [
     "JSM",
     "JSM Integrated Services",
     "JSM Security",
+    "JSM Manpower",
+    "JSMMANPOWER",
     "JSM Security Services",
     "JSM Security Trichy",
-    "JSM Manpower",
-    "JSM Facility Management",
-    "JSMMANPOWER",
     "Security Guard Agency in Trichy",
     "Security Services Chennai",
     "Manpower Supply Agency Tamil Nadu",
@@ -52,27 +52,52 @@ export const metadata: Metadata = {
     "Trichy International Airport Operations Contractor",
     "Ex-Servicemen Security Guard Agency"
   ],
-  authors: [{ name: "Sweety J (Proprietor & Managing Director)" }, { name: "JSM Operations Team" }],
+  authors: [
+    { name: "Sweety J (Proprietor & Managing Director)" },
+    { name: "Major AR Devadoss (Head of Operations)" },
+    { name: "R Jan Steve Daniel (CTO)" }
+  ],
   creator: brandData.name,
   publisher: brandData.name,
   openGraph: {
-    title: `${brandData.name} | ${brandData.tagline}`,
+    title: `JSM Integrated Services | ${brandData.tagline}`,
     description: brandData.subTagline,
     url: brandData.domain,
     siteName: brandData.name,
     locale: "en_IN",
     type: "website",
+    images: [
+      {
+        url: `${brandData.domain}/images/jsm_logo_black.png`,
+        width: 1200,
+        height: 630,
+        alt: "JSM Integrated Services - Security Guarding & Manpower Staffing",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${brandData.name} | ${brandData.tagline}`,
+    title: `JSM Integrated Services | ${brandData.tagline}`,
     description: brandData.subTagline,
+    site: "@jsmintegrated",
+    creator: "@jsmintegrated",
+    images: [`${brandData.domain}/images/jsm_logo_black.png`],
   },
   alternates: {
     canonical: brandData.domain,
   },
   verification: {
     google: "QtF7HUSz_UrTPnpL5WByxS66elp-pyZyRMU-5Tes0go",
+  },
+  other: {
+    "geo.region": "IN-TN",
+    "geo.placename": "Tiruchirappalli, Tamil Nadu, India",
+    "geo.position": "10.7905;78.7047",
+    "ICBM": "10.7905, 78.7047",
+    "business:contact_data:locality": "Tiruchirappalli",
+    "business:contact_data:region": "Tamil Nadu",
+    "business:contact_data:postal_code": "620021",
+    "business:contact_data:country_name": "India",
   },
   robots: {
     index: true,
@@ -82,9 +107,9 @@ export const metadata: Metadata = {
       index: true,
       follow: true,
       noimageindex: false,
-      'max-video-preview': -1,
-      'max-image-preview': 'large' as const,
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large" as const,
+      "max-snippet": -1,
     },
   },
   icons: {
@@ -105,8 +130,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const globalKnowledgeGraph = getUnifiedKnowledgeGraph();
+
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Authoritative Global Schema.org Knowledge Graph */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(globalKnowledgeGraph) }}
+        />
+      </head>
       <body
         className={cn(
           "min-h-screen bg-black font-sans antialiased text-white selection:bg-white/20 selection:text-white",
