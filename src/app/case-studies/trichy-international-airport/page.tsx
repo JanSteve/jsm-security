@@ -9,7 +9,7 @@ import {
   CheckCircle2, 
   ArrowLeft 
 } from "lucide-react";
-import { AirportGallery } from "@/components/widgets/airport-gallery";
+import { AirportOperationsSlideshow } from "@/components/widgets/airport-slideshow";
 
 export const metadata = constructMetadata({
   title: "Case Study: Trichy International Airport Concourse Operations (2024)",
@@ -201,8 +201,8 @@ export default function AirportCaseStudyPage() {
           </div>
         </section>
 
-        {/* Curated Operations Photographic Gallery */}
-        <AirportGallery className="py-8" />
+        {/* Curated Operations Photographic Slideshow */}
+        <AirportOperationsSlideshow className="py-8" />
 
         {/* Bottom CTA */}
         <footer className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">

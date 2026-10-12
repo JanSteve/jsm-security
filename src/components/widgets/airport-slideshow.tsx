@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Plane, ShieldCheck, ArrowRight, Play, Pause, ChevronLeft, ChevronRight } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 export interface SlideItem {
   id: string;
@@ -107,7 +108,11 @@ const slides: SlideItem[] = [
   }
 ];
 
-export function AirportOperationsSlideshow() {
+export interface AirportOperationsSlideshowProps {
+  className?: string;
+}
+
+export function AirportOperationsSlideshow({ className = '' }: AirportOperationsSlideshowProps = {}) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
@@ -137,7 +142,7 @@ export function AirportOperationsSlideshow() {
   const activeSlide = slides[currentIndex];
 
   return (
-    <section className="py-8 sm:py-10 bg-black border-y border-white/10 text-white">
+    <section className={cn("py-8 sm:py-10 bg-black border-y border-white/10 text-white", className)}>
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
         
         {/* Header Bar — Compact, Action-Oriented */}

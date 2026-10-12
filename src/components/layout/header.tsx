@@ -34,7 +34,7 @@ export function Header() {
           className="flex items-center gap-2.5 sm:gap-3 group shrink-0 min-h-[44px]"
           aria-label="JSM Integrated Services Home"
         >
-          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-[6px] bg-[#0F2A47] text-white flex items-center justify-center font-bold text-sm tracking-wider overflow-hidden border border-white/20 shrink-0">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-[6px] bg-black text-white flex items-center justify-center font-bold text-sm tracking-wider overflow-hidden border border-white/20 shrink-0">
             <Image
               src="/images/jsm_logo_black.png"
               alt="JSM Crest"
@@ -103,7 +103,7 @@ export function Header() {
 
           {/* Primary CTA - Visible on ALL Viewports, Never Buried */}
           <Link
-            href="/contact"
+            href="/get-quote"
             className="inline-flex items-center justify-center rounded-lg text-xs sm:text-sm font-bold text-black bg-white hover:bg-neutral-200 px-3.5 sm:px-5 h-[44px] transition-colors shadow-xl press-scale min-touch-target"
           >
             <span>Get Quote</span>

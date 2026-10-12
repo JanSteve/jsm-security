@@ -1,31 +1,23 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Calculator, QrCode, Star, PlayCircle, ShieldCheck } from 'lucide-react';
+import { Calculator, QrCode, Star, ShieldCheck } from 'lucide-react';
 import { RoiCalculator } from './roi-calculator';
 import { QueueSimulator } from './queue-simulator';
 import { ReviewFilterWidget } from './review-filter-widget';
-import { DigitalVideoPlayer } from './digital-video-player';
 
 export interface InteractiveShowcaseProps {
   className?: string;
-  initialTab?: 'video' | 'roi' | 'review' | 'queue';
+  initialTab?: 'roi' | 'review' | 'queue';
 }
 
 export function InteractiveShowcase({
   className = '',
-  initialTab = 'video',
+  initialTab = 'roi',
 }: InteractiveShowcaseProps) {
-  const [activeTab, setActiveTab] = useState<'video' | 'roi' | 'review' | 'queue'>(initialTab);
+  const [activeTab, setActiveTab] = useState<'roi' | 'review' | 'queue'>(initialTab);
 
   const tabs = [
-    {
-      id: 'video' as const,
-      label: '2x Video Explainer',
-      subtitle: 'Digital Services & WhatsApp',
-      icon: PlayCircle,
-      badge: 'Reel First on Mobile',
-    },
     {
       id: 'roi' as const,
       label: 'Cost & Savings Calculator',
@@ -66,7 +58,7 @@ export function InteractiveShowcase({
       </div>
 
       {/* Segmented Tab Navigation: Sleek Obsidian Pills */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 p-1.5 bg-[#070A0F] border border-white/10 rounded-xl">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 p-1.5 bg-[#070A0F] border border-white/10 rounded-xl">
         {tabs.map((tab) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
@@ -116,7 +108,6 @@ export function InteractiveShowcase({
 
       {/* Active Widget Viewport */}
       <div className="pt-2">
-        {activeTab === 'video' && <DigitalVideoPlayer />}
         {activeTab === 'roi' && <RoiCalculator />}
         {activeTab === 'review' && <ReviewFilterWidget />}
         {activeTab === 'queue' && <QueueSimulator />}

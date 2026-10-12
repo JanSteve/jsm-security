@@ -16,7 +16,8 @@ import {
   Pause,
   Plane,
   Eye,
-  ArrowRight
+  ArrowRight,
+  MessageSquare
 } from "lucide-react";
 import { brandData } from "@/data/brand";
 
@@ -100,27 +101,40 @@ export function HeroSection() {
               <strong className="text-white font-semibold">Airports Authority of India (AAI)</strong> verified contractor delivering Ex-Servicemen security forces, industrial staffing, and mechanized facility management with a <strong className="text-white font-semibold">contractually binding 2-hour relief replacement guarantee</strong> across Tamil Nadu.
             </motion.p>
 
-            {/* Primary & Secondary Action CTAs */}
+            {/* Above-The-Fold High-Intent Conversion Cluster: 3 Vectors */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.35, delay: 0.15 }}
-              className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5"
+              className="pt-2 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-3"
             >
+              {/* Action 1: 2-Minute Commercial Proposal generator */}
               <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-7 h-[50px] rounded-[6px] bg-white hover:bg-neutral-200 text-black text-sm font-bold transition-all shadow-xl press-scale min-touch-target"
+                href="/get-quote"
+                className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 h-[46px] sm:h-[48px] rounded-[6px] bg-white hover:bg-neutral-200 text-black text-xs sm:text-sm font-bold transition-all shadow-xl press-scale min-touch-target"
               >
-                <span>Request Immediate Quote</span>
+                <span>2-Min Proposal Generator</span>
                 <ArrowRight size={15} />
               </Link>
 
+              {/* Action 2: WhatsApp Quick Deploy */}
               <a
-                href={`tel:${brandData.contact.phone}`}
-                className="inline-flex items-center justify-center gap-2 px-6 h-[50px] rounded-[6px] bg-black/80 hover:bg-white/10 border border-white/25 text-white text-sm font-semibold transition-all press-scale min-touch-target"
+                href="https://wa.me/919080863448?text=Hello%20JSM%20Integrated%20Services,%20I%20need%20immediate%20security%20/%20manpower%20deployment."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 h-[46px] sm:h-[48px] rounded-[6px] bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:text-emerald-300 text-xs sm:text-sm font-semibold transition-all press-scale min-touch-target"
+              >
+                <MessageSquare size={15} className="text-emerald-400" />
+                <span>WhatsApp Quick Deploy</span>
+              </a>
+
+              {/* Action 3: Direct Phone Call */}
+              <a
+                href="tel:+919080863448"
+                className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 h-[46px] sm:h-[48px] rounded-[6px] bg-black/80 hover:bg-white/10 border border-white/20 text-white text-xs sm:text-sm font-semibold transition-all press-scale min-touch-target"
               >
                 <Phone size={15} className="text-white" />
-                <span>Call Desk: {brandData.contact.phoneDisplay}</span>
+                <span>Call: +91 90808 63448</span>
               </a>
             </motion.div>
 

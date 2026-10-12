@@ -4,7 +4,7 @@ import Link from "next/link";
 import { FeatureGrid } from "@/components/services/feature-grid";
 import { ProcessTimeline } from "@/components/services/process-timeline";
 import { ServiceFAQ } from "@/components/services/service-faq";
-import { RoiCalculator, QueueSimulator, ReviewFilterWidget, SecurityVideoShowcase } from "@/components/widgets";
+import { RoiCalculator, QueueSimulator, ReviewFilterWidget } from "@/components/widgets";
 import { serviceSchema, breadcrumbSchema, faqSchema, howToSchema } from "@/lib/schema";
 import { brandData } from "@/data/brand";
 import { ArrowRight, ShieldCheck, Phone, Check } from "lucide-react";
@@ -36,7 +36,6 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
   const isReputationService = ['nfc-review-standees', 'local-seo-gbp-ranking', 'social-media-meta-ads', 'google-meta-ads-management'].includes(service.slug);
   const isQueueService = ['clinic-token-tracker', 'qr-table-ordering', 'whatsapp-automation-crm', 'missed-call-lead-recovery', 'garage-service-tracker', 'garage-service-booking-system'].includes(service.slug);
-  const isSecurityService = ['private-security', 'event-security', 'vip-close-protection', 'patrol-guarding', 'industrial-security-guarding', 'armed-guards', 'bank-atm-security'].includes(service.slug);
 
   const relatedServices = servicesData.filter((s) => service.relatedSlugs?.includes(s.slug) || s.slug !== service.slug).slice(0, 3);
 
@@ -145,25 +144,21 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
           <FeatureGrid features={service.features} />
         </section>
 
-        {/* Interactive Capability Simulator & Video Showcase */}
+        {/* Interactive Capability Simulator */}
         <section className="space-y-6 pt-8 border-t border-white/10">
           <div className="space-y-1">
             <span className="text-xs font-semibold uppercase tracking-wider text-neutral-400 font-mono">
-              {isSecurityService ? "Operational Video & Deployment Proof" : "Interactive Live Demonstration"}
+              Interactive Live Demonstration
             </span>
             <h2 className="font-display text-2xl sm:text-3xl text-white font-normal tracking-tight">
-              {isSecurityService
-                ? "Watch the JSM Guarding Force in Action"
-                : isReputationService
+              {isReputationService
                 ? "Simulate Dual-Routing Smart Review Filtration"
                 : isQueueService
                 ? "Simulate Real-Time Queue & Order Dispatch"
                 : "Simulate Statutory Cost Savings & ROI"}
             </h2>
           </div>
-          {isSecurityService ? (
-            <SecurityVideoShowcase />
-          ) : isReputationService ? (
+          {isReputationService ? (
             <ReviewFilterWidget />
           ) : isQueueService ? (
             <QueueSimulator />
