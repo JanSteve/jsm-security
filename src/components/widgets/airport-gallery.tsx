@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { 
-  Plane, 
   Award, 
   Clock, 
   ShieldCheck, 
@@ -197,7 +196,7 @@ export function AirportGallery({ className = '', compact = false }: AirportGalle
   ];
 
   const filteredPhotos = activeCategory === 'all'
-    ? airportPhotos
+    ? (compact ? airportPhotos.slice(0, 6) : airportPhotos)
     : airportPhotos.filter(p => p.category === activeCategory);
 
   const currentLightboxPhoto = lightboxIndex !== null ? filteredPhotos[lightboxIndex] : null;

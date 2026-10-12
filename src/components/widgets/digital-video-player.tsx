@@ -30,8 +30,7 @@ export function DigitalVideoPlayer({ className = '' }: DigitalVideoPlayerProps) 
   });
   const [isMuted, setIsMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [playbackSpeed, setPlaybackSpeed] = useState<number>(1.0); // 1.0 on pre-accelerated 2x file
-  const [hasInteracted, setHasInteracted] = useState(false);
+  const playbackSpeed = 1.0; // 1.0 on pre-accelerated 2x file
 
   const horizontalRef = useRef<HTMLVideoElement>(null);
   const verticalRef = useRef<HTMLVideoElement>(null);
@@ -63,7 +62,6 @@ export function DigitalVideoPlayer({ className = '' }: DigitalVideoPlayerProps) 
     if (e) e.stopPropagation();
     const nextMuted = !isMuted;
     setIsMuted(nextMuted);
-    setHasInteracted(true);
 
     const currentVideo = activeVideo === 'horizontal' ? horizontalRef.current : verticalRef.current;
     if (currentVideo) {

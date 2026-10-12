@@ -6,8 +6,7 @@ import {
   ShieldCheck, 
   CheckCircle2, 
   ArrowRight, 
-  MapPin,
-  Award
+  MapPin
 } from "lucide-react";
 
 import { constructMetadata } from "@/lib/seo";

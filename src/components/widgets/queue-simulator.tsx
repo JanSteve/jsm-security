@@ -9,6 +9,7 @@ import {
   Clock, 
   Sparkles, 
   Send,
+  Check,
   AlertTriangle 
 } from 'lucide-react';
 
@@ -477,6 +478,13 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
                     <Send size={16} />
                     <span>Send Order Direct to Kitchen on WhatsApp</span>
                   </button>
+
+                  {orderSent && (
+                    <div className="p-3 bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 rounded-lg text-xs font-semibold flex items-center gap-2 animate-fade-in">
+                      <Check size={14} className="text-emerald-600 shrink-0" />
+                      <span>Order for Table #{tableNumber} dispatched to kitchen WhatsApp!</span>
+                    </div>
+                  )}
                 </div>
               </div>
 

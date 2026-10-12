@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { Activity, Radio, Volume2, VolumeX } from 'lucide-react';
+import { Activity, Volume2, VolumeX } from 'lucide-react';
 
 export interface SoundWaveVisualizerProps {
   isPlaying: boolean;
@@ -57,12 +57,6 @@ export function SoundWaveVisualizer({
   const peakValuesRef = useRef<number[]>(new Array(bandsCount).fill(0.12));
   const telemetryThrottleRef = useRef<number>(0);
 
-  // Frequency band labels across the 24 bands (from Sub-bass 20Hz up to Air 20kHz)
-  const frequencyMarkers = [
-    '20', '40', '63', '100', '160', '250', '400', '630', 
-    '1k', '1.6k', '2.5k', '4k', '6.3k', '10k', '16k', '20k'
-  ];
-
   useEffect(() => {
     // Resize internal state arrays if bandsCount changes
     if (heightsRef.current.length !== bandsCount) {
@@ -111,7 +105,7 @@ export function SoundWaveVisualizer({
         if (audioCtx && audioCtx.state === 'suspended' && isPlaying && !isMuted) {
           audioCtx.resume().catch(() => {});
         }
-      } catch (err) {
+      } catch {
         // Fallback to harmonic simulation if browser prevents audio element capture
         analyserNode = null;
       }

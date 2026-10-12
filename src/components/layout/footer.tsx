@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Phone, Mail, MapPin, Download } from "lucide-react";
+import { Phone, MapPin, Plane } from "lucide-react";
 import { brandData } from "@/data/brand";
 
 export function Footer() {
@@ -36,27 +36,27 @@ export function Footer() {
             </h4>
             <ul className="space-y-2 text-xs text-neutral-300">
               <li>
-                <Link href="/services" className="hover:text-white transition-colors">
+                <Link href="/services/private-security" className="hover:text-white transition-colors">
                   Tier 1: Security Guards &amp; ESM Supervisors
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="hover:text-white transition-colors">
+                <Link href="/services/manpower" className="hover:text-white transition-colors">
                   Tier 2: Contract Staffing &amp; Industrial Workforce
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="hover:text-white transition-colors">
+                <Link href="/services/housekeeping" className="hover:text-white transition-colors">
                   Tier 3: Facility Management &amp; Hygiene
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="hover:text-white transition-colors">
+                <Link href="/services/whatsapp-automation-crm" className="hover:text-white transition-colors">
                   Digital: WhatsApp Business API &amp; CRM
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="hover:text-white transition-colors">
+                <Link href="/services/nfc-review-standees" className="hover:text-white transition-colors">
                   Digital: Smart NFC Review Filter Standees
                 </Link>
               </li>
@@ -75,8 +75,9 @@ export function Footer() {
             </h4>
             <ul className="space-y-2 text-xs text-neutral-300">
               <li>
-                <Link href="/case-studies/trichy-international-airport" className="hover:text-white transition-colors font-medium text-white">
-                  ✈️ Trichy International Airport Contract
+                <Link href="/case-studies/trichy-international-airport" className="hover:text-white transition-colors font-medium text-white flex items-center gap-1.5">
+                  <Plane size={13} className="text-white shrink-0" />
+                  <span>Trichy International Airport Contract</span>
                 </Link>
               </li>
               <li>

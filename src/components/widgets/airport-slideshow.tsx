@@ -129,14 +129,42 @@ export function AirportOperationsSlideshow({ className = '' }: AirportOperations
     };
   }, [isPaused]);
 
-  const handlePrev = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+
+  const handlePrev = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
     setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
-  const handleNext = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const handleNext = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
     setCurrentIndex((prev) => (prev + 1) % slides.length);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+    setIsPaused(true);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current !== null && touchEndX.current !== null) {
+      const diff = touchStartX.current - touchEndX.current;
+      if (diff > 40) {
+        // Swiped left
+        setCurrentIndex((prev) => (prev + 1) % slides.length);
+      } else if (diff < -40) {
+        // Swiped right
+        setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
+      }
+    }
+    touchStartX.current = null;
+    touchEndX.current = null;
+    setIsPaused(false);
   };
 
   const activeSlide = slides[currentIndex];
@@ -178,10 +206,13 @@ export function AirportOperationsSlideshow({ className = '' }: AirportOperations
           </div>
         </div>
 
-        {/* Compact Slideshow Banner — Height capped at 260px to 320px */}
+        {/* Compact Slideshow Banner — Height capped at 260px to 320px with Touch Swipe */}
         <div 
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
           className="relative w-full h-[220px] sm:h-[260px] md:h-[300px] rounded-xl overflow-hidden bg-[#080C14] border border-white/15 shadow-2xl select-none group"
         >
           {/* Active Image */}

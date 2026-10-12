@@ -11,7 +11,6 @@ import {
   Play, 
   Pause, 
   RotateCcw, 
-  Sparkles, 
   Phone, 
   ArrowRight,
   Monitor,

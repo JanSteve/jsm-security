@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { brandData } from "@/data/brand";
 import { Mail, 
-  MapPin, 
   CheckCircle, 
   FileText, 
   ArrowRight, 
@@ -107,7 +106,10 @@ export default function GetQuotePage() {
     "Private Security Guarding & ESM Supervisors",
     "Ex-Servicemen (ESM) Field Supervisors",
     "Commercial Housekeeping & Hygiene",
-    "Contractual Industrial Staffing"
+    "Contractual Industrial Staffing",
+    "WhatsApp Business API & Automation",
+    "Smart NFC 5-Star Review Filter Standees",
+    "Direct Table QR Ordering & Web Systems"
   ];
 
   return (
