@@ -2,16 +2,13 @@ import {
   HeroSection, 
   TrustBar, 
   ServicesOverview, 
-  ProofSection,
-  StatsSection,
-  TestimonialsSection,
-  FAQSection,
-  CTASection,
-  ExecutiveLeadershipSection
+  StatsSection, 
+  TestimonialsSection, 
+  FAQSection, 
+  CTASection, 
+  ExecutiveLeadershipSection 
 } from "@/components/sections";
-import { InteractiveShowcase } from "@/components/widgets/interactive-showcase";
-import { SecurityVideoShowcase } from "@/components/widgets/security-video-showcase";
-import { AirportGallery } from "@/components/widgets/airport-gallery";
+import { AirportOperationsSlideshow } from "@/components/widgets/airport-slideshow";
 import { homeFAQs } from "@/data/faqs";
 import { 
   organizationSchema, 
@@ -24,7 +21,6 @@ import {
   geoTargetSchema 
 } from "@/lib/schema";
 import { brandData } from "@/data/brand";
-import { AmbientMagneticCursor, KineticTypography } from "@/components/motion";
 
 export const metadata = {
   title: {
@@ -114,40 +110,10 @@ export default function Home() {
       {/* 3. Divided List Three-Tier Operations Model */}
       <ServicesOverview />
 
-      {/* 3a. Official Security Brand Commercial & Tactical Video Theater */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-black border-b border-white/10 text-white">
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <div className="max-w-3xl space-y-2 text-left">
-            <div className="text-xs font-bold text-white font-mono uppercase tracking-wider">
-              Operational Excellence on Film
-            </div>
-            <KineticTypography
-              as="h2"
-              text="Tactical Security Deployment & Ground Turnout in Action"
-              className="font-serif text-2xl sm:text-3xl lg:text-[38px] leading-[1.18] text-white font-bold tracking-[-0.01em]"
-            />
-            <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
-              Ex-Servicemen drill inspections, rapid mobilization protocols, and live airport security operations recorded on ground.
-            </p>
-          </div>
-          <SecurityVideoShowcase />
-        </div>
-      </section>
+      {/* 4. Compact 1.0s High-Velocity Airport & Guard Operations Slideshow */}
+      <AirportOperationsSlideshow />
 
-      {/* 3b. Interactive Operations & Digital Automation Showcase */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-black border-b border-white/10 text-white">
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-          <InteractiveShowcase />
-        </div>
-      </section>
-
-      {/* 4. Operational Proof Case Study (Trichy International Airport) */}
-      <ProofSection />
-
-      {/* 4a. Curated Trichy International Airport Operations Gallery (Filtered from 670+ Ground Records) */}
-      <AirportGallery />
-
-      {/* 4b. Executive Leadership & Operational Command */}
+      {/* 5. Executive Leadership & Operational Command */}
       <ExecutiveLeadershipSection />
 
       {/* 5. Audited Operational SLAs & Metrics Module */}
