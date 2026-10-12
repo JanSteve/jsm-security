@@ -42,7 +42,7 @@ export function TrustBar() {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         
         {/* Tier 1: Featured Happy Client — Airports Authority of India (AAI) */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-[#070B12] border border-white/15 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8">
+        <div className="p-6 sm:p-8 rounded-2xl bg-[#080C14] border border-white/15 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8">
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-6 text-center sm:text-left">
             {/* AAI Logo Box */}
             <div className="relative w-24 h-16 sm:w-28 sm:h-18 rounded-xl bg-white border border-white/20 p-2 flex items-center justify-center shrink-0 shadow-md">
@@ -86,7 +86,7 @@ export function TrustBar() {
             return (
               <div
                 key={idx}
-                className="flex items-start gap-3.5 p-4 rounded-xl bg-[#070A0F] border border-white/10 hover:border-white/30 text-left transition-all duration-200"
+                className="flex items-start gap-3.5 p-4 rounded-xl bg-[#080C14] border border-white/10 hover:border-white/30 text-left transition-all duration-200"
               >
                 <div className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5 text-white">
                   <Icon size={18} />

@@ -116,7 +116,7 @@ function StatCard({ item }: { item: Metric }) {
   return (
     <div
       ref={cardRef}
-      className="p-4 sm:p-5 bg-[#070B12] border border-white/10 rounded-xl space-y-2 text-left flex flex-col justify-between hover:border-white/30 transition-colors"
+      className="p-4 sm:p-5 bg-[#080C14] border border-white/10 rounded-xl space-y-2 text-left flex flex-col justify-between hover:border-white/30 transition-colors"
     >
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-0">
         <span className="font-sans text-xl sm:text-3xl font-bold text-white tabular-nums inline-block min-w-[2.5ch]">

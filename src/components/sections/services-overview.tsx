@@ -332,7 +332,7 @@ export function ServicesOverview() {
                 <PerspectiveTiltCard key={idx} maxTilt={6} className="h-full">
                   <Link
                     href={digital.slug}
-                    className="p-6 bg-[#070B12] border border-white/10 rounded-xl hover:border-white/40 hover:shadow-2xl transition-all space-y-3 text-left group block h-full flex flex-col justify-between text-white"
+                    className="p-6 bg-[#080C14] border border-white/10 rounded-xl hover:border-white/40 hover:shadow-2xl transition-all space-y-3 text-left group block h-full flex flex-col justify-between text-white"
                   >
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
@@ -388,7 +388,7 @@ export function ServicesOverview() {
                 return (
                   <div
                     key={idx}
-                    className="p-4 bg-[#070A0F] border border-white/10 space-y-1.5 text-left rounded-xl"
+                    className="p-4 bg-[#080C14] border border-white/10 space-y-1.5 text-left rounded-xl"
                   >
                     <div className="flex items-center gap-2">
                       <AuxIcon size={15} className="text-white" />
