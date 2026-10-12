@@ -58,13 +58,13 @@ export function TrustBar() {
             <div className="space-y-1.5 max-w-2xl">
               <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-bold">
                 <Plane size={13} />
-                <span>Happy Institutional Client &bull; Aviation Operations Benchmark</span>
+                <span>Institutional Client Benchmark &bull; Ministry of Civil Aviation</span>
               </div>
               <h3 className="font-serif text-xl sm:text-2xl font-bold text-white tracking-tight">
                 Airports Authority of India (AAI)
               </h3>
               <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
-                JSM Integrated Services executed round-the-clock concourse security and passenger access management for Tiruchirappalli International Terminal in 2024 with zero security breaches and 100% muster turnout.
+                Executed 24/7 concourse security and passenger access management for Tiruchirappalli International Terminal in 2024 with zero security breaches and 100% muster turnout.
               </p>
             </div>
           </div>
@@ -74,7 +74,7 @@ export function TrustBar() {
             href="/case-studies/trichy-international-airport"
             className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold bg-white hover:bg-neutral-200 text-black transition-all shadow-xl shrink-0 press-scale"
           >
-            <span>View Airport Contract &amp; Photos</span>
+            <span>Inspect Airport Contract Dossier &amp; Operations Gallery</span>
             <ArrowRight size={14} />
           </Link>
         </div>

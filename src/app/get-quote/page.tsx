@@ -104,7 +104,7 @@ export default function GetQuotePage() {
   };
 
   const serviceOptions = [
-    "Private Security Guarding (100% EPF & ESIC Compliant)",
+    "Private Security Guarding & ESM Supervisors",
     "Ex-Servicemen (ESM) Field Supervisors",
     "Commercial Housekeeping & Hygiene",
     "Contractual Industrial Staffing"
@@ -117,13 +117,13 @@ export default function GetQuotePage() {
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white border border-white/20 text-xs font-semibold backdrop-blur-md">
             <ShieldCheck size={14} />
-            <span>Commercial Proposal Engine</span>
+            <span>Commercial Proposal Engine • Instant Statutory Estimator</span>
           </div>
           <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-normal text-white tracking-tight">
-            Request an Operational Proposal
+            Statutory Proposal Engine &amp; Manpower Estimator
           </h1>
           <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
-            Generate an estimated statutory proposal for security, manpower, or facility management. Our commercial sales team at <strong className="text-white">{brandData.contact.salesEmail}</strong> will review and confirm within 2 hours.
+            Generate an audited commercial proposal for security forces, contract staffing, or mechanized facility hygiene with transparent statutory cost breakdowns confirmed within 2 hours.
           </p>
         </div>
 
@@ -154,10 +154,10 @@ export default function GetQuotePage() {
                     <CheckCircle className="w-8 h-8" />
                   </div>
                   <h2 className="font-display text-2xl sm:text-3xl font-normal text-white">
-                    Proposal Request Submitted
+                    Operational Proposal Request Dispatched
                   </h2>
                   <p className="text-xs sm:text-sm text-neutral-300 max-w-md mx-auto leading-relaxed">
-                    Your estimated proposal has been recorded and routed directly to <strong className="text-white">{brandData.contact.salesEmail}</strong>. An official printable summary has been generated, and our commercial sales lead will contact you within 2 hours.
+                    Your customized deployment specifications have been transmitted directly to central commercial sales at <strong className="text-white">{brandData.contact.salesEmail}</strong> with a guaranteed 2-hour executive confirmation SLA.
                   </p>
                   <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
                     <a
@@ -190,7 +190,7 @@ export default function GetQuotePage() {
                     <div className="space-y-6">
                       <div className="border-b border-white/10 pb-4">
                         <span className="text-xs font-mono font-bold text-neutral-400 uppercase">Step 1 of 3</span>
-                        <h2 className="text-lg font-semibold text-white">Company &amp; Contact Details</h2>
+                        <h2 className="text-lg font-semibold text-white">Organization Credentials &amp; Authorized Procurement Contact</h2>
                         <p className="text-xs text-neutral-400">Enter your organization credentials for the formal proposal.</p>
                       </div>
 
@@ -253,7 +253,7 @@ export default function GetQuotePage() {
                       <div className="border-b border-white/10 pb-4">
                         <span className="text-xs font-mono font-bold text-neutral-400 uppercase">Step 2 of 3</span>
                         <h2 className="text-lg font-semibold text-white">Service Scope &amp; Deployment Scale</h2>
-                        <p className="text-xs text-neutral-400">Select required verticals and estimated personnel headcount.</p>
+                        <p className="text-xs text-neutral-400">Select required verticals and estimated personnel headcount. 100% Statutory EPF, ESIC &amp; Minimum Wage Verified.</p>
                       </div>
 
                       <div className="space-y-3">
@@ -317,7 +317,7 @@ export default function GetQuotePage() {
                     <div className="space-y-6">
                       <div className="border-b border-white/10 pb-4">
                         <span className="text-xs font-mono font-bold text-neutral-400 uppercase">Step 3 of 3</span>
-                        <h2 className="text-lg font-semibold text-white">Shift Schedule &amp; Deployment Date</h2>
+                        <h2 className="text-lg font-semibold text-white">Rotational Shift Pattern &amp; Mobilization Schedule</h2>
                         <p className="text-xs text-neutral-400">Provide deployment timing and any special instructions.</p>
                       </div>
 

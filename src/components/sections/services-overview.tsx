@@ -34,7 +34,7 @@ const operationSteps: StickyStepItem[] = [
     badge: "Tier 1 • SAC 998525",
     title: "Security Supervisors & Guarding Forces",
     subtitle: "Ex-Servicemen Led & DGR Aligned",
-    description: "Disciplined perimeter protection, visitor gate-pass registers, and access control led by Ex-Servicemen (ESM) and trained private security marshals with strict PSARA compliance.",
+    description: "Ex-Servicemen supervisory command, gate-barrier access control, and 2:00 AM unannounced patrol van audits with a 2-hour relief SLA.",
     deliverables: [
       "Ex-Servicemen & Private Marshals (Male & Female)",
       "Contractual 2-Hour Relief Replacement SLA",
@@ -98,7 +98,7 @@ const operationSteps: StickyStepItem[] = [
     badge: "Tier 2 • SAC 998513",
     title: "Contract Staffing & Industrial Manpower",
     subtitle: "100% EPF & ESIC Compliant",
-    description: "Multi-skilled industrial and corporate workforce with full statutory legal indemnity, monthly ECR challan verification, and rapid 48-hour batch mobilization.",
+    description: "Pre-vetted industrial and corporate workforce backed by 100% statutory EPF/ESIC remittance and monthly ECR challan transparency.",
     deliverables: [
       "Factory Assembly, Line Workers & Machine Operators",
       "Corporate Office Administration & Data Staff",
@@ -160,7 +160,7 @@ const operationSteps: StickyStepItem[] = [
     badge: "Tier 3 • SAC 998533",
     title: "Integrated Facility Management & Housekeeping",
     subtitle: "Closed-Loop Hygiene Protocol",
-    description: "Commercial and industrial facility hygiene adhering to a 5-step closed-loop cleaning protocol with ride-on auto scrubbers and hospital-grade sanitization.",
+    description: "Mechanized campus sanitation adhering to a 5-step closed-loop hygiene protocol with industrial auto-scrubbers and hourly digital inspection logs.",
     deliverables: [
       "Mechanized Ride-On Auto Scrubbing & Polishers",
       "5-Step Closed-Loop Hygiene: Clean to Verify",
@@ -289,8 +289,8 @@ export function ServicesOverview() {
       <StickyScrollSequence
         steps={operationSteps}
         eyebrow="Three-Tier Operations Model"
-        headline="Consolidated physical security, staffing and facility hygiene."
-        description="Eliminate vendor fragmentation. Manage premises security, industrial contract staffing, and facility management under one contract and one accountable executive desk."
+        headline="Unified Physical Security, Contract Staffing & Mechanized Facility Management."
+        description="Eliminate vendor fragmentation by consolidating premises security, industrial contract staffing, and mechanized facility management under one contract and one accountable executive desk."
         theme="dark"
       />
 
@@ -308,11 +308,11 @@ export function ServicesOverview() {
               </div>
               <KineticTypography
                 as="h3"
-                text="Digital Engineering, WhatsApp Automation & Smart Systems"
+                text="Enterprise WhatsApp Automation, Smart NFC Systems & Digital Infrastructure"
                 className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold text-white pt-2"
               />
               <p className="text-xs sm:text-sm text-neutral-300 max-w-2xl leading-relaxed pt-1">
-                Official Meta WhatsApp Business API bots, smart NFC review filtering standees, and custom web portals built to accelerate retail and corporate growth.
+                Engineered by CTO R Jan Steve Daniel: official Meta Cloud WhatsApp Business API bots, smart review filtering NFC standees, and high-velocity web portals for retail and enterprise scale.
               </p>
             </div>
             <Link

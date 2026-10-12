@@ -73,11 +73,11 @@ export function HeroSection() {
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/20 text-xs text-white"
             >
               <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-              <span className="font-bold text-white">Ex-Servicemen Led</span>
+              <span className="font-bold text-white">Institutional Security Force</span>
               <span className="text-neutral-500">&bull;</span>
-              <span className="text-neutral-200">Airports Authority of India Client</span>
+              <span className="text-neutral-200">Airports Authority of India Benchmark</span>
               <span className="text-neutral-500">&bull;</span>
-              <span className="text-neutral-200 font-semibold">100% EPF/ESIC</span>
+              <span className="text-neutral-200 font-semibold">100% EPF &amp; ESIC</span>
             </motion.div>
 
             {/* Display Headline: Pure White, Short & Bold */}
@@ -87,7 +87,7 @@ export function HeroSection() {
               transition={{ duration: 0.35, delay: 0.05 }}
               className="font-serif text-[32px] sm:text-[46px] lg:text-[56px] leading-[1.1] text-white font-bold tracking-tight"
             >
-              Disciplined Security &amp; Facility Operations.
+              Command-Led Security Forces &amp; Regulated Facility Operations.
             </motion.h1>
 
             {/* One-Sentence Value Proposition */}
@@ -97,7 +97,7 @@ export function HeroSection() {
               transition={{ duration: 0.35, delay: 0.1 }}
               className="text-base sm:text-lg text-neutral-300 leading-relaxed max-w-2xl"
             >
-              Trusted by <strong className="text-white font-semibold">Airports Authority of India (AAI)</strong>. We deliver Ex-Servicemen security forces, verified contract staffing, and commercial facility management with a <strong className="text-white font-semibold">2-hour relief replacement guarantee</strong> across Tamil Nadu.
+              <strong className="text-white font-semibold">Airports Authority of India (AAI)</strong> verified contractor delivering Ex-Servicemen security forces, industrial staffing, and mechanized facility management with a <strong className="text-white font-semibold">contractually binding 2-hour relief replacement guarantee</strong> across Tamil Nadu.
             </motion.p>
 
             {/* Primary & Secondary Action CTAs */}
@@ -136,7 +136,7 @@ export function HeroSection() {
                   <Clock size={14} className="text-white" />
                   <span>2 Hours</span>
                 </div>
-                <div className="text-[11px] text-neutral-400 font-medium">Relief Guarantee</div>
+                <div className="text-[11px] text-neutral-400 font-medium">Relief SLA</div>
               </div>
 
               <div className="p-2.5 rounded-lg bg-[#080C14] border border-white/10">
@@ -144,13 +144,13 @@ export function HeroSection() {
                   <Eye size={14} className="text-white" />
                   <span>02:00 AM</span>
                 </div>
-                <div className="text-[11px] text-neutral-400 font-medium">Patrol Van Audits</div>
+                <div className="text-[11px] text-neutral-400 font-medium">Patrol Audits</div>
               </div>
 
               <div className="p-2.5 rounded-lg bg-[#080C14] border border-white/10">
                 <div className="text-sm sm:text-base font-bold text-white flex items-center gap-1">
                   <Plane size={14} className="text-white" />
-                  <span>AAI Contract</span>
+                  <span>AAI Benchmark</span>
                 </div>
                 <div className="text-[11px] text-neutral-400 font-medium">Trichy Airport</div>
               </div>

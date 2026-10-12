@@ -70,8 +70,6 @@ export default function Home() {
 
   return (
     <div className="relative bg-black text-white min-h-screen">
-      {/* Ambient Titanium Platinum Magnetic Cursor */}
-      <AmbientMagneticCursor />
 
       {/* Schema.org Structured Data — SEO / AEO / GEO */}
       <script
