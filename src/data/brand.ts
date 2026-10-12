@@ -2,7 +2,7 @@ export const brandData = {
   name: "JSM Integrated Services",
   shortName: "JSM",
   legalEntityNote: "Originally established as JSMMANPOWER; rebranded as JSM Integrated Services for comprehensive multi-vertical operations.",
-  tagline: "Ex-Servicemen Led & DGR Aligned • Statutory Labour Compliant • DGR-Aligned",
+  tagline: "Ex-Servicemen Led & DGR Aligned • 100% Statutory Labour Compliant • Civil Aviation Benchmark",
   subTagline: "Enterprise Security Guard Forces, ESM Supervisory Units & Integrated Facility Operations",
   establishedYear: "2024",
   inauguralProject: "Trichy International Airport Operations (2024)",
@@ -12,13 +12,13 @@ export const brandData = {
     ministry: "Ministry of Civil Aviation, Government of India",
     logo: "/images/clients/aai_logo.svg",
     project: "Tiruchirappalli International Airport Concourse Operations (2024)",
-    status: "Verified Happy Client"
+    status: "Verified Institutional Benchmark"
   },
   
   leadership: [
     {
       name: "Major AR Devadoss (Army-Veteran)",
-      role: "Head of Operations & Audit",
+      role: "Head of Operations & Field Audit — Indian Army Veteran",
       badge: "Indian Army Veteran • Operational Command",
       image: "/images/leadership/major-ar-devadoss.jpg",
       bio: "Decorated Indian Armed Forces veteran directing enterprise security deployments, tactical operations, supervisory audits, and field discipline across South India.",
@@ -34,7 +34,7 @@ export const brandData = {
     },
     {
       name: "Sweety J",
-      role: "Proprietor and MD",
+      role: "Managing Director & Founding Proprietor",
       badge: "Founding Managing Director • Executive Governance",
       image: "/images/leadership/sweety-j.jpg",
       bio: "Founding proprietor and managing director driving the strategic vision, statutory governance, and operational execution of JSM Integrated Services across Tamil Nadu.",
@@ -50,7 +50,7 @@ export const brandData = {
     },
     {
       name: "R Jan Steve Daniel",
-      role: "Chief Technical Officer",
+      role: "Chief Technical Officer — Enterprise Systems & Automation",
       badge: "Chief Technical Officer • Enterprise Systems",
       image: "/images/leadership/r-jan-steve-daniel.jpg",
       bio: "Directing technology-enabled operations, Next.js web architectures, official Meta WhatsApp Business API bots, smart NFC/QR reputation systems, and enterprise business automation.",
@@ -114,7 +114,7 @@ export const brandData = {
         role: "Statutory Compliance & Legal Verification",
         department: "Compliance & Governance Desk",
         email: "info@jsmintegratedservices.com",
-        description: "100% EPF & ESIC Compliant licensing verification, EPF/ESIC compliance certifications, GST documentation, and audit dossiers.",
+        description: "PSARA licensing verification, EPF/ESIC compliance certifications, GST documentation, and audit dossiers.",
         sla: "Same Business Day"
       }
     ],
@@ -211,11 +211,11 @@ export const brandData = {
   domain: process.env.NEXT_PUBLIC_SITE_URL || "https://www.jsmintegratedservices.com",
 
   compliance: {
-    complianceStatus: "100% EPF & ESIC Compliant Compliant (Private Security Agencies Regulation Act, 2005)",
+    complianceStatus: "PSARA 2005 Compliant (Private Security Agencies Regulation Act, 2005)",
     complianceAuthority: "Controlling Authority, Home Department, Government of Tamil Nadu",
     statutoryCompliance: "100% PF, ESI, Minimum Wages Act & Labour Department Registered",
     policeVerification: "Mandatory Aadhaar & Police Verification for All Deployed Guards",
-    trainingStandard: "Mandatory 5-Day Pre-Deployment Security Syllabus as per 100% EPF & ESIC Compliant Norms",
+    trainingStandard: "Mandatory 5-Day Pre-Deployment Security Syllabus as per PSARA Norms",
   },
   
   corePillars: [
