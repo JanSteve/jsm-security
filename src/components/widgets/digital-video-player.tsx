@@ -22,7 +22,12 @@ interface DigitalVideoPlayerProps {
 }
 
 export function DigitalVideoPlayer({ className = '' }: DigitalVideoPlayerProps) {
-  const [activeVideo, setActiveVideo] = useState<'horizontal' | 'vertical'>('horizontal');
+  const [activeVideo, setActiveVideo] = useState<'horizontal' | 'vertical'>(() => {
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      return 'vertical';
+    }
+    return 'horizontal';
+  });
   const [isMuted, setIsMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(true);
   const [playbackSpeed, setPlaybackSpeed] = useState<number>(1.0); // 1.0 on pre-accelerated 2x file
@@ -30,13 +35,6 @@ export function DigitalVideoPlayer({ className = '' }: DigitalVideoPlayerProps) 
 
   const horizontalRef = useRef<HTMLVideoElement>(null);
   const verticalRef = useRef<HTMLVideoElement>(null);
-
-  // Auto-detect mobile screen: vertical format plays first on mobile!
-  useEffect(() => {
-    if (typeof window !== 'undefined' && window.innerWidth < 768) {
-      setActiveVideo('vertical');
-    }
-  }, []);
 
   // Sync playback speed
   useEffect(() => {

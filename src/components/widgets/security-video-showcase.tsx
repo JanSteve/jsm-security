@@ -31,19 +31,17 @@ export function SecurityVideoShowcase({
   className = '',
   defaultMode = 'ad'
 }: SecurityVideoShowcaseProps) {
-  const [activeMode, setActiveMode] = useState<'ad' | 'storyboard'>(defaultMode);
+  const [activeMode, setActiveMode] = useState<'ad' | 'storyboard'>(() => {
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      return 'storyboard';
+    }
+    return defaultMode;
+  });
   const [isMuted, setIsMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(true);
 
   const adVideoRef = useRef<HTMLVideoElement>(null);
   const storyboardVideoRef = useRef<HTMLVideoElement>(null);
-
-  // Auto-detect mobile screen: vertical format plays first on mobile!
-  React.useEffect(() => {
-    if (typeof window !== 'undefined' && window.innerWidth < 768) {
-      setActiveMode('storyboard');
-    }
-  }, []);
 
   const handleSwitchMode = (mode: 'ad' | 'storyboard') => {
     setActiveMode(mode);

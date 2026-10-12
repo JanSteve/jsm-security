@@ -86,25 +86,25 @@ const slides: SlideItem[] = [
     location: 'International Tarmac'
   },
   {
-    id: 'flyover-approach',
-    src: '/images/trichy-airport/trichy_airport_terminal_flyover_approach.jpg',
-    title: 'Elevated Terminal Flyover & Vehicle Access Security Lanes',
-    tag: 'Vehicle Flow Control',
-    location: 'Elevated Approach'
+    id: 'barrier-checkpoint',
+    src: '/images/trichy-airport/trichy_airport_barrier_checkpoint_salute.jpg',
+    title: 'Perimeter Barrier Checkpoint & Sentry Access Control',
+    tag: 'Access Barrier Sentry',
+    location: 'Airport Approach Checkpoint'
   },
   {
-    id: 'guard-day-briefing',
-    src: '/images/trichy-airport/trichy_airport_guard_day_briefing.jpg',
-    title: 'Tactical Duty Briefing by Ex-Servicemen Supervisors',
-    tag: 'Ex-Servicemen Command',
-    location: 'Platoon Drill Ground'
+    id: 'entrance-marshal',
+    src: '/images/trichy-airport/trichy_airport_entrance_marshal_salute.jpg',
+    title: 'Terminal Entrance Marshal Sentry & Passenger Greeting',
+    tag: 'Terminal Marshal Salute',
+    location: 'Main Concourse Entrance'
   },
   {
-    id: 'approach-roundabout',
-    src: '/images/trichy-airport/trichy_airport_approach_roundabout_sign.jpg',
-    title: 'Trichy International Airport Access Roundabout & Signage',
-    tag: 'Perimeter Checkpoint',
-    location: 'Airport Main Entrance'
+    id: 'concourse-granite',
+    src: '/images/trichy-airport/trichy_airport_concourse_polished_granite.jpg',
+    title: 'Pristine Polished Granite Floor & Glass Concourse Architecture',
+    tag: 'Civil Aviation Facility',
+    location: 'International Departure Floor'
   }
 ];
 
