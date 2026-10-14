@@ -84,7 +84,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.35, delay: 0.05 }}
-              className="font-serif text-[32px] sm:text-[46px] lg:text-[56px] leading-[1.1] text-white font-bold tracking-tight"
+              className="text-[32px] sm:text-[46px] lg:text-[56px] leading-[1.1] text-white font-bold tracking-tight"
             >
               Command-Led Security Forces &amp; Regulated Facility Operations.
             </motion.h1>
@@ -96,8 +96,29 @@ export function HeroSection() {
               transition={{ duration: 0.35, delay: 0.1 }}
               className="text-sm sm:text-base text-neutral-300 leading-relaxed max-w-xl"
             >
-              Airports Authority of India (AAI) concourse security contractor. Ex-Servicemen supervisory command, 100% EPF/ESIC statutory compliance, and guaranteed 2-hour relief replacement across Tamil Nadu.
+              AAI concourse contractor deploying Ex-Servicemen command, 100% EPF/ESIC statutory compliance, and guaranteed 2-hour relief replacement across Tamil Nadu.
             </motion.p>
+
+            {/* High-Contrast Metric Pills Above Fold */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35, delay: 0.12 }}
+              className="flex flex-wrap items-center gap-2 pt-1"
+            >
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/25 text-white font-mono text-[11px] sm:text-xs font-bold tracking-wide">
+                <Clock size={12} className="text-white" />
+                <span>2-HOUR RELIEF SLA</span>
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/25 text-white font-mono text-[11px] sm:text-xs font-bold tracking-wide">
+                <ShieldCheck size={12} className="text-white" />
+                <span>100% EPF &amp; ESIC COMPLIANT</span>
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/25 text-white font-mono text-[11px] sm:text-xs font-bold tracking-wide">
+                <Award size={12} className="text-white" />
+                <span>AAI BENCHMARK &bull; 02:00 AM AUDITS</span>
+              </span>
+            </motion.div>
 
             {/* Above-The-Fold High-Intent Conversion Cluster: 3 Vectors */}
             <motion.div
@@ -230,6 +251,7 @@ export function HeroSection() {
                   <video
                     ref={videoRef}
                     src="/videos/jsm-higgsfield-youtube-storyboard-preview.mp4"
+                    poster="/images/trichy-airport/trichy_airport_platoon_salute_day.jpg"
                     autoPlay
                     loop
                     muted={isMuted}

@@ -4,7 +4,7 @@ import { locationsData } from "@/data/locations";
 import { constructMetadata } from "@/lib/seo";
 import { brandData } from "@/data/brand";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
-import { Phone, ArrowRight, ShieldCheck, MapPin, Building2, Factory } from "lucide-react";
+import { Phone, ArrowRight, ShieldCheck, MapPin } from "lucide-react";
 
 export const metadata = constructMetadata({
   title: "Tamil Nadu Regional Operations & Industrial Corridors | JSM Integrated Services",
@@ -69,8 +69,21 @@ export default function LocationsIndexPage() {
               Tamil Nadu Industrial Corridors &amp; Regional Hubs
             </h1>
             <p className="text-base sm:text-lg text-neutral-300 leading-relaxed">
-              From our Central Operations Headquarters in Tiruchirappalli to specialized industrial outposts across Chennai, Coimbatore, Hosur, Salem, Erode, Madurai, and Tirunelveli, JSM Integrated Services provides Ex-Servicemen led physical guarding, 100% EPF/ESIC compliant contract manpower, and mechanized facility management with a guaranteed 2-hour relief standby SLA.
+              Statewide Ex-Servicemen guarding, 100% EPF/ESIC contract staffing, and mechanized facility management across 8 industrial hubs with a guaranteed 2-hour relief SLA.
             </p>
+
+            {/* High-Contrast Regional Metric Pills */}
+            <div className="flex flex-wrap items-center gap-2 pt-1">
+              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white font-mono text-xs font-bold">
+                2-HOUR RELIEF SLA
+              </span>
+              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white font-mono text-xs font-bold">
+                100% EPF &amp; ESIC
+              </span>
+              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white font-mono text-xs font-bold">
+                ZERO CLIENT LIABILITY
+              </span>
+            </div>
           </div>
 
           {/* Direct Operations Hotline Callout */}
@@ -130,9 +143,22 @@ export default function LocationsIndexPage() {
                   <ArrowRight size={16} className="text-neutral-400 group-hover:text-white group-hover:translate-x-1 transition-all" />
                 </h3>
 
-                <p className="text-xs text-neutral-300 leading-relaxed line-clamp-3">
+                <p className="text-xs text-neutral-300 leading-relaxed">
                   {loc.operationalOverview}
                 </p>
+
+                {loc.operationalBadges && (
+                  <div className="flex flex-wrap gap-1.5 pt-1">
+                    {loc.operationalBadges.map((badge, bIdx) => (
+                      <span
+                        key={bIdx}
+                        className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-white/10 border border-white/20 text-white"
+                      >
+                        {badge}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
 
               <div className="space-y-3 pt-3 border-t border-white/10">
@@ -167,7 +193,7 @@ export default function LocationsIndexPage() {
                 100% Statutory Indemnity Across All Districts
               </h3>
               <p className="text-sm text-neutral-300 leading-relaxed">
-                Whether deploying in Chennai OMR tech towers, Coimbatore foundries, or Hosur automotive plants, JSM Integrated Services furnishes verified EPF/ESIC ECR challans, wage muster registers, and biometric attendance logs with every monthly commercial invoice—guaranteeing zero principal employer liability under the Contract Labour Act.
+                Every monthly invoice includes verified EPF/ESIC ECR challans, wage muster rolls, and biometric attendance logs—eliminating all client liability under the Contract Labour Act.
               </p>
             </div>
           </div>

@@ -11,6 +11,7 @@ import {
   Plane, 
   ArrowRight 
 } from 'lucide-react';
+import { ClientLogoMarquee } from './client-logo-marquee';
 
 const statutoryCredentials = [
   {
@@ -37,10 +38,9 @@ const statutoryCredentials = [
 
 export function TrustBar() {
   return (
-    <section className="bg-black border-b border-white/10 py-8 sm:py-10 overflow-hidden text-white">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-        
-        {/* Tier 1: Featured Happy Client — Airports Authority of India (AAI) */}
+    <section className="bg-black border-b border-white/10 py-8 sm:py-10 overflow-hidden text-white space-y-6 sm:space-y-8">
+      {/* Tier 1: Featured Happy Client — Airports Authority of India (AAI) */}
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="p-6 sm:p-8 rounded-2xl bg-[#080C14] border border-white/15 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8">
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-6 text-center sm:text-left">
             {/* AAI Logo Box */}
@@ -55,11 +55,11 @@ export function TrustBar() {
             </div>
 
             <div className="space-y-1.5 max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-bold">
+              <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-bold font-mono">
                 <Plane size={13} />
                 <span>Institutional Client Benchmark &bull; Ministry of Civil Aviation</span>
               </div>
-              <h3 className="font-serif text-xl sm:text-2xl font-bold text-white tracking-tight">
+              <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
                 Airports Authority of India (AAI)
               </h3>
               <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
@@ -77,8 +77,13 @@ export function TrustBar() {
             <ArrowRight size={14} />
           </Link>
         </div>
+      </div>
 
-        {/* Tier 2: Decongested Statutory Compliance Grid */}
+      {/* Infinite Smooth Auto-Scrolling Client & Certification Logo Marquee Ticker */}
+      <ClientLogoMarquee showTitle={true} className="border-y border-white/10 my-2" />
+
+      {/* Tier 2: Decongested Statutory Compliance Grid */}
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           {statutoryCredentials.map((cred, idx) => {
             const Icon = cred.icon;
@@ -102,8 +107,9 @@ export function TrustBar() {
             );
           })}
         </div>
-
       </div>
     </section>
   );
 }
+
+export { ClientLogoMarquee };

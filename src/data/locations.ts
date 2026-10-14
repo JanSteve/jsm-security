@@ -23,6 +23,7 @@ export interface LocationData {
   heroHeadline: string;
   heroSubheadline: string;
   operationalOverview: string;
+  operationalBadges?: string[];
   keyIndustrialZones: string[];
   deploymentSectors: string[];
   highIntentKeywords: string[];
@@ -51,7 +52,12 @@ export const locationsData: LocationData[] = [
     metaDescription: "Ex-Servicemen led security guards, 100% EPF/ESIC compliant contract manpower, and mechanized housekeeping in Trichy. Headquarters with 2-hour relief standby guarantee.",
     heroHeadline: "Security Guard Forces & Integrated Facilities in Tiruchirappalli",
     heroSubheadline: "Headquartered in Trichy, JSM Integrated Services delivers veteran-led security forces, compliant industrial staffing, and mechanized facility management across Central Tamil Nadu.",
-    operationalOverview: "As our central headquarters and operational command center, Tiruchirappalli houses our 24/7 dispatch desk, quick-reaction standby squads, and physical muster ground. From landmark concourse security at Tiruchirappalli International Airport to heavy engineering fabricators along the Thuvakudi-BHEL belt, our deployed teams operate under daily pre-shift inspections and 2:00 AM unannounced supervisor van audits.",
+    operationalOverview: "Trichy Central Command coordinates 24/7 quick-reaction standby squads, AAI airport concourse detachments, and industrial guarding across the Thuvakudi-BHEL belt with daily 2:00 AM van audits.",
+    operationalBadges: [
+      "AAI Concourse Contractor",
+      "2-Hour Standby SLA",
+      "02:00 AM Audits"
+    ],
     keyIndustrialZones: [
       "Thuvakudi & BHEL Industrial Belt",
       "Trichy International Airport Concourse & Cargo Complex",
@@ -133,7 +139,12 @@ export const locationsData: LocationData[] = [
     metaDescription: "100% EPF/ESIC compliant corporate security, OMR IT park guarding, and mechanized facility management across Chennai, Guindy, and Sriperumbudur.",
     heroHeadline: "Corporate Security & Commercial Facility Management in Chennai",
     heroSubheadline: "Dedicated operational divisions serving IT parks along OMR, industrial zones in Guindy and Sriperumbudur, and premium corporate offices across Chennai.",
-    operationalOverview: "JSM Integrated Services delivers structured enterprise security and commercial facility solutions across Chennai's high-density tech corridors and automotive clusters. Our personnel undergo corporate etiquette and digital visitor management training to meet the stringent compliance expectations of multinational tech parks, data centers, and multi-tenant commercial towers.",
+    operationalOverview: "Enterprise corporate guarding, digital QR visitor management, and mechanized facility maintenance across OMR tech parks, Guindy industrial estates, and Sriperumbudur automotive plants.",
+    operationalBadges: [
+      "OMR Tech Corridor",
+      "100% EPF & ESIC",
+      "2-Hour Metro SLA"
+    ],
     keyIndustrialZones: [
       "OMR IT Expressway (Sholinganallur to Siruseri SIPCOT)",
       "Guindy & Ambattur Industrial Estates",
@@ -211,7 +222,12 @@ export const locationsData: LocationData[] = [
     metaDescription: "100% EPF/ESIC compliant security guarding, contract factory manpower, and industrial housekeeping in Coimbatore, Peelamedu, and SIDCO Kurichi.",
     heroHeadline: "Industrial Security & Contract Workforce in Coimbatore",
     heroSubheadline: "Supporting Coimbatore's manufacturing, foundry, textile, and engineering enterprises with disciplined physical guarding and 100% compliant contract staffing.",
-    operationalOverview: "As Western Tamil Nadu's manufacturing powerhouse, Coimbatore requires workforce reliability with absolute statutory compliance. JSM supplies verified factory line workers, warehouse material handlers, and Ex-Servicemen security guards trained in industrial asset protection, scrap yard vigilance, and gate muster registers across Peelamedu, SIDCO Kurichi, and Saravanampatti.",
+    operationalOverview: "Disciplined physical guarding, scrap-yard anti-theft controls, and 100% EPF/ESIC compliant manufacturing staffing across SIDCO Kurichi, Peelamedu, and Saravanampatti.",
+    operationalBadges: [
+      "Foundry & Textile SEZ",
+      "Zero Labour Dispute",
+      "Night Van Audits"
+    ],
     keyIndustrialZones: [
       "SIDCO Industrial Estate, Kurichi",
       "Peelamedu & Ganapathy Engineering Belts",
@@ -283,7 +299,12 @@ export const locationsData: LocationData[] = [
     metaDescription: "Enterprise security guarding and compliant assembly line manpower for automotive and electronics plants in Hosur SIPCOT SEZ.",
     heroHeadline: "Security Guarding & Manufacturing Staffing in Hosur",
     heroSubheadline: "Precision industrial security, material movement tracking, and compliant technical workforce for Hosur's high-tech manufacturing corridors.",
-    operationalOverview: "Hosur's automotive, EV, and electronics manufacturing ecosystem demands zero-tolerance security protocols and dependable shift staffing. JSM Integrated Services provides vetted assembly workforce, logistics loaders, and 100% EPF & ESIC Compliant security personnel trained in electronic component frisking, trailer bay dispatch control, and perimeter monitoring.",
+    operationalOverview: "Zero-tolerance EV and electronics assembly staffing, component anti-theft frisking, and dispatch bay security across SIPCOT Phase 1 & 2 corridors.",
+    operationalBadges: [
+      "EV & Auto Ancillary",
+      "Cleanroom ESD Protocol",
+      "48–72h Mobilization"
+    ],
     keyIndustrialZones: [
       "SIPCOT Industrial Complex Phase 1 & 2",
       "Mookandapalli Industrial Corridor",
@@ -350,7 +371,12 @@ export const locationsData: LocationData[] = [
     metaDescription: "100% EPF/ESIC compliant security guarding and industrial contract labor for steel plants, chemical processing, and fabrication units in Salem.",
     heroHeadline: "Industrial Guarding & Contract Labor Solutions in Salem",
     heroSubheadline: "Protecting Salem's heavy engineering, steel fabrication, and mineral processing assets with veteran-led discipline and compliant manpower.",
-    operationalOverview: "Operating across Salem's steel corridor and manufacturing hubs, JSM Integrated Services provides high-vigilance physical security, weighbridge operators, and industrial technicians. Our rigorous induction and military-veteran supervision ensure strict adherence to industrial safety norms and premises security.",
+    operationalOverview: "High-vigilance perimeter security, weighbridge gross-tare logging, and compliant industrial staffing for steel fabrication and chemical plants across the Steel Plant Road belt.",
+    operationalBadges: [
+      "Heavy Steel Fabrication",
+      "Weighbridge Controls",
+      "100% PPE Compliance"
+    ],
     keyIndustrialZones: [
       "Steel Plant Road Corridor",
       "Omalur Industrial Belt",
@@ -411,7 +437,12 @@ export const locationsData: LocationData[] = [
     metaDescription: "100% EPF/ESIC compliant security guards and contract manpower for textile mills, processing units, and Perundurai SIPCOT in Erode.",
     heroHeadline: "Security & Contract Staffing in Erode & Perundurai",
     heroSubheadline: "Integrated security guarding, warehouse manpower, and commercial facility management across Erode's textile and agricultural processing belts.",
-    operationalOverview: "JSM delivers specialized security and facility support across Erode district, with dedicated focus on Perundurai SIPCOT and Bhavani road corridors. We supply vetted shift workforce, dispatch security, and automated floor cleaning for sprawling textile mills, agro-warehouses, and manufacturing facilities.",
+    operationalOverview: "Trained fire-safety wardens, textile mill dispatch guarding, and mechanized floor auto-scrubbing across Perundurai SIPCOT and Bhavani industrial zones.",
+    operationalBadges: [
+      "Perundurai SIPCOT",
+      "Industrial Fire Wardens",
+      "Mechanized Scrubbing"
+    ],
     keyIndustrialZones: [
       "Perundurai SIPCOT Industrial Complex",
       "Bhavani & Chithode Textile Corridors",
@@ -472,7 +503,12 @@ export const locationsData: LocationData[] = [
     metaDescription: "100% EPF/ESIC compliant security guarding, hospital facility management, and industrial staffing across Madurai, Kappalur, and Vadipatti.",
     heroHeadline: "Security Guarding & Enterprise Facilities in Madurai",
     heroSubheadline: "Southern Tamil Nadu's trusted partner for disciplined commercial guarding, hospital hygiene protocols, and industrial workforce management.",
-    operationalOverview: "Headquartered out of our central command in Trichy, our Madurai regional division oversees operations across healthcare institutions, commercial complexes, and industrial estates in Kappalur and Vadipatti. We enforce strict uniform standards, 24/7 radio communications, and clinical-grade sanitization protocols.",
+    operationalOverview: "Clinical-grade 5-step hospital sanitation, patient casualty crowd marshals, and commercial guarding across Kappalur and Vadipatti industrial enclaves.",
+    operationalBadges: [
+      "Hospital Hygiene SLA",
+      "Casualty Escort Marshals",
+      "Surprise Night Audits"
+    ],
     keyIndustrialZones: [
       "Kappalur & Sidco Industrial Estate",
       "Vadipatti Agro-Processing Cluster",
@@ -533,7 +569,12 @@ export const locationsData: LocationData[] = [
     metaDescription: "100% EPF/ESIC compliant security guarding and technical workforce supply for solar parks, wind farms, and Gangaikondan IT SEZ in Tirunelveli.",
     heroHeadline: "Renewable Energy Security & Facility Services in Tirunelveli",
     heroSubheadline: "Protecting solar installations, wind farm substations, and IT infrastructure with ruggedized physical security and compliant manpower.",
-    operationalOverview: "Serving the southern industrial and renewable energy corridor, JSM deploys specialized remote-site security teams, solar park perimeter patrols, and Gangaikondan IT Park marshals. Our personnel are trained in wide-acre perimeter monitoring, sub-station access control, and incident reporting.",
+    operationalOverview: "Motorized wide-acre perimeter patrols, copper cable anti-theft monitoring, and compliant workforce supply across Gangaikondan IT SEZ and renewable solar/wind installations.",
+    operationalBadges: [
+      "Solar & Wind Perimeter",
+      "Gangaikondan IT SEZ",
+      "Motorized Patrols"
+    ],
     keyIndustrialZones: [
       "Gangaikondan IT SEZ & SIPCOT",
       "Kayathar & Muppandal Wind/Solar Energy Parks",

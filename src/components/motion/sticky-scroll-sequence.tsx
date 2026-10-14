@@ -146,7 +146,7 @@ function StepTextContent({
         <div className="pt-3">
           <Link
             href={step.actionLink.href}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-[4px] border border-[#0F2A47] text-[#0F2A47] hover:bg-[#0F2A47] hover:text-white text-xs font-semibold transition-colors min-touch-target"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-[4px] border border-white/20 text-white hover:bg-white hover:text-black text-xs font-semibold transition-colors min-touch-target"
           >
             <span>{step.actionLink.label}</span>
             <ArrowRight size={13} />
@@ -328,7 +328,7 @@ export function StickyScrollSequence({
                   </ul>
                 )}
 
-                <div className="rounded-lg overflow-hidden border border-[#E4E7EC]">
+                <div className="rounded-lg overflow-hidden border border-white/10">
                   {step.visualContent}
                 </div>
 
@@ -336,7 +336,7 @@ export function StickyScrollSequence({
                   <div className="pt-2">
                     <Link
                       href={step.actionLink.href}
-                      className="inline-flex items-center gap-1 text-xs font-semibold text-[#0F2A47] hover:text-white"
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-white hover:text-neutral-300"
                     >
                       <span>{step.actionLink.label}</span>
                       <ArrowRight size={13} />

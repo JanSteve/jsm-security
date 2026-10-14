@@ -348,7 +348,7 @@ Sent from jsmintegratedservices.in/get-quote
           display: flex;
           justify-content: space-between;
           align-items: flex-start;
-          border-bottom: 3px solid #0F2A47;
+          border-bottom: 3px solid #000000;
           padding-bottom: 20px;
           margin-bottom: 40px;
         }
@@ -379,7 +379,7 @@ Sent from jsmintegratedservices.in/get-quote
         .client-section h2 {
           font-size: 14px;
           text-transform: uppercase;
-          color: #0F2A47;
+          color: #0A1322;
           margin-top: 0;
           margin-bottom: 16px;
           letter-spacing: 0.5px;
@@ -419,7 +419,7 @@ Sent from jsmintegratedservices.in/get-quote
         }
         .guarantee-card h3 {
           font-size: 13px;
-          color: #0F2A47;
+          color: #0A1322;
           margin-top: 0;
           margin-bottom: 8px;
         }
@@ -455,7 +455,7 @@ Sent from jsmintegratedservices.in/get-quote
     </head>
     <body>
       <div class="no-print" style="background:#f5f5f7;border:1px solid #e5e5ea;color:#1d1d1f;padding:16px;text-align:center;border-radius:16px;margin-bottom:24px;">
-        <button onclick="window.print()" style="background:#0F2A47;border:none;color:white;padding:10px 24px;font-weight:600;border-radius:9999px;cursor:pointer;font-size:14px;">Print / Save as PDF</button>
+        <button onclick="window.print()" style="background:#000000;border:none;color:white;padding:10px 24px;font-weight:600;border-radius:9999px;cursor:pointer;font-size:14px;">Print / Save as PDF</button>
       </div>
 
       <div class="header">

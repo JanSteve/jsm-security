@@ -77,7 +77,7 @@ Sent from jsmintegratedservices.in
 
     const mailHtml = `
       <div style="font-family: sans-serif; padding: 20px; color: #0f172a;">
-        <h2 style="color: #0f2a47; margin-bottom: 4px;">🚨 New Ad Campaign Lead</h2>
+        <h2 style="color: #0A1322; margin-bottom: 4px;">🚨 New Ad Campaign Lead</h2>
         <p style="color: #64748b; font-size: 13px; margin-top: 0;">Ref: <strong>${leadRef}</strong> | ${timestamp}</p>
         <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 16px 0;" />
         <p><strong>Name:</strong> ${name}</p>

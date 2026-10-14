@@ -12,13 +12,26 @@ export function CTASection() {
           <span>Statutory Compliance Guaranteed &bull; 100% EPF/ESIC</span>
         </div>
 
-        <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-white font-bold tracking-tight max-w-2xl mx-auto">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl text-white font-bold tracking-tight max-w-2xl mx-auto">
           Ready to deploy disciplined security or verified workforce?
         </h2>
 
         <p className="text-sm sm:text-base text-neutral-300 max-w-xl mx-auto leading-relaxed">
-          Get an audited site deployment proposal and transparent statutory cost estimate within 2 hours.
+          Audited site deployment proposals and transparent statutory wage breakdowns delivered within 2 hours.
         </p>
+
+        {/* High-Contrast Metric Pills */}
+        <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/25 text-white font-mono text-[11px] sm:text-xs font-bold tracking-wide">
+            2-HOUR TURNAROUND
+          </span>
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/25 text-white font-mono text-[11px] sm:text-xs font-bold tracking-wide">
+            ZERO CLIENT LIABILITY
+          </span>
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/25 text-white font-mono text-[11px] sm:text-xs font-bold tracking-wide">
+            TRANSPARENT ECR PROOF
+          </span>
+        </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-2">
           {/* Primary CTA: Tactile Pure White Button */}

@@ -28,6 +28,8 @@ const corePillars = [
     badge: "Ex-Servicemen Led",
     title: "Private Security & Guarding",
     slug: "/services/private-security",
+    description: "Ex-Servicemen supervisory command deploying AAI-standard physical security, 02:00 AM unannounced patrol van audits, and contractual 2-hour relief standby.",
+    pills: ["2-Hr Relief SLA", "02:00 AM Audits", "AAI Benchmark"],
     bullets: [
       "Ex-Servicemen & Trained Marshals (M/F)",
       "Contractual 2-Hour Relief Replacement SLA",
@@ -43,6 +45,8 @@ const corePillars = [
     badge: "100% EPF & ESIC",
     title: "Contract Staffing & Manpower",
     slug: "/services/manpower",
+    description: "100% statutory compliant industrial and administrative staffing with monthly verified ECR challans, eliminating principal employer liability.",
+    pills: ["100% EPF/ESIC", "Zero Client Liability", "48–72h Mobilization"],
     bullets: [
       "Industrial Assembly & Machine Operators",
       "Corporate Office & Administrative Staff",
@@ -58,6 +62,8 @@ const corePillars = [
     badge: "Closed-Loop Hygiene",
     title: "Mechanized Facility & Housekeeping",
     slug: "/services/housekeeping",
+    description: "Mechanized industrial sanitation with heavy ride-on auto-scrubbers and verified 5-step clean-to-verify hospital & concourse hygiene protocols.",
+    pills: ["5-Step Hygiene", "Heavy Auto-Scrubbers", "Hourly Restroom Logs"],
     bullets: [
       "Heavy Industrial Ride-On Auto Scrubbers",
       "5-Step Clean-to-Verify Hygiene Protocol",
@@ -73,6 +79,8 @@ const corePillars = [
     badge: "CTO R Jan Steve Daniel",
     title: "Enterprise WhatsApp & Digital",
     slug: "/services",
+    description: "Official Meta Cloud WhatsApp chatbots, smart NFC 5-star review filters, and sub-second Next.js web applications engineered for local B2B conversion.",
+    pills: ["Meta Cloud API", "Smart NFC Standees", "<5s Auto-Response"],
     bullets: [
       "Official Meta Cloud WhatsApp Chatbots",
       "Smart NFC 5-Star Review Filter Standees",
@@ -111,7 +119,7 @@ export function ServicesOverview() {
               <span className="text-neutral-500">&bull;</span>
               <span>Single Accountable Partner</span>
             </div>
-            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight">
               Four Core Service Pillars
             </h2>
             <p className="text-xs sm:text-sm text-neutral-300">
@@ -158,8 +166,25 @@ export function ServicesOverview() {
                     </h3>
                   </div>
 
+                  {/* 1-Sentence Value Proposition */}
+                  <p className="text-xs text-neutral-300 leading-relaxed">
+                    {pillar.description}
+                  </p>
+
+                  {/* High-Contrast Metric Pills */}
+                  <div className="flex flex-wrap gap-1.5 pt-0.5">
+                    {pillar.pills.map((pill, pIdx) => (
+                      <span
+                        key={pIdx}
+                        className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-white/10 border border-white/20 text-white"
+                      >
+                        {pill}
+                      </span>
+                    ))}
+                  </div>
+
                   {/* Fact Bullets */}
-                  <ul className="space-y-2 pt-1 border-t border-white/10">
+                  <ul className="space-y-2 pt-2 border-t border-white/10">
                     {pillar.bullets.map((bullet, bIdx) => (
                       <li key={bIdx} className="flex items-start gap-2 text-xs text-neutral-300">
                         <CheckCircle2 size={13} className="text-white shrink-0 mt-0.5" />

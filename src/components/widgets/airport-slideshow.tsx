@@ -7,106 +7,90 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Plane, ShieldCheck, ArrowRight, Play, Pause, ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-export interface SlideItem {
+export interface OperationalPillar {
   id: string;
-  src: string;
+  number: string;
+  shortLabel: string;
   title: string;
   tag: string;
   location: string;
+  description: string;
+  src: string;
 }
 
-const slides: SlideItem[] = [
+// 5 Curated Operational Pillars (Apple / Stripe Calibrated 3.0s Auto-Crossfade)
+export const OPERATIONAL_PILLARS: OperationalPillar[] = [
   {
-    id: 'platoon-day',
-    src: '/images/trichy-airport/trichy_airport_platoon_salute_day.jpg',
+    id: '01-muster',
+    number: '01',
+    shortLabel: 'MUSTER',
     title: 'Morning Platoon Shift Muster & Armed Forces Regalia',
     tag: '05:00 AM Muster',
-    location: 'Trichy International Airport'
+    location: 'Trichy International Airport',
+    description: 'Daily turnout inspections and military-standard drill conducted under Indian Army ESM command.',
+    src: '/images/trichy-airport/trichy_airport_platoon_salute_day.jpg',
   },
   {
-    id: 'national-flag-salute',
-    src: '/images/trichy-airport/trichy_airport_platoon_national_flag.jpg',
-    title: 'Tricolour National Flag Platoon Inspection',
-    tag: 'National Flag Drill',
-    location: 'Airport Approach Avenue'
-  },
-  {
-    id: 'night-platoon-muster',
-    src: '/images/trichy-airport/trichy_airport_night_platoon_muster.jpg',
-    title: 'Night Shift Guard Muster & Attendance Logbook Verification',
-    tag: '22:00 Night Roll Call',
-    location: 'Concourse Apron'
-  },
-  {
-    id: 'concourse-facade',
-    src: '/images/trichy-airport/trichy_airport_terminal_concourse_facade.jpg',
-    title: 'International Concourse Cantilever & AAI Perimeter',
-    tag: 'Civil Aviation Terminal',
-    location: 'Passenger Concourse'
-  },
-  {
-    id: 'concourse-autoscrubber',
-    src: '/images/trichy-airport/trichy_airport_concourse_autoscrubber_cleaning.jpg',
-    title: 'Mechanized Granite Floor Auto-Scrubber & AAI Queue Barriers',
-    tag: 'Mechanized Facility Ops',
-    location: 'Departure Concourse'
-  },
-  {
-    id: 'aai-welcome-arch',
-    src: '/images/trichy-airport/trichy_airport_aai_welcome_portal.jpg',
-    title: 'Airports Authority of India (AAI) Official Gateway Portal',
-    tag: 'AAI Highway Portal',
-    location: 'Access Gateway'
-  },
-  {
-    id: 'commander-concourse-salute',
-    src: '/images/trichy-airport/trichy_airport_concourse_commander_salute.jpg',
-    title: 'Concourse Security Commander Sentry in Decorated Uniform',
+    id: '02-concourse',
+    number: '02',
+    shortLabel: 'CONCOURSE',
+    title: 'International Concourse Security & Access Sentry',
     tag: 'Terminal Access Control',
-    location: 'International Concourse'
+    location: 'International Departure Concourse',
+    description: 'Stationed sentries commanding access gates, passenger flow lanes, and VIP security cordons.',
+    src: '/images/trichy-airport/trichy_airport_concourse_commander_salute.jpg',
   },
   {
-    id: 'twilight-muster',
-    src: '/images/trichy-airport/trichy_airport_twilight_muster_salute.jpg',
-    title: 'Twilight Rotation Shift Handover & Zero-Defect Post Turnout',
-    tag: '18:00 Twilight Handover',
-    location: 'Approach Highway'
+    id: '03-mechanized',
+    number: '03',
+    shortLabel: 'MECHANIZED',
+    title: 'Mechanized Granite Auto-Scrubber & Facility Operations',
+    tag: 'Mechanized Facility Ops',
+    location: 'Passenger Concourse Apron',
+    description: 'High-speed industrial ride-on and walk-behind scrubbers maintaining spotless international terminal granite.',
+    src: '/images/trichy-airport/trichy_airport_concourse_autoscrubber_cleaning.jpg',
   },
   {
-    id: 'night-sentry-post',
-    src: '/images/trichy-airport/trichy_airport_night_security_post.jpg',
-    title: '02:00 AM Night Perimeter Sentry Post & Illuminated Flyover',
+    id: '04-night-patrol',
+    number: '04',
+    shortLabel: 'NIGHT PATROL',
+    title: '02:00 AM Night Perimeter Sentry & Illuminated Flyover Post',
     tag: '02:00 AM Night Sentry',
-    location: 'Terminal Flyover Post'
+    location: 'Terminal Flyover Post',
+    description: 'Continuous 24/7 vigil with unscheduled 02:00 AM surprise night inspections by Major AR Devadoss.',
+    src: '/images/trichy-airport/trichy_airport_night_security_post.jpg',
   },
   {
-    id: 'airside-architecture',
-    src: '/images/trichy-airport/trichy_airport_airside_terminal_architecture.jpg',
-    title: 'Airside Tarmac, Curved Canopy & Aerobridge Infrastructure',
-    tag: 'Airside Operations',
-    location: 'International Tarmac'
+    id: '05-aai-gateway',
+    number: '05',
+    shortLabel: 'AAI GATEWAY',
+    title: 'Official AAI Gateway Portal Drill & National Flag Inspection',
+    tag: 'National Flag Drill',
+    location: 'Access Gateway & Approach Avenue',
+    description: 'Official AAI portal sentry post and national tricolour ceremonial guard salute.',
+    src: '/images/trichy-airport/trichy_airport_platoon_national_flag.jpg',
   },
-  {
-    id: 'barrier-checkpoint',
-    src: '/images/trichy-airport/trichy_airport_barrier_checkpoint_salute.jpg',
-    title: 'Perimeter Barrier Checkpoint & Sentry Access Control',
-    tag: 'Access Barrier Sentry',
-    location: 'Airport Approach Checkpoint'
-  },
-  {
-    id: 'entrance-marshal',
-    src: '/images/trichy-airport/trichy_airport_entrance_marshal_salute.jpg',
-    title: 'Terminal Entrance Marshal Sentry & Passenger Greeting',
-    tag: 'Terminal Marshal Salute',
-    location: 'Main Concourse Entrance'
-  },
-  {
-    id: 'concourse-granite',
-    src: '/images/trichy-airport/trichy_airport_concourse_polished_granite.jpg',
-    title: 'Pristine Polished Granite Floor & Glass Concourse Architecture',
-    tag: 'Civil Aviation Facility',
-    location: 'International Departure Floor'
-  }
+];
+
+// Backwards-compatible alias for existing imports
+export const slides = OPERATIONAL_PILLARS;
+export type SlideItem = OperationalPillar;
+
+// Complete 13-Item Photographic Archive for Dossier & Asset Integrity Verification
+export const AIRPORT_OPERATIONS_ARCHIVE = [
+  { id: 'muster-day', src: '/images/trichy-airport/trichy_airport_platoon_salute_day.jpg' },
+  { id: 'flag-salute', src: '/images/trichy-airport/trichy_airport_platoon_national_flag.jpg' },
+  { id: 'night-muster', src: '/images/trichy-airport/trichy_airport_night_platoon_muster.jpg' },
+  { id: 'concourse-facade', src: '/images/trichy-airport/trichy_airport_terminal_concourse_facade.jpg' },
+  { id: 'autoscrubber', src: '/images/trichy-airport/trichy_airport_concourse_autoscrubber_cleaning.jpg' },
+  { id: 'welcome-arch', src: '/images/trichy-airport/trichy_airport_aai_welcome_portal.jpg' },
+  { id: 'commander-salute', src: '/images/trichy-airport/trichy_airport_concourse_commander_salute.jpg' },
+  { id: 'twilight-muster', src: '/images/trichy-airport/trichy_airport_twilight_muster_salute.jpg' },
+  { id: 'night-post', src: '/images/trichy-airport/trichy_airport_night_security_post.jpg' },
+  { id: 'airside', src: '/images/trichy-airport/trichy_airport_airside_terminal_architecture.jpg' },
+  { id: 'barrier', src: '/images/trichy-airport/trichy_airport_barrier_checkpoint_salute.jpg' },
+  { id: 'entrance', src: '/images/trichy-airport/trichy_airport_entrance_marshal_salute.jpg' },
+  { id: 'granite', src: '/images/trichy-airport/trichy_airport_concourse_polished_granite.jpg' },
 ];
 
 export interface AirportOperationsSlideshowProps {
@@ -114,53 +98,27 @@ export interface AirportOperationsSlideshowProps {
   autoPlayIntervalMs?: number;
 }
 
-const slideVariants = {
-  enter: (dir: number) => ({
-    x: dir > 0 ? 60 : -60,
-    opacity: 0,
-    scale: 0.99,
-  }),
-  center: {
-    x: 0,
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.6,
-      ease: "easeInOut" as const,
-    },
-  },
-  exit: (dir: number) => ({
-    x: dir > 0 ? -60 : 60,
-    opacity: 0,
-    scale: 0.99,
-    transition: {
-      duration: 0.45,
-      ease: "easeInOut" as const,
-    },
-  }),
-};
-
 export function AirportOperationsSlideshow({ 
   className = '',
-  autoPlayIntervalMs = 3500 // Comfortable 3.5 seconds timing
+  autoPlayIntervalMs = 3000 // Apple/Stripe calibrated 3.0s interval
 }: AirportOperationsSlideshowProps = {}) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const [direction, setDirection] = useState<1 | -1>(1);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
-  const activeThumbnailRef = useRef<HTMLButtonElement | null>(null);
 
   const handleNext = useCallback(() => {
-    setDirection(1);
-    setCurrentIndex((prev) => (prev + 1) % slides.length);
+    setCurrentIndex((prev) => (prev + 1) % OPERATIONAL_PILLARS.length);
   }, []);
 
   const handlePrev = useCallback(() => {
-    setDirection(-1);
-    setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
+    setCurrentIndex((prev) => (prev - 1 + OPERATIONAL_PILLARS.length) % OPERATIONAL_PILLARS.length);
   }, []);
 
-  // Smooth auto-scroll timer (3.5s interval)
+  const goToSlide = useCallback((idx: number) => {
+    setCurrentIndex(idx);
+  }, []);
+
+  // Calibrated 3.0s Auto-Advance Timer
   useEffect(() => {
     if (isPaused) return;
 
@@ -171,34 +129,23 @@ export function AirportOperationsSlideshow({
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, [isPaused, autoPlayIntervalMs, handleNext]);
+  }, [isPaused, autoPlayIntervalMs, handleNext, currentIndex]);
 
-  // Keep active thumbnail smoothly visible in viewport
-  useEffect(() => {
-    if (activeThumbnailRef.current) {
-      activeThumbnailRef.current.scrollIntoView({
-        behavior: 'smooth',
-        inline: 'center',
-        block: 'nearest'
-      });
-    }
-  }, [currentIndex]);
-
-  const activeSlide = slides[currentIndex];
+  const activePillar = OPERATIONAL_PILLARS[currentIndex];
 
   return (
     <section className={cn("py-8 sm:py-10 bg-black border-y border-white/10 text-white", className)}>
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
         
-        {/* Header Bar — Compact, Action-Oriented */}
+        {/* Header Bar — Minimalist, Institutional */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
           <div className="flex items-center gap-2.5">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-white">
-              Live Operations Slideshow &bull; Trichy International Airport (AAI)
+              Operations Showcase &bull; Trichy International Airport (AAI)
             </span>
             <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-neutral-300 tabular-nums">
-              {currentIndex + 1} / {slides.length}
+              0{currentIndex + 1} / 0{OPERATIONAL_PILLARS.length}
             </span>
           </div>
 
@@ -207,10 +154,10 @@ export function AirportOperationsSlideshow({
               type="button"
               onClick={() => setIsPaused(!isPaused)}
               className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-white/5 hover:bg-white/10 border border-white/15 text-[11px] font-mono text-neutral-300 hover:text-white transition-colors"
-              title={isPaused ? "Resume auto-advance (3.5s)" : "Pause auto-advance"}
+              title={isPaused ? "Resume auto-advance (3.0s)" : "Pause auto-advance"}
             >
               {isPaused ? <Play size={10} className="text-white" /> : <Pause size={10} className="text-white" />}
-              <span>{isPaused ? "Paused" : "Auto (3.5s)"}</span>
+              <span>{isPaused ? "Paused" : "Auto (3.0s)"}</span>
             </button>
 
             <Link
@@ -223,153 +170,139 @@ export function AirportOperationsSlideshow({
           </div>
         </div>
 
-        {/* Slideshow Banner — Real-time interactive drag + cinematic crossfade */}
+        {/* Showcase Banner — Pure Apple/Stripe 3.0s Dissolve Crossfade (No Dragging Listeners) */}
         <div 
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
-          className="relative w-full h-[260px] sm:h-[320px] md:h-[380px] rounded-xl overflow-hidden bg-[#080C14] border border-white/15 shadow-2xl select-none"
+          className="relative w-full h-[260px] sm:h-[320px] md:h-[400px] rounded-xl overflow-hidden bg-[#080C14] border border-white/15 shadow-2xl select-none"
         >
-          {/* Draggable Motion Track with Real-time spring feedback */}
-          <motion.div
-            drag="x"
-            dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={0.2}
-            onDragStart={() => setIsPaused(true)}
-            onDragEnd={(_, info) => {
-              setIsPaused(false);
-              if (info.offset.x < -40 || info.velocity.x < -250) {
-                handleNext();
-              } else if (info.offset.x > 40 || info.velocity.x > 250) {
-                handlePrev();
-              }
-            }}
-            className="w-full h-full cursor-grab active:cursor-grabbing relative"
-          >
-            {/* Cinematic Directional Crossfade Slide */}
-            <AnimatePresence initial={false} custom={direction} mode="popLayout">
+          {/* Crossfade Image Layer */}
+          <div className="relative w-full h-full overflow-hidden">
+            <AnimatePresence initial={false} mode="sync">
               <motion.div
-                key={activeSlide.id}
-                custom={direction}
-                variants={slideVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                className="absolute inset-0 select-none pointer-events-none"
+                key={activePillar.id}
+                initial={{ opacity: 0, scale: 1.02 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute inset-0"
               >
                 <Image
-                  src={activeSlide.src}
-                  alt={activeSlide.title}
+                  src={activePillar.src}
+                  alt={activePillar.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 1280px"
-                  priority={currentIndex < 2}
-                  draggable={false}
-                  className="object-cover object-center select-none"
+                  priority={currentIndex < 3}
+                  className="object-cover object-center"
                 />
               </motion.div>
             </AnimatePresence>
 
-            {/* Gradient Overlays for pristine legibility */}
+            {/* Gradient Overlays for High-Contrast Readability */}
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none" />
             <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60 pointer-events-none" />
 
-            {/* Top Left Badge */}
+            {/* Top Left Pillar Badge */}
             <div className="absolute top-3 left-3 z-10 flex items-center gap-2 pointer-events-none">
               <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-white/20 text-[10px] font-mono font-bold text-white shadow-lg">
                 <Plane size={11} className="text-white" />
-                <span>{activeSlide.tag}</span>
+                <span>{activePillar.tag}</span>
               </span>
               <span className="hidden sm:inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-white/10 backdrop-blur-md border border-white/15 text-[10px] font-mono text-neutral-300">
                 <ShieldCheck size={11} />
-                <span>{activeSlide.location}</span>
+                <span>{activePillar.location}</span>
               </span>
             </div>
 
-            {/* Bottom Title Bar & Navigation Controls */}
+            {/* Bottom Title Bar & Navigation Chevron Controls */}
             <div className="absolute bottom-3 inset-x-3 sm:bottom-4 sm:inset-x-4 z-10 flex items-end justify-between gap-4 pointer-events-none">
-              <div className="space-y-0.5 max-w-2xl text-left">
-                <h3 className="font-serif text-sm sm:text-base md:text-lg font-bold text-white tracking-tight drop-shadow-md">
-                  {activeSlide.title}
+              <div className="space-y-1 max-w-2xl text-left">
+                <div className="inline-block text-[10px] font-mono uppercase tracking-wider text-neutral-400">
+                  {activePillar.number} &bull; {activePillar.shortLabel}
+                </div>
+                <h3 className="text-sm sm:text-base md:text-lg font-bold text-white tracking-tight drop-shadow-md">
+                  {activePillar.title}
                 </h3>
                 <p className="text-[11px] sm:text-xs text-neutral-300 drop-shadow line-clamp-1">
-                  Airports Authority of India Concourse Security &bull; Tiruchirappalli International Airport &bull; Supervised by Major AR Devadoss
+                  {activePillar.description}
                 </p>
               </div>
 
-              {/* Manual Nav Controls */}
+              {/* Prev / Next Chevrons */}
               <div className="flex items-center gap-1.5 pointer-events-auto shrink-0">
                 <button
                   type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handlePrev();
-                  }}
-                  className="w-8 h-8 rounded-full bg-black/75 hover:bg-white hover:text-black text-white border border-white/20 flex items-center justify-center transition-all shadow-lg active:scale-95"
-                  aria-label="Previous photo"
+                  onClick={handlePrev}
+                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/80 hover:bg-white hover:text-black text-white border border-white/20 flex items-center justify-center transition-all shadow-lg active:scale-95"
+                  aria-label="Previous operational pillar"
                 >
                   <ChevronLeft size={16} />
                 </button>
                 <button
                   type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleNext();
-                  }}
-                  className="w-8 h-8 rounded-full bg-black/75 hover:bg-white hover:text-black text-white border border-white/20 flex items-center justify-center transition-all shadow-lg active:scale-95"
-                  aria-label="Next photo"
+                  onClick={handleNext}
+                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/80 hover:bg-white hover:text-black text-white border border-white/20 flex items-center justify-center transition-all shadow-lg active:scale-95"
+                  aria-label="Next operational pillar"
                 >
                   <ChevronRight size={16} />
                 </button>
               </div>
             </div>
-          </motion.div>
-
-          {/* Top Progress Bar Ticker — Smooth 3.5s Animation */}
-          <div className="absolute top-0 inset-x-0 h-1 bg-white/10 z-20 pointer-events-none">
-            <div 
-              key={`${currentIndex}-${isPaused ? 'paused' : 'running'}`}
-              className={cn(
-                "h-full bg-white transition-all",
-                !isPaused && "duration-[3500ms] ease-linear w-full",
-                isPaused && "w-0"
-              )}
-              style={{ width: isPaused ? '0%' : '100%' }}
-            />
           </div>
         </div>
 
-        {/* Thumbnail Carousel Track — Smooth horizontal scroll */}
-        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 scroll-smooth">
-          {slides.map((s, idx) => {
+        {/* 5 Segmented Progress Pills Navigation (Apple / Stripe Signature) */}
+        <div className="grid grid-cols-5 gap-2 sm:gap-3 pt-1">
+          {OPERATIONAL_PILLARS.map((pillar, idx) => {
             const isActive = idx === currentIndex;
+            const isCompleted = idx < currentIndex;
             return (
               <button
-                key={s.id}
-                ref={isActive ? activeThumbnailRef : null}
+                key={pillar.id}
                 type="button"
-                onClick={() => {
-                  setDirection(idx > currentIndex ? 1 : -1);
-                  setCurrentIndex(idx);
-                }}
+                onClick={() => goToSlide(idx)}
                 className={cn(
-                  "relative w-16 h-11 sm:w-20 sm:h-13 shrink-0 rounded-lg overflow-hidden border transition-all duration-300",
+                  "group/pill flex flex-col justify-between p-2 sm:p-2.5 rounded-xl border text-left transition-all duration-200 min-h-[48px]",
                   isActive
-                    ? "border-white ring-2 ring-white/50 opacity-100 scale-105 shadow-md"
-                    : "border-white/15 opacity-40 hover:opacity-80"
+                    ? "bg-white/[0.08] border-white/40 shadow-lg"
+                    : "bg-[#080C14] hover:bg-[#0C101A] border-white/10 hover:border-white/25"
                 )}
-                title={s.title}
-                aria-label={`Go to slide ${idx + 1}: ${s.title}`}
+                aria-label={`Switch to pillar ${pillar.number}: ${pillar.title}`}
+                aria-current={isActive ? 'true' : undefined}
               >
-                <Image
-                  src={s.src}
-                  alt={s.title}
-                  fill
-                  sizes="100px"
-                  draggable={false}
-                  className="object-cover pointer-events-none"
-                />
-                <span className="absolute bottom-0.5 right-1 text-[9px] font-mono text-white/90 drop-shadow">
-                  {idx + 1}
-                </span>
+                {/* Linear Filling Progress Indicator */}
+                <div className="h-1 sm:h-1.5 w-full rounded-full bg-white/10 overflow-hidden relative mb-1.5">
+                  {isCompleted && (
+                    <div className="h-full w-full bg-white/40 rounded-full" />
+                  )}
+                  {isActive && (
+                    <motion.div
+                      key={`progress-${currentIndex}-${isPaused ? 'paused' : 'running'}`}
+                      initial={{ width: '0%' }}
+                      animate={{ width: isPaused ? '0%' : '100%' }}
+                      transition={{ duration: isPaused ? 0 : 3.0, ease: 'linear' }}
+                      className="h-full bg-white rounded-full shadow-[0_0_8px_rgba(255,255,255,0.6)]"
+                    />
+                  )}
+                </div>
+
+                {/* Pill Identifier & Micro-Copy */}
+                <div className="flex items-center justify-between w-full">
+                  <span className={cn(
+                    "font-mono text-[10px] sm:text-xs font-bold transition-colors",
+                    isActive ? "text-white" : "text-neutral-400 group-hover/pill:text-neutral-200"
+                  )}>
+                    <span className="opacity-60">{pillar.number}</span>{' '}
+                    <span className="hidden sm:inline">{pillar.shortLabel}</span>
+                    <span className="sm:hidden">{pillar.shortLabel.slice(0, 4)}</span>
+                  </span>
+                  <span className={cn(
+                    "hidden md:inline-block text-[9px] font-mono px-1.5 py-0.5 rounded",
+                    isActive ? "bg-white/20 text-white font-semibold" : "text-neutral-500"
+                  )}>
+                    {pillar.tag}
+                  </span>
+                </div>
               </button>
             );
           })}

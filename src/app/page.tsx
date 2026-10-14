@@ -104,14 +104,14 @@ export default function Home() {
       {/* 1. Hero Section: Mobile-first video reel + punchy copy */}
       <HeroSection />
 
-      {/* 2. Plain Flat Trust Credentials Strip */}
+      {/* 2. Plain Flat Trust Credentials Strip (with ClientLogoMarquee) */}
       <TrustBar />
 
-      {/* 3. Divided List Three-Tier Operations Model */}
-      <ServicesOverview />
-
-      {/* 4. Compact 1.0s High-Velocity Airport & Guard Operations Slideshow */}
+      {/* 3. High-Velocity Operations Showcase (3.0s Auto-Crossfade) */}
       <AirportOperationsSlideshow />
+
+      {/* 4. Core Four-Pillar Operations Matrix */}
+      <ServicesOverview />
 
       {/* 5. Executive Leadership & Operational Command */}
       <ExecutiveLeadershipSection />
@@ -125,7 +125,7 @@ export default function Home() {
       {/* 8. Direct Quotable FAQ Accordion */}
       <FAQSection />
 
-      {/* 9. Solid Navy Closing Conversion CTA Band */}
+      {/* 9. High-Conversion Space Black Closing CTA Band */}
       <CTASection />
     </div>
   );

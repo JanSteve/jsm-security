@@ -9,19 +9,12 @@ import { brandData } from "@/data/brand";
 import { getUnifiedKnowledgeGraph } from "@/lib/schema";
 import { cn } from "@/lib/utils";
 
-import { Public_Sans, Source_Serif_4 } from "next/font/google";
+import { Public_Sans } from "next/font/google";
 
 const publicSans = Public_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
-  display: "swap",
-});
-
-const sourceSerif = Source_Serif_4({
-  subsets: ["latin"],
-  weight: ["600", "700"],
-  variable: "--font-serif",
   display: "swap",
 });
 
@@ -144,8 +137,7 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-screen bg-black font-sans antialiased text-white selection:bg-white/20 selection:text-white",
-          publicSans.variable,
-          sourceSerif.variable
+          publicSans.variable
         )}
       >
         <Providers>

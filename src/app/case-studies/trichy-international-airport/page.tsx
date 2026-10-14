@@ -84,7 +84,7 @@ export default function AirportCaseStudyPage() {
             </span>
           </div>
 
-          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl text-white font-bold tracking-tight leading-tight">
+          <h1 className="font-sans text-3xl sm:text-4xl md:text-5xl text-white font-bold tracking-tight leading-tight">
             Tiruchirappalli International Airport Concourse Operations
           </h1>
 
@@ -108,7 +108,7 @@ export default function AirportCaseStudyPage() {
               <span className="text-[11px] font-mono uppercase font-bold text-neutral-400">
                 Official Institutional Client
               </span>
-              <h2 className="font-serif text-xl sm:text-2xl font-bold text-white">
+              <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
                 Airports Authority of India (AAI)
               </h2>
               <p className="text-xs sm:text-sm text-neutral-300">
@@ -160,7 +160,7 @@ export default function AirportCaseStudyPage() {
         {/* Case Narrative */}
         <section className="space-y-8 text-sm sm:text-base text-neutral-200 leading-relaxed">
           <div className="space-y-3">
-            <h2 className="font-display text-2xl font-bold text-white">
+            <h2 className="font-sans text-xl sm:text-2xl font-bold text-white tracking-tight">
               The Operational Challenge
             </h2>
             <p className="text-neutral-300">
@@ -169,7 +169,7 @@ export default function AirportCaseStudyPage() {
           </div>
 
           <div className="space-y-3">
-            <h2 className="font-display text-2xl font-bold text-white">
+            <h2 className="font-sans text-xl sm:text-2xl font-bold text-white tracking-tight">
               The JSM Deployment Solution
             </h2>
             <p className="text-neutral-300">
@@ -192,7 +192,7 @@ export default function AirportCaseStudyPage() {
           </div>
 
           <div className="space-y-3">
-            <h2 className="font-display text-2xl font-bold text-white">
+            <h2 className="font-sans text-xl sm:text-2xl font-bold text-white tracking-tight">
               Measurable Operational Outcomes
             </h2>
             <p className="text-neutral-300">
