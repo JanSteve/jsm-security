@@ -1,4 +1,5 @@
 import { brandData } from "@/data/brand";
+import type { LocationData } from "@/data/locations";
 
 /**
  * Returns the unified canonical Knowledge Graph for JSM Integrated Services.
@@ -440,5 +441,142 @@ export function geoTargetSchema() {
       "longitude": 78.7047
     },
     "geoRadius": "500000"
+  };
+}
+
+export function locationLocalBusinessSchema(location: LocationData) {
+  const domain = brandData.domain;
+  const locationUrl = `${domain}/locations/${location.slug}`;
+  const orgId = `${domain}/#organization`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["LocalBusiness", "SecurityService", "EmploymentAgency", "ProfessionalService"],
+        "@id": `${locationUrl}#localbusiness`,
+        "name": `JSM Integrated Services - ${location.city}`,
+        "alternateName": [
+          `JSM ${location.city}`,
+          `JSM Security ${location.city}`,
+          `JSM Manpower ${location.city}`,
+          `Security Guard Agency in ${location.city}`,
+          `Contract Labour Supplier in ${location.city}`,
+        ],
+        "description": location.operationalOverview,
+        "parentOrganization": { "@id": orgId },
+        "url": locationUrl,
+        "telephone": brandData.contact.phone,
+        "email": brandData.contact.email,
+        "priceRange": "₹₹",
+        "currenciesAccepted": "INR",
+        "paymentAccepted": "Cash, Credit Card, Bank Transfer, UPI, Cheque",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": location.address,
+          "addressLocality": location.city,
+          "addressRegion": "Tamil Nadu",
+          "postalCode": location.postalCode,
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": location.latitude,
+          "longitude": location.longitude
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": location.city,
+            "containedInPlace": {
+              "@type": "State",
+              "name": "Tamil Nadu"
+            }
+          },
+          ...location.keyIndustrialZones.map((zone) => ({
+            "@type": "Place",
+            "name": zone
+          }))
+        ],
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "00:00",
+          "closes": "23:59"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "58",
+          "bestRating": "5"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": `Industrial & Commercial Services in ${location.city}`,
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": `Security Guard Forces & Ex-Servicemen Supervision in ${location.city}`,
+                "description": `100% EPF/ESIC compliant industrial security personnel, perimeter surveillance, and 2-hour relief standby in ${location.city}.`
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": `Contract Labour & Industrial Manpower in ${location.city}`,
+                "description": `Assembly line technicians, warehouse material handlers, and 100% statutory compliant contract staffing in ${location.city}.`
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": `Mechanized Facility Management & Housekeeping in ${location.city}`,
+                "description": `Industrial floor auto-scrubbing, deep sanitation, and corporate housekeeping services in ${location.city}.`
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${locationUrl}#breadcrumb`,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": domain
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Regional Hubs",
+            "item": `${domain}/locations`
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": location.city,
+            "item": locationUrl
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${locationUrl}#faq`,
+        "mainEntity": location.localFaqs.map((faq) => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
+          }
+        }))
+      }
+    ]
   };
 }

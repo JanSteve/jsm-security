@@ -10,6 +10,11 @@ export const navigationData: NavItem[] = [
     href: "/services",
   },
   {
+    title: "Regional Hubs",
+    href: "/locations",
+    badge: "8 Hubs",
+  },
+  {
     title: "Airport Operations",
     href: "/case-studies/trichy-international-airport",
     badge: "AAI Client",
@@ -23,4 +28,3 @@ export const navigationData: NavItem[] = [
     href: "/contact",
   },
 ];
-

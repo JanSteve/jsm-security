@@ -104,12 +104,46 @@ export function Footer() {
               Tamil Nadu Coverage
             </h4>
             <ul className="space-y-1.5 text-xs text-neutral-300">
-              <li><span className="font-semibold text-white">Trichy:</span> Central Operations Command</li>
-              <li><span className="font-semibold text-white">Chennai:</span> OMR &amp; Commercial Corridor</li>
-              <li><span className="font-semibold text-white">Coimbatore:</span> Industrial &amp; Manufacturing</li>
-              <li><span className="font-semibold text-white">Hosur:</span> Automotive &amp; Electronics SEZ</li>
-              <li><span className="font-semibold text-white">Salem:</span> Heavy Engineering &amp; Metals</li>
-              <li><span className="font-semibold text-white">Madurai:</span> Southern Commercial Hub</li>
+              <li>
+                <Link href="/locations/trichy" className="hover:text-white transition-colors">
+                  <span className="font-semibold text-white">Trichy:</span> Central Command HQ
+                </Link>
+              </li>
+              <li>
+                <Link href="/locations/chennai" className="hover:text-white transition-colors">
+                  <span className="font-semibold text-white">Chennai:</span> OMR &amp; Commercial Corridor
+                </Link>
+              </li>
+              <li>
+                <Link href="/locations/coimbatore" className="hover:text-white transition-colors">
+                  <span className="font-semibold text-white">Coimbatore:</span> Industrial &amp; Manufacturing
+                </Link>
+              </li>
+              <li>
+                <Link href="/locations/hosur" className="hover:text-white transition-colors">
+                  <span className="font-semibold text-white">Hosur:</span> Automotive &amp; Electronics SEZ
+                </Link>
+              </li>
+              <li>
+                <Link href="/locations/salem" className="hover:text-white transition-colors">
+                  <span className="font-semibold text-white">Salem:</span> Heavy Engineering &amp; Metals
+                </Link>
+              </li>
+              <li>
+                <Link href="/locations/madurai" className="hover:text-white transition-colors">
+                  <span className="font-semibold text-white">Madurai:</span> Southern Commercial Hub
+                </Link>
+              </li>
+              <li>
+                <Link href="/locations/erode" className="hover:text-white transition-colors">
+                  <span className="font-semibold text-white">Erode:</span> Textile &amp; Processing SEZ
+                </Link>
+              </li>
+              <li className="pt-1">
+                <Link href="/locations" className="hover:text-white transition-colors font-semibold text-white underline underline-offset-4">
+                  All 8 Industrial Corridors &rarr;
+                </Link>
+              </li>
             </ul>
           </div>
 

@@ -5,7 +5,8 @@ import {
   StatsSection, 
   FAQSection, 
   CTASection, 
-  ExecutiveLeadershipSection 
+  ExecutiveLeadershipSection,
+  ReviewsShowcase 
 } from "@/components/sections";
 import { AirportOperationsSlideshow } from "@/components/widgets/airport-slideshow";
 import { homeFAQs } from "@/data/faqs";
@@ -118,10 +119,13 @@ export default function Home() {
       {/* 6. Audited Operational SLAs & Metrics Module */}
       <StatsSection />
 
-      {/* 7. Direct Quotable FAQ Accordion */}
+      {/* 7. Verified Customer Reviews & Google Maps Social Proof */}
+      <ReviewsShowcase />
+
+      {/* 8. Direct Quotable FAQ Accordion */}
       <FAQSection />
 
-      {/* 8. Solid Navy Closing Conversion CTA Band */}
+      {/* 9. Solid Navy Closing Conversion CTA Band */}
       <CTASection />
     </div>
   );

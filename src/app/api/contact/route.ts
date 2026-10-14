@@ -64,7 +64,9 @@ export async function POST(req: NextRequest) {
       timestamp,
     });
 
-    const targetRecipient = process.env.CONTACT_NOTIFICATION_EMAIL || 'jsmintegratedservices@outlook.com';
+    const targetRecipients = process.env.CONTACT_NOTIFICATION_EMAIL
+      ? [process.env.CONTACT_NOTIFICATION_EMAIL]
+      : ['jsmintegratedservices@outlook.com', 'sales@jsmintegratedservices.com'];
 
     // HTML Email Template for JSM Operations Desk
     const htmlEmail = `
@@ -200,7 +202,7 @@ Sent from jsmintegratedservices.in
           body: JSON.stringify({
             from: 'JSM Integrated Services <contact@jsmintegratedservices.com>',
             reply_to: email || 'contact@jsmintegratedservices.com',
-            to: [targetRecipient],
+            to: targetRecipients,
             subject: `New Client Lead: ${name || 'Client'} — ${service || 'Site Assessment'} [${ticketRef}]`,
             text: textEmail,
             html: htmlEmail,
@@ -237,7 +239,7 @@ Sent from jsmintegratedservices.in
 
         await transporter.sendMail({
           from: `"JSM Leads Portal" <${process.env.OUTLOOK_EMAIL}>`,
-          to: targetRecipient,
+          to: targetRecipients.join(', '),
           replyTo: email || process.env.OUTLOOK_EMAIL,
           subject: `🚨 New Lead: ${name || 'Client'} - ${service || 'Site Assessment'} [${ticketRef}]`,
           text: textEmail,

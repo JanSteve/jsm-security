@@ -8,6 +8,12 @@ interface PageMetadataOptions {
   image?: string;
   keywords?: string[];
   type?: 'website' | 'article';
+  geo?: {
+    city: string;
+    latitude: number;
+    longitude: number;
+    postalCode: string;
+  };
 }
 
 export function constructMetadata({
@@ -17,6 +23,7 @@ export function constructMetadata({
   image = '/images/jsm_logo_black.png',
   keywords = [],
   type = 'website',
+  geo,
 }: PageMetadataOptions): Metadata {
   const cleanPath = path.startsWith('/') ? path : `/${path}`;
   const url = `${brandData.domain}${cleanPath}`;
@@ -33,6 +40,11 @@ export function constructMetadata({
     "Manpower Supply Agency Tamil Nadu",
     "Integrated Facility Management Tamil Nadu"
   ];
+
+  const city = geo?.city || 'Tiruchirappalli';
+  const lat = geo?.latitude ?? 10.7905;
+  const lng = geo?.longitude ?? 78.7047;
+  const pin = geo?.postalCode || '620021';
 
   return {
     title,
@@ -67,12 +79,12 @@ export function constructMetadata({
     },
     other: {
       'geo.region': 'IN-TN',
-      'geo.placename': 'Tiruchirappalli, Tamil Nadu, India',
-      'geo.position': '10.7905;78.7047',
-      'ICBM': '10.7905, 78.7047',
-      'business:contact_data:locality': 'Tiruchirappalli',
+      'geo.placename': `${city}, Tamil Nadu, India`,
+      'geo.position': `${lat};${lng}`,
+      'ICBM': `${lat}, ${lng}`,
+      'business:contact_data:locality': city,
       'business:contact_data:region': 'Tamil Nadu',
-      'business:contact_data:postal_code': '620021',
+      'business:contact_data:postal_code': pin,
       'business:contact_data:country_name': 'India',
     },
   };

@@ -1,3 +1,10 @@
+export interface SectorBattlecard {
+  sector: string;
+  painPoint: string;
+  jsmSolution: string;
+  sla: string;
+}
+
 export interface LocationData {
   slug: string;
   city: string;
@@ -6,6 +13,9 @@ export interface LocationData {
   regionType: string;
   role: string;
   address: string;
+  postalCode: string;
+  latitude: number;
+  longitude: number;
   phone: string;
   email: string;
   metaTitle: string;
@@ -15,6 +25,8 @@ export interface LocationData {
   operationalOverview: string;
   keyIndustrialZones: string[];
   deploymentSectors: string[];
+  highIntentKeywords: string[];
+  sectorBattlecards: SectorBattlecard[];
   responseSla: string;
   supervisoryModel: string;
   complianceHighlights: string[];
@@ -30,16 +42,19 @@ export const locationsData: LocationData[] = [
     regionType: "Central Command & Corporate Headquarters",
     role: "Headquarters & 24/7 Operations Command",
     address: "D.No. 87, Plot No. 112, Gandhi Nagar, Kottapattu Block - R.V.S. Nagar 2nd Cross Road, Tiruchirappalli, Tamil Nadu - 620021",
+    postalCode: "620021",
+    latitude: 10.7905,
+    longitude: 78.7047,
     phone: "+91 90808 63448",
     email: "contact@jsmintegratedservices.com",
-    metaTitle: "Security & Facility Services in Trichy",
-    metaDescription: "100% EPF & ESIC Compliant-licensed security guards, contract manpower, and mechanized housekeeping services in Trichy. Headquarters with 2-hour relief standby SLA.",
+    metaTitle: "Security Guard Agency & Facility Services in Trichy",
+    metaDescription: "Ex-Servicemen led security guards, 100% EPF/ESIC compliant contract manpower, and mechanized housekeeping in Trichy. Headquarters with 2-hour relief standby guarantee.",
     heroHeadline: "Security Guard Forces & Integrated Facilities in Tiruchirappalli",
-    heroSubheadline: "Headquartered in Trichy, JSM Integrated Services provides 100% EPF & ESIC Compliant-licensed Ex-Servicemen supervisory security, compliant industrial staffing, and mechanized housekeeping across the central Tamil Nadu corridor.",
-    operationalOverview: "As our founding headquarters and central operations node, Tiruchirappalli houses our 24/7 control room, quick-reaction standby squads, and physical muster ground. From landmark concourse security at Tiruchirappalli International Airport to heavy engineering fabricators along the Thuvakudi-BHEL belt, our deployed teams operate under daily pre-shift inspections and 2:00 AM supervisor van audits.",
+    heroSubheadline: "Headquartered in Trichy, JSM Integrated Services delivers veteran-led security forces, compliant industrial staffing, and mechanized facility management across Central Tamil Nadu.",
+    operationalOverview: "As our central headquarters and operational command center, Tiruchirappalli houses our 24/7 dispatch desk, quick-reaction standby squads, and physical muster ground. From landmark concourse security at Tiruchirappalli International Airport to heavy engineering fabricators along the Thuvakudi-BHEL belt, our deployed teams operate under daily pre-shift inspections and 2:00 AM unannounced supervisor van audits.",
     keyIndustrialZones: [
       "Thuvakudi & BHEL Industrial Belt",
-      "Trichy International Airport Concourse & Logistics Area",
+      "Trichy International Airport Concourse & Cargo Complex",
       "Mathur & Viralimalai Manufacturing Clusters",
       "Cantonment & Thillai Nagar Commercial Enclaves"
     ],
@@ -49,18 +64,47 @@ export const locationsData: LocationData[] = [
       "Commercial Offices & Banking Institutions",
       "Healthcare Facilities & Residential Townships"
     ],
+    highIntentKeywords: [
+      "Security guard agency in Trichy",
+      "Security services in Trichy",
+      "Contract labour supplier in Trichy",
+      "Manpower agency Trichy",
+      "Housekeeping services Trichy",
+      "Ex-servicemen security guards Trichy",
+      "AAI airport security contractor Trichy"
+    ],
+    sectorBattlecards: [
+      {
+        sector: "Aviation & Transport Terminals",
+        painPoint: "High crowd surges, unvetted civilian staff, passenger access disputes.",
+        jsmSolution: "Concourse barrier crowd control verified at Trichy International Airport, strict AVSEC protocols, 100% police antecedent verification.",
+        sla: "Zero Security Incident Track Record"
+      },
+      {
+        sector: "BHEL & Thuvakudi Fabricators",
+        painPoint: "Raw material theft, scrap shrinkage, unauthorized nocturnal trespassing.",
+        jsmSolution: "Dual-barrier weighbridge logging, material gate-pass enforcement, 2:00 AM supervisor patrol van inspections.",
+        sla: "2-Hour Emergency Relief Standby"
+      },
+      {
+        sector: "Healthcare & Multi-Specialty Clinics",
+        painPoint: "Cross-contamination risks, patient casualty crowding, receptionist overload.",
+        jsmSolution: "Hospital-grade color-coded microfiber sanitation, trained patient escort marshals, automated WhatsApp token trackers.",
+        sla: "Hourly Sanitization Logs"
+      }
+    ],
     responseSla: "2-Hour Emergency Standby Relief Guarantee",
     supervisoryModel: "Ex-Servicemen (ESM) Field Officers & Mobile Patrol Units",
     complianceHighlights: [
-      "Statutory Labour Law Compliant Tamil Nadu Home Department Licensed",
-      "100% EPF & ESIC Monthly Remittance with Zero Client Liability",
+      "Tamil Nadu Home Department PSARA 2005 Licensed",
+      "100% EPF & ESIC Monthly Remittance with ECR Challans",
       "Mandatory Police & Aadhaar Verified Personnel",
-      "Professional Private Security & Facility Operations Quality Management Certified"
+      "2-Hour Rapid Relief Standby Response Guarantee"
     ],
     localFaqs: [
       {
         question: "Where is the JSM Trichy headquarters located?",
-        answer: "Our central operations headquarters is located at D.No. 87, Plot No. 112, Gandhi Nagar, Kottapattu Block - R.V.S. Nagar 2nd Cross Road, Tiruchirappalli - 620021."
+        answer: "Our central operations headquarters is located at D.No. 87, Plot No. 112, Gandhi Nagar, Kottapattu Block - R.V.S. Nagar 2nd Cross Road, Tiruchirappalli - 620021. You can visit or call our 24/7 desk at +91 90808 63448."
       },
       {
         question: "How fast can JSM deploy security or manpower in Trichy?",
@@ -79,14 +123,17 @@ export const locationsData: LocationData[] = [
     state: "Tamil Nadu",
     regionType: "IT Corridor & Commercial Division",
     role: "OMR IT Corridor & Commercial Operations Division",
-    address: "Sholinganallur & Guindy Industrial Hub, Chennai, Tamil Nadu",
+    address: "Sholinganallur & Guindy Industrial Hub, Chennai, Tamil Nadu - 600119",
+    postalCode: "600119",
+    latitude: 13.0827,
+    longitude: 80.2707,
     phone: "+91 90808 63448",
     email: "contact@jsmintegratedservices.com",
-    metaTitle: "Security & Facility Management in Chennai",
-    metaDescription: "100% EPF & ESIC Compliant-licensed corporate security, OMR IT park guarding, and mechanized facility management across Chennai and Kanchipuram.",
+    metaTitle: "Security Guard Agency & Facility Management in Chennai",
+    metaDescription: "100% EPF/ESIC compliant corporate security, OMR IT park guarding, and mechanized facility management across Chennai, Guindy, and Sriperumbudur.",
     heroHeadline: "Corporate Security & Commercial Facility Management in Chennai",
     heroSubheadline: "Dedicated operational divisions serving IT parks along OMR, industrial zones in Guindy and Sriperumbudur, and premium corporate offices across Chennai.",
-    operationalOverview: "JSM Integrated Services delivers structured enterprise security and commercial facility solutions across Chennai's high-density tech corridors and industrial manufacturing clusters. Our personnel undergo specialized corporate etiquette and digital visitor management training to meet the stringent compliance expectations of multinational software centers, data centers, and multi-tenant commercial enclaves.",
+    operationalOverview: "JSM Integrated Services delivers structured enterprise security and commercial facility solutions across Chennai's high-density tech corridors and automotive clusters. Our personnel undergo corporate etiquette and digital visitor management training to meet the stringent compliance expectations of multinational tech parks, data centers, and multi-tenant commercial towers.",
     keyIndustrialZones: [
       "OMR IT Expressway (Sholinganallur to Siruseri SIPCOT)",
       "Guindy & Ambattur Industrial Estates",
@@ -99,12 +146,41 @@ export const locationsData: LocationData[] = [
       "Automotive & Electronics Assembly Plants",
       "Gated Residential Communities & Embassies"
     ],
+    highIntentKeywords: [
+      "Security services in Chennai",
+      "Security guard agency OMR Chennai",
+      "Corporate security guards Guindy",
+      "Contract manpower supplier Chennai",
+      "Commercial facility management Chennai",
+      "Mechanized housekeeping Chennai",
+      "Ex-servicemen security Chennai"
+    ],
+    sectorBattlecards: [
+      {
+        sector: "OMR Tech Parks & Global GCCs",
+        painPoint: "High employee turnover, unpolished gate security, unverified delivery couriers.",
+        jsmSolution: "Bilingual security guards (English + Tamil), digital QR visitor badges, strict badge access turnstiles, 2-hour relief standby.",
+        sla: "100% Biometric Turnout Inspection"
+      },
+      {
+        sector: "Automotive Hubs (Sriperumbudur / Oragadam)",
+        painPoint: "Assembly shift absenteeism, unauthorized tool removal, contractor labor disputes.",
+        jsmSolution: "100% EPF/ESIC statutory indemnified industrial staffing, vehicle search pits, strict RGP/NRGP material gate registers.",
+        sla: "Zero Joint Labour Liability Guarantee"
+      },
+      {
+        sector: "Multi-Tenant Commercial Basements",
+        painPoint: "Basement oil spills, poor dust control, irregular contractor attendance.",
+        jsmSolution: "Mechanized ride-on auto scrubbers, scheduled night cleaning shifts, daily photographic audit logs.",
+        sla: "99.2% Mechanized Uptime"
+      }
+    ],
     responseSla: "2-Hour Standby Relief SLA across Chennai Metro",
     supervisoryModel: "24/7 Field Officers & Electronic Guard Patrol Logs",
     complianceHighlights: [
-      "Full EPF/ESIC Monthly ECR Filings Provided with Monthly Invoices",
+      "Full EPF/ESIC Monthly ECR Filings Provided with Invoices",
       "Strict Fire Safety & Emergency Evacuation Trained Guards",
-      "Mechanized Ride-On Floor Scrubbers for Large Office Basements",
+      "Mechanized Ride-On Floor Scrubbers for Large Basements",
       "Single-Vendor SLA for Security, Cleaning & Support Staff"
     ],
     localFaqs: [
@@ -125,14 +201,17 @@ export const locationsData: LocationData[] = [
     state: "Tamil Nadu",
     regionType: "Industrial & Manufacturing Division",
     role: "Industrial Manufacturing & Textile Operations Outpost",
-    address: "Peelamedu & SIDCO Industrial Estate, Kurichi, Coimbatore, Tamil Nadu",
+    address: "Peelamedu & SIDCO Industrial Estate, Kurichi, Coimbatore, Tamil Nadu - 641004",
+    postalCode: "641004",
+    latitude: 11.0168,
+    longitude: 76.9558,
     phone: "+91 90808 63448",
     email: "contact@jsmintegratedservices.com",
-    metaTitle: "Security & Industrial Staffing in Coimbatore",
-    metaDescription: "100% EPF & ESIC Compliant security guarding, contract factory manpower, and industrial housekeeping in Coimbatore, Peelamedu, and SIDCO Kurichi.",
+    metaTitle: "Security Guard Company & Industrial Manpower in Coimbatore",
+    metaDescription: "100% EPF/ESIC compliant security guarding, contract factory manpower, and industrial housekeeping in Coimbatore, Peelamedu, and SIDCO Kurichi.",
     heroHeadline: "Industrial Security & Contract Workforce in Coimbatore",
     heroSubheadline: "Supporting Coimbatore's manufacturing, foundry, textile, and engineering enterprises with disciplined physical guarding and 100% compliant contract staffing.",
-    operationalOverview: "As Western Tamil Nadu's industrial manufacturing powerhouse, Coimbatore requires workforce reliability with absolute statutory compliance. JSM supplies verified factory line workers, warehouse material handlers, and Ex-Servicemen security guards trained in industrial asset protection, scrap yard vigilance, and gate muster registers across Peelamedu, SIDCO Kurichi, and Saravanampatti.",
+    operationalOverview: "As Western Tamil Nadu's manufacturing powerhouse, Coimbatore requires workforce reliability with absolute statutory compliance. JSM supplies verified factory line workers, warehouse material handlers, and Ex-Servicemen security guards trained in industrial asset protection, scrap yard vigilance, and gate muster registers across Peelamedu, SIDCO Kurichi, and Saravanampatti.",
     keyIndustrialZones: [
       "SIDCO Industrial Estate, Kurichi",
       "Peelamedu & Ganapathy Engineering Belts",
@@ -144,6 +223,29 @@ export const locationsData: LocationData[] = [
       "Textile Mills & Garment Manufacturing Hubs",
       "Automotive Component Manufacturers",
       "Warehousing & Logistics Distribution Centers"
+    ],
+    highIntentKeywords: [
+      "Security guard company Coimbatore",
+      "Industrial security Coimbatore",
+      "Factory contract labour Coimbatore",
+      "SIDCO Kurichi security agency",
+      "Manpower supply Coimbatore",
+      "Foundry security guards Coimbatore",
+      "Housekeeping services Coimbatore"
+    ],
+    sectorBattlecards: [
+      {
+        sector: "Foundries & Heavy Fabrication",
+        painPoint: "High scrap metal shrinkage, unauthorized night access, worker safety non-compliance.",
+        jsmSolution: "Weighbridge gross-tare cross verification, unannounced 2:00 AM supervisor van audits, breathalyzer sobriety tests.",
+        sla: "Zero Unchecked Material Dispatch"
+      },
+      {
+        sector: "Textile & Garment Clusters",
+        painPoint: "Seasonal production spikes, shift dropout rates, statutory audit notices.",
+        jsmSolution: "Vetted assembly line staff with 100% EPF/ESIC challan transparency, rapid 48-hour shift mobilization.",
+        sla: "100% Minimum Wage & ECR Compliance"
+      }
     ],
     responseSla: "2-Hour Regional Standby Response",
     supervisoryModel: "Area Officers conducting Unannounced Night Van Audits",
@@ -159,7 +261,7 @@ export const locationsData: LocationData[] = [
         answer: "We furnish EPF, ESIC, and wage muster challans every single month with our commercial invoices. Clients receive complete statutory indemnity under Contract Labour Act norms."
       },
       {
-        question: "Can JSM provide night security guards for scrap and raw material yards?",
+        question: "Can JSM provide night security guards for scrap and raw material yards in Coimbatore?",
         answer: "Yes. Our guards are equipped with high-beam searchlights, batons, and hourly QR checkpoint scanners, supported by unannounced 2:00 AM supervisor van inspections."
       }
     ]
@@ -171,10 +273,13 @@ export const locationsData: LocationData[] = [
     state: "Tamil Nadu",
     regionType: "Automotive & Electronics SEZ Division",
     role: "Automotive & Electronics Manufacturing Division",
-    address: "SIPCOT Industrial Complex, Phase 1 & 2, Hosur, Tamil Nadu",
+    address: "SIPCOT Industrial Complex, Phase 1 & 2, Hosur, Tamil Nadu - 635126",
+    postalCode: "635126",
+    latitude: 12.7409,
+    longitude: 77.8253,
     phone: "+91 90808 63448",
     email: "contact@jsmintegratedservices.com",
-    metaTitle: "Security & Manpower Services in Hosur SIPCOT",
+    metaTitle: "Security Guard Agency & Contract Manpower in Hosur SIPCOT",
     metaDescription: "Enterprise security guarding and compliant assembly line manpower for automotive and electronics plants in Hosur SIPCOT SEZ.",
     heroHeadline: "Security Guarding & Manufacturing Staffing in Hosur",
     heroSubheadline: "Precision industrial security, material movement tracking, and compliant technical workforce for Hosur's high-tech manufacturing corridors.",
@@ -190,6 +295,28 @@ export const locationsData: LocationData[] = [
       "Precision Electronics & Hardware Assembly",
       "Cold Chain & FMCG Logistics Warehouses",
       "Pharmaceutical Manufacturing Facilities"
+    ],
+    highIntentKeywords: [
+      "Security guard agency in Hosur",
+      "SIPCOT Hosur industrial security",
+      "Automotive plant manpower Hosur",
+      "Factory security guards Hosur",
+      "Contract labour supplier Hosur",
+      "Electronics SEZ security Hosur"
+    ],
+    sectorBattlecards: [
+      {
+        sector: "EV & Automotive Ancillary Plants",
+        painPoint: "High-value battery pack theft, dispatch dock delays, contractor statutory non-compliance.",
+        jsmSolution: "Security personnel equipped with metal detectors, strict dispatch bay seals, transparent monthly EPF/ESIC remittance.",
+        sla: "100% Material Dispatch Reconciliation"
+      },
+      {
+        sector: "Precision Electronics & Cleanrooms",
+        painPoint: "ESD contamination, micro-component theft, unsanitized cleanroom floors.",
+        jsmSolution: "ESD-trained housekeeping marshals, cleanroom microfiber protocols, thorough shift-end frisking.",
+        sla: "Zero Contamination Breach"
+      }
     ],
     responseSla: "2-Hour Emergency Standby Response",
     supervisoryModel: "Industrial Security Marshals & Digital Patrol Checkpoints",
@@ -213,11 +340,14 @@ export const locationsData: LocationData[] = [
     state: "Tamil Nadu",
     regionType: "Fabrication & Heavy Industry Division",
     role: "Heavy Engineering & Mineral Processing Division",
-    address: "Steel Plant Road & Omalur Industrial Sector, Salem, Tamil Nadu",
+    address: "Steel Plant Road & Omalur Industrial Sector, Salem, Tamil Nadu - 636013",
+    postalCode: "636013",
+    latitude: 11.6643,
+    longitude: 78.1460,
     phone: "+91 90808 63448",
     email: "contact@jsmintegratedservices.com",
-    metaTitle: "Security Guards & Manpower in Salem",
-    metaDescription: "100% EPF & ESIC Compliant security guarding and industrial contract labor for steel plants, chemical processing, and fabrication units in Salem.",
+    metaTitle: "Security Guards & Contract Labour Supplier in Salem",
+    metaDescription: "100% EPF/ESIC compliant security guarding and industrial contract labor for steel plants, chemical processing, and fabrication units in Salem.",
     heroHeadline: "Industrial Guarding & Contract Labor Solutions in Salem",
     heroSubheadline: "Protecting Salem's heavy engineering, steel fabrication, and mineral processing assets with veteran-led discipline and compliant manpower.",
     operationalOverview: "Operating across Salem's steel corridor and manufacturing hubs, JSM Integrated Services provides high-vigilance physical security, weighbridge operators, and industrial technicians. Our rigorous induction and military-veteran supervision ensure strict adherence to industrial safety norms and premises security.",
@@ -232,6 +362,22 @@ export const locationsData: LocationData[] = [
       "Chemical & Mineral Processing Units",
       "Sago & Agro-Food Processing Factories",
       "Educational Campuses & Hospitals"
+    ],
+    highIntentKeywords: [
+      "Security guards in Salem",
+      "Industrial security agency Salem",
+      "Steel plant security Salem",
+      "Contract manpower Salem",
+      "Heavy engineering security contractors Salem",
+      "Factory housekeeping Salem"
+    ],
+    sectorBattlecards: [
+      {
+        sector: "Steel & Heavy Metal Fabrication",
+        painPoint: "High scrap leakage, hazardous yard trespassing, night guard negligence.",
+        jsmSolution: "Physical perimeter patrols, mandatory PPE compliance checks at gate, 2:00 AM supervisor van audits.",
+        sla: "100% Safety Compliance at Ingress"
+      }
     ],
     responseSla: "2-Hour Relief SLA",
     supervisoryModel: "Ex-Servicemen Field Officers & Night Patrols",
@@ -255,11 +401,14 @@ export const locationsData: LocationData[] = [
     state: "Tamil Nadu",
     regionType: "Textile & Agro-Processing Division",
     role: "Textile SEZ & Processing Operations Division",
-    address: "Perundurai SIPCOT & Bhavani Road, Erode, Tamil Nadu",
+    address: "Perundurai SIPCOT & Bhavani Road, Erode, Tamil Nadu - 638052",
+    postalCode: "638052",
+    latitude: 11.3410,
+    longitude: 77.7172,
     phone: "+91 90808 63448",
     email: "contact@jsmintegratedservices.com",
-    metaTitle: "Security & Facility Services in Erode SIPCOT",
-    metaDescription: "100% EPF & ESIC Compliant security guards and compliant contract manpower for textile mills, processing units, and SIPCOT Perundurai.",
+    metaTitle: "Security Guard Agency & Facility Services in Erode SIPCOT",
+    metaDescription: "100% EPF/ESIC compliant security guards and contract manpower for textile mills, processing units, and Perundurai SIPCOT in Erode.",
     heroHeadline: "Security & Contract Staffing in Erode & Perundurai",
     heroSubheadline: "Integrated security guarding, warehouse manpower, and commercial facility management across Erode's textile and agricultural processing belts.",
     operationalOverview: "JSM delivers specialized security and facility support across Erode district, with dedicated focus on Perundurai SIPCOT and Bhavani road corridors. We supply vetted shift workforce, dispatch security, and automated floor cleaning for sprawling textile mills, agro-warehouses, and manufacturing facilities.",
@@ -274,6 +423,22 @@ export const locationsData: LocationData[] = [
       "Agro-Food Logistics & Storage Warehouses",
       "Paper & Packaging Manufacturing Plants",
       "Commercial Shopping Complexes & Hospitals"
+    ],
+    highIntentKeywords: [
+      "Security services in Erode",
+      "Perundurai SIPCOT security agency",
+      "Textile mill security guards Erode",
+      "Industrial manpower supplier Erode",
+      "Warehouse labor contractor Erode",
+      "Facility management Erode"
+    ],
+    sectorBattlecards: [
+      {
+        sector: "Textile Mills & Processing Units",
+        painPoint: "Shift absenteeism during festival seasons, fire hazard vigilance, fabric dispatch tracking.",
+        jsmSolution: "Trained industrial fire wardens on post, standby reserve force, physical dispatch count audits.",
+        sla: "2-Hour Absenteeism Replacement"
+      }
     ],
     responseSla: "2-Hour Standby Relief SLA",
     supervisoryModel: "Dedicated Regional Supervisor & Daily Logs",
@@ -297,11 +462,14 @@ export const locationsData: LocationData[] = [
     state: "Tamil Nadu",
     regionType: "Southern Regional Hub",
     role: "Southern Regional Operations Division",
-    address: "K.K. Nagar & Mattuthavani Sector, Madurai, Tamil Nadu",
+    address: "K.K. Nagar & Mattuthavani Sector, Madurai, Tamil Nadu - 625020",
+    postalCode: "625020",
+    latitude: 9.9252,
+    longitude: 78.1198,
     phone: "+91 90808 63448",
     email: "contact@jsmintegratedservices.com",
-    metaTitle: "Security & Facility Management in Madurai",
-    metaDescription: "100% EPF & ESIC Compliant security guarding, hospital facility management, and industrial staffing across Madurai, Kappalur, and Vadipatti.",
+    metaTitle: "Security Guard Agency & Facility Management in Madurai",
+    metaDescription: "100% EPF/ESIC compliant security guarding, hospital facility management, and industrial staffing across Madurai, Kappalur, and Vadipatti.",
     heroHeadline: "Security Guarding & Enterprise Facilities in Madurai",
     heroSubheadline: "Southern Tamil Nadu's trusted partner for disciplined commercial guarding, hospital hygiene protocols, and industrial workforce management.",
     operationalOverview: "Headquartered out of our central command in Trichy, our Madurai regional division oversees operations across healthcare institutions, commercial complexes, and industrial estates in Kappalur and Vadipatti. We enforce strict uniform standards, 24/7 radio communications, and clinical-grade sanitization protocols.",
@@ -317,11 +485,27 @@ export const locationsData: LocationData[] = [
       "Higher Educational Campuses & Universities",
       "Commercial Retail Malls & Banking Branches"
     ],
+    highIntentKeywords: [
+      "Security guard agency in Madurai",
+      "Commercial security Madurai",
+      "Hospital security services Madurai",
+      "Contract labour contractor Madurai",
+      "Facility management services Madurai",
+      "Kappalur industrial security"
+    ],
+    sectorBattlecards: [
+      {
+        sector: "Multi-Specialty Hospitals & Diagnostic Centers",
+        painPoint: "Emergency ward disturbances, unauthorized visitor crowding, high biohazard sanitation requirements.",
+        jsmSolution: "Trained hospital security marshals, color-coded clinical hygiene routines, automated digital patient queues.",
+        sla: "Zero Disruption Casualty Coverage"
+      }
+    ],
     responseSla: "2-Hour Regional Standby SLA",
     supervisoryModel: "Ex-Servicemen Field Officers & Surprise Night Audits",
     complianceHighlights: [
       "Hospital-Grade Color-Coded Microfiber Cleaning Standards",
-      "Statutory Labour Law Compliant Licensed Guard Forces",
+      "Tamil Nadu Home Department Licensed Guard Forces",
       "Complete Statutory EPF/ESIC Coverage",
       "24/7 Central Helpline & Direct Escalation"
     ],
@@ -339,11 +523,14 @@ export const locationsData: LocationData[] = [
     state: "Tamil Nadu",
     regionType: "Renewable Energy & Infrastructure Unit",
     role: "Renewable Energy & Infrastructure Division",
-    address: "Gangaikondan IT Park & Industrial Corridor, Tirunelveli, Tamil Nadu",
+    address: "Gangaikondan IT Park & Industrial Corridor, Tirunelveli, Tamil Nadu - 627352",
+    postalCode: "627352",
+    latitude: 8.7139,
+    longitude: 77.7567,
     phone: "+91 90808 63448",
     email: "contact@jsmintegratedservices.com",
-    metaTitle: "Security & Manpower Services in Tirunelveli",
-    metaDescription: "100% EPF & ESIC Compliant security guarding and technical workforce supply for solar parks, wind farms, and Gangaikondan IT SEZ in Tirunelveli.",
+    metaTitle: "Security Guard Forces & Manpower in Tirunelveli",
+    metaDescription: "100% EPF/ESIC compliant security guarding and technical workforce supply for solar parks, wind farms, and Gangaikondan IT SEZ in Tirunelveli.",
     heroHeadline: "Renewable Energy Security & Facility Services in Tirunelveli",
     heroSubheadline: "Protecting solar installations, wind farm substations, and IT infrastructure with ruggedized physical security and compliant manpower.",
     operationalOverview: "Serving the southern industrial and renewable energy corridor, JSM deploys specialized remote-site security teams, solar park perimeter patrols, and Gangaikondan IT Park marshals. Our personnel are trained in wide-acre perimeter monitoring, sub-station access control, and incident reporting.",
@@ -358,6 +545,22 @@ export const locationsData: LocationData[] = [
       "IT / Software Facilities in Gangaikondan SEZ",
       "Educational Institutions & Engineering Colleges",
       "Infrastructure & Highway Construction Camps"
+    ],
+    highIntentKeywords: [
+      "Security services in Tirunelveli",
+      "Solar farm security Tirunelveli",
+      "Gangaikondan IT park security",
+      "Industrial manpower Tirunelveli",
+      "Windmill perimeter security Tamil Nadu",
+      "Ex-servicemen security Tirunelveli"
+    ],
+    sectorBattlecards: [
+      {
+        sector: "Solar Farms & Remote Sub-stations",
+        painPoint: "Cable theft across sprawling acreage, remote access without cellular connectivity, night intrusions.",
+        jsmSolution: "Motorized security patrols, long-range searchlights, two-way radio telemetry, perimeter check logs.",
+        sla: "Zero Copper/Cable Loss Track Record"
+      }
     ],
     responseSla: "2-Hour Standby SLA",
     supervisoryModel: "Motorized Patrol Squads & Solar Perimeter Surveillance",

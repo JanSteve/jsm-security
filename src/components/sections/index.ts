@@ -7,3 +7,4 @@ export { TestimonialsSection } from './testimonials-section';
 export { FAQSection } from './faq-section';
 export { CTASection } from './cta-section';
 export { ExecutiveLeadershipSection } from './executive-leadership-section';
+export { ReviewsShowcase } from './reviews-showcase';
