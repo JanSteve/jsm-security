@@ -55,7 +55,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
   const hSchema = howToSchema({ title: service.title });
 
   return (
-    <main className="min-h-screen bg-black text-white pt-32 pb-24">
+    <main className="min-h-screen bg-[#030712] text-white pt-32 pb-24">
       {/* Schema.org JSON-LD */}
       <script
         type="application/ld+json"
@@ -75,26 +75,26 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
       />
       
       {/* Hero Section */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 border-b border-white/10 bg-[#080C14]">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 border-b border-cyan-500/20 bg-[#080C16]/80 backdrop-blur-2xl">
         <div className="max-w-5xl mx-auto space-y-6">
           {/* Category & Phase Pill */}
           <div className="flex flex-wrap items-center gap-2">
-            <span className="bg-white/5 border border-white/15 text-neutral-300 text-xs font-semibold py-1 px-3.5 rounded-full">
+            <span className="bg-cyan-500/10 border border-cyan-400/30 text-cyan-300 font-mono text-xs font-semibold py-1 px-3.5 rounded-full">
               {service.categoryLabel}
             </span>
-            <span className="text-xs font-semibold py-1 px-3.5 rounded-full bg-white/10 text-white border border-white/20">
+            <span className="text-xs font-semibold py-1 px-3.5 rounded-full bg-cyan-950/60 text-cyan-300 border border-cyan-500/30 font-mono">
               {service.phase} &bull; {service.gstSac}
             </span>
           </div>
 
           <div className="space-y-4">
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-normal text-white leading-tight tracking-tight">
+            <h1 className="font-sans text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight">
               {service.title}
             </h1>
             <p className="text-base sm:text-lg text-neutral-300 font-normal leading-relaxed max-w-3xl">
               {service.description}
             </p>
-            <p className="text-sm font-semibold text-[#CBD5E1]">
+            <p className="text-sm font-semibold text-cyan-300">
               {service.valueProposition}
             </p>
           </div>
@@ -103,24 +103,26 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
           <div className="pt-2 flex flex-wrap items-center gap-3">
             <Link
               href="/get-quote"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-white hover:bg-neutral-200 text-black text-xs sm:text-sm font-bold transition-colors shadow-xl press-scale min-h-[44px] w-full sm:w-auto"
+              className="btn-border-beam min-touch-target min-h-[44px] w-full sm:w-auto"
             >
-              <span>Request Custom Proposal</span>
-              <ArrowRight size={14} />
+              <span className="btn-border-beam-inner h-full">
+                <span>Request Custom Proposal</span>
+                <ArrowRight size={14} className="text-cyan-300" />
+              </span>
             </Link>
             <a
               href={`tel:${brandData.contact.phone}`}
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-white/5 border border-white/15 hover:bg-white/10 text-white text-xs sm:text-sm font-semibold transition-colors tabular-nums min-h-[44px] w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-white/5 border border-white/15 hover:border-cyan-400/50 hover:bg-cyan-950/30 text-white text-xs sm:text-sm font-semibold transition-all tabular-nums min-h-[44px] w-full sm:w-auto"
             >
-              <Phone size={14} className="text-white" />
+              <Phone size={14} className="text-cyan-400" />
               <span>{brandData.contact.phoneDisplay}</span>
             </a>
           </div>
 
           {/* Compliance Notice Banner */}
           {service.complianceNotice && (
-            <div className="p-4 bg-white/5 border border-white/10 rounded-xl flex items-start gap-3 mt-4">
-              <ShieldCheck size={18} className="text-white shrink-0 mt-0.5" />
+            <div className="p-4 bg-cyan-500/5 border border-cyan-500/20 rounded-xl flex items-start gap-3 mt-4">
+              <ShieldCheck size={18} className="text-emerald-400 shrink-0 mt-0.5" />
               <p className="text-xs text-neutral-300 leading-relaxed">
                 <strong className="text-white">Statutory Compliance Basis:</strong> {service.complianceNotice}
               </p>
@@ -134,10 +136,10 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         {/* Deliverables Feature Grid */}
         <section className="space-y-6">
           <div className="space-y-1">
-            <span className="text-xs font-semibold uppercase tracking-wider text-neutral-400 font-mono">
+            <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400 font-mono">
               Operational Scope
             </span>
-            <h2 className="font-display text-2xl sm:text-3xl text-white font-normal tracking-tight">
+            <h2 className="font-sans text-2xl sm:text-3xl text-white font-bold tracking-tight">
               Scope of Service &amp; Core Deliverables
             </h2>
           </div>
@@ -145,12 +147,12 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         </section>
 
         {/* Interactive Capability Simulator */}
-        <section className="space-y-6 pt-8 border-t border-white/10">
+        <section className="space-y-6 pt-8 border-t border-cyan-500/20">
           <div className="space-y-1">
-            <span className="text-xs font-semibold uppercase tracking-wider text-neutral-400 font-mono">
+            <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400 font-mono">
               Interactive Live Demonstration
             </span>
-            <h2 className="font-display text-2xl sm:text-3xl text-white font-normal tracking-tight">
+            <h2 className="font-sans text-2xl sm:text-3xl text-white font-bold tracking-tight">
               {isReputationService
                 ? "Simulate Dual-Routing Smart Review Filtration"
                 : isQueueService
@@ -168,12 +170,12 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         </section>
 
         {/* 4-Step Process Timeline */}
-        <section className="space-y-6 pt-8 border-t border-white/10">
+        <section className="space-y-6 pt-8 border-t border-cyan-500/20">
           <div className="space-y-1">
-            <span className="text-xs font-semibold uppercase tracking-wider text-neutral-400 font-mono">
+            <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400 font-mono">
               Engagement Methodology
             </span>
-            <h2 className="font-display text-2xl sm:text-3xl text-white font-normal tracking-tight">
+            <h2 className="font-sans text-2xl sm:text-3xl text-white font-bold tracking-tight">
               Four-Stage Deployment Lifecycle
             </h2>
           </div>
@@ -181,12 +183,12 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         </section>
 
         {/* Who It Is For (Target Sectors) */}
-        <section className="space-y-6 pt-8 border-t border-white/10">
+        <section className="space-y-6 pt-8 border-t border-cyan-500/20">
           <div className="space-y-1">
-            <span className="text-xs font-semibold uppercase tracking-wider text-neutral-400 font-mono">
+            <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400 font-mono">
               Deployment Environments
             </span>
-            <h2 className="font-display text-2xl sm:text-3xl text-white font-normal tracking-tight">
+            <h2 className="font-sans text-2xl sm:text-3xl text-white font-bold tracking-tight">
               Primary Client Segments
             </h2>
           </div>
@@ -194,9 +196,9 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
             {service.whoItIsFor.map((item, idx) => (
               <div
                 key={idx}
-                className="p-4 rounded-xl bg-[#080C14] border border-white/10 flex items-start gap-2.5"
+                className="p-4 rounded-xl tactical-glass-card border border-white/10 hover:border-cyan-400/30 flex items-start gap-2.5 transition-colors"
               >
-                <Check size={16} className="text-white shrink-0 mt-0.5" />
+                <Check size={16} className="text-emerald-400 shrink-0 mt-0.5" />
                 <span className="text-xs sm:text-sm font-medium text-white">{item}</span>
               </div>
             ))}
@@ -205,12 +207,12 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
         {/* Service FAQs */}
         {service.faqs && service.faqs.length > 0 && (
-          <section className="space-y-6 pt-8 border-t border-white/10">
+          <section className="space-y-6 pt-8 border-t border-cyan-500/20">
             <div className="space-y-1">
-              <span className="text-xs font-semibold uppercase tracking-wider text-neutral-400 font-mono">
+              <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400 font-mono">
                 Clarifications
               </span>
-              <h2 className="font-display text-2xl sm:text-3xl text-white font-normal tracking-tight">
+              <h2 className="font-sans text-2xl sm:text-3xl text-white font-bold tracking-tight">
                 Frequently Answered Questions
               </h2>
             </div>
@@ -219,8 +221,8 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         )}
 
         {/* Related Services */}
-        <section className="space-y-6 pt-8 border-t border-white/10">
-          <h3 className="font-semibold text-base text-white">
+        <section className="space-y-6 pt-8 border-t border-cyan-500/20">
+          <h3 className="font-bold text-base text-white tracking-tight">
             Complementary Integrated Capabilities
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -228,9 +230,9 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
               <Link
                 key={idx}
                 href={`/services/${rel.slug}`}
-                className="p-4 rounded-xl bg-[#080C14] border border-white/10 hover:border-white/40 hover:shadow-xl transition-all space-y-1 block min-h-[44px]"
+                className="p-4 rounded-xl tactical-glass-card border border-white/10 hover:border-cyan-400/40 hover:shadow-[0_0_25px_rgba(14,165,233,0.15)] transition-all space-y-1 block min-h-[44px]"
               >
-                <span className="text-[10px] font-mono font-bold text-white uppercase">
+                <span className="text-[10px] font-mono font-bold text-cyan-300 uppercase">
                   {rel.phase}
                 </span>
                 <h4 className="text-xs sm:text-sm font-semibold text-white">

@@ -30,13 +30,13 @@ export function ExecutiveLeadershipSection({
   const getRoleIcon = (idx: number) => {
     switch (idx) {
       case 0:
-        return <ShieldCheck className="w-3.5 h-3.5 text-white" />;
+        return <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />;
       case 1:
-        return <Award className="w-3.5 h-3.5 text-white" />;
+        return <Award className="w-3.5 h-3.5 text-cyan-400" />;
       case 2:
-        return <Cpu className="w-3.5 h-3.5 text-white" />;
+        return <Cpu className="w-3.5 h-3.5 text-cyan-400" />;
       default:
-        return <ShieldCheck className="w-3.5 h-3.5 text-white" />;
+        return <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />;
     }
   };
 
@@ -49,18 +49,18 @@ export function ExecutiveLeadershipSection({
   return (
     <section 
       id="executive-leadership"
-      className={`py-12 sm:py-16 relative overflow-hidden bg-black text-white border-y border-white/10 ${className}`}
+      className={`py-12 sm:py-16 relative overflow-hidden bg-[#030712] text-white border-y border-cyan-500/20 ${className}`}
     >
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8 sm:space-y-10">
         {showTitle && (
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 text-left">
             <div className="space-y-1.5 max-w-2xl">
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/10 border border-white/20 text-white text-[11px] font-semibold tracking-wide font-mono">
-                <Award size={12} className="text-white" />
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-400/30 text-cyan-300 text-[11px] font-semibold tracking-wide font-mono">
+                <Award size={12} className="text-cyan-400" />
                 <span>Executive Governance &bull; Direct Accountability</span>
               </div>
 
-              <h2 className={`font-serif text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight ${
+              <h2 className={`font-sans font-bold tracking-tight text-white text-2xl sm:text-3xl lg:text-4xl ${
                 darkTheme ? 'text-white' : 'text-[#14181F]'
               }`}>
                 Executive Leadership &amp; Operational Command
@@ -75,7 +75,7 @@ export function ExecutiveLeadershipSection({
 
             <Link
               href="/about"
-              className="inline-flex items-center gap-1 text-xs font-bold text-white hover:text-neutral-300 transition-colors shrink-0 underline underline-offset-4"
+              className="inline-flex items-center gap-1 text-xs font-bold text-cyan-400 hover:text-cyan-300 transition-colors shrink-0 underline underline-offset-4 min-h-[44px]"
             >
               <span>Corporate Dossier</span>
               <ExternalLink size={12} />
@@ -94,8 +94,8 @@ export function ExecutiveLeadershipSection({
                 key={leader.name}
                 className={`flex flex-col justify-between rounded-xl overflow-hidden transition-all duration-200 border ${
                   isCenterFounder
-                    ? 'bg-[#090D15] border-white/30 shadow-2xl'
-                    : 'bg-[#080C14] border-white/10 hover:border-white/30 shadow-lg'
+                    ? 'bg-[#090E1A] border-cyan-500/40 shadow-[0_0_35px_rgba(14,165,233,0.18)]'
+                    : 'tactical-glass-card hover:border-cyan-400/40 shadow-lg'
                 }`}
               >
                 {/* Compact Portrait Media Frame */}
@@ -114,13 +114,13 @@ export function ExecutiveLeadershipSection({
 
                   {/* Top Badge */}
                   <div className="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between pointer-events-none">
-                    <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-black/80 backdrop-blur-md border border-white/15 text-[10px] font-medium text-white">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/80 backdrop-blur-md border border-cyan-500/30 text-[10px] font-medium text-cyan-200">
                       {getRoleIcon(idx)}
                       <span>{leader.qualification}</span>
                     </span>
 
                     {isCenterFounder && (
-                      <span className="px-2 py-0.5 rounded text-[9px] font-mono font-bold uppercase tracking-wider bg-white text-black">
+                      <span className="px-2 py-0.5 rounded text-[9px] font-mono font-bold uppercase tracking-wider bg-cyan-400 text-black shadow-[0_0_10px_#38BDF8]">
                         Founder &amp; MD
                       </span>
                     )}
@@ -128,10 +128,10 @@ export function ExecutiveLeadershipSection({
 
                   {/* Bottom Identity Overlay */}
                   <div className="absolute bottom-2 left-3 right-3 pointer-events-none text-left">
-                    <div className="text-[10px] font-mono uppercase tracking-wider text-neutral-300 font-semibold truncate">
+                    <div className="text-[10px] font-mono uppercase tracking-wider text-cyan-400/80 font-semibold truncate">
                       {leader.role}
                     </div>
-                    <h3 className="font-serif text-lg sm:text-xl font-bold text-white tracking-tight drop-shadow-md">
+                    <h3 className="font-sans font-bold tracking-tight text-white text-lg sm:text-xl drop-shadow-md">
                       {leader.name}
                     </h3>
                   </div>
@@ -144,33 +144,33 @@ export function ExecutiveLeadershipSection({
                     <ul className="space-y-2">
                       {leader.highlights.map((item, hIdx) => (
                         <li key={hIdx} className="flex items-start gap-2 text-xs text-neutral-300">
-                          <CheckCircle2 size={13} className="text-white shrink-0 mt-0.5" />
+                          <CheckCircle2 size={13} className="text-emerald-400 shrink-0 mt-0.5" />
                           <span className="leading-snug">{item}</span>
                         </li>
                       ))}
                     </ul>
                   )}
 
-                  {/* Quick Direct Actions */}
-                  <div className="pt-3 border-t border-white/10 flex items-center gap-2">
+                  {/* Quick Direct Actions with 44px min-height */}
+                  <div className="pt-3 border-t border-cyan-500/20 flex items-center gap-2">
                     <a
                       href={waHref}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg text-xs font-bold bg-[#25D366]/15 hover:bg-[#25D366]/25 border border-[#25D366]/40 text-[#25D366] transition-all"
+                      className="flex-1 min-h-[44px] flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg text-xs font-bold bg-[#25D366]/15 hover:bg-[#25D366]/25 border border-[#25D366]/40 text-[#25D366] transition-all"
                       aria-label={`Send direct WhatsApp message to ${leader.name}`}
                     >
-                      <MessageSquare size={13} />
+                      <MessageSquare size={14} />
                       <span>Direct Desk</span>
                     </a>
 
                     <a
                       href={`tel:${brandData.contact.phone}`}
-                      className="flex items-center justify-center p-2 rounded-lg text-xs font-semibold bg-white/5 hover:bg-white/10 border border-white/15 text-white transition-all"
+                      className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2.5 rounded-lg text-xs font-semibold bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 transition-all"
                       title="Call Desk"
                       aria-label={`Call ${leader.name}`}
                     >
-                      <PhoneCall size={13} className="text-white" />
+                      <PhoneCall size={14} className="text-cyan-400" />
                     </a>
                   </div>
                 </div>

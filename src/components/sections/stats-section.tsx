@@ -116,18 +116,18 @@ function StatCard({ item }: { item: Metric }) {
   return (
     <div
       ref={cardRef}
-      className="p-4 sm:p-5 bg-[#080C14] border border-white/10 rounded-xl space-y-2 text-left flex flex-col justify-between hover:border-white/30 transition-colors"
+      className="p-4 sm:p-5 tactical-glass-card rounded-xl space-y-2 text-left flex flex-col justify-between hover:border-cyan-400/40 hover:shadow-[0_0_20px_rgba(14,165,233,0.15)] transition-all text-white"
     >
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-0">
         <span className="font-sans text-xl sm:text-3xl font-bold text-white tabular-nums inline-block min-w-[2.5ch]">
           {item.prefix || ""}{count}{item.suffix}
         </span>
-        <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white shrink-0 self-start sm:self-auto">
+        <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-cyan-500/10 border border-cyan-400/20 flex items-center justify-center text-cyan-300 shrink-0 self-start sm:self-auto">
           <Icon size={14} className="sm:w-[15px] sm:h-[15px]" />
         </div>
       </div>
       <div>
-        <h3 className="text-[13px] sm:text-sm font-bold text-white leading-tight">
+        <h3 className="text-[13px] sm:text-sm font-bold text-cyan-300 leading-tight">
           {item.label}
         </h3>
         <p className="text-[11px] sm:text-xs text-neutral-400 leading-relaxed pt-1">
@@ -140,13 +140,13 @@ function StatCard({ item }: { item: Metric }) {
 
 export function StatsSection() {
   return (
-    <section className="py-12 sm:py-16 bg-black border-b border-white/10 text-white">
+    <section className="py-12 sm:py-16 bg-[#030712] border-b border-cyan-500/20 text-white">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
         <div className="max-w-3xl space-y-2 text-left">
-          <div className="text-xs font-bold text-white font-mono uppercase tracking-wider">
+          <div className="text-xs font-bold text-cyan-400 font-mono uppercase tracking-wider">
             Audited Operational Metrics
           </div>
-          <h2 className="font-serif text-2xl sm:text-3xl lg:text-[38px] leading-[1.18] text-white font-bold tracking-[-0.01em]">
+          <h2 className="font-sans font-bold tracking-tight text-white text-2xl sm:text-3xl lg:text-[38px] leading-[1.18]">
             Accountability governed by SLA contracts, not estimates.
           </h2>
         </div>

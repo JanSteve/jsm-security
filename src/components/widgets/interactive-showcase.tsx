@@ -49,7 +49,7 @@ export function InteractiveShowcase({
           <ShieldCheck size={14} />
           <span>Interactive Operations &amp; Digital Suite</span>
         </div>
-        <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-white font-bold tracking-tight">
+        <h2 className="font-sans font-bold tracking-tight text-white text-2xl sm:text-3xl lg:text-4xl">
           Test Our Operational Calculators &amp; Digital Tools
         </h2>
         <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">

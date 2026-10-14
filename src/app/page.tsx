@@ -65,7 +65,7 @@ export default function Home() {
   const geoTarget = geoTargetSchema();
 
   return (
-    <div className="relative bg-black text-white min-h-screen">
+    <div className="relative bg-[#030712] text-white min-h-screen overflow-x-hidden w-full max-w-full">
 
       {/* Schema.org Structured Data — SEO / AEO / GEO */}
       <script

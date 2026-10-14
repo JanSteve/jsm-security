@@ -10,8 +10,8 @@ interface ProcessStep {
 export function ProcessTimeline({ steps }: { steps: ProcessStep[] }) {
   return (
     <div className="relative py-12">
-      <div className="absolute top-1/2 left-0 w-full h-0.5 bg-white/10 -translate-y-1/2 hidden lg:block" />
-      <div className="absolute top-0 left-8 w-0.5 h-full bg-white/10 lg:hidden" />
+      <div className="absolute top-1/2 left-0 w-full h-0.5 bg-cyan-500/20 -translate-y-1/2 hidden lg:block" />
+      <div className="absolute top-0 left-8 w-0.5 h-full bg-cyan-500/20 lg:hidden" />
       
       <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-6 relative">
         {steps.map((step, i) => (
@@ -23,7 +23,7 @@ export function ProcessTimeline({ steps }: { steps: ProcessStep[] }) {
             transition={{ delay: i * 0.12, duration: 0.35, ease: 'easeOut' }}
             className="flex lg:flex-col items-start lg:items-center gap-6 lg:gap-4 relative z-10 lg:w-1/4"
           >
-            <div className="w-14 h-14 rounded-full bg-white text-black flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-xl border-2 border-black">
+            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-cyan-400 to-sky-500 text-black flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-[0_0_20px_rgba(14,165,233,0.45)] border-2 border-cyan-300">
               {i + 1}
             </div>
             <div className="lg:text-center pt-2 lg:pt-0">

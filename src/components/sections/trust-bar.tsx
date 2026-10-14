@@ -38,10 +38,10 @@ const statutoryCredentials = [
 
 export function TrustBar() {
   return (
-    <section className="bg-black border-b border-white/10 py-8 sm:py-10 overflow-hidden text-white space-y-6 sm:space-y-8">
+    <section className="bg-[#030712] border-b border-cyan-500/20 py-8 sm:py-10 overflow-hidden text-white space-y-6 sm:space-y-8">
       {/* Tier 1: Featured Happy Client — Airports Authority of India (AAI) */}
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="p-6 sm:p-8 rounded-2xl bg-[#080C14] border border-white/15 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8">
+        <div className="p-6 sm:p-8 rounded-2xl tactical-glass-card border border-cyan-500/30 shadow-[0_0_40px_rgba(14,165,233,0.15)] flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8">
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-6 text-center sm:text-left">
             {/* AAI Logo Box */}
             <div className="relative w-24 h-16 sm:w-28 sm:h-18 rounded-xl bg-white border border-white/20 p-2 flex items-center justify-center shrink-0 shadow-md">
@@ -55,8 +55,8 @@ export function TrustBar() {
             </div>
 
             <div className="space-y-1.5 max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-bold font-mono">
-                <Plane size={13} />
+              <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-400/30 text-cyan-300 text-xs font-bold font-mono shadow-[0_0_10px_rgba(14,165,233,0.12)]">
+                <Plane size={13} className="text-cyan-400" />
                 <span>Institutional Client Benchmark &bull; Ministry of Civil Aviation</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
@@ -71,16 +71,18 @@ export function TrustBar() {
           {/* Direct Link to Verified Case Study */}
           <Link
             href="/case-studies/trichy-international-airport"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold bg-white hover:bg-neutral-200 text-black transition-all shadow-xl shrink-0 press-scale"
+            className="btn-border-beam min-touch-target min-h-[44px] shrink-0"
           >
-            <span>Inspect AAI Contract Dossier</span>
-            <ArrowRight size={14} />
+            <span className="btn-border-beam-inner h-full">
+              <span>Inspect AAI Contract Dossier</span>
+              <ArrowRight size={14} className="text-cyan-300" />
+            </span>
           </Link>
         </div>
       </div>
 
       {/* Infinite Smooth Auto-Scrolling Client & Certification Logo Marquee Ticker */}
-      <ClientLogoMarquee showTitle={true} className="border-y border-white/10 my-2" />
+      <ClientLogoMarquee showTitle={true} className="border-y border-cyan-500/20 my-2" />
 
       {/* Tier 2: Decongested Statutory Compliance Grid */}
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -90,9 +92,9 @@ export function TrustBar() {
             return (
               <div
                 key={idx}
-                className="flex items-start gap-3.5 p-4 rounded-xl bg-[#080C14] border border-white/10 hover:border-white/30 text-left transition-all duration-200"
+                className="flex items-start gap-3.5 p-4 rounded-xl tactical-glass-card border border-white/10 hover:border-cyan-400/40 hover:shadow-[0_0_20px_rgba(14,165,233,0.12)] text-left transition-all duration-200"
               >
-                <div className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5 text-white">
+                <div className="w-9 h-9 rounded-lg bg-cyan-500/10 border border-cyan-400/20 flex items-center justify-center shrink-0 mt-0.5 text-cyan-300">
                   <Icon size={18} />
                 </div>
                 <div className="space-y-0.5 min-w-0">

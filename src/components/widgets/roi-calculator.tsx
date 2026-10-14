@@ -128,13 +128,13 @@ export function RoiCalculator({ className = '' }: RoiCalculatorProps) {
   );
 
   return (
-    <div className={`bg-[#080C14]/90 backdrop-blur-2xl border border-white/10 text-white rounded-xl shadow-2xl overflow-hidden ${className}`}>
+    <div className={`tactical-glass-card border-cyan-500/30 text-white rounded-xl shadow-[0_0_50px_rgba(0,0,0,0.85)] overflow-hidden ${className}`}>
       {/* Widget Header */}
-      <div className="bg-white/[0.03] border-b border-white/10 text-white p-6 sm:p-8">
+      <div className="bg-white/[0.03] border-b border-cyan-500/20 text-white p-6 sm:p-8">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="space-y-1.5">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white text-xs font-semibold border border-white/10">
-              <Calculator size={14} />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 text-xs font-semibold border border-cyan-400/30 shadow-[0_0_12px_rgba(14,165,233,0.15)]">
+              <Calculator size={14} className="text-cyan-400" />
               <span>Interactive Operations Cost &amp; ROI Simulator</span>
             </div>
             <h3 className="font-sans text-2xl sm:text-3xl font-bold tracking-tight text-white">
@@ -145,7 +145,7 @@ export function RoiCalculator({ className = '' }: RoiCalculatorProps) {
             </p>
           </div>
           <div className="hidden lg:flex flex-col items-end text-right">
-            <span className="text-[11px] font-mono text-neutral-300 uppercase tracking-wider font-semibold">
+            <span className="text-[11px] font-mono text-cyan-400 uppercase tracking-wider font-semibold">
               Statutory Basis
             </span>
             <span className="text-xs text-neutral-400 font-medium">
@@ -157,7 +157,7 @@ export function RoiCalculator({ className = '' }: RoiCalculatorProps) {
 
       <div className="p-6 sm:p-8 space-y-8">
         {/* Controls Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 pb-6 border-b border-white/10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 pb-6 border-b border-cyan-500/20">
           {/* Left Column: Service & Location */}
           <div className="space-y-5">
             <div>
@@ -170,10 +170,10 @@ export function RoiCalculator({ className = '' }: RoiCalculatorProps) {
                     key={st}
                     type="button"
                     onClick={() => setServiceType(st)}
-                    className={`min-h-[44px] px-3 py-2.5 rounded-lg text-xs font-semibold text-left transition-all border ${
+                    className={`min-h-[44px] px-3 py-2.5 rounded-lg text-xs font-semibold text-left transition-all border cursor-pointer ${
                       serviceType === st
-                        ? 'bg-white text-black border-white shadow-md font-bold'
-                        : 'bg-white/[0.04] text-neutral-400 hover:text-white border-white/10 hover:bg-white/[0.08]'
+                        ? 'bg-cyan-500/20 text-cyan-300 border-cyan-400 shadow-[0_0_15px_rgba(14,165,233,0.30)] font-bold'
+                        : 'bg-white/[0.03] text-neutral-300 hover:text-white border-white/10 hover:border-cyan-500/30 hover:bg-cyan-500/5'
                     }`}
                   >
                     {SERVICE_MULTIPLIERS[st].label}
@@ -192,10 +192,10 @@ export function RoiCalculator({ className = '' }: RoiCalculatorProps) {
                     key={loc}
                     type="button"
                     onClick={() => setLocation(loc)}
-                    className={`min-h-[44px] px-3 py-2 rounded-lg text-xs font-semibold text-center transition-all border ${
+                    className={`min-h-[44px] px-3 py-2 rounded-lg text-xs font-semibold text-center transition-all border cursor-pointer ${
                       location === loc
-                        ? 'bg-white text-black border-white shadow-md font-bold'
-                        : 'bg-white/[0.04] text-neutral-400 hover:text-white border-white/10 hover:bg-white/[0.08]'
+                        ? 'bg-cyan-500/20 text-cyan-300 border-cyan-400 shadow-[0_0_15px_rgba(14,165,233,0.30)] font-bold'
+                        : 'bg-white/[0.03] text-neutral-300 hover:text-white border-white/10 hover:border-cyan-500/30 hover:bg-cyan-500/5'
                     }`}
                   >
                     {LOCATIONS[loc].label.split(' ')[0]}
@@ -218,10 +218,10 @@ export function RoiCalculator({ className = '' }: RoiCalculatorProps) {
                     key={s.id}
                     type="button"
                     onClick={() => setShiftPattern(s.id as ShiftPattern)}
-                    className={`min-h-[44px] px-2.5 py-2 rounded-lg text-xs font-semibold text-center transition-all border ${
+                    className={`min-h-[44px] px-2.5 py-2 rounded-lg text-xs font-semibold text-center transition-all border cursor-pointer ${
                       shiftPattern === s.id
-                        ? 'bg-white text-black border-white shadow-md font-bold'
-                        : 'bg-white/[0.04] text-neutral-400 hover:text-white border-white/10 hover:bg-white/[0.08]'
+                        ? 'bg-cyan-500/20 text-cyan-300 border-cyan-400 shadow-[0_0_15px_rgba(14,165,233,0.30)] font-bold'
+                        : 'bg-white/[0.03] text-neutral-300 hover:text-white border-white/10 hover:border-cyan-500/30 hover:bg-cyan-500/5'
                     }`}
                   >
                     {s.label}
@@ -232,13 +232,13 @@ export function RoiCalculator({ className = '' }: RoiCalculatorProps) {
           </div>
 
           {/* Right Column: Headcount & Add-ons */}
-          <div className="space-y-5 bg-white/[0.03] p-5 sm:p-6 rounded-xl border border-white/10">
+          <div className="space-y-5 bg-white/[0.03] p-5 sm:p-6 rounded-xl border border-cyan-500/20">
             <div>
               <div className="flex items-center justify-between mb-2">
                 <label className="text-xs font-semibold text-neutral-200 uppercase tracking-wider">
                   4. Workforce Headcount / Posts
                 </label>
-                <span className="font-mono text-base font-bold text-white bg-white/10 border border-white/20 px-3 py-1 rounded-md tabular-nums">
+                <span className="font-mono text-base font-bold text-cyan-300 bg-cyan-950/40 border border-cyan-400/40 px-3 py-1 rounded-md tabular-nums shadow-[0_0_10px_rgba(14,165,233,0.2)]">
                   {headcount} {headcount === 1 ? 'Person' : 'Personnel'}
                 </span>
               </div>
@@ -248,7 +248,7 @@ export function RoiCalculator({ className = '' }: RoiCalculatorProps) {
                 max={40}
                 value={headcount}
                 onChange={(e) => setHeadcount(Number(e.target.value))}
-                className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer accent-white"
+                className="w-full h-2 bg-neutral-900 border border-cyan-500/30 rounded-lg appearance-none cursor-pointer accent-cyan-400 shadow-[0_0_10px_rgba(14,165,233,0.30)]"
               />
               <div className="flex justify-between text-[11px] font-mono text-neutral-400 mt-1 tabular-nums">
                 <span>1 Post</span>
@@ -264,12 +264,12 @@ export function RoiCalculator({ className = '' }: RoiCalculatorProps) {
               </label>
 
               {/* Toggle 1: Supervisor */}
-              <label className="flex items-start gap-3 p-3.5 bg-white/[0.03] border border-white/10 rounded-lg cursor-pointer hover:border-white/30 transition-colors">
+              <label className="flex items-start gap-3 p-3.5 bg-white/[0.03] border border-white/10 rounded-lg cursor-pointer hover:border-cyan-500/30 transition-colors">
                 <input
                   type="checkbox"
                   checked={includeSupervisor}
                   onChange={(e) => setIncludeSupervisor(e.target.checked)}
-                  className="mt-0.5 size-4 rounded accent-white text-white focus:ring-white/40"
+                  className="mt-0.5 size-4 rounded accent-cyan-400 text-cyan-400 focus:ring-cyan-500/40"
                 />
                 <div className="space-y-0.5">
                   <span className="text-xs font-semibold text-white block">
@@ -282,12 +282,12 @@ export function RoiCalculator({ className = '' }: RoiCalculatorProps) {
               </label>
 
               {/* Toggle 2: WhatsApp CRM */}
-              <label className="flex items-start gap-3 p-3.5 bg-white/[0.03] border border-white/10 rounded-lg cursor-pointer hover:border-white/30 transition-colors">
+              <label className="flex items-start gap-3 p-3.5 bg-white/[0.03] border border-white/10 rounded-lg cursor-pointer hover:border-cyan-500/30 transition-colors">
                 <input
                   type="checkbox"
                   checked={includeWhatsAppBot}
                   onChange={(e) => setIncludeWhatsAppBot(e.target.checked)}
-                  className="mt-0.5 size-4 rounded accent-white text-white focus:ring-white/40"
+                  className="mt-0.5 size-4 rounded accent-cyan-400 text-cyan-400 focus:ring-cyan-500/40"
                 />
                 <div className="space-y-0.5">
                   <span className="text-xs font-semibold text-white flex items-center gap-1.5">
@@ -308,7 +308,7 @@ export function RoiCalculator({ className = '' }: RoiCalculatorProps) {
         {/* Results Comparison Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Card 1: Direct In-House Unorganized */}
-          <div className="p-6 rounded-xl border border-rose-500/20 bg-rose-950/20 space-y-4">
+          <div className="p-6 rounded-xl border border-rose-500/30 bg-rose-950/20 space-y-4">
             <div className="flex items-center justify-between">
               <div>
                 <span className="text-[10px] font-mono font-bold text-rose-400 uppercase tracking-wider">
@@ -355,7 +355,7 @@ export function RoiCalculator({ className = '' }: RoiCalculatorProps) {
           </div>
 
           {/* Card 2: JSM Managed Turnkey */}
-          <div className="p-6 rounded-xl border border-white/10 bg-white/[0.04] space-y-4 shadow-xl relative backdrop-blur-xl">
+          <div className="p-6 rounded-xl border border-cyan-400/40 bg-[#050A14]/80 space-y-4 shadow-[0_0_30px_rgba(14,165,233,0.15)] relative backdrop-blur-xl">
             <div className="flex items-center justify-between">
               <div>
                 <span className="text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-wider">
@@ -373,13 +373,13 @@ export function RoiCalculator({ className = '' }: RoiCalculatorProps) {
 
             <div className="pt-2">
               <span className="text-xs text-neutral-400 block">Consolidated Turnkey Rate:</span>
-              <div className="text-2xl sm:text-3xl font-sans font-bold text-white font-mono tabular-nums">
+              <div className="text-2xl sm:text-3xl font-sans font-bold text-cyan-300 font-mono tabular-nums drop-shadow-[0_0_12px_rgba(14,165,233,0.4)]">
                 {formatINR(metrics.jsmTotalMonthly)}
                 <span className="text-xs font-sans font-normal text-neutral-400 ml-1">/ month</span>
               </div>
             </div>
 
-            <div className="space-y-2 pt-2 border-t border-white/10 text-xs text-neutral-400">
+            <div className="space-y-2 pt-2 border-t border-cyan-500/20 text-xs text-neutral-400">
               <div className="flex justify-between text-emerald-300 font-semibold">
                 <span>Net Monthly Savings:</span>
                 <span className="font-mono tabular-nums text-emerald-400 text-sm">{formatINR(metrics.monthlySavings)} / mo</span>
@@ -392,7 +392,7 @@ export function RoiCalculator({ className = '' }: RoiCalculatorProps) {
                 <span>Uniforms, Torches, Gate Registers:</span>
                 <span className="font-semibold text-white">100% JSM Provided</span>
               </div>
-              <div className="flex justify-between pt-1 border-t border-white/10 text-[11px] text-neutral-300">
+              <div className="flex justify-between pt-1 border-t border-cyan-500/20 text-[11px] text-neutral-300">
                 <span className="flex items-center gap-1">
                   <ShieldCheck size={12} className="text-emerald-400" />
                   <span>Client Legal Liability:</span>
@@ -404,10 +404,10 @@ export function RoiCalculator({ className = '' }: RoiCalculatorProps) {
         </div>
 
         {/* Executive ROI Summary Banner */}
-        <div className="bg-white/[0.05] border border-white/10 text-white p-6 sm:p-8 rounded-xl flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="bg-[#060B18] border border-cyan-500/40 shadow-[0_0_25px_rgba(14,165,233,0.20)] text-white p-6 sm:p-8 rounded-xl flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center md:text-left">
-            <div className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-white uppercase tracking-wider">
-              <TrendingUp size={14} />
+            <div className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-cyan-300 uppercase tracking-wider">
+              <TrendingUp size={14} className="text-cyan-400" />
               <span>Projected Annual Economic Impact</span>
             </div>
             <div className="flex flex-wrap items-baseline gap-3">
@@ -420,7 +420,7 @@ export function RoiCalculator({ className = '' }: RoiCalculatorProps) {
             </div>
             {includeWhatsAppBot && (
               <p className="text-xs text-neutral-400">
-                Plus <strong className="text-white font-mono tabular-nums">{formatINR(metrics.recapturedRevenueMonthly * 12)}</strong> estimated annual top-line revenue recovered through 3-second WhatsApp lead capture.
+                Plus <strong className="text-cyan-300 font-mono tabular-nums">{formatINR(metrics.recapturedRevenueMonthly * 12)}</strong> estimated annual top-line revenue recovered through 3-second WhatsApp lead capture.
               </p>
             )}
           </div>
@@ -428,16 +428,18 @@ export function RoiCalculator({ className = '' }: RoiCalculatorProps) {
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
             <Link
               href="/get-quote"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-md bg-white hover:bg-neutral-200 text-black text-xs sm:text-sm font-bold transition-all shadow-xl press-scale min-h-[44px] w-full sm:w-auto text-center"
+              className="btn-border-beam min-touch-target min-h-[44px] w-full sm:w-auto"
             >
-              <span>Download Formal Proposal</span>
-              <ArrowRight size={14} />
+              <span className="btn-border-beam-inner h-full">
+                <span>Download Formal Proposal</span>
+                <ArrowRight size={14} className="text-cyan-300" />
+              </span>
             </Link>
             <a
               href={`https://wa.me/919080863448?text=${whatsappMessage}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-md bg-[#25D366] hover:bg-[#20ba59] text-white text-xs sm:text-sm font-semibold transition-all shadow-xs min-h-[44px] w-full sm:w-auto text-center"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-md bg-[#25D366] hover:bg-[#20ba59] text-black text-xs sm:text-sm font-bold transition-all shadow-[0_0_20px_rgba(37,211,102,0.30)] active:scale-[0.98] min-h-[44px] w-full sm:w-auto text-center"
             >
               <MessageSquare size={14} />
               <span>Send to Operations Desk</span>

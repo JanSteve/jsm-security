@@ -20,7 +20,7 @@ export default function ContactPage() {
   const localBusiness = localBusinessSchema();
 
   return (
-    <main className="min-h-screen bg-black text-white pt-32 pb-24">
+    <main className="min-h-screen bg-[#030712] text-white pt-32 pb-24">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
@@ -32,13 +32,13 @@ export default function ContactPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Editorial Page Header */}
-        <section className="py-8 sm:py-12 border-b border-white/10">
+        <section className="py-8 sm:py-12 border-b border-cyan-500/20">
           <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white border border-white/20 text-xs font-semibold backdrop-blur-md">
-              <ShieldCheck size={14} />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-400/30 text-xs font-semibold font-mono backdrop-blur-md">
+              <ShieldCheck size={14} className="text-cyan-400" />
               <span>Direct Operational Desk &bull; Tiruchirappalli Central Command</span>
             </div>
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl text-white font-normal tracking-tight">
+            <h1 className="font-sans text-3xl sm:text-4xl md:text-5xl text-white font-bold tracking-tight">
               Contact &amp; Site Assessment
             </h1>
             <p className="text-base sm:text-lg text-neutral-300 leading-relaxed">
@@ -56,15 +56,15 @@ export default function ContactPage() {
 
           {/* Right: Contact Information & Headquarters Card (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="p-7 rounded-2xl bg-[#080C14] border border-white/10 shadow-xl space-y-6">
-              <h2 className="font-display text-xl text-white font-normal border-b border-white/10 pb-3">
+            <div className="p-7 rounded-2xl tactical-glass-card border border-cyan-500/30 shadow-[0_0_40px_rgba(14,165,233,0.12)] space-y-6">
+              <h2 className="font-sans text-xl text-white font-bold border-b border-cyan-500/20 pb-3">
                 Head Office &amp; Operations
               </h2>
 
               <div className="space-y-4 text-xs sm:text-sm text-neutral-300">
                 {/* Physical Address */}
                 <div className="flex items-start gap-3">
-                  <MapPin size={18} className="text-white shrink-0 mt-0.5" />
+                  <MapPin size={18} className="text-cyan-400 shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-white block">Central Headquarters:</strong>
                     <span>{brandData.contact.address}</span>
@@ -73,10 +73,10 @@ export default function ContactPage() {
 
                 {/* Direct Phone */}
                 <div className="flex items-start gap-3">
-                  <Phone size={18} className="text-white shrink-0 mt-0.5" />
+                  <Phone size={18} className="text-cyan-400 shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-white block">Direct Consultation / Hotline:</strong>
-                    <a href={`tel:${brandData.contact.phone}`} className="text-white font-semibold hover:underline tabular-nums">
+                    <a href={`tel:${brandData.contact.phone}`} className="text-cyan-300 font-semibold hover:text-cyan-200 tabular-nums">
                       {brandData.contact.phoneDisplay}
                     </a>
                   </div>
@@ -84,10 +84,10 @@ export default function ContactPage() {
 
                 {/* Primary Email */}
                 <div className="flex items-start gap-3">
-                  <Mail size={18} className="text-white shrink-0 mt-0.5" />
+                  <Mail size={18} className="text-cyan-400 shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-white block">Official Executive Email:</strong>
-                    <a href={`mailto:${brandData.contact.email}`} className="text-neutral-200 font-medium hover:text-white block">
+                    <a href={`mailto:${brandData.contact.email}`} className="text-neutral-200 font-medium hover:text-cyan-300 block">
                       {brandData.contact.email}
                     </a>
                     <span className="text-[11px] text-neutral-400 block">Commercial Proposals: {brandData.contact.salesEmail}</span>
@@ -95,32 +95,32 @@ export default function ContactPage() {
                 </div>
 
                 {/* Department Email Inboxes */}
-                <div className="pt-3 border-t border-white/10 space-y-2">
-                  <strong className="text-neutral-400 block text-xs uppercase tracking-wider">
+                <div className="pt-3 border-t border-cyan-500/20 space-y-2">
+                  <strong className="text-cyan-400 block text-xs font-mono uppercase tracking-wider">
                     Department Inboxes:
                   </strong>
                   <div className="grid grid-cols-1 gap-1.5 text-xs">
-                    <div className="flex items-center justify-between py-1 border-b border-white/5">
+                    <div className="flex items-center justify-between py-1 border-b border-cyan-500/10">
                       <span className="text-neutral-400">Sales &amp; Proposals:</span>
-                      <a href={`mailto:${brandData.contact.salesEmail}`} className="text-neutral-200 hover:text-white font-medium">
+                      <a href={`mailto:${brandData.contact.salesEmail}`} className="text-neutral-200 hover:text-cyan-300 font-medium">
                         {brandData.contact.salesEmail}
                       </a>
                     </div>
-                    <div className="flex items-center justify-between py-1 border-b border-white/5">
+                    <div className="flex items-center justify-between py-1 border-b border-cyan-500/10">
                       <span className="text-neutral-400">Careers &amp; Intake:</span>
-                      <a href={`mailto:${brandData.contact.careersEmail}`} className="text-neutral-200 hover:text-white font-medium">
+                      <a href={`mailto:${brandData.contact.careersEmail}`} className="text-neutral-200 hover:text-cyan-300 font-medium">
                         {brandData.contact.careersEmail}
                       </a>
                     </div>
-                    <div className="flex items-center justify-between py-1 border-b border-white/5">
+                    <div className="flex items-center justify-between py-1 border-b border-cyan-500/10">
                       <span className="text-neutral-400">24/7 Operations Desk:</span>
-                      <a href={`mailto:${brandData.contact.helpEmail}`} className="text-neutral-200 hover:text-white font-medium">
+                      <a href={`mailto:${brandData.contact.helpEmail}`} className="text-neutral-200 hover:text-cyan-300 font-medium">
                         {brandData.contact.helpEmail}
                       </a>
                     </div>
                     <div className="flex items-center justify-between py-1">
                       <span className="text-neutral-400">Statutory Compliance:</span>
-                      <a href={`mailto:${brandData.contact.infoEmail}`} className="text-neutral-200 hover:text-white font-medium">
+                      <a href={`mailto:${brandData.contact.infoEmail}`} className="text-neutral-200 hover:text-cyan-300 font-medium">
                         {brandData.contact.infoEmail}
                       </a>
                     </div>
@@ -129,34 +129,36 @@ export default function ContactPage() {
 
                 {/* Response SLA */}
                 <div className="flex items-start gap-3 pt-2">
-                  <Clock size={18} className="text-white shrink-0 mt-0.5" />
+                  <Clock size={18} className="text-emerald-400 shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-white block">Response Commitment:</strong>
-                    <span className="text-neutral-400">Operational inquiries answered within 2 hours during active shifts.</span>
+                    <span className="text-neutral-300">Operational inquiries answered within 2 hours during active shifts.</span>
                   </div>
                 </div>
               </div>
 
               {/* Direct WhatsApp Action */}
-              <div className="pt-2 border-t border-white/10">
+              <div className="pt-2 border-t border-cyan-500/20">
                 <a
                   href={`https://wa.me/${brandData.contact.whatsapp}?text=Hello%20JSM%20Integrated%20Services,%20I%20wish%20to%20inquire%20about%20your%20services.`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-lg bg-white hover:bg-neutral-200 text-black text-xs sm:text-sm font-semibold transition-all min-h-[44px] shadow-2xl press-scale"
+                  className="btn-border-beam min-touch-target min-h-[44px] w-full"
                 >
-                  <span>Open WhatsApp Operations Chat</span>
-                  <ArrowRight size={14} />
+                  <span className="btn-border-beam-inner h-full flex items-center justify-center gap-2 py-3.5 text-xs sm:text-sm font-semibold">
+                    <span>Open WhatsApp Operations Chat</span>
+                    <ArrowRight size={14} />
+                  </span>
                 </a>
               </div>
             </div>
 
             {/* Regional Outposts Notice */}
-            <div className="p-6 rounded-2xl border border-white/10 bg-[#080C14] space-y-2">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-neutral-400">
+            <div className="p-6 rounded-2xl border border-cyan-500/20 tactical-glass-card space-y-2">
+              <h3 className="text-xs font-semibold font-mono uppercase tracking-wider text-cyan-400">
                 Regional Deployment Outposts
               </h3>
-              <p className="text-xs text-neutral-400 leading-relaxed">
+              <p className="text-xs text-neutral-300 leading-relaxed">
                 Field supervisory units stationed in Chennai (OMR IT Corridor), Coimbatore (Sidco), Hosur (Sipcot), Salem, and Madurai.
               </p>
             </div>

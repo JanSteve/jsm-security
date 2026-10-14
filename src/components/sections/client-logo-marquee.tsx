@@ -142,7 +142,7 @@ export function ClientLogoMarquee({
   const marqueeItems = [...TRUST_BADGES, ...TRUST_BADGES];
 
   return (
-    <div className={`relative w-full overflow-hidden bg-black py-4 sm:py-6 border-y border-white/10 group select-none ${className}`}>
+    <div className={`relative w-full overflow-hidden bg-[#030712] py-4 sm:py-6 border-y border-cyan-500/20 group select-none ${className}`}>
       {/* Scoped GPU-accelerated marquee keyframes and behavior */}
       <style>{`
         @keyframes jsm-marquee-scroll {
@@ -175,13 +175,13 @@ export function ClientLogoMarquee({
       {showTitle && (
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 mb-3 flex items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#38BDF8] animate-pulse" />
             <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-white">
               Institutional Clients & Statutory Accreditations
             </span>
           </div>
-          <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-widest hidden sm:inline">
-            Monochrome Platinum &bull; 100% Verified Regional Authority
+          <span className="text-[10px] font-mono text-cyan-400/80 uppercase tracking-widest hidden sm:inline">
+            Tactical Obsidian &bull; 100% Verified Regional Authority
           </span>
         </div>
       )}
@@ -214,10 +214,10 @@ export function ClientLogoMarquee({
             return (
               <div
                 key={`${badge.id}-${idx}`}
-                className="flex items-center gap-3.5 px-4 sm:px-5 py-2.5 sm:py-3 mx-2 rounded-xl bg-[#080C14] hover:bg-[#0C101A] border border-white/10 hover:border-white/30 backdrop-blur-md transition-all duration-200 shrink-0 shadow-lg group/item cursor-default"
+                className="flex items-center gap-3.5 px-4 sm:px-5 py-2.5 sm:py-3 mx-2 rounded-xl tactical-glass-card hover:border-cyan-400/40 hover:shadow-[0_0_20px_rgba(14,165,233,0.15)] backdrop-blur-md transition-all duration-200 shrink-0 shadow-lg group/item cursor-default text-white"
               >
                 {/* Emblem / Logo Container */}
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-white group-hover/item:bg-white/10 group-hover/item:border-white/20 transition-colors p-1.5 overflow-hidden">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-cyan-500/10 border border-cyan-400/20 flex items-center justify-center shrink-0 text-cyan-300 group-hover/item:bg-cyan-500/20 group-hover/item:border-cyan-400/40 transition-colors p-1.5 overflow-hidden">
                   {badge.logoSrc ? (
                     <div className="relative w-full h-full flex items-center justify-center">
                       <Image

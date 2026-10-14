@@ -97,7 +97,7 @@ export function ContactForm() {
   };
 
   return (
-    <div className="bg-[#080C14] border border-white/10 rounded-2xl p-6 md:p-8 max-w-xl mx-auto shadow-2xl text-white">
+    <div className="tactical-glass-card border border-cyan-500/30 rounded-2xl p-6 md:p-8 max-w-xl mx-auto shadow-[0_0_50px_rgba(0,0,0,0.85)] text-white">
       <AnimatePresence mode="wait">
         {!isSubmitted ? (
           <motion.div
@@ -107,9 +107,9 @@ export function ContactForm() {
             exit={{ opacity: 0 }}
           >
             {/* Progress Indicator */}
-            <div className="flex items-center justify-between mb-8 border-b border-white/10 pb-4">
+            <div className="flex items-center justify-between mb-8 border-b border-cyan-500/20 pb-4">
               <div>
-                <span className="text-[10px] font-semibold tracking-wider text-neutral-400 uppercase block">
+                <span className="text-[10px] font-semibold font-mono tracking-wider text-cyan-400 uppercase block">
                   Step {step} of 3
                 </span>
                 <p className="text-xs font-semibold text-white mt-0.5">
@@ -123,7 +123,7 @@ export function ContactForm() {
                   <div
                     key={s}
                     className={`h-1.5 rounded-full transition-all duration-300 ${
-                      s === step ? "w-6 bg-white" : "w-2 bg-white/20"
+                      s === step ? "w-6 bg-cyan-400 shadow-[0_0_8px_#38BDF8]" : "w-2 bg-white/20"
                     }`}
                   />
                 ))}
@@ -140,51 +140,51 @@ export function ContactForm() {
                   className="space-y-4"
                 >
                   <div className="space-y-1.5">
-                    <Label htmlFor="service" className="text-xs font-semibold uppercase text-neutral-300 block">
-                      Primary Service Needed <span className="text-white">*</span>
+                    <Label htmlFor="service" className="text-xs font-semibold uppercase text-cyan-200 block">
+                      Primary Service Needed <span className="text-cyan-400">*</span>
                     </Label>
                     <select
                       id="service"
                       {...register("service")}
-                      className="w-full h-11 px-3.5 bg-[#080C14] border border-white/15 rounded-lg text-xs font-medium text-white focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-white/40 min-h-[44px]"
+                      className="w-full h-11 px-3.5 bg-[#080C16] border border-cyan-500/30 rounded-lg text-xs font-medium text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-400 min-h-[44px]"
                     >
-                      <option value="Private Security Guarding" className="bg-[#080C14] text-white">Private Security Guarding (100% EPF & ESIC Compliant)</option>
-                      <option value="Housekeeping & Facility Management" className="bg-[#080C14] text-white">Housekeeping &amp; Facility Management</option>
-                      <option value="Contractual Manpower Supply" className="bg-[#080C14] text-white">Contractual Manpower Supply</option>
-                      <option value="Tender & GeM Procurement Supply" className="bg-[#080C14] text-white">Tender &amp; GeM Procurement Supply</option>
-                      <option value="Digital Automation & WhatsApp QR" className="bg-[#080C14] text-white">Digital Automation &amp; WhatsApp QR</option>
-                      <option value="Multi-Service Bundled Contract" className="bg-[#080C14] text-white">Multi-Service Bundled Contract</option>
+                      <option value="Private Security Guarding" className="bg-[#080C16] text-white">Private Security Guarding (100% EPF & ESIC Compliant)</option>
+                      <option value="Housekeeping & Facility Management" className="bg-[#080C16] text-white">Housekeeping &amp; Facility Management</option>
+                      <option value="Contractual Manpower Supply" className="bg-[#080C16] text-white">Contractual Manpower Supply</option>
+                      <option value="Tender & GeM Procurement Supply" className="bg-[#080C16] text-white">Tender &amp; GeM Procurement Supply</option>
+                      <option value="Digital Automation & WhatsApp QR" className="bg-[#080C16] text-white">Digital Automation &amp; WhatsApp QR</option>
+                      <option value="Multi-Service Bundled Contract" className="bg-[#080C16] text-white">Multi-Service Bundled Contract</option>
                     </select>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
-                      <Label htmlFor="city" className="text-xs font-semibold uppercase text-neutral-300 block">
-                        Premises City / District <span className="text-white">*</span>
+                      <Label htmlFor="city" className="text-xs font-semibold uppercase text-cyan-200 block">
+                        Premises City / District <span className="text-cyan-400">*</span>
                       </Label>
                       <Input
                         id="city"
                         placeholder="e.g. Trichy, Chennai, Coimbatore"
                         {...register("city")}
-                        className="h-11 rounded-lg bg-[#080C14] border-white/15 text-xs text-white placeholder-neutral-500 focus:ring-2 focus:ring-white/20 focus:border-white/40 min-h-[44px]"
+                        className="h-11 rounded-lg bg-[#080C16] border-cyan-500/30 text-xs text-white placeholder-neutral-500 focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-400 min-h-[44px]"
                       />
                       {errors.city && <p className="text-xs text-rose-400 mt-1 flex items-center gap-1">{errors.city.message}</p>}
                     </div>
 
                     <div className="space-y-1.5">
-                      <Label htmlFor="headcount" className="text-xs font-semibold uppercase text-neutral-300 block">
+                      <Label htmlFor="headcount" className="text-xs font-semibold uppercase text-cyan-200 block">
                         Estimated Headcount Needed
                       </Label>
                       <select
                         id="headcount"
                         {...register("headcount")}
-                        className="w-full h-11 px-3.5 bg-[#080C14] border border-white/15 rounded-lg text-xs font-medium text-white focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-white/40 min-h-[44px]"
+                        className="w-full h-11 px-3.5 bg-[#080C16] border border-cyan-500/30 rounded-lg text-xs font-medium text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-400 min-h-[44px]"
                       >
-                        <option value="1 - 5 Personnel" className="bg-[#080C14] text-white">1 – 5 Personnel</option>
-                        <option value="6 - 15 Personnel" className="bg-[#080C14] text-white">6 – 15 Personnel</option>
-                        <option value="16 - 30 Personnel" className="bg-[#080C14] text-white">16 – 30 Personnel</option>
-                        <option value="30+ Large Deployment" className="bg-[#080C14] text-white">30+ Enterprise Workforce</option>
-                        <option value="Event / Short-term Requirement" className="bg-[#080C14] text-white">Short-Term Event Squad</option>
+                        <option value="1 - 5 Personnel" className="bg-[#080C16] text-white">1 – 5 Personnel</option>
+                        <option value="6 - 15 Personnel" className="bg-[#080C16] text-white">6 – 15 Personnel</option>
+                        <option value="16 - 30 Personnel" className="bg-[#080C16] text-white">16 – 30 Personnel</option>
+                        <option value="30+ Large Deployment" className="bg-[#080C16] text-white">30+ Enterprise Workforce</option>
+                        <option value="Event / Short-term Requirement" className="bg-[#080C16] text-white">Short-Term Event Squad</option>
                       </select>
                     </div>
                   </div>
@@ -192,9 +192,10 @@ export function ContactForm() {
                   <Button
                     type="button"
                     onClick={nextStep}
-                    className="w-full h-11 rounded-lg bg-white hover:bg-neutral-200 text-black font-semibold text-xs mt-2 min-h-[44px] shadow-2xl press-scale transition-all"
+                    variant="border-beam"
+                    className="w-full h-11 rounded-lg font-semibold text-xs mt-2 min-h-[44px] shadow-2xl press-scale transition-all"
                   >
-                    <span>Continue to contact details</span> <ArrowRight size={14} className="ml-1.5 text-black" />
+                    <span>Continue to contact details</span> <ArrowRight size={14} className="ml-1.5 text-cyan-400" />
                   </Button>
                 </motion.div>
               )}
@@ -209,28 +210,28 @@ export function ContactForm() {
                 >
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
-                      <Label htmlFor="name" className="text-xs font-semibold uppercase text-neutral-300 block">
-                        Your Full Name <span className="text-white">*</span>
+                      <Label htmlFor="name" className="text-xs font-semibold uppercase text-cyan-200 block">
+                        Your Full Name <span className="text-cyan-400">*</span>
                       </Label>
                       <Input
                         id="name"
                         placeholder="Enter full name"
                         {...register("name")}
-                        className="h-11 rounded-lg bg-[#080C14] border-white/15 text-xs text-white placeholder-neutral-500 focus:ring-2 focus:ring-white/20 focus:border-white/40 min-h-[44px]"
+                        className="h-11 rounded-lg bg-[#080C16] border-cyan-500/30 text-xs text-white placeholder-neutral-500 focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-400 min-h-[44px]"
                       />
                       {errors.name && <p className="text-xs text-rose-400 mt-1 flex items-center gap-1">{errors.name.message}</p>}
                     </div>
 
                     <div className="space-y-1.5">
-                      <Label htmlFor="phone" className="text-xs font-semibold uppercase text-neutral-300 block">
-                        Phone / WhatsApp Number <span className="text-white">*</span>
+                      <Label htmlFor="phone" className="text-xs font-semibold uppercase text-cyan-200 block">
+                        Phone / WhatsApp Number <span className="text-cyan-400">*</span>
                       </Label>
                       <Input
                         id="phone"
                         type="tel"
                         placeholder="+91 98765 43210"
                         {...register("phone")}
-                        className="h-11 rounded-lg bg-[#080C14] border-white/15 text-xs text-white placeholder-neutral-500 focus:ring-2 focus:ring-white/20 focus:border-white/40 tabular-nums min-h-[44px]"
+                        className="h-11 rounded-lg bg-[#080C16] border-cyan-500/30 text-xs text-white placeholder-neutral-500 focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-400 tabular-nums min-h-[44px]"
                       />
                       {errors.phone && <p className="text-xs text-rose-400 mt-1 flex items-center gap-1">{errors.phone.message}</p>}
                     </div>
@@ -238,7 +239,7 @@ export function ContactForm() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
-                      <Label htmlFor="email" className="text-xs font-semibold uppercase text-neutral-300 block">
+                      <Label htmlFor="email" className="text-xs font-semibold uppercase text-cyan-200 block">
                         Email Address (Optional)
                       </Label>
                       <Input
@@ -246,20 +247,20 @@ export function ContactForm() {
                         type="email"
                         placeholder="name@company.com"
                         {...register("email")}
-                        className="h-11 rounded-lg bg-[#080C14] border-white/15 text-xs text-white placeholder-neutral-500 focus:ring-2 focus:ring-white/20 focus:border-white/40 min-h-[44px]"
+                        className="h-11 rounded-lg bg-[#080C16] border-cyan-500/30 text-xs text-white placeholder-neutral-500 focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-400 min-h-[44px]"
                       />
                       {errors.email && <p className="text-xs text-rose-400 mt-1 flex items-center gap-1">{errors.email.message}</p>}
                     </div>
 
                     <div className="space-y-1.5">
-                      <Label htmlFor="company" className="text-xs font-semibold uppercase text-neutral-300 block">
+                      <Label htmlFor="company" className="text-xs font-semibold uppercase text-cyan-200 block">
                         Company / Society Name
                       </Label>
                       <Input
                         id="company"
                         placeholder="e.g. ABC Industrial Park / Tower RWA"
                         {...register("company")}
-                        className="h-11 rounded-lg bg-[#080C14] border-white/15 text-xs text-white placeholder-neutral-500 focus:ring-2 focus:ring-white/20 focus:border-white/40 min-h-[44px]"
+                        className="h-11 rounded-lg bg-[#080C16] border-cyan-500/30 text-xs text-white placeholder-neutral-500 focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-400 min-h-[44px]"
                       />
                     </div>
                   </div>
@@ -269,16 +270,17 @@ export function ContactForm() {
                       type="button"
                       variant="outline"
                       onClick={prevStep}
-                      className="w-full sm:w-1/3 h-11 rounded-lg text-xs font-semibold bg-white/5 hover:bg-white/10 text-neutral-300 border-white/15 min-h-[44px]"
+                      className="w-full sm:w-1/3 h-11 rounded-lg text-xs font-semibold bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-200 border-cyan-500/30 min-h-[44px]"
                     >
                       Back
                     </Button>
                     <Button
                       type="button"
                       onClick={nextStep}
-                      className="w-full sm:w-2/3 h-11 rounded-lg bg-white hover:bg-neutral-200 text-black font-semibold text-xs min-h-[44px] shadow-2xl press-scale transition-all"
+                      variant="border-beam"
+                      className="w-full sm:w-2/3 h-11 rounded-lg font-semibold text-xs min-h-[44px] shadow-2xl press-scale transition-all"
                     >
-                      <span>Continue</span> <ArrowRight size={14} className="ml-1.5 text-black" />
+                      <span>Continue</span> <ArrowRight size={14} className="ml-1.5 text-cyan-400" />
                     </Button>
                   </div>
                 </motion.div>
@@ -293,7 +295,7 @@ export function ContactForm() {
                   className="space-y-4"
                 >
                   <div className="space-y-1.5">
-                    <Label htmlFor="requirements" className="text-xs font-semibold uppercase text-neutral-300 block">
+                    <Label htmlFor="requirements" className="text-xs font-semibold uppercase text-cyan-200 block">
                       Requirement Scope &amp; Shift Notes
                     </Label>
                     <Textarea
@@ -301,13 +303,13 @@ export function ContactForm() {
                       rows={3}
                       placeholder="Mention specific shift hours (e.g. 24/7 or Day only), property square footage, or target start date..."
                       {...register("requirements")}
-                      className="rounded-lg bg-[#080C14] border-white/15 text-xs text-white placeholder-neutral-500 focus:ring-2 focus:ring-white/20 focus:border-white/40 leading-relaxed resize-none"
+                      className="rounded-lg bg-[#080C16] border-cyan-500/30 text-xs text-white placeholder-neutral-500 focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-400 leading-relaxed resize-none"
                     />
                   </div>
 
-                  <div className="p-3.5 bg-white/5 border border-white/10 rounded-lg text-[11px] text-neutral-300 space-y-1 shadow-sm">
+                  <div className="p-3.5 bg-cyan-500/10 border border-cyan-500/20 rounded-lg text-[11px] text-neutral-300 space-y-1 shadow-sm">
                     <p className="font-semibold text-white flex items-center gap-1.5">
-                      <ShieldCheck size={14} className="text-white" />
+                      <ShieldCheck size={14} className="text-cyan-400" />
                       JSM Service Commitment:
                     </p>
                     <p className="text-neutral-400">An operations manager will review your submission and contact you within 2 business hours to schedule the free site assessment.</p>
@@ -318,14 +320,15 @@ export function ContactForm() {
                       type="button"
                       variant="outline"
                       onClick={prevStep}
-                      className="w-full sm:w-1/3 h-11 rounded-lg text-xs font-semibold bg-white/5 hover:bg-white/10 text-neutral-300 border-white/15 min-h-[44px]"
+                      className="w-full sm:w-1/3 h-11 rounded-lg text-xs font-semibold bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-200 border-cyan-500/30 min-h-[44px]"
                     >
                       Back
                     </Button>
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full sm:w-2/3 h-11 rounded-lg bg-white hover:bg-neutral-200 text-black font-semibold text-xs shadow-2xl press-scale min-h-[44px] transition-all"
+                      variant="border-beam"
+                      className="w-full sm:w-2/3 h-11 rounded-lg font-semibold text-xs shadow-2xl press-scale min-h-[44px] transition-all"
                     >
                       {isSubmitting ? "Dispatching..." : "Submit Assessment Request"}
                     </Button>
@@ -342,12 +345,12 @@ export function ContactForm() {
             animate={{ opacity: 1, scale: 1 }}
             className="p-4 text-center space-y-5"
           >
-            <div className="w-14 h-14 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center mx-auto">
+            <div className="w-14 h-14 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center justify-center mx-auto shadow-[0_0_20px_rgba(16,185,129,0.2)]">
               <CheckCircle2 size={28} />
             </div>
 
             <div className="space-y-1.5">
-              <span className="text-[10px] font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full tabular-nums">
+              <span className="text-[10px] font-semibold text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 px-3 py-1 rounded-full tabular-nums font-mono">
                 Ticket Reference: {referenceId}
               </span>
               <h3 className="text-xl font-semibold text-white pt-2">Assessment Request Received</h3>
@@ -363,7 +366,7 @@ export function ContactForm() {
                   setIsSubmitted(false);
                   setStep(1);
                 }}
-                className="text-xs text-neutral-400 hover:text-white font-semibold min-h-[44px]"
+                className="text-xs text-cyan-400 hover:text-cyan-300 font-semibold min-h-[44px]"
               >
                 Submit another request
               </Button>

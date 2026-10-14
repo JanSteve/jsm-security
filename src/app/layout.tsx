@@ -126,7 +126,7 @@ export default function RootLayout({
   const globalKnowledgeGraph = getUnifiedKnowledgeGraph();
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
       <head>
         {/* Authoritative Global Schema.org Knowledge Graph */}
         <script
@@ -136,14 +136,14 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          "min-h-screen bg-black font-sans antialiased text-white selection:bg-white/20 selection:text-white",
+          "min-h-screen bg-[#030712] font-sans antialiased text-white selection:bg-cyan-500/30 selection:text-white overflow-x-hidden max-w-full",
           publicSans.variable
         )}
       >
         <Providers>
-          <div className="relative flex min-h-screen flex-col">
+          <div className="relative flex min-h-screen flex-col overflow-x-hidden w-full max-w-full">
             <Header />
-            <main className="flex-1 w-full pb-20 md:pb-0">{children}</main>
+            <main className="flex-1 w-full max-w-full pb-24 md:pb-0 overflow-x-hidden">{children}</main>
             <Footer />
             <MobileDock />
             <CookieBanner />

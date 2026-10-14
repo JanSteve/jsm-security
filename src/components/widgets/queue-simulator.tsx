@@ -15,8 +15,8 @@ import {
 
 function FlatWhatsAppPreview({ mode }: { mode: 'clinic-token' | 'table-order' }) {
   return (
-    <div className="w-full max-w-[320px] rounded-2xl bg-[#0b141a] text-white overflow-hidden border border-white/15 shadow-2xl">
-      <div className="bg-[#1f2c34] p-3 flex items-center gap-2.5 border-b border-white/10">
+    <div className="w-full max-w-[320px] rounded-2xl bg-[#050A12] text-white overflow-hidden border border-cyan-500/30 shadow-[0_0_30px_rgba(14,165,233,0.20)]">
+      <div className="bg-[#0B1520] p-3 flex items-center gap-2.5 border-b border-cyan-500/20">
         <div className="w-8 h-8 rounded-full bg-[#25D366] text-black font-bold flex items-center justify-center text-xs">JSM</div>
         <div className="text-left flex-1 min-w-0">
           <div className="text-xs font-semibold text-white truncate">
@@ -25,7 +25,7 @@ function FlatWhatsAppPreview({ mode }: { mode: 'clinic-token' | 'table-order' })
           <div className="text-[10px] text-emerald-400">WhatsApp Business API &bull; Active</div>
         </div>
       </div>
-      <div className="p-4 space-y-3 bg-[#0b141a] min-h-[220px] text-left text-xs font-sans">
+      <div className="p-4 space-y-3 bg-[#050A12] min-h-[220px] text-left text-xs font-sans">
         <div className="p-3 rounded-lg bg-[#005c4b] text-white shadow space-y-1 max-w-[90%] self-end ml-auto">
           <div className="text-[10px] text-emerald-200 font-bold uppercase">
             {mode === 'clinic-token' ? '🏥 TOKEN PASS DISPATCH' : '🍽️ TABLE ORDER CONFIRMED'}
@@ -38,7 +38,7 @@ function FlatWhatsAppPreview({ mode }: { mode: 'clinic-token' | 'table-order' })
           <div className="text-[9px] text-emerald-200 text-right">Just now &bull; ✓✓ Delivered</div>
         </div>
       </div>
-      <div className="p-2.5 bg-[#1f2c34] text-[10px] text-neutral-400 text-center border-t border-white/10 font-mono">
+      <div className="p-2.5 bg-[#0B1520] text-[10px] text-cyan-400/80 text-center border-t border-cyan-500/20 font-mono">
         AUTOMATED VIA JSM WHATSAPP CLOUD API
       </div>
     </div>
@@ -164,13 +164,13 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
   const nextPatient = queue[1];
 
   return (
-    <div className={`bg-[#080C14]/90 backdrop-blur-2xl border border-white/10 text-white rounded-xl shadow-2xl overflow-hidden ${className}`}>
+    <div className={`tactical-glass-card border-cyan-500/30 text-white rounded-xl shadow-[0_0_50px_rgba(0,0,0,0.85)] overflow-hidden ${className}`}>
       {/* Top Selector Banner */}
-      <div className="bg-white/[0.03] border-b border-white/10 text-white p-6 sm:p-8">
+      <div className="bg-white/[0.03] border-b border-cyan-500/20 text-white p-6 sm:p-8">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="space-y-1.5">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white font-mono text-xs font-semibold border border-white/10">
-              <Sparkles size={14} className="text-white" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 font-mono text-xs font-semibold border border-cyan-400/30 shadow-[0_0_12px_rgba(14,165,233,0.15)]">
+              <Sparkles size={14} className="text-cyan-400" />
               <span>Interactive 3D Hardware &amp; WhatsApp Simulator</span>
             </div>
             <h3 className="font-sans text-2xl sm:text-3xl font-bold tracking-tight text-white">
@@ -182,14 +182,14 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
           </div>
 
           {/* Mode Switcher Tabs */}
-          <div className="flex items-center bg-white/[0.06] p-1 rounded-lg border border-white/15 self-start sm:self-auto">
+          <div className="flex items-center bg-black/40 p-1 rounded-lg border border-cyan-500/30 self-start sm:self-auto">
             <button
               type="button"
               onClick={() => setActiveTab('clinic')}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-md text-xs font-semibold transition-all min-h-[44px] cursor-pointer ${
                 activeTab === 'clinic'
-                  ? 'bg-white text-black font-bold shadow-md'
-                  : 'text-neutral-300 hover:text-white'
+                  ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-400 shadow-[0_0_15px_rgba(14,165,233,0.30)] font-bold'
+                  : 'text-neutral-300 hover:text-white border border-transparent'
               }`}
             >
               <Stethoscope size={16} />
@@ -200,8 +200,8 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
               onClick={() => setActiveTab('restaurant')}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-md text-xs font-semibold transition-all min-h-[44px] cursor-pointer ${
                 activeTab === 'restaurant'
-                  ? 'bg-white text-black font-bold shadow-md'
-                  : 'text-neutral-300 hover:text-white'
+                  ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-400 shadow-[0_0_15px_rgba(14,165,233,0.30)] font-bold'
+                  : 'text-neutral-300 hover:text-white border border-transparent'
               }`}
             >
               <UtensilsCrossed size={16} />
@@ -219,9 +219,9 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
               {/* Left Column: Doctor Console (7 cols) */}
               <div className="lg:col-span-7 space-y-6">
                 {/* Now Serving Display Box */}
-                <div className="p-6 rounded-xl bg-white/[0.04] border border-white/10 text-white space-y-4 shadow-xl relative overflow-hidden backdrop-blur-xl">
-                  <div className="flex items-center justify-between border-b border-white/10 pb-3">
-                    <span className="text-[11px] font-mono uppercase text-white font-semibold tracking-wider flex items-center gap-1.5">
+                <div className="p-6 rounded-xl bg-[#050A14]/90 border border-cyan-500/30 text-white space-y-4 shadow-xl relative overflow-hidden backdrop-blur-xl">
+                  <div className="flex items-center justify-between border-b border-cyan-500/20 pb-3">
+                    <span className="text-[11px] font-mono uppercase text-cyan-300 font-semibold tracking-wider flex items-center gap-1.5">
                       <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                       Doctor Consultation Terminal &bull; Room #2
                     </span>
@@ -231,7 +231,7 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
                   <div className="grid grid-cols-2 gap-4 pt-2">
                     <div className="space-y-1">
                       <span className="text-xs text-neutral-400 uppercase tracking-wider block">Currently Serving:</span>
-                      <div className="text-4xl sm:text-5xl font-mono font-bold text-white tabular-nums">
+                      <div className="text-4xl sm:text-5xl font-mono font-bold text-cyan-300 tabular-nums drop-shadow-[0_0_15px_rgba(14,165,233,0.5)]">
                         #{currentPatient ? currentPatient.token : '--'}
                       </div>
                       <span className="text-xs font-semibold text-emerald-300 block">
@@ -239,7 +239,7 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
                       </span>
                     </div>
 
-                    <div className="space-y-1 pl-4 border-l border-white/10">
+                    <div className="space-y-1 pl-4 border-l border-cyan-500/20">
                       <span className="text-xs text-neutral-400 uppercase tracking-wider block">Next Patient Ready:</span>
                       <div className="text-3xl sm:text-4xl font-mono font-semibold text-neutral-200 tabular-nums">
                         #{nextPatient ? nextPatient.token : '--'}
@@ -251,11 +251,11 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
                   </div>
 
                   {/* Actions Strip */}
-                  <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-white/10">
+                  <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-cyan-500/20">
                     <button
                       type="button"
                       onClick={handleNextPatient}
-                      className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-md bg-white hover:bg-neutral-200 text-black text-xs font-bold transition-all min-h-[44px] shadow-lg press-scale cursor-pointer"
+                      className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-md bg-gradient-to-r from-cyan-400 to-sky-500 hover:from-cyan-300 hover:to-sky-400 text-black text-xs font-bold transition-all min-h-[44px] shadow-[0_0_20px_rgba(14,165,233,0.40)] press-scale cursor-pointer"
                     >
                       <Bell size={14} className="text-black" />
                       <span>Call Next Patient</span>
@@ -263,7 +263,7 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
                     <button
                       type="button"
                       onClick={handleAddWalkin}
-                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs font-semibold transition-all min-h-[44px] cursor-pointer"
+                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-200 border border-cyan-400/30 text-xs font-semibold transition-all min-h-[44px] cursor-pointer"
                     >
                       <Plus size={14} />
                       <span>Walk-in Check-in</span>
@@ -288,12 +288,12 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
                 )}
 
                 {lastNotification && !delayNotice && (
-                  <div className="p-3 bg-white/[0.03] border border-white/10 rounded-lg text-xs text-neutral-300 flex items-center justify-between">
+                  <div className="p-3 bg-white/[0.03] border border-cyan-500/20 rounded-lg text-xs text-neutral-300 flex items-center justify-between">
                     <span className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-white" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_6px_#38BDF8]" />
                       <span>{lastNotification}</span>
                     </span>
-                    <span className="text-[10px] font-mono text-neutral-400 tabular-nums">Just now</span>
+                    <span className="text-[10px] font-mono text-cyan-300 tabular-nums">Just now</span>
                   </div>
                 )}
 
@@ -302,15 +302,15 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
                   <h4 className="text-xs font-semibold uppercase tracking-wider text-neutral-200">
                     Upcoming Patient Roster ({queue.length} in Queue)
                   </h4>
-                  <div className="divide-y divide-white/10 border border-white/10 rounded-xl overflow-hidden bg-white/[0.02]">
+                  <div className="divide-y divide-white/10 border border-cyan-500/20 rounded-xl overflow-hidden bg-white/[0.02]">
                     {queue.map((item, idx) => (
                       <div
                         key={item.token}
                         className={`p-3.5 flex items-center justify-between transition-colors ${
                           idx === 0
-                            ? 'bg-emerald-950/40 text-white'
+                            ? 'bg-emerald-950/40 text-white border-l-2 border-emerald-400'
                             : idx === 1
-                            ? 'bg-amber-950/30 text-white'
+                            ? 'bg-cyan-950/30 text-white border-l-2 border-cyan-400'
                             : 'hover:bg-white/[0.04]'
                         }`}
                       >
@@ -318,9 +318,9 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
                           <span
                             className={`w-9 h-9 rounded-md font-mono font-bold text-sm flex items-center justify-center tabular-nums ${
                               idx === 0
-                                ? 'bg-emerald-600 text-white'
+                                ? 'bg-emerald-500 text-black shadow-[0_0_10px_rgba(16,185,129,0.3)]'
                                 : idx === 1
-                                ? 'bg-amber-600 text-white'
+                                ? 'bg-cyan-500 text-black shadow-[0_0_10px_rgba(14,165,233,0.3)]'
                                 : 'bg-white/10 text-neutral-200 border border-white/10'
                             }`}
                           >
@@ -364,9 +364,9 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
               {/* Left Column: Digital Table Menu & Cart (7 cols) */}
               <div className="lg:col-span-7 space-y-6">
-                <div className="flex items-center justify-between bg-white/[0.03] p-4 rounded-xl border border-white/10">
+                <div className="flex items-center justify-between bg-white/[0.03] p-4 rounded-xl border border-cyan-500/20">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-white/10 border border-white/15 text-white flex items-center justify-center font-mono font-bold text-sm">
+                    <div className="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-400/30 text-cyan-300 flex items-center justify-center font-mono font-bold text-sm shadow-[0_0_10px_rgba(14,165,233,0.15)]">
                       T-{tableNumber}
                     </div>
                     <div>
@@ -383,7 +383,7 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
                         onClick={() => { setTableNumber(num); setOrderSent(false); }}
                         className={`px-3 py-2 rounded-md text-xs font-semibold min-h-[44px] min-w-[44px] flex items-center justify-center cursor-pointer ${
                           tableNumber === num
-                            ? 'bg-white text-black font-bold shadow-md'
+                            ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-400 shadow-[0_0_15px_rgba(14,165,233,0.30)] font-bold'
                             : 'bg-white/[0.04] border border-white/10 text-neutral-400 hover:text-white'
                         }`}
                       >
@@ -404,18 +404,18 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
                       return (
                         <div
                           key={item.id}
-                          className="p-3.5 bg-white/[0.03] border border-white/10 rounded-xl flex items-center justify-between hover:border-white/30 transition-colors"
+                          className="p-3.5 bg-white/[0.03] border border-white/10 rounded-xl flex items-center justify-between hover:border-cyan-500/30 transition-colors"
                         >
                           <div>
                             <span className="text-xs font-semibold text-white block">{item.name}</span>
-                            <span className="text-[11px] text-neutral-400 font-mono tabular-nums">
+                            <span className="text-[11px] text-cyan-400/80 font-mono tabular-nums">
                               ₹{item.price} &bull; {item.category}
                             </span>
                           </div>
 
                           <div className="flex items-center gap-2">
                             {qty > 0 ? (
-                              <div className="flex items-center gap-2 bg-white/[0.05] border border-white/10 rounded-lg p-1">
+                              <div className="flex items-center gap-2 bg-white/[0.05] border border-cyan-500/20 rounded-lg p-1">
                                 <button
                                   type="button"
                                   onClick={() => updateQuantity(item.id, -1)}
@@ -423,11 +423,11 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
                                 >
                                   -
                                 </button>
-                                <span className="font-mono font-semibold text-xs px-2 tabular-nums text-white">{qty}</span>
+                                <span className="font-mono font-semibold text-xs px-2 tabular-nums text-cyan-300">{qty}</span>
                                 <button
                                   type="button"
                                   onClick={() => updateQuantity(item.id, 1)}
-                                  className="w-11 h-11 rounded bg-white text-black hover:bg-neutral-200 font-bold text-sm flex items-center justify-center min-h-[44px] min-w-[44px] cursor-pointer"
+                                  className="w-11 h-11 rounded bg-cyan-500 text-black hover:bg-cyan-400 font-bold text-sm flex items-center justify-center min-h-[44px] min-w-[44px] cursor-pointer shadow-[0_0_10px_rgba(14,165,233,0.3)]"
                                 >
                                   +
                                 </button>
@@ -436,7 +436,7 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
                               <button
                                 type="button"
                                 onClick={() => updateQuantity(item.id, 1)}
-                                className="px-4 py-2 rounded-lg bg-white hover:bg-neutral-200 text-black text-xs font-bold transition-colors min-h-[44px] cursor-pointer"
+                                className="px-4 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-black text-xs font-bold transition-colors min-h-[44px] cursor-pointer shadow-[0_0_12px_rgba(14,165,233,0.25)]"
                               >
                                 Add +
                               </button>
@@ -449,7 +449,7 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
                 </div>
 
                 {/* Cart Subtotal & Action */}
-                <div className="p-5 bg-white/[0.03] rounded-xl border border-white/10 space-y-3">
+                <div className="p-5 bg-white/[0.03] rounded-xl border border-cyan-500/20 space-y-3">
                   <div className="flex items-center justify-between text-xs text-neutral-400">
                     <span>Cart Items:</span>
                     <span className="font-mono tabular-nums font-semibold text-white">
@@ -458,7 +458,7 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
                   </div>
                   <div className="flex items-center justify-between text-base font-semibold text-white">
                     <span>Subtotal:</span>
-                    <span className="font-mono font-bold text-xl text-white tabular-nums">
+                    <span className="font-mono font-bold text-xl text-cyan-300 tabular-nums">
                       ₹{cartSubtotal}
                     </span>
                   </div>
@@ -473,15 +473,15 @@ export function QueueSimulator({ className = '' }: QueueSimulatorProps) {
                     type="button"
                     onClick={handleSendOrder}
                     disabled={cartSubtotal === 0}
-                    className="w-full py-3 rounded-lg bg-[#25D366] hover:bg-[#20ba59] text-black font-bold text-sm transition-all shadow-xl flex items-center justify-center gap-2 min-h-[44px] disabled:opacity-50 cursor-pointer"
+                    className="w-full py-3 rounded-lg bg-[#25D366] hover:bg-[#20ba59] text-black font-bold text-sm transition-all shadow-[0_0_20px_rgba(37,211,102,0.30)] flex items-center justify-center gap-2 min-h-[44px] disabled:opacity-50 cursor-pointer"
                   >
                     <Send size={16} />
                     <span>Send Order Direct to Kitchen on WhatsApp</span>
                   </button>
 
                   {orderSent && (
-                    <div className="p-3 bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 rounded-lg text-xs font-semibold flex items-center gap-2 animate-fade-in">
-                      <Check size={14} className="text-emerald-600 shrink-0" />
+                    <div className="p-3 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 rounded-lg text-xs font-semibold flex items-center gap-2 animate-fade-in">
+                      <Check size={14} className="text-emerald-400 shrink-0" />
                       <span>Order for Table #{tableNumber} dispatched to kitchen WhatsApp!</span>
                     </div>
                   )}

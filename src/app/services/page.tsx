@@ -31,7 +31,7 @@ export default function ServicesHubPage() {
   ]);
 
   return (
-    <main className="min-h-screen bg-black text-white pt-32 pb-24">
+    <main className="min-h-screen bg-[#030712] text-white pt-32 pb-24">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
@@ -39,13 +39,13 @@ export default function ServicesHubPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Editorial Page Header */}
-        <section className="py-8 sm:py-12 border-b border-white/10">
+        <section className="py-8 sm:py-12 border-b border-cyan-500/20">
           <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white border border-white/20 text-xs font-semibold">
-              <ShieldCheck size={14} />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-400/30 text-xs font-semibold shadow-[0_0_12px_rgba(14,165,233,0.15)]">
+              <ShieldCheck size={14} className="text-cyan-400" />
               <span>Full Capability Matrix &bull; 21 Integrated Verticals</span>
             </div>
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl text-white font-normal tracking-tight">
+            <h1 className="font-sans text-3xl sm:text-4xl md:text-5xl text-white font-bold tracking-tight">
               Integrated Services Directory
             </h1>
             <p className="text-base sm:text-lg text-neutral-300 leading-relaxed">
@@ -58,7 +58,7 @@ export default function ServicesHubPage() {
         <section className="space-y-8">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <h2 className="font-display text-2xl sm:text-3xl text-white font-normal">
+              <h2 className="font-sans text-2xl sm:text-3xl text-white font-bold tracking-tight">
                 Select Capability Tier
               </h2>
               <p className="text-xs sm:text-sm text-neutral-400">
@@ -70,13 +70,13 @@ export default function ServicesHubPage() {
         </section>
 
         {/* Interactive Operations & Automation Suite */}
-        <section className="pt-8 border-t border-white/10">
+        <section className="pt-8 border-t border-cyan-500/20">
           <InteractiveShowcase />
         </section>
 
         {/* Bottom Assessment CTA */}
-        <section className="py-12 sm:py-16 bg-[#080C14] border border-white/10 rounded-2xl p-8 sm:p-12 text-center text-white space-y-6">
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl text-white font-normal tracking-tight max-w-2xl mx-auto">
+        <section className="py-12 sm:py-16 tactical-glass-card border-cyan-500/30 rounded-2xl p-8 sm:p-12 text-center text-white space-y-6 shadow-[0_0_50px_rgba(0,0,0,0.85)]">
+          <h2 className="font-sans text-2xl sm:text-3xl md:text-4xl text-white font-bold tracking-tight max-w-2xl mx-auto">
             Need a site-specific operational assessment?
           </h2>
           <p className="text-xs sm:text-sm text-neutral-300 max-w-xl mx-auto leading-relaxed">
@@ -85,14 +85,16 @@ export default function ServicesHubPage() {
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               href="/get-quote"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-white text-black text-sm font-bold hover:bg-neutral-200 transition-colors shadow-xl press-scale min-h-[44px] w-full sm:w-auto"
+              className="btn-border-beam min-touch-target min-h-[44px] w-full sm:w-auto"
             >
-              <span>Request Site Assessment</span>
-              <ArrowRight size={14} />
+              <span className="btn-border-beam-inner h-full">
+                <span>Request Site Assessment</span>
+                <ArrowRight size={14} className="text-cyan-300" />
+              </span>
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-white/10 hover:bg-white/15 text-white border border-white/20 text-sm font-semibold transition-colors min-h-[44px] w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-white/5 hover:bg-cyan-950/20 text-neutral-300 hover:text-white border border-white/10 hover:border-cyan-400/40 text-sm font-semibold transition-all min-h-[44px] w-full sm:w-auto"
             >
               <span>Contact Operations Desk</span>
             </Link>

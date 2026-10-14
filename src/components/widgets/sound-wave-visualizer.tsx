@@ -266,11 +266,11 @@ export function SoundWaveVisualizer({
   return (
     <div
       ref={containerRef}
-      className={`rounded-xl bg-[#070B12]/90 border border-white/15 p-3 sm:p-4 backdrop-blur-xl shadow-xl transition-all duration-300 ${className}`}
+      className={`rounded-xl bg-[#080C16]/90 border border-cyan-500/25 p-3 sm:p-4 backdrop-blur-xl shadow-[0_0_30px_rgba(14,165,233,0.15)] transition-all duration-300 ${className}`}
     >
       {/* Micro-HUD Telemetry Header Bar */}
       {showBadge && (
-        <div className="flex items-center justify-between gap-3 pb-2.5 mb-2.5 border-b border-white/10 text-xs">
+        <div className="flex items-center justify-between gap-3 pb-2.5 mb-2.5 border-b border-cyan-500/20 text-xs">
           {/* Status Beacon & Label */}
           <div className="flex items-center gap-2">
             <span className="relative flex h-2 w-2">
@@ -280,7 +280,7 @@ export function SoundWaveVisualizer({
                     telemetry.mode === 'REAL_STREAM'
                       ? 'bg-emerald-400'
                       : telemetry.mode === 'HARMONIC_SIM'
-                      ? 'bg-white'
+                      ? 'bg-cyan-400'
                       : 'bg-zinc-600'
                   }`}
                 />
@@ -288,9 +288,9 @@ export function SoundWaveVisualizer({
               <span
                 className={`relative inline-flex rounded-full h-2 w-2 ${
                   telemetry.mode === 'REAL_STREAM'
-                    ? 'bg-emerald-500'
+                    ? 'bg-emerald-500 shadow-[0_0_6px_#10B981]'
                     : telemetry.mode === 'HARMONIC_SIM'
-                    ? 'bg-white'
+                    ? 'bg-cyan-400 shadow-[0_0_6px_#0EA5E9]'
                     : 'bg-zinc-600'
                 }`}
               />
@@ -305,7 +305,7 @@ export function SoundWaveVisualizer({
                 telemetry.mode === 'REAL_STREAM'
                   ? 'bg-emerald-950/70 text-emerald-400 border border-emerald-500/40'
                   : telemetry.mode === 'HARMONIC_SIM'
-                  ? 'bg-white/10 text-white border border-white/20'
+                  ? 'bg-cyan-500/15 text-cyan-300 border border-cyan-400/30'
                   : 'bg-white/5 text-neutral-400 border border-white/10'
               }`}
             >
@@ -320,22 +320,22 @@ export function SoundWaveVisualizer({
           {/* Right Metrics: dB & Activity */}
           <div className="flex items-center gap-3 font-mono text-[10px] text-neutral-400">
             <span className="hidden sm:inline-flex items-center gap-1">
-              <Activity size={11} className="text-white" />
+              <Activity size={11} className="text-cyan-400" />
               <span className="text-neutral-300">PK-B{telemetry.peakBand}</span>
             </span>
 
             <span className="inline-flex items-center gap-1">
               {isMuted ? (
-                <VolumeX size={11} className="text-white" />
+                <VolumeX size={11} className="text-neutral-400" />
               ) : (
-                <Volume2 size={11} className="text-emerald-400" />
+                <Volume2 size={11} className="text-cyan-400" />
               )}
               <span className="text-neutral-200 font-bold tabular-nums">
                 {telemetry.decibels}
               </span>
             </span>
 
-            <span className="px-1.5 py-0.5 rounded bg-white/5 text-neutral-300 text-[9px]">
+            <span className="px-1.5 py-0.5 rounded bg-[#030712] border border-cyan-500/20 text-cyan-300 text-[9px]">
               {bandsCount} BANDS
             </span>
           </div>
@@ -343,11 +343,11 @@ export function SoundWaveVisualizer({
       )}
 
       {/* 24-Band Frequency Spectrum Visualizer Stage */}
-      <div className="relative w-full h-14 sm:h-16 flex items-end justify-between gap-[2px] sm:gap-1 px-1 py-1 bg-black/40 rounded-lg border border-white/5 overflow-hidden">
+      <div className="relative w-full h-14 sm:h-16 flex items-end justify-between gap-[2px] sm:gap-1 px-1 py-1 bg-black/60 rounded-lg border border-cyan-500/20 overflow-hidden">
         {/* Subtle Horizontal Decibel Reference Grid Lines */}
-        <div className="absolute inset-x-0 top-1/4 border-b border-white/[0.04] pointer-events-none" />
-        <div className="absolute inset-x-0 top-2/4 border-b border-white/[0.04] pointer-events-none" />
-        <div className="absolute inset-x-0 top-3/4 border-b border-white/[0.04] pointer-events-none" />
+        <div className="absolute inset-x-0 top-1/4 border-b border-cyan-500/10 pointer-events-none" />
+        <div className="absolute inset-x-0 top-2/4 border-b border-cyan-500/10 pointer-events-none" />
+        <div className="absolute inset-x-0 top-3/4 border-b border-cyan-500/10 pointer-events-none" />
 
         {/* 24 Frequency Equalizer Bars */}
         {Array.from({ length: bandsCount }).map((_, index) => (
@@ -356,18 +356,18 @@ export function SoundWaveVisualizer({
             className="relative flex-1 h-full flex items-end justify-center group"
           >
             {/* Background slot track */}
-            <div className="absolute inset-0 bg-white/[0.03] rounded-[1px]" />
+            <div className="absolute inset-0 bg-cyan-950/20 rounded-[1px]" />
 
-            {/* Peak hold indicator dot */}
+            {/* Peak hold indicator dot in cyber cyan */}
             <div
               ref={(el) => {
                 peaksRef.current[index] = el;
               }}
               style={{ bottom: '12%' }}
-              className="absolute w-full h-[2px] bg-white rounded-full shadow-[0_0_6px_rgba(255,255,255,0.8)] z-10 transition-all pointer-events-none"
+              className="absolute w-full h-[2px] bg-cyan-300 rounded-full shadow-[0_0_8px_#38BDF8] z-10 transition-all pointer-events-none"
             />
 
-            {/* Dynamic Spring-Interpolated Equalizer Bar with Titanium Platinum Gradient */}
+            {/* Dynamic Spring-Interpolated Equalizer Bar with Cyber Cyan Gradient */}
             <div
               ref={(el) => {
                 barsRef.current[index] = el;
@@ -375,9 +375,9 @@ export function SoundWaveVisualizer({
               style={{
                 height: '8%',
                 background:
-                  'linear-gradient(to top, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.5) 45%, rgba(255,255,255,0.85) 80%, #FFFFFF 100%)',
+                  'linear-gradient(to top, rgba(14,165,233,0.2) 0%, rgba(14,165,233,0.5) 45%, rgba(56,189,248,0.85) 80%, #38BDF8 100%)',
               }}
-              className="relative w-full rounded-t-[2px] shadow-[0_0_8px_rgba(255,255,255,0.35)] transition-[opacity] duration-75"
+              className="relative w-full rounded-t-[2px] shadow-[0_0_8px_rgba(14,165,233,0.4)] transition-[opacity] duration-75"
             />
           </div>
         ))}

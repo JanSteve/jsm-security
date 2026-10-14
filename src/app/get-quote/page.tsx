@@ -113,15 +113,15 @@ export default function GetQuotePage() {
   ];
 
   return (
-    <main className="min-h-screen bg-black text-white pt-32 pb-24">
+    <main className="min-h-screen bg-[#030712] text-white pt-32 pb-24">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white border border-white/20 text-xs font-semibold backdrop-blur-md">
-            <ShieldCheck size={14} />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-400/30 text-xs font-semibold font-mono backdrop-blur-md">
+            <ShieldCheck size={14} className="text-cyan-400" />
             <span>Commercial Proposal Engine • Instant Statutory Estimator</span>
           </div>
-          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-normal text-white tracking-tight">
+          <h1 className="font-sans text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
             Statutory Proposal Engine &amp; Manpower Estimator
           </h1>
           <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
@@ -130,12 +130,12 @@ export default function GetQuotePage() {
         </div>
 
         {/* Form Container */}
-        <div className="bg-[#080C14] border border-white/10 shadow-2xl rounded-2xl overflow-hidden">
+        <div className="tactical-glass-card border border-cyan-500/30 shadow-[0_0_50px_rgba(0,0,0,0.85)] rounded-2xl overflow-hidden">
           {/* Progress Bar */}
           {!success && (
-            <div className="h-1 bg-white/10 w-full relative">
+            <div className="h-1.5 bg-[#080C16] w-full relative">
               <motion.div 
-                className="absolute top-0 left-0 h-full bg-white"
+                className="absolute top-0 left-0 h-full bg-gradient-to-r from-cyan-500 to-[#38BDF8] shadow-[0_0_10px_#38BDF8]"
                 initial={{ width: "33%" }}
                 animate={{ width: `${(step / 3) * 100}%` }}
                 transition={{ duration: 0.3 }}
@@ -152,10 +152,10 @@ export default function GetQuotePage() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="text-center py-12 space-y-4"
                 >
-                  <div className="w-16 h-16 bg-emerald-500/10 text-emerald-400 rounded-full flex items-center justify-center mx-auto border border-emerald-500/20">
+                  <div className="w-16 h-16 bg-emerald-500/15 text-emerald-400 rounded-full flex items-center justify-center mx-auto border border-emerald-500/30 shadow-[0_0_20px_rgba(16,185,129,0.2)]">
                     <CheckCircle className="w-8 h-8" />
                   </div>
-                  <h2 className="font-display text-2xl sm:text-3xl font-normal text-white">
+                  <h2 className="font-sans text-2xl sm:text-3xl font-bold text-white tracking-tight">
                     Operational Proposal Request Dispatched
                   </h2>
                   <p className="text-xs sm:text-sm text-neutral-300 max-w-md mx-auto leading-relaxed">
@@ -164,16 +164,18 @@ export default function GetQuotePage() {
                   <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
                     <a
                       href={`mailto:${brandData.contact.salesEmail}?subject=Commercial%20Proposal%20Follow-up%20(${encodeURIComponent(formData.companyName || 'Client')})`}
-                      className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-white/5 border border-white/15 text-white text-xs font-semibold rounded-lg hover:bg-white/10 transition-colors min-h-[44px] w-full sm:w-auto"
+                      className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-semibold rounded-lg hover:bg-cyan-500/20 transition-colors min-h-[44px] w-full sm:w-auto"
                     >
-                      <Mail size={13} className="text-white" />
+                      <Mail size={14} className="text-cyan-400" />
                       <span>Email Sales Desk</span>
                     </a>
                     <Link
                       href="/"
-                      className="inline-flex items-center justify-center px-6 py-2.5 bg-white text-black text-xs font-semibold rounded-lg hover:bg-neutral-200 transition-all min-h-[44px] w-full sm:w-auto shadow-2xl press-scale"
+                      className="btn-border-beam min-touch-target min-h-[44px] w-full sm:w-auto"
                     >
-                      Return to Homepage
+                      <span className="btn-border-beam-inner h-full flex items-center justify-center px-6 py-2.5 text-xs font-semibold">
+                        Return to Homepage
+                      </span>
                     </Link>
                   </div>
                 </motion.div>
@@ -190,58 +192,58 @@ export default function GetQuotePage() {
                   {/* STEP 1: Organization Details */}
                   {step === 1 && (
                     <div className="space-y-6">
-                      <div className="border-b border-white/10 pb-4">
-                        <span className="text-xs font-mono font-bold text-neutral-400 uppercase">Step 1 of 3</span>
+                      <div className="border-b border-cyan-500/20 pb-4">
+                        <span className="text-xs font-mono font-bold text-cyan-400 uppercase">Step 1 of 3</span>
                         <h2 className="text-lg font-semibold text-white">Organization Credentials &amp; Authorized Procurement Contact</h2>
                         <p className="text-xs text-neutral-400">Enter your organization credentials for the formal proposal.</p>
                       </div>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="space-y-1 text-left">
-                          <label className="text-xs font-semibold text-neutral-300">Company / Facility Name *</label>
+                          <label className="text-xs font-semibold text-cyan-200">Company / Facility Name *</label>
                           <input 
                             required 
                             type="text" 
                             name="companyName" 
                             value={formData.companyName} 
                             onChange={handleInputChange}
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-white/15 bg-[#080C14] text-xs text-white focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-white/40 min-h-[44px]"
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-cyan-500/30 bg-[#080C16] text-xs text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-400 min-h-[44px]"
                             placeholder="e.g. TVS Component Hub"
                           />
                         </div>
                         <div className="space-y-1 text-left">
-                          <label className="text-xs font-semibold text-neutral-300">Contact Person *</label>
+                          <label className="text-xs font-semibold text-cyan-200">Contact Person *</label>
                           <input 
                             required 
                             type="text" 
                             name="contactPerson" 
                             value={formData.contactPerson} 
                             onChange={handleInputChange}
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-white/15 bg-[#080C14] text-xs text-white focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-white/40 min-h-[44px]"
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-cyan-500/30 bg-[#080C16] text-xs text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-400 min-h-[44px]"
                             placeholder="e.g. Rajesh Kumar (Plant Manager)"
                           />
                         </div>
                         <div className="space-y-1 text-left">
-                          <label className="text-xs font-semibold text-neutral-300">Corporate Email *</label>
+                          <label className="text-xs font-semibold text-cyan-200">Corporate Email *</label>
                           <input 
                             required 
                             type="email" 
                             name="email" 
                             value={formData.email} 
                             onChange={handleInputChange}
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-white/15 bg-[#080C14] text-xs text-white focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-white/40 min-h-[44px]"
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-cyan-500/30 bg-[#080C16] text-xs text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-400 min-h-[44px]"
                             placeholder="rajesh@company.com"
                           />
                         </div>
                         <div className="space-y-1 text-left">
-                          <label className="text-xs font-semibold text-neutral-300">Mobile / Phone Number *</label>
+                          <label className="text-xs font-semibold text-cyan-200">Mobile / Phone Number *</label>
                           <input 
                             required 
                             type="tel" 
                             name="phone" 
                             value={formData.phone} 
                             onChange={handleInputChange}
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-white/15 bg-[#080C14] text-xs text-white focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-white/40 tabular-nums min-h-[44px]"
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-cyan-500/30 bg-[#080C16] text-xs text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-400 tabular-nums min-h-[44px]"
                             placeholder="+91 98765 43210"
                           />
                         </div>
@@ -252,27 +254,27 @@ export default function GetQuotePage() {
                   {/* STEP 2: Service Requirements */}
                   {step === 2 && (
                     <div className="space-y-6">
-                      <div className="border-b border-white/10 pb-4">
-                        <span className="text-xs font-mono font-bold text-neutral-400 uppercase">Step 2 of 3</span>
+                      <div className="border-b border-cyan-500/20 pb-4">
+                        <span className="text-xs font-mono font-bold text-cyan-400 uppercase">Step 2 of 3</span>
                         <h2 className="text-lg font-semibold text-white">Service Scope &amp; Deployment Scale</h2>
                         <p className="text-xs text-neutral-400">Select required verticals and estimated personnel headcount. 100% Statutory EPF, ESIC &amp; Minimum Wage Verified.</p>
                       </div>
 
                       <div className="space-y-3">
-                        <label className="text-xs font-semibold text-neutral-300">Required Service Verticals *</label>
+                        <label className="text-xs font-semibold text-cyan-200">Required Service Verticals *</label>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                           {serviceOptions.map((service) => (
                             <label 
                               key={service} 
-                              className={`flex items-center gap-3 p-3.5 rounded-xl border cursor-pointer transition-colors text-xs font-semibold ${
+                              className={`flex items-center gap-3 p-3.5 rounded-xl border cursor-pointer transition-all text-xs font-semibold ${
                                 formData.services.includes(service)
-                                  ? "border-white/40 bg-white/10 text-white"
-                                  : "border-white/15 bg-[#080C14] text-neutral-300 hover:border-white/30"
+                                  ? "border-cyan-400/60 bg-cyan-500/15 text-cyan-200 shadow-[0_0_15px_rgba(14,165,233,0.2)]"
+                                  : "border-cyan-500/20 bg-[#080C16] text-neutral-300 hover:border-cyan-400/40"
                               }`}
                             >
                               <input 
                                 type="checkbox" 
-                                className="w-4 h-4 rounded text-white accent-white"
+                                className="w-4 h-4 rounded text-cyan-400 accent-cyan-400"
                                 checked={formData.services.includes(service)}
                                 onChange={() => handleCheckboxChange(service)}
                               />
@@ -284,21 +286,21 @@ export default function GetQuotePage() {
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                         <div className="space-y-1 text-left">
-                          <label className="text-xs font-semibold text-neutral-300">Operating City *</label>
+                          <label className="text-xs font-semibold text-cyan-200">Operating City *</label>
                           <select 
                             required 
                             name="city" 
                             value={formData.city} 
                             onChange={handleInputChange}
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-white/15 bg-[#080C14] text-xs text-white focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-white/40 min-h-[44px]"
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-cyan-500/30 bg-[#080C16] text-xs text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-400 min-h-[44px]"
                           >
                             {brandData.contact.operatingCities.map(city => (
-                              <option key={city} value={city} className="bg-[#080C14] text-white">{city}</option>
+                              <option key={city} value={city} className="bg-[#080C16] text-white">{city}</option>
                             ))}
                           </select>
                         </div>
                         <div className="space-y-1 text-left">
-                          <label className="text-xs font-semibold text-neutral-300">Estimated Headcount *</label>
+                          <label className="text-xs font-semibold text-cyan-200">Estimated Headcount *</label>
                           <input 
                             required 
                             type="number" 
@@ -307,7 +309,7 @@ export default function GetQuotePage() {
                             name="personnelCount" 
                             value={formData.personnelCount} 
                             onChange={handleInputChange}
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-white/15 bg-[#080C14] text-xs text-white focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-white/40 tabular-nums min-h-[44px]"
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-cyan-500/30 bg-[#080C16] text-xs text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-400 tabular-nums min-h-[44px]"
                           />
                         </div>
                       </div>
@@ -317,48 +319,48 @@ export default function GetQuotePage() {
                   {/* STEP 3: Operational Details */}
                   {step === 3 && (
                     <div className="space-y-6">
-                      <div className="border-b border-white/10 pb-4">
-                        <span className="text-xs font-mono font-bold text-neutral-400 uppercase">Step 3 of 3</span>
+                      <div className="border-b border-cyan-500/20 pb-4">
+                        <span className="text-xs font-mono font-bold text-cyan-400 uppercase">Step 3 of 3</span>
                         <h2 className="text-lg font-semibold text-white">Rotational Shift Pattern &amp; Mobilization Schedule</h2>
                         <p className="text-xs text-neutral-400">Provide deployment timing and any special instructions.</p>
                       </div>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="space-y-1 text-left">
-                          <label className="text-xs font-semibold text-neutral-300">Shift Pattern *</label>
+                          <label className="text-xs font-semibold text-cyan-200">Shift Pattern *</label>
                           <select 
                             required 
                             name="shiftPattern" 
                             value={formData.shiftPattern} 
                             onChange={handleInputChange}
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-white/15 bg-[#080C14] text-xs text-white focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-white/40 min-h-[44px]"
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-cyan-500/30 bg-[#080C16] text-xs text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-400 min-h-[44px]"
                           >
-                            <option value="24/7" className="bg-[#080C14] text-white">24/7 Deployment (3-Shift Continuous)</option>
-                            <option value="12-hour" className="bg-[#080C14] text-white">12-Hour Day/Night Shift</option>
-                            <option value="8-hour" className="bg-[#080C14] text-white">8-Hour Single Business Shift</option>
+                            <option value="24/7" className="bg-[#080C16] text-white">24/7 Deployment (3-Shift Continuous)</option>
+                            <option value="12-hour" className="bg-[#080C16] text-white">12-Hour Day/Night Shift</option>
+                            <option value="8-hour" className="bg-[#080C16] text-white">8-Hour Single Business Shift</option>
                           </select>
                         </div>
                         <div className="space-y-1 text-left">
-                          <label className="text-xs font-semibold text-neutral-300">Target Mobilization Date *</label>
+                          <label className="text-xs font-semibold text-cyan-200">Target Mobilization Date *</label>
                           <input 
                             required 
                             type="date" 
                             name="startDate" 
                             value={formData.startDate} 
                             onChange={handleInputChange}
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-white/15 bg-[#080C14] text-xs text-white focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-white/40 tabular-nums min-h-[44px]"
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-cyan-500/30 bg-[#080C16] text-xs text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-400 tabular-nums min-h-[44px]"
                           />
                         </div>
                       </div>
 
                       <div className="space-y-1 text-left">
-                        <label className="text-xs font-semibold text-neutral-300">Specific Site Requirements / Post Notes</label>
+                        <label className="text-xs font-semibold text-cyan-200">Specific Site Requirements / Post Notes</label>
                         <textarea 
                           name="specialReqs" 
                           value={formData.specialReqs} 
                           onChange={handleInputChange} 
                           rows={3}
-                          className="w-full px-3.5 py-2.5 rounded-lg border border-white/15 bg-[#080C14] text-xs text-white focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-white/40 resize-none min-h-[44px]"
+                          className="w-full px-3.5 py-2.5 rounded-lg border border-cyan-500/30 bg-[#080C16] text-xs text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-400 resize-none min-h-[44px]"
                           placeholder="Note any specific gate access barriers, visitor registers, mechanized scrubbing areas, or armed guard requirements..."
                         />
                       </div>
@@ -366,14 +368,14 @@ export default function GetQuotePage() {
                   )}
 
                   {/* Navigation Buttons */}
-                  <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                  <div className="flex items-center justify-between pt-4 border-t border-cyan-500/20">
                     {step > 1 ? (
                       <button 
                         type="button" 
                         onClick={handlePrev}
-                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold text-neutral-300 hover:text-white bg-white/5 border border-white/15 transition-colors"
+                        className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-xs font-semibold text-cyan-200 hover:text-white bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 transition-colors min-h-[44px]"
                       >
-                        <ArrowLeft size={13} /> Back
+                        <ArrowLeft size={14} className="text-cyan-400" /> Back
                       </button>
                     ) : (
                       <div />
@@ -384,22 +386,26 @@ export default function GetQuotePage() {
                         type="button" 
                         onClick={handleNext}
                         disabled={!validateStep(step)}
-                        className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-lg text-xs font-semibold bg-white text-black hover:bg-neutral-200 transition-all disabled:opacity-40 disabled:cursor-not-allowed ml-auto shadow-2xl press-scale min-h-[44px] w-full sm:w-auto"
+                        className="btn-border-beam min-touch-target min-h-[44px] w-full sm:w-auto ml-auto disabled:opacity-40 disabled:cursor-not-allowed"
                       >
-                        <span>Next Step</span>
-                        <ArrowRight size={13} />
+                        <span className="btn-border-beam-inner h-full flex items-center justify-center gap-1.5 px-6 py-2.5 text-xs font-semibold">
+                          <span>Next Step</span>
+                          <ArrowRight size={13} />
+                        </span>
                       </button>
                     ) : (
                       <button 
                         type="submit" 
                         disabled={!validateStep(step) || loading}
-                        className="inline-flex items-center gap-1.5 px-7 py-2.5 rounded-lg text-xs font-semibold bg-white text-black hover:bg-neutral-200 transition-all disabled:opacity-40 disabled:cursor-not-allowed ml-auto shadow-2xl press-scale min-h-[44px] w-full sm:w-auto"
+                        className="btn-border-beam min-touch-target min-h-[44px] w-full sm:w-auto ml-auto disabled:opacity-40 disabled:cursor-not-allowed"
                       >
-                        {loading ? (
-                          <><Loader2 className="w-3.5 h-3.5 animate-spin" /> Generating Proposal...</>
-                        ) : (
-                          <><FileText size={13} /> Generate Proposal</>
-                        )}
+                        <span className="btn-border-beam-inner h-full flex items-center justify-center gap-1.5 px-7 py-2.5 text-xs font-semibold">
+                          {loading ? (
+                            <><Loader2 className="w-3.5 h-3.5 animate-spin" /> Generating Proposal...</>
+                          ) : (
+                            <><FileText size={13} /> Generate Proposal</>
+                          )}
+                        </span>
                       </button>
                     )}
                   </div>

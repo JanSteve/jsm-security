@@ -108,15 +108,15 @@ const auxiliaryPills = [
 
 export function ServicesOverview() {
   return (
-    <section className="py-12 sm:py-16 bg-black text-white border-b border-white/10">
+    <section className="py-12 sm:py-16 bg-[#030712] text-white border-b border-cyan-500/20">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
         {/* Section Header — Compact, Factual */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 text-left">
           <div className="space-y-1.5 max-w-2xl">
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/10 border border-white/20 text-[11px] font-mono text-white">
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-400/30 text-[11px] font-mono text-cyan-300 shadow-[0_0_10px_rgba(14,165,233,0.12)]">
               <span>Operational Matrix</span>
-              <span className="text-neutral-500">&bull;</span>
+              <span className="text-cyan-500">&bull;</span>
               <span>Single Accountable Partner</span>
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight">
@@ -129,7 +129,7 @@ export function ServicesOverview() {
 
           <Link
             href="/services"
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-white hover:text-neutral-300 transition-colors shrink-0 underline underline-offset-4"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-400 hover:text-cyan-300 transition-colors shrink-0 underline underline-offset-4"
           >
             <span>Compare All Specifications</span>
             <ArrowRight size={13} />
@@ -143,25 +143,25 @@ export function ServicesOverview() {
             return (
               <div
                 key={pillar.id}
-                className="p-5 rounded-xl bg-[#080C14] border border-white/10 hover:border-white/30 transition-all flex flex-col justify-between space-y-4 text-left group"
+                className="p-5 rounded-xl tactical-glass-card border border-white/10 hover:border-cyan-400/40 hover:shadow-[0_0_30px_rgba(14,165,233,0.15)] transition-all flex flex-col justify-between space-y-4 text-left group text-white"
               >
                 <div className="space-y-3.5">
                   {/* Top Badge & SAC Code */}
                   <div className="flex items-center justify-between">
-                    <div className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white group-hover:bg-white group-hover:text-black transition-colors">
+                    <div className="w-9 h-9 rounded-lg bg-cyan-500/10 border border-cyan-400/20 flex items-center justify-center text-cyan-300 group-hover:bg-cyan-500 group-hover:text-black group-hover:border-cyan-300 transition-colors">
                       <Icon size={18} />
                     </div>
-                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-white/5 border border-white/10 text-neutral-300">
+                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-cyan-500/10 border border-cyan-400/20 text-cyan-300">
                       {pillar.code}
                     </span>
                   </div>
 
                   {/* Title & Tag */}
                   <div>
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 font-semibold block">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 font-semibold block">
                       {pillar.badge}
                     </span>
-                    <h3 className="text-base font-bold text-white group-hover:text-neutral-200 transition-colors pt-0.5">
+                    <h3 className="text-base font-bold text-white group-hover:text-cyan-200 transition-colors pt-0.5">
                       {pillar.title}
                     </h3>
                   </div>
@@ -176,7 +176,7 @@ export function ServicesOverview() {
                     {pillar.pills.map((pill, pIdx) => (
                       <span
                         key={pIdx}
-                        className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-white/10 border border-white/20 text-white"
+                        className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-cyan-500/10 border border-cyan-400/30 text-cyan-300"
                       >
                         {pill}
                       </span>
@@ -184,10 +184,10 @@ export function ServicesOverview() {
                   </div>
 
                   {/* Fact Bullets */}
-                  <ul className="space-y-2 pt-2 border-t border-white/10">
+                  <ul className="space-y-2 pt-2 border-t border-cyan-500/20">
                     {pillar.bullets.map((bullet, bIdx) => (
                       <li key={bIdx} className="flex items-start gap-2 text-xs text-neutral-300">
-                        <CheckCircle2 size={13} className="text-white shrink-0 mt-0.5" />
+                        <CheckCircle2 size={13} className="text-emerald-400 shrink-0 mt-0.5" />
                         <span className="leading-snug">{bullet}</span>
                       </li>
                     ))}
@@ -195,14 +195,14 @@ export function ServicesOverview() {
                 </div>
 
                 {/* Footer Metric & Link */}
-                <div className="pt-3 border-t border-white/10 flex items-center justify-between">
+                <div className="pt-3 border-t border-cyan-500/20 flex items-center justify-between">
                   <div className="text-[11px] font-mono">
-                    <span className="text-white font-bold">{pillar.metric.value}</span>
+                    <span className="text-cyan-300 font-bold">{pillar.metric.value}</span>
                     <span className="text-neutral-400 ml-1">{pillar.metric.label}</span>
                   </div>
                   <Link
                     href={pillar.slug}
-                    className="inline-flex items-center gap-1 text-xs font-bold text-white group-hover:translate-x-0.5 transition-transform"
+                    className="inline-flex items-center gap-1 text-xs font-bold text-cyan-400 hover:text-cyan-300 group-hover:translate-x-0.5 transition-transform"
                   >
                     <span>Details</span>
                     <ArrowRight size={11} />
@@ -214,17 +214,17 @@ export function ServicesOverview() {
         </div>
 
         {/* Compact Digital Tools Strip */}
-        <div className="p-4 sm:p-5 rounded-xl bg-[#080C14] border border-white/10 space-y-3 text-left">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-2.5">
+        <div className="p-4 sm:p-5 rounded-xl tactical-glass-card border border-cyan-500/20 space-y-3 text-left">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-cyan-500/20 pb-2.5">
             <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#10B981] animate-pulse" />
               <span className="text-xs font-bold text-white font-mono uppercase tracking-wider">
                 Digital Systems Division &bull; Headed by CTO R Jan Steve Daniel
               </span>
             </div>
             <Link
               href="/services"
-              className="text-xs font-bold text-neutral-300 hover:text-white transition-colors underline underline-offset-4"
+              className="text-xs font-bold text-cyan-400 hover:text-cyan-300 transition-colors underline underline-offset-4"
             >
               All 6 Digital Automations &rarr;
             </Link>
@@ -237,9 +237,9 @@ export function ServicesOverview() {
                 <Link
                   key={idx}
                   href={tool.href}
-                  className="p-2.5 rounded-lg bg-black/60 border border-white/10 hover:border-white/30 hover:bg-white/5 transition-all flex items-center gap-2 text-left group"
+                  className="p-2.5 rounded-lg bg-[#050A14] border border-cyan-500/20 hover:border-cyan-400/40 hover:bg-cyan-950/20 transition-all flex items-center gap-2 text-left group min-h-[44px]"
                 >
-                  <ToolIcon size={14} className="text-white shrink-0 group-hover:scale-110 transition-transform" />
+                  <ToolIcon size={14} className="text-cyan-400 shrink-0 group-hover:scale-110 transition-transform" />
                   <span className="text-[11px] font-medium text-neutral-200 group-hover:text-white truncate">
                     {tool.name}
                   </span>
@@ -250,7 +250,7 @@ export function ServicesOverview() {
         </div>
 
         {/* Compact Auxiliary Services Strip */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-3.5 rounded-lg bg-white/5 border border-white/10 text-xs text-neutral-300">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-3.5 rounded-lg bg-[#080C16] border border-cyan-500/20 text-xs text-neutral-300">
           <span className="font-bold text-white uppercase font-mono text-[10px] tracking-wider shrink-0">
             Auxiliary Operations:
           </span>
@@ -259,7 +259,7 @@ export function ServicesOverview() {
               const AuxIcon = aux.icon;
               return (
                 <div key={idx} className="flex items-center gap-1.5 text-neutral-200">
-                  <AuxIcon size={12} className="text-white" />
+                  <AuxIcon size={12} className="text-cyan-400" />
                   <span>{aux.label}</span>
                 </div>
               );
@@ -267,7 +267,7 @@ export function ServicesOverview() {
           </div>
           <Link
             href="/get-quote"
-            className="text-[11px] font-bold text-white hover:underline shrink-0 ml-auto sm:ml-0"
+            className="text-[11px] font-bold text-cyan-400 hover:underline shrink-0 ml-auto sm:ml-0"
           >
             Custom Scope Quote &rarr;
           </Link>

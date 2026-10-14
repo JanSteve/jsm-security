@@ -44,8 +44,8 @@ export function ServiceFilter({ categories, services }: ServiceFilterProps) {
             onClick={() => setActiveCategory(category)}
             className={`rounded-lg transition-all px-4 min-h-[44px] text-xs font-bold cursor-pointer ${
               activeCategory === category 
-                ? 'bg-white text-black hover:bg-neutral-200 border-transparent shadow-xl' 
-                : 'border-white/15 text-neutral-300 hover:text-white hover:bg-white/10 bg-[#080C14]'
+                ? 'bg-cyan-500 text-black font-bold border-cyan-300 shadow-[0_0_18px_rgba(14,165,233,0.35)] hover:bg-cyan-400' 
+                : 'border-white/15 text-neutral-300 hover:text-white hover:bg-cyan-500/10 hover:border-cyan-400/30 bg-[#080C16]'
             }`}
           >
             {category}
@@ -72,15 +72,15 @@ export function ServiceFilter({ categories, services }: ServiceFilterProps) {
                 className="h-full"
               >
                 <PerspectiveTiltCard maxTilt={6} className="h-full">
-                  <div className="group relative flex flex-col h-full bg-[#080C14] rounded-xl p-7 border border-white/10 hover:border-white/40 transition-all duration-300 shadow-xl hover:shadow-2xl text-white">
+                  <div className="group relative flex flex-col h-full tactical-glass-card rounded-xl p-7 border border-white/10 hover:border-cyan-400/40 transition-all duration-300 shadow-xl hover:shadow-[0_0_30px_rgba(14,165,233,0.15)] text-white">
                     <div className="mb-5 flex justify-between items-start">
-                      <div className="p-3 bg-white/5 border border-white/10 rounded-lg text-white group-hover:scale-105 transition-transform duration-300">
+                      <div className="p-3 bg-cyan-500/10 border border-cyan-400/20 rounded-lg text-cyan-300 group-hover:scale-105 group-hover:bg-cyan-500/20 group-hover:border-cyan-400/50 transition-all duration-300">
                         <IconComponent size={22} />
                       </div>
                       <span className={`text-[10px] font-bold px-3 py-1 rounded-full uppercase ${
                         service.isCoreLaunch 
                           ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-400/40' 
-                          : 'bg-white/5 text-white border border-white/10 font-mono'
+                          : 'bg-cyan-500/10 text-cyan-300 border border-cyan-400/30 font-mono'
                       }`}>
                         {service.phase}
                       </span>
@@ -89,7 +89,7 @@ export function ServiceFilter({ categories, services }: ServiceFilterProps) {
                     <h3 className="text-xl font-bold text-white mb-1.5 leading-snug">
                       {service.title}
                     </h3>
-                    <p className="text-xs font-bold mb-3 text-white">
+                    <p className="text-xs font-bold mb-3 text-cyan-300">
                       {service.valueProposition}
                     </p>
                     <p className="text-neutral-300 text-xs leading-relaxed mb-6 flex-grow font-normal text-pretty">
@@ -97,30 +97,30 @@ export function ServiceFilter({ categories, services }: ServiceFilterProps) {
                     </p>
 
                     {/* Typical Deployments */}
-                    <div className="space-y-1.5 mb-6 pt-4 border-t border-white/10">
-                      <p className="text-[10px] font-bold uppercase tracking-wider text-white font-mono">
+                    <div className="space-y-1.5 mb-6 pt-4 border-t border-cyan-500/20">
+                      <p className="text-[10px] font-bold uppercase tracking-wider text-cyan-400 font-mono">
                         Typical deployments:
                       </p>
                       <div className="flex flex-wrap gap-1.5">
                         {service.whoItIsFor.slice(0, 3).map((target, idx) => (
-                          <span key={idx} className="text-[10px] bg-white/5 border border-white/10 px-2.5 py-1 rounded-md text-neutral-300 font-medium">
+                          <span key={idx} className="text-[10px] bg-white/5 border border-cyan-500/20 px-2.5 py-1 rounded-md text-neutral-300 font-medium">
                             {target}
                           </span>
                         ))}
                       </div>
                     </div>
                     
-                    <div className="pt-4 border-t border-white/10 mt-auto flex items-center justify-between">
+                    <div className="pt-4 border-t border-cyan-500/20 mt-auto flex items-center justify-between">
                       <Link 
                         href={`/services/${service.slug}`}
-                        className="inline-flex items-center text-xs font-bold text-white hover:text-neutral-300 gap-1.5 min-h-[44px] underline underline-offset-4"
+                        className="inline-flex items-center text-xs font-bold text-cyan-400 hover:text-cyan-300 gap-1.5 min-h-[44px] underline underline-offset-4"
                       >
                         View scope &amp; SLAs <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                       </Link>
 
                       <Link
                         href="/contact"
-                        className="text-[11px] font-semibold text-neutral-400 hover:text-white min-h-[44px] inline-flex items-center"
+                        className="text-[11px] font-semibold text-neutral-400 hover:text-cyan-300 min-h-[44px] inline-flex items-center"
                       >
                         Request quote →
                       </Link>

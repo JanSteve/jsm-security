@@ -35,7 +35,7 @@ export default function AboutPage() {
   ]);
 
   return (
-    <main className="min-h-screen bg-black text-white pt-28 pb-20">
+    <main className="min-h-screen bg-[#030712] text-white pt-28 pb-20">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
@@ -43,13 +43,13 @@ export default function AboutPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {/* Editorial Page Header */}
-        <section className="py-8 sm:py-10 border-b border-white/10">
+        <section className="py-8 sm:py-10 border-b border-cyan-500/20">
           <div className="max-w-3xl space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold backdrop-blur-md">
-              <ShieldCheck size={14} />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-400/30 text-cyan-300 text-xs font-semibold font-mono backdrop-blur-md">
+              <ShieldCheck size={14} className="text-cyan-400" />
               <span>Company Background &amp; Leadership</span>
             </div>
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white font-bold tracking-tight">
+            <h1 className="font-sans font-bold tracking-tight text-white text-3xl sm:text-4xl md:text-5xl">
               Executive Leadership &amp; Operational Governance
             </h1>
             <p className="text-base sm:text-lg text-neutral-300 leading-relaxed">
@@ -59,12 +59,12 @@ export default function AboutPage() {
         </section>
 
         {/* Company Genesis & History */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-b border-white/10 pb-12">
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-b border-cyan-500/20 pb-12">
           <div className="lg:col-span-7 space-y-4">
-            <span className="text-xs font-bold uppercase tracking-wider text-neutral-400">
+            <span className="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono">
               Origins &amp; Evolution
             </span>
-            <h2 className="font-serif text-2xl sm:text-3xl text-white font-bold tracking-tight">
+            <h2 className="font-sans font-bold tracking-tight text-white text-2xl sm:text-3xl">
               From JSMMANPOWER to Integrated Enterprise Services
             </h2>
             <div className="text-sm text-neutral-300 leading-relaxed">
@@ -74,19 +74,19 @@ export default function AboutPage() {
             </div>
 
             <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-semibold text-white">
-              <div className="p-3.5 rounded-lg bg-[#080C14] border border-white/10 flex items-center gap-2">
-                <CheckCircle2 size={15} className="text-white" />
+              <div className="p-3.5 rounded-lg tactical-glass-card border border-cyan-500/20 flex items-center gap-2.5">
+                <CheckCircle2 size={15} className="text-emerald-400 shrink-0" />
                 <span>Proprietorship Legal Structure</span>
               </div>
-              <div className="p-3.5 rounded-lg bg-[#080C14] border border-white/10 flex items-center gap-2">
-                <CheckCircle2 size={15} className="text-white" />
+              <div className="p-3.5 rounded-lg tactical-glass-card border border-cyan-500/20 flex items-center gap-2.5">
+                <CheckCircle2 size={15} className="text-emerald-400 shrink-0" />
                 <span>GST Registered: Multi-Service SAC</span>
               </div>
             </div>
           </div>
 
           <div className="lg:col-span-5 relative">
-            <div className="rounded-xl overflow-hidden border border-white/15 bg-[#080C14] shadow-xl relative aspect-4/3">
+            <div className="rounded-xl overflow-hidden border border-cyan-500/30 bg-[#080C14] shadow-xl relative aspect-4/3">
               <Image
                 src="/images/real_jsm_printed_card.jpg"
                 alt="JSM Integrated Services Physical Corporate Credentials"
@@ -105,12 +105,12 @@ export default function AboutPage() {
         <ExecutiveLeadershipSection 
           showTitle={true} 
           darkTheme={true} 
-          className="rounded-2xl border border-white/10 shadow-2xl my-8" 
+          className="rounded-2xl border border-cyan-500/20 shadow-2xl my-8" 
         />
 
         {/* Landmark Milestone: Trichy International Airport */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-b border-white/10 pb-12">
-          <div className="lg:col-span-5 relative aspect-16/10 rounded-xl overflow-hidden border border-white/15">
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-b border-cyan-500/20 pb-12">
+          <div className="lg:col-span-5 relative aspect-16/10 rounded-xl overflow-hidden border border-cyan-500/30">
             <Image
               src="/images/real_jsm_airport_terminal_platoon.jpg"
               alt="Trichy International Airport Operations Platoon"
@@ -120,22 +120,22 @@ export default function AboutPage() {
             />
           </div>
           <div className="lg:col-span-7 space-y-3">
-            <span className="text-xs font-bold uppercase tracking-wider text-neutral-400">
+            <span className="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono">
               Landmark Assignment
             </span>
-            <h2 className="font-serif text-2xl sm:text-3xl text-white font-bold tracking-tight">
+            <h2 className="font-sans font-bold tracking-tight text-white text-2xl sm:text-3xl">
               Tiruchirappalli International Airport Concourse Operations (2024)
             </h2>
             <p className="text-sm text-neutral-300 leading-relaxed">
               Executed 24/7 concourse security for Airports Authority of India (AAI) at Tiruchirappalli International Airport with zero security breaches and 100% muster compliance.
             </p>
-            <div className="flex items-center gap-6 pt-1 text-xs text-white font-semibold">
+            <div className="flex flex-wrap items-center gap-6 pt-1 text-xs text-white font-semibold">
               <span className="flex items-center gap-1.5 text-emerald-400">
-                <CheckCircle2 size={14} />
+                <CheckCircle2 size={14} className="text-emerald-400" />
                 Zero Security Incidents
               </span>
               <span className="flex items-center gap-1.5 text-neutral-200">
-                <CheckCircle2 size={14} className="text-white" />
+                <CheckCircle2 size={14} className="text-emerald-400" />
                 100% Muster Adherence
               </span>
             </div>
@@ -143,29 +143,29 @@ export default function AboutPage() {
         </section>
 
         {/* Regional District Hubs Directory */}
-        <section className="space-y-6 border-b border-white/10 pb-12">
+        <section className="space-y-6 border-b border-cyan-500/20 pb-12">
           <div className="space-y-1 text-left">
-            <span className="text-xs font-bold uppercase tracking-wider text-neutral-400">
+            <span className="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono">
               Regional Presence
             </span>
-            <h2 className="font-serif text-2xl sm:text-3xl text-white font-bold tracking-tight">
+            <h2 className="font-sans font-bold tracking-tight text-white text-2xl sm:text-3xl">
               District Operations Hubs in Tamil Nadu
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
             {districtHubs.map((hub, idx) => (
               <div
                 key={idx}
-                className="p-4 rounded-xl border border-white/10 bg-[#080C14] space-y-1 text-left"
+                className="p-4 rounded-xl border border-cyan-500/20 tactical-glass-card hover:border-cyan-400/40 hover:shadow-[0_0_20px_rgba(14,165,233,0.12)] transition-all space-y-1 text-left"
               >
                 <div className="flex items-center gap-2">
-                  <MapPin size={15} className="text-white shrink-0" />
+                  <MapPin size={15} className="text-cyan-400 shrink-0" />
                   <h3 className="text-sm font-bold text-white">
                     {hub.city}
                   </h3>
                 </div>
-                <p className="text-xs font-semibold text-neutral-300">
+                <p className="text-xs font-semibold text-cyan-200">
                   {hub.role}
                 </p>
                 <p className="text-[11px] text-neutral-400">
@@ -177,8 +177,8 @@ export default function AboutPage() {
         </section>
 
         {/* Closing Contact CTA */}
-        <section className="py-10 bg-[#080C14] rounded-2xl border border-white/10 p-6 sm:p-10 text-center space-y-4">
-          <h2 className="font-serif text-2xl sm:text-3xl text-white font-bold tracking-tight">
+        <section className="py-10 tactical-glass-card rounded-2xl border border-cyan-500/30 p-6 sm:p-10 text-center space-y-4 shadow-[0_0_40px_rgba(14,165,233,0.12)]">
+          <h2 className="font-sans font-bold tracking-tight text-white text-2xl sm:text-3xl">
             Consult directly with our leadership team
           </h2>
           <p className="text-xs sm:text-sm text-neutral-300 max-w-xl mx-auto">
@@ -187,10 +187,12 @@ export default function AboutPage() {
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-white hover:bg-neutral-200 text-black text-xs sm:text-sm font-semibold transition-all shadow-2xl press-scale min-h-[44px] w-full sm:w-auto"
+              className="btn-border-beam min-touch-target min-h-[44px] w-full sm:w-auto"
             >
-              <span>Contact Operations Desk</span>
-              <ArrowRight size={14} />
+              <span className="btn-border-beam-inner h-full flex items-center justify-center gap-2 px-6 py-3 text-xs sm:text-sm font-semibold">
+                <span>Contact Operations Desk</span>
+                <ArrowRight size={14} />
+              </span>
             </Link>
           </div>
         </section>
