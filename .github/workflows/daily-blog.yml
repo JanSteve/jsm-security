@@ -1,0 +1,77 @@
+name: Automated SEO Blog Engine & Publishing
+
+on:
+  schedule:
+    # Runs every 30 minutes automatically to generate and publish new content
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+    inputs:
+      cluster:
+        description: 'Keyword cluster override (talent | cctv | security | facility | automation)'
+        required: false
+      location:
+        description: 'Location slug override (mumbai | delhi | gujarat | indore | trichy | chennai | coimbatore | hosur | bangalore)'
+        required: false
+      dry_run:
+        description: 'Dry run without committing'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  publish-daily-blog:
+    name: Generate & Publish SEO Blog Post
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci --legacy-peer-deps || npm install
+
+      - name: Publish Scheduled Posts
+        run: node scripts/publish-scheduled.mjs
+
+      - name: Run Blog Generation Script
+        run: |
+          EXTRA_ARGS=""
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            EXTRA_ARGS="--dry-run"
+          fi
+          node scripts/generate-daily-blog.mjs $EXTRA_ARGS
+        env:
+          TARGET_CLUSTER: ${{ github.event.inputs.cluster || '' }}
+          TARGET_LOCATION: ${{ github.event.inputs.location || '' }}
+
+      - name: Verify Build & Sitemap Generation
+        run: npm run build
+        env:
+          NEXT_PUBLIC_SITE_URL: https://www.jsmintegratedservices.com
+
+      - name: Commit & Push New Article
+        run: |
+          git config --global user.name "JSM Automation Bot"
+          git config --global user.email "bot@jsmintegratedservices.com"
+          git add content/blog/
+          if ! git diff --cached --quiet; then
+            DATE_STR=$(date +'%Y-%m-%d %H:%M')
+            git commit -m "feat(blog): automated SEO article published at $DATE_STR [skip ci]"
+            git pull --rebase origin main || true
+            git push origin main
+            echo "Successfully published automated blog post at $DATE_STR"
+          else
+            echo "No new blog post generated or committed."
+          fi

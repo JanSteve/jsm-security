@@ -3,453 +3,246 @@
 @plugin "../../node_modules/tailwindcss-animate";
 
 :root {
-  /* Tactical Midnight Obsidian Canvas */
-  --bg: #030712;           /* Base obsidian canvas (legacy: --bg: #000000;) */
-  --bg-tint: #050811;      /* Elevated midnight tint */
-  --bg-dark: #030712;      /* Deep midnight obsidian */
+  /* ==========================================================================
+     1. Core Palette: Warm Editorial Paper & Ink
+     ========================================================================== */
+  --paper: #F6F3EE;
+  --ink: #0E1116;
+  --card: #FFFFFF;
+  --accent: #C8553D;
+  --deep-teal: #1F4E5F;
+  --teal: #1F4E5F;
+  --muted: #525866;
 
-  /* Text & Ink — Pure High-Contrast White & Titanium Silver */
-  --ink: #FFFFFF;          /* primary pure white text */
-  --ink-muted: #CBD5E1;    /* secondary titanium silver caption text */
-  --ink-subtle: #94A3B8;   /* tertiary subtle slate */
-  --ink-inverse: #030712;  /* inverse text */
+  /* Aliases for explicit semantic naming */
+  --color-paper: #F6F3EE;
+  --color-ink: #0E1116;
+  --color-card: #FFFFFF;
+  --color-accent: #C8553D;
+  --color-deep-teal: #1F4E5F;
+  --color-teal: #1F4E5F;
+  --color-muted: #525866;
 
-  /* Tactical Cyber Cyan */
-  --cyan-primary: #0EA5E9;
-  --cyan-sheen: #38BDF8;
-  --cyan-border: rgba(14, 165, 233, 0.30);
-  --cyan-glow: rgba(14, 165, 233, 0.35);
-  --cyan-surface: rgba(14, 165, 233, 0.10);
+  /* Structure, Borders & Dividers */
+  --border: rgba(14, 17, 22, 0.12);
+  --border-subtle: rgba(14, 17, 22, 0.08);
+  --border-emphasis: rgba(14, 17, 22, 0.24);
+  --line: rgba(14, 17, 22, 0.10);
+  --input: rgba(14, 17, 22, 0.18);
+  --ring: #C8553D;
 
-  /* Live Operational Emerald */
-  --emerald-primary: #10B981;
-  --emerald-sheen: #34D399;
-  --emerald-border: rgba(16, 185, 129, 0.35);
-  --emerald-glow: rgba(16, 185, 129, 0.35);
-  --emerald-surface: rgba(16, 185, 129, 0.12);
+  /* ==========================================================================
+     2. Corner Radii Tokens
+     ========================================================================== */
+  --radius-interactive: 12px;
+  --radius-input: 12px;
+  --radius-card-sm: 20px;
+  --radius-card: 24px;
+  --radius-card-lg: 28px;
+  --radius-pill: 9999px;
 
-  /* Tactical Obsidian Card Surfaces */
-  --obsidian-deep: #030712;
-  --obsidian-surface: #080C16;
-  --obsidian-elevated: #0C1322;
-  --obsidian-glass: rgba(8, 12, 22, 0.80);
+  /* ==========================================================================
+     3. Layout & Section Spacing Tokens
+     ========================================================================== */
+  --container-max: 1180px;
+  --container-width: min(1180px, 92%);
+  --section-padding-y: clamp(4.375rem, 8vw, 8.75rem);
 
-  /* Primary Brand — Tactical Stealth Navy */
-  --navy: #0A1322;
-  --navy-hover: #132035;
-  --navy-light: #1D2E49;
-  --navy-tint: #060B14;
+  /* ==========================================================================
+     4. Subtle Elevation Shadows (Zero Neon, Zero Harsh Blackout)
+     ========================================================================== */
+  --shadow-subtle: 0 4px 20px -2px rgba(14, 17, 22, 0.05);
+  --shadow-card: 0 10px 30px -8px rgba(14, 17, 22, 0.07);
+  --shadow-card-hover: 0 20px 40px -12px rgba(14, 17, 22, 0.11);
 
-  /* Luxury Accent — Titanium Platinum & Pure White */
-  --titanium: #E2E8F0;
-  --titanium-hover: #FFFFFF;
-  --titanium-tint: #1E293B;
-
-  /* Titanium Specular Palette */
-  --titanium-statutory: #FFFFFF;
-  --titanium-metallic: #E2E8F0;
-  --titanium-sheen: #FFFFFF;
-  --titanium-hairline: rgba(255, 255, 255, 0.12);
-  --titanium-specular: rgba(255, 255, 255, 0.25);
-
-  /* Structure & Hairline Dividers */
-  --line: rgba(255, 255, 255, 0.10);
-  --border: rgba(255, 255, 255, 0.10);
-  --radius-interactive: 8px; /* tactile modern corners */
-  --radius-card: 16px;       /* curved corners */
-
-  /* Subtle Shadow */
-  --shadow-subtle: 0 4px 24px rgba(0, 0, 0, 0.8);
-
-  /* Framework Aliases for shadcn / components */
-  --background: #030712;
-  --foreground: #FFFFFF;
-  --card: #080C16;
-  --card-foreground: #FFFFFF;
-  --popover: #080C16;
-  --popover-foreground: #FFFFFF;
-  --primary: #0EA5E9;
-  --primary-foreground: #000000;
-  --secondary: #0C1322;
-  --secondary-foreground: #FFFFFF;
-  --muted: #0C1322;
-  --muted-foreground: #94A3B8;
-  --input: rgba(255, 255, 255, 0.12);
-  --ring: #0EA5E9;
+  /* ==========================================================================
+     5. Framework / Base-UI / Shadcn Tokens
+     ========================================================================== */
+  --background: #F6F3EE;
+  --foreground: #0E1116;
+  --popover: #FFFFFF;
+  --popover-foreground: #0E1116;
+  --primary: #0E1116;
+  --primary-foreground: #FFFFFF;
+  --secondary: #EBE6DF;
+  --secondary-foreground: #0E1116;
+  --muted-surface: #F0EDE6;
+  --muted-foreground: #525866;
+  --accent-foreground: #FFFFFF;
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
 }
 
 @theme inline {
-  --font-sans: var(--font-sans), "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-display: var(--font-sans), "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-serif: var(--font-sans), "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-
-  --color-background: var(--bg);
-  --color-foreground: var(--ink);
-  --color-card: var(--obsidian-surface);
-  --color-card-foreground: var(--ink);
-
-  --color-bg: var(--bg);
-  --color-bg-tint: var(--bg-tint);
-  --color-bg-dark: var(--bg-dark);
-
-  --color-canvas-deep: var(--bg);
-  --color-canvas-elevated: var(--bg-tint);
-  --color-obsidian-surface: var(--obsidian-surface);
-  --color-obsidian-elevated: var(--obsidian-elevated);
-  --color-obsidian-glass: var(--obsidian-glass);
-
-  --color-cyber-cyan: var(--cyan-primary);
-  --color-cyber-cyan-sheen: var(--cyan-sheen);
-  --color-operational-emerald: var(--emerald-primary);
-  --color-operational-emerald-sheen: var(--emerald-sheen);
-
+  /* Color Utility Bindings */
+  --color-paper: var(--paper);
   --color-ink: var(--ink);
-  --color-ink-muted: var(--ink-muted);
-  --color-ink-inverse: var(--ink-inverse);
+  --color-card: var(--card);
+  --color-accent: var(--accent);
+  --color-deep-teal: var(--deep-teal);
+  --color-teal: var(--deep-teal);
+  --color-muted: var(--muted);
 
-  --color-navy: var(--navy);
-  --color-navy-hover: var(--navy-hover);
-  --color-navy-light: var(--navy-light);
-  --color-navy-tint: var(--navy-tint);
-
-  --color-brass: var(--titanium);
-  --color-brass-hover: var(--titanium-hover);
-  --color-brass-tint: var(--titanium-tint);
-
-  --color-titanium: var(--titanium);
-  --color-titanium-hover: var(--titanium-hover);
-  --color-titanium-tint: var(--titanium-tint);
-
-  --color-titanium-statutory: var(--titanium-statutory);
-  --color-titanium-metallic: var(--titanium-metallic);
-  --color-titanium-sheen: var(--titanium-sheen);
-  --color-titanium-hairline: var(--titanium-hairline);
-  --color-titanium-specular: var(--titanium-specular);
-
-  --color-line: var(--line);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted-surface: var(--muted-surface);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
+  /* Typography Bindings */
+  --font-heading: var(--font-heading), Georgia, serif;
+  --font-body: var(--font-body), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: var(--font-body), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: var(--font-heading), Georgia, serif;
+
+  /* Corner Radius Bindings */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-2xl: 28px;
+  --radius-full: 9999px;
+
+  --radius-input: var(--radius-input);
+  --radius-card: var(--radius-card);
+  --radius-card-sm: var(--radius-card-sm);
+  --radius-card-lg: var(--radius-card-lg);
+  --radius-pill: var(--radius-pill);
 }
 
 @layer base {
-  * {
-    border-color: var(--line);
+  *, *::before, *::after {
+    box-sizing: border-box;
+    border-color: var(--border);
   }
+
   html {
     scroll-behavior: smooth;
-    color-scheme: dark;
+    color-scheme: light;
     overflow-x: hidden;
+    overflow-x: clip;
     max-width: 100vw;
+    width: 100%;
   }
+
   body {
-    background-color: var(--bg);
+    background-color: var(--paper);
     color: var(--ink);
-    font-family: var(--font-sans);
+    font-family: var(--font-body), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem); /* 16px to 18px fluid */
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    overflow-x: clip;
     max-width: 100vw;
-  }
-  ::selection {
-    background-color: rgba(14, 165, 233, 0.3);
-    color: #FFFFFF;
+    width: 100%;
+    position: relative;
   }
 
-  /* Display & Section Headings */
-  h1 {
-    color: #FFFFFF;
-    font-family: var(--font-sans);
-    font-weight: 700;
+  ::selection {
+    background-color: rgba(200, 85, 61, 0.20);
+    color: var(--ink);
+  }
+
+  /* Headings: Fraunces weight 500, tight tracking, line-height ~1.08 */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading), Georgia, serif;
+    font-weight: 500;
+    color: var(--ink);
     letter-spacing: -0.025em;
-    line-height: 1.10;
     text-wrap: balance;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
   }
 
   h2 {
-    color: #FFFFFF;
-    font-family: var(--font-sans);
-    font-weight: 700;
-    letter-spacing: -0.025em;
-    line-height: 1.15;
-    text-wrap: balance;
+    font-size: clamp(2rem, 3.5vw + 0.5rem, 3.25rem);
+    line-height: 1.12;
+    letter-spacing: -0.03em;
   }
 
-  h3, h4, h5, h6 {
-    color: var(--ink);
-    font-family: var(--font-sans);
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    line-height: 1.3;
+  h3 {
+    font-size: clamp(1.5rem, 2vw + 0.5rem, 2.25rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  h4 {
+    font-size: clamp(1.25rem, 1.2vw + 0.5rem, 1.625rem);
+    line-height: 1.25;
   }
 
   p {
     text-wrap: pretty;
+    max-width: 68ch; /* ~65 characters per line readability */
   }
 
   button, input, select, textarea {
-    border-radius: var(--radius-interactive);
+    border-radius: var(--radius-input);
+    font-family: inherit;
   }
 
   :focus-visible {
-    outline: 2px solid rgba(255, 255, 255, 0.6);
+    outline: 2px solid var(--accent);
     outline-offset: 2px;
   }
 }
 
 @layer utilities {
-  .tabular-nums {
-    font-variant-numeric: tabular-nums;
-  }
-  .line-measure {
-    max-width: 72ch;
-  }
-  .shadow-subtle {
-    box-shadow: var(--shadow-subtle);
-  }
-  
-  /* Tactile Micro-Interactions */
-  .press-scale {
-    transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.12s ease;
-  }
-  .press-scale:active {
-    transform: scale(0.98);
-  }
-  .press-scale-sm {
-    transition: transform 0.10s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .press-scale-sm:active {
-    transform: scale(0.99);
+  /* ==========================================================================
+     Layout & Container Utilities
+     ========================================================================== */
+  .container-editorial,
+  .container-custom {
+    width: min(1180px, 92%);
+    margin-inline: auto;
+    max-width: 100%;
   }
 
-  /* Tactical Midnight Obsidian Mesh Surfaces */
-  .bg-obsidian-mesh {
-    background-color: #030712;
-    background-image: 
-      radial-gradient(circle at 50% -20%, rgba(14, 165, 233, 0.12), transparent 45%),
-      radial-gradient(circle at 100% 0%, rgba(14, 21, 34, 0.4), transparent 50%),
-      radial-gradient(circle at 0% 100%, rgba(8, 12, 22, 0.95), #030712);
+  .container {
+    width: min(1180px, 92%);
+    margin-inline: auto;
+    padding-inline: 1rem;
+    max-width: 100%;
   }
-  .bg-obsidian-surface {
-    background-color: #080C16;
-  }
-  .bg-obsidian-elevated {
-    background-color: #0C1322;
-  }
-  .bg-obsidian-gradient {
-    background: linear-gradient(135deg, #030712 0%, #080C16 50%, #0C1322 100%);
-  }
-
-  /* Geometric Security Gridlines */
-  .bg-security-grid {
-    background-size: 40px 40px;
-    background-image: 
-      linear-gradient(to right, rgba(14, 165, 233, 0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(14, 165, 233, 0.04) 1px, transparent 1px);
-  }
-
-  /* Ambient Radial Cyan Spotlight */
-  .bg-radial-cyan-spotlight {
-    background-image: radial-gradient(circle at 50% -10%, rgba(14, 165, 233, 0.16) 0%, rgba(8, 12, 22, 0.40) 50%, transparent 75%);
-  }
-
-  /* Telemetry Hairline Borders & Sheen */
-  .border-telemetry-cyan {
-    border: 1px solid rgba(14, 165, 233, 0.30);
-    box-shadow: 0 0 15px -2px rgba(14, 165, 233, 0.20);
-  }
-  .border-telemetry-cyan-hover:hover {
-    border-color: rgba(56, 189, 248, 0.60);
-    box-shadow: 0 0 25px -2px rgba(14, 165, 233, 0.35);
-  }
-
-  /* Framer-Grade Cyan Aura Shadows */
-  .glow-cyan-aura {
-    box-shadow: 0 0 25px rgba(14, 165, 233, 0.35);
-  }
-  .glow-cyan-aura-lg {
-    box-shadow: 0 0 45px rgba(14, 165, 233, 0.50);
-  }
-
-  /* Tactical Obsidian Glass Card Elevation */
-  .tactical-glass-card {
-    background-color: rgba(8, 12, 22, 0.80);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.60), 0 0 20px -4px rgba(14, 165, 233, 0.08);
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .tactical-glass-card:hover {
-    border-color: rgba(14, 165, 233, 0.40);
-    box-shadow: 0 16px 48px 0 rgba(0, 0, 0, 0.80), 0 0 30px -4px rgba(14, 165, 233, 0.22);
-  }
-
-  /* Pointer / Hover Card Reveal */
-  .card-framer-glow {
-    position: relative;
-    background-color: #050811;
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    border-radius: 12px;
-    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: transform;
-  }
-  .card-framer-glow:hover {
-    border-color: rgba(14, 165, 233, 0.40);
-    box-shadow: 0 0 30px rgba(14, 165, 233, 0.15), 0 16px 40px rgba(0, 0, 0, 0.80);
-  }
-
-  /* Framer Animated Border-Beam Button */
-  @keyframes border-beam-spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
+  @media (min-width: 768px) {
+    .container {
+      padding-inline: 1.5rem;
     }
   }
 
-  .animate-border-beam-spin {
-    animation: border-beam-spin 4s linear infinite;
+  .section-fluid-y,
+  .section-padding,
+  .py-section {
+    padding-block: clamp(4.375rem, 8vw, 8.75rem);
   }
 
-  .btn-border-beam {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1px;
-    overflow: hidden;
-    border-radius: 8px;
-    background: transparent;
-    text-decoration: none;
-    cursor: pointer;
-    outline: none;
-    border: none;
-    transform: translateZ(0);
-    transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
-    box-shadow: 0 0 25px rgba(14, 165, 233, 0.30);
-  }
-  .btn-border-beam:hover {
-    box-shadow: 0 0 35px rgba(14, 165, 233, 0.50), 0 0 10px rgba(56, 189, 248, 0.40);
-  }
-  .btn-border-beam:active {
-    transform: scale(0.98);
-  }
-  .btn-border-beam::before {
-    content: '';
-    position: absolute;
-    inset: -150%;
-    background: conic-gradient(
-      from 90deg at 50% 50%,
-      transparent 0%,
-      transparent 65%,
-      rgba(14, 165, 233, 0.4) 80%,
-      #0EA5E9 92%,
-      #38BDF8 98%,
-      #FFFFFF 100%
-    );
-    animation: border-beam-spin 3.5s linear infinite;
-    pointer-events: none;
-    z-index: 0;
-    will-change: transform;
-  }
-  .btn-border-beam-inner {
-    position: relative;
-    z-index: 1;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    width: 100%;
-    height: 100%;
-    min-height: 44px;
-    padding: 0.625rem 1.375rem;
-    border-radius: 7px;
-    background-color: #030712;
-    color: #FFFFFF;
-    font-family: var(--font-sans);
-    font-size: 0.875rem;
-    font-weight: 700;
-    letter-spacing: -0.015em;
-    white-space: nowrap;
-    transition: background-color 0.2s ease, color 0.2s ease;
-  }
-  .btn-border-beam:hover .btn-border-beam-inner {
-    background-color: #060B18;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .btn-border-beam::before {
-      animation: none;
-      background: rgba(14, 165, 233, 0.5);
-    }
+  .pt-section {
+    padding-top: clamp(4.375rem, 8vw, 8.75rem);
   }
 
-  .btn-tactical-beam {
-    position: relative;
-    background: linear-gradient(135deg, #0EA5E9 0%, #38BDF8 50%, #0284C7 100%);
-    color: #000000;
-    font-weight: 700;
-    border: 1px solid rgba(56, 189, 248, 0.60);
-    box-shadow: 0 0 25px rgba(14, 165, 233, 0.35);
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .btn-tactical-beam:hover {
-    box-shadow: 0 0 35px rgba(14, 165, 233, 0.60);
-    transform: translateY(-1px);
-  }
-  .btn-tactical-beam:active {
-    transform: scale(0.98);
+  .pb-section {
+    padding-bottom: clamp(4.375rem, 8vw, 8.75rem);
   }
 
-  /* Titanium Hairline Borders & Specular Highlights */
-  .border-titanium-hairline {
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04);
-  }
-  .border-titanium-specular-top {
-    position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-  }
-  .border-titanium-specular-top::before {
-    content: '';
-    position: absolute;
-    inset-inline: 0;
-    top: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
-    pointer-events: none;
-    z-index: 10;
-  }
-  .glow-titanium-hairline {
-    box-shadow: 0 0 20px -2px rgba(255, 255, 255, 0.12);
-  }
-
-  /* Frosted Glassmorphism */
-  .glass-obsidian-luxury {
-    background-color: rgba(8, 12, 20, 0.75);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(255, 255, 255, 0.10);
-  }
-  .glass-obsidian-card {
-    background-color: rgba(8, 12, 20, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-  }
-
-  /* Titanium Platinum Typography */
-  .text-gradient-titanium {
-    background: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 50%, #94A3B8 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  /* Safe Area Utilities */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 16px);
   }
 
   .min-touch-target {
@@ -457,34 +250,179 @@
     min-width: 44px;
   }
 
-  .pb-safe {
-    padding-bottom: env(safe-area-inset-bottom, 16px);
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
   }
 
-  /* Frosted Titanium Glass Elevations */
-  .titanium-glass {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+  /* ==========================================================================
+     Editorial Card & Surface Components
+     ========================================================================== */
+  .card-editorial {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(14, 17, 22, 0.08);
+    border-radius: 24px;
+    box-shadow: var(--shadow-subtle);
+    transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 400ms ease-out;
+    max-width: 100%;
+  }
+  .card-editorial:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
   }
 
-  .titanium-glass-card {
-    background: rgba(8, 12, 20, 0.70);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.60);
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  .band-deep-teal {
+    background-color: #1F4E5F;
+    color: #FFFFFF;
   }
-  .titanium-glass-card:hover {
-    border-color: rgba(255, 255, 255, 0.22);
-    box-shadow: 0 16px 48px 0 rgba(0, 0, 0, 0.80), 0 0 24px -4px rgba(255, 255, 255, 0.08);
+  .band-deep-teal h1,
+  .band-deep-teal h2,
+  .band-deep-teal h3,
+  .band-deep-teal h4,
+  .band-deep-teal h5,
+  .band-deep-teal h6 {
+    color: #FFFFFF;
   }
 
-  /* Infinite Marquee Motion */
-  @keyframes marquee {
+  /* Header Scrolled Background */
+  .header-scrolled-paper {
+    background-color: rgba(246, 243, 238, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(14, 17, 22, 0.08);
+  }
+
+  /* Top 3px Page Progress Bar */
+  .top-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: var(--accent);
+    z-index: 1000;
+    transform-origin: 0% 50%;
+    max-width: 100vw;
+  }
+
+  /* ==========================================================================
+     Editorial Button System (Pill-shaped, Ink-to-Terracotta)
+     ========================================================================== */
+  .btn-editorial-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.75rem 1.75rem;
+    background-color: #0E1116;
+    color: #FFFFFF;
+    border-radius: 9999px;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    letter-spacing: -0.01em;
+    border: 1px solid transparent;
+    transition: background-color 350ms ease-out, transform 350ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 350ms ease-out;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn-editorial-primary:hover {
+    background-color: #C8553D;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px -4px rgba(200, 85, 61, 0.35);
+  }
+  .btn-editorial-primary:active {
+    transform: translateY(0);
+  }
+
+  .btn-editorial-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.75rem 1.75rem;
+    background-color: transparent;
+    color: #0E1116;
+    border-radius: 9999px;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    letter-spacing: -0.01em;
+    border: 1px solid rgba(14, 17, 22, 0.20);
+    transition: background-color 350ms ease-out, border-color 350ms ease-out, transform 350ms cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn-editorial-ghost:hover {
+    background-color: rgba(14, 17, 22, 0.04);
+    border-color: #0E1116;
+    transform: translateY(-2px);
+  }
+  .btn-editorial-ghost:active {
+    transform: translateY(0);
+  }
+
+  /* ==========================================================================
+     Motion Tokens: Scroll Reveals & Micro-Interactions
+     ========================================================================== */
+  @keyframes fade-rise {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-rise {
+    animation: fade-rise 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: opacity, transform;
+  }
+
+  .reveal-on-scroll {
+    opacity: 0;
+    animation: fade-rise 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: opacity, transform;
+  }
+
+  /* Stagger Delays (100ms intervals) */
+  .stagger-1 { animation-delay: 100ms; }
+  .stagger-2 { animation-delay: 200ms; }
+  .stagger-3 { animation-delay: 300ms; }
+  .stagger-4 { animation-delay: 400ms; }
+  .stagger-5 { animation-delay: 500ms; }
+  .stagger-6 { animation-delay: 600ms; }
+
+  /* Hover Lift Tokens (No Bounce, 350–500ms ease-out) */
+  .hover-lift-sm {
+    transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 350ms ease-out;
+    will-change: transform;
+  }
+  .hover-lift-sm:hover {
+    transform: translateY(-2px);
+  }
+
+  .hover-lift {
+    transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 400ms ease-out;
+    will-change: transform;
+  }
+  .hover-lift:hover {
+    transform: translateY(-4px);
+  }
+
+  .hover-lift-lg {
+    transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 500ms ease-out;
+    will-change: transform;
+  }
+  .hover-lift-lg:hover {
+    transform: translateY(-8px);
+  }
+
+  /* Hero Sector Ticker (Single slow looping ticker) */
+  @keyframes ticker {
     0% {
       transform: translate3d(0, 0, 0);
     }
@@ -493,12 +431,150 @@
     }
   }
 
-  .animate-marquee {
-    animation: marquee 35s linear infinite;
+  .animate-ticker {
+    display: flex;
+    width: max-content;
+    animation: ticker 45s linear infinite;
     will-change: transform;
   }
 
-  .animate-marquee:hover {
+  .animate-ticker:hover,
+  .animate-ticker:focus-within {
     animation-play-state: paused;
+  }
+
+  /* ==========================================================================
+     Blog Article Editorial Styling (Warm Paper & Ink)
+     ========================================================================== */
+  .blog-content {
+    color: #2B2F38;
+    font-size: 1.0625rem;
+    line-height: 1.8;
+  }
+  .blog-content h1,
+  .blog-content h2,
+  .blog-content h3,
+  .blog-content h4 {
+    font-family: var(--font-heading), Georgia, serif;
+    color: #0E1116;
+    font-weight: 500;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+  .blog-content h2 {
+    font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+    line-height: 1.15;
+    border-bottom: 1px solid rgba(14, 17, 22, 0.1);
+    padding-bottom: 0.5rem;
+  }
+  .blog-content h3 {
+    font-size: clamp(1.35rem, 2vw, 1.75rem);
+    line-height: 1.25;
+  }
+  .blog-content p {
+    margin-bottom: 1.5rem;
+  }
+  .blog-content ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .blog-content ol {
+    list-style-type: decimal;
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .blog-content li {
+    margin-bottom: 0.5rem;
+  }
+  .blog-content strong {
+    color: #0E1116;
+    font-weight: 600;
+  }
+  .blog-content a {
+    color: #C8553D;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: color 0.2s ease;
+  }
+  .blog-content a:hover {
+    color: #0E1116;
+  }
+  .blog-content blockquote {
+    border-left: 3px solid #1F4E5F;
+    padding: 1rem 1.25rem;
+    font-style: italic;
+    color: #4A5160;
+    background-color: rgba(31, 78, 95, 0.05);
+    border-radius: 0 8px 8px 0;
+    margin: 2rem 0;
+  }
+  .blog-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+  }
+  .blog-content th {
+    background-color: #EFECE6;
+    border: 1px solid rgba(14, 17, 22, 0.12);
+    padding: 0.75rem;
+    color: #0E1116;
+    text-align: left;
+    font-weight: 600;
+  }
+  .blog-content td {
+    border: 1px solid rgba(14, 17, 22, 0.12);
+    padding: 0.75rem;
+    color: #2B2F38;
+  }
+  .blog-content code {
+    background-color: #EFECE6;
+    border: 1px solid rgba(14, 17, 22, 0.12);
+    padding: 0.2rem 0.4rem;
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 0.875em;
+    color: #1F4E5F;
+  }
+}
+
+/* ==========================================================================
+   Strict Reduced Motion Accessibility (WCAG 2.1 AA)
+   Under prefers-reduced-motion: reduce, completely disable all transforms,
+   transitions, and looping animations.
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+    transform: none !important;
+  }
+
+  .animate-ticker,
+  .ticker-track {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .animate-fade-rise,
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .hover-lift,
+  .hover-lift-sm,
+  .hover-lift-lg,
+  .btn-editorial-primary,
+  .btn-editorial-ghost,
+  .card-editorial {
+    transform: none !important;
+    transition: none !important;
   }
 }

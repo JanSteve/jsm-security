@@ -89,3 +89,29 @@ export function constructMetadata({
     },
   };
 }
+
+/**
+ * Deterministically clamps blog post meta title strictly to <= 58 characters
+ * including brand anchor, bypassing the layout template to avoid truncation in Google SERP.
+ */
+export function formatBlogMetaTitle(title: string, brand = " | JSM"): string {
+  if (!title) return `Commercial Security Intelligence${brand}`;
+  const clean = title.replace(/\s*\|\s*JSM.*$/i, '').trim();
+  const maxBase = 58 - brand.length;
+  if (clean.length <= maxBase) {
+    return `${clean}${brand}`;
+  }
+  const truncated = clean.slice(0, maxBase - 3).trim();
+  return `${truncated}...${brand}`;
+}
+
+/**
+ * Deterministically clamps meta description strictly to <= 155 characters (under 160 max SERP limit).
+ */
+export function formatMetaDescription(desc: string, max = 155): string {
+  if (!desc) return '';
+  const clean = desc.replace(/\s+/g, ' ').trim();
+  if (clean.length <= max) return clean;
+  return `${clean.slice(0, max - 3).trim()}...`;
+}
+

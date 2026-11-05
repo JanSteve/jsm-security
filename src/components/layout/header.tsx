@@ -3,129 +3,121 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { useScroll, useMotionValueEvent } from "motion/react";
+import { useScroll, useMotionValueEvent, motion } from "motion/react";
 import { Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { navigationData } from "@/data/navigation";
-import { MobileMenu } from "./mobile-menu";
 import { brandData } from "@/data/brand";
+import { MobileNav } from "./mobile-nav";
 
 export function Header() {
-  const pathname = usePathname();
-  const { scrollY } = useScroll();
-  const [scrolled, setScrolled] = React.useState(false);
+  const { scrollY, scrollYProgress } = useScroll();
+  const [isScrolled, setIsScrolled] = React.useState(false);
 
+  // Detect scroll offset for 40px glass transition
   useMotionValueEvent(scrollY, "change", (latest) => {
-    setScrolled(latest > 60);
+    setIsScrolled(latest > 40);
   });
 
-  return (
-    <header
-      className={cn(
-        "fixed top-0 inset-x-0 z-50 transition-all duration-200 ease-out bg-[#030712]/90 backdrop-blur-2xl border-b border-cyan-500/20 text-white",
-        scrolled ? "h-16 shadow-[0_4px_30px_rgba(0,0,0,0.85)]" : "h-[74px] sm:h-[80px]"
-      )}
-    >
-      <div className="max-w-[1280px] h-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3 sm:gap-6">
-        {/* Brand Logo & Authority Label */}
-        <Link
-          href="/"
-          className="flex items-center gap-2.5 sm:gap-3 group shrink-0 min-h-[44px]"
-          aria-label="JSM Integrated Services Home"
-        >
-          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-[6px] bg-[#030712] text-white flex items-center justify-center font-bold text-sm tracking-wider overflow-hidden border border-cyan-500/30 shrink-0 shadow-[0_0_12px_rgba(14,165,233,0.15)]">
-            <Image
-              src="/images/jsm_logo_black.png"
-              alt="JSM Crest"
-              width={40}
-              height={40}
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="flex flex-col justify-center max-w-[140px] sm:max-w-none">
-            <span className="font-semibold text-sm sm:text-base tracking-tight text-white leading-tight truncate">
-              JSM Integrated Services
-            </span>
-            <span className="text-[11px] text-neutral-300 font-medium tracking-normal hidden sm:flex items-center gap-2">
-              <span className="relative flex h-2 w-2 shrink-0">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400 shadow-[0_0_8px_#10B981] animate-pulse" />
-              </span>
-              <span className="font-mono text-cyan-300 font-bold">24/7 COMMAND</span>
-              <span className="text-neutral-500">&bull;</span>
-              <span>Ex-Servicemen Led</span>
-              <span className="text-neutral-500">&bull;</span>
-              <span>AAI Benchmark</span>
-              <span className="text-neutral-500">&bull;</span>
-              <span className="text-emerald-400 font-semibold">100% Compliant</span>
-            </span>
-          </div>
-        </Link>
+  // Client hydration check for initial scroll position
+  React.useEffect(() => {
+    if (typeof window !== "undefined") {
+      const raf = requestAnimationFrame(() => {
+        setIsScrolled(window.scrollY > 40);
+      });
+      return () => cancelAnimationFrame(raf);
+    }
+  }, []);
 
-        {/* Primary Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
-          {navigationData.map((item) => {
-            const isActive =
-              pathname === item.href ||
-              (item.href !== "/" && pathname.startsWith(item.href));
-            return (
+  return (
+    <>
+      {/* 3px Top Page Progress Bar (Animates scaleX with scroll progress) */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-[3px] bg-[#C8553D] z-50 origin-left pointer-events-none"
+        style={{ scaleX: scrollYProgress }}
+        aria-hidden="true"
+      />
+
+      <header
+        role="banner"
+        className={cn(
+          "fixed top-0 inset-x-0 z-40 transition-all duration-300 ease-out",
+          isScrolled
+            ? "bg-[#F6F3EE]/90 backdrop-blur-md border-b border-[#0E1116]/10 shadow-[0_2px_12px_rgba(14,17,22,0.04)] h-16 sm:h-20"
+            : "bg-transparent border-b border-transparent h-20"
+        )}
+      >
+        <div className="max-w-[1180px] w-[92%] h-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
+          {/* Brand Identity & Title */}
+          <Link
+            href="/"
+            className="flex items-center gap-3 group shrink-0 min-h-[44px] rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0E1116] focus-visible:ring-offset-2"
+            aria-label="JSM Integrated Services - Executive Talent Acquisition"
+          >
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#0E1116] text-[#F6F3EE] flex items-center justify-center font-bold text-sm tracking-wider overflow-hidden shrink-0 border border-[#0E1116]/15 shadow-xs">
+              <Image
+                src="/images/jsm_logo_black.png"
+                alt="JSM Crest"
+                width={40}
+                height={40}
+                className="w-full h-full object-cover"
+                priority
+              />
+            </div>
+            <div className="flex flex-col justify-center">
+              <span className="font-heading font-medium text-base sm:text-lg tracking-tight text-[#0E1116] leading-tight group-hover:text-[#C8553D] transition-colors">
+                JSM Integrated Services
+              </span>
+              <span className="text-[11px] sm:text-xs text-[#525866] font-sans font-normal tracking-normal leading-tight hidden xs:block">
+                Executive Talent Acquisition
+              </span>
+            </div>
+          </Link>
+
+          {/* Primary Desktop Navigation Links */}
+          <nav
+            aria-label="Main Navigation"
+            className="hidden lg:flex items-center gap-1 xl:gap-2"
+          >
+            {navigationData.map((item) => (
               <Link
                 key={item.title}
                 href={item.href}
-                className={cn(
-                  "relative px-3.5 py-2 text-sm font-medium transition-colors min-h-[44px] flex items-center group",
-                  isActive
-                    ? "text-white font-semibold"
-                    : "text-neutral-400 hover:text-white"
-                )}
+                className="px-3.5 py-2 text-sm font-sans font-medium text-[#0E1116]/80 hover:text-[#0E1116] transition-colors min-h-[44px] flex items-center rounded-md relative group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0E1116]"
               >
                 <span>{item.title}</span>
-                {item.badge && (
-                  <span className="ml-1.5 px-1.5 py-0.5 rounded text-[10px] font-mono bg-cyan-500/10 border border-cyan-400/30 text-cyan-300">
-                    {item.badge}
-                  </span>
-                )}
-                {/* Active cyber cyan underline */}
-                <span
-                  className={cn(
-                    "absolute bottom-0 left-3.5 right-3.5 h-[2px] bg-cyan-400 shadow-[0_0_8px_#38BDF8] transition-transform duration-200 ease-out origin-center",
-                    isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100 group-hover:bg-cyan-400/60"
-                  )}
-                />
+                <span className="absolute bottom-1 left-3.5 right-3.5 h-[2px] bg-[#C8553D] scale-x-0 group-hover:scale-x-100 transition-transform duration-200 ease-out origin-center" />
               </Link>
-            );
-          })}
-        </nav>
+            ))}
+          </nav>
 
-        {/* Actions Cluster: Phone + Get Quote + Mobile Menu */}
-        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-          {/* Direct Phone Link - Accessible on mobile and desktop */}
-          <a
-            href={`tel:${brandData.contact.phone}`}
-            className="inline-flex items-center justify-center text-xs font-semibold text-white hover:text-cyan-200 w-[44px] sm:w-auto sm:px-3 h-[44px] rounded-lg border border-white/15 hover:border-cyan-400/50 hover:bg-cyan-950/30 transition-colors tabular-nums min-touch-target"
-            aria-label={`Call Operations: ${brandData.contact.phoneDisplay}`}
-          >
-            <Phone size={14} className="text-cyan-400" />
-            <span className="hidden sm:inline sm:ml-1.5">{brandData.contact.phoneDisplay}</span>
-          </a>
+          {/* Action Cluster: Phone + Pill Button CTA + Mobile Hamburger */}
+          <div className="flex items-center gap-2.5 sm:gap-4 shrink-0">
+            {/* Direct Phone Link (Desktop & Tablet) */}
+            <a
+              href={`tel:${brandData.contact.phone}`}
+              className="hidden md:inline-flex items-center justify-center gap-1.5 px-3.5 h-[44px] min-h-[44px] rounded-full border border-[#0E1116]/15 bg-transparent hover:bg-[#FFFFFF] text-xs font-sans font-semibold text-[#0E1116] transition-all tabular-nums focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0E1116]"
+              aria-label={`Call Executive Search Desk: ${brandData.contact.phoneDisplay}`}
+            >
+              <Phone size={13} className="text-[#C8553D]" />
+              <span>{brandData.contact.phoneDisplay}</span>
+            </a>
 
-          {/* Primary CTA - Visible on ALL Viewports, Never Buried */}
-          <Link
-            href="/get-quote"
-            className="btn-border-beam min-touch-target"
-          >
-            <span className="btn-border-beam-inner !min-h-[44px] !px-3.5 sm:!px-5 !text-xs sm:!text-sm">
-              <span>Get Quote</span>
-            </span>
-          </Link>
+            {/* Primary Action Button: Ink Pill (Turns Terracotta on Hover) */}
+            <Link
+              href="/#contact"
+              className="hidden sm:inline-flex items-center justify-center h-[44px] min-h-[44px] px-5 sm:px-6 rounded-full bg-[#0E1116] text-[#FFFFFF] hover:bg-[#C8553D] text-xs sm:text-sm font-sans font-medium tracking-tight shadow-xs hover:shadow-md transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C8553D] focus-visible:ring-offset-2"
+            >
+              <span>Hire Talent</span>
+            </Link>
 
-          {/* Mobile Hamburger Drawer Trigger */}
-          <div className="lg:hidden">
-            <MobileMenu />
+            {/* Mobile Hamburger Trigger & Full-Width Overlay (< 1024px) */}
+            <div className="lg:hidden">
+              <MobileNav />
+            </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 }

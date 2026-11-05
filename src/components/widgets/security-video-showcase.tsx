@@ -192,7 +192,7 @@ export function SecurityVideoShowcase({
             {/* Gradient Cinematic Vignette */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
 
-            {/* Top Left: Infinite Seamless Loop Badge */}
+            {/* Top Left: Infinite Continuous Loop Badge */}
             <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-20 flex items-center gap-2 pointer-events-none">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-black/70 backdrop-blur-md border border-white/20 text-[11px] font-mono font-bold text-white">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />

@@ -7,24 +7,22 @@ export interface NavItem {
 export const navigationData: NavItem[] = [
   {
     title: "Services",
-    href: "/services",
+    href: "/#services",
   },
   {
-    title: "Regional Hubs",
-    href: "/locations",
-    badge: "8 Hubs",
+    title: "How It Works",
+    href: "/#how-it-works",
   },
   {
-    title: "Airport Operations",
-    href: "/case-studies/trichy-international-airport",
-    badge: "AAI Client",
+    title: "Role Bands",
+    href: "/#role-bands",
   },
   {
-    title: "Leadership & About",
-    href: "/about",
+    title: "Fee Model",
+    href: "/#fee-model",
   },
   {
-    title: "Contact & Quote",
-    href: "/contact",
+    title: "Contact",
+    href: "/#contact",
   },
 ];

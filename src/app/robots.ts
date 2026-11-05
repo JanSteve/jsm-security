@@ -1,20 +1,38 @@
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-  const domain = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.jsmintegratedservices.com';
-  
+  const rawDomain = process.env.NEXT_PUBLIC_SITE_URL || 'https://jsmintegratedservices.com';
+  const domain = rawDomain.replace('://www.', '://').replace(/\/+$/, '');
+  const sitemapUrl = domain.includes('jsmintegratedservices.com')
+    ? 'https://jsmintegratedservices.com/sitemap.xml'
+    : `${domain}/sitemap.xml`;
+
+  const publicAllowedPaths = [
+    '/',
+    '/blog/',
+    '/services/',
+    '/locations/',
+    '/about',
+    '/contact',
+    '/case-studies/',
+    '/get-quote',
+    '/feed.xml',
+    '/llms.txt',
+    '/llms-full.txt'
+  ];
+
   return {
     rules: [
-      // Standard search engine crawlers — full access
+      // Standard search engine crawlers — full access with explicit allows
       {
         userAgent: '*',
-        allow: '/',
+        allow: ['/', '/blog/', '/locations/', '/feed.xml'],
         disallow: ['/api/', '/_next/', '/admin/'],
       },
       // Google & Bing bots — full access with explicit allows
       {
         userAgent: ['Googlebot', 'Bingbot', 'Slurp', 'DuckDuckBot', 'Baiduspider', 'YandexBot'],
-        allow: ['/', '/llms.txt', '/llms-full.txt', '/services/', '/about', '/contact', '/case-studies/', '/get-quote'],
+        allow: publicAllowedPaths,
         disallow: ['/api/'],
       },
       // Generative AI & LLM Answer Engine Crawlers (AEO/GEO)
@@ -37,10 +55,10 @@ export default function robots(): MetadataRoute.Robots {
           'Meta-ExternalAgent',
           'Amazonbot'
         ],
-        allow: ['/', '/llms.txt', '/llms-full.txt', '/services/', '/about', '/contact', '/case-studies/', '/get-quote'],
+        allow: publicAllowedPaths,
         disallow: ['/api/'],
       },
     ],
-    sitemap: `${domain}/sitemap.xml`,
+    sitemap: sitemapUrl,
   };
 }

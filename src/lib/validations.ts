@@ -5,6 +5,8 @@ const phoneRegex = /^[0-9+() -]{10,15}$/;
 /**
  * Validation schema for /api/contact endpoint.
  * Supports web form fields and API contract specifications.
+ * Enforces strict honeypot anti-spam defense: any non-empty string,
+ * including whitespace characters, is rejected as an automated bot submission.
  */
 export const contactSchema = z
   .object({
@@ -27,6 +29,7 @@ export const contactSchema = z
     service: z.string().trim().optional().default('General Integrated Facility Support'),
     facilityName: z.string().trim().max(150).optional().default(''),
     company: z.string().trim().max(150).optional().default(''),
+    roleBand: z.string().trim().max(100).optional().default(''),
     headcount: z.string().trim().max(50).optional().default(''),
     location: z.string().trim().max(100).optional().default('Tamil Nadu'),
     city: z.string().trim().max(100).optional().default(''),
@@ -35,16 +38,20 @@ export const contactSchema = z
     referenceId: z.string().trim().optional(),
     honeypot: z.string().optional().default(''),
   })
-  .refine((data) => !data.honeypot || data.honeypot.trim() === '', {
-    message: 'Spam bot detected',
-    path: ['honeypot'],
-  });
+  .refine(
+    (data) => !data.honeypot || data.honeypot === '',
+    {
+      message: 'Spam bot detected',
+      path: ['honeypot'],
+    }
+  );
 
 export type ContactInput = z.infer<typeof contactSchema>;
 
 /**
  * Validation schema for /api/landing-lead endpoint.
  * Used by ad landing pages and lead generation campaigns.
+ * Enforces strict honeypot anti-spam defense against automated submissions.
  */
 export const landingLeadSchema = z
   .object({
@@ -71,10 +78,13 @@ export const landingLeadSchema = z
     source_page: z.string().trim().max(150).optional().default('Direct Landing Campaign'),
     honeypot: z.string().optional().default(''),
   })
-  .refine((data) => !data.honeypot || data.honeypot.trim() === '', {
-    message: 'Spam bot detected',
-    path: ['honeypot'],
-  })
+  .refine(
+    (data) => !data.honeypot || data.honeypot === '',
+    {
+      message: 'Spam bot detected',
+      path: ['honeypot'],
+    }
+  )
   .refine(
     (data) => {
       const req = (data.requirement || data.service || '').trim();

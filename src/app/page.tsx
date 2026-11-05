@@ -1,38 +1,77 @@
+import type { Metadata } from "next";
+import dynamic from "next/dynamic";
+import Link from "next/link";
 import { 
-  HeroSection, 
-  TrustBar, 
-  ServicesOverview, 
-  StatsSection, 
-  FAQSection, 
-  CTASection, 
-  ExecutiveLeadershipSection,
-  ReviewsShowcase 
-} from "@/components/sections";
-import { AirportOperationsSlideshow } from "@/components/widgets/airport-slideshow";
-import { homeFAQs } from "@/data/faqs";
-import { 
-  organizationSchema, 
-  localBusinessSchema, 
-  websiteSchema, 
-  faqSchema, 
-  speakableSchema, 
-  reviewSchema, 
-  siteLinksSearchBoxSchema, 
-  geoTargetSchema 
-} from "@/lib/schema";
+  Send,
+  CheckCircle2, 
+  Phone, 
+  Mail 
+} from "lucide-react";
 import { brandData } from "@/data/brand";
 
-export const metadata = {
-  title: {
-    absolute: "JSM Integrated Services | Private Security, Manpower Staffing, Facility Operations & Digital Automation",
-  },
-  description: "JSM Integrated Services delivers disciplined Ex-Servicemen & Private Security Guarding, 100% EPF/ESIC Contract Manpower Staffing, Mechanized Facility Management, and Enterprise Digital & WhatsApp Automation across Tamil Nadu.",
+import { HeroSection } from "@/components/home/hero-section";
+import { ProcessSection } from "@/components/home/process-section";
+import { RoleBandsSection } from "@/components/home/role-bands";
+import { ContactBand } from "@/components/home/contact-band";
+
+// -----------------------------------------------------------------------------
+// Dynamically imported below-the-fold components (Hydration & TBT Optimization)
+// -----------------------------------------------------------------------------
+
+const FeeSection = dynamic(
+  () => import("@/components/home/fee-section").then((mod) => mod.FeeSection),
+  {
+    loading: () => (
+      <div 
+        className="py-16 md:py-24 bg-[#F6F3EE] border-t border-[#0E1116]/10 min-h-[600px] flex items-center justify-center"
+        aria-busy="true"
+        aria-label="Loading fee model section"
+      >
+        <div className="w-8 h-8 rounded-full border-2 border-[#1F4E5F] border-t-transparent animate-spin" />
+      </div>
+    ),
+  }
+);
+
+const ServicesSection = dynamic(
+  () => import("@/components/home/services-section").then((mod) => mod.ServicesSection),
+  {
+    loading: () => (
+      <div 
+        className="py-16 md:py-24 bg-white border-t border-[#0E1116]/10 min-h-[500px] flex items-center justify-center"
+        aria-busy="true"
+        aria-label="Loading services section"
+      >
+        <div className="w-8 h-8 rounded-full border-2 border-[#1F4E5F] border-t-transparent animate-spin" />
+      </div>
+    ),
+  }
+);
+
+const EnquiryForm = dynamic(
+  () => import("@/components/home/enquiry-form").then((mod) => mod.EnquiryForm),
+  {
+    loading: () => (
+      <div 
+        className="min-h-[440px] bg-white border border-[#0E1116]/10 rounded-2xl md:rounded-3xl p-6 sm:p-8 flex items-center justify-center"
+        aria-busy="true"
+        aria-label="Loading enquiry intake form"
+      >
+        <div className="w-8 h-8 rounded-full border-2 border-[#1F4E5F] border-t-transparent animate-spin" />
+      </div>
+    ),
+  }
+);
+
+export const metadata: Metadata = {
+  title: "JSM Integrated Services | Executive Recruitment & Senior Talent Acquisition",
+  description: "Connecting employers with proven senior leadership (₹12 LPA to ₹1 Cr) across Tamil Nadu, Karnataka, Maharashtra, Delhi, Madhya Pradesh, and Gujarat. 100% contingency success fee model.",
   alternates: {
     canonical: brandData.domain,
   },
   openGraph: {
-    title: "JSM Integrated Services | Private Security, Manpower Staffing, Facility Operations & Digital Automation",
-    description: "JSM Integrated Services delivers disciplined Ex-Servicemen & Private Security Guarding, 100% EPF/ESIC Contract Manpower Staffing, Mechanized Facility Management, and Enterprise Digital & WhatsApp Automation across Tamil Nadu.",
+    title: "JSM Integrated Services | Executive Recruitment & Senior Talent Acquisition",
+    description: "Contingency senior talent acquisition & executive recruitment across 6 focus states in India. Zero upfront fees, 90-day replacement assurance.",
     url: brandData.domain,
     siteName: brandData.name,
     locale: "en_IN",
@@ -42,91 +81,314 @@ export const metadata = {
         url: `${brandData.domain}/images/jsm_logo_black.png`,
         width: 1200,
         height: 630,
-        alt: "JSM Integrated Services - Private Security, Manpower Staffing, Facility Operations & Digital Automation",
+        alt: "JSM Integrated Services - Executive Recruitment & Talent Acquisition",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "JSM Integrated Services | Private Security, Manpower Staffing, Facility Operations & Digital Automation",
-    description: "JSM Integrated Services delivers disciplined Ex-Servicemen & Private Security Guarding, 100% EPF/ESIC Contract Manpower Staffing, Mechanized Facility Management, and Enterprise Digital & WhatsApp Automation across Tamil Nadu.",
+    title: "JSM Integrated Services | Executive Recruitment & Senior Talent Acquisition",
+    description: "Contingency senior talent acquisition & executive recruitment across 6 focus states in India. Zero upfront fees, 90-day replacement assurance.",
     images: [`${brandData.domain}/images/jsm_logo_black.png`],
   },
+  keywords: [
+    "JSM Integrated Services",
+    "Executive Recruitment India",
+    "Senior Talent Acquisition",
+    "Leadership Hiring Tamil Nadu",
+    "Executive Search Karnataka",
+    "Senior Sourcing Maharashtra",
+    "Executive Recruitment Delhi",
+    "Senior Staffing Gujarat",
+    "Leadership Sourcing Madhya Pradesh",
+    "Contingency Recruitment Fee Model"
+  ],
 };
 
+/**
+ * JSON-LD Knowledge Graph for Executive Recruitment Organization
+ * Details organizational identity, service catalog, and geographic coverage across 6 focus states.
+ */
+function generateStructuredData() {
+  const domain = brandData.domain;
+  const orgId = `${domain}/#organization`;
+  const agencyId = `${domain}/#recruitment-agency`;
+  const websiteId = `${domain}/#website`;
+  const webpageId = `${domain}/#webpage`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "EmploymentAgency",
+        "@id": agencyId,
+        "name": brandData.name,
+        "legalName": "JSM Integrated Services",
+        "url": domain,
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${domain}/images/jsm_logo_transparent.png`,
+          "width": 512,
+          "height": 512,
+        },
+        "image": `${domain}/images/jsm_logo_black.png`,
+        "description": "Executive recruitment and senior contingency talent acquisition firm specializing in ₹12 LPA to ₹1 Cr leadership mandates across 6 focus states in India.",
+        "telephone": "+91 90808 63448",
+        "email": "contact@jsmintegratedservices.com",
+        "priceRange": "Contingency 8.33% [CONFIRM: fee %]",
+        "currenciesAccepted": "INR",
+        "paymentAccepted": "Bank Transfer, Commercial Invoice",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Door No.: 87, Plot No: 112, Gandhi Nagar, Kottapattu",
+          "addressLocality": "Tiruchirappalli",
+          "addressRegion": "Tamil Nadu",
+          "postalCode": "620021",
+          "addressCountry": "IN",
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 10.7905,
+          "longitude": 78.7047,
+        },
+        "areaServed": [
+          {
+            "@type": "AdministrativeArea",
+            "name": "Tamil Nadu",
+            "identifier": "IN-TN",
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Karnataka",
+            "identifier": "IN-KA",
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Maharashtra",
+            "identifier": "IN-MH",
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Delhi",
+            "identifier": "IN-DL",
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Madhya Pradesh",
+            "identifier": "IN-MP",
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Gujarat",
+            "identifier": "IN-GJ",
+          },
+        ],
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+            ],
+            "opens": "09:00",
+            "closes": "19:00",
+          },
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Executive Talent Acquisition & Recruitment Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Senior Talent Acquisition & Leadership Recruitment",
+                "description": "Contingency recruitment for mid-senior and leadership roles between ₹12 LPA and ₹1 Cr.",
+              },
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Executive Search & Board Advisory",
+                "description": "Confidential C-suite and board director search mandates across national corporate centers.",
+              },
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Bulk & Specialized Technical Hiring",
+                "description": "Scaled recruitment campaigns for engineering, manufacturing, and specialized industrial squads.",
+              },
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Campus & Lateral Fast-Track Programmes",
+                "description": "Structured institutional pipelines linking engineering and management talent directly to corporate growth programs.",
+              },
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Strategic HR & Compensation Advisory",
+                "description": "Executive compensation benchmarking, retention structures, and leadership governance design.",
+              },
+            },
+          ],
+        },
+      },
+      {
+        "@type": "WebSite",
+        "@id": websiteId,
+        "url": domain,
+        "name": brandData.name,
+        "description": "Executive Recruitment & Senior Talent Acquisition across India",
+        "publisher": { "@id": agencyId },
+      },
+      {
+        "@type": "WebPage",
+        "@id": webpageId,
+        "url": domain,
+        "name": "JSM Integrated Services | Executive Recruitment & Senior Talent Acquisition",
+        "isPartOf": { "@id": websiteId },
+        "about": { "@id": agencyId },
+        "inLanguage": "en-IN",
+      },
+    ],
+  };
+}
+
 export default function Home() {
-  const orgSchema = organizationSchema();
-  const localSchema = localBusinessSchema();
-  const webSchema = websiteSchema();
-  const faqsJsonLd = faqSchema(homeFAQs);
-  const speakable = speakableSchema();
-  const review = reviewSchema();
-  const siteLinks = siteLinksSearchBoxSchema();
-  const geoTarget = geoTargetSchema();
+  const jsonLdData = generateStructuredData();
 
   return (
-    <div className="relative bg-[#030712] text-white min-h-screen overflow-x-hidden w-full max-w-full">
-
-      {/* Schema.org Structured Data — SEO / AEO / GEO */}
+    <div className="bg-[#F6F3EE] text-[#0E1116] min-h-screen w-full max-w-full">
+      {/* Schema.org Structured Data */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqsJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(speakable) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(review) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(siteLinks) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(geoTarget) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
       />
 
-      {/* 1. Hero Section: Mobile-first video reel + punchy copy */}
+      {/* 1. Hero Section: 6 Focus States, Single <h1>, Slow Looping Sector Ticker, Dual CTAs */}
       <HeroSection />
 
-      {/* 2. Plain Flat Trust Credentials Strip (with ClientLogoMarquee) */}
-      <TrustBar />
+      {/* 2. 3-Step Hiring Process: Precision Scoping, Discrete Sourcing, Joining Assurance */}
+      <ProcessSection />
 
-      {/* 3. High-Velocity Operations Showcase (3.0s Auto-Crossfade) */}
-      <AirportOperationsSlideshow />
+      {/* 3. Roles by Band Overview: ₹12L–₹25L, ₹25L–₹50L, ₹50L–₹1Cr + 6 Focus States */}
+      <RoleBandsSection />
 
-      {/* 4. Core Four-Pillar Operations Matrix */}
-      <ServicesOverview />
+      {/* 4. Success-Based Fee Model & Interactive Fee Calculator (Deferred Hydration) */}
+      <FeeSection />
 
-      {/* 5. Executive Leadership & Operational Command */}
-      <ExecutiveLeadershipSection />
+      {/* 5. Core & Secondary Services Matrix (Deferred Hydration) */}
+      <ServicesSection />
 
-      {/* 6. Audited Operational SLAs & Metrics Module */}
-      <StatsSection />
+      {/* 6. High-Contrast Deep Teal Contact Band */}
+      <ContactBand />
 
-      {/* 7. Verified Customer Reviews & Google Maps Social Proof */}
-      <ReviewsShowcase />
+      {/* ==================================================================
+          7. Enquiry Section Container (Deferred Hydration for EnquiryForm)
+          ================================================================== */}
+      <section
+        id="enquiry"
+        className="py-20 md:py-28 bg-[#F6F3EE] border-t border-[#0E1116]/10 overflow-hidden w-full max-w-full"
+        aria-labelledby="enquiry-heading"
+      >
+        <div className="max-w-[1180px] w-[92%] mx-auto px-4 sm:px-6">
+          <div className="max-w-3xl mb-12">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#0E1116]/10 text-xs font-semibold uppercase tracking-wider text-[#1F4E5F] mb-4 shadow-2xs">
+              <Send className="w-3.5 h-3.5 text-[#1F4E5F]" aria-hidden="true" />
+              <span>Mandate Intake</span>
+            </div>
 
-      {/* 8. Direct Quotable FAQ Accordion */}
-      <FAQSection />
+            <h2
+              id="enquiry-heading"
+              className="text-3xl sm:text-4xl md:text-5xl font-heading font-medium tracking-tight text-[#0E1116] leading-[1.12] mb-4 text-balance"
+            >
+              Initiate Executive Mandate or Senior Staffing Brief
+            </h2>
 
-      {/* 9. High-Conversion Space Black Closing CTA Band */}
-      <CTASection />
+            <p className="text-base sm:text-lg font-sans text-[#4A5568] leading-relaxed max-w-2xl text-pretty">
+              Submit your leadership requirement or senior talent specification directly to our executive recruitment desk. We calibrate mandate parameters and respond within 24 business hours.
+            </p>
+          </div>
+
+          {/* Prepared Intake Card Container */}
+          <div
+            id="enquiry-form-container"
+            data-enquiry-form-container="true"
+            className="bg-white border border-[#0E1116]/10 rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-12 shadow-sm transition-all duration-300"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12" data-grid-container="true">
+              {/* Left Column (5 cols): Operational Guarantees & Intake Protocol */}
+              <div className="lg:col-span-5 space-y-6">
+                <div>
+                  <span className="text-xs font-mono font-semibold uppercase tracking-wider text-[#1F4E5F] block mb-1">
+                    Engagement Standard
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-heading font-medium text-[#0E1116]">
+                    Contingency Executive Search Terms
+                  </h3>
+                </div>
+
+                <ul className="space-y-3.5 text-xs sm:text-sm font-sans text-[#4A5568]">
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-[#1F4E5F] shrink-0 mt-0.5" aria-hidden="true" />
+                    <span><strong>Zero Advance Retainer:</strong> We begin sourcing immediately with zero upfront commitment.</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-[#1F4E5F] shrink-0 mt-0.5" aria-hidden="true" />
+                    <span><strong>100% Success-Based:</strong> Placement fee (8.33% [CONFIRM: fee %]) is invoiced strictly after candidate onboarding.</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-[#1F4E5F] shrink-0 mt-0.5" aria-hidden="true" />
+                    <span><strong>90-Day Replacement Assurance:</strong> Protected by our formal replacement guarantee [CONFIRM: fee %].</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-[#1F4E5F] shrink-0 mt-0.5" aria-hidden="true" />
+                    <span><strong>Target Geography:</strong> Active searches across Tamil Nadu, Karnataka, Maharashtra, Delhi, Madhya Pradesh, Gujarat.</span>
+                  </li>
+                </ul>
+
+                {/* Direct Hotline Callout */}
+                <div className="pt-4 border-t border-[#0E1116]/10 bg-[#F6F3EE] p-4 rounded-xl border border-[#0E1116]/8">
+                  <span className="text-xs text-[#525866] block mb-1">Urgent or Confidential CXO Mandate?</span>
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+                    <a
+                      href="tel:+919080863448"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-[#0E1116] hover:text-[#C8553D] transition-colors tabular-nums"
+                    >
+                      <Phone className="w-4 h-4 text-[#1F4E5F]" aria-hidden="true" />
+                      <span>+91 90808 63448</span>
+                    </a>
+                    <a
+                      href="mailto:contact@jsmintegratedservices.com"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-[#0E1116] hover:text-[#C8553D] transition-colors break-all"
+                    >
+                      <Mail className="w-4 h-4 text-[#1F4E5F]" aria-hidden="true" />
+                      <span>contact@jsmintegratedservices.com</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column (7 cols): Dynamically Loaded Mandate Intake Form */}
+              <div className="lg:col-span-7">
+                <EnquiryForm className="h-full" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

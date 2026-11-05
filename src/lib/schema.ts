@@ -321,40 +321,152 @@ export function howToSchema(service: { title: string }) {
   };
 }
 
+export interface BlogPostingSchemaInput {
+  title: string;
+  excerpt: string;
+  slug: string;
+  date: string;
+  lastModified?: string;
+  author: {
+    name: string;
+    role?: string;
+  } | string;
+  category?: string;
+  image?: string;
+  wordCount?: number;
+  keywords?: string[];
+  faqs?: { question: string; answer: string }[];
+}
+
+export function blogPostingSchema(post: BlogPostingSchemaInput) {
+  const rawDomain = process.env.NEXT_PUBLIC_SITE_URL || brandData.domain || 'https://jsmintegratedservices.com';
+  const domain = rawDomain.replace('://www.', '://').replace(/\/+$/, '');
+  const canonicalUrl = `${domain}/blog/${post.slug}`;
+
+  const publishIso = post.date.includes('T') ? post.date : `${post.date}T08:00:00+05:30`;
+  const modifiedIso = post.lastModified
+    ? (post.lastModified.includes('T') ? post.lastModified : `${post.lastModified}T08:00:00+05:30`)
+    : publishIso;
+
+  const authorName = typeof post.author === 'string' ? post.author : post.author?.name || 'Sweety J';
+  const authorRole = typeof post.author === 'string' ? 'Operations Specialist' : (post.author?.role || 'Operations Specialist');
+
+  const absoluteImageUrl = post.image
+    ? (post.image.startsWith('http://') || post.image.startsWith('https://')
+        ? post.image
+        : `${domain}${post.image.startsWith('/') ? '' : '/'}${post.image}`)
+    : `${domain}/images/real_jsm_airport_terminal_platoon.jpg`;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${canonicalUrl}#blogposting`,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": canonicalUrl
+    },
+    "headline": post.title.slice(0, 110),
+    "description": post.excerpt.slice(0, 160),
+    "image": [absoluteImageUrl],
+    "datePublished": publishIso,
+    "dateModified": modifiedIso,
+    "inLanguage": "en-IN",
+    "articleSection": post.category || "Commercial Security",
+    "wordCount": post.wordCount || 1250,
+    "keywords": post.keywords || [],
+    "author": {
+      "@type": "Person",
+      "name": authorName,
+      "jobTitle": authorRole,
+      "url": `${domain}/about`,
+      "worksFor": {
+        "@id": `${domain}/#organization`
+      }
+    },
+    "publisher": {
+      "@type": ["LocalBusiness", "Organization"],
+      "@id": "https://jsmintegratedservices.com/#localbusiness",
+      "name": brandData.name,
+      "url": domain,
+      "telephone": brandData.contact.phone,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${domain}/images/jsm_logo_transparent.png`,
+        "width": 512,
+        "height": 512
+      }
+    }
+  };
+}
+
+export function blogBreadcrumbSchema(post?: { title: string; slug: string }) {
+  const rawDomain = process.env.NEXT_PUBLIC_SITE_URL || brandData.domain || 'https://jsmintegratedservices.com';
+  const domain = rawDomain.replace('://www.', '://').replace(/\/+$/, '');
+
+  const items = [
+    { name: "Home", url: domain },
+    { name: "Blog", url: `${domain}/blog` },
+  ];
+
+  if (post) {
+    items.push({
+      name: post.title.length > 50 ? `${post.title.slice(0, 47)}...` : post.title,
+      url: `${domain}/blog/${post.slug}`,
+    });
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": items.map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": item.name,
+      "item": item.url
+    }))
+  };
+}
+
+export function blogFaqSchema(faqs?: { question: string; answer: string }[]) {
+  if (!faqs || faqs.length === 0) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+}
+
 export function articleSchema(article: {
   title: string;
   excerpt: string;
   slug: string;
   date: string;
-  author: string;
+  lastModified?: string;
+  author: string | { name: string; role?: string };
   image?: string;
+  category?: string;
+  wordCount?: number;
+  keywords?: string[];
 }) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": article.title,
-    "description": article.excerpt,
-    "datePublished": article.date,
-    "dateModified": article.date,
-    "author": {
-      "@type": "Person",
-      "name": article.author || "Sweety J",
-      "url": `${brandData.domain}/about`
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": brandData.name,
-      "logo": {
-        "@type": "ImageObject",
-        "url": `${brandData.domain}/images/jsm_logo_transparent.png`
-      }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": `${brandData.domain}/blog/${article.slug}`
-    },
-    "image": article.image || `${brandData.domain}/images/real_jsm_airport_terminal_platoon.jpg`
-  };
+  return blogPostingSchema({
+    title: article.title,
+    excerpt: article.excerpt,
+    slug: article.slug,
+    date: article.date,
+    lastModified: article.lastModified,
+    author: article.author,
+    image: article.image,
+    category: article.category,
+    wordCount: article.wordCount,
+    keywords: article.keywords,
+  });
 }
 
 export function jobPostingSchema(job: {

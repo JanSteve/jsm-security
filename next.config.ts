@@ -99,16 +99,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: '/blog/:path*',
-        destination: '/about',
-        permanent: true,
-      },
-      {
-        source: '/blog',
-        destination: '/about',
-        permanent: true,
-      },
-      {
         source: '/compare/:path*',
         destination: '/services',
         permanent: true,

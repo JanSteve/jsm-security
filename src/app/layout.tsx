@@ -3,18 +3,25 @@ import "./globals.css";
 import { Providers } from "@/components/providers";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { MobileDock } from "@/components/layout/mobile-dock";
-import CookieBanner from "@/components/shared/cookie-banner";
 import { brandData } from "@/data/brand";
 import { getUnifiedKnowledgeGraph } from "@/lib/schema";
 import { cn } from "@/lib/utils";
 
-import { Public_Sans } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 
-const publicSans = Public_Sans({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-sans",
+  weight: "500",
+  style: "normal",
+  variable: "--font-heading",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: "normal",
+  variable: "--font-body",
   display: "swap",
 });
 
@@ -22,39 +29,29 @@ export const metadata: Metadata = {
   metadataBase: new URL(brandData.domain),
   title: {
     template: `%s | JSM Integrated Services`,
-    default: `JSM | JSM Integrated Services | Ex-Servicemen Security, Manpower & Facility Operations`,
+    default: `JSM Integrated Services | Executive Recruitment & Leadership Talent Acquisition`,
   },
-  description: `${brandData.name} (formerly JSMMANPOWER) delivers disciplined Private Security, Housekeeping & Facility Management, Contractual Manpower Staffing, and Integrated Business Solutions across Tamil Nadu.`,
+  description: `Executive recruitment and senior contingency talent acquisition across Tamil Nadu, Karnataka, Maharashtra, Delhi, Madhya Pradesh, and Gujarat. ₹12 LPA to ₹1 Cr leadership roles on a 100% success-based fee model.`,
   keywords: [
-    "JSM",
     "JSM Integrated Services",
-    "JSM Security",
-    "JSM Manpower",
-    "JSMMANPOWER",
-    "JSM Security Services",
-    "JSM Security Trichy",
-    "Security Guard Agency in Trichy",
-    "Security Services Chennai",
-    "Manpower Supply Agency Tamil Nadu",
-    "Manpower Agency in Chennai",
-    "Manpower Suppliers in Coimbatore",
-    "Industrial Labour Contractors Hosur",
-    "Factory Workforce Supplier Salem",
-    "Commercial Housekeeping Services Chennai",
-    "Integrated Facility Management Tamil Nadu",
-    "Trichy International Airport Operations Contractor",
-    "Ex-Servicemen Security Guard Agency"
+    "Executive Recruitment India",
+    "Senior Talent Acquisition",
+    "Executive Search Tamil Nadu",
+    "Leadership Hiring Karnataka",
+    "Executive Search Maharashtra",
+    "Leadership Recruitment Delhi",
+    "Executive Staffing Gujarat",
+    "Senior Hiring Madhya Pradesh",
+    "Contingency Recruitment Fee Model"
   ],
   authors: [
-    { name: "Sweety J (Proprietor & Managing Director)" },
-    { name: "Major AR Devadoss (Head of Operations)" },
-    { name: "R Jan Steve Daniel (CTO)" }
+    { name: "JSM Integrated Services Executive Search Desk" }
   ],
   creator: brandData.name,
   publisher: brandData.name,
   openGraph: {
-    title: `JSM Integrated Services | ${brandData.tagline}`,
-    description: brandData.subTagline,
+    title: `JSM Integrated Services | Executive Recruitment & Senior Talent Acquisition`,
+    description: `Connecting employers hiring ₹12 LPA to ₹1 Cr roles with verified senior talent across 6 states on a 100% success-based fee model.`,
     url: brandData.domain,
     siteName: brandData.name,
     locale: "en_IN",
@@ -64,20 +61,23 @@ export const metadata: Metadata = {
         url: `${brandData.domain}/images/jsm_logo_black.png`,
         width: 1200,
         height: 630,
-        alt: "JSM Integrated Services - Security Guarding & Manpower Staffing",
+        alt: "JSM Integrated Services - Executive Recruitment & Talent Acquisition",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `JSM Integrated Services | ${brandData.tagline}`,
-    description: brandData.subTagline,
+    title: `JSM Integrated Services | Executive Recruitment & Senior Talent Acquisition`,
+    description: `Connecting employers hiring ₹12 LPA to ₹1 Cr roles with verified senior talent across 6 states on a 100% success-based fee model.`,
     site: "@jsmintegrated",
     creator: "@jsmintegrated",
     images: [`${brandData.domain}/images/jsm_logo_black.png`],
   },
   alternates: {
     canonical: brandData.domain,
+    types: {
+      'application/rss+xml': `${brandData.domain}/feed.xml`,
+    },
   },
   verification: {
     google: "QtF7HUSz_UrTPnpL5WByxS66elp-pyZyRMU-5Tes0go",
@@ -128,6 +128,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
       <head>
+        {/* RSS 2.0 Feed Autodiscovery */}
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="JSM Integrated Services Blog RSS Feed"
+          href="/feed.xml"
+        />
         {/* Authoritative Global Schema.org Knowledge Graph */}
         <script
           type="application/ld+json"
@@ -136,17 +143,16 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          "min-h-screen bg-[#030712] font-sans antialiased text-white selection:bg-cyan-500/30 selection:text-white overflow-x-hidden max-w-full",
-          publicSans.variable
+          "min-h-screen bg-[#F6F3EE] font-body text-[#0E1116] antialiased selection:bg-[#C8553D]/20 selection:text-[#0E1116] overflow-x-hidden max-w-full",
+          fraunces.variable,
+          inter.variable
         )}
       >
         <Providers>
           <div className="relative flex min-h-screen flex-col overflow-x-hidden w-full max-w-full">
             <Header />
-            <main className="flex-1 w-full max-w-full pb-24 md:pb-0 overflow-x-hidden">{children}</main>
+            <main className="flex-1 w-full max-w-full overflow-x-hidden">{children}</main>
             <Footer />
-            <MobileDock />
-            <CookieBanner />
           </div>
         </Providers>
       </body>
