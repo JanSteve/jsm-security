@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-05T16:41:17.042Z",
-  "totalPosts": 17,
+  "lastUpdated": "2026-11-05T22:37:19.675Z",
+  "totalPosts": 18,
   "rotationState": {
-    "nextClusterIndex": 3,
-    "nextLocationIndex": 9,
-    "nextVerticalIndex": 7,
-    "stepIndex": 3
+    "nextClusterIndex": 4,
+    "nextLocationIndex": 0,
+    "nextVerticalIndex": 4,
+    "stepIndex": 4
   },
   "posts": [
     {
@@ -168,6 +168,17 @@
       "location": "salem",
       "wordCount": 1799,
       "filePath": "content/blog/facility-healthcare-salem-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "automation-infrastructure-delhi-operations-guide",
+      "title": "Smart Digital Automation & WhatsApp CRM Systems for Civil Aviation, Transit Terminals & Public Infrastructure in Delhi NCR",
+      "date": "2026-11-05",
+      "category": "Digital Systems",
+      "cluster": "automation",
+      "location": "delhi",
+      "wordCount": 1859,
+      "filePath": "content/blog/automation-infrastructure-delhi-operations-guide.md",
       "published": true
     }
   ]
