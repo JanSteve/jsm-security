@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-05T08:25:41.329Z",
-  "totalPosts": 16,
+  "lastUpdated": "2026-11-05T16:41:17.042Z",
+  "totalPosts": 17,
   "rotationState": {
-    "nextClusterIndex": 2,
-    "nextLocationIndex": 6,
-    "nextVerticalIndex": 2,
-    "stepIndex": 2
+    "nextClusterIndex": 3,
+    "nextLocationIndex": 9,
+    "nextVerticalIndex": 7,
+    "stepIndex": 3
   },
   "posts": [
     {
@@ -157,6 +157,17 @@
       "location": "hosur",
       "wordCount": 1814,
       "filePath": "content/blog/security-commercial-retail-hosur-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "facility-healthcare-salem-operations-guide",
+      "title": "Industrial Housekeeping & Mechanized Facility Management for Hospitals & Super-Specialty Medical Facilities in Salem",
+      "date": "2026-11-05",
+      "category": "Facility Management",
+      "cluster": "facility",
+      "location": "salem",
+      "wordCount": 1799,
+      "filePath": "content/blog/facility-healthcare-salem-operations-guide.md",
       "published": true
     }
   ]
