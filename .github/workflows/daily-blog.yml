@@ -61,6 +61,13 @@ jobs:
         env:
           NEXT_PUBLIC_SITE_URL: https://www.jsmintegratedservices.com
 
+      - name: Broadcast Update to Telegram Community / Group
+        run: node scripts/telegram-broadcast.mjs
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID || secrets.TELEGRAM_CHAT_ID }}
+        continue-on-error: true
+
       - name: Commit & Push New Article
         run: |
           git config --global user.name "JSM Automation Bot"
