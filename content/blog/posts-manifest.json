@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-05T22:37:19.675Z",
-  "totalPosts": 18,
+  "lastUpdated": "2026-11-06T03:18:41.694Z",
+  "totalPosts": 19,
   "rotationState": {
-    "nextClusterIndex": 4,
-    "nextLocationIndex": 0,
-    "nextVerticalIndex": 4,
-    "stepIndex": 4
+    "nextClusterIndex": 0,
+    "nextLocationIndex": 4,
+    "nextVerticalIndex": 1,
+    "stepIndex": 5
   },
   "posts": [
     {
@@ -179,6 +179,17 @@
       "location": "delhi",
       "wordCount": 1859,
       "filePath": "content/blog/automation-infrastructure-delhi-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "talent-heavy-engineering-trichy-operations-guide",
+      "title": "Senior Executive Talent Mediation (₹12 LPA–₹1 Cr) for Heavy Engineering & Metal Fabrication Belts in Tiruchirappalli (Trichy)",
+      "date": "2026-11-06",
+      "category": "Talent Acquisition",
+      "cluster": "talent",
+      "location": "trichy",
+      "wordCount": 1802,
+      "filePath": "content/blog/talent-heavy-engineering-trichy-operations-guide.md",
       "published": true
     }
   ]
