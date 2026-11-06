@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-06T11:23:38.286Z",
-  "totalPosts": 20,
+  "lastUpdated": "2026-11-06T18:17:33.976Z",
+  "totalPosts": 21,
   "rotationState": {
-    "nextClusterIndex": 1,
-    "nextLocationIndex": 7,
-    "nextVerticalIndex": 6,
-    "stepIndex": 6
+    "nextClusterIndex": 2,
+    "nextLocationIndex": 10,
+    "nextVerticalIndex": 3,
+    "stepIndex": 7
   },
   "posts": [
     {
@@ -201,6 +201,17 @@
       "location": "bangalore",
       "wordCount": 1798,
       "filePath": "content/blog/cctv-tech-park-bangalore-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "security-textile-erode-operations-guide",
+      "title": "PSARA-Compliant Commercial Security Guards & Veteran Leadership for Textile Processing & Garment Export Mills in Erode",
+      "date": "2026-11-06",
+      "category": "Commercial Security",
+      "cluster": "security",
+      "location": "erode",
+      "wordCount": 1809,
+      "filePath": "content/blog/security-textile-erode-operations-guide.md",
       "published": true
     }
   ]
