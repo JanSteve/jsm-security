@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-07T10:37:29.661Z",
-  "totalPosts": 24,
+  "lastUpdated": "2026-11-07T16:47:15.939Z",
+  "totalPosts": 25,
   "rotationState": {
-    "nextClusterIndex": 0,
-    "nextLocationIndex": 8,
-    "nextVerticalIndex": 2,
-    "stepIndex": 10
+    "nextClusterIndex": 1,
+    "nextLocationIndex": 11,
+    "nextVerticalIndex": 7,
+    "stepIndex": 11
   },
   "posts": [
     {
@@ -245,6 +245,17 @@
       "location": "bangalore",
       "wordCount": 1789,
       "filePath": "content/blog/talent-commercial-retail-bangalore-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "cctv-healthcare-mumbai-operations-guide",
+      "title": "Industrial CCTV Surveillance & Access Control Architecture for Hospitals & Super-Specialty Medical Facilities in Mumbai & Pune",
+      "date": "2026-11-07",
+      "category": "CCTV & Access Control",
+      "cluster": "cctv",
+      "location": "mumbai",
+      "wordCount": 1824,
+      "filePath": "content/blog/cctv-healthcare-mumbai-operations-guide.md",
       "published": true
     }
   ]
