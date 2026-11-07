@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-07T03:04:53.448Z",
-  "totalPosts": 23,
+  "lastUpdated": "2026-11-07T10:37:29.661Z",
+  "totalPosts": 24,
   "rotationState": {
-    "nextClusterIndex": 4,
-    "nextLocationIndex": 4,
-    "nextVerticalIndex": 5,
-    "stepIndex": 9
+    "nextClusterIndex": 0,
+    "nextLocationIndex": 8,
+    "nextVerticalIndex": 2,
+    "stepIndex": 10
   },
   "posts": [
     {
@@ -234,6 +234,17 @@
       "location": "chennai",
       "wordCount": 1842,
       "filePath": "content/blog/automation-automotive-chennai-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "talent-commercial-retail-bangalore-operations-guide",
+      "title": "Senior Executive Talent Mediation (₹12 LPA–₹1 Cr) for Commercial Malls, Luxury Venues & Retail Chains in Bangalore",
+      "date": "2026-11-07",
+      "category": "Talent Acquisition",
+      "cluster": "talent",
+      "location": "bangalore",
+      "wordCount": 1789,
+      "filePath": "content/blog/talent-commercial-retail-bangalore-operations-guide.md",
       "published": true
     }
   ]
