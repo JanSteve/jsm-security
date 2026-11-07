@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-07T16:47:15.939Z",
-  "totalPosts": 25,
+  "lastUpdated": "2026-11-07T20:44:15.617Z",
+  "totalPosts": 26,
   "rotationState": {
-    "nextClusterIndex": 1,
-    "nextLocationIndex": 11,
-    "nextVerticalIndex": 7,
-    "stepIndex": 11
+    "nextClusterIndex": 2,
+    "nextLocationIndex": 2,
+    "nextVerticalIndex": 4,
+    "stepIndex": 12
   },
   "posts": [
     {
@@ -256,6 +256,17 @@
       "location": "mumbai",
       "wordCount": 1824,
       "filePath": "content/blog/cctv-healthcare-mumbai-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "security-infrastructure-indore-operations-guide",
+      "title": "PSARA-Compliant Commercial Security Guards & Veteran Leadership for Civil Aviation, Transit Terminals & Public Infrastructure in Indore & Pithampur",
+      "date": "2026-11-07",
+      "category": "Commercial Security",
+      "cluster": "security",
+      "location": "indore",
+      "wordCount": 1843,
+      "filePath": "content/blog/security-infrastructure-indore-operations-guide.md",
       "published": true
     }
   ]
