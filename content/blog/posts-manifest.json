@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-06T23:26:11.391Z",
-  "totalPosts": 22,
+  "lastUpdated": "2026-11-07T03:04:53.448Z",
+  "totalPosts": 23,
   "rotationState": {
-    "nextClusterIndex": 3,
-    "nextLocationIndex": 1,
-    "nextVerticalIndex": 0,
-    "stepIndex": 8
+    "nextClusterIndex": 4,
+    "nextLocationIndex": 4,
+    "nextVerticalIndex": 5,
+    "stepIndex": 9
   },
   "posts": [
     {
@@ -223,6 +223,17 @@
       "location": "gujarat",
       "wordCount": 1828,
       "filePath": "content/blog/facility-logistics-gujarat-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "automation-automotive-chennai-operations-guide",
+      "title": "Smart Digital Automation & WhatsApp CRM Systems for Automotive & Heavy Component Manufacturing in Chennai",
+      "date": "2026-11-07",
+      "category": "Digital Systems",
+      "cluster": "automation",
+      "location": "chennai",
+      "wordCount": 1842,
+      "filePath": "content/blog/automation-automotive-chennai-operations-guide.md",
       "published": true
     }
   ]
