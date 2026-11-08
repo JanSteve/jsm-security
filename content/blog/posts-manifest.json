@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-08T00:18:19.475Z",
-  "totalPosts": 27,
+  "lastUpdated": "2026-11-08T06:33:53.618Z",
+  "totalPosts": 28,
   "rotationState": {
-    "nextClusterIndex": 3,
-    "nextLocationIndex": 5,
-    "nextVerticalIndex": 1,
-    "stepIndex": 13
+    "nextClusterIndex": 4,
+    "nextLocationIndex": 8,
+    "nextVerticalIndex": 6,
+    "stepIndex": 14
   },
   "posts": [
     {
@@ -278,6 +278,17 @@
       "location": "coimbatore",
       "wordCount": 1812,
       "filePath": "content/blog/facility-heavy-engineering-coimbatore-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "automation-tech-park-madurai-operations-guide",
+      "title": "Smart Digital Automation & WhatsApp CRM Systems for Technology Parks & Corporate IT Campuses in Madurai",
+      "date": "2026-11-08",
+      "category": "Digital Systems",
+      "cluster": "automation",
+      "location": "madurai",
+      "wordCount": 1840,
+      "filePath": "content/blog/automation-tech-park-madurai-operations-guide.md",
       "published": true
     }
   ]
