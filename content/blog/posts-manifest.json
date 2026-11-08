@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-07T20:44:15.617Z",
-  "totalPosts": 26,
+  "lastUpdated": "2026-11-08T00:18:19.475Z",
+  "totalPosts": 27,
   "rotationState": {
-    "nextClusterIndex": 2,
-    "nextLocationIndex": 2,
-    "nextVerticalIndex": 4,
-    "stepIndex": 12
+    "nextClusterIndex": 3,
+    "nextLocationIndex": 5,
+    "nextVerticalIndex": 1,
+    "stepIndex": 13
   },
   "posts": [
     {
@@ -267,6 +267,17 @@
       "location": "indore",
       "wordCount": 1843,
       "filePath": "content/blog/security-infrastructure-indore-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "facility-heavy-engineering-coimbatore-operations-guide",
+      "title": "Industrial Housekeeping & Mechanized Facility Management for Heavy Engineering & Metal Fabrication Belts in Coimbatore",
+      "date": "2026-11-08",
+      "category": "Facility Management",
+      "cluster": "facility",
+      "location": "coimbatore",
+      "wordCount": 1812,
+      "filePath": "content/blog/facility-heavy-engineering-coimbatore-operations-guide.md",
       "published": true
     }
   ]
