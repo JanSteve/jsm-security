@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-08T14:09:55.738Z",
-  "totalPosts": 29,
+  "lastUpdated": "2026-11-08T18:59:43.030Z",
+  "totalPosts": 30,
   "rotationState": {
-    "nextClusterIndex": 0,
-    "nextLocationIndex": 0,
-    "nextVerticalIndex": 3,
-    "stepIndex": 15
+    "nextClusterIndex": 1,
+    "nextLocationIndex": 3,
+    "nextVerticalIndex": 0,
+    "stepIndex": 16
   },
   "posts": [
     {
@@ -300,6 +300,17 @@
       "location": "mumbai",
       "wordCount": 1815,
       "filePath": "content/blog/talent-textile-mumbai-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "cctv-logistics-trichy-operations-guide",
+      "title": "Industrial CCTV Surveillance & Access Control Architecture for Multi-Modal Warehousing & Logistics Parks in Tiruchirappalli (Trichy)",
+      "date": "2026-11-08",
+      "category": "CCTV & Access Control",
+      "cluster": "cctv",
+      "location": "trichy",
+      "wordCount": 1811,
+      "filePath": "content/blog/cctv-logistics-trichy-operations-guide.md",
       "published": true
     }
   ]
