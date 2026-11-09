@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-09T14:18:00.158Z",
-  "totalPosts": 34,
+  "lastUpdated": "2026-11-09T20:59:14.760Z",
+  "totalPosts": 35,
   "rotationState": {
-    "nextClusterIndex": 0,
-    "nextLocationIndex": 4,
-    "nextVerticalIndex": 4,
-    "stepIndex": 20
+    "nextClusterIndex": 1,
+    "nextLocationIndex": 7,
+    "nextVerticalIndex": 1,
+    "stepIndex": 21
   },
   "posts": [
     {
@@ -355,6 +355,17 @@
       "location": "chennai",
       "wordCount": 1795,
       "filePath": "content/blog/talent-infrastructure-chennai-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "cctv-heavy-engineering-bangalore-operations-guide",
+      "title": "Industrial CCTV Surveillance & Access Control Architecture for Heavy Engineering & Metal Fabrication Belts in Bangalore",
+      "date": "2026-11-09",
+      "category": "CCTV & Access Control",
+      "cluster": "cctv",
+      "location": "bangalore",
+      "wordCount": 1798,
+      "filePath": "content/blog/cctv-heavy-engineering-bangalore-operations-guide.md",
       "published": true
     }
   ]
