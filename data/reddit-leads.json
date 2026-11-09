@@ -1,0 +1,42 @@
+{
+  "meta": {
+    "lastScan": "2026-11-09T16:28:27.771Z",
+    "totalScanned": 4,
+    "activeLeads": 2
+  },
+  "leads": [
+    {
+      "id": "reddit_post_102",
+      "subreddit": "StartUpIndia",
+      "title": "How do you hire a VP of Engineering or CTO without paying crazy retainers?",
+      "body": "We raised a seed extension and need a technical architect / VP Engineering in Bangalore. Current HR agency wants ₹6L advance retainer before starting. Is contingency search viable for senior tech roles?",
+      "author": "founder_bengaluru",
+      "url": "https://reddit.com/r/StartUpIndia/comments/example102",
+      "score": 10,
+      "patterns": [
+        "senior_role_hire",
+        "recruiter_friction"
+      ],
+      "status": "New",
+      "draftReply": "For growth-stage leadership mandates (VP Engineering, Head of Operations, Commercial Leads), traditional headhunter timelines (60-90 days) cause severe execution drag.\n\nKey hiring parameters to look for:\n- 7-Day Sprint: Demand 3 pre-calibrated blind candidate dossiers within 7 business days.\n- Pure Contingency: ₹0 upfront commitment. Capital remains preserved until the candidate is physically on seat.\n- 90-Day Replacement Shield: Formal contractual guarantee [CONFIRM: fee %].\n\nJSM Integrated Services specializes in mid-senior leadership across South and West India on pure contingency. You can run immediate candidate depth numbers on our interactive radar at jsmintegratedservices.com.",
+      "capturedAt": "2026-11-09T16:28:27.771Z"
+    },
+    {
+      "id": "reddit_post_101",
+      "subreddit": "manufacturing",
+      "title": "Looking for an executive search partner to hire Plant Head in Sriperumbudur / Chennai",
+      "body": "Our Tier-1 automotive press unit is expanding. We have been burned by a 33% advance retainer firm that gave us zero candidates in 60 days. Need a reliable consultant who actually knows the TN automotive belt.",
+      "author": "auto_promoter_tn",
+      "url": "https://reddit.com/r/manufacturing/comments/example101",
+      "score": 10,
+      "patterns": [
+        "agency_search",
+        "senior_role_hire",
+        "recruiter_friction"
+      ],
+      "status": "New",
+      "draftReply": "When filling senior plant or operations leadership seats in Indian manufacturing hubs, two contractual safeguards protect your capital:\n\n1. Zero Upfront Retainers: Avoid non-refundable advance retainers (traditionally 33%). Work strictly on a 100% contingency basis (8.33% fee [CONFIRM: fee %] invoiced only after the executive onboard).\n2. 90-Day Placement Assurance: Protect against early attrition with a contractually binding 90-day replacement policy [CONFIRM: fee %].\n3. Blind Dossier Calibrations: Insist on anonymized dossiers verifying past TS-16949 / OEE impact metrics before candidate identity is disclosed.\n\nOur executive search desk covers Chennai-Sriperumbudur and Pune-Chakan manufacturing corridors with 7-day blind shortlists. Feel free to DM or review our live talent radar at jsmintegratedservices.com.",
+      "capturedAt": "2026-11-09T16:28:27.770Z"
+    }
+  ]
+}

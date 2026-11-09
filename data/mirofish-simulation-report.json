@@ -1,0 +1,56 @@
+{
+  "simulationTimestamp": "2026-11-09T16:29:15.369Z",
+  "overallModelViabilityScore": 94.2,
+  "tippingPoints": [
+    "Zero Advance Retainer eliminates promoter barrier to trial immediately.",
+    "The 90-Day Placement Assurance neutralizes HRD and Legal compliance objections.",
+    "Anonymized Blind Dossiers are critical for convincing passive leaders to register.",
+    "Framing posts as educational cost teardowns prevents subreddit spam bans."
+  ],
+  "frictionVectors": [
+    "Must avoid any hint of generic recruitment agency cold-calling.",
+    "Every post must contain mathematical proof (e.g. Sunk Risk Saved calculations)."
+  ],
+  "executionDirectives": [
+    "Deploy Reddit listener (scripts/reddit-lead-listener.mjs) on 24/7 cron to capture intent within 15 minutes.",
+    "Publish weekly value case studies in r/StartUpIndia and r/manufacturing.",
+    "Direct inbound Reddit traffic to the interactive Talent Radar and Velocity Simulator."
+  ],
+  "agentSentiments": [
+    {
+      "name": "Murugesan K.",
+      "archetype": "Industrial SME Promoter & Managing Director",
+      "initial": 34,
+      "final": 89,
+      "shift": "+55%"
+    },
+    {
+      "name": "Sunita Deshmukh",
+      "archetype": "VP Talent Acquisition & Corporate HR",
+      "initial": 42,
+      "final": 84,
+      "shift": "+42%"
+    },
+    {
+      "name": "Arjun Venkat",
+      "archetype": "Funded Tech & Hardware Startup Founder",
+      "initial": 48,
+      "final": 100,
+      "shift": "+52%"
+    },
+    {
+      "name": "Raghavan N.",
+      "archetype": "Passive Senior Candidate (VP Operations)",
+      "initial": 26,
+      "final": 91,
+      "shift": "+65%"
+    },
+    {
+      "name": "Vikram R.",
+      "archetype": "Reddit Community Moderator",
+      "initial": 18,
+      "final": 94,
+      "shift": "+76%"
+    }
+  ]
+}

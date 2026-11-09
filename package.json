@@ -17,7 +17,9 @@
     "sync": "bash scripts/auto-sync.sh",
     "generate-blog": "node scripts/generate-daily-blog.mjs",
     "publish-scheduled": "node scripts/publish-scheduled.mjs",
-    "verify:seo": "node scripts/verify-milestone3.mjs"
+    "verify:seo": "node scripts/verify-milestone3.mjs",
+    "listen:reddit": "node scripts/reddit-lead-listener.mjs",
+    "simulate:mirofish": "node scripts/mirofish-market-simulation.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
