@@ -55,17 +55,17 @@ const CHAPTERS: Chapter[] = [
   },
 ];
 
-const INSTAGRAM_CAPTION = `Your plant leadership seat is vacant. Traditional headhunters demand a 33% advance retainer before presenting a single verified profile.
+const INSTAGRAM_CAPTION = `Never pay 33% upfront before a headhunter proves they can hire.
 
-That locks up lakhs in working capital with zero hiring guarantee.
+Traditional search firms lock up lakhs in working capital with zero hiring guarantee. Meanwhile, an empty Plant Head seat burns ~₹35,000 every single day in lost throughput.
 
 At JSM Integrated Services, we operate on 100% contingency:
-• ₹0 Upfront Retainer — sourcing begins immediately
-• 3 Calibrated Blind Dossiers in 7 business days
+• ₹0 Upfront Retainer — talent mapping begins immediately
+• 3 Calibrated Blind Dossiers delivered in 7 business days
 • 8.33% Placement Fee invoiced strictly after onboarding
 • 90-Day Free Replacement Assurance
 
-Calibrate your executive search mandate at www.jsmintegratedservices.com
+Calibrate your executive search mandate at www.jsmintegratedservices.com (or DM "MANDATE").
 
 #ExecutiveSearchIndia #PlantHeadHiring #ManufacturingLeadership #TamilNaduIndustry #PuneManufacturing #ContingencyRecruitment #IndustrialLeadership`;
 

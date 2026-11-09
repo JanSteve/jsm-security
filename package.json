@@ -19,7 +19,10 @@
     "publish-scheduled": "node scripts/publish-scheduled.mjs",
     "verify:seo": "node scripts/verify-milestone3.mjs",
     "listen:reddit": "node scripts/reddit-lead-listener.mjs",
-    "simulate:mirofish": "node scripts/mirofish-market-simulation.mjs"
+    "simulate:mirofish": "node scripts/mirofish-market-simulation.mjs",
+    "ops:instagram": "node scripts/instagram-ops.mjs",
+    "ig:score": "python3 tools/instagram-agent-skill/skills/ig-reel/hookscore.py",
+    "ig:film": "cd /Users/janstevedaniel/lemo-opuscar/films/jsm-instagram-reel && PATH='/usr/bin:/bin:/usr/sbin:/sbin:$PATH' bash build.sh"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
