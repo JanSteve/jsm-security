@@ -18,6 +18,21 @@ import { ContactBand } from "@/components/home/contact-band";
 // Dynamically imported below-the-fold components (Hydration & TBT Optimization)
 // -----------------------------------------------------------------------------
 
+const ClarityExplainerSection = dynamic(
+  () => import("@/components/home/clarity-explainer-section").then((mod) => mod.ClarityExplainerSection),
+  {
+    loading: () => (
+      <div 
+        className="py-16 sm:py-24 bg-[#F6F3EE] border-b border-[#0E1116]/10 min-h-[400px] flex items-center justify-center"
+        aria-busy="true"
+        aria-label="Loading clarity blueprint"
+      >
+        <div className="w-8 h-8 rounded-full border-2 border-[#1F4E5F] border-t-transparent animate-spin" />
+      </div>
+    ),
+  }
+);
+
 const FeeSection = dynamic(
   () => import("@/components/home/fee-section").then((mod) => mod.FeeSection),
   {
@@ -279,6 +294,9 @@ export default function Home() {
 
       {/* 1. Hero Section: 6 Focus States, Single <h1>, Slow Looping Sector Ticker, Dual CTAs */}
       <HeroSection />
+
+      {/* 1b. The Clarity Blueprint: Closer-style Dual Audience Switcher & Direct Model Contrast */}
+      <ClarityExplainerSection />
 
       {/* 2. 3-Step Hiring Process: Precision Scoping, Discrete Sourcing, Joining Assurance */}
       <ProcessSection />
