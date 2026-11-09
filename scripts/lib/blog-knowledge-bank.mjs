@@ -265,7 +265,15 @@ export const CLUSTERS = {
       "plant operations director hiring Maharashtra",
       "VP Engineering technical talent acquisition Delhi NCR",
       "senior management recruitment Gujarat manufacturing",
-      "executive placement 90-day replacement guarantee"
+      "executive placement 90-day replacement guarantee",
+      "plant head hiring chennai sriperumbudur 2026",
+      "automotive tier 1 operations head hosur salary benchmark",
+      "six sigma black belt vp quality recruitment tamil nadu",
+      "ev powertrain manufacturing general manager bangalore",
+      "contract logistics warehousing operations director coimbatore",
+      "precision machining die casting plant manager pune chakan",
+      "contingency headhunter 8.33 fee zero advance retainer",
+      "leadership talent mediation 90-day replacement warranty"
     ],
     coreProtocols: [
       "15-Minute Mandate Calibration to lock role competencies and compensation benchmarks",

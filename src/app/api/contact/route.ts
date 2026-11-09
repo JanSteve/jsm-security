@@ -113,10 +113,10 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    // 7. Target Notification Recipients (Primary: contact@jsmintegratedservices.com)
+    // 7. Target Notification Recipients (Primary: contact@jsmintegratedservices.com & jsmintegratedservices@outlook.com)
     const targetRecipients = process.env.CONTACT_NOTIFICATION_EMAIL
-      ? [process.env.CONTACT_NOTIFICATION_EMAIL]
-      : ['contact@jsmintegratedservices.com', 'sales@jsmintegratedservices.com'];
+      ? [process.env.CONTACT_NOTIFICATION_EMAIL, 'jsmintegratedservices@outlook.com']
+      : ['contact@jsmintegratedservices.com', 'jsmintegratedservices@outlook.com', 'sales@jsmintegratedservices.com'];
 
     // 8. HTML Notification Template for JSM Executive Desk
     const htmlEmail = `
@@ -249,6 +249,79 @@ Notification dispatched to: ${targetRecipients.join(', ')}
 Sent from jsmintegratedservices.com
     `.trim();
 
+    // Automated Prospect Confirmation & Mandate Nurture Email Template
+    const prospectHtmlEmail = `
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta charset="utf-8">
+          <style>
+            body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #F6F3EE; color: #0E1116; padding: 24px 16px; margin: 0; }
+            .container { max-width: 600px; margin: 0 auto; background: #FFFFFF; border: 1px solid rgba(14, 17, 22, 0.12); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+            .header { background: #1F4E5F; color: #FFFFFF; padding: 24px; text-align: left; }
+            .header h1 { margin: 0; font-size: 18px; font-weight: 700; letter-spacing: -0.02em; }
+            .header p { margin: 6px 0 0 0; font-size: 13px; color: rgba(255, 255, 255, 0.85); }
+            .content { padding: 28px 24px; font-size: 14px; line-height: 1.6; color: #1E293B; }
+            .card { background: #F6F3EE; border-left: 4px solid #1F4E5F; padding: 16px; border-radius: 6px; margin: 18px 0; }
+            .badge { display: inline-block; background: #1F4E5F; color: #FFFFFF; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; margin-bottom: 8px; }
+            .footer { padding: 20px 24px; background: #F6F3EE; font-size: 12px; color: #6B7280; text-align: center; border-top: 1px solid rgba(14, 17, 22, 0.08); }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <h1>JSM Integrated Services</h1>
+              <p>Executive Talent Acquisition & Leadership Mediation Desk</p>
+            </div>
+            <div class="content">
+              <p>Dear ${name || 'Executive Leader'},</p>
+              <p>Thank you for initiating your corporate requirement with JSM Integrated Services. Your enquiry has been registered under ticket reference <strong>${ticketRef}</strong>.</p>
+              
+              <div class="card">
+                <span class="badge">Mandate Registration</span><br>
+                <strong>Service Domain:</strong> ${service || 'Executive Talent Acquisition'}<br>
+                ${company ? `<strong>Company:</strong> ${company}<br>` : ''}
+                ${roleBand ? `<strong>Target CTC Band:</strong> ${roleBand}<br>` : ''}
+                <strong>Operational Corridor:</strong> ${location || 'South / West India'}<br>
+                <strong>Commercial Model:</strong> 100% Contingency (₹0 Advance, 8.33% Placement Fee upon Joining, 90-Day Free Replacement Guarantee)
+              </div>
+
+              <h3 style="font-size: 15px; color: #0E1116; margin-top: 20px;">Immediate Next Steps:</h3>
+              <ol style="padding-left: 20px; margin: 10px 0;">
+                <li><strong>Mandate Review:</strong> Our Senior Principal Consultant is calibrating your requirement against our active, pre-vetted executive talent pipeline.</li>
+                <li><strong>Exploratory Call:</strong> You will receive a direct briefing within <strong>30 to 60 minutes</strong> to discuss matching candidate availability and notice periods.</li>
+                <li><strong>Confidential Dossiers:</strong> We present 3 pre-screened blind finalist dossiers with zero advance financial commitment.</li>
+              </ol>
+
+              <p style="margin-top: 24px;">For urgent executive queries, connect directly with our desk:</p>
+              <p>
+                📞 <strong>Direct Desk:</strong> <a href="tel:+919080863448" style="color: #1F4E5F; text-decoration: none;">+91 90808 63448</a><br>
+                ✉️ <strong>Executive Inbox:</strong> <a href="mailto:jsmintegratedservices@outlook.com" style="color: #1F4E5F; text-decoration: none;">jsmintegratedservices@outlook.com</a><br>
+                🌐 <strong>Website:</strong> <a href="https://jsmintegratedservices.com" style="color: #1F4E5F; text-decoration: none;">jsmintegratedservices.com</a>
+              </p>
+            </div>
+            <div class="footer">
+              JSM Integrated Services • Executive Talent Acquisition & Enterprise Operations<br>
+              Headquarters: Tiruchirappalli, Tamil Nadu • Regional Coverage: Chennai, Hosur, Coimbatore, Bengaluru, Pune
+            </div>
+          </div>
+        </body>
+      </html>
+    `;
+
+    const prospectTextEmail = `
+Thank you for reaching out to JSM Integrated Services.
+Reference: ${ticketRef}
+
+We have registered your requirement:
+- Service: ${service || 'Executive Talent Acquisition'}
+${company ? `- Company: ${company}\n` : ''}${roleBand ? `- Target Band: ${roleBand}\n` : ''}- Location: ${location || 'South / West India'}
+- Commercial Terms: 100% Contingency (₹0 Advance, 8.33% Fee on Joining, 90-Day Free Replacement)
+
+Our Senior Principal Consultant will connect with you within 30 to 60 minutes.
+Direct Desk: +91 90808 63448 | jsmintegratedservices@outlook.com
+    `.trim();
+
     const resendApiKey = process.env.RESEND_API_KEY;
 
     // 9. Dispatch Strategy 1: Direct Resend API
@@ -270,6 +343,25 @@ Sent from jsmintegratedservices.com
             html: htmlEmail,
           }),
         });
+
+        // Automated Lead Nurture: Send instant acknowledgment to prospect
+        if (email && email.includes('@')) {
+          fetch('https://api.resend.com/emails', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${resendApiKey.trim()}`,
+            },
+            body: JSON.stringify({
+              from: 'JSM Executive Desk <contact@jsmintegratedservices.com>',
+              reply_to: 'jsmintegratedservices@outlook.com',
+              to: [email],
+              subject: `Mandate Received: ${service} [${ticketRef}] — JSM Integrated Services`,
+              text: prospectTextEmail,
+              html: prospectHtmlEmail,
+            }),
+          }).catch((err) => console.warn('Prospect nurture email dispatch failed:', err));
+        }
 
         if (res.ok) {
           return NextResponse.json({
@@ -307,6 +399,18 @@ Sent from jsmintegratedservices.com
           text: textEmail,
           html: htmlEmail,
         });
+
+        // Automated Lead Nurture via SMTP: Send instant acknowledgment to prospect
+        if (email && email.includes('@')) {
+          transporter.sendMail({
+            from: `"JSM Executive Desk" <${process.env.OUTLOOK_EMAIL}>`,
+            to: email,
+            replyTo: 'jsmintegratedservices@outlook.com',
+            subject: `Mandate Received: ${service} [${ticketRef}] — JSM Integrated Services`,
+            text: prospectTextEmail,
+            html: prospectHtmlEmail,
+          }).catch((err) => console.warn('SMTP prospect nurture email failed:', err));
+        }
 
         return NextResponse.json({
           success: true,
