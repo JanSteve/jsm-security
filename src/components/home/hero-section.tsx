@@ -2,9 +2,11 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { ArrowRight, Calculator, ShieldCheck } from "lucide-react";
+import { ArrowRight, Calculator, Activity, Sparkles } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { MagneticWrapper } from "@/components/motion/magnetic-cursor";
+import { DotPattern } from "@/components/ui/dot-pattern";
 import { ExecutiveDossierCard } from "./executive-dossier-card";
 
 const FOCUS_STATES = [
@@ -14,6 +16,21 @@ const FOCUS_STATES = [
   "Delhi",
   "Madhya Pradesh",
   "Gujarat",
+] as const;
+
+const ROTATING_ROLES = [
+  "Plant Heads & Operations VPs",
+  "Manufacturing Directors",
+  "Technical Architects & CTOs",
+  "General Managers & C-Suite",
+] as const;
+
+const LIVE_TELEMETRY = [
+  { location: "Chennai", mandate: "Automotive Plant Head", status: "3 Blind Dossiers Delivered", time: "2h ago" },
+  { location: "Bengaluru", mandate: "VP Engineering (SaaS)", status: "MD Interview Scheduled", time: "45m ago" },
+  { location: "Pune", mandate: "Precision Operations GM", status: "Candidate Offer Released", time: "1d ago" },
+  { location: "Trichy", mandate: "Heavy Engineering Director", status: "Shortlist Calibrated", time: "3h ago" },
+  { location: "Ahmedabad", mandate: "Industrial Manufacturing VP", status: "Joined & Day 90 Shield Active", time: "2d ago" },
 ] as const;
 
 const TICKER_SECTORS = [
@@ -31,13 +48,70 @@ export function HeroSection() {
   const ctaRef = useScrollReveal<HTMLDivElement>();
   const pillarsRef = useScrollReveal<HTMLDivElement>({ stagger: true });
 
+  const [roleIndex, setRoleIndex] = React.useState(0);
+  const [telemetryIndex, setTelemetryIndex] = React.useState(0);
+
+  // Auto-rotate headline role badge every 2.8s
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setRoleIndex((prev) => (prev + 1) % ROTATING_ROLES.length);
+    }, 2800);
+    return () => clearInterval(timer);
+  }, []);
+
+  // Auto-rotate live telemetry ticker every 4s
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setTelemetryIndex((prev) => (prev + 1) % LIVE_TELEMETRY.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const activeTelemetry = LIVE_TELEMETRY[telemetryIndex];
+
   return (
     <section
       className="relative pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-36 lg:pb-20 bg-[#F6F3EE] overflow-x-hidden w-full max-w-full border-b border-[#0E1116]/10"
       aria-label="Executive Talent Acquisition Overview"
     >
-      <div className="max-w-[1180px] w-[92%] mx-auto text-center px-4 sm:px-6">
-        {/* 1. 6-State Coverage Badges */}
+      {/* Background Dot Matrix with Soft Radial Mask */}
+      <DotPattern
+        width={24}
+        height={24}
+        cx={1.5}
+        cy={1.5}
+        cr={1}
+        className="[mask-image:radial-gradient(ellipse_at_center,white_30%,transparent_75%)] opacity-70"
+      />
+
+      <div className="max-w-[1180px] w-[92%] mx-auto text-center px-4 sm:px-6 relative z-10">
+        {/* 1. Live Mandate Telemetry Ticker */}
+        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white border border-[#0E1116]/12 text-xs font-mono text-[#0E1116] shadow-2xs mb-5 max-w-full overflow-hidden">
+          <span className="relative flex h-2 w-2 shrink-0">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#25D366]" />
+          </span>
+          <span className="font-semibold uppercase tracking-wider text-[#1F4E5F] shrink-0 text-[11px]">
+            Live Activity:
+          </span>
+          <div className="overflow-hidden h-4 text-left">
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={telemetryIndex}
+                initial={{ y: 14, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -14, opacity: 0 }}
+                transition={{ duration: 0.25 }}
+                className="inline-block truncate text-xs text-[#525866]"
+              >
+                <strong className="text-[#0E1116]">{activeTelemetry.location}</strong> · {activeTelemetry.mandate} —{" "}
+                <span className="text-[#1F4E5F] font-medium">{activeTelemetry.status}</span> ({activeTelemetry.time})
+              </motion.span>
+            </AnimatePresence>
+          </div>
+        </div>
+
+        {/* 2. 6-State Coverage Badges */}
         <div
           ref={badgesRef}
           className="flex flex-wrap items-center justify-center gap-2 mb-6"
@@ -61,24 +135,39 @@ export function HeroSection() {
           ))}
         </div>
 
-        {/* 2. Headline */}
+        {/* 3. Headline with Kinetic Role Badge */}
         <div ref={headlineRef} data-reveal>
-          <h1 className="font-heading font-medium text-[#0E1116] text-[clamp(2.25rem,4.5vw+0.75rem,4rem)] leading-[1.08] tracking-[-0.035em] max-w-4xl mx-auto text-balance mb-6">
-            The Executive Talent Mediator for ₹12 LPA to ₹1 Cr Leadership Roles
+          <h1 className="font-heading font-medium text-[#0E1116] text-[clamp(2.15rem,4.2vw+0.75rem,3.85rem)] leading-[1.1] tracking-[-0.035em] max-w-4xl mx-auto text-balance mb-6">
+            The Executive Talent Mediator for{" "}
+            <span className="inline-block relative overflow-hidden align-baseline px-2.5 py-0.5 rounded-xl bg-white border border-[#1F4E5F]/20 text-[#1F4E5F] shadow-2xs mx-1">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={roleIndex}
+                  initial={{ y: 22, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -22, opacity: 0 }}
+                  transition={{ type: "spring", stiffness: 380, damping: 28 }}
+                  className="inline-block whitespace-nowrap"
+                >
+                  {ROTATING_ROLES[roleIndex]}
+                </motion.span>
+              </AnimatePresence>
+            </span>{" "}
+            in ₹12 LPA to ₹1 Cr Leadership Roles
           </h1>
           <p className="font-sans text-base sm:text-lg text-[#525866] max-w-2xl mx-auto text-pretty leading-relaxed mb-8">
             We act as the confidential bridge between top enterprises and proven leadership talent across South and West India. Zero upfront retainers—contingency fee payable strictly upon placement [CONFIRM: fee %].
           </p>
         </div>
 
-        {/* 3. Dual CTAs */}
+        {/* 4. Dual CTAs */}
         <div ref={ctaRef} data-reveal className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-12 sm:mb-14">
           <MagneticWrapper strength={0.2} className="w-full sm:w-auto">
             <Link
               href="#enquiry"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#0E1116] text-[#F6F3EE] font-medium text-sm sm:text-base hover:bg-[#C8553D] hover:-translate-y-0.5 transition-all duration-350 min-h-[44px] shadow-sm active:translate-y-0"
             >
-              Hire Senior Talent
+              <span>Hire Senior Talent</span>
               <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </Link>
           </MagneticWrapper>
@@ -88,21 +177,21 @@ export function HeroSection() {
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white text-[#0E1116] border border-[#0E1116]/20 font-medium text-sm sm:text-base hover:bg-[#F6F3EE] hover:border-[#0E1116]/40 hover:-translate-y-0.5 transition-all duration-350 min-h-[44px]"
             >
               <Calculator className="w-4 h-4 text-[#C8553D]" aria-hidden="true" />
-              Calculate Fee
+              <span>Calculate Fee</span>
             </Link>
           </MagneticWrapper>
           <Link
             href="#enquiry"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-transparent text-[#1F4E5F] font-semibold text-sm sm:text-base hover:text-[#0E1116] transition-all min-h-[44px] underline underline-offset-4 decoration-[#1F4E5F]/30 hover:decoration-[#0E1116]"
           >
-            Submit Candidate Profile
+            <span>Submit Candidate Profile</span>
           </Link>
         </div>
 
-        {/* 4. Interactive Confidential Dossier Centerpiece */}
+        {/* 5. Interactive Confidential Dossier Centerpiece */}
         <ExecutiveDossierCard />
 
-        {/* 5. 3 Value Pillars */}
+        {/* 6. 3 Value Pillars */}
         <div ref={pillarsRef} className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto text-left mb-12">
           <div data-reveal className="bg-white/80 p-4 rounded-xl border border-[#0E1116]/8 shadow-2xs hover:-translate-y-1 hover:border-[#1F4E5F]/30 hover:shadow-md transition-all duration-400 ease-out">
             <div className="text-xs font-bold text-[#1F4E5F] uppercase tracking-wider mb-1">
@@ -139,7 +228,7 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* 5. Sector Ticker */}
+        {/* 7. Sector Ticker */}
         <div
           className="relative max-w-4xl mx-auto overflow-hidden py-3 border-y border-[#0E1116]/10"
           data-ticker="true"

@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
-import { ShieldCheck, ArrowRight, Lock, CheckCircle2, Building2, Briefcase } from "lucide-react";
+import { ShieldCheck, ArrowRight, Lock, CheckCircle2, Briefcase } from "lucide-react";
+import { BorderBeam } from "@/components/ui/border-beam";
 
 interface DossierRole {
   id: string;
@@ -71,14 +72,53 @@ const DOSSIER_PROFILES: DossierRole[] = [
 
 export function ExecutiveDossierCard() {
   const [activeId, setActiveId] = useState<string>("plant-ops");
+  const [isPaused, setIsPaused] = useState<boolean>(false);
+  const [progress, setProgress] = useState<number>(0);
+
   const activeProfile = DOSSIER_PROFILES.find((p) => p.id === activeId) || DOSSIER_PROFILES[0];
 
+  // Auto-cycle through profiles every 5.5s unless paused by user interaction
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = 50; // update every 50ms
+    const totalDuration = 5500;
+    const step = (interval / totalDuration) * 100;
+
+    const timer = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          setActiveId((curr) => {
+            const currentIndex = DOSSIER_PROFILES.findIndex((p) => p.id === curr);
+            const nextIndex = (currentIndex + 1) % DOSSIER_PROFILES.length;
+            return DOSSIER_PROFILES[nextIndex].id;
+          });
+          return 0;
+        }
+        return prev + step;
+      });
+    }, interval);
+
+    return () => clearInterval(timer);
+  }, [isPaused, activeId]);
+
+  const handleSelectTab = (id: string) => {
+    setActiveId(id);
+    setProgress(0);
+  };
+
   return (
-    <div className="w-full max-w-4xl mx-auto my-10 sm:my-14 text-left">
-      {/* Outer Card Frame with Architectural Border */}
+    <div 
+      className="w-full max-w-4xl mx-auto my-10 sm:my-14 text-left"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      {/* Outer Card Frame with Architectural Border & Subtle Beam */}
       <div className="relative rounded-2xl sm:rounded-3xl bg-white border border-[#0E1116]/12 shadow-[0_4px_24px_rgba(14,17,22,0.06)] overflow-hidden">
+        <BorderBeam size={260} duration={16} colorFrom="#1F4E5F" colorTo="#C8553D" />
+
         {/* Top Confidential Header Bar */}
-        <div className="px-5 py-3.5 bg-[#0E1116] text-[#F6F3EE] flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+        <div className="px-5 py-3.5 bg-[#0E1116] text-[#F6F3EE] flex flex-wrap items-center justify-between gap-3 text-xs font-mono relative z-10">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#C8553D] animate-pulse" aria-hidden="true" />
             <span className="font-semibold tracking-wider text-white">CONFIDENTIAL BLIND DOSSIER SPECIMEN</span>
@@ -89,25 +129,36 @@ export function ExecutiveDossierCard() {
           </div>
         </div>
 
-        {/* Interactive Tab Switcher with Spring Indicator */}
-        <div className="p-3 sm:p-4 bg-[#F6F3EE] border-b border-[#0E1116]/10 flex items-center justify-start sm:justify-center gap-1.5 overflow-x-auto">
+        {/* Interactive Tab Switcher with Animated Progress Bar */}
+        <div className="p-3 sm:p-4 bg-[#F6F3EE] border-b border-[#0E1116]/10 flex items-center justify-start sm:justify-center gap-2 overflow-x-auto relative z-10">
           {DOSSIER_PROFILES.map((profile) => {
             const isSelected = profile.id === activeId;
             return (
               <button
                 key={profile.id}
                 type="button"
-                onClick={() => setActiveId(profile.id)}
-                className={`relative px-4 py-2 rounded-full text-xs sm:text-sm font-sans font-medium transition-colors shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1F4E5F] ${
+                onClick={() => handleSelectTab(profile.id)}
+                className={`relative px-4 py-2.5 rounded-full text-xs sm:text-sm font-sans font-medium transition-colors shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1F4E5F] min-h-[44px] ${
                   isSelected ? "text-[#0E1116]" : "text-[#525866] hover:text-[#0E1116]"
                 }`}
+                aria-pressed={isSelected}
               >
                 {isSelected && (
                   <motion.div
                     layoutId="activeDossierPill"
                     transition={{ type: "spring", stiffness: 380, damping: 28 }}
-                    className="absolute inset-0 bg-white rounded-full border border-[#0E1116]/12 shadow-xs"
-                  />
+                    className="absolute inset-0 bg-white rounded-full border border-[#0E1116]/12 shadow-xs overflow-hidden"
+                  >
+                    {/* Live Progress Bar for auto-cycling */}
+                    <div 
+                      className="absolute bottom-0 left-3 right-3 h-0.5 bg-[#C8553D]/30 rounded-full overflow-hidden"
+                    >
+                      <div 
+                        className="h-full bg-[#C8553D] transition-all duration-75 ease-linear"
+                        style={{ width: `${progress}%` }}
+                      />
+                    </div>
+                  </motion.div>
                 )}
                 <span className="relative z-10">{profile.tabLabel}</span>
               </button>
@@ -116,14 +167,14 @@ export function ExecutiveDossierCard() {
         </div>
 
         {/* Dossier Body */}
-        <div className="p-6 sm:p-8">
+        <div className="p-6 sm:p-8 relative z-10">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeProfile.id}
-              initial={{ opacity: 0, y: 8 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.22, ease: "easeOut" }}
               className="space-y-6"
             >
               {/* Profile Title & Target Compensation */}
@@ -157,11 +208,11 @@ export function ExecutiveDossierCard() {
               {/* Redacted Identity Security Strip */}
               <div className="p-3 rounded-xl bg-[#F6F3EE] border border-[#0E1116]/8 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-[#0E1116] bg-black/10 px-2 py-0.5 rounded select-none">
+                  <span className="font-mono text-[#0E1116] bg-black/10 px-2 py-0.5 rounded select-none tracking-widest">
                     ███████████████
                   </span>
                   <span className="text-[#525866]">
-                    Identity masked until NDA confirmation & client alignment.
+                    Identity masked until NDA confirmation &amp; client alignment.
                   </span>
                 </div>
                 <span className="inline-flex items-center gap-1 font-semibold text-[#1F4E5F] shrink-0">
@@ -179,7 +230,7 @@ export function ExecutiveDossierCard() {
                   {activeProfile.highlights.map((highlight, idx) => (
                     <div
                       key={idx}
-                      className="p-3 rounded-xl bg-white border border-[#0E1116]/8 text-xs text-[#0E1116] leading-relaxed flex items-start gap-2 shadow-2xs"
+                      className="p-3.5 rounded-xl bg-[#F6F3EE]/60 border border-[#0E1116]/8 text-xs text-[#0E1116] leading-relaxed flex items-start gap-2.5 shadow-2xs hover:bg-[#F6F3EE] hover:border-[#1F4E5F]/30 transition-colors"
                     >
                       <CheckCircle2 className="w-4 h-4 text-[#1F4E5F] shrink-0 mt-0.5" aria-hidden="true" />
                       <span>{highlight}</span>
