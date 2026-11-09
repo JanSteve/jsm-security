@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-09T10:14:29.758Z",
-  "totalPosts": 33,
+  "lastUpdated": "2026-11-09T14:18:00.158Z",
+  "totalPosts": 34,
   "rotationState": {
-    "nextClusterIndex": 4,
-    "nextLocationIndex": 0,
-    "nextVerticalIndex": 7,
-    "stepIndex": 19
+    "nextClusterIndex": 0,
+    "nextLocationIndex": 4,
+    "nextVerticalIndex": 4,
+    "stepIndex": 20
   },
   "posts": [
     {
@@ -344,6 +344,17 @@
       "location": "delhi",
       "wordCount": 1855,
       "filePath": "content/blog/automation-healthcare-delhi-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "talent-infrastructure-chennai-operations-guide",
+      "title": "Senior Executive Talent Mediation (₹12 LPA–₹1 Cr) for Civil Aviation, Transit Terminals & Public Infrastructure in Chennai",
+      "date": "2026-11-09",
+      "category": "Talent Acquisition",
+      "cluster": "talent",
+      "location": "chennai",
+      "wordCount": 1795,
+      "filePath": "content/blog/talent-infrastructure-chennai-operations-guide.md",
       "published": true
     }
   ]
