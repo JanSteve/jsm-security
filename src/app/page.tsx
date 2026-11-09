@@ -78,6 +78,66 @@ const ServicesSection = dynamic(
   }
 );
 
+const InteractiveRoleMatcher = dynamic(
+  () => import("@/components/home/interactive-role-matcher").then((mod) => mod.InteractiveRoleMatcher),
+  {
+    loading: () => (
+      <div 
+        className="py-16 sm:py-24 bg-white border-b border-[#0E1116]/10 min-h-[550px] flex items-center justify-center"
+        aria-busy="true"
+        aria-label="Loading talent radar visualizer"
+      >
+        <div className="w-8 h-8 rounded-full border-2 border-[#1F4E5F] border-t-transparent animate-spin" />
+      </div>
+    ),
+  }
+);
+
+const ModelComparisonMatrix = dynamic(
+  () => import("@/components/home/model-comparison-matrix").then((mod) => mod.ModelComparisonMatrix),
+  {
+    loading: () => (
+      <div 
+        className="py-16 sm:py-24 bg-[#F6F3EE] border-b border-[#0E1116]/10 min-h-[500px] flex items-center justify-center"
+        aria-busy="true"
+        aria-label="Loading market model comparison"
+      >
+        <div className="w-8 h-8 rounded-full border-2 border-[#1F4E5F] border-t-transparent animate-spin" />
+      </div>
+    ),
+  }
+);
+
+const IndustrialCorridorMarquee = dynamic(
+  () => import("@/components/home/industrial-corridor-marquee").then((mod) => mod.IndustrialCorridorMarquee),
+  {
+    loading: () => (
+      <div 
+        className="py-14 sm:py-20 bg-[#F6F3EE] border-b border-[#0E1116]/10 min-h-[220px] flex items-center justify-center"
+        aria-busy="true"
+        aria-label="Loading industrial corridor marquee"
+      >
+        <div className="w-8 h-8 rounded-full border-2 border-[#1F4E5F] border-t-transparent animate-spin" />
+      </div>
+    ),
+  }
+);
+
+const ExecutiveFAQSection = dynamic(
+  () => import("@/components/home/executive-faq").then((mod) => mod.ExecutiveFAQSection),
+  {
+    loading: () => (
+      <div 
+        className="py-16 sm:py-24 bg-white border-b border-[#0E1116]/10 min-h-[500px] flex items-center justify-center"
+        aria-busy="true"
+        aria-label="Loading executive FAQ section"
+      >
+        <div className="w-8 h-8 rounded-full border-2 border-[#1F4E5F] border-t-transparent animate-spin" />
+      </div>
+    ),
+  }
+);
+
 const EnquiryForm = dynamic(
   () => import("@/components/home/enquiry-form").then((mod) => mod.EnquiryForm),
   {
@@ -292,6 +352,52 @@ function generateStructuredData() {
         "about": { "@id": agencyId },
         "inLanguage": "en-IN",
       },
+      {
+        "@type": "FAQPage",
+        "@id": `${domain}/#faq`,
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is JSM's contingency recruitment fee structure, and when is invoice settlement triggered?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our standard contingency placement fee is 8.33% of the candidate's first-year annual fixed Cost-to-Company (CTC) [CONFIRM: fee %]. Crucially, we charge zero upfront retainers and zero commencement fees. The recruitment fee becomes payable strictly after the selected candidate has formally reported to duty and onboarded at your organization."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the contractually binding 90-day replacement assurance operate?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Every executive placement between ₹12 LPA and ₹1 Cr is safeguarded by our formal 90-day replacement guarantee [CONFIRM: fee %]. If a placed executive departs or fails to complete 90 calendar days due to voluntary resignation or performance mismatch, our senior search desk initiates an immediate, prioritized replacement sprint at zero additional recruitment fee."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why does JSM specifically concentrate on the ₹12 LPA to ₹1 Cr leadership compensation band?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Mid-to-senior leadership roles carry the highest operational impact and organizational risk. Our focused band enables rigorous 4-stage technical and reference vetting while maintaining speed and capital efficiency."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which industrial manufacturing clusters and corporate hubs are covered by your practice?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We maintain active sourcing networks and candidate talent pools across 6 primary states: Tamil Nadu, Karnataka, Maharashtra, Delhi NCR, Gujarat, and Madhya Pradesh."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does JSM protect candidate discretion and prevent current employer exposure?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Candidate confidentiality is paramount. Profiles are shared strictly as Anonymized Blind Dossiers until explicit mutual consent is established."
+            }
+          }
+        ]
+      }
     ],
   };
 }
@@ -319,14 +425,26 @@ export default function Home() {
       {/* 2. 3-Step Hiring Process: Precision Scoping, Discrete Sourcing, Joining Assurance */}
       <ProcessSection />
 
+      {/* 2b. Interactive Talent Radar: Live Filterable Leadership Dossier Preview (Closer.ai Style) */}
+      <InteractiveRoleMatcher />
+
       {/* 3. Roles by Band Overview: ₹12L–₹25L, ₹25L–₹50L, ₹50L–₹1Cr + 6 Focus States */}
       <RoleBandsSection />
+
+      {/* 3b. Direct Model Comparison Matrix: Retained Search vs Portals vs JSM Contingency */}
+      <ModelComparisonMatrix />
 
       {/* 4. Success-Based Fee Model & Interactive Fee Calculator (Deferred Hydration) */}
       <FeeSection />
 
+      {/* 4b. Active Leadership Corridors Across India (Industrial Practice Footprint) */}
+      <IndustrialCorridorMarquee />
+
       {/* 5. Core & Secondary Services Matrix (Deferred Hydration) */}
       <ServicesSection />
+
+      {/* 5b. Operational Executive FAQs: Categorized Accordion with Spring Physics */}
+      <ExecutiveFAQSection />
 
       {/* 6. High-Contrast Deep Teal Contact Band */}
       <ContactBand />
