@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-09T02:29:37.505Z",
-  "totalPosts": 32,
+  "lastUpdated": "2026-11-09T10:14:29.758Z",
+  "totalPosts": 33,
   "rotationState": {
-    "nextClusterIndex": 3,
-    "nextLocationIndex": 9,
-    "nextVerticalIndex": 2,
-    "stepIndex": 18
+    "nextClusterIndex": 4,
+    "nextLocationIndex": 0,
+    "nextVerticalIndex": 7,
+    "stepIndex": 19
   },
   "posts": [
     {
@@ -333,6 +333,17 @@
       "location": "salem",
       "wordCount": 1803,
       "filePath": "content/blog/facility-commercial-retail-salem-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "automation-healthcare-delhi-operations-guide",
+      "title": "Smart Digital Automation & WhatsApp CRM Systems for Hospitals & Super-Specialty Medical Facilities in Delhi NCR",
+      "date": "2026-11-09",
+      "category": "Digital Systems",
+      "cluster": "automation",
+      "location": "delhi",
+      "wordCount": 1855,
+      "filePath": "content/blog/automation-healthcare-delhi-operations-guide.md",
       "published": true
     }
   ]
