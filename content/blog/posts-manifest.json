@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-08T22:47:36.335Z",
-  "totalPosts": 31,
+  "lastUpdated": "2026-11-09T02:29:37.505Z",
+  "totalPosts": 32,
   "rotationState": {
-    "nextClusterIndex": 2,
-    "nextLocationIndex": 6,
-    "nextVerticalIndex": 5,
-    "stepIndex": 17
+    "nextClusterIndex": 3,
+    "nextLocationIndex": 9,
+    "nextVerticalIndex": 2,
+    "stepIndex": 18
   },
   "posts": [
     {
@@ -322,6 +322,17 @@
       "location": "hosur",
       "wordCount": 1810,
       "filePath": "content/blog/security-automotive-hosur-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "facility-commercial-retail-salem-operations-guide",
+      "title": "Industrial Housekeeping & Mechanized Facility Management for Commercial Malls, Luxury Venues & Retail Chains in Salem",
+      "date": "2026-11-09",
+      "category": "Facility Management",
+      "cluster": "facility",
+      "location": "salem",
+      "wordCount": 1803,
+      "filePath": "content/blog/facility-commercial-retail-salem-operations-guide.md",
       "published": true
     }
   ]
