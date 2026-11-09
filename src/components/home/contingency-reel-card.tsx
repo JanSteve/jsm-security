@@ -30,51 +30,80 @@ interface Chapter {
 
 const CHAPTERS: Chapter[] = [
   {
-    time: 1,
-    label: "00:01 The Advance Trap",
-    tag: "33% Retainer Fee",
-    description: "Traditional firms demand upfront fees before qualifying a single candidate profile.",
+    time: 0.5,
+    label: "00:00 The Hook",
+    tag: "33% Retainer Sunk",
+    description: "Never pay upfront before candidate verification.",
   },
   {
-    time: 11,
-    label: "00:11 Operational Drag",
+    time: 4.8,
+    label: "00:04 Meet Rajesh",
+    tag: "Managing Director",
+    description: "Auto Tier-1 plant in Sriperumbudur facing an urgent Plant Head vacancy.",
+  },
+  {
+    time: 9.7,
+    label: "00:09 Inaction Drag",
     tag: "~₹35,000/day Loss",
-    description: "Unfilled plant leadership halts throughput and burns working capital.",
+    description: "Factory throughput bleeds while export audit approaches.",
   },
   {
-    time: 25,
-    label: "00:25 7-Day Sprint",
+    time: 18.4,
+    label: "00:18 The Retainer Trap",
+    tag: "₹10L Sunk",
+    description: "Traditional firm took 60 days with zero qualified candidate profiles.",
+  },
+  {
+    time: 25.9,
+    label: "00:25 The JSM Pivot",
+    tag: "100% Contingent",
+    description: "Rajesh switches to JSM. Zero advance retainer. Immediate sprint.",
+  },
+  {
+    time: 31.6,
+    label: "00:31 7-Day Sprint",
     tag: "3 Blind Dossiers",
-    description: "Receive three calibrated senior finalists with verified operational metrics.",
+    description: "Candidate TN-408 delivered with verified +28% OEE throughput proof.",
   },
   {
-    time: 33,
-    label: "00:33 Joining Shield",
-    tag: "90-Day Assurance",
-    description: "Fees are invoiced strictly after onboarding, backed by replacement protection [CONFIRM: fee %].",
+    time: 38.8,
+    label: "00:38 90-Day Shield",
+    tag: "Onboarded & Shielded",
+    description: "Plant Head on shop floor. Fee invoiced strictly post-joining [CONFIRM: fee %].",
+  },
+  {
+    time: 44.5,
+    label: "00:44 Mandate Loop",
+    tag: "Infinite Loop",
+    description: "Calibrate your search mandate and never pay upfront.",
   },
 ];
 
-const INSTAGRAM_CAPTION = `Never pay 33% upfront before a headhunter proves they can hire.
+const INSTAGRAM_CAPTION = `Never pay 33% upfront before candidate verification.
 
-Traditional search firms lock up lakhs in working capital with zero hiring guarantee. Meanwhile, an empty Plant Head seat burns ~₹35,000 every single day in lost throughput.
+Meet Rajesh. He runs a Tier-1 auto-components facility in Sriperumbudur. Last month, his Plant Head resigned abruptly before a critical global export audit.
 
-At JSM Integrated Services, we operate on 100% contingency:
-• ₹0 Upfront Retainer — talent mapping begins immediately
-• 3 Calibrated Blind Dossiers delivered in 7 business days
+Every empty day was bleeding his factory ~₹35,000 in lost throughput.
+
+A traditional headhunter demanded ₹10 lakhs upfront. Sixty days passed. Zero qualified candidates, and his retainer was locked.
+
+Then Rajesh switched to JSM Integrated Services:
+• ₹0 Advance Retainer — sourcing began that same afternoon
+• In 7 business days, received 3 calibrated blind dossiers with verified OEE & scrap metrics
+• Plant Head onboarded within the month
 • 8.33% Placement Fee invoiced strictly after onboarding
-• 90-Day Free Replacement Assurance
+• Protected by our 90-day free replacement assurance
 
-Calibrate your executive search mandate at www.jsmintegratedservices.com (or DM "MANDATE").
+Calibrate your executive search mandate at www.jsmintegratedservices.com (or DM "MANDATE"). Never pay upfront.
 
-#ExecutiveSearchIndia #PlantHeadHiring #ManufacturingLeadership #TamilNaduIndustry #PuneManufacturing #ContingencyRecruitment #IndustrialLeadership`;
+#ExecutiveSearchIndia #PlantHeadHiring #ManufacturingLeadership #TamilNaduIndustry #Sriperumbudur #PuneManufacturing #ContingencyRecruitment #AutomotiveLeadership`;
 
 export function ContingencyReelCard({ className }: { className?: string }) {
   const videoRef = React.useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = React.useState<boolean>(false);
   const [isMuted, setIsMuted] = React.useState<boolean>(true);
   const [currentTime, setCurrentTime] = React.useState<number>(0);
-  const [duration, setDuration] = React.useState<number>(50);
+  const [duration, setDuration] = React.useState<number>(52);
   const [copiedCaption, setCopiedCaption] = React.useState<boolean>(false);
   const [activeChapter, setActiveChapter] = React.useState<number>(0);
 
@@ -178,10 +207,10 @@ export function ContingencyReelCard({ className }: { className?: string }) {
             <span>Executive Media Brief • 9:16 Vertical Reel</span>
           </div>
           <h3 className="text-2xl sm:text-3xl font-heading font-medium text-[#0E1116] tracking-tight">
-            The 50-Second Contingency Teardown
+            Rajesh&apos;s Story // 52-Second Contingency Case Film
           </h3>
           <p className="text-xs sm:text-sm text-[#525866] mt-1 max-w-2xl">
-            Synthesized with English articulate narration (af_bella engine). Why traditional headhunter retainers burn operational capital, and how JSM delivers 3 blind dossiers in 7 days.
+            From a sudden Plant Head resignation in Sriperumbudur to verified onboarding in 30 days. Why traditional search retainers trap capital, and how JSM delivers 3 calibrated blind dossiers in 7 business days with zero upfront fee.
           </p>
         </div>
 
