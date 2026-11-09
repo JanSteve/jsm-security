@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight, Calculator, ShieldCheck } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { MagneticWrapper } from "@/components/motion/magnetic-cursor";
+import { ExecutiveDossierCard } from "./executive-dossier-card";
 
 const FOCUS_STATES = [
   "Tamil Nadu",
@@ -98,7 +99,10 @@ export function HeroSection() {
           </Link>
         </div>
 
-        {/* 4. 3 Value Pillars */}
+        {/* 4. Interactive Confidential Dossier Centerpiece */}
+        <ExecutiveDossierCard />
+
+        {/* 5. 3 Value Pillars */}
         <div ref={pillarsRef} className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto text-left mb-12">
           <div data-reveal className="bg-white/80 p-4 rounded-xl border border-[#0E1116]/8 shadow-2xs hover:-translate-y-1 hover:border-[#1F4E5F]/30 hover:shadow-md transition-all duration-400 ease-out">
             <div className="text-xs font-bold text-[#1F4E5F] uppercase tracking-wider mb-1">
