@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { MagneticWrapper } from "@/components/motion/magnetic-cursor";
 import { DotPattern } from "@/components/ui/dot-pattern";
+import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { ExecutiveDossierCard } from "./executive-dossier-card";
 
 const FOCUS_STATES = [
@@ -163,12 +164,11 @@ export function HeroSection() {
         {/* 4. Dual CTAs */}
         <div ref={ctaRef} data-reveal className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-12 sm:mb-14">
           <MagneticWrapper strength={0.2} className="w-full sm:w-auto">
-            <Link
-              href="#enquiry"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#0E1116] text-[#F6F3EE] font-medium text-sm sm:text-base hover:bg-[#C8553D] hover:-translate-y-0.5 transition-all duration-350 min-h-[44px] shadow-sm active:translate-y-0"
-            >
-              <span>Hire Senior Talent</span>
-              <ArrowRight className="w-4 h-4" aria-hidden="true" />
+            <Link href="#enquiry" className="w-full sm:w-auto block">
+              <ShimmerButton className="w-full sm:w-auto gap-2 px-7 py-3.5 text-sm sm:text-base font-medium shadow-sm">
+                <span>Hire Senior Talent</span>
+                <ArrowRight className="w-4 h-4 ml-1" aria-hidden="true" />
+              </ShimmerButton>
             </Link>
           </MagneticWrapper>
           <MagneticWrapper strength={0.16} className="w-full sm:w-auto">

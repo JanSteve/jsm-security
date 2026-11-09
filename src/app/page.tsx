@@ -108,6 +108,21 @@ const ModelComparisonMatrix = dynamic(
   }
 );
 
+const MandateVelocitySimulator = dynamic(
+  () => import("@/components/home/mandate-velocity-simulator").then((mod) => mod.MandateVelocitySimulator),
+  {
+    loading: () => (
+      <div 
+        className="py-16 sm:py-24 bg-[#F6F3EE] border-b border-[#0E1116]/10 min-h-[480px] flex items-center justify-center"
+        aria-busy="true"
+        aria-label="Loading mandate velocity simulator"
+      >
+        <div className="w-8 h-8 rounded-full border-2 border-[#1F4E5F] border-t-transparent animate-spin" />
+      </div>
+    ),
+  }
+);
+
 const IndustrialCorridorMarquee = dynamic(
   () => import("@/components/home/industrial-corridor-marquee").then((mod) => mod.IndustrialCorridorMarquee),
   {
@@ -433,6 +448,9 @@ export default function Home() {
 
       {/* 3b. Direct Model Comparison Matrix: Retained Search vs Portals vs JSM Contingency */}
       <ModelComparisonMatrix />
+
+      {/* 3c. Operational Velocity Simulator: Real-Time Vacancy Drag vs 7-Day Sprint */}
+      <MandateVelocitySimulator />
 
       {/* 4. Success-Based Fee Model & Interactive Fee Calculator (Deferred Hydration) */}
       <FeeSection />
