@@ -33,6 +33,21 @@ const ClarityExplainerSection = dynamic(
   }
 );
 
+const ConnectedPipelineSection = dynamic(
+  () => import("@/components/home/connected-pipeline-section").then((mod) => mod.ConnectedPipelineSection),
+  {
+    loading: () => (
+      <div 
+        className="py-16 sm:py-24 bg-white border-b border-[#0E1116]/10 min-h-[450px] flex items-center justify-center"
+        aria-busy="true"
+        aria-label="Loading connected pipeline visualizer"
+      >
+        <div className="w-8 h-8 rounded-full border-2 border-[#1F4E5F] border-t-transparent animate-spin" />
+      </div>
+    ),
+  }
+);
+
 const FeeSection = dynamic(
   () => import("@/components/home/fee-section").then((mod) => mod.FeeSection),
   {
@@ -297,6 +312,9 @@ export default function Home() {
 
       {/* 1b. The Clarity Blueprint: Closer-style Dual Audience Switcher & Direct Model Contrast */}
       <ClarityExplainerSection />
+
+      {/* 1c. Connected Pipeline Visualizer: 3-Stage Visual Mediation Engine inspired by usecloser.ai */}
+      <ConnectedPipelineSection />
 
       {/* 2. 3-Step Hiring Process: Precision Scoping, Discrete Sourcing, Joining Assurance */}
       <ProcessSection />

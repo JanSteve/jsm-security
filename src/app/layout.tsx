@@ -3,6 +3,7 @@ import "./globals.css";
 import { Providers } from "@/components/providers";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { FloatingExecutiveDesk } from "@/components/ui/floating-executive-desk";
 import { brandData } from "@/data/brand";
 import { getUnifiedKnowledgeGraph } from "@/lib/schema";
 import { cn } from "@/lib/utils";
@@ -153,6 +154,7 @@ export default function RootLayout({
             <Header />
             <main className="flex-1 w-full max-w-full overflow-x-hidden">{children}</main>
             <Footer />
+            <FloatingExecutiveDesk />
           </div>
         </Providers>
       </body>
