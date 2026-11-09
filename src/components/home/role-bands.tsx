@@ -4,6 +4,8 @@ import React from "react";
 import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { PerspectiveTiltCard } from "@/components/motion/perspective-tilt-card";
+import { MagneticWrapper } from "@/components/motion/magnetic-cursor";
 
 interface RoleBand {
   id: string;
@@ -92,59 +94,68 @@ export function RoleBandsSection() {
           {roleBandsData.map((band, idx) => {
             const isFeatured = idx === 1;
             return (
-              <div
-                key={band.id}
-                data-reveal
-                className={`relative p-6 sm:p-8 rounded-2xl flex flex-col justify-between hover:-translate-y-1 transition-all duration-400 ease-out ${
-                  isFeatured
-                    ? "bg-white border-2 border-[#1F4E5F] shadow-md hover:shadow-xl"
-                    : "bg-white/80 border border-[#0E1116]/10 shadow-2xs hover:bg-white hover:shadow-lg"
-                }`}
-              >
-                {isFeatured && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-[#1F4E5F] text-white text-[11px] font-bold uppercase tracking-wider">
-                    Highest Demand
-                  </span>
-                )}
-
-                <div>
-                  <div className="text-xs font-semibold text-[#525866] uppercase tracking-wider mb-1">
-                    {band.experienceHorizon}
-                  </div>
-                  <h3 className="font-heading text-xl font-medium text-[#0E1116] mb-2">
-                    {band.name}
-                  </h3>
-                  <div className="font-heading text-2xl font-bold text-[#C8553D] mb-4">
-                    {band.compensationDisplay}
-                  </div>
-                  <p className="font-sans text-sm text-[#525866] leading-relaxed mb-6">
-                    {band.summary}
-                  </p>
-
-                  <div className="space-y-2 mb-8">
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#0E1116] block">
-                      Typical Roles Brokered:
-                    </span>
-                    {band.typicalRoles.map((role) => (
-                      <div key={role} className="flex items-center gap-2 text-xs sm:text-sm text-[#0E1116]">
-                        <Check className="w-4 h-4 text-[#1F4E5F] shrink-0" aria-hidden="true" />
-                        <span>{role}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <Link
-                  href="#enquiry"
-                  className={`w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-xs sm:text-sm font-semibold hover:-translate-y-0.5 transition-all duration-350 min-h-[44px] ${
-                    isFeatured
-                      ? "bg-[#0E1116] text-white hover:bg-[#C8553D]"
-                      : "bg-[#F6F3EE] text-[#0E1116] hover:bg-[#0E1116] hover:text-white"
-                  }`}
+              <div key={band.id} data-reveal className="h-full">
+                <PerspectiveTiltCard
+                  maxTilt={4}
+                  scaleOnHover={1.015}
+                  spotlightColor={isFeatured ? "rgba(31, 78, 95, 0.08)" : "rgba(200, 85, 61, 0.06)"}
+                  className="h-full"
                 >
-                  Inquire For This Band
-                  <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
-                </Link>
+                  <div
+                    className={`relative p-6 sm:p-8 rounded-2xl flex flex-col justify-between h-full transition-shadow duration-300 ${
+                      isFeatured
+                        ? "bg-white border-2 border-[#1F4E5F] shadow-sm hover:shadow-xl"
+                        : "bg-white/90 border border-[#0E1116]/10 shadow-2xs hover:bg-white hover:shadow-lg"
+                    }`}
+                  >
+                    {isFeatured && (
+                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-[#1F4E5F] text-white text-[11px] font-bold uppercase tracking-wider shadow-xs">
+                        Highest Demand
+                      </span>
+                    )}
+
+                    <div>
+                      <div className="text-xs font-semibold text-[#525866] uppercase tracking-wider mb-1">
+                        {band.experienceHorizon}
+                      </div>
+                      <h3 className="font-heading text-xl font-medium text-[#0E1116] mb-2">
+                        {band.name}
+                      </h3>
+                      <div className="font-heading text-2xl font-bold text-[#C8553D] mb-4">
+                        {band.compensationDisplay}
+                      </div>
+                      <p className="font-sans text-sm text-[#525866] leading-relaxed mb-6">
+                        {band.summary}
+                      </p>
+
+                      <div className="space-y-2 mb-8">
+                        <span className="text-xs font-bold uppercase tracking-wider text-[#0E1116] block">
+                          Typical Roles Brokered:
+                        </span>
+                        {band.typicalRoles.map((role) => (
+                          <div key={role} className="flex items-center gap-2 text-xs sm:text-sm text-[#0E1116]">
+                            <Check className="w-4 h-4 text-[#1F4E5F] shrink-0" aria-hidden="true" />
+                            <span>{role}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <MagneticWrapper strength={0.15} className="w-full">
+                      <Link
+                        href="#enquiry"
+                        className={`w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-xs sm:text-sm font-semibold hover:-translate-y-0.5 transition-all duration-350 min-h-[44px] ${
+                          isFeatured
+                            ? "bg-[#0E1116] text-white hover:bg-[#C8553D]"
+                            : "bg-[#F6F3EE] text-[#0E1116] hover:bg-[#0E1116] hover:text-white"
+                        }`}
+                      >
+                        Inquire For This Band
+                        <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+                      </Link>
+                    </MagneticWrapper>
+                  </div>
+                </PerspectiveTiltCard>
               </div>
             );
           })}
@@ -153,3 +164,4 @@ export function RoleBandsSection() {
     </section>
   );
 }
+

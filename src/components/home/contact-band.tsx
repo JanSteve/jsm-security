@@ -4,6 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { MagneticWrapper } from "@/components/motion/magnetic-cursor";
 
 export function ContactBand() {
   const leftColRef = useScrollReveal<HTMLDivElement>();
@@ -33,13 +34,15 @@ export function ContactBand() {
             </p>
 
             <div className="pt-2 flex flex-wrap items-center gap-3">
-              <Link
-                href="#enquiry"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-[#0E1116] font-semibold text-sm hover:bg-[#F6F3EE] hover:text-[#C8553D] hover:-translate-y-0.5 transition-all duration-350 min-h-[44px]"
-              >
-                Submit Hiring Brief
-                <ArrowRight className="w-4 h-4" aria-hidden="true" />
-              </Link>
+              <MagneticWrapper strength={0.2}>
+                <Link
+                  href="#enquiry"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-[#0E1116] font-semibold text-sm hover:bg-[#F6F3EE] hover:text-[#C8553D] hover:-translate-y-0.5 transition-all duration-350 min-h-[44px]"
+                >
+                  Submit Hiring Brief
+                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                </Link>
+              </MagneticWrapper>
               <a
                 href="tel:+919080863448"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/10 border border-white/20 text-white font-medium text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all duration-350 min-h-[44px]"

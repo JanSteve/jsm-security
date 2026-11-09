@@ -4,6 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { Target, UserCheck, ShieldCheck, ArrowRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { MagneticWrapper } from "@/components/motion/magnetic-cursor";
 
 interface ProcessStep {
   stepNumber: string;
@@ -80,15 +81,15 @@ export function ProcessSection() {
               <div
                 key={step.stepNumber}
                 data-reveal
-                className="group relative p-6 sm:p-8 rounded-2xl bg-[#F6F3EE]/60 border border-[#0E1116]/8 hover:border-[#0E1116]/20 hover:-translate-y-1 hover:shadow-lg transition-all duration-400 ease-out hover:bg-[#F6F3EE] flex flex-col justify-between"
+                className="group relative p-6 sm:p-8 rounded-2xl bg-[#F6F3EE]/60 border border-[#0E1116]/8 hover:border-[#1F4E5F]/30 hover:-translate-y-1 hover:shadow-lg transition-all duration-350 ease-out hover:bg-[#F6F3EE] flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <span className="font-heading text-3xl font-bold text-[#0E1116]/20 group-hover:text-[#C8553D] transition-colors duration-400">
+                    <span className="font-heading text-3xl font-bold text-[#0E1116]/20 group-hover:text-[#C8553D] transition-colors duration-350">
                       {step.stepNumber}
                     </span>
-                    <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white border border-[#0E1116]/10 text-[#1F4E5F] shadow-2xs group-hover:shadow-md transition-shadow duration-400">
-                      <Icon className="w-5 h-5" aria-hidden="true" />
+                    <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white border border-[#0E1116]/10 text-[#1F4E5F] shadow-2xs group-hover:bg-[#1F4E5F] group-hover:text-white group-hover:shadow-md transition-all duration-300">
+                      <Icon className="w-5 h-5 transition-transform duration-300 group-hover:scale-105" aria-hidden="true" />
                     </span>
                   </div>
 
@@ -113,20 +114,23 @@ export function ProcessSection() {
         </div>
 
         {/* Bottom Fast Action */}
-        <div ref={ctaRef} data-reveal className="p-6 rounded-2xl bg-[#1F4E5F] text-white flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div ref={ctaRef} data-reveal className="p-6 rounded-2xl bg-[#1F4E5F] text-white flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm hover:shadow-md transition-shadow">
           <div>
             <div className="text-base font-semibold">Have a critical role to fill?</div>
             <p className="text-xs text-white/80">Brief our desk today and receive candidate options within 7 days.</p>
           </div>
-          <Link
-            href="#enquiry"
-            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white text-[#0E1116] font-medium text-sm hover:bg-[#F6F3EE] hover:-translate-y-0.5 transition-all duration-350 min-h-[44px] shrink-0"
-          >
-            Start Mandate Intake
-            <ArrowRight className="w-4 h-4 text-[#C8553D]" aria-hidden="true" />
-          </Link>
+          <MagneticWrapper strength={0.18}>
+            <Link
+              href="#enquiry"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white text-[#0E1116] font-medium text-sm hover:bg-[#F6F3EE] hover:-translate-y-0.5 transition-all duration-350 min-h-[44px] shrink-0"
+            >
+              Start Mandate Intake
+              <ArrowRight className="w-4 h-4 text-[#C8553D]" aria-hidden="true" />
+            </Link>
+          </MagneticWrapper>
         </div>
       </div>
     </section>
   );
 }
+

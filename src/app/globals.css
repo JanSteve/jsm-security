@@ -12,7 +12,7 @@
   --accent: #C8553D;
   --deep-teal: #1F4E5F;
   --teal: #1F4E5F;
-  --muted: #525866;
+  --muted: #6B7280;
 
   /* Aliases for explicit semantic naming */
   --color-paper: #F6F3EE;
@@ -21,7 +21,7 @@
   --color-accent: #C8553D;
   --color-deep-teal: #1F4E5F;
   --color-teal: #1F4E5F;
-  --color-muted: #525866;
+  --color-muted: #6B7280;
 
   /* Structure, Borders & Dividers */
   --border: rgba(14, 17, 22, 0.12);

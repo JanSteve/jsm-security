@@ -4,6 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { ArrowRight, Calculator, ShieldCheck } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { MagneticWrapper } from "@/components/motion/magnetic-cursor";
 
 const FOCUS_STATES = [
   "Tamil Nadu",
@@ -48,12 +49,12 @@ export function HeroSection() {
             <span
               key={state}
               data-reveal
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-[#0E1116]/10 text-xs font-medium text-[#0E1116] shadow-2xs hover:border-[#0E1116]/30 hover:-translate-y-0.5 transition-all duration-350 ease-out"
+              className="group inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-[#0E1116]/10 text-xs font-medium text-[#0E1116] shadow-2xs hover:border-[#1F4E5F]/30 hover:shadow-xs hover:-translate-y-0.5 transition-all duration-300 ease-out"
             >
-              <span
-                className="w-1.5 h-1.5 rounded-full bg-[#C8553D]"
-                aria-hidden="true"
-              />
+              <span className="relative flex h-1.5 w-1.5" aria-hidden="true">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C8553D] opacity-60" />
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#C8553D]" />
+              </span>
               {state}
             </span>
           ))}
@@ -71,20 +72,24 @@ export function HeroSection() {
 
         {/* 3. Dual CTAs */}
         <div ref={ctaRef} data-reveal className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-12 sm:mb-14">
-          <Link
-            href="#enquiry"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#0E1116] text-[#F6F3EE] font-medium text-sm sm:text-base hover:bg-[#C8553D] hover:-translate-y-0.5 transition-all duration-350 min-h-[44px] shadow-sm active:translate-y-0"
-          >
-            Hire Senior Talent
-            <ArrowRight className="w-4 h-4" aria-hidden="true" />
-          </Link>
-          <Link
-            href="#fee-calculator"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white text-[#0E1116] border border-[#0E1116]/20 font-medium text-sm sm:text-base hover:bg-[#F6F3EE] hover:border-[#0E1116]/40 hover:-translate-y-0.5 transition-all duration-350 min-h-[44px]"
-          >
-            <Calculator className="w-4 h-4 text-[#C8553D]" aria-hidden="true" />
-            Calculate Fee
-          </Link>
+          <MagneticWrapper strength={0.2} className="w-full sm:w-auto">
+            <Link
+              href="#enquiry"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#0E1116] text-[#F6F3EE] font-medium text-sm sm:text-base hover:bg-[#C8553D] hover:-translate-y-0.5 transition-all duration-350 min-h-[44px] shadow-sm active:translate-y-0"
+            >
+              Hire Senior Talent
+              <ArrowRight className="w-4 h-4" aria-hidden="true" />
+            </Link>
+          </MagneticWrapper>
+          <MagneticWrapper strength={0.16} className="w-full sm:w-auto">
+            <Link
+              href="#fee-calculator"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white text-[#0E1116] border border-[#0E1116]/20 font-medium text-sm sm:text-base hover:bg-[#F6F3EE] hover:border-[#0E1116]/40 hover:-translate-y-0.5 transition-all duration-350 min-h-[44px]"
+            >
+              <Calculator className="w-4 h-4 text-[#C8553D]" aria-hidden="true" />
+              Calculate Fee
+            </Link>
+          </MagneticWrapper>
           <Link
             href="#enquiry"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-transparent text-[#1F4E5F] font-semibold text-sm sm:text-base hover:text-[#0E1116] transition-all min-h-[44px] underline underline-offset-4 decoration-[#1F4E5F]/30 hover:decoration-[#0E1116]"
@@ -95,7 +100,7 @@ export function HeroSection() {
 
         {/* 4. 3 Value Pillars */}
         <div ref={pillarsRef} className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto text-left mb-12">
-          <div data-reveal className="bg-white/80 p-4 rounded-xl border border-[#0E1116]/8 shadow-2xs hover:-translate-y-1 hover:shadow-md transition-all duration-400 ease-out">
+          <div data-reveal className="bg-white/80 p-4 rounded-xl border border-[#0E1116]/8 shadow-2xs hover:-translate-y-1 hover:border-[#1F4E5F]/30 hover:shadow-md transition-all duration-400 ease-out">
             <div className="text-xs font-bold text-[#1F4E5F] uppercase tracking-wider mb-1">
               For Employers
             </div>
@@ -106,7 +111,7 @@ export function HeroSection() {
               Only interview pre-qualified leaders ready to transition.
             </p>
           </div>
-          <div data-reveal className="bg-white/80 p-4 rounded-xl border border-[#0E1116]/8 shadow-2xs hover:-translate-y-1 hover:shadow-md transition-all duration-400 ease-out">
+          <div data-reveal className="bg-white/80 p-4 rounded-xl border border-[#0E1116]/8 shadow-2xs hover:-translate-y-1 hover:border-[#C8553D]/30 hover:shadow-md transition-all duration-400 ease-out">
             <div className="text-xs font-bold text-[#C8553D] uppercase tracking-wider mb-1">
               Pure Contingency
             </div>
@@ -117,7 +122,7 @@ export function HeroSection() {
               Pay 100% on successful joining, backed by a 90-day guarantee [CONFIRM: fee %].
             </p>
           </div>
-          <div data-reveal className="bg-white/80 p-4 rounded-xl border border-[#0E1116]/8 shadow-2xs hover:-translate-y-1 hover:shadow-md transition-all duration-400 ease-out">
+          <div data-reveal className="bg-white/80 p-4 rounded-xl border border-[#0E1116]/8 shadow-2xs hover:-translate-y-1 hover:border-[#1F4E5F]/30 hover:shadow-md transition-all duration-400 ease-out">
             <div className="text-xs font-bold text-[#1F4E5F] uppercase tracking-wider mb-1">
               For Candidates
             </div>
