@@ -366,6 +366,16 @@
   /* ==========================================================================
      Motion Tokens: Scroll Reveals & Micro-Interactions
      ========================================================================== */
+  @keyframes border-beam {
+    100% {
+      offset-distance: 100%;
+    }
+  }
+
+  .animate-border-beam {
+    animation: border-beam var(--duration, 12s) infinite linear;
+  }
+
   @keyframes fade-rise {
     0% {
       opacity: 0;

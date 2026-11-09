@@ -19,6 +19,8 @@ import {
   Users2
 } from "lucide-react";
 import { MagneticWrapper } from "@/components/motion/magnetic-cursor";
+import { DotPattern } from "@/components/ui/dot-pattern";
+import { BorderBeam } from "@/components/ui/border-beam";
 import { cn } from "@/lib/utils";
 
 type AudienceType = "employers" | "candidates";
@@ -29,10 +31,20 @@ export function ClarityExplainerSection() {
   return (
     <section 
       id="clarity-blueprint"
-      className="py-16 sm:py-24 bg-[#F6F3EE] border-b border-[#0E1116]/10 overflow-hidden w-full max-w-full"
+      className="py-16 sm:py-24 bg-[#F6F3EE] border-b border-[#0E1116]/10 overflow-hidden w-full max-w-full relative"
       aria-labelledby="clarity-heading"
     >
-      <div className="max-w-[1180px] w-[92%] mx-auto px-4 sm:px-6">
+      {/* Background Dot Matrix (Aceternity / Closer.ai Aesthetic) */}
+      <DotPattern 
+        width={24}
+        height={24}
+        cx={1.5}
+        cy={1.5}
+        cr={1}
+        className="[mask-image:radial-gradient(ellipse_at_center,white_20%,transparent_75%)] opacity-60"
+      />
+
+      <div className="max-w-[1180px] w-[92%] mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#0E1116]/10 text-xs font-semibold uppercase tracking-wider text-[#1F4E5F] mb-4 shadow-2xs">
@@ -154,7 +166,10 @@ export function ClarityExplainerSection() {
 
                 {/* The JSM Way (The Solution) */}
                 <div className="bg-white border-2 border-[#1F4E5F] rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-md relative overflow-hidden">
-                  <div className="absolute top-0 right-0 bg-[#1F4E5F] text-white text-[11px] font-bold px-4 py-1.5 rounded-bl-xl uppercase tracking-wider">
+                  {/* MagicUI Border Beam */}
+                  <BorderBeam size={220} duration={12} colorFrom="#1F4E5F" colorTo="#C8553D" />
+
+                  <div className="absolute top-0 right-0 bg-[#1F4E5F] text-white text-[11px] font-bold px-4 py-1.5 rounded-bl-xl uppercase tracking-wider z-10">
                     Recommended Model
                   </div>
 
@@ -341,7 +356,8 @@ export function ClarityExplainerSection() {
               </div>
 
               {/* Direct Candidate Action Banner */}
-              <div className="bg-[#1F4E5F] text-white rounded-2xl sm:rounded-3xl p-6 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="bg-[#1F4E5F] text-white rounded-2xl sm:rounded-3xl p-6 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+                <BorderBeam size={280} duration={14} colorFrom="#C8553D" colorTo="#F6F3EE" />
                 <div className="max-w-xl text-center md:text-left">
                   <h4 className="text-2xl sm:text-3xl font-heading font-medium text-white mb-2">
                     Ready to explore senior industrial openings?
