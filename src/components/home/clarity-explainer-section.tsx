@@ -21,6 +21,7 @@ import {
 import { MagneticWrapper } from "@/components/motion/magnetic-cursor";
 import { DotPattern } from "@/components/ui/dot-pattern";
 import { BorderBeam } from "@/components/ui/border-beam";
+import { ContingencyReelCard } from "@/components/home/contingency-reel-card";
 import { cn } from "@/lib/utils";
 
 type AudienceType = "employers" | "candidates";
@@ -223,6 +224,9 @@ export function ClarityExplainerSection() {
                   </div>
                 </div>
               </div>
+
+              {/* 50-Second Video Teardown Reel Card (Lemo-Opuscar & Closer.ai Audio) */}
+              <ContingencyReelCard />
 
               {/* 3-Step Connected Visual Workflow (usecloser.ai style) */}
               <div className="bg-white border border-[#0E1116]/10 rounded-2xl sm:rounded-3xl p-6 sm:p-10 shadow-xs">
