@@ -2,16 +2,17 @@
 
 import React, { useState, useId } from "react";
 import Link from "next/link";
+import { motion, AnimatePresence } from "motion/react";
 import { 
   Calculator, 
   ShieldCheck, 
   Check, 
   ArrowRight, 
-  IndianRupee,
-  HelpCircle,
-  Sparkles,
-  Info
+  Info,
+  TrendingDown,
+  Sparkles
 } from "lucide-react";
+import { BorderBeam } from "@/components/ui/border-beam";
 
 /**
  * Mathematical model identical to tests/tier2-api-route.mjs:153-170
@@ -87,6 +88,9 @@ export function FeeCalculator() {
   // Run calculation via tested mathematical model
   const calculation = calculateContingencyFee(ctc, feeRate);
 
+  // Traditional agency comparison: 33% advance retainer vs JSM ₹0 upfront
+  const traditionalRetainerAdvance = Math.round(calculation.ctc * 0.33);
+
   // Handle slider changes
   const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const nextVal = Number(e.target.value);
@@ -137,14 +141,12 @@ export function FeeCalculator() {
       setRawInputValue("10000000");
       setInputError(null);
     } else {
-      // Snap to nearest ₹50,000 or keep parsed
       setRawInputValue(String(parsed));
       setInputError(null);
     }
   };
 
   const handleHireClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    // Smooth scroll to enquiry section with hash parameter
     const enquiryEl = document.getElementById("enquiry");
     if (enquiryEl) {
       e.preventDefault();
@@ -155,7 +157,7 @@ export function FeeCalculator() {
 
   return (
     <div 
-      className="bg-white border border-[#0E1116]/10 rounded-2xl p-6 sm:p-8 lg:p-10 shadow-[0_10px_30px_-8px_rgba(14,17,22,0.07)] w-full max-w-full overflow-hidden"
+      className="bg-white border border-[#0E1116]/10 rounded-2xl p-6 sm:p-8 lg:p-10 shadow-[0_10px_30px_-8px_rgba(14,17,22,0.07)] w-full max-w-full overflow-hidden relative"
       id="fee-calculator"
     >
       {/* Invariant Banner (Upfront Retainer: ₹0) */}
@@ -165,7 +167,7 @@ export function FeeCalculator() {
         aria-label="Commercial Invariant Guarantee"
       >
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-[#1F4E5F] text-white flex items-center justify-center shrink-0">
+          <div className="w-10 h-10 rounded-full bg-[#1F4E5F] text-white flex items-center justify-center shrink-0 shadow-2xs">
             <ShieldCheck className="w-5 h-5 text-white" aria-hidden="true" />
           </div>
           <div>
@@ -220,7 +222,7 @@ export function FeeCalculator() {
                 </span>
               </div>
               <div className="text-right">
-                <span className="inline-block text-xs font-sans font-semibold px-2.5 py-1 rounded-full bg-[#0E1116] text-white tabular-nums">
+                <span className="inline-block text-xs font-sans font-semibold px-2.5 py-1 rounded-full bg-[#0E1116] text-white tabular-nums shadow-2xs">
                   {formatLakhCr(calculation.ctc)}
                 </span>
                 <span className="block text-[11px] font-mono text-[#9B331F] mt-1">
@@ -254,12 +256,12 @@ export function FeeCalculator() {
             </div>
           </div>
 
-          {/* Quick Preset Buttons (WCAG 2.5.3 Label-in-Name Compliant) */}
+          {/* Quick Preset Buttons with Spring Layout Indicator */}
           <div>
             <span className="text-xs font-sans font-semibold text-[#0E1116] uppercase tracking-wider block mb-2.5">
               Quick Compensation Presets
             </span>
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-2 w-full max-w-full" data-grid-container="true">
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 w-full max-w-full" data-grid-container="true">
               {PRESET_OPTIONS.map((preset) => {
                 const isActive = calculation.ctc === preset.value;
                 return (
@@ -267,16 +269,23 @@ export function FeeCalculator() {
                     key={preset.value}
                     type="button"
                     onClick={() => handlePresetClick(preset.value)}
-                    className={`min-h-[44px] px-3 py-2 rounded-xl text-xs font-sans font-semibold transition-all duration-200 border text-center flex flex-col items-center justify-center ${
+                    className={`relative min-h-[44px] px-3 py-2 rounded-xl text-xs font-sans font-semibold transition-all duration-200 border text-center flex flex-col items-center justify-center ${
                       isActive
-                        ? "bg-[#0E1116] text-white border-[#0E1116] shadow-sm"
+                        ? "text-white border-[#0E1116] shadow-sm"
                         : "bg-white text-[#0E1116] border-[#0E1116]/15 hover:border-[#0E1116] hover:bg-[#F6F3EE]"
                     }`}
                     aria-label={`${preset.label} - ${preset.description}`}
                     aria-pressed={isActive}
                   >
-                    <span className="tabular-nums">{preset.label}</span>
-                    <span className={`text-[10px] font-normal leading-tight hidden xs:block ${isActive ? "text-[#CBD5E1]" : "text-[#525866]"}`}>
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeCalculatorPreset"
+                        transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                        className="absolute inset-0 bg-[#0E1116] rounded-xl z-0"
+                      />
+                    )}
+                    <span className="tabular-nums relative z-10">{preset.label}</span>
+                    <span className={`text-[10px] font-normal leading-tight relative z-10 ${isActive ? "text-[#CBD5E1]" : "text-[#525866]"}`}>
                       {preset.description}
                     </span>
                   </button>
@@ -331,9 +340,11 @@ export function FeeCalculator() {
           </div>
         </div>
 
-        {/* Right Column: Calculated Commercials Card (5 cols on lg) */}
-        <div className="lg:col-span-5 bg-[#F6F3EE] border border-[#0E1116]/12 rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full w-full max-w-full">
-          <div>
+        {/* Right Column: Calculated Commercials Card (5 cols on lg) with BorderBeam */}
+        <div className="lg:col-span-5 bg-[#F6F3EE] border border-[#0E1116]/12 rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full w-full max-w-full relative overflow-hidden shadow-sm">
+          <BorderBeam size={220} duration={14} colorFrom="#1F4E5F" colorTo="#C8553D" />
+
+          <div className="relative z-10">
             <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-[#0E1116]/10">
               <span className="text-xs font-mono font-semibold uppercase tracking-wider text-[#1F4E5F]">
                 Commercial Summary
@@ -344,7 +355,7 @@ export function FeeCalculator() {
             </div>
 
             {/* Key Number: Placement Fee */}
-            <div className="mb-6">
+            <div className="mb-5">
               <span className="text-xs font-sans text-[#525866] block mb-1">
                 Contingency Placement Fee ({calculation.feePercentage}%)
               </span>
@@ -357,12 +368,28 @@ export function FeeCalculator() {
                 </span>
               </div>
               <p className="text-xs text-[#525866] font-sans mt-1">
-                Equivalent to 1 month gross fixed CTC, invoiced strictly upon joining.
+                Equivalent to 1 month gross fixed CTC, invoiced strictly upon candidate joining.
+              </p>
+            </div>
+
+            {/* Interactive Retainer Contrast Callout */}
+            <div className="p-3.5 rounded-xl bg-white border border-[#0E1116]/10 mb-4 shadow-2xs">
+              <div className="flex items-center justify-between text-xs mb-1.5">
+                <span className="font-semibold text-[#0E1116] flex items-center gap-1.5">
+                  <TrendingDown className="w-3.5 h-3.5 text-emerald-700" />
+                  Working Capital Preserved:
+                </span>
+                <span className="font-mono font-bold text-emerald-700">
+                  {formatINR(traditionalRetainerAdvance)}
+                </span>
+              </div>
+              <p className="text-[11px] text-[#525866] leading-tight">
+                Traditional retained headhunters require ~33% upfront before starting. With JSM, your advance risk is ₹0.
               </p>
             </div>
 
             {/* Breakdown Checklist */}
-            <ul className="space-y-3 pt-4 border-t border-[#0E1116]/10 text-xs text-[#0E1116] font-sans">
+            <ul className="space-y-2.5 pt-3 border-t border-[#0E1116]/10 text-xs text-[#0E1116] font-sans">
               <li className="flex items-start justify-between gap-2">
                 <span className="text-[#525866]">Advance Commitment:</span>
                 <span className="font-semibold text-[#1F4E5F] font-mono">
@@ -391,7 +418,7 @@ export function FeeCalculator() {
           </div>
 
           {/* Action Trigger */}
-          <div className="pt-6 border-t border-[#0E1116]/10 mt-6">
+          <div className="pt-6 border-t border-[#0E1116]/10 mt-6 relative z-10">
             <Link
               href="#enquiry"
               onClick={handleHireClick}

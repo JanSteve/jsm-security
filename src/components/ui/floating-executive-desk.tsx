@@ -4,6 +4,7 @@ import * as React from "react";
 import { MessageSquare, Phone, Mail, X, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
+import { BorderBeam } from "@/components/ui/border-beam";
 
 export function FloatingExecutiveDesk() {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -36,8 +37,9 @@ export function FloatingExecutiveDesk() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.95 }}
             transition={{ type: "spring", stiffness: 450, damping: 30 }}
-            className="mb-3 w-[290px] sm:w-[320px] bg-white border border-[#0E1116]/12 rounded-2xl shadow-xl overflow-hidden p-4 text-[#0E1116]"
+            className="mb-3 w-[290px] sm:w-[320px] bg-white border border-[#0E1116]/12 rounded-2xl shadow-xl overflow-hidden p-4 text-[#0E1116] relative"
           >
+            <BorderBeam size={180} duration={12} colorFrom="#1F4E5F" colorTo="#C8553D" />
             <div className="flex items-center justify-between pb-3 border-b border-[#0E1116]/8 mb-3">
               <div>
                 <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#1F4E5F] block">
