@@ -43,6 +43,12 @@ export function ContactBand() {
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </Link>
               </MagneticWrapper>
+              <Link
+                href="#enquiry"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/10 border border-white/20 text-white font-medium text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all duration-350 min-h-[44px]"
+              >
+                <span>Candidate CV Intake</span>
+              </Link>
               <a
                 href="tel:+919080863448"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/10 border border-white/20 text-white font-medium text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all duration-350 min-h-[44px]"
@@ -75,6 +81,16 @@ export function ContactBand() {
                 <span className="text-white/70 block text-[11px]">Enquiry Email</span>
                 <a href="mailto:contact@jsmintegratedservices.com" className="font-semibold text-white hover:underline">
                   contact@jsmintegratedservices.com
+                </a>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <Mail className="w-4 h-4 text-[#C8553D] shrink-0 mt-0.5" aria-hidden="true" />
+              <div>
+                <span className="text-white/70 block text-[11px]">Executive Candidate CVs</span>
+                <a href="mailto:careers@jsmintegratedservices.com" className="font-semibold text-white hover:underline">
+                  careers@jsmintegratedservices.com
                 </a>
               </div>
             </div>

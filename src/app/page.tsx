@@ -298,6 +298,8 @@ export default function Home() {
       {/* ==================================================================
           7. Enquiry Section Container (Deferred Hydration for EnquiryForm)
           ================================================================== */}
+      {/* Anchor for both #contact and #enquiry navigation links across header and footer */}
+      <div id="contact" className="scroll-mt-20" aria-hidden="true" />
       <section
         id="enquiry"
         className="py-20 md:py-28 bg-[#F6F3EE] border-t border-[#0E1116]/10 overflow-hidden w-full max-w-full"

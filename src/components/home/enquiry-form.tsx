@@ -19,7 +19,8 @@ import {
  * and ServicesSection catalog.
  */
 export const SERVICE_OPTIONS = [
-  { value: "talent-acquisition", label: "Senior Talent Acquisition (Core Recruitment)" },
+  { value: "talent-acquisition", label: "Senior Talent Acquisition (Employer Mandate)" },
+  { value: "candidate-registration", label: "Executive Candidate Registration (Apply for ₹12L–₹1Cr Roles)" },
   { value: "executive-search", label: "Executive Search & Board Advisory" },
   { value: "bulk-hiring", label: "Bulk & Specialized Technical Hiring" },
   { value: "campus-lateral", label: "Campus & Lateral Fast-Track Programmes" },

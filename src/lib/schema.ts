@@ -61,7 +61,12 @@ export function getUnifiedKnowledgeGraph() {
           "PSARA 2005 Compliance",
           "100% EPF and ESIC Statutory Compliance",
           "WhatsApp Business API Customer Automation",
-          "Smart NFC Google Review Reputation Gatekeepers"
+          "Smart NFC Google Review Reputation Gatekeepers",
+          "Executive Talent Acquisition",
+          "Leadership Recruitment & Search Mediation",
+          "Contingency Headhunting 8.33% Fee Model",
+          "Plant Head & Operations General Manager Recruitment",
+          "Senior Engineering & Quality Leadership Placement"
         ],
         "founder": {
           "@type": "Person",
