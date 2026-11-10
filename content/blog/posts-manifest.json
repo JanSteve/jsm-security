@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-10T03:25:46.343Z",
-  "totalPosts": 36,
+  "lastUpdated": "2026-11-10T11:36:39.999Z",
+  "totalPosts": 37,
   "rotationState": {
-    "nextClusterIndex": 2,
-    "nextLocationIndex": 10,
-    "nextVerticalIndex": 6,
-    "stepIndex": 22
+    "nextClusterIndex": 3,
+    "nextLocationIndex": 1,
+    "nextVerticalIndex": 3,
+    "stepIndex": 23
   },
   "posts": [
     {
@@ -377,6 +377,17 @@
       "location": "erode",
       "wordCount": 1809,
       "filePath": "content/blog/security-tech-park-erode-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "facility-textile-gujarat-operations-guide",
+      "title": "Industrial Housekeeping & Mechanized Facility Management for Textile Processing & Garment Export Mills in Ahmedabad & Vadodara",
+      "date": "2026-11-10",
+      "category": "Facility Management",
+      "cluster": "facility",
+      "location": "gujarat",
+      "wordCount": 1830,
+      "filePath": "content/blog/facility-textile-gujarat-operations-guide.md",
       "published": true
     }
   ]
