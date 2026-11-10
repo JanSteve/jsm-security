@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-10T11:36:39.999Z",
-  "totalPosts": 37,
+  "lastUpdated": "2026-11-10T19:29:06.837Z",
+  "totalPosts": 38,
   "rotationState": {
-    "nextClusterIndex": 3,
-    "nextLocationIndex": 1,
-    "nextVerticalIndex": 3,
-    "stepIndex": 23
+    "nextClusterIndex": 4,
+    "nextLocationIndex": 4,
+    "nextVerticalIndex": 0,
+    "stepIndex": 24
   },
   "posts": [
     {
@@ -388,6 +388,17 @@
       "location": "gujarat",
       "wordCount": 1830,
       "filePath": "content/blog/facility-textile-gujarat-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "automation-logistics-chennai-operations-guide",
+      "title": "Smart Digital Automation & WhatsApp CRM Systems for Multi-Modal Warehousing & Logistics Parks in Chennai",
+      "date": "2026-11-10",
+      "category": "Digital Systems",
+      "cluster": "automation",
+      "location": "chennai",
+      "wordCount": 1842,
+      "filePath": "content/blog/automation-logistics-chennai-operations-guide.md",
       "published": true
     }
   ]
