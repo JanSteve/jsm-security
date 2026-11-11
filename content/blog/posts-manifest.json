@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-11T06:58:24.145Z",
-  "totalPosts": 40,
+  "lastUpdated": "2026-11-11T15:04:05.880Z",
+  "totalPosts": 41,
   "rotationState": {
-    "nextClusterIndex": 1,
-    "nextLocationIndex": 11,
-    "nextVerticalIndex": 2,
-    "stepIndex": 26
+    "nextClusterIndex": 2,
+    "nextLocationIndex": 2,
+    "nextVerticalIndex": 7,
+    "stepIndex": 27
   },
   "posts": [
     {
@@ -421,6 +421,17 @@
       "location": "mumbai",
       "wordCount": 1828,
       "filePath": "content/blog/cctv-commercial-retail-mumbai-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "security-healthcare-indore-operations-guide",
+      "title": "PSARA-Compliant Commercial Security Guards & Veteran Leadership for Hospitals & Super-Specialty Medical Facilities in Indore & Pithampur",
+      "date": "2026-11-11",
+      "category": "Commercial Security",
+      "cluster": "security",
+      "location": "indore",
+      "wordCount": 1839,
+      "filePath": "content/blog/security-healthcare-indore-operations-guide.md",
       "published": true
     }
   ]
