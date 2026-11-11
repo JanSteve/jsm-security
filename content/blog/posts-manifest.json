@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-10T19:29:06.837Z",
-  "totalPosts": 38,
+  "lastUpdated": "2026-11-11T00:13:54.457Z",
+  "totalPosts": 39,
   "rotationState": {
-    "nextClusterIndex": 4,
-    "nextLocationIndex": 4,
-    "nextVerticalIndex": 0,
-    "stepIndex": 24
+    "nextClusterIndex": 0,
+    "nextLocationIndex": 8,
+    "nextVerticalIndex": 5,
+    "stepIndex": 25
   },
   "posts": [
     {
@@ -399,6 +399,17 @@
       "location": "chennai",
       "wordCount": 1842,
       "filePath": "content/blog/automation-logistics-chennai-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "talent-automotive-bangalore-operations-guide",
+      "title": "Senior Executive Talent Mediation (₹12 LPA–₹1 Cr) for Automotive & Heavy Component Manufacturing in Bangalore",
+      "date": "2026-11-11",
+      "category": "Talent Acquisition",
+      "cluster": "talent",
+      "location": "bangalore",
+      "wordCount": 1785,
+      "filePath": "content/blog/talent-automotive-bangalore-operations-guide.md",
       "published": true
     }
   ]
