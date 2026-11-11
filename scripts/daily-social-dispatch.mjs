@@ -16,27 +16,126 @@
 
 import https from 'node:https';
 import http from 'node:http';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { URL } from 'node:url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const ROOT_DIR = path.resolve(__dirname, '..');
+const LEDGER_PATH = path.join(ROOT_DIR, 'data', 'social-dispatch-ledger.json');
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.jsmintegratedservices.com';
 const WEBHOOK_URL = process.env.MAKE_WEBHOOK_URL || process.env.SOCIAL_WEBHOOK_URL;
 
-// Parse CLI flags: --slot=morning|evening, --story=0..6, --dry-run
+// Parse CLI flags: --slot=morning|evening, --story=0..6, --dry-run, --status, --force
 const args = process.argv.slice(2);
 const slotArg = args.find(a => a.startsWith('--slot='))?.split('=')[1];
 const storyArg = args.find(a => a.startsWith('--story='))?.split('=')[1];
 const isDryRun = args.includes('--dry-run');
+const isStatusOnly = args.includes('--status') || args.includes('--schedule');
+const forceBypass = args.includes('--force');
 
-// Determine current IST hour to choose slot if not specified
-function getCurrentSlot() {
-  if (slotArg) return slotArg.toLowerCase();
+// Day-of-Week Optimal Posting Schedule for Indian Market (IST: UTC + 5:30)
+// Research basis: Peak commute times (Candidates) & Founder/HR morning planning + evening review
+export const OPTIMAL_SCHEDULE_IST = {
+  Monday: {
+    morning: { time: "08:30 AM", target: "Candidates", theme: "Monday Career Urgency / Escape Bad Jobs" },
+    evening: { time: "07:15 PM", target: "Founders / HR", theme: "Monday Empty Desks / Week Headcount Crisis" }
+  },
+  Tuesday: {
+    morning: { time: "08:45 AM", target: "Candidates", theme: "Skill Valuation / Underpaid Reality Check" },
+    evening: { time: "07:30 PM", target: "Founders / HR", theme: "Talent Bottlenecks / Cost of Open Roles" }
+  },
+  Wednesday: {
+    morning: { time: "09:00 AM", target: "Candidates", theme: "Mid-Week Burnout & Career Switching" },
+    evening: { time: "07:30 PM", target: "Founders / HR", theme: "Agency Frustrations & Contingency Sourcing" }
+  },
+  Thursday: {
+    morning: { time: "08:45 AM", target: "Candidates", theme: "Interview Traps & Notice Period Rights" },
+    evening: { time: "07:15 PM", target: "Founders / HR", theme: "Candidate Ghosting Solutions & Vetting" }
+  },
+  Friday: {
+    morning: { time: "08:30 AM", target: "Candidates", theme: "Weekend Career Reflection & Goal Setting" },
+    evening: { time: "06:15 PM", target: "Founders / HR", theme: "Closing Hiring Mandates Before Weekend" }
+  },
+  Saturday: {
+    morning: { time: "10:30 AM", target: "Candidates", theme: "Resume Rebuilding & Salary Negotiation Mastery" },
+    evening: { time: "06:00 PM", target: "Founders / HR", theme: "Strategic Headcount Planning for Next Quarter" }
+  },
+  Sunday: {
+    morning: { time: "11:00 AM", target: "Candidates", theme: "Mindset Reset & Long-Term Career Vision" },
+    evening: { time: "07:45 PM", target: "Both (Peak)", theme: "Sunday Scaries Peak: Taking Action for Monday" }
+  }
+};
+
+// Helper: Get Current IST Date & Day
+function getISTDateInfo() {
   const now = new Date();
-  // IST is UTC + 5:30
-  const istHours = (now.getUTCHours() + 5.5) % 24;
-  return istHours >= 14 ? 'evening' : 'morning';
+  // Format in IST
+  const formatter = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Kolkata',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  });
+  const dateStr = formatter.format(now); // YYYY-MM-DD
+  
+  const dayFormatter = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Asia/Kolkata',
+    weekday: 'long'
+  });
+  const dayName = dayFormatter.format(now);
+
+  const hourFormatter = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Asia/Kolkata',
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: false
+  });
+  const parts = hourFormatter.formatToParts(now);
+  const hour = parseInt(parts.find(p => p.type === 'hour')?.value || '12', 10);
+  const minute = parseInt(parts.find(p => p.type === 'minute')?.value || '0', 10);
+
+  return { dateStr, dayName, hour, minute, raw: now };
 }
 
-const CURRENT_SLOT = getCurrentSlot();
+// Determine current IST slot
+function getCurrentSlot(istHour) {
+  if (slotArg) return slotArg.toLowerCase();
+  return istHour >= 14 ? 'evening' : 'morning';
+}
+
+const IST_INFO = getISTDateInfo();
+const CURRENT_SLOT = getCurrentSlot(IST_INFO.hour);
+
+// Read Ledger State
+function readLedger() {
+  try {
+    if (fs.existsSync(LEDGER_PATH)) {
+      return JSON.parse(fs.readFileSync(LEDGER_PATH, 'utf8'));
+    }
+  } catch (err) {
+    console.warn("⚠️ Could not parse ledger file, initializing new one.");
+  }
+  return {
+    version: "2.0.0",
+    policy: { max_posts_per_day: 2 },
+    current_lock: { date: IST_INFO.dateStr, status: "READY", posts_count: 0, slots_executed_today: [] },
+    history: []
+  };
+}
+
+// Write Ledger State
+function writeLedger(ledger) {
+  try {
+    fs.mkdirSync(path.dirname(LEDGER_PATH), { recursive: true });
+    fs.writeFileSync(LEDGER_PATH, JSON.stringify(ledger, null, 2), 'utf8');
+  } catch (err) {
+    console.error("✗ Failed to write ledger:", err.message);
+  }
+}
 
 // 7-Story Relatable Talent Mediation Matrix
 const STORY_MATRIX = [
@@ -427,17 +526,85 @@ function postToWebhook(urlStr, data) {
 
 async function main() {
   console.log("======================================================================");
-  console.log("  JSM INTEGRATED SERVICES — 2X DAILY TALENT MEDIATION DISPATCH (v2.0)");
+  console.log("  JSM INTEGRATED SERVICES — 2X DAILY TALENT MEDIATION DISPATCH (v2.1)");
   console.log("======================================================================");
+  console.log(`Current IST Time:      ${IST_INFO.dateStr} (${IST_INFO.dayName}) at ${String(IST_INFO.hour).padStart(2, '0')}:${String(IST_INFO.minute).padStart(2, '0')} IST`);
   console.log(`Publishing Slot:       ${CURRENT_SLOT.toUpperCase()} DISPATCH`);
   console.log(`Active Story Topic:    ${ACTIVE_STORY.topic}`);
   console.log(`Job Seeker Trigger:    Comment '${ACTIVE_STORY.trigger_candidate}'`);
   console.log(`Company Trigger:       Comment '${ACTIVE_STORY.trigger_company}'`);
   console.log(`Target Video CDN:      ${SOCIAL_PAYLOAD.asset.video_url}`);
-  console.log(`Instagram Hook:        "${ACTIVE_STORY.instagram_hook.slice(0, 110)}..."`);
+  console.log(`Instagram Hook:        "${ACTIVE_STORY.instagram_hook.slice(0, 100)}..."`);
   console.log(`Instagram Tags (5):    ${ACTIVE_STORY.instagram_tags.slice(0, 5).join(' ')}`);
-  console.log(`Facebook Title:        "${ACTIVE_STORY.facebook_title}"`);
   console.log("----------------------------------------------------------------------");
+
+  // Read current ledger
+  const ledger = readLedger();
+
+  // Print schedule / status mode
+  if (isStatusOnly) {
+    console.log("\n📊 OPTIMAL WEEKLY POSTING SCHEDULE (INDIA MARKET RESEARCH):");
+    for (const [day, slots] of Object.entries(OPTIMAL_SCHEDULE_IST)) {
+      const isToday = day === IST_INFO.dayName ? "👉 " : "   ";
+      console.log(`${isToday}${day.padEnd(10)}: Morning: ${slots.morning.time} (${slots.morning.theme}) | Evening: ${slots.evening.time} (${slots.evening.theme})`);
+    }
+    console.log("\n🔒 CURRENT DISPATCH LEDGER STATUS:");
+    console.log(`   Date:                  ${ledger.current_lock.date}`);
+    console.log(`   Status:                ${ledger.current_lock.status}`);
+    console.log(`   Posts Count Today:     ${ledger.current_lock.posts_count} / ${ledger.policy.max_posts_per_day}`);
+    console.log(`   Slots Executed Today:  ${(ledger.current_lock.slots_executed_today || []).map(s => s.slot).join(', ') || 'None'}`);
+    if (ledger.current_lock.lock_reason) {
+      console.log(`   Notice:                ${ledger.current_lock.lock_reason}`);
+    }
+    return;
+  }
+
+  // Check if date rolled over to a new day in IST
+  if (ledger.current_lock.date !== IST_INFO.dateStr) {
+    // Archive previous day in history
+    if (ledger.current_lock.posts_count > 0) {
+      ledger.history.push({
+        date: ledger.current_lock.date,
+        count: ledger.current_lock.posts_count,
+        slots: ledger.current_lock.slots_executed_today
+      });
+    }
+    // Initialize new day
+    ledger.current_lock = {
+      date: IST_INFO.dateStr,
+      status: "READY",
+      posts_count: 0,
+      posts_allowed_remaining: ledger.policy.max_posts_per_day,
+      slots_executed_today: []
+    };
+    writeLedger(ledger);
+  }
+
+  // STRICT SAFETY ENFORCEMENT: 2 POSTS PER DAY CEILING
+  const maxAllowed = ledger.policy?.max_posts_per_day || 2;
+  const isLockedToday = ledger.current_lock.status === 'LOCKED_MAX_REACHED' || ledger.current_lock.posts_count >= maxAllowed;
+
+  if (isLockedToday && !forceBypass) {
+    console.log("\n🛑 [ANTI-SPAM SAFETY LOCK ACTIVE] PUBLISHING HALTED FOR TODAY!");
+    console.log("----------------------------------------------------------------------");
+    console.log(`   • Reason:               Daily maximum cap of ${maxAllowed} reels already reached for today (${IST_INFO.dateStr}).`);
+    console.log(`   • Posts Completed Today: ${ledger.current_lock.posts_count} / ${maxAllowed}`);
+    console.log(`   • Safety Protocol:     Posting more than 2x per day triggers Meta algorithmic spam flags.`);
+    console.log(`   • Schedule Directive:   No evening post or ad-hoc test posts permitted for the rest of today.`);
+    console.log(`   • Next Eligible Slot:  Tomorrow morning (${OPTIMAL_SCHEDULE_IST[IST_INFO.dayName]?.morning?.time || '08:45 AM'} IST).`);
+    console.log("----------------------------------------------------------------------");
+    console.log("✓ Zero network calls made. Account reputation protected.\n");
+    return;
+  }
+
+  // Check if this specific slot was already published today
+  const slotAlreadyRan = (ledger.current_lock.slots_executed_today || []).some(s => s.slot === CURRENT_SLOT);
+  if (slotAlreadyRan && !forceBypass) {
+    console.log(`\n⚠️  [SLOT DUPLICATE PREVENTED] The '${CURRENT_SLOT.toUpperCase()}' slot has already been published today.`);
+    console.log(`   To prevent duplicate content on Facebook & Instagram, this run is skipped.`);
+    console.log(`   Next slot will trigger according to the optimal schedule.`);
+    return;
+  }
 
   if (!WEBHOOK_URL || isDryRun) {
     console.log("ℹ️  MODE: Dry-Run / Preview Mode.");
@@ -451,6 +618,27 @@ async function main() {
     const result = await postToWebhook(WEBHOOK_URL, SOCIAL_PAYLOAD);
     console.log(`✓ Webhook Accepted! Status: ${result.status} (${result.body || "OK"})`);
     console.log("✓ Successfully triggered Instagram & Facebook live publishing.");
+
+    // Update Ledger State Atomically
+    ledger.current_lock.posts_count = (ledger.current_lock.posts_count || 0) + 1;
+    ledger.current_lock.slots_executed_today = ledger.current_lock.slots_executed_today || [];
+    ledger.current_lock.slots_executed_today.push({
+      slot: CURRENT_SLOT,
+      timestamp: new Date().toISOString(),
+      story_id: ACTIVE_STORY.id,
+      platforms: ["Facebook", "Instagram"]
+    });
+
+    if (ledger.current_lock.posts_count >= maxAllowed) {
+      ledger.current_lock.status = "LOCKED_MAX_REACHED";
+      ledger.current_lock.posts_allowed_remaining = 0;
+      ledger.current_lock.lock_reason = `Daily quota of ${maxAllowed} reels completed for ${IST_INFO.dateStr}. Further dispatches locked until tomorrow.`;
+    } else {
+      ledger.current_lock.posts_allowed_remaining = maxAllowed - ledger.current_lock.posts_count;
+    }
+
+    writeLedger(ledger);
+    console.log(`✓ Dispatch Ledger updated: ${ledger.current_lock.posts_count} / ${maxAllowed} completed for today.`);
   } catch (err) {
     console.error(`✗ Failed to dispatch to webhook: ${err.message}`);
     process.exit(1);

@@ -1,0 +1,39 @@
+{
+  "version": "2.0.0",
+  "policy": {
+    "max_posts_per_day": 2,
+    "strict_freeze_on_limit": true,
+    "decouple_generation_from_publishing": true,
+    "timezone": "Asia/Kolkata",
+    "description": "Strict daily rate-limit ledger preventing spam and accidental duplicate publishing across Meta platforms (Instagram & Facebook)."
+  },
+  "current_lock": {
+    "date": "2026-11-11",
+    "status": "LOCKED_MAX_REACHED",
+    "posts_count": 2,
+    "posts_allowed_remaining": 0,
+    "locked_until": "2026-11-12T00:00:00+05:30",
+    "lock_reason": "SAFETY FREEZE ACTIVE: 2 reels already published today (Nov 11, 2026). Evening 7 PM post and all further dispatches for today are hard-blocked to protect Meta account reputation and prevent spam triggers.",
+    "slots_executed_today": [
+      {
+        "slot": "morning",
+        "timestamp": "2026-11-11T09:00:00+05:30",
+        "platforms": ["Facebook", "Instagram"],
+        "story_id": "applied-200-jobs-ghosted"
+      },
+      {
+        "slot": "evening",
+        "timestamp": "2026-11-11T13:46:05+05:30",
+        "platforms": ["Facebook", "Instagram"],
+        "story_id": "day-one-ghosting-crisis"
+      }
+    ]
+  },
+  "history": [
+    {
+      "date": "2026-11-11",
+      "count": 2,
+      "status": "MAX_CAP_REACHED_LOCKED"
+    }
+  ]
+}
