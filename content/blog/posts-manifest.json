@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-11T00:13:54.457Z",
-  "totalPosts": 39,
+  "lastUpdated": "2026-11-11T06:58:24.145Z",
+  "totalPosts": 40,
   "rotationState": {
-    "nextClusterIndex": 0,
-    "nextLocationIndex": 8,
-    "nextVerticalIndex": 5,
-    "stepIndex": 25
+    "nextClusterIndex": 1,
+    "nextLocationIndex": 11,
+    "nextVerticalIndex": 2,
+    "stepIndex": 26
   },
   "posts": [
     {
@@ -410,6 +410,17 @@
       "location": "bangalore",
       "wordCount": 1785,
       "filePath": "content/blog/talent-automotive-bangalore-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "cctv-commercial-retail-mumbai-operations-guide",
+      "title": "Industrial CCTV Surveillance & Access Control Architecture for Commercial Malls, Luxury Venues & Retail Chains in Mumbai & Pune",
+      "date": "2026-11-11",
+      "category": "CCTV & Access Control",
+      "cluster": "cctv",
+      "location": "mumbai",
+      "wordCount": 1828,
+      "filePath": "content/blog/cctv-commercial-retail-mumbai-operations-guide.md",
       "published": true
     }
   ]
