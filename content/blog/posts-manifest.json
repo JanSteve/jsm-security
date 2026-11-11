@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-11T15:04:05.880Z",
-  "totalPosts": 41,
+  "lastUpdated": "2026-11-11T22:10:07.234Z",
+  "totalPosts": 42,
   "rotationState": {
-    "nextClusterIndex": 2,
-    "nextLocationIndex": 2,
-    "nextVerticalIndex": 7,
-    "stepIndex": 27
+    "nextClusterIndex": 3,
+    "nextLocationIndex": 5,
+    "nextVerticalIndex": 4,
+    "stepIndex": 28
   },
   "posts": [
     {
@@ -432,6 +432,17 @@
       "location": "indore",
       "wordCount": 1839,
       "filePath": "content/blog/security-healthcare-indore-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "facility-infrastructure-coimbatore-operations-guide",
+      "title": "Industrial Housekeeping & Mechanized Facility Management for Civil Aviation, Transit Terminals & Public Infrastructure in Coimbatore",
+      "date": "2026-11-11",
+      "category": "Facility Management",
+      "cluster": "facility",
+      "location": "coimbatore",
+      "wordCount": 1814,
+      "filePath": "content/blog/facility-infrastructure-coimbatore-operations-guide.md",
       "published": true
     }
   ]
