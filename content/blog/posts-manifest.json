@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-11T22:10:07.234Z",
-  "totalPosts": 42,
+  "lastUpdated": "2026-11-12T03:16:52.143Z",
+  "totalPosts": 43,
   "rotationState": {
-    "nextClusterIndex": 3,
-    "nextLocationIndex": 5,
-    "nextVerticalIndex": 4,
-    "stepIndex": 28
+    "nextClusterIndex": 4,
+    "nextLocationIndex": 8,
+    "nextVerticalIndex": 1,
+    "stepIndex": 29
   },
   "posts": [
     {
@@ -443,6 +443,17 @@
       "location": "coimbatore",
       "wordCount": 1814,
       "filePath": "content/blog/facility-infrastructure-coimbatore-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "automation-heavy-engineering-madurai-operations-guide",
+      "title": "Smart Digital Automation & WhatsApp CRM Systems for Heavy Engineering & Metal Fabrication Belts in Madurai",
+      "date": "2026-11-12",
+      "category": "Digital Systems",
+      "cluster": "automation",
+      "location": "madurai",
+      "wordCount": 1840,
+      "filePath": "content/blog/automation-heavy-engineering-madurai-operations-guide.md",
       "published": true
     }
   ]
