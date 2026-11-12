@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-12T11:43:03.930Z",
-  "totalPosts": 44,
+  "lastUpdated": "2026-11-12T19:42:31.472Z",
+  "totalPosts": 45,
   "rotationState": {
-    "nextClusterIndex": 0,
-    "nextLocationIndex": 0,
-    "nextVerticalIndex": 6,
-    "stepIndex": 30
+    "nextClusterIndex": 1,
+    "nextLocationIndex": 3,
+    "nextVerticalIndex": 3,
+    "stepIndex": 31
   },
   "posts": [
     {
@@ -465,6 +465,17 @@
       "location": "mumbai",
       "wordCount": 1815,
       "filePath": "content/blog/talent-tech-park-mumbai-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "cctv-textile-trichy-operations-guide",
+      "title": "Industrial CCTV Surveillance & Access Control Architecture for Textile Processing & Garment Export Mills in Tiruchirappalli (Trichy)",
+      "date": "2026-11-12",
+      "category": "CCTV & Access Control",
+      "cluster": "cctv",
+      "location": "trichy",
+      "wordCount": 1813,
+      "filePath": "content/blog/cctv-textile-trichy-operations-guide.md",
       "published": true
     }
   ]
