@@ -9,9 +9,9 @@
   },
   "current_lock": {
     "date": "2026-11-12",
-    "status": "READY",
-    "posts_count": 1,
-    "posts_allowed_remaining": 1,
+    "status": "LOCKED_MAX_REACHED",
+    "posts_count": 2,
+    "posts_allowed_remaining": 0,
     "slots_executed_today": [
       {
         "slot": "morning",
@@ -22,8 +22,19 @@
           "Facebook",
           "Instagram"
         ]
+      },
+      {
+        "slot": "evening",
+        "timestamp": "2026-11-12T13:32:58.691Z",
+        "story_id": "REEL-316-E",
+        "video_url": "https://www.jsmintegratedservices.com/videos/daily/REEL-316-E.mp4",
+        "platforms": [
+          "Facebook",
+          "Instagram"
+        ]
       }
-    ]
+    ],
+    "lock_reason": "Daily quota of 2 reels completed for 2026-11-12. Further dispatches locked until tomorrow."
   },
   "history": [
     {
