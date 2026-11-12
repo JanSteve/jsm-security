@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-12T03:16:52.143Z",
-  "totalPosts": 43,
+  "lastUpdated": "2026-11-12T11:43:03.930Z",
+  "totalPosts": 44,
   "rotationState": {
-    "nextClusterIndex": 4,
-    "nextLocationIndex": 8,
-    "nextVerticalIndex": 1,
-    "stepIndex": 29
+    "nextClusterIndex": 0,
+    "nextLocationIndex": 0,
+    "nextVerticalIndex": 6,
+    "stepIndex": 30
   },
   "posts": [
     {
@@ -454,6 +454,17 @@
       "location": "madurai",
       "wordCount": 1840,
       "filePath": "content/blog/automation-heavy-engineering-madurai-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "talent-tech-park-mumbai-operations-guide",
+      "title": "Senior Executive Talent Mediation (₹12 LPA–₹1 Cr) for Technology Parks & Corporate IT Campuses in Mumbai & Pune",
+      "date": "2026-11-12",
+      "category": "Talent Acquisition",
+      "cluster": "talent",
+      "location": "mumbai",
+      "wordCount": 1815,
+      "filePath": "content/blog/talent-tech-park-mumbai-operations-guide.md",
       "published": true
     }
   ]
