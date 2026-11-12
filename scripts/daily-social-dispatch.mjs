@@ -4,13 +4,16 @@
  * JSM Integrated Services — Universal Talent & Company Mediation Engine
  * 
  * Features:
- * - 2x Daily Automated Publishing (Morning: 08:45 AM IST | Evening: 07:00 PM IST)
- * - 7-Story Relatable Career & Hiring Crisis Matrix (Candidates + Companies)
+ * - 2x Daily Automated Publishing (Morning: 08:30–09:00 AM IST | Evening: 07:15–07:45 PM IST)
+ * - 730-Reel Annual Curriculum (data/annual-reels-catalog.json)
+ *     * Morning slot: Candidate Focus ('JOB' trigger, Job Seekers & Career Professionals)
+ *     * Evening slot: Employer Focus ('HIRE' trigger, Employers, Founders & Plant Managers)
  * - Double-Action Inbound Lead Capture:
- *     * Job Seekers comment: 'JOB', 'RESUME', 'SWITCH', 'CAREER'
- *     * Hiring Companies comment: 'HIRE', 'TALENT', 'MEDIATOR', 'URGENT'
+ *     * Job Seekers comment: 'JOB', 'SWITCH'
+ *     * Hiring Companies comment: 'HIRE', 'TALENT'
  * - High-Engagement Algorithm SEO: First 125 chars hook before the fold
  * - Strict 5 Trending Hashtags per Instagram Post (Zero spam penalties)
+ * - Anti-Spam Safety Ledger & Protection Freeze (Strict 2 posts/day max)
  * - Multi-Platform Output: Instagram Reels, Facebook Reels & Page Posts, YouTube Shorts
  */
 
@@ -23,22 +26,43 @@ import { URL } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const ROOT_DIR = path.resolve(__dirname, '..');
-const LEDGER_PATH = path.join(ROOT_DIR, 'data', 'social-dispatch-ledger.json');
+export const ROOT_DIR = path.resolve(__dirname, '..');
+export const CATALOG_PATH = path.join(ROOT_DIR, 'data', 'annual-reels-catalog.json');
+export const LEDGER_PATH = path.join(ROOT_DIR, 'data', 'social-dispatch-ledger.json');
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.jsmintegratedservices.com';
-const WEBHOOK_URL = process.env.MAKE_WEBHOOK_URL || process.env.SOCIAL_WEBHOOK_URL;
+/**
+ * Load environment overrides from .env.local without external dependencies
+ */
+export function loadLocalEnv(envPath = path.join(ROOT_DIR, '.env.local')) {
+  try {
+    if (!fs.existsSync(envPath)) return;
+    const raw = fs.readFileSync(envPath, 'utf8');
+    for (const line of raw.split(/\r?\n/)) {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith('#')) continue;
+      const eqIdx = trimmed.indexOf('=');
+      if (eqIdx <= 0) continue;
+      const key = trimmed.slice(0, eqIdx).trim();
+      let val = trimmed.slice(eqIdx + 1).trim();
+      if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
+        val = val.slice(1, -1);
+      }
+      if (!process.env[key]) {
+        process.env[key] = val;
+      }
+    }
+  } catch {
+    // Non-fatal if .env.local unreadable
+  }
+}
 
-// Parse CLI flags: --slot=morning|evening, --story=0..6, --dry-run, --status, --force
-const args = process.argv.slice(2);
-const slotArg = args.find(a => a.startsWith('--slot='))?.split('=')[1];
-const storyArg = args.find(a => a.startsWith('--story='))?.split('=')[1];
-const isDryRun = args.includes('--dry-run');
-const isStatusOnly = args.includes('--status') || args.includes('--schedule');
-const forceBypass = args.includes('--force');
+loadLocalEnv();
+
+export const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.jsmintegratedservices.com';
+export const WEBHOOK_URL = process.env.MAKE_WEBHOOK_URL || process.env.SOCIAL_WEBHOOK_URL;
 
 // Day-of-Week Optimal Posting Schedule for Indian Market (IST: UTC + 5:30)
-// Research basis: Peak commute times (Candidates) & Founder/HR morning planning + evening review
+// Research basis: Peak commute times (Candidates 08:30–09:00 AM IST) & Founder/HR evening review (07:15–07:45 PM IST)
 export const OPTIMAL_SCHEDULE_IST = {
   Monday: {
     morning: { time: "08:30 AM", target: "Candidates", theme: "Monday Career Urgency / Escape Bad Jobs" },
@@ -58,29 +82,51 @@ export const OPTIMAL_SCHEDULE_IST = {
   },
   Friday: {
     morning: { time: "08:30 AM", target: "Candidates", theme: "Weekend Career Reflection & Goal Setting" },
-    evening: { time: "06:15 PM", target: "Founders / HR", theme: "Closing Hiring Mandates Before Weekend" }
+    evening: { time: "07:15 PM", target: "Founders / HR", theme: "Closing Hiring Mandates Before Weekend" }
   },
   Saturday: {
-    morning: { time: "10:30 AM", target: "Candidates", theme: "Resume Rebuilding & Salary Negotiation Mastery" },
-    evening: { time: "06:00 PM", target: "Founders / HR", theme: "Strategic Headcount Planning for Next Quarter" }
+    morning: { time: "08:45 AM", target: "Candidates", theme: "Resume Rebuilding & Salary Negotiation Mastery" },
+    evening: { time: "07:30 PM", target: "Founders / HR", theme: "Strategic Headcount Planning for Next Quarter" }
   },
   Sunday: {
-    morning: { time: "11:00 AM", target: "Candidates", theme: "Mindset Reset & Long-Term Career Vision" },
+    morning: { time: "09:00 AM", target: "Candidates", theme: "Mindset Reset & Long-Term Career Vision" },
     evening: { time: "07:45 PM", target: "Both (Peak)", theme: "Sunday Scaries Peak: Taking Action for Monday" }
   }
 };
 
-// Helper: Get Current IST Date & Day
-function getISTDateInfo() {
-  const now = new Date();
-  // Format in IST
+/**
+ * Calculate Day of Year (1..365) in specified timezone
+ */
+export function getDayOfYear(date = new Date(), timeZone = 'Asia/Kolkata') {
   const formatter = new Intl.DateTimeFormat('en-CA', {
-    timeZone: 'Asia/Kolkata',
+    timeZone,
     year: 'numeric',
     month: '2-digit',
     day: '2-digit'
   });
-  const dateStr = formatter.format(now); // YYYY-MM-DD
+  const dateStr = formatter.format(date); // YYYY-MM-DD
+  const [yearStr, monthStr, dayStr] = dateStr.split('-');
+  const year = parseInt(yearStr, 10);
+  const month = parseInt(monthStr, 10);
+  const day = parseInt(dayStr, 10);
+
+  const isLeap = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+  const daysInMonths = [31, isLeap ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+  let dayOfYear = 0;
+  for (let i = 0; i < month - 1; i++) {
+    dayOfYear += daysInMonths[i];
+  }
+  dayOfYear += day;
+
+  return { year, month, day, dateStr, dayOfYear, isLeap };
+}
+
+/**
+ * Get Current IST Date & Time Info
+ */
+export function getISTDateInfo(now = new Date()) {
+  const dayInfo = getDayOfYear(now, 'Asia/Kolkata');
   
   const dayFormatter = new Intl.DateTimeFormat('en-US', {
     timeZone: 'Asia/Kolkata',
@@ -98,399 +144,236 @@ function getISTDateInfo() {
   const hour = parseInt(parts.find(p => p.type === 'hour')?.value || '12', 10);
   const minute = parseInt(parts.find(p => p.type === 'minute')?.value || '0', 10);
 
-  return { dateStr, dayName, hour, minute, raw: now };
+  return {
+    dateStr: dayInfo.dateStr,
+    dayName,
+    hour,
+    minute,
+    dayOfYear: dayInfo.dayOfYear,
+    year: dayInfo.year,
+    raw: now
+  };
 }
 
-// Determine current IST slot
-function getCurrentSlot(istHour) {
-  if (slotArg) return slotArg.toLowerCase();
+/**
+ * Determine default slot based on current hour in IST
+ */
+export function getCurrentSlot(istHour) {
   return istHour >= 14 ? 'evening' : 'morning';
 }
 
-const IST_INFO = getISTDateInfo();
-const CURRENT_SLOT = getCurrentSlot(IST_INFO.hour);
+/**
+ * Load master 730-reel annual catalog
+ */
+let _cachedCatalog = null;
+export function loadCatalog(catalogPath = CATALOG_PATH) {
+  if (_cachedCatalog && catalogPath === CATALOG_PATH) {
+    return _cachedCatalog;
+  }
+  if (!fs.existsSync(catalogPath)) {
+    throw new Error(`Annual reels catalog file not found at: ${catalogPath}`);
+  }
+  const raw = fs.readFileSync(catalogPath, 'utf8');
+  const catalog = JSON.parse(raw);
+  if (!catalog || !Array.isArray(catalog.reels)) {
+    throw new Error(`Invalid catalog structure in ${catalogPath}: missing reels array`);
+  }
+  if (catalogPath === CATALOG_PATH) {
+    _cachedCatalog = catalog;
+  }
+  return catalog;
+}
 
-// Read Ledger State
-function readLedger() {
+/**
+ * Get reel by 1-based day number (1..365) and slot ('morning' | 'evening')
+ */
+export function getReelByDay(dayNumber, slot = 'morning', catalogPath = CATALOG_PATH) {
+  const catalog = loadCatalog(catalogPath);
+  const normalizedDay = ((parseInt(dayNumber, 10) - 1) % 365) + 1;
+  const targetSlot = slot.toLowerCase() === 'evening' ? 'evening' : 'morning';
+
+  const reel = catalog.reels.find(
+    r => r.day_number === normalizedDay && r.slot.toLowerCase() === targetSlot
+  );
+  if (!reel) {
+    throw new Error(`Reel not found for Day ${normalizedDay}, Slot: ${targetSlot}`);
+  }
+  return reel;
+}
+
+/**
+ * Get reel by exact reel ID (e.g. 'REEL-316-M')
+ */
+export function getReelById(reelId, catalogPath = CATALOG_PATH) {
+  const catalog = loadCatalog(catalogPath);
+  const reel = catalog.reels.find(
+    r => r.reel_id.toUpperCase() === reelId.toUpperCase()
+  );
+  if (!reel) {
+    throw new Error(`Reel not found with ID: ${reelId}`);
+  }
+  return reel;
+}
+
+/**
+ * Get reel for a given calendar date and slot
+ * Input can be 'YYYY-MM-DD', Date instance, or undefined (defaults to current IST date)
+ */
+export function getReelForDate(dateInput, slot = 'morning', catalogPath = CATALOG_PATH) {
+  let dayNum;
+  if (typeof dateInput === 'number') {
+    dayNum = dateInput;
+  } else if (typeof dateInput === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(dateInput)) {
+    const [y, m, d] = dateInput.split('-').map(Number);
+    const dt = new Date(Date.UTC(y, m - 1, d, 12, 0, 0));
+    dayNum = getDayOfYear(dt, 'UTC').dayOfYear;
+  } else {
+    const dt = dateInput instanceof Date ? dateInput : new Date();
+    dayNum = getDayOfYear(dt, 'Asia/Kolkata').dayOfYear;
+  }
+
+  return getReelByDay(dayNum, slot, catalogPath);
+}
+
+/**
+ * Read Ledger State
+ */
+export function readLedger(ledgerPath = LEDGER_PATH) {
   try {
-    if (fs.existsSync(LEDGER_PATH)) {
-      return JSON.parse(fs.readFileSync(LEDGER_PATH, 'utf8'));
+    if (fs.existsSync(ledgerPath)) {
+      return JSON.parse(fs.readFileSync(ledgerPath, 'utf8'));
     }
   } catch (err) {
     console.warn("⚠️ Could not parse ledger file, initializing new one.");
   }
+  const ist = getISTDateInfo();
   return {
     version: "2.0.0",
     policy: { max_posts_per_day: 2 },
-    current_lock: { date: IST_INFO.dateStr, status: "READY", posts_count: 0, slots_executed_today: [] },
+    current_lock: { date: ist.dateStr, status: "READY", posts_count: 0, posts_allowed_remaining: 2, slots_executed_today: [] },
     history: []
   };
 }
 
-// Write Ledger State
-function writeLedger(ledger) {
+/**
+ * Write Ledger State
+ */
+export function writeLedger(ledger, ledgerPath = LEDGER_PATH) {
   try {
-    fs.mkdirSync(path.dirname(LEDGER_PATH), { recursive: true });
-    fs.writeFileSync(LEDGER_PATH, JSON.stringify(ledger, null, 2), 'utf8');
+    fs.mkdirSync(path.dirname(ledgerPath), { recursive: true });
+    fs.writeFileSync(ledgerPath, JSON.stringify(ledger, null, 2), 'utf8');
   } catch (err) {
     console.error("✗ Failed to write ledger:", err.message);
   }
 }
 
-// 7-Story Relatable Talent Mediation Matrix
-const STORY_MATRIX = [
-  {
-    id: "applied-200-jobs-ghosted",
-    topic: "Applied to 200 Jobs and Got Ghosted by Bots vs Companies Desperate to Hire",
-    video_title: "Why Finding a Job & Hiring Talent Are Both Broken in 2026",
-    trigger_candidate: "JOB",
-    trigger_company: "HIRE",
-    instagram_hook: "Applied to 200 jobs this month and heard nothing? Meanwhile great companies say they can't find good people. Here is why:",
-    instagram_body: `You spend hours tailoring your resume, clicking 'Easy Apply', only for automated ATS robots to reject it in 3 seconds.
+/**
+ * Check Safety Freeze & Rate-Limit Status
+ */
+export function checkFreezeStatus(ledger, dateStr, force = false) {
+  const maxAllowed = ledger.policy?.max_posts_per_day || 2;
+  const isLockedDate = ledger.current_lock?.date === dateStr;
+  const isStatusLocked = ledger.current_lock?.status === 'LOCKED_MAX_REACHED';
+  const isCountMaxed = (ledger.current_lock?.posts_count || 0) >= maxAllowed;
 
-Meanwhile, business owners and founders are drowning in 1,200 spam resumes, waiting months to find one honest, dependable worker.
+  const isFrozen = isLockedDate && (isStatusLocked || isCountMaxed) && !force;
 
-The system is broken. That's why JSM Integrated Services exists as the human talent bridge.
-
-For Job Seekers:
-• 100% Free Forever — We never charge candidates a single rupee
-• No ATS bots — Direct human representation to CEOs, Founders & HR Directors
-• Transparent salary & verified company culture
-
-For Companies & Employers:
-• Pure Contingency — ₹0 Upfront Retainer Fees
-• 3 Verified, interview-ready finalists delivered in 7 days
-• 90-Day Placement Replacement Shield [CONFIRM: fee %]
-
-👉 If you're looking for a job: Comment 'JOB' + your role & city.
-👉 If you're a company hiring: Comment 'HIRE' to receive pre-screened profiles this week.`,
-    instagram_tags: [
-      "#JobSearchIndia",
-      "#HiringNow",
-      "#CareerAdvice",
-      "#TalentAcquisition",
-      "#JobsInIndia"
-    ],
-    facebook_title: "Why Finding a Job and Hiring Talent Are Both Broken (And How JSM Bridges Both)",
-    facebook_description: `Applied to hundreds of jobs and got ghosted by automated bots? Or are you a business owner drowning in spam resumes, unable to find one dependable hire?
-
-JSM Integrated Services is the human talent bridge:
-• For Candidates: 100% Free placement assistance, zero fees, direct access to founders and hiring managers.
-• For Employers: Pure success-based contingency search. Zero advance retainers. 3 pre-vetted finalists in 7 days backed by a 90-day guarantee.
-
-Drop your comment below:
-👉 Candidates: Comment 'JOB' with your domain and city.
-👉 Employers: Comment 'HIRE' to get pre-screened talent delivered this week.
-
-Direct Talent Desk:
-📞 Call / WhatsApp: +91 90808 63448
-🌐 Official Portal: https://www.jsmintegratedservices.com
-📍 Connecting Talent Across India: Tamil Nadu · Karnataka · Maharashtra · Gujarat · Delhi NCR`,
-    youtube_title: "Applied to 200 Jobs & Got Ghosted? The Hiring System is Broken! #Shorts"
-  },
-
-  {
-    id: "day-one-ghosting-crisis",
-    topic: "The Day-One Ghosting Nightmare for Employers & Serious Candidates",
-    video_title: "How to Stop Day-1 Candidate Ghosting & Bad Hiring Agencies",
-    trigger_candidate: "JOIN",
-    trigger_company: "TALENT",
-    instagram_hook: "You waited 60 days of notice period for a candidate to join. On Monday morning, their phone is switched off. Fix it today:",
-    instagram_body: `Every business owner and HR head knows this pain:
-You issue an offer letter, prepare their laptop, and on Day 1: GHOSTED. The candidate shopped your offer around.
-
-Meanwhile, hundreds of serious, hardworking professionals are waiting for a real opportunity and cannot get an interview.
-
-JSM Integrated Services changes the game:
-• We pre-screen candidates for genuine joining commitment & counter-offer risks.
-• We mediate transparent salary expectations on both sides.
-• Backed by our 90-day replacement guarantee with ₹0 upfront retainer.
-
-👉 Companies looking for committed staff: Comment 'TALENT' below.
-👉 Serious professionals ready for real roles: Comment 'JOIN' below.`,
-    instagram_tags: [
-      "#Recruitment",
-      "#HiringTips",
-      "#HumanResources",
-      "#TalentAcquisition",
-      "#IndiaJobs"
-    ],
-    facebook_title: "The Day-One Ghosting Crisis: Why Employers Lose Months and How JSM Solves It",
-    facebook_description: `Waiting 60 days for a candidate to join only for them to switch off their phone on Monday morning is every employer's worst nightmare.
-
-JSM Integrated Services acts as the dedicated mediator:
-• We thoroughly vet joining intent and offer stability.
-• ₹0 Capital Risk: 100% contingency success model.
-• 90-Day Free Replacement Shield on all placements.
-
-Looking to build a reliable team or step into a verified career?
-👉 Companies: Comment 'TALENT'
-👉 Job Seekers: Comment 'JOIN'
-
-📞 Direct Desk: +91 90808 63448
-🌐 Visit: https://www.jsmintegratedservices.com`,
-    youtube_title: "Candidate Ghosted on Day 1? How Employers Fix Hiring Forever #Shorts"
-  },
-
-  {
-    id: "underpaid-overworked-switch",
-    topic: "Underpaid & Overworked: The Confidential Career Upgrade",
-    video_title: "Doing the Work of 3 People for a 4% Appraisal? Time to Switch",
-    trigger_candidate: "SWITCH",
-    trigger_company: "GROW",
-    instagram_hook: "You did the work of three people this year, and they offered you a 4% appraisal. It is time for a confidential upgrade:",
-    instagram_body: `Most high-performing professionals stay trapped in low-paying or dead-end roles because applying publicly puts their current job at risk.
-
-JSM Integrated Services acts as your confidential career agent:
-• 100% Confidential Representation — your current employer will never know.
-• We match your real achievements with companies paying top market rates.
-• ₹0 Fee to candidates — our mediation is completely free for job seekers.
-
-For Employers: Access motivated, top-tier active and passive performers ready to drive immediate revenue and operational growth.
-
-👉 Professionals ready to switch: Comment 'SWITCH' below.
-👉 Companies scaling their team: Comment 'GROW' below.`,
-    instagram_tags: [
-      "#CareerGrowth",
-      "#SalaryNegotiation",
-      "#JobSwitch",
-      "#HiringNow",
-      "#TalentAcquisition"
-    ],
-    facebook_title: "Tired of Low Appraisals? How JSM Confidentially Bridges Top Talent with High-Paying Employers",
-    facebook_description: `Doing the work of three people and getting a 4% appraisal? You deserve a team that values your real contribution.
-
-JSM Integrated Services provides confidential career mediation:
-• For Candidates: We privately represent your portfolio to verified employers who pay true market value. Never pay any fee.
-• For Companies: Get introduced to high-performing talent who actually care about delivering results.
-
-👉 Want to upgrade your career? Comment 'SWITCH'
-👉 Looking to scale your business? Comment 'GROW'
-
-📞 Executive Desk: +91 90808 63448
-🌐 Official Site: https://www.jsmintegratedservices.com`,
-    youtube_title: "Work Like a Hero, Paid Like an Intern? Time to Switch! #Shorts"
-  },
-
-  {
-    id: "upfront-recruiter-scam",
-    topic: "Why Businesses Should Never Pay Upfront Advance Retainers to Agencies",
-    video_title: "Never Pay Advance Fees to Recruitment Agencies: The JSM Model",
-    trigger_candidate: "OPPORTUNITY",
-    trigger_company: "MEDIATOR",
-    instagram_hook: "Never pay an advance retainer to a recruitment agency. Here is why the traditional recruitment model is broken:",
-    instagram_body: `Traditional recruitment agencies take ₹1 to ₹3 Lakhs upfront, forward 50 generic resumes downloaded from job portals, and disappear when candidates fail interviews.
-
-JSM Integrated Services operates on 100% Pure Contingency:
-• Zero Advance Fees — you pay absolutely nothing upfront.
-• 7 Business Days to 3 Calibrated, interview-ready candidates.
-• Invoiced strictly 30 days post-onboarding [CONFIRM: fee %].
-• 90-Day Placement Replacement Guarantee.
-
-We only win when you win.
-
-👉 Business Owners & HR Leaders: Comment 'MEDIATOR' to initiate your search with ₹0 upfront risk.
-👉 Motivated Candidates: Comment 'OPPORTUNITY' to enter our active placement pipeline.`,
-    instagram_tags: [
-      "#StartupIndia",
-      "#BusinessOwner",
-      "#Recruitment",
-      "#HiringSolutions",
-      "#TalentSearch"
-    ],
-    facebook_title: "Why Startups & SMEs Should Never Pay Upfront Recruitment Retainers",
-    facebook_description: `Paying upfront fees to headhunters with zero guarantee of a successful hire is a major drain on business cash flow.
-
-Discover the JSM Contingency Model:
-• ₹0 Upfront Fee — Zero financial risk.
-• Fast 7-day candidate shortlist.
-• 90-Day Free Replacement Guarantee.
-
-👉 Hiring for your company? Comment 'MEDIATOR'
-👉 Looking for your next career step? Comment 'OPPORTUNITY'
-
-📞 Call Desk: +91 90808 63448
-🌐 https://www.jsmintegratedservices.com`,
-    youtube_title: "Stop Paying Upfront Fees to Headhunters! (The Smarter Way) #Shorts"
-  },
-
-  {
-    id: "endless-interview-loop",
-    topic: "The 5-Round Interview Circus: Cutting Hiring Time from 90 Days to 14 Days",
-    video_title: "5 Interview Rounds, a 10-Page Assignment, Then Silence? Fix It",
-    trigger_candidate: "RESUME",
-    trigger_company: "SPEED",
-    instagram_hook: "Five interview rounds, a 10-page take-home assignment, and then two weeks of dead silence. Why is hiring so toxic?",
-    instagram_body: `Both sides are exhausted:
-Great candidates drop out of endless, disorganized interview loops. Meanwhile, companies lose their top picks to faster competitors while wasting 40 hours of manager time.
-
-JSM Integrated Services fixes the process through calibrated mediation:
-• Pre-aligned salary and joining timelines before the first interview.
-• Verified technical skills and cultural suitability.
-• Fast-track 14-day hiring turnaround from intake to offer letter.
-
-👉 Candidates looking for clean, respectful hiring: Comment 'RESUME'.
-👉 Companies needing fast, decisive talent acquisition: Comment 'SPEED'.`,
-    instagram_tags: [
-      "#InterviewTips",
-      "#Recruitment",
-      "#CareerAdvice",
-      "#HiringNow",
-      "#TalentAcquisition"
-    ],
-    facebook_title: "Tired of 5-Round Interview Loops? How JSM Cuts Hiring Time to 14 Days",
-    facebook_description: `Prolonged interview loops cause companies to lose top talent and leave candidates feeling frustrated and disrespected.
-
-JSM Integrated Services pre-aligns compensation, technical competencies, and culture fit in advance:
-• Cut time-to-hire by over 60%.
-• ₹0 advance fees for companies.
-• 100% free placement for candidates.
-
-👉 Looking for a job? Comment 'RESUME'
-👉 Need to hire quickly? Comment 'SPEED'
-
-📞 Desk: +91 90808 63448 | 🌐 https://www.jsmintegratedservices.com`,
-    youtube_title: "5 Interview Rounds Then Ghosted? Why Hiring is Broken #Shorts"
-  },
-
-  {
-    id: "emergency-resignation-panic",
-    topic: "Emergency Resignation: What to Do When a Key Person Leaves Tomorrow",
-    video_title: "When a Key Employee Leaves Suddenly: The 168-Hour Talent Sprint",
-    trigger_candidate: "READY",
-    trigger_company: "URGENT",
-    instagram_hook: "Your key manager or engineer just handed in their resignation. Your major project is due in 30 days. Do this immediately:",
-    instagram_body: `When an unexpected vacancy hits, job boards take 4 to 8 weeks to produce a viable candidate. Every vacant day stalls client deliverables and burns team morale.
-
-JSM Integrated Services deploys our 168-Hour Emergency Talent Sprint:
-• Rapid access to pre-screened, immediate-joiner talent benches.
-• 3 Interview-ready dossiers delivered within 7 business days.
-• Complete background verification and salary calibration.
-• ₹0 Upfront Retainer — you only pay upon successful hire.
-
-👉 Companies facing urgent vacancies: Comment 'URGENT' below.
-👉 Immediate joiners available for fast-track roles: Comment 'READY' below.`,
-    instagram_tags: [
-      "#ImmediateJoiner",
-      "#HiringNow",
-      "#JobsInIndia",
-      "#Recruitment",
-      "#TalentHunt"
-    ],
-    facebook_title: "Key Person Just Resigned? How JSM Fills Critical Roles in 7 Days",
-    facebook_description: `Don't let an unexpected resignation derail your operational momentum.
-
-JSM's 168-Hour Rapid Talent Sprint delivers 3 verified, interview-ready candidates in 7 business days with zero upfront capital risk.
-
-👉 Facing an urgent vacancy? Comment 'URGENT'
-👉 Available to join immediately? Comment 'READY'
-
-📞 Emergency Hiring Hotline: +91 90808 63448
-🌐 Portal: https://www.jsmintegratedservices.com`,
-    youtube_title: "Key Employee Just Quit? Fill Critical Roles in 7 Days #Shorts"
-  },
-
-  {
-    id: "mediator-that-cares",
-    topic: "The Human Talent Mediator: Bridging Real People with Real Companies",
-    video_title: "No Bots. No Spam. Real Human Talent Mediation with JSM",
-    trigger_candidate: "CAREER",
-    trigger_company: "PARTNER",
-    instagram_hook: "Job seekers are tired of ghosting. Companies are tired of no-shows. JSM is the human bridge that connects both:",
-    instagram_body: `Job portals are cold, automated algorithms. Headhunters who demand upfront retainers don't care about the final outcome.
-
-JSM Integrated Services is built on mutual accountability and human mediation:
-• For Candidates: We guide your career, review your achievements, and connect you with verified companies that treat people right. 100% Free.
-• For Employers: We deliver screened, dependable team members who show up, perform, and stay. Zero upfront fees, 90-day guarantee.
-
-Let's build better workplaces together.
-
-👉 Looking for your dream role? Comment 'CAREER'.
-👉 Looking to partner for hiring? Comment 'PARTNER'.`,
-    instagram_tags: [
-      "#TalentAcquisition",
-      "#JobSearchIndia",
-      "#HiringSolutions",
-      "#RecruitmentAgency",
-      "#Jobs2026"
-    ],
-    facebook_title: "The Human Talent Bridge: How JSM Connects Job Seekers with Great Employers",
-    facebook_description: `Say goodbye to black-hole job applications and unreliable agency promises. JSM Integrated Services is the dedicated talent mediator bridging job seekers with reputable employers across India.
-
-• Zero fees for job seekers.
-• Zero advance fees for employers (100% contingency).
-• 90-day placement replacement guarantee.
-
-Drop your comment below to connect:
-👉 Job Seekers: Comment 'CAREER'
-👉 Employers: Comment 'PARTNER'
-
-📞 Executive Desk: +91 90808 63448
-🌐 https://www.jsmintegratedservices.com`,
-    youtube_title: "The Human Talent Bridge: Real Jobs, Real Companies, Zero Fees #Shorts"
-  }
-];
-
-// Determine active story based on day of year & slot
-function getActiveStory() {
-  if (storyArg !== undefined && !isNaN(parseInt(storyArg, 10))) {
-    const idx = parseInt(storyArg, 10) % STORY_MATRIX.length;
-    return STORY_MATRIX[idx];
-  }
-  const now = new Date();
-  const startOfYear = new Date(now.getFullYear(), 0, 0);
-  const diff = now - startOfYear;
-  const oneDay = 1000 * 60 * 60 * 24;
-  const dayOfYear = Math.floor(diff / oneDay);
-  
-  const isEvening = CURRENT_SLOT === 'evening';
-  const index = (dayOfYear * 2 + (isEvening ? 1 : 0)) % STORY_MATRIX.length;
-  return STORY_MATRIX[index];
+  return {
+    isFrozen,
+    maxAllowed,
+    postsCount: isLockedDate ? (ledger.current_lock?.posts_count || 0) : 0,
+    lockReason: ledger.current_lock?.lock_reason || `Daily cap reached for ${dateStr}`
+  };
 }
 
-const ACTIVE_STORY = getActiveStory();
+/**
+ * Construct Social Payload for Meta & YouTube distribution
+ */
+export function buildSocialPayload(reel, slot, baseUrl = BASE_URL) {
+  const targetSlot = slot.toLowerCase() === 'evening' ? 'evening' : 'morning';
+  const isMorning = targetSlot === 'morning';
+  const trigger = reel.trigger || (isMorning ? 'JOB' : 'HIRE');
+  const hashtags = reel.hashtags || reel.instagram_tags || [
+    '#JobSearchIndia', '#CareerAdvice', '#HiringNow', '#TalentAcquisition', '#JobsInIndia'
+  ];
 
-// Construct Social Payload
-const SOCIAL_PAYLOAD = {
-  service: "JSM Integrated Services",
-  brand: "Talent Acquisition & Career Mediation Desk",
-  schedule_slot: CURRENT_SLOT,
-  story_id: ACTIVE_STORY.id,
-  topic: ACTIVE_STORY.topic,
-  asset: {
-    video_url: `${BASE_URL}/videos/jsm-talent-bridge-reel.mp4`,
-    poster_url: `${BASE_URL}/videos/poster-bridge.jpg`,
-    aspect_ratio: "9:16",
-    duration_seconds: 59.2,
-    title: ACTIVE_STORY.video_title
-  },
+  const storyArc = reel.story_arc || {
+    problem: reel.hook || "Workplace challenge",
+    interval: "JSM Integrated Services human talent bridge",
+    solution: "100% contingency and verified results",
+    call_to_action: `Comment '${trigger}' to get started.`
+  };
 
-  // 1. INSTAGRAM REELS COPY
-  instagram: {
-    caption: `${ACTIVE_STORY.instagram_hook}\n\n${ACTIVE_STORY.instagram_body}\n\n${ACTIVE_STORY.instagram_tags.slice(0, 5).join(' ')}`,
-    share_to_feed: true,
-    audio_name: "Original Audio - JSM Talent Bridge"
-  },
+  const instagramBody = `Problem:\n${storyArc.problem}\n\nThe JSM Bridge:\n${storyArc.interval}\n\nOutcome:\n${storyArc.solution}\n\n👉 ${storyArc.call_to_action}`;
 
-  // 2. FACEBOOK REELS & PAGE POST COPY
-  facebook: {
-    title: ACTIVE_STORY.facebook_title,
-    description: ACTIVE_STORY.facebook_description
-  },
+  // Prefer bespoke animated character video if rendered in public/videos/daily/{reel_id}.mp4
+  const bespokeMp4Rel = `/videos/daily/${reel.reel_id}.mp4`;
+  const bespokePosterRel = `/videos/daily/${reel.reel_id}.jpg`;
+  const bespokeMp4Abs = path.join(ROOT_DIR, 'public', 'videos', 'daily', `${reel.reel_id}.mp4`);
+  const bespokePosterAbs = path.join(ROOT_DIR, 'public', 'videos', 'daily', `${reel.reel_id}.jpg`);
 
-  // 3. YOUTUBE SHORTS COPY
-  youtube: {
-    title: `${ACTIVE_STORY.youtube_title}`,
-    description: `${ACTIVE_STORY.facebook_description}\n\n${ACTIVE_STORY.instagram_tags.join(' ')}`,
-    tags: ACTIVE_STORY.instagram_tags.map(t => t.replace('#', '')),
-    category_id: "27",
-    privacy_status: "public"
-  },
+  const hasBespokeVideo = fs.existsSync(bespokeMp4Abs);
+  const videoUrl = hasBespokeVideo ? `${baseUrl}${bespokeMp4Rel}` : `${baseUrl}/videos/jsm-talent-bridge-reel.mp4`;
+  const posterUrl = (hasBespokeVideo && fs.existsSync(bespokePosterAbs))
+    ? `${baseUrl}${bespokePosterRel}`
+    : `${baseUrl}/videos/poster-bridge.jpg`;
 
-  timestamp: new Date().toISOString()
-};
+  return {
+    service: "JSM Integrated Services",
+    brand: "Talent Acquisition & Career Mediation Desk",
+    schedule_slot: targetSlot,
+    reel_id: reel.reel_id,
+    day_number: reel.day_number,
+    target_audience: reel.target_audience,
+    weekly_theme: reel.weekly_theme,
+    story_id: reel.reel_id,
+    topic: reel.title,
+    trigger: trigger,
+    asset: {
+      video_url: videoUrl,
+      poster_url: posterUrl,
+      aspect_ratio: reel.aspect_ratio || "9:16",
+      duration_seconds: 59.2,
+      duration_target: reel.duration_target || "59s",
+      title: reel.title
+    },
 
-function postToWebhook(urlStr, data) {
+    // 1. INSTAGRAM REELS COPY
+    instagram: {
+      hook: reel.hook,
+      caption: `${reel.hook}\n\n${instagramBody}\n\n${hashtags.slice(0, 5).join(' ')}`,
+      share_to_feed: true,
+      audio_name: "Original Audio - JSM Talent Bridge",
+      trigger: trigger,
+      hashtags: hashtags.slice(0, 5)
+    },
+
+    // 2. FACEBOOK REELS & PAGE POST COPY
+    facebook: {
+      title: reel.title,
+      description: `${reel.hook}\n\n${storyArc.problem}\n\n${storyArc.interval}\n\n${storyArc.solution}\n\n${storyArc.call_to_action}`,
+      trigger: trigger
+    },
+
+    // 3. YOUTUBE SHORTS COPY
+    youtube: {
+      title: reel.title.length <= 100 ? reel.title : `${reel.title.slice(0, 96)}...`,
+      description: `${reel.hook}\n\n${storyArc.problem}\n\n${storyArc.interval}\n\n${storyArc.solution}\n\n${hashtags.join(' ')}`,
+      tags: hashtags.map(t => t.replace('#', '')),
+      category_id: "27",
+      privacy_status: "public",
+      trigger: trigger
+    },
+
+    story_arc: storyArc,
+    timestamp: new Date().toISOString()
+  };
+}
+
+/**
+ * Webhook transport
+ */
+export function postToWebhook(urlStr, data) {
   return new Promise((resolve, reject) => {
     const parsed = new URL(urlStr);
     const transport = parsed.protocol === 'https:' ? https : http;
@@ -504,7 +387,7 @@ function postToWebhook(urlStr, data) {
       headers: {
         'Content-Type': 'application/json',
         'Content-Length': Buffer.byteLength(postData),
-        'User-Agent': 'JSM-Social-Dispatch-Engine/2.0'
+        'User-Agent': 'JSM-Social-Dispatch-Engine/2.1'
       }
     }, (res) => {
       let body = '';
@@ -524,98 +407,135 @@ function postToWebhook(urlStr, data) {
   });
 }
 
-async function main() {
+/**
+ * Main Dispatch Runner
+ */
+export async function main(cliArgs = process.argv.slice(2)) {
+  const slotArg = cliArgs.find(a => a.startsWith('--slot='))?.split('=')[1];
+  const storyArg = cliArgs.find(a => a.startsWith('--story='))?.split('=')[1];
+  const dayArg = cliArgs.find(a => a.startsWith('--day='))?.split('=')[1];
+  const reelIdArg = cliArgs.find(a => a.startsWith('--reel-id='))?.split('=')[1];
+  const dateArg = cliArgs.find(a => a.startsWith('--date='))?.split('=')[1];
+  const ledgerArg = cliArgs.find(a => a.startsWith('--ledger='))?.split('=')[1];
+  const isDryRun = cliArgs.includes('--dry-run');
+  const isStatusOnly = cliArgs.includes('--status') || cliArgs.includes('--schedule');
+  const forceBypass = cliArgs.includes('--force');
+
+  const ledgerPath = ledgerArg ? path.resolve(ledgerArg) : LEDGER_PATH;
+  const activeWebhookUrl = process.env.MAKE_WEBHOOK_URL || process.env.SOCIAL_WEBHOOK_URL || WEBHOOK_URL;
+
+  const istInfo = getISTDateInfo();
+  const targetDate = dateArg || istInfo.dateStr;
+  const currentSlot = slotArg ? slotArg.toLowerCase() : getCurrentSlot(istInfo.hour);
+
+  // Resolve Active Reel from Catalog
+  let activeReel;
+  if (reelIdArg) {
+    activeReel = getReelById(reelIdArg);
+  } else if (dayArg) {
+    activeReel = getReelByDay(parseInt(dayArg, 10), currentSlot);
+  } else if (storyArg && !isNaN(parseInt(storyArg, 10))) {
+    const num = parseInt(storyArg, 10);
+    const day = num > 6 ? num : (num + 1);
+    activeReel = getReelByDay(day, currentSlot);
+  } else if (dateArg) {
+    activeReel = getReelForDate(dateArg, currentSlot);
+  } else {
+    activeReel = getReelForDate(targetDate, currentSlot);
+  }
+
+  const socialPayload = buildSocialPayload(activeReel, currentSlot, BASE_URL);
+
   console.log("======================================================================");
-  console.log("  JSM INTEGRATED SERVICES — 2X DAILY TALENT MEDIATION DISPATCH (v2.1)");
+  console.log("  JSM INTEGRATED SERVICES — 2X DAILY TALENT MEDIATION DISPATCH (v2.3)");
   console.log("======================================================================");
-  console.log(`Current IST Time:      ${IST_INFO.dateStr} (${IST_INFO.dayName}) at ${String(IST_INFO.hour).padStart(2, '0')}:${String(IST_INFO.minute).padStart(2, '0')} IST`);
-  console.log(`Publishing Slot:       ${CURRENT_SLOT.toUpperCase()} DISPATCH`);
-  console.log(`Active Story Topic:    ${ACTIVE_STORY.topic}`);
-  console.log(`Job Seeker Trigger:    Comment '${ACTIVE_STORY.trigger_candidate}'`);
-  console.log(`Company Trigger:       Comment '${ACTIVE_STORY.trigger_company}'`);
-  console.log(`Target Video CDN:      ${SOCIAL_PAYLOAD.asset.video_url}`);
-  console.log(`Instagram Hook:        "${ACTIVE_STORY.instagram_hook.slice(0, 100)}..."`);
-  console.log(`Instagram Tags (5):    ${ACTIVE_STORY.instagram_tags.slice(0, 5).join(' ')}`);
+  console.log(`Current IST Time:      ${istInfo.dateStr} (${istInfo.dayName}) at ${String(istInfo.hour).padStart(2, '0')}:${String(istInfo.minute).padStart(2, '0')} IST (Day of Year: ${istInfo.dayOfYear})`);
+  console.log(`Publishing Slot:       ${currentSlot.toUpperCase()} DISPATCH`);
+  console.log(`Active Reel ID:        ${activeReel.reel_id} (Day ${activeReel.day_number})`);
+  console.log(`Active Story Topic:    ${activeReel.title}`);
+  console.log(`Target Audience:       ${activeReel.target_audience}`);
+  console.log(`Audience Trigger:      Comment '${activeReel.trigger}'`);
+  console.log(`Target Video CDN:      ${socialPayload.asset.video_url}`);
+  console.log(`Instagram Hook:        "${activeReel.hook.slice(0, 100)}..."`);
+  console.log(`Instagram Tags (5):    ${(activeReel.hashtags || []).slice(0, 5).join(' ')}`);
   console.log("----------------------------------------------------------------------");
 
-  // Read current ledger
-  const ledger = readLedger();
+  const ledger = readLedger(ledgerPath);
 
   // Print schedule / status mode
   if (isStatusOnly) {
     console.log("\n📊 OPTIMAL WEEKLY POSTING SCHEDULE (INDIA MARKET RESEARCH):");
     for (const [day, slots] of Object.entries(OPTIMAL_SCHEDULE_IST)) {
-      const isToday = day === IST_INFO.dayName ? "👉 " : "   ";
+      const isToday = day === istInfo.dayName ? "👉 " : "   ";
       console.log(`${isToday}${day.padEnd(10)}: Morning: ${slots.morning.time} (${slots.morning.theme}) | Evening: ${slots.evening.time} (${slots.evening.theme})`);
     }
     console.log("\n🔒 CURRENT DISPATCH LEDGER STATUS:");
-    console.log(`   Date:                  ${ledger.current_lock.date}`);
-    console.log(`   Status:                ${ledger.current_lock.status}`);
-    console.log(`   Posts Count Today:     ${ledger.current_lock.posts_count} / ${ledger.policy.max_posts_per_day}`);
-    console.log(`   Slots Executed Today:  ${(ledger.current_lock.slots_executed_today || []).map(s => s.slot).join(', ') || 'None'}`);
-    if (ledger.current_lock.lock_reason) {
-      console.log(`   Notice:                ${ledger.current_lock.lock_reason}`);
+    console.log(`   Date:                  ${ledger.current_lock?.date}`);
+    console.log(`   Status:                ${ledger.current_lock?.status}`);
+    console.log(`   Posts Count Today:     ${ledger.current_lock?.posts_count} / ${ledger.policy?.max_posts_per_day || 2}`);
+    console.log(`   Slots Executed Today:  ${(ledger.current_lock?.slots_executed_today || []).map(s => s.slot).join(', ') || 'None'}`);
+    if (ledger.current_lock?.lock_reason) {
+      console.log(`   Notice:                ${ledger.current_lock?.lock_reason}`);
     }
-    return;
+    return { success: true, mode: 'status', ledger };
   }
 
-  // Check if date rolled over to a new day in IST
-  if (ledger.current_lock.date !== IST_INFO.dateStr) {
-    // Archive previous day in history
+  // Check if date rolled over to a new day in IST (skip rollover during dry-run)
+  if (ledger.current_lock && ledger.current_lock.date !== targetDate && !isDryRun) {
     if (ledger.current_lock.posts_count > 0) {
+      ledger.history = ledger.history || [];
       ledger.history.push({
         date: ledger.current_lock.date,
         count: ledger.current_lock.posts_count,
         slots: ledger.current_lock.slots_executed_today
       });
     }
-    // Initialize new day
     ledger.current_lock = {
-      date: IST_INFO.dateStr,
+      date: targetDate,
       status: "READY",
       posts_count: 0,
-      posts_allowed_remaining: ledger.policy.max_posts_per_day,
+      posts_allowed_remaining: ledger.policy?.max_posts_per_day || 2,
       slots_executed_today: []
     };
-    writeLedger(ledger);
+    writeLedger(ledger, ledgerPath);
   }
 
-  // STRICT SAFETY ENFORCEMENT: 2 POSTS PER DAY CEILING
-  const maxAllowed = ledger.policy?.max_posts_per_day || 2;
-  const isLockedToday = ledger.current_lock.status === 'LOCKED_MAX_REACHED' || ledger.current_lock.posts_count >= maxAllowed;
+  // STRICT SAFETY ENFORCEMENT: 2 POSTS PER DAY CEILING & TODAY'S FREEZE
+  const freezeStatus = checkFreezeStatus(ledger, targetDate, forceBypass);
 
-  if (isLockedToday && !forceBypass) {
+  if (freezeStatus.isFrozen) {
     console.log("\n🛑 [ANTI-SPAM SAFETY LOCK ACTIVE] PUBLISHING HALTED FOR TODAY!");
     console.log("----------------------------------------------------------------------");
-    console.log(`   • Reason:               Daily maximum cap of ${maxAllowed} reels already reached for today (${IST_INFO.dateStr}).`);
-    console.log(`   • Posts Completed Today: ${ledger.current_lock.posts_count} / ${maxAllowed}`);
+    console.log(`   • Reason:               Daily maximum cap of ${freezeStatus.maxAllowed} reels already reached for today (${targetDate}).`);
+    console.log(`   • Posts Completed Today: ${freezeStatus.postsCount} / ${freezeStatus.maxAllowed}`);
     console.log(`   • Safety Protocol:     Posting more than 2x per day triggers Meta algorithmic spam flags.`);
     console.log(`   • Schedule Directive:   No evening post or ad-hoc test posts permitted for the rest of today.`);
-    console.log(`   • Next Eligible Slot:  Tomorrow morning (${OPTIMAL_SCHEDULE_IST[IST_INFO.dayName]?.morning?.time || '08:45 AM'} IST).`);
+    console.log(`   • Next Eligible Slot:  Tomorrow morning (${OPTIMAL_SCHEDULE_IST[istInfo.dayName]?.morning?.time || '08:45 AM'} IST).`);
     console.log("----------------------------------------------------------------------");
     console.log("✓ Zero network calls made. Account reputation protected.\n");
-    return;
+    return { success: false, halted: true, reason: 'SAFETY_FREEZE_ACTIVE', postsCount: freezeStatus.postsCount };
   }
 
-  // Check if this specific slot was already published today
-  const slotAlreadyRan = (ledger.current_lock.slots_executed_today || []).some(s => s.slot === CURRENT_SLOT);
-  if (slotAlreadyRan && !forceBypass) {
-    console.log(`\n⚠️  [SLOT DUPLICATE PREVENTED] The '${CURRENT_SLOT.toUpperCase()}' slot has already been published today.`);
+  // Check if this specific slot was already published for target date
+  const slotAlreadyRan = (ledger.current_lock?.date === targetDate) &&
+                         (ledger.current_lock?.slots_executed_today || []).some(s => s.slot === currentSlot);
+  if (slotAlreadyRan && !forceBypass && !isDryRun) {
+    console.log(`\n⚠️  [SLOT DUPLICATE PREVENTED] The '${currentSlot.toUpperCase()}' slot has already been published today.`);
     console.log(`   To prevent duplicate content on Facebook & Instagram, this run is skipped.`);
     console.log(`   Next slot will trigger according to the optimal schedule.`);
-    return;
+    return { success: false, skipped: true, reason: 'SLOT_ALREADY_PUBLISHED' };
   }
 
-  if (!WEBHOOK_URL || isDryRun) {
+  if (!activeWebhookUrl || isDryRun) {
     console.log("ℹ️  MODE: Dry-Run / Preview Mode.");
     console.log("\n[Payload Preview]:");
-    console.log(JSON.stringify(SOCIAL_PAYLOAD, null, 2));
-    return;
+    console.log(JSON.stringify(socialPayload, null, 2));
+    return { success: true, mode: 'dry-run', payload: socialPayload };
   }
 
-  console.log(`🚀 Transmitting to Make.com Webhook (${WEBHOOK_URL})...`);
+  console.log(`🚀 Transmitting to Make.com Webhook (${activeWebhookUrl})...`);
   try {
-    const result = await postToWebhook(WEBHOOK_URL, SOCIAL_PAYLOAD);
+    const result = await postToWebhook(activeWebhookUrl, socialPayload);
     console.log(`✓ Webhook Accepted! Status: ${result.status} (${result.body || "OK"})`);
     console.log("✓ Successfully triggered Instagram & Facebook live publishing.");
 
@@ -623,26 +543,36 @@ async function main() {
     ledger.current_lock.posts_count = (ledger.current_lock.posts_count || 0) + 1;
     ledger.current_lock.slots_executed_today = ledger.current_lock.slots_executed_today || [];
     ledger.current_lock.slots_executed_today.push({
-      slot: CURRENT_SLOT,
+      slot: currentSlot,
       timestamp: new Date().toISOString(),
-      story_id: ACTIVE_STORY.id,
+      story_id: activeReel.reel_id,
+      video_url: socialPayload.asset.video_url,
       platforms: ["Facebook", "Instagram"]
     });
 
+    const maxAllowed = ledger.policy?.max_posts_per_day || 2;
     if (ledger.current_lock.posts_count >= maxAllowed) {
       ledger.current_lock.status = "LOCKED_MAX_REACHED";
       ledger.current_lock.posts_allowed_remaining = 0;
-      ledger.current_lock.lock_reason = `Daily quota of ${maxAllowed} reels completed for ${IST_INFO.dateStr}. Further dispatches locked until tomorrow.`;
+      ledger.current_lock.lock_reason = `Daily quota of ${maxAllowed} reels completed for ${targetDate}. Further dispatches locked until tomorrow.`;
     } else {
       ledger.current_lock.posts_allowed_remaining = maxAllowed - ledger.current_lock.posts_count;
     }
 
-    writeLedger(ledger);
+    writeLedger(ledger, ledgerPath);
     console.log(`✓ Dispatch Ledger updated: ${ledger.current_lock.posts_count} / ${maxAllowed} completed for today.`);
+    return { success: true, published: true, slot: currentSlot, reelId: activeReel.reel_id, videoUrl: socialPayload.asset.video_url };
   } catch (err) {
     console.error(`✗ Failed to dispatch to webhook: ${err.message}`);
     process.exit(1);
   }
 }
 
-main();
+// Execute main only if invoked directly from CLI
+const isDirectExecution = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
+if (isDirectExecution) {
+  main().catch((err) => {
+    console.error("Fatal dispatch error:", err);
+    process.exit(1);
+  });
+}

@@ -2,15 +2,17 @@ name: Automated Daily Social Reel Publisher
 
 on:
   schedule:
-    # 2x Daily Automated Publishing (IST Prime Slots):
-    # 1) 08:45 AM IST (03:15 UTC) — Morning executive commute & plant startup review
+    # 2x Daily Automated Publishing (IST Prime Slots + 30-min Catch-up Ticks):
+    # Morning Window (08:30–09:45 AM IST): checks at 08:45 AM & 09:15 AM IST
     - cron: '15 3 * * *'
-    # 2) 07:00 PM IST (13:30 UTC) — Evening executive downtime & shift handover review
-    - cron: '30 13 * * *'
+    - cron: '45 3 * * *'
+    # Evening Window (07:00–08:15 PM IST): checks at 07:15 PM & 07:45 PM IST
+    - cron: '45 13 * * *'
+    - cron: '15 14 * * *'
   workflow_dispatch:
     inputs:
       slot:
-        description: 'Publishing Slot (morning = 8:45 AM IST story, evening = 7:00 PM IST story)'
+        description: 'Publishing Slot (morning = 8:45 AM IST candidate story, evening = 7:15 PM IST employer story)'
         type: choice
         required: true
         default: 'auto'
@@ -19,7 +21,7 @@ on:
           - 'morning'
           - 'evening'
       story:
-        description: 'Story Index Override (0-6, leave empty for automatic daily rotation)'
+        description: 'Catalog Day or Reel Override (e.g. 316 or REEL-316-M, leave empty for automatic daily rotation)'
         type: string
         required: false
         default: ''
@@ -30,7 +32,11 @@ on:
         default: false
 
 permissions:
-  contents: read
+  contents: write
+
+concurrency:
+  group: jsm-social-reel-lock
+  cancel-in-progress: false
 
 jobs:
   dispatch-social-reel:
@@ -40,30 +46,53 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
 
-      - name: Install Dependencies
-        run: npm ci --legacy-peer-deps || npm install
-
-      - name: Dispatch Reel Payload to Make.com Webhook
+      - name: Run Time-Window & Anti-Spam Synchronized Scheduler
         run: |
-          CMD="node scripts/daily-social-dispatch.mjs"
-          if [ "${{ inputs.slot }}" != "" ] && [ "${{ inputs.slot }}" != "auto" ]; then
-            CMD="$CMD --slot=${{ inputs.slot }}"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            CMD="node scripts/daily-social-dispatch.mjs"
+            if [ "${{ inputs.slot }}" != "" ] && [ "${{ inputs.slot }}" != "auto" ]; then
+              CMD="$CMD --slot=${{ inputs.slot }}"
+            fi
+            if [ "${{ inputs.story }}" != "" ]; then
+              if [[ "${{ inputs.story }}" == REEL-* ]]; then
+                CMD="$CMD --reel-id=${{ inputs.story }}"
+              else
+                CMD="$CMD --story=${{ inputs.story }}"
+              fi
+            fi
+            if [ "${{ inputs.dry_run }}" = "true" ]; then
+              CMD="$CMD --dry-run"
+            fi
+            echo "Executing Manual Dispatch: $CMD"
+            eval $CMD
+          else
+            echo "Executing Scheduled Check via Anti-Spam Scheduler..."
+            node scripts/social-scheduler.mjs
           fi
-          if [ "${{ inputs.story }}" != "" ]; then
-            CMD="$CMD --story=${{ inputs.story }}"
-          fi
-          if [ "${{ inputs.dry_run }}" = "true" ]; then
-            CMD="$CMD --dry-run"
-          fi
-          echo "Executing: $CMD"
-          eval $CMD
         env:
           NEXT_PUBLIC_SITE_URL: https://www.jsmintegratedservices.com
           MAKE_WEBHOOK_URL: ${{ secrets.MAKE_WEBHOOK_URL }}
+
+      - name: Persist Dispatch Ledger to GitHub
+        run: |
+          git config --global user.name "JSM Automation Bot"
+          git config --global user.email "bot@jsmintegratedservices.com"
+          git add data/social-dispatch-ledger.json
+          if ! git diff --cached --quiet; then
+            DATE_STR=$(date -u +'%Y-%m-%d %H:%M UTC')
+            git commit -m "chore(social): update dispatch ledger at $DATE_STR [skip ci]"
+            git pull --rebase origin main || true
+            git push origin main
+            echo "✓ Dispatch ledger committed & pushed to main."
+          else
+            echo "No ledger changes to commit."
+          fi

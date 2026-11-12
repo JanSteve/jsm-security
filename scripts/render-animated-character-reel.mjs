@@ -1,12 +1,315 @@
+#!/usr/bin/env node
+
+/**
+ * JSM Integrated Services — Motion Animated Character Reel Renderer
+ *
+ * Generates bespoke 1080x1920 vertical animated character reels from
+ * `data/annual-reels-catalog.json` using:
+ *   - Procedural 2D flat-vector canvas animation (Rahul, Vikram, JSMMediator)
+ *   - Multi-frame motion loops (breathing, arm gestures, sweat drops, pulsing tablet)
+ *   - Kokoro neural TTS voiceover synthesized per scene & mixed with warm ambient pad
+ *   - Strictly NEVER calls publishing webhooks (generation is decoupled from dispatch)
+ */
+
 import fs from 'node:fs';
 import path from 'node:path';
-import { chromium } from 'playwright';
 import { execSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+import { chromium } from 'playwright';
+import { getReelById, getReelByDay, CATALOG_PATH } from './daily-social-dispatch.mjs';
 
-const OUT_DIR = '/tmp/jsm_character_scenes';
-fs.mkdirSync(OUT_DIR, { recursive: true });
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const ROOT_DIR = path.resolve(__dirname, '..');
 
-function getSceneHtml(sceneNum) {
+const KOKORO_BIN = fs.existsSync('/Library/Frameworks/Python.framework/Versions/3.11/bin/kokoro')
+  ? '/Library/Frameworks/Python.framework/Versions/3.11/bin/kokoro'
+  : 'kokoro';
+
+const CHROME_PATH = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+const FRAMES_PER_LOOP = 12;
+const ANIM_FPS = 8; // 1.5s seamless loop per cycle
+
+/**
+ * Safely escape text for embedding inside HTML template literals
+ */
+function esc(str = '') {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+/**
+ * Derive an 8-scene visual & spoken script tailored to the catalog reel slot.
+ */
+export function buildSceneDeckForReel(reel) {
+  const isEvening = (reel?.slot || '').toLowerCase() === 'evening';
+  const theme = reel?.weekly_theme || 'The Broken Hiring System & Zero-Retainer Mediation';
+  const storyArc = reel?.story_arc || {
+    problem: 'Candidates are ghosted by automated ATS filters while companies drown in unqualified resumes.',
+    interval: 'JSM Integrated Services steps in as the trusted human bridge with verified alignment.',
+    solution: 'Stamping real offer letters with zero candidate fees and a 90-day employer replacement shield.',
+    call_to_action: "Comment 'JOB' or 'HIRE' to unlock the 2026 Playbook PDF in your DMs."
+  };
+
+  if (isEvening) {
+    return [
+      {
+        id: 1,
+        badge: 'EMPLOYER REALITY CHECK',
+        badgeColor: '#F43F5E',
+        headline: 'LOSING ₹35,000 EVERY SINGLE DAY A SEAT STAYS OPEN?',
+        subheadline: theme,
+        cardTitle: 'THE HIDDEN VACANCY TAX',
+        cardBody: 'Every week your key role stays empty stalls output, burns lead time, and forces costly rushed hires.',
+        subtitle: 'Why founders regret fast unvetted hires while reliable desks stay empty?',
+        speech: `Are you losing thirty five thousand rupees every day a critical seat stays empty, only to regret a rushed unvetted hire?`,
+        cast: [{ type: 'vikram', x: 540, y: 800, scale: 1.5, emotion: 'stressed' }]
+      },
+      {
+        id: 2,
+        badge: 'THE SPAM INBOX TRAP',
+        badgeColor: '#F59E0B',
+        headline: '1,200 RESUMES. ZERO DEPENDABLE FINALISTS.',
+        subheadline: 'Founders & plant heads waste weeks filtering noisy portals.',
+        stats: [
+          { val: '92%', label: 'Irrelevant Applicants', color: '#F59E0B' },
+          { val: '40 Hrs', label: 'Wasted Screening', color: '#EF4444' }
+        ],
+        cardBody: storyArc.problem,
+        subtitle: 'Twelve hundred spam resumes arrive overnight, hiding the two honest performers you actually need.',
+        speech: `Twelve hundred spam resumes flood your inbox overnight, burying the honest performers while operations stall.`,
+        cast: [{ type: 'vikram', x: 540, y: 800, scale: 1.5, emotion: 'stressed' }]
+      },
+      {
+        id: 3,
+        badge: 'UPFRONT RETAINER SCAM',
+        badgeColor: '#EF4444',
+        headline: 'WHY PAY AGENCIES BEFORE PROOF OF PERFORMANCE?',
+        subheadline: 'Traditional recruiters take ₹1–3 Lakhs upfront and vanish.',
+        cardTitle: 'THE OLD AGENCY BROKEN PROMISE',
+        cardBody: 'Generic keyword-matched CVs forwarded from public boards with zero culture or commitment vetting.',
+        subtitle: 'Traditional headhunters demand heavy advance fees with zero accountability if hires fail.',
+        speech: `Worse, traditional agencies charge heavy upfront retainers just to forward unvetted resumes with zero accountability.`,
+        cast: [
+          { type: 'vikram', x: 300, y: 800, scale: 1.35, emotion: 'stressed' },
+          { type: 'rahul', x: 780, y: 800, scale: 1.35, emotion: 'frustrated' }
+        ]
+      },
+      {
+        id: 4,
+        badge: 'THE DAY-1 GHOSTING CRISIS',
+        badgeColor: '#DC2626',
+        headline: 'OFFER SIGNED. MONDAY MORNING: NO SHOW.',
+        subheadline: '60 days of notice period waited, laptop ready, phone switched off.',
+        cardTitle: 'WHY DAY-1 DROPOUTS HAPPEN',
+        cardBody: 'Without transparent human mediation, candidates shop counter-offers silently until Monday morning.',
+        subtitle: 'And when you finally extend an offer, the candidate ghosts you on day one.',
+        speech: `You wait sixty days of notice period, prepare their onboarding, and on Monday morning, their phone is switched off.`,
+        cast: [{ type: 'vikram', x: 540, y: 800, scale: 1.5, emotion: 'stressed' }]
+      },
+      {
+        id: 5,
+        badge: 'THE INTERVAL · JSM ENTERS',
+        badgeColor: '#E5A93C',
+        headline: 'ENTER JSM INTEGRATED SERVICES',
+        subheadline: 'Pure Contingency Mediation — ₹0 Advance Fees',
+        cardTitle: '7-DAY VERIFIED SPRINT',
+        cardBody: storyArc.interval,
+        subtitle: 'Enter JSM Integrated Services: the human talent bridge protecting employers with zero advance risk.',
+        speech: `That stops at the interval. JSM Integrated Services steps in as your dedicated contingency bridge with zero advance fees.`,
+        cast: [{ type: 'mediator', x: 540, y: 780, scale: 1.55, emotion: 'poised' }]
+      },
+      {
+        id: 6,
+        badge: 'FOUNDER PROTECTION SLA',
+        badgeColor: '#38BDF8',
+        headline: '3 CALIBRATED FINALISTS IN 7 BUSINESS DAYS',
+        subheadline: 'Joining intent verified. Counter-offer risk neutralized.',
+        checklist: [
+          { text: '✓ ₹0 Upfront Retainers — Pay Strictly Post-Joining', color: '#38BDF8' },
+          { text: '✓ 3 Pre-Vetted Finalists Delivered in 7 Days', color: '#10B981' },
+          { text: '✓ 90-Day Free Placement Replacement Shield', color: '#E5A93C' }
+        ],
+        subtitle: 'Three calibrated blind profiles in seven days, backed by our ninety day free replacement shield.',
+        speech: `We deliver three pre-vetted finalists in seven business days, backed by a ninety day free replacement guarantee.`,
+        cast: [
+          { type: 'mediator', x: 320, y: 780, scale: 1.4, emotion: 'poised' },
+          { type: 'vikram', x: 760, y: 780, scale: 1.4, emotion: 'triumphant' }
+        ]
+      },
+      {
+        id: 7,
+        badge: 'CANDIDATE ALIGNMENT WIN',
+        badgeColor: '#10B981',
+        headline: 'WORKERS STAY WHEN HIRED HONESTLY',
+        subheadline: '100% Free for Candidates · Clear Pay & Culture Fit',
+        checklist: [
+          { text: '✓ Pre-Aligned Salary & Shift Expectations', color: '#10B981' },
+          { text: '✓ Verified Work Ethic & Reference Integrity', color: '#F1F5F9' },
+          { text: '✓ Long-Term Operational Retention', color: '#38BDF8' }
+        ],
+        subtitle: 'Both founder and talent win together through transparent expectation alignment.',
+        speech: `Because candidates never pay us a single rupee, expectations stay honest and new hires actually show up and stay.`,
+        cast: [
+          { type: 'rahul', x: 320, y: 780, scale: 1.4, emotion: 'celebrating' },
+          { type: 'mediator', x: 760, y: 780, scale: 1.4, emotion: 'poised' }
+        ]
+      },
+      {
+        id: 8,
+        badge: 'UNLOCK FREE PLAYBOOK PDF',
+        badgeColor: '#E5A93C',
+        headline: 'COMMENT "HIRE" FOR OUR FOUNDER PDF',
+        subheadline: 'Follow @jsmintegratedservices & get our Zero-Retainer Guide in DM!',
+        ctaLeft: { label: 'COMPANIES', cmd: 'Comment "HIRE"', sub: 'Free Zero-Retainer PDF', color: '#38BDF8' },
+        ctaRight: { label: 'JOB SEEKERS', cmd: 'Comment "JOB"', sub: 'Free ATS-Bypass PDF', color: '#10B981' },
+        subtitle: 'Follow and comment HIRE right now to receive our Founder Zero-Retainer Hiring Playbook in your DMs.',
+        speech: `Follow us and comment HIRE right now to unlock our Zero-Retainer Hiring Playbook PDF straight in your direct messages.`,
+        cast: [
+          { type: 'rahul', x: 230, y: 800, scale: 1.25, emotion: 'celebrating' },
+          { type: 'mediator', x: 540, y: 770, scale: 1.4, emotion: 'poised' },
+          { type: 'vikram', x: 850, y: 800, scale: 1.25, emotion: 'triumphant' }
+        ]
+      }
+    ];
+  }
+
+  // Morning Slot: Candidate-Focused Character Story Arc
+  return [
+    {
+      id: 1,
+      badge: 'THE MORNING REALITY CHECK',
+      badgeColor: '#F43F5E',
+      headline: 'APPLIED TO 50+ JOBS & STILL HEARD NOTHING?',
+      subheadline: theme,
+      cardTitle: 'THE SILENT PARADOX',
+      cardBody: 'Skilled professionals wait weeks in silence while growing companies claim they cannot find reliable people.',
+      subtitle: 'Still waiting for an interview call after fifty applications? Here is why.',
+      speech: `Still waiting in silence after sending out fifty resumes, while companies complain they cannot find good talent?`,
+      cast: [
+        { type: 'rahul', x: 280, y: 800, scale: 1.35, emotion: 'frustrated' },
+        { type: 'vikram', x: 800, y: 800, scale: 1.35, emotion: 'stressed' }
+      ]
+    },
+    {
+      id: 2,
+      badge: 'CANDIDATE AGONY',
+      badgeColor: '#EF4444',
+      headline: 'DELETED BY AUTOMATED RESUME BOTS',
+      subheadline: 'Robots scan keywords for 3 seconds and ghost real human talent.',
+      stats: [
+        { val: '75%+', label: 'Auto-Rejected by Bots', color: '#EF4444' },
+        { val: '3 Sec', label: 'Average Portal Scan', color: '#F59E0B' }
+      ],
+      cardBody: storyArc.problem,
+      subtitle: 'Automated resume filters discard qualified workers before a single hiring manager sees their name.',
+      speech: `Automated resume robots discard over seventy five percent of real professionals in three seconds before any human reads them.`,
+      cast: [{ type: 'rahul', x: 540, y: 800, scale: 1.5, emotion: 'frustrated' }]
+    },
+    {
+      id: 3,
+      badge: 'THE EMPLOYER FLIP SIDE',
+      badgeColor: '#F59E0B',
+      headline: 'WHY FOUNDERS REGRET RUSHED BAD HIRES',
+      subheadline: 'Overwhelmed by 1,200 spam applications, good jobs stay hidden.',
+      stats: [
+        { val: '1,200', label: 'Spam Applications', color: '#F59E0B' },
+        { val: '₹35K', label: 'Daily Vacancy Loss', color: '#EF4444' }
+      ],
+      cardBody: 'Decision-makers freeze public portals and hire privately through trusted human networks instead.',
+      subtitle: 'Founders get buried in fake resumes, so they avoid job boards and ask human mediators instead.',
+      speech: `Because founders are overwhelmed by spam applications, they stop checking job portals and rely strictly on human talent desks.`,
+      cast: [{ type: 'vikram', x: 540, y: 800, scale: 1.5, emotion: 'stressed' }]
+    },
+    {
+      id: 4,
+      badge: 'ZERO TRANSPARENCY CRISIS',
+      badgeColor: '#DC2626',
+      headline: 'NO REPLY. FAKE RANGES. WASTED TIME.',
+      subheadline: 'Five interview rounds followed by two weeks of total silence.',
+      cardTitle: 'BOTH SIDES EXHAUSTED',
+      cardBody: 'Job seekers lose confidence while companies lose top talent to ghosting and toxic agency middlemen.',
+      subtitle: 'You deserve direct human advocacy, real salary transparency, and honest feedback.',
+      speech: `No human feedback, hidden salary bands, and weeks of anxiety leave hardworking talent stuck.`,
+      cast: [{ type: 'rahul', x: 540, y: 800, scale: 1.5, emotion: 'frustrated' }]
+    },
+    {
+      id: 5,
+      badge: 'THE INTERVAL · JSM ENTERS',
+      badgeColor: '#E5A93C',
+      headline: 'WE BYPASS ROBOTS. WE BUILD BRIDGES.',
+      subheadline: 'JSM Integrated Services — Human Career & Talent Mediation',
+      cardTitle: 'THE HIDDEN JOB BRIDGE',
+      cardBody: storyArc.interval,
+      subtitle: 'At the interval, JSM Integrated Services steps in to pitch your real track record directly to founders.',
+      speech: `Enter JSM Integrated Services at the interval. We bypass robot portals and pitch your skills directly to founders and HR heads.`,
+      cast: [{ type: 'mediator', x: 540, y: 780, scale: 1.55, emotion: 'poised' }]
+    },
+    {
+      id: 6,
+      badge: '100% FREE FOR CANDIDATES',
+      badgeColor: '#10B981',
+      headline: 'DIRECT CEO INTROS. ZERO CANDIDATE FEE.',
+      subheadline: 'We never charge job seekers a single rupee — ever.',
+      checklist: [
+        { text: '✓ ₹0 Fee Charged to Job Seekers Forever', color: '#10B981' },
+        { text: '✓ Direct Pitch to Verified Decision Makers', color: '#F1F5F9' },
+        { text: '✓ Clear Pay Bands & Real Offer Letters', color: '#38BDF8' }
+      ],
+      subtitle: 'Verified interviews, clear salary terms, and stamped offer letters without paying a rupee.',
+      speech: `For job seekers it is one hundred percent free forever, unlocking direct interviews and stamped offer letters.`,
+      cast: [
+        { type: 'rahul', x: 320, y: 780, scale: 1.4, emotion: 'celebrating' },
+        { type: 'mediator', x: 760, y: 780, scale: 1.4, emotion: 'poised' }
+      ]
+    },
+    {
+      id: 7,
+      badge: 'FOR COMPANIES TOO',
+      badgeColor: '#38BDF8',
+      headline: 'CONTINGENCY SEARCH WITH ₹0 ADVANCE',
+      subheadline: '3 Pre-Vetted Finalists in 7 Days · 90-Day Shield',
+      checklist: [
+        { text: '✓ ₹0 Upfront Retainers for Employers', color: '#38BDF8' },
+        { text: '✓ Thorough Commitment & Skill Vetting', color: '#10B981' },
+        { text: '✓ 90-Day Replacement Guarantee', color: '#E5A93C' }
+      ],
+      subtitle: 'Companies hire with zero advance risk, while serious professionals gain real career velocity.',
+      speech: `And companies get three calibrated finalists in seven days on pure contingency with a ninety day shield.`,
+      cast: [
+        { type: 'mediator', x: 320, y: 780, scale: 1.4, emotion: 'poised' },
+        { type: 'vikram', x: 760, y: 780, scale: 1.4, emotion: 'triumphant' }
+      ]
+    },
+    {
+      id: 8,
+      badge: 'UNLOCK YOUR FREE PDF GUIDE',
+      badgeColor: '#E5A93C',
+      headline: 'COMMENT "JOB" TO GET OUR PLAYBOOK PDF',
+      subheadline: 'Follow @jsmintegratedservices & get the ATS-Bypass Guide in your DM!',
+      ctaLeft: { label: 'JOB SEEKERS', cmd: 'Comment "JOB"', sub: 'Free ATS-Bypass PDF', color: '#10B981' },
+      ctaRight: { label: 'COMPANIES', cmd: 'Comment "HIRE"', sub: 'Free Hiring Guide PDF', color: '#38BDF8' },
+      subtitle: 'Follow us and comment JOB to receive the 2026 ATS-Bypass Playbook PDF straight in your DMs.',
+      speech: `Follow us and comment JOB below to unlock our 2026 ATS Bypass Playbook PDF directly in your DMs.`,
+      cast: [
+        { type: 'rahul', x: 230, y: 800, scale: 1.25, emotion: 'celebrating' },
+        { type: 'mediator', x: 540, y: 770, scale: 1.4, emotion: 'poised' },
+        { type: 'vikram', x: 850, y: 800, scale: 1.25, emotion: 'triumphant' }
+      ]
+    }
+  ];
+}
+
+/**
+ * Render clean HTML stage template containing animated flat-vector characters
+ */
+function buildStageHtml(deck, reelLabel = 'STORY REEL') {
+  const deckJson = JSON.stringify(deck);
+
   return `<!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +332,7 @@ function getSceneHtml(sceneNum) {
     .grid-lines {
       position: absolute;
       inset: 0;
-      background-image: 
+      background-image:
         linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
       background-size: 60px 60px;
@@ -44,116 +347,50 @@ function getSceneHtml(sceneNum) {
       border-bottom: 2px solid rgba(255,255,255,0.08);
       padding-bottom: 30px;
     }
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-    }
+    .logo-container { display: flex; align-items: center; gap: 18px; }
     .logo-badge {
-      width: 64px;
-      height: 64px;
-      background: #151C2C;
-      border: 2px solid #E5A93C;
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 900;
-      font-size: 24px;
-      color: #E5A93C;
+      width: 64px; height: 64px; background: #151C2C;
+      border: 2px solid #E5A93C; border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 24px; color: #E5A93C;
     }
-    .brand-title {
-      font-size: 28px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #FFFFFF;
-    }
-    .brand-sub {
-      font-size: 16px;
-      font-weight: 600;
-      color: #94A3B8;
-    }
+    .brand-title { font-size: 28px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: #FFFFFF; }
+    .brand-sub { font-size: 16px; font-weight: 600; color: #94A3B8; }
     .scene-pill {
-      background: #151C2C;
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 30px;
-      padding: 10px 24px;
-      font-size: 16px;
-      font-weight: 700;
-      color: #94A3B8;
+      background: #151C2C; border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 30px; padding: 10px 24px; font-size: 16px; font-weight: 700; color: #94A3B8;
     }
     #stage {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 1080px;
-      height: 1920px;
-      pointer-events: none;
-      z-index: 5;
+      position: absolute; top: 0; left: 0; width: 1080px; height: 1920px;
+      pointer-events: none; z-index: 5;
     }
-    .content {
-      position: relative;
-      z-index: 10;
-      margin-top: 20px;
-    }
+    .content { position: relative; z-index: 10; margin-top: 20px; }
     .badge-tag {
-      display: inline-block;
-      padding: 12px 28px;
-      border-radius: 40px;
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 25px;
+      display: inline-block; padding: 12px 28px; border-radius: 40px;
+      font-size: 20px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px;
     }
     .headline {
-      font-size: 58px;
-      font-weight: 900;
-      line-height: 1.15;
-      text-transform: uppercase;
-      color: #FFFFFF;
-      margin-bottom: 20px;
-      max-width: 940px;
+      font-size: 54px; font-weight: 900; line-height: 1.15; text-transform: uppercase;
+      color: #FFFFFF; margin-bottom: 18px; max-width: 940px;
     }
-    .subheadline {
-      font-size: 26px;
-      color: #94A3B8;
-      font-weight: 500;
-      line-height: 1.4;
-      margin-bottom: 30px;
-    }
+    .subheadline { font-size: 26px; font-weight: 500; color: #94A3B8; line-height: 1.35; max-width: 880px; }
     .floating-card {
-      background: rgba(17, 24, 39, 0.94);
-      border: 2px solid rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(10px);
-      border-radius: 28px;
-      padding: 35px 40px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-      max-width: 940px;
+      background: rgba(21, 28, 44, 0.9);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 28px; padding: 36px; margin-top: 660px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.45);
     }
-    .footer {
-      position: relative;
-      z-index: 10;
-      border-top: 2px solid rgba(255,255,255,0.08);
-      padding-top: 30px;
-    }
+    .footer { position: relative; z-index: 10; margin-top: auto; }
     .subtitle-bar {
-      background: #1E293B;
-      border-radius: 20px;
-      padding: 22px 35px;
-      font-size: 24px;
-      font-weight: 700;
-      line-height: 1.4;
-      color: #F8FAFC;
+      background: rgba(15, 23, 42, 0.92);
+      border-radius: 20px; padding: 26px 32px;
+      font-size: 27px; font-weight: 700; line-height: 1.4; color: #F8FAFC;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.5);
     }
     .contact-info {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
-      font-size: 18px;
-      color: #64748B;
-      font-weight: 600;
+      display: flex; justify-content: space-between; align-items: center;
+      margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 18px; font-weight: 700; color: #94A3B8;
     }
   </style>
 </head>
@@ -165,30 +402,40 @@ function getSceneHtml(sceneNum) {
     <div class="logo-container">
       <div class="logo-badge">JSM</div>
       <div>
-        <div class="brand-title">JSM Integrated Services</div>
-        <div class="brand-sub">Talent Acquisition & Career Mediation</div>
+        <div class="brand-title">JSM INTEGRATED SERVICES</div>
+        <div class="brand-sub">HUMAN TALENT MEDIATION DESK · ${esc(reelLabel)}</div>
       </div>
     </div>
-    <div class="scene-pill">0${sceneNum} / 08</div>
+    <div class="scene-pill" id="scene-pill">01 / 08</div>
   </div>
 
   <div class="content" id="ui-content"></div>
   <div class="footer" id="ui-footer"></div>
 
   <script>
+    const SCENE_DECK = ${deckJson};
     const canvas = document.getElementById("stage");
     const ctx = canvas.getContext("2d");
     const uiContent = document.getElementById("ui-content");
     const uiFooter = document.getElementById("ui-footer");
+    const scenePill = document.getElementById("scene-pill");
 
     // =========================================================================
-    // CHARACTER RENDERERS
+    // ANIMATED FLAT-VECTOR CHARACTER RENDERERS (WITH MOTION PHASE t)
     // =========================================================================
 
     function drawRahul(c, x, y, scale = 1.0, emotion = "frustrated", t = 0) {
+      const bob = Math.sin(t) * 8;
+      const armWave = Math.sin(t * 2) * 10;
+      const sweatDrop = ((t / (Math.PI * 2)) * 22) % 22;
+
       c.save();
-      c.translate(x, y);
+      c.translate(x, y + bob);
       c.scale(scale, scale);
+
+      // Subtle Shadow Glow behind character
+      c.fillStyle = emotion === "celebrating" ? "rgba(16, 185, 129, 0.14)" : "rgba(244, 63, 94, 0.12)";
+      c.beginPath(); c.arc(0, 40, 125, 0, Math.PI * 2); c.fill();
 
       // Hoodie Torso
       c.fillStyle = "#0F766E";
@@ -208,8 +455,8 @@ function getSceneHtml(sceneNum) {
       c.strokeStyle = "#FFFFFF";
       c.lineWidth = 3;
       c.beginPath();
-      c.moveTo(-10, 55); c.lineTo(-10, 85);
-      c.moveTo(10, 55); c.lineTo(10, 85);
+      c.moveTo(-10, 55); c.lineTo(-10 + Math.sin(t) * 2, 85);
+      c.moveTo(10, 55); c.lineTo(10 - Math.sin(t) * 2, 85);
       c.stroke();
 
       // Arms
@@ -218,26 +465,27 @@ function getSceneHtml(sceneNum) {
       c.lineWidth = 4;
 
       if (emotion === "frustrated") {
+        const shake = Math.sin(t * 3) * 4;
         c.beginPath();
-        c.moveTo(-45, 65); c.lineTo(-75, 20); c.lineTo(-38, -5); c.stroke();
+        c.moveTo(-45, 65); c.lineTo(-75, 20 + shake); c.lineTo(-38, -5 + shake); c.stroke();
         c.beginPath();
-        c.moveTo(45, 65); c.lineTo(75, 20); c.lineTo(38, -5); c.stroke();
+        c.moveTo(45, 65); c.lineTo(75, 20 - shake); c.lineTo(38, -5 - shake); c.stroke();
         c.fillStyle = "#FAD9B5";
-        c.beginPath(); c.arc(-38, -5, 14, 0, Math.PI * 2); c.fill(); c.stroke();
-        c.beginPath(); c.arc(38, -5, 14, 0, Math.PI * 2); c.fill(); c.stroke();
+        c.beginPath(); c.arc(-38, -5 + shake, 14, 0, Math.PI * 2); c.fill(); c.stroke();
+        c.beginPath(); c.arc(38, -5 - shake, 14, 0, Math.PI * 2); c.fill(); c.stroke();
       } else if (emotion === "celebrating") {
         c.beginPath();
-        c.moveTo(-45, 65); c.lineTo(-85, 0); c.lineTo(-75, -50); c.stroke();
+        c.moveTo(-45, 65); c.lineTo(-85, armWave); c.lineTo(-75, -50 + armWave); c.stroke();
         c.beginPath();
-        c.moveTo(45, 65); c.lineTo(85, 0); c.lineTo(75, -50); c.stroke();
+        c.moveTo(45, 65); c.lineTo(85, -armWave); c.lineTo(75, -50 - armWave); c.stroke();
         c.fillStyle = "#FAD9B5";
-        c.beginPath(); c.arc(-75, -50, 14, 0, Math.PI * 2); c.fill(); c.stroke();
-        c.beginPath(); c.arc(75, -50, 14, 0, Math.PI * 2); c.fill(); c.stroke();
+        c.beginPath(); c.arc(-75, -50 + armWave, 14, 0, Math.PI * 2); c.fill(); c.stroke();
+        c.beginPath(); c.arc(75, -50 - armWave, 14, 0, Math.PI * 2); c.fill(); c.stroke();
 
         // Offer Letter
         c.save();
-        c.translate(85, -60);
-        c.rotate(0.2);
+        c.translate(85, -60 - armWave);
+        c.rotate(0.18 + Math.sin(t * 2) * 0.08);
         c.fillStyle = "#FFFFFF";
         c.strokeStyle = "#E5A93C";
         c.lineWidth = 3;
@@ -288,10 +536,10 @@ function getSceneHtml(sceneNum) {
         c.moveTo(13, -5); c.lineTo(25, -5);
         c.stroke();
         c.beginPath(); c.arc(0, 22, 12, Math.PI * 1.2, Math.PI * 1.8); c.stroke();
-        // Sweat drop
+        // Animated sweat drop
         c.fillStyle = "#38BDF8";
         c.beginPath();
-        c.moveTo(35, -20); c.quadraticCurveTo(40, -10, 35, -5); c.quadraticCurveTo(30, -10, 35, -20);
+        c.moveTo(35, -24 + sweatDrop); c.quadraticCurveTo(41, -14 + sweatDrop, 35, -9 + sweatDrop); c.quadraticCurveTo(29, -14 + sweatDrop, 35, -24 + sweatDrop);
         c.fill();
       } else if (emotion === "celebrating") {
         c.beginPath(); c.arc(-19, -5, 7, Math.PI * 1.1, Math.PI * 1.9); c.stroke();
@@ -304,9 +552,15 @@ function getSceneHtml(sceneNum) {
     }
 
     function drawVikram(c, x, y, scale = 1.0, emotion = "stressed", t = 0) {
+      const bob = Math.sin(t + 1.2) * 7;
+      const thumbBob = Math.sin(t * 2) * 8;
+
       c.save();
-      c.translate(x, y);
+      c.translate(x, y + bob);
       c.scale(scale, scale);
+
+      c.fillStyle = emotion === "triumphant" ? "rgba(56, 189, 248, 0.14)" : "rgba(245, 158, 11, 0.12)";
+      c.beginPath(); c.arc(0, 40, 130, 0, Math.PI * 2); c.fill();
 
       // Blazer Torso
       c.fillStyle = "#1E293B";
@@ -328,19 +582,20 @@ function getSceneHtml(sceneNum) {
       c.lineWidth = 4;
 
       if (emotion === "stressed") {
-        c.beginPath(); c.moveTo(-48, 65); c.lineTo(-80, 20); c.lineTo(-42, -5); c.stroke();
-        c.beginPath(); c.moveTo(48, 65); c.lineTo(80, 20); c.lineTo(42, -5); c.stroke();
+        const rub = Math.sin(t * 3) * 4;
+        c.beginPath(); c.moveTo(-48, 65); c.lineTo(-80, 20 + rub); c.lineTo(-42, -5 + rub); c.stroke();
+        c.beginPath(); c.moveTo(48, 65); c.lineTo(80, 20 - rub); c.lineTo(42, -5 - rub); c.stroke();
         c.fillStyle = "#E7C19B";
-        c.beginPath(); c.arc(-42, -5, 14, 0, Math.PI * 2); c.fill(); c.stroke();
-        c.beginPath(); c.arc(42, -5, 14, 0, Math.PI * 2); c.fill(); c.stroke();
+        c.beginPath(); c.arc(-42, -5 + rub, 14, 0, Math.PI * 2); c.fill(); c.stroke();
+        c.beginPath(); c.arc(42, -5 - rub, 14, 0, Math.PI * 2); c.fill(); c.stroke();
       } else if (emotion === "triumphant") {
-        c.beginPath(); c.moveTo(-48, 65); c.lineTo(-85, 45); c.lineTo(-80, 10); c.stroke();
-        c.beginPath(); c.moveTo(48, 65); c.lineTo(85, 45); c.lineTo(80, 10); c.stroke();
+        c.beginPath(); c.moveTo(-48, 65); c.lineTo(-85, 45 + thumbBob); c.lineTo(-80, 10 + thumbBob); c.stroke();
+        c.beginPath(); c.moveTo(48, 65); c.lineTo(85, 45 - thumbBob); c.lineTo(80, 10 - thumbBob); c.stroke();
         c.fillStyle = "#E7C19B";
-        c.beginPath(); c.arc(-80, 10, 14, 0, Math.PI * 2); c.fill(); c.stroke();
-        c.beginPath(); c.arc(80, 10, 14, 0, Math.PI * 2); c.fill(); c.stroke();
-        c.beginPath(); c.moveTo(-80, 5); c.lineTo(-80, -10); c.stroke();
-        c.beginPath(); c.moveTo(80, 5); c.lineTo(80, -10); c.stroke();
+        c.beginPath(); c.arc(-80, 10 + thumbBob, 14, 0, Math.PI * 2); c.fill(); c.stroke();
+        c.beginPath(); c.arc(80, 10 - thumbBob, 14, 0, Math.PI * 2); c.fill(); c.stroke();
+        c.beginPath(); c.moveTo(-80, 5 + thumbBob); c.lineTo(-80, -10 + thumbBob); c.stroke();
+        c.beginPath(); c.moveTo(80, 5 - thumbBob); c.lineTo(80, -10 - thumbBob); c.stroke();
       }
 
       // Head
@@ -382,9 +637,16 @@ function getSceneHtml(sceneNum) {
     }
 
     function drawJSMMediator(c, x, y, scale = 1.0, t = 0) {
+      const bob = Math.sin(t + 0.5) * 6;
+      const glowAlpha = 0.14 + 0.08 * Math.sin(t * 2);
+
       c.save();
-      c.translate(x, y);
+      c.translate(x, y + bob);
       c.scale(scale, scale);
+
+      // Pulsing golden JSM aura
+      c.fillStyle = \`rgba(229, 169, 60, \${glowAlpha})\`;
+      c.beginPath(); c.arc(0, 45, 145, 0, Math.PI * 2); c.fill();
 
       // Charcoal Blazer
       c.fillStyle = "#0F172A";
@@ -463,293 +725,277 @@ function getSceneHtml(sceneNum) {
       c.restore();
     }
 
-    // =========================================================================
-    // SCENE LOGIC WITH OPTIMIZED POSITIONING
-    // =========================================================================
-    const s = ${sceneNum};
+    function escapeHtml(txt) {
+      return String(txt || "")
+        .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
 
-    if (s === 1) {
-      uiContent.innerHTML = \`
-        <div class="badge-tag" style="background: #F43F5E20; border: 2px solid #F43F5E; color: #F43F5E;">THE PARADOX HOOK</div>
-        <div class="headline">APPLIED TO 200 JOBS & GOT GHOSTED?</div>
-        <div class="subheadline">While companies say they can't find good people...</div>
-        <div class="floating-card" style="margin-top: 680px;">
-          <div style="font-size: 22px; font-weight: 800; color: #F43F5E; margin-bottom: 15px;">THE WORKPLACE CRISIS</div>
-          <div style="font-size: 26px; line-height: 1.4; color: #E2E8F0;">
-            Candidates send hundreds of applications and get ghosted. Meanwhile, companies search for months with empty desks.
-          </div>
-        </div>
-      \`;
-      uiFooter.innerHTML = \`
-        <div class="subtitle-bar" style="border-left: 6px solid #F43F5E;">
-          "Why does finding a job feel like shouting into the void, while companies say they cannot find good people?"
-        </div>
-        <div class="contact-info">
-          <span>🌐 jsmintegratedservices.com</span>
-          <span>📞 +91 90808 63448</span>
-          <span>📍 Tamil Nadu · Karnataka · India</span>
-        </div>
-      \`;
-      drawRahul(ctx, 280, 800, 1.35, "frustrated", 0);
-      drawVikram(ctx, 800, 800, 1.35, "stressed", 0);
-    } 
-    else if (s === 2) {
-      uiContent.innerHTML = \`
-        <div class="badge-tag" style="background: #EF444420; border: 2px solid #EF4444; color: #EF4444;">CANDIDATE AGONY</div>
-        <div class="headline">SWALLOWED BY COLD ROBOT RESUME BOTS</div>
-        <div class="subheadline">No human ever saw your hard-earned experience.</div>
-        <div class="floating-card" style="margin-top: 680px;">
-          <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-            <div>
-              <div style="font-size: 48px; font-weight: 900; color: #EF4444;">75%+</div>
-              <div style="font-size: 18px; color: #94A3B8;">Resumes Auto-Discarded</div>
+    // Exposed frame render function controlled cleanly by Playwright
+    window.renderFrame = function(sceneIdx, tPhase) {
+      const sc = SCENE_DECK[sceneIdx];
+      if (!sc) return;
+
+      scenePill.textContent = \`0\${sc.id} / 08\`;
+
+      // Update UI Card only on first frame of scene (or whenever scene changes)
+      if (window.__lastSceneIdx !== sceneIdx) {
+        window.__lastSceneIdx = sceneIdx;
+
+        let midCardHtml = "";
+        if (sc.stats) {
+          midCardHtml = \`
+            <div class="floating-card">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 18px;">
+                \${sc.stats.map(st => \`
+                  <div>
+                    <div style="font-size: 46px; font-weight: 900; color: \${st.color};">\${escapeHtml(st.val)}</div>
+                    <div style="font-size: 18px; color: #94A3B8;">\${escapeHtml(st.label)}</div>
+                  </div>
+                \`).join("")}
+              </div>
+              <div style="font-size: 24px; color: #CBD5E1; line-height: 1.4;">\${escapeHtml(sc.cardBody)}</div>
             </div>
-            <div>
-              <div style="font-size: 48px; font-weight: 900; color: #F59E0B;">3 Sec</div>
-              <div style="font-size: 18px; color: #94A3B8;">Time ATS Takes to Reject</div>
+          \`;
+        } else if (sc.checklist) {
+          midCardHtml = \`
+            <div class="floating-card">
+              <div style="display: flex; flex-direction: column; gap: 16px;">
+                \${sc.checklist.map(item => \`
+                  <div style="font-size: 24px; color: \${item.color}; font-weight: 700;">\${escapeHtml(item.text)}</div>
+                \`).join("")}
+              </div>
             </div>
-          </div>
-          <div style="font-size: 24px; color: #CBD5E1; line-height: 1.4;">
-            You spend weeks tailoring your resume, only for an algorithm to delete it before an interview.
-          </div>
-        </div>
-      \`;
-      uiFooter.innerHTML = \`
-        <div class="subtitle-bar" style="border-left: 6px solid #EF4444;">
-          "You apply to hundreds of openings, spend hours on your resume, and get swallowed by automated robot filters."
-        </div>
-        <div class="contact-info">
-          <span>🌐 jsmintegratedservices.com</span>
-          <span>📞 +91 90808 63448</span>
-        </div>
-      \`;
-      drawRahul(ctx, 540, 800, 1.5, "frustrated", 0);
-    }
-    else if (s === 3) {
-      uiContent.innerHTML = \`
-        <div class="badge-tag" style="background: #F59E0B20; border: 2px solid #F59E0B; color: #F59E0B;">EMPLOYER NIGHTMARE</div>
-        <div class="headline">1,200 SPAM RESUMES IN 48 HOURS</div>
-        <div class="subheadline">Founders & managers drowning in irrelevant applications.</div>
-        <div class="floating-card" style="margin-top: 680px;">
-          <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-            <div>
-              <div style="font-size: 48px; font-weight: 900; color: #F59E0B;">92%</div>
-              <div style="font-size: 18px; color: #94A3B8;">Unqualified Applicants</div>
+          \`;
+        } else if (sc.ctaLeft && sc.ctaRight) {
+          midCardHtml = \`
+            <div style="display: flex; gap: 26px; margin-top: 660px;">
+              <div class="floating-card" style="flex: 1; margin-top: 0; border-color: \${sc.ctaLeft.color};">
+                <div style="font-size: 20px; font-weight: 800; color: \${sc.ctaLeft.color}; margin-bottom: 8px;">\${escapeHtml(sc.ctaLeft.label)}</div>
+                <div style="font-size: 30px; font-weight: 900; color: #FFFFFF;">\${escapeHtml(sc.ctaLeft.cmd)}</div>
+                <div style="font-size: 18px; color: #94A3B8; margin-top: 6px;">\${escapeHtml(sc.ctaLeft.sub)}</div>
+              </div>
+              <div class="floating-card" style="flex: 1; margin-top: 0; border-color: \${sc.ctaRight.color};">
+                <div style="font-size: 20px; font-weight: 800; color: \${sc.ctaRight.color}; margin-bottom: 8px;">\${escapeHtml(sc.ctaRight.label)}</div>
+                <div style="font-size: 30px; font-weight: 900; color: #FFFFFF;">\${escapeHtml(sc.ctaRight.cmd)}</div>
+                <div style="font-size: 18px; color: #94A3B8; margin-top: 6px;">\${escapeHtml(sc.ctaRight.sub)}</div>
+              </div>
             </div>
-            <div>
-              <div style="font-size: 48px; font-weight: 900; color: #EF4444;">3 Months</div>
-              <div style="font-size: 18px; color: #94A3B8;">Wasted Searching</div>
+          \`;
+        } else {
+          midCardHtml = \`
+            <div class="floating-card">
+              <div style="font-size: 22px; font-weight: 800; color: \${sc.badgeColor}; margin-bottom: 14px;">\${escapeHtml(sc.cardTitle)}</div>
+              <div style="font-size: 25px; line-height: 1.42; color: #E2E8F0;">\${escapeHtml(sc.cardBody)}</div>
             </div>
+          \`;
+        }
+
+        uiContent.innerHTML = \`
+          <div class="badge-tag" style="background: \${sc.badgeColor}20; border: 2px solid \${sc.badgeColor}; color: \${sc.badgeColor};">\${escapeHtml(sc.badge)}</div>
+          <div class="headline">\${escapeHtml(sc.headline)}</div>
+          <div class="subheadline">\${escapeHtml(sc.subheadline)}</div>
+          \${midCardHtml}
+        \`;
+
+        uiFooter.innerHTML = \`
+          <div class="subtitle-bar" style="border-left: 6px solid \${sc.badgeColor};">
+            "\${escapeHtml(sc.subtitle)}"
           </div>
-          <div style="font-size: 24px; color: #CBD5E1; line-height: 1.4;">
-            Projects freeze and deadlines slip because finding one dependable, skilled person feels impossible.
+          <div class="contact-info">
+            <span>🌐 jsmintegratedservices.com</span>
+            <span>📞 +91 90808 63448</span>
+            <span>📍 India Talent Desk</span>
           </div>
-        </div>
-      \`;
-      uiFooter.innerHTML = \`
-        <div class="subtitle-bar" style="border-left: 6px solid #F59E0B;">
-          "Meanwhile, business owners and managers are drowning in a thousand fake resumes, waiting months to find one honest worker."
-        </div>
-        <div class="contact-info">
-          <span>🌐 jsmintegratedservices.com</span>
-          <span>📞 +91 90808 63448</span>
-        </div>
-      \`;
-      drawVikram(ctx, 540, 800, 1.5, "stressed", 0);
-    }
-    else if (s === 4) {
-      uiContent.innerHTML = \`
-        <div class="badge-tag" style="background: #DC262620; border: 2px solid #DC2626; color: #DC2626;">THE CRITICAL BREAKDOWN</div>
-        <div class="headline">DAY 1 GHOSTING: PHONE SWITCHED OFF</div>
-        <div class="subheadline">Offer accepted. Notice period waited. Monday morning: NO SHOW.</div>
-        <div class="floating-card" style="margin-top: 680px;">
-          <div style="font-size: 24px; font-weight: 800; color: #DC2626; margin-bottom: 12px;">CRITICAL REVENUE & TIME LOSS</div>
-          <div style="font-size: 26px; color: #CBD5E1; line-height: 1.4;">
-            Traditional agencies take advance retainers and shrug when candidates don't show up. Zero accountability.
-          </div>
-        </div>
-      \`;
-      uiFooter.innerHTML = \`
-        <div class="subtitle-bar" style="border-left: 6px solid #DC2626;">
-          "And when they finally hire someone? The candidate ghosts them on day one."
-        </div>
-        <div class="contact-info">
-          <span>🌐 jsmintegratedservices.com</span>
-          <span>📞 +91 90808 63448</span>
-        </div>
-      \`;
-      drawVikram(ctx, 540, 800, 1.5, "stressed", 0);
-    }
-    else if (s === 5) {
-      uiContent.innerHTML = \`
-        <div class="badge-tag" style="background: #E5A93C20; border: 2px solid #E5A93C; color: #E5A93C;">THE INTERVAL RESOLUTION</div>
-        <div class="headline">WE DON'T USE BOTS. WE BUILD BRIDGES.</div>
-        <div class="subheadline">JSM Integrated Services — Dedicated Human Talent Mediation</div>
-        <div class="floating-card" style="margin-top: 680px;">
-          <div style="font-size: 24px; font-weight: 800; color: #E5A93C; margin-bottom: 15px;">THE CONTINGENCY TALENT DESK</div>
-          <div style="font-size: 26px; color: #F1F5F9; line-height: 1.5;">
-            We personally vet every candidate and company. No upfront retainers, no robot filters, pure mutual success.
-          </div>
-        </div>
-      \`;
-      uiFooter.innerHTML = \`
-        <div class="subtitle-bar" style="border-left: 6px solid #E5A93C;">
-          "The entire hiring system is broken. That is why JSM Integrated Services exists: to be the human bridge."
-        </div>
-        <div class="contact-info">
-          <span>🌐 jsmintegratedservices.com</span>
-          <span>📞 +91 90808 63448</span>
-        </div>
-      \`;
-      drawJSMMediator(ctx, 540, 780, 1.55, 0);
-    }
-    else if (s === 6) {
-      uiContent.innerHTML = \`
-        <div class="badge-tag" style="background: #10B98120; border: 2px solid #10B981; color: #10B981;">FOR JOB SEEKERS & TALENT</div>
-        <div class="headline">DIRECT ACCESS TO DECISION MAKERS</div>
-        <div class="subheadline">100% Free Forever. Verified CTC. Direct CEO Representation.</div>
-        <div class="floating-card" style="margin-top: 680px;">
-          <div style="display: flex; flex-direction: column; gap: 15px;">
-            <div style="font-size: 24px; color: #10B981; font-weight: 700;">✓ ₹0 Charged to Candidates Forever</div>
-            <div style="font-size: 24px; color: #F1F5F9; font-weight: 700;">✓ Pitched Directly to Founders & Plant Heads</div>
-            <div style="font-size: 24px; color: #38BDF8; font-weight: 700;">✓ 100% Salary & Workplace Culture Transparency</div>
-          </div>
-        </div>
-      \`;
-      uiFooter.innerHTML = \`
-        <div class="subtitle-bar" style="border-left: 6px solid #10B981;">
-          "For job seekers: zero fees, real human representation, and direct introductions to verified employers."
-        </div>
-        <div class="contact-info">
-          <span>🌐 jsmintegratedservices.com</span>
-          <span>📞 +91 90808 63448</span>
-        </div>
-      \`;
-      drawRahul(ctx, 320, 780, 1.4, "celebrating", 0);
-      drawJSMMediator(ctx, 760, 780, 1.4, 0);
-    }
-    else if (s === 7) {
-      uiContent.innerHTML = \`
-        <div class="badge-tag" style="background: #38BDF820; border: 2px solid #38BDF8; color: #38BDF8;">FOR GROWING COMPANIES</div>
-        <div class="headline">PRE-SCREENED TALENT IN 7 DAYS</div>
-        <div class="subheadline">Zero Upfront Risk. Pay Strictly Upon Verified Joining.</div>
-        <div class="floating-card" style="margin-top: 680px;">
-          <div style="display: flex; flex-direction: column; gap: 15px;">
-            <div style="font-size: 24px; color: #38BDF8; font-weight: 700;">✓ Pure Contingency — ₹0 Upfront Retainers</div>
-            <div style="font-size: 24px; color: #10B981; font-weight: 700;">✓ 3 Interview-Ready Finalists in 7 Days</div>
-            <div style="font-size: 24px; color: #E5A93C; font-weight: 700;">✓ 90-Day Placement Replacement Shield</div>
-          </div>
-        </div>
-      \`;
-      uiFooter.innerHTML = \`
-        <div class="subtitle-bar" style="border-left: 6px solid #38BDF8;">
-          "For companies: pre-screened, dependable talent in seven business days with zero upfront retainer fees."
-        </div>
-        <div class="contact-info">
-          <span>🌐 jsmintegratedservices.com</span>
-          <span>📞 +91 90808 63448</span>
-        </div>
-      \`;
-      drawVikram(ctx, 760, 780, 1.4, "triumphant", 0);
-      drawJSMMediator(ctx, 320, 780, 1.4, 0);
-    }
-    else if (s === 8) {
-      uiContent.innerHTML = \`
-        <div class="badge-tag" style="background: #E5A93C20; border: 2px solid #E5A93C; color: #E5A93C;">CONNECT WITH JSM TODAY</div>
-        <div class="headline">DROP YOUR COMMENT BELOW</div>
-        <div class="subheadline">Connecting talent with growing companies across India.</div>
-        <div style="display: flex; gap: 30px; margin-top: 680px;">
-          <div class="floating-card" style="flex: 1; border-color: #10B981;">
-            <div style="font-size: 22px; font-weight: 800; color: #10B981; margin-bottom: 8px;">JOB SEEKERS</div>
-            <div style="font-size: 34px; font-weight: 900; color: #FFFFFF;">Comment "JOB"</div>
-            <div style="font-size: 18px; color: #94A3B8; margin-top: 5px;">+ your role & city</div>
-          </div>
-          <div class="floating-card" style="flex: 1; border-color: #38BDF8;">
-            <div style="font-size: 22px; font-weight: 800; color: #38BDF8; margin-bottom: 8px;">COMPANIES</div>
-            <div style="font-size: 34px; font-weight: 900; color: #FFFFFF;">Comment "HIRE"</div>
-            <div style="font-size: 18px; color: #94A3B8; margin-top: 5px;">Get candidates in 7 days</div>
-          </div>
-        </div>
-      \`;
-      uiFooter.innerHTML = \`
-        <div class="subtitle-bar" style="border-left: 6px solid #E5A93C;">
-          "If you are looking for a job, comment JOB with your city. If you are a company hiring, comment HIRE to get talent this week."
-        </div>
-        <div class="contact-info">
-          <span>🌐 jsmintegratedservices.com</span>
-          <span>📞 +91 90808 63448</span>
-          <span>📍 Tamil Nadu · Karnataka · India</span>
-        </div>
-      \`;
-      // All three characters together!
-      drawRahul(ctx, 230, 800, 1.25, "celebrating", 0);
-      drawJSMMediator(ctx, 540, 770, 1.4, 0);
-      drawVikram(ctx, 850, 800, 1.25, "triumphant", 0);
-    }
+        \`;
+      }
+
+      // Clear & redraw animated character canvas on every frame
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (const actor of (sc.cast || [])) {
+        if (actor.type === "rahul") {
+          drawRahul(ctx, actor.x, actor.y, actor.scale, actor.emotion, tPhase);
+        } else if (actor.type === "vikram") {
+          drawVikram(ctx, actor.x, actor.y, actor.scale, actor.emotion, tPhase);
+        } else if (actor.type === "mediator") {
+          drawJSMMediator(ctx, actor.x, actor.y, actor.scale, tPhase);
+        }
+      }
+    };
   </script>
 </body>
 </html>`;
 }
 
-async function run() {
-  console.log("Launching Chromium to render all 8 animated character story scenes...");
-  const browser = await chromium.launch({
-    executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
-    headless: true
-  });
-  for (let i = 1; i <= 8; i++) {
-    const page = await browser.newPage({
-      viewport: { width: 1080, height: 1920 }
+/**
+ * Generate voiceover clips for 8 scenes via Kokoro TTS & measure exact durations
+ */
+function synthesizeAudioForDeck(deck, workDir) {
+  const voiceDir = path.join(workDir, 'voices');
+  fs.mkdirSync(voiceDir, { recursive: true });
+
+  const sceneDurations = [];
+  const wavFiles = [];
+
+  console.log(`Generating 8 neural Kokoro voice tracks into ${voiceDir}...`);
+
+  for (const sc of deck) {
+    const outWav = path.join(voiceDir, `s${sc.id}.wav`);
+    const safeSpeech = sc.speech.replace(/"/g, "'");
+    execSync(`"${KOKORO_BIN}" -m af_bella -l a -t "${safeSpeech}" -o "${outWav}"`, {
+      stdio: 'pipe'
     });
-    const html = getSceneHtml(i);
-    await page.setContent(html, { waitUntil: 'load' });
-    await page.waitForTimeout(200);
-    const imgPath = path.join(OUT_DIR, `scene_${i}.png`);
-    await page.screenshot({ path: imgPath, type: 'png' });
-    await page.close();
-    console.log(`✓ Rendered Scene ${i} with animated character cast -> ${imgPath}`);
+
+    // Measure exact clip duration + add 0.55s breath pause between scenes
+    const rawDurStr = execSync(
+      `ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "${outWav}"`,
+      { encoding: 'utf8' }
+    ).trim();
+    const rawDur = Math.max(2.5, parseFloat(rawDurStr) || 5.0);
+    const paddedWav = path.join(voiceDir, `s${sc.id}_pad.wav`);
+    const padDur = rawDur + 0.45;
+    execSync(
+      `ffmpeg -y -i "${outWav}" -af "apad=pad_dur=0.45" -ar 48000 -ac 2 -t ${padDur.toFixed(3)} "${paddedWav}"`,
+      { stdio: 'pipe' }
+    );
+
+    wavFiles.push(paddedWav);
+    sceneDurations.push({ id: sc.id, dur: Number(padDur.toFixed(3)) });
   }
 
-  // Compile with ffmpeg
-  const SCENE_DURATIONS = [
-    { id: 1, dur: 6.95 },
-    { id: 2, dur: 6.95 },
-    { id: 3, dur: 8.25 },
-    { id: 4, dur: 4.53 },
-    { id: 5, dur: 7.97 },
-    { id: 6, dur: 7.75 },
-    { id: 7, dur: 7.46 },
-    { id: 8, dur: 9.35 }
-  ];
+  // Concatenate voice tracks
+  const voiceListPath = path.join(voiceDir, 'voice_concat.txt');
+  fs.writeFileSync(voiceListPath, wavFiles.map(f => `file '${f}'`).join('\n') + '\n');
 
-  const AUDIO_FILE = '/tmp/jsm_bridge_mix.wav';
-  const CONCAT_LIST = '/tmp/concat_character_scenes.txt';
-  const FINAL_MP4 = path.resolve('public/videos/jsm-talent-bridge-reel.mp4');
-  const POSTER_JPG = path.resolve('public/videos/poster-bridge.jpg');
+  const combinedVoice = path.join(workDir, 'voice_full.wav');
+  execSync(`ffmpeg -y -f concat -safe 0 -i "${voiceListPath}" -c copy "${combinedVoice}"`, {
+    stdio: 'pipe'
+  });
 
-  let concatContent = '';
-  for (const s of SCENE_DURATIONS) {
-    const imgPath = path.join(OUT_DIR, `scene_${s.id}.png`);
-    concatContent += `file '${imgPath}'\nduration ${s.dur}\n`;
-  }
-  const lastImg = path.join(OUT_DIR, `scene_${SCENE_DURATIONS[SCENE_DURATIONS.length - 1].id}.png`);
-  concatContent += `file '${lastImg}'\n`;
+  const totalDur = sceneDurations.reduce((acc, s) => acc + s.dur, 0);
+  const cappedTotal = Math.min(58.5, totalDur);
 
-  fs.writeFileSync(CONCAT_LIST, concatContent);
+  // Mix voiceover over subtle warm low-frequency studio pad
+  const finalMix = path.join(workDir, 'audio_mix.wav');
+  execSync(
+    `ffmpeg -y -i "${combinedVoice}" -f lavfi -i "sine=frequency=110:duration=${cappedTotal.toFixed(2)}" -f lavfi -i "sine=frequency=164.81:duration=${cappedTotal.toFixed(2)}" ` +
+    `-filter_complex "[1:a][2:a]amix=inputs=2:duration=shortest,lowpass=f=240,volume=0.035[bg];[0:a]volume=1.35,acompressor=threshold=0.12:ratio=3[vo];[vo][bg]amix=inputs=2:duration=first:normalize=0" ` +
+    `-ar 48000 -ac 2 -t ${cappedTotal.toFixed(2)} "${finalMix}"`,
+    { stdio: 'pipe' }
+  );
 
-  console.log("Encoding video with character animations & audio mix via ffmpeg...");
-  const cmd = `ffmpeg -y -f concat -safe 0 -i ${CONCAT_LIST} -i ${AUDIO_FILE} ` +
-    `-c:v libx264 -preset fast -crf 18 -pix_fmt yuv420p -r 24 ` +
-    `-c:a aac -b:a 192k -shortest ` +
-    `"${FINAL_MP4}"`;
-
-  execSync(cmd, { stdio: 'inherit' });
-
-  // Extract poster from Scene 1
-  execSync(`ffmpeg -y -i "${FINAL_MP4}" -ss 00:00:03 -vframes 1 -q:v 2 "${POSTER_JPG}"`, { stdio: 'inherit' });
-
-  console.log("✓ Character Reel successfully generated at:", FINAL_MP4);
-  console.log("✓ Poster saved at:", POSTER_JPG);
+  return { finalMix, sceneDurations, totalDuration: cappedTotal };
 }
 
-run().catch(console.error);
+async function run() {
+  const args = process.argv.slice(2);
+  const reelIdArg = args.find(a => a.startsWith('--reel-id='))?.split('=')[1];
+  const dayArg = args.find(a => a.startsWith('--day='))?.split('=')[1];
+  const slotArg = args.find(a => a.startsWith('--slot='))?.split('=')[1] || 'morning';
+
+  let targetReel;
+  let outMp4;
+  let outPoster;
+  let workDir;
+  let reelLabel;
+
+  if (reelIdArg) {
+    targetReel = getReelById(reelIdArg, CATALOG_PATH);
+  } else if (dayArg) {
+    targetReel = getReelByDay(parseInt(dayArg, 10), slotArg, CATALOG_PATH);
+  }
+
+  if (targetReel) {
+    const dailyDir = path.join(ROOT_DIR, 'public', 'videos', 'daily');
+    fs.mkdirSync(dailyDir, { recursive: true });
+    outMp4 = path.join(dailyDir, `${targetReel.reel_id}.mp4`);
+    outPoster = path.join(dailyDir, `${targetReel.reel_id}.jpg`);
+    workDir = `/tmp/jsm_render_${targetReel.reel_id}`;
+    reelLabel = `${targetReel.reel_id} · DAY ${targetReel.day_number}`;
+  } else {
+    targetReel = getReelByDay(1, 'morning', CATALOG_PATH);
+    outMp4 = path.join(ROOT_DIR, 'public', 'videos', 'jsm-talent-bridge-reel.mp4');
+    outPoster = path.join(ROOT_DIR, 'public', 'videos', 'poster-bridge.jpg');
+    workDir = '/tmp/jsm_render_default';
+    reelLabel = 'TALENT BRIDGE SERIES';
+  }
+
+  fs.mkdirSync(workDir, { recursive: true });
+  const framesDir = path.join(workDir, 'frames');
+  fs.mkdirSync(framesDir, { recursive: true });
+
+  console.log('======================================================================');
+  console.log(`  RENDERING ANIMATED CHARACTER REEL: ${reelLabel}`);
+  console.log('  Mode: Generation Only (Decoupled — Zero Social Posting)');
+  console.log('======================================================================');
+
+  const deck = buildSceneDeckForReel(targetReel);
+  const { finalMix, sceneDurations, totalDuration } = synthesizeAudioForDeck(deck, workDir);
+  console.log(`✓ Audio synthesized (${totalDuration.toFixed(2)}s across 8 scenes).`);
+
+  console.log(`Launching Chrome headless to capture ${deck.length * FRAMES_PER_LOOP} animated frames...`);
+  const browser = await chromium.launch({
+    executablePath: CHROME_PATH,
+    headless: true
+  });
+
+  const page = await browser.newPage({ viewport: { width: 1080, height: 1920 } });
+  await page.setContent(buildStageHtml(deck, reelLabel), { waitUntil: 'load' });
+
+  const sceneVideos = [];
+
+  for (let sIdx = 0; sIdx < deck.length; sIdx++) {
+    const sc = deck[sIdx];
+    const targetDur = sceneDurations[sIdx].dur;
+    const scFrameDir = path.join(framesDir, `s${sc.id}`);
+    fs.mkdirSync(scFrameDir, { recursive: true });
+
+    for (let f = 0; f < FRAMES_PER_LOOP; f++) {
+      const phase = (f / FRAMES_PER_LOOP) * Math.PI * 2;
+      await page.evaluate(([idx, t]) => window.renderFrame(idx, t), [sIdx, phase]);
+      if (f === 0) await page.waitForTimeout(40);
+      const framePath = path.join(scFrameDir, `f_${String(f).padStart(2, '0')}.png`);
+      await page.screenshot({ path: framePath, type: 'png' });
+    }
+
+    // Encode seamless looping animated segment for exact scene audio duration
+    const segMp4 = path.join(workDir, `seg_${sc.id}.mp4`);
+    execSync(
+      `ffmpeg -y -stream_loop -1 -framerate ${ANIM_FPS} -i "${scFrameDir}/f_%02d.png" ` +
+      `-t ${targetDur.toFixed(3)} -c:v libx264 -preset fast -crf 19 -pix_fmt yuv420p -r 24 "${segMp4}"`,
+      { stdio: 'pipe' }
+    );
+    sceneVideos.push(segMp4);
+    console.log(`  ✓ Animated Scene ${sc.id}/8 (${FRAMES_PER_LOOP} motion frames, ${targetDur.toFixed(2)}s)`);
+  }
+
+  await page.close();
+  await browser.close();
+
+  // Concatenate animated segments and mux synthesized voice mix
+  const vidConcatPath = path.join(workDir, 'vid_concat.txt');
+  fs.writeFileSync(vidConcatPath, sceneVideos.map(v => `file '${v}'`).join('\n') + '\n');
+
+  console.log(`Muxing final 1080x1920 vertical animated MP4 -> ${outMp4}...`);
+  execSync(
+    `ffmpeg -y -f concat -safe 0 -i "${vidConcatPath}" -i "${finalMix}" ` +
+    `-c:v copy -c:a aac -b:a 192k -shortest -movflags +faststart "${outMp4}"`,
+    { stdio: 'pipe' }
+  );
+
+  // Extract poster cover image from Scene 1
+  execSync(`ffmpeg -y -i "${outMp4}" -ss 00:00:01 -vframes 1 -q:v 2 "${outPoster}"`, { stdio: 'pipe' });
+
+  console.log(`✓ Character Reel ready at: ${outMp4}`);
+  console.log(`✓ Poster cover saved at:   ${outPoster}`);
+  console.log('✓ Note: Generation complete. Zero webhooks or posts triggered.');
+}
+
+const isDirectExecution = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
+if (isDirectExecution) {
+  run().catch((err) => {
+    console.error('✗ Renderer failed:', err);
+    process.exit(1);
+  });
+}
