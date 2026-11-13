@@ -8,33 +8,11 @@
     "description": "Strict daily rate-limit ledger preventing spam and accidental duplicate publishing across Meta platforms (Instagram & Facebook)."
   },
   "current_lock": {
-    "date": "2026-11-12",
-    "status": "LOCKED_MAX_REACHED",
-    "posts_count": 2,
-    "posts_allowed_remaining": 0,
-    "slots_executed_today": [
-      {
-        "slot": "morning",
-        "timestamp": "2026-11-12T04:43:11.170Z",
-        "story_id": "REEL-316-M",
-        "video_url": "https://www.jsmintegratedservices.com/videos/daily/REEL-316-M.mp4",
-        "platforms": [
-          "Facebook",
-          "Instagram"
-        ]
-      },
-      {
-        "slot": "evening",
-        "timestamp": "2026-11-12T13:32:58.691Z",
-        "story_id": "REEL-316-E",
-        "video_url": "https://www.jsmintegratedservices.com/videos/daily/REEL-316-E.mp4",
-        "platforms": [
-          "Facebook",
-          "Instagram"
-        ]
-      }
-    ],
-    "lock_reason": "Daily quota of 2 reels completed for 2026-11-12. Further dispatches locked until tomorrow."
+    "date": "2026-11-13",
+    "status": "READY",
+    "posts_count": 0,
+    "posts_allowed_remaining": 2,
+    "slots_executed_today": []
   },
   "history": [
     {
@@ -58,6 +36,32 @@
             "Instagram"
           ],
           "story_id": "day-one-ghosting-crisis"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-12",
+      "count": 2,
+      "slots": [
+        {
+          "slot": "morning",
+          "timestamp": "2026-11-12T04:43:11.170Z",
+          "story_id": "REEL-316-M",
+          "video_url": "https://www.jsmintegratedservices.com/videos/daily/REEL-316-M.mp4",
+          "platforms": [
+            "Facebook",
+            "Instagram"
+          ]
+        },
+        {
+          "slot": "evening",
+          "timestamp": "2026-11-12T13:32:58.691Z",
+          "story_id": "REEL-316-E",
+          "video_url": "https://www.jsmintegratedservices.com/videos/daily/REEL-316-E.mp4",
+          "platforms": [
+            "Facebook",
+            "Instagram"
+          ]
         }
       ]
     }
