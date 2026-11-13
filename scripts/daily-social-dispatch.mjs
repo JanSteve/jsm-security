@@ -373,38 +373,53 @@ export function buildSocialPayload(reel, slot, baseUrl = BASE_URL) {
 /**
  * Webhook transport
  */
-export function postToWebhook(urlStr, data) {
-  return new Promise((resolve, reject) => {
-    const parsed = new URL(urlStr);
-    const transport = parsed.protocol === 'https:' ? https : http;
-    const postData = JSON.stringify(data);
+export async function postToWebhook(urlStr, data, maxRetries = 3) {
+  let lastErr = null;
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      return await new Promise((resolve, reject) => {
+        const parsed = new URL(urlStr);
+        const transport = parsed.protocol === 'https:' ? https : http;
+        const postData = JSON.stringify(data);
 
-    const req = transport.request({
-      hostname: parsed.hostname,
-      port: parsed.port || (parsed.protocol === 'https:' ? 443 : 80),
-      path: parsed.pathname + (parsed.search || ''),
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Content-Length': Buffer.byteLength(postData),
-        'User-Agent': 'JSM-Social-Dispatch-Engine/2.1'
-      }
-    }, (res) => {
-      let body = '';
-      res.on('data', chunk => { body += chunk; });
-      res.on('end', () => {
-        if (res.statusCode >= 200 && res.statusCode < 300) {
-          resolve({ status: res.statusCode, body });
-        } else {
-          reject(new Error(`HTTP ${res.statusCode}: ${body || res.statusMessage}`));
-        }
+        const req = transport.request({
+          hostname: parsed.hostname,
+          port: parsed.port || (parsed.protocol === 'https:' ? 443 : 80),
+          path: parsed.pathname + (parsed.search || ''),
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Content-Length': Buffer.byteLength(postData),
+            'User-Agent': 'JSM-Social-Dispatch-Engine/2.1'
+          }
+        }, (res) => {
+          let body = '';
+          res.on('data', chunk => { body += chunk; });
+          res.on('end', () => {
+            if (res.statusCode >= 200 && res.statusCode < 300) {
+              resolve({ status: res.statusCode, body });
+            } else {
+              reject(new Error(`HTTP ${res.statusCode}: ${body || res.statusMessage}`));
+            }
+          });
+        });
+
+        req.on('error', err => reject(err));
+        req.setTimeout(15000, () => {
+          req.destroy(new Error('Webhook request timed out (15s)'));
+        });
+        req.write(postData);
+        req.end();
       });
-    });
-
-    req.on('error', err => reject(err));
-    req.write(postData);
-    req.end();
-  });
+    } catch (err) {
+      lastErr = err;
+      if (attempt < maxRetries) {
+        console.warn(`⚠️ Webhook attempt ${attempt} failed (${err.message}). Retrying in 5s (waiting for network / Wi-Fi)...`);
+        await new Promise(r => setTimeout(r, 5000));
+      }
+    }
+  }
+  throw lastErr;
 }
 
 /**

@@ -177,9 +177,10 @@ export async function checkAndTrigger(options = {}) {
     }
   };
 
-  // Check Morning Slot
-  const morningDiff = ist.totalMinutes - morningMinutes;
-  if (!morningDoneFinal && morningDiff >= -PRE_WINDOW_MINUTES && morningDiff <= POST_WINDOW_MINUTES) {
+  // Check Morning Slot: Active starting from morning window until evening window begins
+  const isMorningWindow = ist.totalMinutes >= (morningMinutes - PRE_WINDOW_MINUTES) &&
+                          ist.totalMinutes < (eveningMinutes - PRE_WINDOW_MINUTES);
+  if (!morningDoneFinal && isMorningWindow) {
     if (!options.dryRunOnly) {
       await executeDispatch('morning');
       syncLedgerBack('morning');
@@ -187,9 +188,9 @@ export async function checkAndTrigger(options = {}) {
     return { status: 'TRIGGERED_MORNING', slot: 'morning' };
   }
 
-  // Check Evening Slot
-  const eveningDiff = ist.totalMinutes - eveningMinutes;
-  if (!eveningDoneFinal && eveningDiff >= -PRE_WINDOW_MINUTES && eveningDiff <= POST_WINDOW_MINUTES) {
+  // Check Evening Slot: Active starting from evening window until end of day (23:59 IST)
+  const isEveningWindow = ist.totalMinutes >= (eveningMinutes - PRE_WINDOW_MINUTES);
+  if (!eveningDoneFinal && isEveningWindow) {
     if (!options.dryRunOnly) {
       await executeDispatch('evening');
       syncLedgerBack('evening');

@@ -2,13 +2,18 @@ name: Automated Daily Social Reel Publisher
 
 on:
   schedule:
-    # 2x Daily Automated Publishing (IST Prime Slots + 30-min Catch-up Ticks):
-    # Morning Window (08:30–09:45 AM IST): checks at 08:45 AM & 09:15 AM IST
+    # 2x Daily Automated Publishing (IST Prime Slots + Cloud Backup Ticks):
+    # Morning Window (08:30–11:00 AM IST): primary at 08:45 AM & 09:15 AM, plus backup ticks
     - cron: '15 3 * * *'
     - cron: '45 3 * * *'
-    # Evening Window (07:00–08:15 PM IST): checks at 07:15 PM & 07:45 PM IST
+    - cron: '15 4 * * *'
+    - cron: '45 4 * * *'
+    - cron: '15 5 * * *'
+    # Evening Window (07:00–09:00 PM IST): primary at 07:15 PM & 07:45 PM, plus backup ticks
     - cron: '45 13 * * *'
     - cron: '15 14 * * *'
+    - cron: '45 14 * * *'
+    - cron: '15 15 * * *'
   workflow_dispatch:
     inputs:
       slot:
@@ -42,6 +47,7 @@ jobs:
   dispatch-social-reel:
     name: Dispatch 2x Daily Reel to Instagram & Facebook
     runs-on: ubuntu-latest
+    timeout-minutes: 5
 
     steps:
       - name: Checkout Code
