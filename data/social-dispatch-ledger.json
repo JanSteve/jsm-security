@@ -10,9 +10,20 @@
   "current_lock": {
     "date": "2026-11-13",
     "status": "READY",
-    "posts_count": 0,
-    "posts_allowed_remaining": 2,
-    "slots_executed_today": []
+    "posts_count": 1,
+    "posts_allowed_remaining": 1,
+    "slots_executed_today": [
+      {
+        "slot": "morning",
+        "timestamp": "2026-11-13T05:06:16.505Z",
+        "story_id": "REEL-317-M",
+        "video_url": "https://www.jsmintegratedservices.com/videos/daily/REEL-317-M.mp4",
+        "platforms": [
+          "Facebook",
+          "Instagram"
+        ]
+      }
+    ]
   },
   "history": [
     {
