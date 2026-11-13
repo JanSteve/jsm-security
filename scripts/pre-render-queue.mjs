@@ -8,8 +8,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { execSync } from 'node:child_process';
 import { getReelForDate } from './daily-social-dispatch.mjs';
-import { renderReel } from './render-animated-character-reel.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT_DIR = path.resolve(__dirname, '..');
@@ -38,7 +38,10 @@ export async function preRenderNextDays(daysAhead = 3) {
       } else {
         console.log(`⚙️ Pre-rendering missing reel: ${reel.reel_id} (${dateStr} ${slot})...`);
         try {
-          await renderReel(reel);
+          execSync(
+            `node scripts/render-animated-character-reel.mjs --reel-id=${reel.reel_id}`,
+            { cwd: ROOT_DIR, stdio: 'inherit' }
+          );
           results.push({ reel_id: reel.reel_id, date: dateStr, slot, status: 'RENDERED' });
         } catch (err) {
           console.error(`✗ Failed to pre-render ${reel.reel_id}: ${err.message}`);
