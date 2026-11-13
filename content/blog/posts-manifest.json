@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-13T00:57:37.038Z",
-  "totalPosts": 46,
+  "lastUpdated": "2026-11-13T15:59:59.331Z",
+  "totalPosts": 47,
   "rotationState": {
-    "nextClusterIndex": 2,
-    "nextLocationIndex": 6,
-    "nextVerticalIndex": 0,
-    "stepIndex": 32
+    "nextClusterIndex": 3,
+    "nextLocationIndex": 9,
+    "nextVerticalIndex": 5,
+    "stepIndex": 33
   },
   "posts": [
     {
@@ -487,6 +487,17 @@
       "location": "hosur",
       "wordCount": 1810,
       "filePath": "content/blog/security-logistics-hosur-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "facility-automotive-salem-operations-guide",
+      "title": "Industrial Housekeeping & Mechanized Facility Management for Automotive & Heavy Component Manufacturing in Salem",
+      "date": "2026-11-13",
+      "category": "Facility Management",
+      "cluster": "facility",
+      "location": "salem",
+      "wordCount": 1799,
+      "filePath": "content/blog/facility-automotive-salem-operations-guide.md",
       "published": true
     }
   ]
