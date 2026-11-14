@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-14T09:16:57.726Z",
-  "totalPosts": 50,
+  "lastUpdated": "2026-11-14T15:58:26.450Z",
+  "totalPosts": 51,
   "rotationState": {
-    "nextClusterIndex": 1,
-    "nextLocationIndex": 7,
-    "nextVerticalIndex": 4,
-    "stepIndex": 36
+    "nextClusterIndex": 2,
+    "nextLocationIndex": 10,
+    "nextVerticalIndex": 1,
+    "stepIndex": 37
   },
   "posts": [
     {
@@ -531,6 +531,17 @@
       "location": "bangalore",
       "wordCount": 1800,
       "filePath": "content/blog/cctv-infrastructure-bangalore-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "security-heavy-engineering-erode-operations-guide",
+      "title": "PSARA-Compliant Commercial Security Guards & Veteran Leadership for Heavy Engineering & Metal Fabrication Belts in Erode",
+      "date": "2026-11-14",
+      "category": "Commercial Security",
+      "cluster": "security",
+      "location": "erode",
+      "wordCount": 1809,
+      "filePath": "content/blog/security-heavy-engineering-erode-operations-guide.md",
       "published": true
     }
   ]
