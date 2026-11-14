@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-14T15:58:26.450Z",
-  "totalPosts": 51,
+  "lastUpdated": "2026-11-14T20:36:56.744Z",
+  "totalPosts": 52,
   "rotationState": {
-    "nextClusterIndex": 2,
-    "nextLocationIndex": 10,
-    "nextVerticalIndex": 1,
-    "stepIndex": 37
+    "nextClusterIndex": 3,
+    "nextLocationIndex": 1,
+    "nextVerticalIndex": 6,
+    "stepIndex": 38
   },
   "posts": [
     {
@@ -542,6 +542,17 @@
       "location": "erode",
       "wordCount": 1809,
       "filePath": "content/blog/security-heavy-engineering-erode-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "facility-tech-park-gujarat-operations-guide",
+      "title": "Industrial Housekeeping & Mechanized Facility Management for Technology Parks & Corporate IT Campuses in Ahmedabad & Vadodara",
+      "date": "2026-11-14",
+      "category": "Facility Management",
+      "cluster": "facility",
+      "location": "gujarat",
+      "wordCount": 1830,
+      "filePath": "content/blog/facility-tech-park-gujarat-operations-guide.md",
       "published": true
     }
   ]
