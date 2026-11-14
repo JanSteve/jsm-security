@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-14T02:03:10.078Z",
-  "totalPosts": 49,
+  "lastUpdated": "2026-11-14T09:16:57.726Z",
+  "totalPosts": 50,
   "rotationState": {
-    "nextClusterIndex": 0,
-    "nextLocationIndex": 4,
-    "nextVerticalIndex": 7,
-    "stepIndex": 35
+    "nextClusterIndex": 1,
+    "nextLocationIndex": 7,
+    "nextVerticalIndex": 4,
+    "stepIndex": 36
   },
   "posts": [
     {
@@ -520,6 +520,17 @@
       "location": "trichy",
       "wordCount": 1800,
       "filePath": "content/blog/talent-healthcare-trichy-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "cctv-infrastructure-bangalore-operations-guide",
+      "title": "Industrial CCTV Surveillance & Access Control Architecture for Civil Aviation, Transit Terminals & Public Infrastructure in Bangalore",
+      "date": "2026-11-14",
+      "category": "CCTV & Access Control",
+      "cluster": "cctv",
+      "location": "bangalore",
+      "wordCount": 1800,
+      "filePath": "content/blog/cctv-infrastructure-bangalore-operations-guide.md",
       "published": true
     }
   ]
