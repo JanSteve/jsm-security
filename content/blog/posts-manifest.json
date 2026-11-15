@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-14T20:36:56.744Z",
-  "totalPosts": 52,
+  "lastUpdated": "2026-11-15T00:53:45.163Z",
+  "totalPosts": 53,
   "rotationState": {
-    "nextClusterIndex": 3,
-    "nextLocationIndex": 1,
-    "nextVerticalIndex": 6,
-    "stepIndex": 38
+    "nextClusterIndex": 4,
+    "nextLocationIndex": 4,
+    "nextVerticalIndex": 3,
+    "stepIndex": 39
   },
   "posts": [
     {
@@ -553,6 +553,17 @@
       "location": "gujarat",
       "wordCount": 1830,
       "filePath": "content/blog/facility-tech-park-gujarat-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "automation-textile-chennai-operations-guide",
+      "title": "Smart Digital Automation & WhatsApp CRM Systems for Textile Processing & Garment Export Mills in Chennai",
+      "date": "2026-11-15",
+      "category": "Digital Systems",
+      "cluster": "automation",
+      "location": "chennai",
+      "wordCount": 1844,
+      "filePath": "content/blog/automation-textile-chennai-operations-guide.md",
       "published": true
     }
   ]
