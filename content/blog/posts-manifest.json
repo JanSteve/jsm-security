@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-15T00:53:45.163Z",
-  "totalPosts": 53,
+  "lastUpdated": "2026-11-15T07:40:05.660Z",
+  "totalPosts": 54,
   "rotationState": {
-    "nextClusterIndex": 4,
-    "nextLocationIndex": 4,
-    "nextVerticalIndex": 3,
-    "stepIndex": 39
+    "nextClusterIndex": 0,
+    "nextLocationIndex": 8,
+    "nextVerticalIndex": 0,
+    "stepIndex": 40
   },
   "posts": [
     {
@@ -564,6 +564,17 @@
       "location": "chennai",
       "wordCount": 1844,
       "filePath": "content/blog/automation-textile-chennai-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "talent-logistics-bangalore-operations-guide",
+      "title": "Senior Executive Talent Mediation (₹12 LPA–₹1 Cr) for Multi-Modal Warehousing & Logistics Parks in Bangalore",
+      "date": "2026-11-15",
+      "category": "Talent Acquisition",
+      "cluster": "talent",
+      "location": "bangalore",
+      "wordCount": 1785,
+      "filePath": "content/blog/talent-logistics-bangalore-operations-guide.md",
       "published": true
     }
   ]
