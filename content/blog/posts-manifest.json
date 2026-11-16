@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-16T07:46:11.274Z",
-  "totalPosts": 58,
+  "lastUpdated": "2026-11-16T18:07:31.006Z",
+  "totalPosts": 59,
   "rotationState": {
-    "nextClusterIndex": 4,
-    "nextLocationIndex": 8,
-    "nextVerticalIndex": 4,
-    "stepIndex": 44
+    "nextClusterIndex": 0,
+    "nextLocationIndex": 0,
+    "nextVerticalIndex": 1,
+    "stepIndex": 45
   },
   "posts": [
     {
@@ -619,6 +619,17 @@
       "location": "madurai",
       "wordCount": 1842,
       "filePath": "content/blog/automation-infrastructure-madurai-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "talent-heavy-engineering-mumbai-operations-guide",
+      "title": "Senior Executive Talent Mediation (₹12 LPA–₹1 Cr) for Heavy Engineering & Metal Fabrication Belts in Mumbai & Pune",
+      "date": "2026-11-16",
+      "category": "Talent Acquisition",
+      "cluster": "talent",
+      "location": "mumbai",
+      "wordCount": 1815,
+      "filePath": "content/blog/talent-heavy-engineering-mumbai-operations-guide.md",
       "published": true
     }
   ]
