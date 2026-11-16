@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-15T20:32:04.684Z",
-  "totalPosts": 56,
+  "lastUpdated": "2026-11-16T00:52:33.164Z",
+  "totalPosts": 57,
   "rotationState": {
-    "nextClusterIndex": 2,
-    "nextLocationIndex": 2,
-    "nextVerticalIndex": 2,
-    "stepIndex": 42
+    "nextClusterIndex": 3,
+    "nextLocationIndex": 5,
+    "nextVerticalIndex": 7,
+    "stepIndex": 43
   },
   "posts": [
     {
@@ -597,6 +597,17 @@
       "location": "indore",
       "wordCount": 1843,
       "filePath": "content/blog/security-commercial-retail-indore-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "facility-healthcare-coimbatore-operations-guide",
+      "title": "Industrial Housekeeping & Mechanized Facility Management for Hospitals & Super-Specialty Medical Facilities in Coimbatore",
+      "date": "2026-11-16",
+      "category": "Facility Management",
+      "cluster": "facility",
+      "location": "coimbatore",
+      "wordCount": 1810,
+      "filePath": "content/blog/facility-healthcare-coimbatore-operations-guide.md",
       "published": true
     }
   ]
