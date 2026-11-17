@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-17T10:32:43.663Z",
-  "totalPosts": 61,
+  "lastUpdated": "2026-11-17T19:41:56.483Z",
+  "totalPosts": 62,
   "rotationState": {
-    "nextClusterIndex": 2,
-    "nextLocationIndex": 6,
-    "nextVerticalIndex": 3,
-    "stepIndex": 47
+    "nextClusterIndex": 3,
+    "nextLocationIndex": 9,
+    "nextVerticalIndex": 0,
+    "stepIndex": 48
   },
   "posts": [
     {
@@ -652,6 +652,17 @@
       "location": "hosur",
       "wordCount": 1812,
       "filePath": "content/blog/security-textile-hosur-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "facility-logistics-salem-operations-guide",
+      "title": "Industrial Housekeeping & Mechanized Facility Management for Multi-Modal Warehousing & Logistics Parks in Salem",
+      "date": "2026-11-17",
+      "category": "Facility Management",
+      "cluster": "facility",
+      "location": "salem",
+      "wordCount": 1799,
+      "filePath": "content/blog/facility-logistics-salem-operations-guide.md",
       "published": true
     }
   ]
