@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-18T02:14:16.520Z",
-  "totalPosts": 63,
+  "lastUpdated": "2026-11-18T10:33:26.232Z",
+  "totalPosts": 64,
   "rotationState": {
-    "nextClusterIndex": 4,
-    "nextLocationIndex": 0,
-    "nextVerticalIndex": 5,
-    "stepIndex": 49
+    "nextClusterIndex": 0,
+    "nextLocationIndex": 4,
+    "nextVerticalIndex": 2,
+    "stepIndex": 50
   },
   "posts": [
     {
@@ -674,6 +674,17 @@
       "location": "delhi",
       "wordCount": 1855,
       "filePath": "content/blog/automation-automotive-delhi-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "talent-commercial-retail-trichy-operations-guide",
+      "title": "Senior Executive Talent Mediation (₹12 LPA–₹1 Cr) for Commercial Malls, Luxury Venues & Retail Chains in Tiruchirappalli (Trichy)",
+      "date": "2026-11-18",
+      "category": "Talent Acquisition",
+      "cluster": "talent",
+      "location": "trichy",
+      "wordCount": 1804,
+      "filePath": "content/blog/talent-commercial-retail-trichy-operations-guide.md",
       "published": true
     }
   ]
