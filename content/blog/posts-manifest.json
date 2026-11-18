@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-18T10:33:26.232Z",
-  "totalPosts": 64,
+  "lastUpdated": "2026-11-18T19:16:55.345Z",
+  "totalPosts": 65,
   "rotationState": {
-    "nextClusterIndex": 0,
-    "nextLocationIndex": 4,
-    "nextVerticalIndex": 2,
-    "stepIndex": 50
+    "nextClusterIndex": 1,
+    "nextLocationIndex": 7,
+    "nextVerticalIndex": 7,
+    "stepIndex": 51
   },
   "posts": [
     {
@@ -685,6 +685,17 @@
       "location": "trichy",
       "wordCount": 1804,
       "filePath": "content/blog/talent-commercial-retail-trichy-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "cctv-healthcare-bangalore-operations-guide",
+      "title": "Industrial CCTV Surveillance & Access Control Architecture for Hospitals & Super-Specialty Medical Facilities in Bangalore",
+      "date": "2026-11-18",
+      "category": "CCTV & Access Control",
+      "cluster": "cctv",
+      "location": "bangalore",
+      "wordCount": 1796,
+      "filePath": "content/blog/cctv-healthcare-bangalore-operations-guide.md",
       "published": true
     }
   ]
