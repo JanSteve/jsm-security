@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-19T01:23:35.909Z",
-  "totalPosts": 66,
+  "lastUpdated": "2026-11-19T09:15:51.553Z",
+  "totalPosts": 67,
   "rotationState": {
-    "nextClusterIndex": 2,
-    "nextLocationIndex": 10,
-    "nextVerticalIndex": 4,
-    "stepIndex": 52
+    "nextClusterIndex": 3,
+    "nextLocationIndex": 1,
+    "nextVerticalIndex": 1,
+    "stepIndex": 53
   },
   "posts": [
     {
@@ -707,6 +707,17 @@
       "location": "erode",
       "wordCount": 1811,
       "filePath": "content/blog/security-infrastructure-erode-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "facility-heavy-engineering-gujarat-operations-guide",
+      "title": "Industrial Housekeeping & Mechanized Facility Management for Heavy Engineering & Metal Fabrication Belts in Ahmedabad & Vadodara",
+      "date": "2026-11-19",
+      "category": "Facility Management",
+      "cluster": "facility",
+      "location": "gujarat",
+      "wordCount": 1830,
+      "filePath": "content/blog/facility-heavy-engineering-gujarat-operations-guide.md",
       "published": true
     }
   ]
