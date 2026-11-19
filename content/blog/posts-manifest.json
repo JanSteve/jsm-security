@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-18T19:16:55.345Z",
-  "totalPosts": 65,
+  "lastUpdated": "2026-11-19T01:23:35.909Z",
+  "totalPosts": 66,
   "rotationState": {
-    "nextClusterIndex": 1,
-    "nextLocationIndex": 7,
-    "nextVerticalIndex": 7,
-    "stepIndex": 51
+    "nextClusterIndex": 2,
+    "nextLocationIndex": 10,
+    "nextVerticalIndex": 4,
+    "stepIndex": 52
   },
   "posts": [
     {
@@ -696,6 +696,17 @@
       "location": "bangalore",
       "wordCount": 1796,
       "filePath": "content/blog/cctv-healthcare-bangalore-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "security-infrastructure-erode-operations-guide",
+      "title": "PSARA-Compliant Commercial Security Guards & Veteran Leadership for Civil Aviation, Transit Terminals & Public Infrastructure in Erode",
+      "date": "2026-11-19",
+      "category": "Commercial Security",
+      "cluster": "security",
+      "location": "erode",
+      "wordCount": 1811,
+      "filePath": "content/blog/security-infrastructure-erode-operations-guide.md",
       "published": true
     }
   ]
