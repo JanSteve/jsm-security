@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-20T01:06:34.132Z",
-  "totalPosts": 68,
+  "lastUpdated": "2026-11-20T08:58:32.825Z",
+  "totalPosts": 69,
   "rotationState": {
-    "nextClusterIndex": 4,
-    "nextLocationIndex": 4,
-    "nextVerticalIndex": 6,
-    "stepIndex": 54
+    "nextClusterIndex": 0,
+    "nextLocationIndex": 8,
+    "nextVerticalIndex": 3,
+    "stepIndex": 55
   },
   "posts": [
     {
@@ -729,6 +729,17 @@
       "location": "chennai",
       "wordCount": 1844,
       "filePath": "content/blog/automation-tech-park-chennai-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "talent-textile-bangalore-operations-guide",
+      "title": "Senior Executive Talent Mediation (₹12 LPA–₹1 Cr) for Textile Processing & Garment Export Mills in Bangalore",
+      "date": "2026-11-20",
+      "category": "Talent Acquisition",
+      "cluster": "talent",
+      "location": "bangalore",
+      "wordCount": 1787,
+      "filePath": "content/blog/talent-textile-bangalore-operations-guide.md",
       "published": true
     }
   ]
