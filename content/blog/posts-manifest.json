@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-20T08:58:32.825Z",
-  "totalPosts": 69,
+  "lastUpdated": "2026-11-20T17:43:34.954Z",
+  "totalPosts": 70,
   "rotationState": {
-    "nextClusterIndex": 0,
-    "nextLocationIndex": 8,
-    "nextVerticalIndex": 3,
-    "stepIndex": 55
+    "nextClusterIndex": 1,
+    "nextLocationIndex": 11,
+    "nextVerticalIndex": 0,
+    "stepIndex": 56
   },
   "posts": [
     {
@@ -740,6 +740,17 @@
       "location": "bangalore",
       "wordCount": 1787,
       "filePath": "content/blog/talent-textile-bangalore-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "cctv-logistics-mumbai-operations-guide",
+      "title": "Industrial CCTV Surveillance & Access Control Architecture for Multi-Modal Warehousing & Logistics Parks in Mumbai & Pune",
+      "date": "2026-11-20",
+      "category": "CCTV & Access Control",
+      "cluster": "cctv",
+      "location": "mumbai",
+      "wordCount": 1824,
+      "filePath": "content/blog/cctv-logistics-mumbai-operations-guide.md",
       "published": true
     }
   ]
