@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-20T23:47:27.231Z",
-  "totalPosts": 71,
+  "lastUpdated": "2026-11-21T06:14:45.811Z",
+  "totalPosts": 72,
   "rotationState": {
-    "nextClusterIndex": 2,
-    "nextLocationIndex": 2,
-    "nextVerticalIndex": 5,
-    "stepIndex": 57
+    "nextClusterIndex": 3,
+    "nextLocationIndex": 5,
+    "nextVerticalIndex": 2,
+    "stepIndex": 58
   },
   "posts": [
     {
@@ -762,6 +762,17 @@
       "location": "indore",
       "wordCount": 1839,
       "filePath": "content/blog/security-automotive-indore-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "facility-commercial-retail-coimbatore-operations-guide",
+      "title": "Industrial Housekeeping & Mechanized Facility Management for Commercial Malls, Luxury Venues & Retail Chains in Coimbatore",
+      "date": "2026-11-21",
+      "category": "Facility Management",
+      "cluster": "facility",
+      "location": "coimbatore",
+      "wordCount": 1814,
+      "filePath": "content/blog/facility-commercial-retail-coimbatore-operations-guide.md",
       "published": true
     }
   ]
