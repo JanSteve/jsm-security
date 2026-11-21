@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-21T06:14:45.811Z",
-  "totalPosts": 72,
+  "lastUpdated": "2026-11-21T14:53:22.257Z",
+  "totalPosts": 73,
   "rotationState": {
-    "nextClusterIndex": 3,
-    "nextLocationIndex": 5,
-    "nextVerticalIndex": 2,
-    "stepIndex": 58
+    "nextClusterIndex": 4,
+    "nextLocationIndex": 8,
+    "nextVerticalIndex": 7,
+    "stepIndex": 59
   },
   "posts": [
     {
@@ -773,6 +773,17 @@
       "location": "coimbatore",
       "wordCount": 1814,
       "filePath": "content/blog/facility-commercial-retail-coimbatore-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "automation-healthcare-madurai-operations-guide",
+      "title": "Smart Digital Automation & WhatsApp CRM Systems for Hospitals & Super-Specialty Medical Facilities in Madurai",
+      "date": "2026-11-21",
+      "category": "Digital Systems",
+      "cluster": "automation",
+      "location": "madurai",
+      "wordCount": 1838,
+      "filePath": "content/blog/automation-healthcare-madurai-operations-guide.md",
       "published": true
     }
   ]
