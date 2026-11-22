@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-22T01:02:49.805Z",
-  "totalPosts": 74,
+  "lastUpdated": "2026-11-22T08:37:39.191Z",
+  "totalPosts": 75,
   "rotationState": {
-    "nextClusterIndex": 0,
-    "nextLocationIndex": 0,
-    "nextVerticalIndex": 5,
-    "stepIndex": 60
+    "nextClusterIndex": 1,
+    "nextLocationIndex": 3,
+    "nextVerticalIndex": 2,
+    "stepIndex": 61
   },
   "posts": [
     {
@@ -795,6 +795,17 @@
       "location": "mumbai",
       "wordCount": 1817,
       "filePath": "content/blog/talent-infrastructure-mumbai-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "cctv-commercial-retail-trichy-operations-guide",
+      "title": "Industrial CCTV Surveillance & Access Control Architecture for Commercial Malls, Luxury Venues & Retail Chains in Tiruchirappalli (Trichy)",
+      "date": "2026-11-22",
+      "category": "CCTV & Access Control",
+      "cluster": "cctv",
+      "location": "trichy",
+      "wordCount": 1815,
+      "filePath": "content/blog/cctv-commercial-retail-trichy-operations-guide.md",
       "published": true
     }
   ]
