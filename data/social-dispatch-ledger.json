@@ -8,16 +8,16 @@
     "description": "Strict daily rate-limit ledger preventing spam and accidental duplicate publishing across Meta platforms (Instagram & Facebook)."
   },
   "current_lock": {
-    "date": "2026-11-21",
+    "date": "2026-11-22",
     "status": "READY",
     "posts_count": 1,
     "posts_allowed_remaining": 1,
     "slots_executed_today": [
       {
         "slot": "morning",
-        "timestamp": "2026-11-21T03:09:48.602Z",
-        "story_id": "REEL-325-M",
-        "video_url": "https://www.jsmintegratedservices.com/videos/daily/REEL-325-M.mp4",
+        "timestamp": "2026-11-22T11:12:56.338Z",
+        "story_id": "REEL-326-M",
+        "video_url": "https://www.jsmintegratedservices.com/videos/jsm-talent-bridge-reel.mp4",
         "platforms": [
           "Facebook",
           "Instagram"
@@ -277,6 +277,22 @@
           "timestamp": "2026-11-20T13:36:49.610Z",
           "story_id": "REEL-324-E",
           "video_url": "https://www.jsmintegratedservices.com/videos/jsm-talent-bridge-reel.mp4",
+          "platforms": [
+            "Facebook",
+            "Instagram"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-11-21",
+      "count": 1,
+      "slots": [
+        {
+          "slot": "morning",
+          "timestamp": "2026-11-21T03:09:48.602Z",
+          "story_id": "REEL-325-M",
+          "video_url": "https://www.jsmintegratedservices.com/videos/daily/REEL-325-M.mp4",
           "platforms": [
             "Facebook",
             "Instagram"
