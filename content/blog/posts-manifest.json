@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-21T14:53:22.257Z",
-  "totalPosts": 73,
+  "lastUpdated": "2026-11-22T01:02:49.805Z",
+  "totalPosts": 74,
   "rotationState": {
-    "nextClusterIndex": 4,
-    "nextLocationIndex": 8,
-    "nextVerticalIndex": 7,
-    "stepIndex": 59
+    "nextClusterIndex": 0,
+    "nextLocationIndex": 0,
+    "nextVerticalIndex": 5,
+    "stepIndex": 60
   },
   "posts": [
     {
@@ -784,6 +784,17 @@
       "location": "madurai",
       "wordCount": 1838,
       "filePath": "content/blog/automation-healthcare-madurai-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "talent-infrastructure-mumbai-operations-guide",
+      "title": "Senior Executive Talent Mediation (₹12 LPA–₹1 Cr) for Civil Aviation, Transit Terminals & Public Infrastructure in Mumbai & Pune",
+      "date": "2026-11-22",
+      "category": "Talent Acquisition",
+      "cluster": "talent",
+      "location": "mumbai",
+      "wordCount": 1817,
+      "filePath": "content/blog/talent-infrastructure-mumbai-operations-guide.md",
       "published": true
     }
   ]
