@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-22T16:58:43.374Z",
-  "totalPosts": 76,
+  "lastUpdated": "2026-11-22T22:24:20.669Z",
+  "totalPosts": 77,
   "rotationState": {
-    "nextClusterIndex": 2,
-    "nextLocationIndex": 6,
-    "nextVerticalIndex": 7,
-    "stepIndex": 62
+    "nextClusterIndex": 3,
+    "nextLocationIndex": 9,
+    "nextVerticalIndex": 4,
+    "stepIndex": 63
   },
   "posts": [
     {
@@ -817,6 +817,17 @@
       "location": "hosur",
       "wordCount": 1810,
       "filePath": "content/blog/security-healthcare-hosur-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "facility-infrastructure-salem-operations-guide",
+      "title": "Industrial Housekeeping & Mechanized Facility Management for Civil Aviation, Transit Terminals & Public Infrastructure in Salem",
+      "date": "2026-11-22",
+      "category": "Facility Management",
+      "cluster": "facility",
+      "location": "salem",
+      "wordCount": 1803,
+      "filePath": "content/blog/facility-infrastructure-salem-operations-guide.md",
       "published": true
     }
   ]
