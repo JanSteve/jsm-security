@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-23T02:59:40.082Z",
-  "totalPosts": 78,
+  "lastUpdated": "2026-11-23T12:15:17.460Z",
+  "totalPosts": 79,
   "rotationState": {
-    "nextClusterIndex": 4,
-    "nextLocationIndex": 0,
-    "nextVerticalIndex": 1,
-    "stepIndex": 64
+    "nextClusterIndex": 0,
+    "nextLocationIndex": 4,
+    "nextVerticalIndex": 6,
+    "stepIndex": 65
   },
   "posts": [
     {
@@ -839,6 +839,17 @@
       "location": "delhi",
       "wordCount": 1857,
       "filePath": "content/blog/automation-heavy-engineering-delhi-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "talent-tech-park-trichy-operations-guide",
+      "title": "Senior Executive Talent Mediation (₹12 LPA–₹1 Cr) for Technology Parks & Corporate IT Campuses in Tiruchirappalli (Trichy)",
+      "date": "2026-11-23",
+      "category": "Talent Acquisition",
+      "cluster": "talent",
+      "location": "trichy",
+      "wordCount": 1802,
+      "filePath": "content/blog/talent-tech-park-trichy-operations-guide.md",
       "published": true
     }
   ]
