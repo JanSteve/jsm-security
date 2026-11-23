@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-22T22:24:20.669Z",
-  "totalPosts": 77,
+  "lastUpdated": "2026-11-23T02:59:40.082Z",
+  "totalPosts": 78,
   "rotationState": {
-    "nextClusterIndex": 3,
-    "nextLocationIndex": 9,
-    "nextVerticalIndex": 4,
-    "stepIndex": 63
+    "nextClusterIndex": 4,
+    "nextLocationIndex": 0,
+    "nextVerticalIndex": 1,
+    "stepIndex": 64
   },
   "posts": [
     {
@@ -828,6 +828,17 @@
       "location": "salem",
       "wordCount": 1803,
       "filePath": "content/blog/facility-infrastructure-salem-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "automation-heavy-engineering-delhi-operations-guide",
+      "title": "Smart Digital Automation & WhatsApp CRM Systems for Heavy Engineering & Metal Fabrication Belts in Delhi NCR",
+      "date": "2026-11-23",
+      "category": "Digital Systems",
+      "cluster": "automation",
+      "location": "delhi",
+      "wordCount": 1857,
+      "filePath": "content/blog/automation-heavy-engineering-delhi-operations-guide.md",
       "published": true
     }
   ]
