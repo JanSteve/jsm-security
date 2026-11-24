@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-24T10:17:14.780Z",
-  "totalPosts": 81,
+  "lastUpdated": "2026-11-24T20:47:15.935Z",
+  "totalPosts": 82,
   "rotationState": {
-    "nextClusterIndex": 2,
-    "nextLocationIndex": 10,
-    "nextVerticalIndex": 0,
-    "stepIndex": 67
+    "nextClusterIndex": 3,
+    "nextLocationIndex": 1,
+    "nextVerticalIndex": 5,
+    "stepIndex": 68
   },
   "posts": [
     {
@@ -872,6 +872,17 @@
       "location": "erode",
       "wordCount": 1807,
       "filePath": "content/blog/security-logistics-erode-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "facility-automotive-gujarat-operations-guide",
+      "title": "Industrial Housekeeping & Mechanized Facility Management for Automotive & Heavy Component Manufacturing in Ahmedabad & Vadodara",
+      "date": "2026-11-24",
+      "category": "Facility Management",
+      "cluster": "facility",
+      "location": "gujarat",
+      "wordCount": 1828,
+      "filePath": "content/blog/facility-automotive-gujarat-operations-guide.md",
       "published": true
     }
   ]
