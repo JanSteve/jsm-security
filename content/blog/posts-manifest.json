@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-23T12:15:17.460Z",
-  "totalPosts": 79,
+  "lastUpdated": "2026-11-24T00:14:16.458Z",
+  "totalPosts": 80,
   "rotationState": {
-    "nextClusterIndex": 0,
-    "nextLocationIndex": 4,
-    "nextVerticalIndex": 6,
-    "stepIndex": 65
+    "nextClusterIndex": 1,
+    "nextLocationIndex": 7,
+    "nextVerticalIndex": 3,
+    "stepIndex": 66
   },
   "posts": [
     {
@@ -850,6 +850,17 @@
       "location": "trichy",
       "wordCount": 1802,
       "filePath": "content/blog/talent-tech-park-trichy-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "cctv-textile-bangalore-operations-guide",
+      "title": "Industrial CCTV Surveillance & Access Control Architecture for Textile Processing & Garment Export Mills in Bangalore",
+      "date": "2026-11-24",
+      "category": "CCTV & Access Control",
+      "cluster": "cctv",
+      "location": "bangalore",
+      "wordCount": 1798,
+      "filePath": "content/blog/cctv-textile-bangalore-operations-guide.md",
       "published": true
     }
   ]
