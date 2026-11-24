@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-24T00:14:16.458Z",
-  "totalPosts": 80,
+  "lastUpdated": "2026-11-24T10:17:14.780Z",
+  "totalPosts": 81,
   "rotationState": {
-    "nextClusterIndex": 1,
-    "nextLocationIndex": 7,
-    "nextVerticalIndex": 3,
-    "stepIndex": 66
+    "nextClusterIndex": 2,
+    "nextLocationIndex": 10,
+    "nextVerticalIndex": 0,
+    "stepIndex": 67
   },
   "posts": [
     {
@@ -861,6 +861,17 @@
       "location": "bangalore",
       "wordCount": 1798,
       "filePath": "content/blog/cctv-textile-bangalore-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "security-logistics-erode-operations-guide",
+      "title": "PSARA-Compliant Commercial Security Guards & Veteran Leadership for Multi-Modal Warehousing & Logistics Parks in Erode",
+      "date": "2026-11-24",
+      "category": "Commercial Security",
+      "cluster": "security",
+      "location": "erode",
+      "wordCount": 1807,
+      "filePath": "content/blog/security-logistics-erode-operations-guide.md",
       "published": true
     }
   ]
