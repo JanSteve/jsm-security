@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-25T04:01:31.007Z",
-  "totalPosts": 83,
+  "lastUpdated": "2026-11-25T14:49:38.925Z",
+  "totalPosts": 84,
   "rotationState": {
-    "nextClusterIndex": 4,
-    "nextLocationIndex": 4,
-    "nextVerticalIndex": 2,
-    "stepIndex": 69
+    "nextClusterIndex": 0,
+    "nextLocationIndex": 8,
+    "nextVerticalIndex": 7,
+    "stepIndex": 70
   },
   "posts": [
     {
@@ -894,6 +894,17 @@
       "location": "chennai",
       "wordCount": 1846,
       "filePath": "content/blog/automation-commercial-retail-chennai-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "talent-healthcare-bangalore-operations-guide",
+      "title": "Senior Executive Talent Mediation (₹12 LPA–₹1 Cr) for Hospitals & Super-Specialty Medical Facilities in Bangalore",
+      "date": "2026-11-25",
+      "category": "Talent Acquisition",
+      "cluster": "talent",
+      "location": "bangalore",
+      "wordCount": 1785,
+      "filePath": "content/blog/talent-healthcare-bangalore-operations-guide.md",
       "published": true
     }
   ]
