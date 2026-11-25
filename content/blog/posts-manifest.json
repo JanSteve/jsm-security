@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-24T20:47:15.935Z",
-  "totalPosts": 82,
+  "lastUpdated": "2026-11-25T04:01:31.007Z",
+  "totalPosts": 83,
   "rotationState": {
-    "nextClusterIndex": 3,
-    "nextLocationIndex": 1,
-    "nextVerticalIndex": 5,
-    "stepIndex": 68
+    "nextClusterIndex": 4,
+    "nextLocationIndex": 4,
+    "nextVerticalIndex": 2,
+    "stepIndex": 69
   },
   "posts": [
     {
@@ -883,6 +883,17 @@
       "location": "gujarat",
       "wordCount": 1828,
       "filePath": "content/blog/facility-automotive-gujarat-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "automation-commercial-retail-chennai-operations-guide",
+      "title": "Smart Digital Automation & WhatsApp CRM Systems for Commercial Malls, Luxury Venues & Retail Chains in Chennai",
+      "date": "2026-11-25",
+      "category": "Digital Systems",
+      "cluster": "automation",
+      "location": "chennai",
+      "wordCount": 1846,
+      "filePath": "content/blog/automation-commercial-retail-chennai-operations-guide.md",
       "published": true
     }
   ]
