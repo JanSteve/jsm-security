@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-26T05:24:25.338Z",
-  "totalPosts": 85,
+  "lastUpdated": "2026-11-26T15:38:50.042Z",
+  "totalPosts": 86,
   "rotationState": {
-    "nextClusterIndex": 1,
-    "nextLocationIndex": 11,
-    "nextVerticalIndex": 4,
-    "stepIndex": 71
+    "nextClusterIndex": 2,
+    "nextLocationIndex": 2,
+    "nextVerticalIndex": 1,
+    "stepIndex": 72
   },
   "posts": [
     {
@@ -916,6 +916,17 @@
       "location": "mumbai",
       "wordCount": 1828,
       "filePath": "content/blog/cctv-infrastructure-mumbai-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "security-heavy-engineering-indore-operations-guide",
+      "title": "PSARA-Compliant Commercial Security Guards & Veteran Leadership for Heavy Engineering & Metal Fabrication Belts in Indore & Pithampur",
+      "date": "2026-11-26",
+      "category": "Commercial Security",
+      "cluster": "security",
+      "location": "indore",
+      "wordCount": 1841,
+      "filePath": "content/blog/security-heavy-engineering-indore-operations-guide.md",
       "published": true
     }
   ]
