@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-25T14:49:38.925Z",
-  "totalPosts": 84,
+  "lastUpdated": "2026-11-26T05:24:25.338Z",
+  "totalPosts": 85,
   "rotationState": {
-    "nextClusterIndex": 0,
-    "nextLocationIndex": 8,
-    "nextVerticalIndex": 7,
-    "stepIndex": 70
+    "nextClusterIndex": 1,
+    "nextLocationIndex": 11,
+    "nextVerticalIndex": 4,
+    "stepIndex": 71
   },
   "posts": [
     {
@@ -905,6 +905,17 @@
       "location": "bangalore",
       "wordCount": 1785,
       "filePath": "content/blog/talent-healthcare-bangalore-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "cctv-infrastructure-mumbai-operations-guide",
+      "title": "Industrial CCTV Surveillance & Access Control Architecture for Civil Aviation, Transit Terminals & Public Infrastructure in Mumbai & Pune",
+      "date": "2026-11-26",
+      "category": "CCTV & Access Control",
+      "cluster": "cctv",
+      "location": "mumbai",
+      "wordCount": 1828,
+      "filePath": "content/blog/cctv-infrastructure-mumbai-operations-guide.md",
       "published": true
     }
   ]
