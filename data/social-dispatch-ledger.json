@@ -8,33 +8,22 @@
     "description": "Strict daily rate-limit ledger preventing spam and accidental duplicate publishing across Meta platforms (Instagram & Facebook)."
   },
   "current_lock": {
-    "date": "2026-11-25",
-    "status": "LOCKED_MAX_REACHED",
-    "posts_count": 2,
-    "posts_allowed_remaining": 0,
+    "date": "2026-11-26",
+    "status": "READY",
+    "posts_count": 1,
+    "posts_allowed_remaining": 1,
     "slots_executed_today": [
       {
         "slot": "morning",
-        "timestamp": "2026-11-25T12:44:07.007Z",
-        "story_id": "REEL-329-M",
-        "video_url": "https://www.jsmintegratedservices.com/videos/jsm-talent-bridge-reel.mp4",
-        "platforms": [
-          "Facebook",
-          "Instagram"
-        ]
-      },
-      {
-        "slot": "evening",
-        "timestamp": "2026-11-25T14:24:47.479Z",
-        "story_id": "REEL-329-E",
+        "timestamp": "2026-11-26T12:19:21.469Z",
+        "story_id": "REEL-330-M",
         "video_url": "https://www.jsmintegratedservices.com/videos/jsm-talent-bridge-reel.mp4",
         "platforms": [
           "Facebook",
           "Instagram"
         ]
       }
-    ],
-    "lock_reason": "Daily quota of 2 reels completed for 2026-11-25. Further dispatches locked until tomorrow."
+    ]
   },
   "history": [
     {
@@ -371,6 +360,32 @@
           "slot": "evening",
           "timestamp": "2026-11-24T14:19:04.048Z",
           "story_id": "REEL-328-E",
+          "video_url": "https://www.jsmintegratedservices.com/videos/jsm-talent-bridge-reel.mp4",
+          "platforms": [
+            "Facebook",
+            "Instagram"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-11-25",
+      "count": 2,
+      "slots": [
+        {
+          "slot": "morning",
+          "timestamp": "2026-11-25T12:44:07.007Z",
+          "story_id": "REEL-329-M",
+          "video_url": "https://www.jsmintegratedservices.com/videos/jsm-talent-bridge-reel.mp4",
+          "platforms": [
+            "Facebook",
+            "Instagram"
+          ]
+        },
+        {
+          "slot": "evening",
+          "timestamp": "2026-11-25T14:24:47.479Z",
+          "story_id": "REEL-329-E",
           "video_url": "https://www.jsmintegratedservices.com/videos/jsm-talent-bridge-reel.mp4",
           "platforms": [
             "Facebook",
