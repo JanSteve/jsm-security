@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-26T15:38:50.042Z",
-  "totalPosts": 86,
+  "lastUpdated": "2026-11-27T00:24:45.470Z",
+  "totalPosts": 87,
   "rotationState": {
-    "nextClusterIndex": 2,
-    "nextLocationIndex": 2,
-    "nextVerticalIndex": 1,
-    "stepIndex": 72
+    "nextClusterIndex": 3,
+    "nextLocationIndex": 5,
+    "nextVerticalIndex": 6,
+    "stepIndex": 73
   },
   "posts": [
     {
@@ -927,6 +927,17 @@
       "location": "indore",
       "wordCount": 1841,
       "filePath": "content/blog/security-heavy-engineering-indore-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "facility-tech-park-coimbatore-operations-guide",
+      "title": "Industrial Housekeeping & Mechanized Facility Management for Technology Parks & Corporate IT Campuses in Coimbatore",
+      "date": "2026-11-27",
+      "category": "Facility Management",
+      "cluster": "facility",
+      "location": "coimbatore",
+      "wordCount": 1812,
+      "filePath": "content/blog/facility-tech-park-coimbatore-operations-guide.md",
       "published": true
     }
   ]
