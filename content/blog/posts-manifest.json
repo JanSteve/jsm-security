@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-27T00:24:45.470Z",
-  "totalPosts": 87,
+  "lastUpdated": "2026-11-27T18:50:44.462Z",
+  "totalPosts": 88,
   "rotationState": {
-    "nextClusterIndex": 3,
-    "nextLocationIndex": 5,
-    "nextVerticalIndex": 6,
-    "stepIndex": 73
+    "nextClusterIndex": 4,
+    "nextLocationIndex": 8,
+    "nextVerticalIndex": 3,
+    "stepIndex": 74
   },
   "posts": [
     {
@@ -938,6 +938,17 @@
       "location": "coimbatore",
       "wordCount": 1812,
       "filePath": "content/blog/facility-tech-park-coimbatore-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "automation-textile-madurai-operations-guide",
+      "title": "Smart Digital Automation & WhatsApp CRM Systems for Textile Processing & Garment Export Mills in Madurai",
+      "date": "2026-11-27",
+      "category": "Digital Systems",
+      "cluster": "automation",
+      "location": "madurai",
+      "wordCount": 1840,
+      "filePath": "content/blog/automation-textile-madurai-operations-guide.md",
       "published": true
     }
   ]
