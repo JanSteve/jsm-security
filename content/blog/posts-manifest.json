@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-28T09:57:32.559Z",
+  "lastUpdated": "2026-11-28T18:04:46.404Z",
   "totalPosts": 90,
   "rotationState": {
-    "nextClusterIndex": 1,
-    "nextLocationIndex": 3,
-    "nextVerticalIndex": 5,
-    "stepIndex": 76
+    "nextClusterIndex": 3,
+    "nextLocationIndex": 9,
+    "nextVerticalIndex": 7,
+    "stepIndex": 78
   },
   "posts": [
     {
@@ -151,7 +151,7 @@
     {
       "slug": "security-commercial-retail-hosur-operations-guide",
       "title": "PSARA-Compliant Commercial Security Guards & Veteran Leadership for Commercial Malls, Luxury Venues & Retail Chains in Hosur",
-      "date": "2026-11-05",
+      "date": "2026-11-28",
       "category": "Commercial Security",
       "cluster": "security",
       "location": "hosur",

@@ -2,8 +2,8 @@
 title: "PSARA-Compliant Commercial Security Guards & Veteran Leadership for Commercial Malls, Luxury Venues & Retail Chains in Hosur"
 slug: "security-commercial-retail-hosur-operations-guide"
 excerpt: "An operational engineering guide for Plant Heads, Facility Directors, and Security Procurement Officers in Hosur on implementing military-disciplined protocols, statutory PSARA compliance, and mechanized standards."
-date: "2026-11-05"
-lastModified: "2026-11-05"
+date: "2026-11-28"
+lastModified: "2026-11-28"
 author:
   name: "Major AR Devadoss (Retd.)"
   role: "Head of Operations & Audits, JSM Integrated Services"
