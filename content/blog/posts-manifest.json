@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-28T01:49:40.706Z",
-  "totalPosts": 89,
+  "lastUpdated": "2026-11-28T09:57:32.559Z",
+  "totalPosts": 90,
   "rotationState": {
-    "nextClusterIndex": 0,
-    "nextLocationIndex": 0,
-    "nextVerticalIndex": 0,
-    "stepIndex": 75
+    "nextClusterIndex": 1,
+    "nextLocationIndex": 3,
+    "nextVerticalIndex": 5,
+    "stepIndex": 76
   },
   "posts": [
     {
@@ -960,6 +960,17 @@
       "location": "mumbai",
       "wordCount": 1813,
       "filePath": "content/blog/talent-logistics-mumbai-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "cctv-automotive-trichy-operations-guide",
+      "title": "Industrial CCTV Surveillance & Access Control Architecture for Automotive & Heavy Component Manufacturing in Tiruchirappalli (Trichy)",
+      "date": "2026-11-28",
+      "category": "CCTV & Access Control",
+      "cluster": "cctv",
+      "location": "trichy",
+      "wordCount": 1811,
+      "filePath": "content/blog/cctv-automotive-trichy-operations-guide.md",
       "published": true
     }
   ]
