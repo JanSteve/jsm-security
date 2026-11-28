@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-27T18:50:44.462Z",
-  "totalPosts": 88,
+  "lastUpdated": "2026-11-28T01:49:40.706Z",
+  "totalPosts": 89,
   "rotationState": {
-    "nextClusterIndex": 4,
-    "nextLocationIndex": 8,
-    "nextVerticalIndex": 3,
-    "stepIndex": 74
+    "nextClusterIndex": 0,
+    "nextLocationIndex": 0,
+    "nextVerticalIndex": 0,
+    "stepIndex": 75
   },
   "posts": [
     {
@@ -949,6 +949,17 @@
       "location": "madurai",
       "wordCount": 1840,
       "filePath": "content/blog/automation-textile-madurai-operations-guide.md",
+      "published": true
+    },
+    {
+      "slug": "talent-logistics-mumbai-operations-guide",
+      "title": "Senior Executive Talent Mediation (₹12 LPA–₹1 Cr) for Multi-Modal Warehousing & Logistics Parks in Mumbai & Pune",
+      "date": "2026-11-28",
+      "category": "Talent Acquisition",
+      "cluster": "talent",
+      "location": "mumbai",
+      "wordCount": 1813,
+      "filePath": "content/blog/talent-logistics-mumbai-operations-guide.md",
       "published": true
     }
   ]
